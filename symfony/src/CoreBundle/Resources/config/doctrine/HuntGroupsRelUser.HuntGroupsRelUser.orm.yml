@@ -1,0 +1,65 @@
+Core\Model\HuntGroupsRelUser\HuntGroupsRelUser:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\HuntGroupsRelUserDoctrineRepository
+  type: entity
+  table: HuntGroupsRelUsers
+  indexes:
+    huntGroupId:
+      columns:
+        - huntGroupId
+    userId:
+      columns:
+        - userId
+  uniqueConstraints:
+    userHuntgroup:
+      columns:
+        - userId
+        - huntGroupId
+    prioHuntgroup:
+      columns:
+        - priority
+        - huntGroupId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    timeoutTime:
+      type: smallint
+      nullable: true
+      options:
+        unsigned: false
+      column: timeoutTime
+    priority:
+      type: smallint
+      nullable: true
+      options:
+        unsigned: false
+  manyToOne:
+    huntGroup:
+      targetEntity: \Core\Model\HuntGroup\HuntGroup
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        huntGroupId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    user:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        userId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

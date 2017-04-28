@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\CallACLPatterns
+  dto: Core\Application\DTO\CallACLPatternDTO
+  entity: Core\Model\CallACLPattern\CallACLPattern
   fields:
     companyId:
       title: _('Company')
@@ -8,12 +10,14 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
     name:
       title: ngettext('Name', 'Names', 1)
       type: text

@@ -13,7 +13,7 @@ production:
       controller: list
       order:
         field:
-          - defaultCode
+          - Service.defaultCode asc
       pagination:
         items: 25
       <<: *Services

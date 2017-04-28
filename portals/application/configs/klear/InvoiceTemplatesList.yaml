@@ -78,15 +78,15 @@ production:
     <<: *invoices_screensLink
     invoicesList_screen: 
       <<: *invoicesList_screenLink
-      filterField: invoiceTemplateId
+      filterField: InvoiceTemplate
       parentOptionCustomizer: 
         - recordCount
     invoicesNew_screen: 
       <<: *invoicesNew_screenLink
-      filterField: invoiceTemplateId
+      filterField: InvoiceTemplate
     invoicesEdit_screen: 
       <<: *invoicesEdit_screenLink
-      filterField: invoiceTemplateId
+      filterField: InvoiceTemplate
 
   dialogs: &invoiceTemplates_dialogsLink 
     invoiceTemplatesDel_dialog: &invoiceTemplatesDel_dialogLink 

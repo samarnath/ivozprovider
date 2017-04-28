@@ -1,7 +1,9 @@
 production: 
   class: \IvozProvider\Model\FriendsPatterns
+  dto: Core\Application\DTO\FriendsPatternDTO
+  entity: Core\Model\FriendsPattern\FriendsPattern
   fields: 
-    friendId: 
+    friend:
       title: _('Friendid')
       type: select
       required: true
@@ -13,14 +15,15 @@ production:
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Friends.name: asc
       default: true
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       required: true
       maxLength: 50
-    regExp: 
+    regExp:
       title: _('Regexp')
       type: text
       required: true

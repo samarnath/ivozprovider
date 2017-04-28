@@ -66,15 +66,15 @@ production:
     <<: *astQueueMembers_screensLink
     astQueueMembersList_screen:
       <<: *astQueueMembersList_screenLink
-      filterField: queueId
+      filterField: Queue
       parentOptionCustomizer:
         - recordCount
     astQueueMembersNew_screen:
       <<: *astQueueMembersNew_screenLink
-      filterField: queueId
+      filterField: Queue
     astQueueMembersEdit_screen:
       <<: *astQueueMembersEdit_screenLink
-      filterField: queueId
+      filterField: Queue
 
   dialogs: &astQueues_dialogsLink
     astQueuesDel_dialog: &astQueuesDel_dialogLink

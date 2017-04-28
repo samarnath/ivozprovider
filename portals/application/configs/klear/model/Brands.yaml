@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\Brands
+  dto: Core\Application\DTO\BrandDTO
+  entity: Core\Model\Brand\Brand
   fields:
     name:
       title: ngettext('Name', 'Names', 1)
@@ -13,7 +15,7 @@ production:
       trim: both
       required: true
       maxLength: 25
-    domain_users:
+    domainUsers:
       title: _('SIP domain')
       type: text
       trim: both
@@ -26,59 +28,61 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Timezones
+#          mapperName: \IvozProvider\Mapper\Sql\Timezones
+          entity: \Core\Model\Timezone\Timezone
           fieldName:
             fields:
               - tz
             template: '%tz%'
-          order: tz
-    logo:
-      title: _('Logo')
-      type: file
-      source:
-        data: fso
-        size_limit: 20M
-        options:
-          hiddenName: true
-          download:
-            external: true
-            type: command
-            target: brandsLogoDownload_command
-            icon: ui-silk-bullet-disk
-            title: _("Download file")
-            onNull: hide
-          delete:
-            type: setNullFso
-            icon: ui-silk-bin
-            title: _("Delete file")
-            onNull: hide
-          upload:
-            type: command
-            target: brandsLogoUpload_command
-            title: _("Upload file")
-            class: qq-uploader
-            onNull: show
-          preview:
-            target: brandsLogoPreview_command
-            type: command
-            class: filePreview
-            external: 1
-            props:
-              width: 150
-              height: 150
-              crop: false
-            onNull: hide
-          previewList:
-            target: brandsLogoPreview_command
-            type: command
-            class: filePreview
-            listController: 1
-            external: 1
-            props:
-              width: 30
-              height: 30
-              crop: false
-            onNull: hide
+          order:
+            Timezone.tz: asc
+#    logo:
+#      title: _('Logo')
+#      type: file
+#      source:
+#        data: fso
+#        size_limit: 20M
+#        options:
+#          hiddenName: true
+#          download:
+#            external: true
+#            type: command
+#            target: brandsLogoDownload_command
+#            icon: ui-silk-bullet-disk
+#            title: _("Download file")
+#            onNull: hide
+#          delete:
+#            type: setNullFso
+#            icon: ui-silk-bin
+#            title: _("Delete file")
+#            onNull: hide
+#          upload:
+#            type: command
+#            target: brandsLogoUpload_command
+#            title: _("Upload file")
+#            class: qq-uploader
+#            onNull: show
+#          preview:
+#            target: brandsLogoPreview_command
+#            type: command
+#            class: filePreview
+#            external: 1
+#            props:
+#              width: 150
+#              height: 150
+#              crop: false
+#            onNull: hide
+#          previewList:
+#            target: brandsLogoPreview_command
+#            type: command
+#            class: filePreview
+#            listController: 1
+#            external: 1
+#            props:
+#              width: 30
+#              height: 30
+#              crop: false
+#            onNull: hide
     postalAddress:
       title: _('Postal address')
       type: text
@@ -127,12 +131,14 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Languages
+#          mapperName: \IvozProvider\Mapper\Sql\Languages
+          entity: \Core\Model\Language\Language
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Language.name: asc
     FromName:
       title: _('From name')
       trim: both
@@ -182,22 +188,24 @@ production:
         icon: help
         text: _("Email address that will be notified when 80% of the configured limit has been reached.")
         label: _("Need help?")
-    FeaturesRelBrands:
+    relFeatures:
       title: _('Features')
       type: multiselect
       source:
         data: mapper
         config:
           extraDataAttributes:
-            featureId: id
-          relationMapper: \IvozProvider\Mapper\Sql\FeaturesRelBrands
-          relatedMapperName: \IvozProvider\Mapper\Sql\Features
-          relationProperty: Feature
+            feature: id
+          relation: \Core\Model\FeaturesRelBrand\FeaturesRelBrand
+          relationProperty: brand
+          relatedProperty: feature
+          related: \Core\Model\Feature\Feature
           relatedFieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Feature.name: asc
 staging:
   _extends: production
 testing:

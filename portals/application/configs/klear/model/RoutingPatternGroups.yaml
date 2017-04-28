@@ -1,47 +1,53 @@
 production: 
   class: \IvozProvider\Model\RoutingPatternGroups
+  dto: Core\Application\DTO\RoutingPatternGroupDTO
+  entity: Core\Model\RoutingPatternGroup\RoutingPatternGroup
   fields: 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       required: true
       maxLength: 55
       default: true
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       maxLength: 55
-    brandId: 
+    brand:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
-    RoutingPatternGroupsRelPatterns:
+          order:
+            Brand.name: asc
+    relPatterns:
       title: _('Destination patterns')
       type: multiselect
       source:
         data: mapper
         config:
           extraDataAttributes:
-            brandId: brandId
-          relationMapper: \IvozProvider\Mapper\Sql\RoutingPatternGroupsRelPatterns
-          relatedMapperName: \IvozProvider\Mapper\Sql\RoutingPatterns
+            brand: brandId
+          relation:  \Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern
+          relationProperty: routingPatternGroup
+          relatedProperty: routingPattern
+          related: \Core\Model\RoutingPattern\RoutingPattern
           relatedFieldName:
             fields:
               - name
               - description
               - regExp
             template: "%name% %description% (%regExp%)"
-          relationProperty: RoutingPattern
-          filterClass: IvozProvider_Klear_Filter_Brand
+
+          filterclass: IvozProvider_Klear_Filter_Brand
 staging: 
   _extends: production
 testing: 

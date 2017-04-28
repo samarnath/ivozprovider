@@ -49,15 +49,15 @@ production:
     <<: *lcrRuleTargets_screensLink
     lcrRuleTargetsList_screen: 
       <<: *lcrRuleTargetsList_screenLink
-      filterField: gw_id
+      filterField: GwId
       parentOptionCustomizer: 
         - recordCount
     lcrRuleTargetsNew_screen: 
       <<: *lcrRuleTargetsNew_screenLink
-      filterField: gw_id
+      filterField: GwId
     lcrRuleTargetsEdit_screen: 
       <<: *lcrRuleTargetsEdit_screenLink
-      filterField: gw_id
+      filterField: GwId
 
   dialogs: &lcrGateways_dialogsLink 
     lcrGatewaysDel_dialog: &lcrGatewaysDel_dialogLink 

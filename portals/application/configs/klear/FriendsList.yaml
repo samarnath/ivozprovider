@@ -24,7 +24,7 @@ production:
           auth_needed: true
           password: true
           areaCode: true
-          countryId: true
+          country: true
           allow: true
           disallow: true
           direct_media_method: true
@@ -34,7 +34,7 @@ production:
           directConnectivity: true
           ip: true
           port: true
-          languageId: true
+          language: true
         options:
           title: _("Options")
           screens:
@@ -79,10 +79,10 @@ production:
           transport: true
           ip: true
           port: true
-          callACLId: true
-          countryId: true
+          callACL: true
+          country: true
           areaCode: true
-          outgoingDDIId: true
+          outgoingDDI: true
           allow: true
           from_domain: true
       fixedPositions: &friends_FixedPositionsLink
@@ -103,9 +103,9 @@ production:
           label: _("Outgoing Configuration")
           colsPerRow: 12
           fields:
-            callACLId: 5
-            outgoingDDIId: 5
-            countryId: 5
+            callACL: 5
+            outgoingDDI: 5
+            country: 5
             areaCode: 5
         group2:
           label: _("Advanced Configuration")
@@ -113,7 +113,7 @@ production:
           fields:
             allow: 2
             from_domain: 2
-            languageId: 2
+            language: 2
       shortcutOption: N
       postActionOptions:
         screens:
@@ -142,15 +142,15 @@ production:
     <<: *friendsPatterns_screensLink
     friendsPatternsList_screen:
       <<: *friendsPatternsList_screenLink
-      filterField: friendId
+      filterField: Friend
       parentOptionCustomizer:
         - recordCount
     friendsPatternsNew_screen:
       <<: *friendsPatternsNew_screenLink
-      filterField: friendId
+      filterField: Friend
     friendsPatternsEdit_screen:
       <<: *friendsPatternsEdit_screenLink
-      filterField: friendId
+      filterField: Friend
 
   dialogs: &friends_dialogsLink
     friendsDel_dialog: &friendsDel_dialogLink

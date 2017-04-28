@@ -1,80 +1,92 @@
 production:
   class: \IvozProvider\Model\IVRCustom
+  dto: Core\Application\DTO\IVRCustomDTO
+  entity: Core\Model\IVRCustom\IVRCustom
   fields:
-    companyId:
+    company:
       title: _('Company id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
     name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       required: true
       default: true
-    welcomeLocutionId:
+    welcomeLocution:
       title: _('Welcome locution id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
-    noAnswerLocutionId:
+          order:
+            Locution.name: asc
+    noAnswerLocution:
       title: _('No answer locution id')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
         'null': _("Unassigned")
-    errorLocutionId:
+    errorLocution:
       title: _('Error locution id')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
         'null': _("Unassigned")
-    successLocutionId:
+    successLocution:
       title: _('Success locution id')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
         'null': _("Unassigned")
     timeout:
       title: _('Timeout')
@@ -141,36 +153,40 @@ production:
       type: text
       trim: both
       required: true
-    timeoutExtensionId:
+    timeoutExtension:
       title: _('Timeout extension id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
         'null': _("Unassigned")
-    timeoutVoiceMailUserId:
+    timeoutVoiceMailUser:
       title: _('Timeout voice mail user id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
     errorTargetType:
       title: _('Error target type')
@@ -202,22 +218,24 @@ production:
       type: text
       trim: both
       required: true
-    errorExtensionId:
+    errorExtension:
       title: _('Error extension id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
         'null': _("Unassigned")
-    errorVoiceMailUserId:
+    errorVoiceMailUser:
       title: _('Error voice mail user id')
       type: select
       required: true
@@ -225,13 +243,14 @@ production:
         data: mapper
         config:
           mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            Users.name: asc
         'null': _("Unassigned")
     timeoutTarget:
       title: _('Timeout target')

@@ -1,21 +1,25 @@
 production: 
   class: \IvozProvider\Model\PeerServers
+  dto: Core\Application\DTO\PeerServerDTO
+  entity: Core\Model\PeerServer\PeerServer
   fields: 
-    peeringContractId: 
+    peeringContractId:
       title: _('Peering contract')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+#          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+          entity: \Core\Model\PeeringContract\PeeringContract
           fieldName: 
             fields: 
               - description
             template: '%description%'
-          order: description
+          order:
+            PeeringContract.description: asc
       default: true
-    ip: 
+    ip:
       title: _('Destination IP address')
       type: text
       pattern: "^[.0-9]+$"
@@ -26,20 +30,22 @@ production:
         icon: help
         text: _("Leave empty to send to Host field")
         label: _("Need help?")
-    brandId: 
+    brandId:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
-    hostname: 
+          order:
+            Brand.name: asc
+    hostname:
       title: _('Host')
       type: text
       trim: both
@@ -49,13 +55,13 @@ production:
         icon: help
         text: _("Use address or hostname")
         label: _("Need help?")
-    port: 
+    port:
       title: _('Port')
       type: number
       defaultValue: 5060
       source: 
         control: Spinner
-    params: 
+    params:
       title: _('R-URI params')
       type: text
       pattern: "^;.*$"
@@ -66,7 +72,7 @@ production:
         icon: help
         text: _("Add this params to R-URI (must start with ';')")
         label: _("Need help?")
-    uri_scheme: 
+    uriScheme:
       title: _('Uri scheme')
       type: select
       defaultValue: 1
@@ -77,7 +83,7 @@ production:
             title: _("sip")
           '2':
             title: _("sips")
-    transport: 
+    transport:
       title: _('Transport')
       type: select
       defaultValue: 1
@@ -90,7 +96,7 @@ production:
             title: _("tcp")
           '3':
             title: _("tls")
-    strip: 
+    strip:
       title: _('Strip')
       type: number
       info:
@@ -101,7 +107,7 @@ production:
         label: _("Need help?")
       source: 
         control: Spinner
-    prefix: 
+    prefix:
       title: _('Prefix')
       type: text
       trim: both
@@ -111,13 +117,13 @@ production:
         icon: help
         text: _("Prepend this field to callee")
         label: _("Need help?")
-    sendPAI: 
+    sendPAI:
       title: _('Send PAI')
       type: checkbox
-    sendRPID: 
+    sendRPID:
       title: _('Send RPID')
       type: checkbox
-    auth_needed:
+    authNeeded:
       title: _('Auth needed')
       type: select
       defaultValue: 'no'
@@ -134,17 +140,17 @@ production:
             visualFilter:
               hide: ["auth_user", "auth_password"]
               show: []
-    auth_user:
+    authUser:
       title: _('Auth user')
       type: text
       trim: both
       required: true
-    auth_password:
+    authPassword:
       title: _('Auth password')
       type: password
       adapter: PlainText
       required: true
-    sip_proxy: 
+    sipProxy:
       title: _('SIP Proxy')
       type: text
       trim: both
@@ -156,7 +162,7 @@ production:
         icon: help
         text: _("IP or domain name (port with ':')")
         label: _("Need help?")
-    outbound_proxy: 
+    outboundProxy:
       title: _('Outbound Proxy')
       type: text
       trim: both
@@ -167,7 +173,7 @@ production:
         icon: help
         text: _("Send to IP[:PORT] instead of SIP Proxy address")
         label: _("Need help?")
-    from_user: 
+    fromUser:
       title: _('From user')
       type: text
       maxLength: 64
@@ -177,7 +183,7 @@ production:
         icon: help
         text: _("Use this instead in From header username")
         label: _("Need help?")
-    from_domain: 
+    fromDomain:
       title: _('From domain')
       type: text
       maxLength: 190

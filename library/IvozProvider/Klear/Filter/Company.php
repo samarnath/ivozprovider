@@ -12,7 +12,7 @@ class IvozProvider_Klear_Filter_Company implements KlearMatrix_Model_Field_Selec
         $loggedUser = $auth->getIdentity();
         $currentCompanyId = $loggedUser->companyId;
 
-        $this->_condition[] = "`companyId` = '".$currentCompanyId."'";
+        $this->_condition[] = "companyId` = '".$currentCompanyId."'";
 
         return true;
     }

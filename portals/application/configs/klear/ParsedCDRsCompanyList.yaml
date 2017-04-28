@@ -12,7 +12,7 @@ production:
       csv: false
       order:
         field:
-          - calldate
+          - ParsedCDR.calldate
         type: desc
       pagination: 
         items: 50
@@ -36,7 +36,7 @@ production:
           xcid: true
           xcidHash: true
           proxies: true
-          peeringContractId: true
+          peeringContract: true
           caller: true
           callee: true
           xCaller: true
@@ -45,8 +45,8 @@ production:
           referrer: true
           referee: true
           lastForwarder: true
-          companyId: true
-          brandId: true
+          company: true
+          brand: true
         order: &parsedCDRs_orderLink
           calldate: 1
           type: 1
@@ -66,7 +66,7 @@ production:
       title: _("View %s %2s", ngettext('Call registry', 'Call registries', 1), "[format| (%item%)]")
       fields: 
         blacklist: 
-          brandId: true
+          brand: true
           initialLeg: true
           initialLegHash: true
           cid: true
@@ -77,8 +77,8 @@ production:
           proxies: true
           statId: true
           xstatId: true
-          companyId: true
-          peeringContractId: true
+          company: true
+          peeringContract: true
         order: 
           calldate: 1
           duration: 1

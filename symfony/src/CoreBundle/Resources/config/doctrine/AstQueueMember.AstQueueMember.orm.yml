@@ -1,0 +1,66 @@
+Core\Model\AstQueueMember\AstQueueMember:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\AstQueueMemberDoctrineRepository
+  type: entity
+  table: ast_queue_members
+  indexes:
+    queueMemberId:
+      columns:
+        - queueMemberId
+  id:
+    uniqueid:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: NONE
+  fields:
+    queueName:
+      type: string
+      nullable: false
+      length: 80
+      options:
+        fixed: false
+      column: queue_name
+    interface:
+      type: string
+      nullable: false
+      length: 80
+      options:
+        fixed: false
+    membername:
+      type: string
+      nullable: true
+      length: 80
+      options:
+        fixed: false
+    stateInterface:
+      type: string
+      nullable: true
+      length: 80
+      options:
+        fixed: false
+      column: state_interface
+    penalty:
+      type: integer
+      nullable: true
+      options:
+        unsigned: false
+    paused:
+      type: integer
+      nullable: true
+      options:
+        unsigned: false
+  manyToOne:
+    queueMember:
+      targetEntity: \Core\Model\QueueMember\QueueMember
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        queueMemberId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

@@ -28,8 +28,8 @@ production:
           default: callForwardSettingsEdit_screen
         blacklist:
           numberValue: true
-          extensionId: true
-          voiceMailUserId: true
+          extension: true
+          voiceMailUser: true
           noAnswerTimeout: true
       options: 
         title: _("Options")
@@ -60,8 +60,8 @@ production:
           fields:
             targetType: 1
             numberValue: 1
-            extensionId: 1
-            voiceMailUserId: 1
+            extension: 1
+            voiceMailUser: 1
     callForwardSettingsEdit_screen: &callForwardSettingsEdit_screenLink 
       <<: *CallForwardSettings
       controller: edit
@@ -70,7 +70,7 @@ production:
       title: _("Edit %s %2s", ngettext('Call forward setting', 'Call forward settings', 1), "[format| (%item%)]")
       fields:
         blacklist:
-          extensionId: true
+          extension: true
           targetTypeValue: true
       fixedPositions:
         <<: *callForwardSettingsFixedPositions_Link

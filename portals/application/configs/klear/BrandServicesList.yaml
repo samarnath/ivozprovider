@@ -46,7 +46,7 @@ production:
         <<: *forcedBrand
       fields:
         readOnly:
-            serviceId: true
+            service: true
       controller: edit
       class: ui-silk-pencil
       label: false

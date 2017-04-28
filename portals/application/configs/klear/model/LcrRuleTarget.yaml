@@ -1,46 +1,52 @@
 production: 
   class: \IvozProvider\Model\LcrRuleTarget
+  dto: Core\Application\DTO\LcrRuleTargetDTO
+  entity: Core\Model\LcrRuleTarget\LcrRuleTarget
   fields: 
-    brandId: 
+    brandId:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
       default: true
-    rule_id: 
+    ruleId:
       title: _('Rule id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\LcrRules
+#          mapperName: \IvozProvider\Mapper\Sql\LcrRules
+          entity: \IvozProvider\Mapper\LcrRule\LcrRule
           fieldName: 
             fields: 
               - prefix
             template: '%prefix%'
-          order: prefix
-    gw_id: 
+          order:
+            LcrRule.prefix: asc
+    gw:
       title: _('Gw id')
       type: number
       required: true
       source: 
         control: Spinner
-    priority: 
+    priority:
       title: _('Priority')
       type: number
       required: true
       source: 
         control: Spinner
-    weight: 
+    weight:
       title: _('Weight')
       type: number
       defaultValue: 1

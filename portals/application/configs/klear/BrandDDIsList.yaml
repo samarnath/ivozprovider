@@ -17,52 +17,52 @@ production:
         <<: *forcedBrand
       order:
         field:
-          - DDI asc
-          - routeType desc
+          - DDI.ddi asc
+          - DDI.routeType desc
       fields:
         order: &dDIsFieldsOder_Link
-          companyId: true
-          countryId: true
+          company: true
+          country: true
           DDI: true
-          externalCallFilterId: true
+          externalCallFilter: true
           routeType: true
           target: true
         blacklist:
-          userId: true
-          faxId: true
-          IVRCommonId: true
-          IVRCustomId: true
-          huntGroupId: true
-          DDIE164: true
-          brandId: true
-          conferenceRoomId: true
+          user: true
+          fax: true
+          IVRCommon: true
+          IVRCustom: true
+          huntGroup: true
+          ddie164: true
+          brand: true
+          conferenceRoom: true
           recordCalls: true
           billInboundCalls: true
           friendValue: true
-          queueId: true
+          queue: true
       fixedPositions: &dDIsFixedPositions_Link
         group0:
           label: _("Number data")
           colsPerRow: 3
           fields:
-            countryId: 1
+            country: 1
             DDI: 1
-            peeringContractId: 1
+            peeringContract: 1
         group1:
           label: _("Filters data")
           colsPerRow: 2
           fields:
-            externalCallFilterId: 2
+            externalCallFilter: 2
         group2:
           label: _("Routing data")
           colsPerRow: 3
           fields:
             routeType: 1 
-            userId: 1
-            faxId: 1
-            IVRCommonId: 1
-            IVRCustomId: 1
-            huntGroupId: 1
+            user: 1
+            fax: 1
+            IVRCommon: 1
+            IVRCustom: 1
+            huntGroup: 1
 staging: 
   _extends: production
 testing: 

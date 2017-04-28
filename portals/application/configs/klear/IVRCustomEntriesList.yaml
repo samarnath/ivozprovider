@@ -16,13 +16,13 @@ production:
       fields:
         order:
           entry: true
-          welcomeLocutionId: true
+          welcomeLocution: true
           targetType: true
           target: true
         blacklist:
           targetNumberValue: true
-          targetExtensionId: true
-          targetVoiceMailUserId: true
+          targetExtension: true
+          targetVoiceMailUser: true
         options:
           title: _("Options")
           screens:
@@ -53,15 +53,15 @@ production:
           colsPerRow: 8
           fields:
             entry: 4
-            welcomeLocutionId: 4
+            welcomeLocution: 4
         group1:
           label: _("Routing configuration")
           colsPerRow: 8
           fields:
             targetType: 4
             targetNumberValue: 4
-            targetExtensionId: 4
-            targetVoiceMailUserId: 5
+            targetExtension: 4
+            targetVoiceMailUser: 5
 
     iVRCustomEntriesEdit_screen: &iVRCustomEntriesEdit_screenLink
       <<: *IVRCustomEntries

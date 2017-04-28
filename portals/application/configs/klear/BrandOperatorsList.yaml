@@ -22,21 +22,20 @@ production:
             brandOperatorsDel_dialog: true
           default: brandOperatorsEdit_screen
         order: &BrandOperators_orderLink
-          brandId: true
+          brand: true
+          name: true
+          lastname: true
           email: true
           username: true
           pass: true
-          timezoneId: true
+          timezone: true
           active: true
           name: true
           lastname: true
         blacklist:
           pass: true
-          timezoneId: true
-          email: true
-          name: true
-          lastname: true
-      options: 
+          timezone: true
+      options:
         title: _("Options")
         screens: 
           brandOperatorsNew_screen: true

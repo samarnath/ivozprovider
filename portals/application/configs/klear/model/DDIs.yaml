@@ -2,6 +2,8 @@
 
 production:
   class: \IvozProvider\Model\DDIs
+  dto: Core\Application\DTO\DDIDTO
+  entity: Core\Model\DDI\DDI
   fields:
     companyId:
       title: _('Company id')
@@ -10,13 +12,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
     DDI:
       title: _('DDI')
       type: text
@@ -30,20 +34,22 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\ExternalCallFilters
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\ExternalCallFilters
+          entity: \Core\Model\ExternalCallFilter\ExternalCallFilter
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            ExternalCallFilter.name: asc
         'null': _("Unassigned")
     routeType:
       title: _('Route type')
       type: select
       source:
         data: inline
-        filterClass: IvozProvider_Klear_Filter_RouteTypes
+        filterclass: IvozProvider_Klear_Filter_RouteTypes
         values:
           '__null__':
             title: _("Unassigned")
@@ -177,14 +183,16 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
     IVRCommonId:
       title: _('I v r common id')
@@ -193,13 +201,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\IVRCommon
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\IVRCommon
+          entity: \Core\Model\IVRCommon\IVRCommon
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            IVRCommon.name: asc
         'null': _("Unassigned")
     IVRCustomId:
       title: _('I v r custom id')
@@ -208,13 +218,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\IVRCustom
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\IVRCustom
+          entity: \Core\Model\IVRCustom\IVRCustom
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            IVRCustom.name: asc
         'null': _("Unassigned")
     huntGroupId:
       title: _('Hunt group id')
@@ -223,13 +235,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
+          entity: \Core\Model\HuntGroup\HuntGroup
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            HuntGroup.name: asc
         'null': _("Unassigned")
     faxId:
       title: _('Fax id')
@@ -238,13 +252,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Faxes
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Faxes
+          entity: \Core\Model\Fax\Fax
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Fax.name: asc
         'null': _("Unassigned")
     conferenceRoomId:
       title: _('Conference room id')
@@ -253,13 +269,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\ConferenceRooms
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\ConferenceRooms
+          entity: \Core\Model\ConferenceRoom\ConferenceRoom
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            ConferenceRoom.name: asc
         'null': _("Unassigned")
     retailAccountId:
       title: _('Retail Account')
@@ -294,13 +312,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+          entity: \Core\Model\PeeringContract\PeeringContract
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: description
+          order:
+            PeeringContract.description: asc
     countryId:
       title: _('Country id')
       type: select
@@ -308,25 +328,29 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Countries
+#          mapperName: \IvozProvider\Mapper\Sql\Countries
+          entity: \Core\Model\Country\Country
           fieldName:
             fields:
               - name
-              - calling_code
-            template: '%name% (+%calling_code%)'
-          order: name_${lang}
+              - callingCode
+            template: '%name% (+%callingCode%)'
+          order:
+            Country.name${ucLang}: asc
     languageId:
       title: _('Language')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Languages
+#          mapperName: \IvozProvider\Mapper\Sql\Languages
+          entity: \Core\Model\Language\Language
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Language.name: asc
         'null': _("Company's default")
     queueId:
       title: _('Queue')
@@ -335,13 +359,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Queues
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Queues
+          entity: \Core\Model\Queue\Queue
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Queue.name: asc
         'null': _("Unassigned")
 staging:
   _extends: production

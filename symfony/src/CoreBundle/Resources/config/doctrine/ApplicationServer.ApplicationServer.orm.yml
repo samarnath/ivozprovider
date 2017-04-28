@@ -1,0 +1,32 @@
+Core\Model\ApplicationServer\ApplicationServer:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\ApplicationServerDoctrineRepository
+  type: entity
+  table: ApplicationServers
+  uniqueConstraints:
+    ip:
+      columns:
+        - ip
+    name:
+      columns:
+        - name
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    ip:
+      type: string
+      length: 50
+      nullable: false
+    name:
+      type: string
+      nullable: true
+      length: 64
+      options:
+        fixed: false
+  lifecycleCallbacks: {  }

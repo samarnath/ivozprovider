@@ -81,32 +81,32 @@ production:
     <<: *pricingPlansRelTargetPatterns_screensLink
     pricingPlansRelTargetPatternsList_screen: 
       <<: *pricingPlansRelTargetPatternsList_screenLink
-      filterField: targetPatternId
+      filterField: TargetPattern
       parentOptionCustomizer: 
         - recordCount
-    pricingPlansRelTargetPatternsNew_screen: 
+    pricingPlansRelTargetPatternsNew_screen:
       <<: *pricingPlansRelTargetPatternsNew_screenLink
-      filterField: targetPatternId
-    pricingPlansRelTargetPatternsEdit_screen: 
+      filterField: targetPattern
+    pricingPlansRelTargetPatternsEdit_screen:
       <<: *pricingPlansRelTargetPatternsEdit_screenLink
-      filterField: targetPatternId
-      
-    #PricingPlans: 
+      filterField: targetPattern
+
+    #PricingPlans:
     pricingPlansList_screen:
       controller: list
-      pagination: 
+      pagination:
         items: 25
       <<: *PricingPlans
       class: ui-silk-money
       title: _("List of %s %2s", ngettext('Pricing plan', 'Pricing plans', 0), "[format| (%parent%)]")
-      filterClass: IvozProvider_Klear_Filter_TargetPatternPricingPlans  
+      filterClass: IvozProvider_Klear_Filter_TargetPatternPricingPlans
       forcedValues:
         <<: *forcedBrand
-      parentOptionCustomizer: 
+      parentOptionCustomizer:
         - recordCount
 
-  dialogs: &targetPatterns_dialogsLink 
-    targetPatternsDel_dialog: &targetPatternsDel_dialogLink 
+  dialogs: &targetPatterns_dialogsLink
+    targetPatternsDel_dialog: &targetPatternsDel_dialogLink
       <<: *TargetPatterns
       controller: delete
       class: ui-silk-bin
@@ -135,13 +135,12 @@ production:
       escape: "\\"
       forcedValues:
         brandId: ${auth.brandId}
-      
+
   #PricingPlans:
     <<: *pricingPlans_dialogsLink 
-      
+
   # pricingPlansRelTargetPatterns dialogs: 
     <<: *pricingPlansRelTargetPatterns_dialogsLink
-    
 
   commands:
     importPatternsFreeUpload_command: 

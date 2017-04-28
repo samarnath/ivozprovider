@@ -1,0 +1,228 @@
+Core\Model\Company\Company:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\CompanyDoctrineRepository
+  type: entity
+  table: Companies
+  indexes:
+    brandId:
+      columns:
+        - brandId
+    defaultTimezoneId:
+      columns:
+        - defaultTimezoneId
+    applicationServerId:
+      columns:
+        - applicationServerId
+    countryId:
+      columns:
+        - countryId
+    languageId:
+      columns:
+        - languageId
+    mediaRelaySetsId:
+      columns:
+        - mediaRelaySetsId
+    outgoingDDIId:
+      columns:
+        - outgoingDDIId
+  uniqueConstraints:
+    domain_unique:
+      columns:
+        - domain_users
+    nameBrand:
+      columns:
+        - name
+        - brandId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 80
+      options:
+        fixed: false
+    domainUsers:
+      type: string
+      nullable: false
+      length: 190
+      options:
+        fixed: false
+      column: domain_users
+    nif:
+      type: string
+      nullable: false
+      length: 25
+      options:
+        fixed: false
+    externalMaxCalls:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+        default: '0'
+      column: externalMaxCalls
+    postalAddress:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+      column: postalAddress
+    postalCode:
+      type: string
+      nullable: false
+      length: 10
+      options:
+        fixed: false
+      column: postalCode
+    town:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    province:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    country:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    outboundPrefix:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: outbound_prefix
+    ipfilter:
+      type: boolean
+      nullable: true
+      options:
+        default: '1'
+      column: ipFilter
+    onDemandRecord:
+      type: boolean
+      nullable: true
+      options:
+        default: '0'
+      column: onDemandRecord
+    onDemandRecordCode:
+      type: string
+      nullable: true
+      length: 3
+      options:
+        fixed: false
+      column: onDemandRecordCode
+    areaCode:
+      type: string
+      nullable: true
+      length: 10
+      options:
+        fixed: false
+      column: areaCode
+    externallyExtraOpts:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: externallyExtraOpts
+    recordingsLimitMB:
+      type: integer
+      nullable: true
+      options:
+        unsigned: false
+      column: recordingsLimitMB
+    recordingsLimitEmail:
+      type: string
+      nullable: true
+      length: 250
+      options:
+        fixed: false
+      column: recordingsLimitEmail
+  manyToOne:
+    language:
+      targetEntity: \Core\Model\Language\Language
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        languageId:
+          referencedColumnName: id
+      orphanRemoval: false
+    mediaRelaySets:
+      targetEntity: \Core\Model\MediaRelaySet\MediaRelaySet
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        mediaRelaySetsId:
+          referencedColumnName: id
+      orphanRemoval: false
+    defaultTimezone:
+      targetEntity: \Core\Model\Timezone\Timezone
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        defaultTimezoneId:
+          referencedColumnName: id
+      orphanRemoval: false
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    applicationServer:
+      targetEntity: \Core\Model\ApplicationServer\ApplicationServer
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        applicationServerId:
+          referencedColumnName: id
+      orphanRemoval: false
+    countryCode:
+      targetEntity: \Core\Model\Country\Country
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        countryId:
+          referencedColumnName: id
+      orphanRemoval: false
+    outgoingDDI:
+      targetEntity: \Core\Model\DDI\DDI
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        outgoingDDIId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

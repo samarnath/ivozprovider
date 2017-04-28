@@ -14,7 +14,7 @@ production:
       <<: *KamTrunksDialplan
       class: ui-silk-text-list-bullets
       title: _("List of %s %2s", ngettext('Kam trunks dialplan', 'Kam trunks dialplan(s)', 0), "[format| (%parent%)]")
-      filterField: transformationRulesetGroupsTrunksId
+      filterField: TransformationRulesetGroupsTrunk
       fields: &kamTrunksDialplan_fieldsLink 
         options: 
           title: _("Options")
@@ -41,11 +41,11 @@ production:
       label: true
       multiInstance: true
       title: _("Add %s", ngettext('Transformation', 'Transformation(s)', 1), "[format| (%parent%)]")
-      filterField: transformationRulesetGroupsTrunksId
+      filterField: TransformationRulesetGroupsTrunk
       shortcutOption: N
       forcedValues:
-        match_op: 1
-        match_len: 0
+        matchPp: 1
+        matchLen: 0
       fields:
         blacklist:
           <<: *kamTrunksDialplanBlacklist_Link
@@ -63,7 +63,7 @@ production:
       class: ui-silk-pencil
       label: false
       title: _("Edit %s %2s", ngettext('Transformation', 'Transformation(s)', 1), "[format| (%item%)]")
-      filterField: transformationRulesetGroupsTrunksId
+      filterField: TransformationRulesetGroupsTrunk
       fields:
         blacklist:
           <<: *kamTrunksDialplanBlacklist_Link

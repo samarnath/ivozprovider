@@ -1,0 +1,32 @@
+@@ MODELS @@
+
+AstPsEndpoints
+Brands
+CallACL
+CallForwardSettings
+Companies
+Countries
+DDIs
+Extensions ?? 
+ExternalCallFilters
+Features
+Friends
+GenericMusicOnHold
+HuntGroups
+IVRCommon
+IVRCustom
+KamAccCdrs
+LcrRules
+Locutions
+MusicOnHold
+PeerServers
+PricingPlans
+PricingPlansRelTargetPatterns
+Queues
+RoutingPatternGroups
+RoutingPatternGroupsRelPatterns
+RoutingPatterns
+Schedules
+TargetGroups
+Terminals
+Users

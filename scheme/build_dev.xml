@@ -2,7 +2,8 @@
 <project name="ivozprovider" basedir="." default="init">
 	<!-- CONFIGURABLE VALUES -->
 	<!-- command line switch >> -Dk=/remoteKlear -->
-	<property name="klear.base" refid="k" fallback="/opt/irontec/klear" />
+        <property name="vendor.base" refid="k" fallback="../library/vendor/" />
+        
 	<!-- command line switch >> -Da=../web/application -->
 	<property name="application.path" refid="a" fallback="/opt/irontec/ivozprovider/portals" />
 	<!-- command line switch >> -De=development -->
@@ -12,13 +13,13 @@
 	<tstamp />
 	<property name="build.dir" value="./" />
 	<exec command="which mysql" outputProperty="progs.mysql" />
-	<property name="modelGenerator.path" value="${klear.base}/generator" />
-	<includepath classpath="${klear.base}/library/Iron/Phing/" />
+	<property name="modelGenerator.path" value="${vendor.base}/irontec/Generator/" />
+	<includepath classpath="${vendor.base}/irontec/Iron/Phing/" />
 	<taskdef name="configParser" classname="ConfigurationParser" />
-	<configParser targetProperty="resources.db.params.dbname" outputProperty="db.name" iniFile="${env.PWD}/${application.path}/configs/application.ini" stage="${application.env}" />
-	<configParser targetProperty="resources.db.params.username" outputProperty="db.user" iniFile="${env.PWD}/${application.path}/configs/application.ini" stage="${application.env}" />
-	<configParser targetProperty="resources.db.params.password" outputProperty="db.pass" iniFile="${env.PWD}/${application.path}/configs/application.ini" stage="${application.env}" />
-	<configParser targetProperty="resources.db.params.host" outputProperty="db.host" iniFile="${env.PWD}/${application.path}/configs/application.ini" stage="${application.env}" />
+	<configParser targetProperty="resources.db.params.dbname" outputProperty="db.name" iniFile="${application.path}/configs/application.ini" stage="${application.env}" />
+	<configParser targetProperty="resources.db.params.username" outputProperty="db.user" iniFile="${application.path}/configs/application.ini" stage="${application.env}" />
+	<configParser targetProperty="resources.db.params.password" outputProperty="db.pass" iniFile="${application.path}/configs/application.ini" stage="${application.env}" />
+	<configParser targetProperty="resources.db.params.host" outputProperty="db.host" iniFile="${application.path}/configs/application.ini" stage="${application.env}" />
 	<!-- create initial changelog table -->
 	<target name="init">
 		<exec command="${progs.mysql} -h${db.host} -u${db.user} -p${db.pass} ${db.name} &lt; predeploy.sql" dir="${build.dir}" checkreturn="true" />

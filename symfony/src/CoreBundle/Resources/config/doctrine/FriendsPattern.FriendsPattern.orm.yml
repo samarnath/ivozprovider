@@ -1,0 +1,45 @@
+Core\Model\FriendsPattern\FriendsPattern:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\FriendsPatternDoctrineRepository
+  type: entity
+  table: FriendsPatterns
+  indexes:
+    friendId:
+      columns:
+        - friendId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      column: name
+      type: string
+      nullable: false
+      length: 50
+      options:
+        fixed: false
+    regExp:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+      column: regExp
+  manyToOne:
+    friend:
+      targetEntity: \Core\Model\Friend\Friend
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        friendId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

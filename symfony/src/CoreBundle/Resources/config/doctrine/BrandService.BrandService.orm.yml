@@ -1,0 +1,51 @@
+Core\Model\BrandService\BrandService:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\BrandServiceDoctrineRepository
+  type: entity
+  table: BrandServices
+  indexes:
+    brandId:
+      columns:
+        - brandId
+    serviceId:
+      columns:
+        - serviceId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    code:
+      type: string
+      nullable: false
+      length: 3
+      options:
+        fixed: false
+  manyToOne:
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: services
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    service:
+      targetEntity: \Core\Model\Service\Service
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        serviceId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

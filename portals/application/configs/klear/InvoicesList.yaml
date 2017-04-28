@@ -29,7 +29,7 @@ production:
             invoicesDel_dialog: true
           default: invoicesEdit_screen
         order: &invoicesOrder_Link
-          companyId: true
+          company: true
           number: true
           inDate: true
           outDate: true
@@ -37,7 +37,7 @@ production:
           taxRate: true
           totalWithTax: true
           status: true
-          invoiceTemplateId: true
+          invoiceTemplate: true
           pdfFile: true
         blacklist:
           FixedCostsRelInvoices: true
@@ -72,7 +72,7 @@ production:
           colsPerRow: 2
           fields:
             number: 1
-            companyId: 1
+            company: 1
         group1:
           colsPerRow: 2
           fields:
@@ -110,7 +110,7 @@ production:
     <<: *fixedCostsRelInvoices_screensLink
     fixedCostsRelInvoicesList_screen:
       <<: *fixedCostsRelInvoicesList_screenLink
-      filterField: invoiceId
+      filterField: FixedCostsRelInvoice.Invoice
       parentOptionCustomizer:
         - recordCount
 #    kamAccCdrs:
@@ -118,7 +118,7 @@ production:
     kamAccCdrsList_screen: 
       <<: *kamAccCdrsList_screenLink
       class: ui-silk-application-view-list
-      filterField: invoiceId
+      filterField: KamAccCdrs.Invoice
       parentOptionCustomizer: 
         - recordCount
 #        

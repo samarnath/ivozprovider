@@ -1,29 +1,31 @@
 production: 
   class: \IvozProvider\Model\KamUsersDomainAttrs
+  dto: Core\Application\DTO\KamUsersDomainAttrDTO
+  entity: Core\Model\KamUsersDomainAttr\KamUsersDomainAttr
   fields: 
-    did: 
+    did:
       title: _('Did')
       type: text
       required: true
       maxLength: 64
       default: true
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       required: true
       maxLength: 32
-    type: 
+    type:
       title: ngettext('Type', 'Types', 1)
       type: number
       required: true
       source: 
         control: Spinner
-    value: 
+    value:
       title: ngettext('Value', 'Values', 1)
       type: text
       required: true
       maxLength: 255
-    last_modified: 
+    lastModified:
       title: _('Last modified')
       type: picker
       defaultValue: 1900-01-01 00:00:01

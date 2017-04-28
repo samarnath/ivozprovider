@@ -38,15 +38,15 @@ production:
           caller_out: true
           callee_out: true
           automatic: true
-          countryId: true
+          country: true
           nationalNumLength: true
           internationalCode: true
         order: &transformationRulesetGroupsTrunks_orderLink
-          brandId: true
+          brand: true
           name: true
           description: true
           automatic: true
-          countryId: true
+          country: true
           internationalCode: true
       options: 
         title: _("Options")
@@ -85,7 +85,7 @@ production:
           colsPerRow: 12
           fields:
             automatic: 3
-            countryId: 5
+            country: 5
             internationalCode: 4
     transformationRulesetGroupsTrunksEdit_screen: &transformationRulesetGroupsTrunksEdit_screenLink 
       <<: *TransformationRulesetGroupsTrunks
@@ -106,15 +106,15 @@ production:
     <<: *peerServers_screensLink
     peerServersList_screen: 
       <<: *peerServersList_screenLink
-      filterField: transformationRulesetGroupsTrunksId
+      filterField: TransformationRulesetGroupsTrunk
       parentOptionCustomizer: 
         - recordCount
     peerServersNew_screen: 
       <<: *peerServersNew_screenLink
-      filterField: transformationRulesetGroupsTrunksId
+      filterField: TransformationRulesetGroupsTrunk
     peerServersEdit_screen: 
       <<: *peerServersEdit_screenLink
-      filterField: transformationRulesetGroupsTrunksId
+      filterField: TransformationRulesetGroupsTrunk
 
     #KamTrunksDialplan
     <<: *kamTrunksDialplan_screensLink
@@ -124,7 +124,7 @@ production:
       title: _("Caller In transformations")
       order:
         field:
-          - pr
+          - KamTrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCallerIn
       parentOptionCustomizer:
@@ -142,7 +142,7 @@ production:
       title: _("Callee In transformations")
       order:
         field:
-          - pr
+          - KamTrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCalleeIn
       parentOptionCustomizer:
@@ -161,7 +161,7 @@ production:
       title: _("Caller Out transformations")
       order:
         field:
-          - pr
+          - KamTrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCallerOut
       parentOptionCustomizer:
@@ -180,7 +180,7 @@ production:
       title: _("Callee Out transformations")
       order:
         field:
-          - pr
+          - KamTrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCalleeOut
       parentOptionCustomizer:

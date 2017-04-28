@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\AstQueueMembers
+  dto: Core\Application\DTO\AstQueueMemberDTO
+  entity: Core\Model\AstQueueMember\AstQueueMember
   fields:
     queueId:
       title: _('Queue')
@@ -7,12 +9,14 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\AstQueues
+#          mapperName: \IvozProvider\Mapper\Sql\AstQueues
+          entity: \Core\Model\AstQueue\AstQueue
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            AstQueue.name: asc
         'null': _("Unassigned")
       default: true
     userId:
@@ -22,14 +26,16 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
-    queue_name:
+          order:
+            User.name: asc
+    queueName:
       title: _('Queue')
       type: text
       maxLength: 80
@@ -41,7 +47,7 @@ production:
       title: _('Member')
       type: text
       maxLength: 80
-    state_interface:
+    stateInterface:
       title: _('Interface')
       type: text
       maxLength: 80

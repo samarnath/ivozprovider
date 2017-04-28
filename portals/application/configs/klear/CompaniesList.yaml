@@ -35,7 +35,7 @@ production:
             emulateCompany_dialog: true
           default: companiesEdit_screen
         blacklist:
-          transformationRulesetGroupsId: true
+          transformationRulesetGroup: true
           postalAddress: true
           postalCode: true
           town: true
@@ -45,11 +45,11 @@ production:
           outgoingDDIId: true
           registryData: true
           externalMaxCalls: true
-          defaultTimezoneId: true
-          applicationServerId: true
-          mediaRelaySetsId: true
+          defaultTimezone: true
+          applicationServer: true
+          mediaRelaySets: true
           ipFilter: true
-          languageId: true
+          language: true
           outbound_prefix: true
           onDemandRecord: true
           onDemandRecordCode: true
@@ -62,7 +62,7 @@ production:
           name: true
           nif: true
           outbound_prefix: true
-          countryId: true
+          country: true
           domain_users: true
           recordingsDiskUsage: true
       options:
@@ -90,8 +90,8 @@ production:
       controller: new
       fields:
         blacklist:
-          musicOnHoldId: true
-          transformationRulesetGroupsId: true
+          musicOnHold: true
+          transformationRulesetGroups: true
           nif: true
           type: true
           postalAddress: true
@@ -102,15 +102,15 @@ production:
           onDemandRecord: true
           onDemandRecordCode: true
           ipFilter: true
-          mediaRelaySetsId: true
+          mediaRelaySets: true
           outbound_prefix: true
-          applicationServerId: true
+          applicationServer: true
           externalMaxCalls: true
-          countryId: true
+          country: true
           areaCode: true
-          outgoingDDIId: true
-          languageId: true
-          defaultTimezoneId: true
+#          outgoingDDI: true
+          language: true
+          defaultTimezone: true
           externallyExtraOpts: true
           recordingsLimitMB: true
           recordingsLimitEmail: true
@@ -129,8 +129,8 @@ production:
       fields:
         blacklist:
           type: true
-          applicationServerId: ${auth.isNotMainOperator}
-          mediaRelaySetsId: ${auth.isNotMainOperator}
+          applicationServer: ${auth.isNotMainOperator}
+          mediaRelaySet: ${auth.isNotMainOperator}
           recordingsLimitMB: ${auth.brand.recordings.disabled}
           recordingsLimitEmail: ${auth.brand.recordings.disabled}
           recordingsDiskUsage: ${auth.brand.recordings.disabled}
@@ -161,17 +161,17 @@ production:
           colsPerRow: 2
           label: _("Locales")
           fields:
-            defaultTimezoneId: 1
-            languageId: 1
+            defaultTimezone: 1
+            language: 1
         group2:
           colsPerRow: 2
           label: _("Server data")
           fields:
             outbound_prefix: 1
-            outgoingDDIId: 1
+            outgoingDDI: 1
             externalMaxCalls: 1
             domain_users: 1
-            countryId: 1
+            country: 1
             areaCode: 1
             mediaRelaySetsId: 1
             applicationServerId: 1
@@ -206,56 +206,56 @@ production:
     #companyAdmins:
     companyAdminsList_screen:
       <<: *companyAdminsList_screenLink
-      filterField: companyId
+      filterField: Company
       parentOptionCustomizer:
         - recordCount
     companyAdminsNew_screen:
       <<: *companyAdminsNew_screenLink
-      filterField: companyId
+      filterField: Company
     companyAdminsEdit_screen:
       <<: *companyAdminsEdit_screenLink
-      filterField: companyId
+      filterField: Company
 
     #pricingPlansRelCompanies:
     <<: *pricingPlansRelCompanies_screensLink
     pricingPlansRelCompaniesList_screen:
       <<: *pricingPlansRelCompaniesList_screenLink
-      filterField: companyId
+      filterField: Company
       parentOptionCustomizer:
         - recordCount
     pricingPlansRelCompaniesNew_screen:
       <<: *pricingPlansRelCompaniesNew_screenLink
-      filterField: companyId
+      filterField: Company
     pricingPlansRelCompaniesEdit_screen:
       <<: *pricingPlansRelCompaniesEdit_screenLink
-      filterField: companyId
+      filterField: Company
 
     # outgoingRouting
     <<: *outgoingRouting_screensLink
     outgoingRoutingList_screen:
       <<: *outgoingRoutingList_screenLink
-      filterField: companyId
+      filterField: Company
       parentOptionCustomizer:
         - recordCount
     outgoingRoutingNew_screen:
       <<: *outgoingRoutingNew_screenLink
-      filterField: companyId
+      filterField: Company
     outgoingRoutingEdit_screen:
       <<: *outgoingRoutingEdit_screenLink
-      filterField: companyId
+      filterField: Company
 
     #kamUsersAddress:
     kamUsersAddressList_screen:
       <<: *kamUsersAddressList_screenLink
-      filterField: companyId
+      filterField: Company
       parentOptionCustomizer:
         - recordCount
     kamUsersAddressNew_screen:
       <<: *kamUsersAddressNew_screenLink
-      filterField: companyId
+      filterField: Company
     kamUsersAddressEdit_screen:
       <<: *kamUsersAddressEdit_screenLink
-      filterField: companyId
+      filterField: Company
 
   dialogs: &companies_dialogsLink
     companiesDel_dialog: &companiesDel_dialogLink
@@ -301,7 +301,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        brandId: ${auth.brandId}
+        brand: ${auth.brandId}
 
     # pricingPlansRelCompanies dialogs:
     <<: *pricingPlansRelCompanies_dialogsLink

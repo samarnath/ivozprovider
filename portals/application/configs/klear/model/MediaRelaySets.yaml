@@ -1,13 +1,15 @@
 production: 
   class: \IvozProvider\Model\MediaRelaySets
+  dto: Core\Application\DTO\MediaRelaySetDTO
+  entity: Core\Model\MediaRelaySet\MediaRelaySet
   fields: 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       maxLength: 32
       required: true
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       trim: both

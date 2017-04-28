@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\FaxesInOut
+  dto: Core\Application\DTO\FaxesInOutDTO
+  entity: Core\Model\FaxesInOut\FaxesInOut
   fields:
     calldate:
       title: _('Calldate')
@@ -9,19 +11,21 @@ production:
         control: datetime
         settings:
           disabled: 'false'
-    faxId:
+    fax:
       title: _('Fax id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Faxes
+#          mapperName: \IvozProvider\Mapper\Sql\Faxes
+          entity: \Core\Model\Fax\Fax
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Fax.name: asc
       default: true
     src:
       title: _('Source')
@@ -57,48 +61,48 @@ production:
           'pending': _('pending')
           'completed': _('completed')
           'inprogress': _('inprogress')
-    file:
-      title: ngettext('PDF File', 'PDF Files', 1)
-      type: file
-      required: true
-      source:
-        data: fso
-        size_limit: 20M
-        options:
-          download:
-            external: true
-            type: command
-            target: faxesInOutFileDownload_command
-            icon: ui-silk-bullet-disk
-            title: _("Download file")
-            onNull: hide
-          upload:
-            type: command
-            target: faxesInOutFileUpload_command
-            title: _("Upload file")
-            class: qq-uploader
-            onNull: show
-          preview:
-            target: faxesInOutFilePreview_command
-            type: command
-            class: filePreview
-            external: 1
-            props:
-              width: 150
-              height: 150
-              crop: false
-            onNull: hide
-          previewList:
-            target: faxesInOutFilePreview_command
-            type: command
-            class: filePreview
-            listController: 1
-            external: 1
-            props:
-              width: 30
-              height: 30
-              crop: false
-            onNull: hide
+#    file:
+#      title: ngettext('PDF File', 'PDF Files', 1)
+#      type: file
+#      required: true
+#      source:
+#        data: fso
+#        size_limit: 20M
+#        options:
+#          download:
+#            external: true
+#            type: command
+#            target: faxesInOutFileDownload_command
+#            icon: ui-silk-bullet-disk
+#            title: _("Download file")
+#            onNull: hide
+#          upload:
+#            type: command
+#            target: faxesInOutFileUpload_command
+#            title: _("Upload file")
+#            class: qq-uploader
+#            onNull: show
+#          preview:
+#            target: faxesInOutFilePreview_command
+#            type: command
+#            class: filePreview
+#            external: 1
+#            props:
+#              width: 150
+#              height: 150
+#              crop: false
+#            onNull: hide
+#          previewList:
+#            target: faxesInOutFilePreview_command
+#            type: command
+#            class: filePreview
+#            listController: 1
+#            external: 1
+#            props:
+#              width: 30
+#              height: 30
+#              crop: false
+#            onNull: hide
 staging:
   _extends: production
 testing:

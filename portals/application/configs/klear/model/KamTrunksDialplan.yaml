@@ -1,50 +1,52 @@
 production: 
   class: \IvozProvider\Model\KamTrunksDialplan
+  dto: Core\Application\DTO\KamTrunksDialplanDTO
+  entity: Core\Model\KamTrunksDialplan\KamTrunksDialplan
   fields: 
-    dpid: 
+    dpid:
       title: _('Dpid')
       type: number
       required: true
       source: 
         control: Spinner
       default: true
-    pr: 
+    pr:
       title: _('Pr')
       type: number
       required: true
       source: 
         control: Spinner
-    match_op: 
+    matchOp:
       title: _('Match op')
       type: number
       required: true
       source: 
         control: Spinner
-    match_exp: 
+    matchExp:
       title: _('Match exp')
       type: text
       trim: both
       required: true
       maxLength: 64
-    match_len: 
+    matchLen:
       title: _('Match len')
       type: number
       required: true
       source: 
         control: Spinner
-    subst_exp: 
+    substExp:
       title: _('Subst exp')
       type: text
       trim: both
       required: true
       maxLength: 64
-    repl_exp: 
+    replExp:
       title: _('Repl exp')
       type: text
       trim: both
       required: true
       maxLength: 64
-    attrs: 
+    attrs:
       title: _('Attr')
       type: text
       trim: both

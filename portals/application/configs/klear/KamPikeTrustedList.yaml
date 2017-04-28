@@ -24,8 +24,8 @@ production:
           default: kamPikeTrustedEdit_screen
         blacklist:
           proto: true
-          from_pattern: true
-          ruri_pattern: true
+          fromPattern: true
+          ruriPattern: true
           priority: true
       options: 
         title: _("Options")
@@ -44,8 +44,8 @@ production:
       fields:
         blacklist:
           proto: true
-          from_pattern: true
-          ruri_pattern: true
+          fromPattern: true
+          ruriPattern: true
           priority: true
     kamPikeTrustedEdit_screen: &kamPikeTrustedEdit_screenLink
       <<: *KamPikeTrusted
@@ -54,8 +54,8 @@ production:
       fields:
         blacklist:
           proto: true
-          from_pattern: true
-          ruri_pattern: true
+          fromPattern: true
+          ruriPattern: true
           priority: true
       label: false
       labelOnPostAction: _("Edit %s %2s", ngettext('Trusted IP address', 'Trusted IP address(es)', 1), "[format| (%item%)]")

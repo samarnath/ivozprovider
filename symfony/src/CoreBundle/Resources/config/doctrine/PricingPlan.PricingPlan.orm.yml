@@ -1,0 +1,88 @@
+Core\Model\PricingPlan\PricingPlan:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\PricingPlanDoctrineRepository
+  type: entity
+  table: PricingPlans
+  indexes:
+    brandId:
+      columns:
+        - brandId
+  uniqueConstraints:
+    nameEsBrand:
+      columns:
+        - name_es
+        - brandId
+    nameEnBrand:
+      columns:
+        - name_en
+        - brandId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+        comment: '[ml]'
+    nameEn:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+      column: name_en
+    nameEs:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+      column: name_es
+    description:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+        comment: '[ml]'
+    descriptionEn:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+      column: description_en
+    descriptionEs:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+      column: description_es
+    createdOn:
+      type: datetime
+      nullable: false
+      options:
+        default: CURRENT_TIMESTAMP
+      column: createdOn
+  manyToOne:
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

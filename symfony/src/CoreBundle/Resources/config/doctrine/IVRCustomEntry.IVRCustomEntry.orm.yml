@@ -1,0 +1,96 @@
+Core\Model\IVRCustomEntry\IVRCustomEntry:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\IVRCustomEntryDoctrineRepository
+  type: entity
+  table: IVRCustomEntries
+  indexes:
+    IVRCustomId:
+      columns:
+        - IVRCustomId
+    welcomeLocutionId:
+      columns:
+        - welcomeLocutionId
+    targetExtensionId:
+      columns:
+        - targetExtensionId
+    targetVoiceMailUserId:
+      columns:
+        - targetVoiceMailUserId
+  uniqueConstraints:
+    UniqueIVRCutomIdAndEntry:
+      columns:
+        - IVRCustomId
+        - entry
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    entry:
+      type: string
+      nullable: false
+      length: 40
+      options:
+        fixed: false
+    targetType:
+      type: string
+      nullable: false
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:number|extension|voicemail]'
+      column: targetType
+    targetNumberValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: targetNumberValue
+  manyToOne:
+    IVRCustom:
+      targetEntity: \Core\Model\IVRCustom\IVRCustom
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        IVRCustomId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    welcomeLocution:
+      targetEntity: \Core\Model\Locution\Locution
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        welcomeLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    targetExtension:
+      targetEntity: \Core\Model\Extension\Extension
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        targetExtensionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    targetVoiceMailUser:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        targetVoiceMailUserId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

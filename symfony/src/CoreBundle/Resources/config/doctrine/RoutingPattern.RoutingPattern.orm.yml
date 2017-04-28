@@ -1,0 +1,80 @@
+Core\Model\RoutingPattern\RoutingPattern:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\RoutingPatternDoctrineRepository
+  type: entity
+  table: RoutingPatterns
+  indexes:
+    brandId:
+      columns:
+        - brandId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+        comment: '[ml]'
+    nameEn:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+      column: name_en
+    nameEs:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+      column: name_es
+    description:
+      type: string
+      nullable: true
+      length: 55
+      options:
+        fixed: false
+        comment: '[ml]'
+    descriptionEn:
+      type: string
+      nullable: true
+      length: 55
+      options:
+        fixed: false
+      column: description_en
+    descriptionEs:
+      type: string
+      nullable: true
+      length: 55
+      options:
+        fixed: false
+      column: description_es
+    regExp:
+      type: string
+      nullable: false
+      length: 80
+      options:
+        fixed: false
+      column: regExp
+  manyToOne:
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

@@ -1,22 +1,26 @@
 production: 
   class: \IvozProvider\Model\TargetPatterns
+  dto: Core\Application\DTO\TargetPatternDTO
+  entity: Core\Model\TargetPattern\TargetPattern
   fields: 
-    id: 
+    id:
       title: ngettext('Id', 'Ids', 1)
       required: false 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
+      isMultilang: true
       trim: both
       required: true
       maxLength: 55
       default: true
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
+      isMultilang: true
       trim: both
       maxLength: 300
-    regExp: 
+    regExp:
       title: _('Prefix')
       pattern: "^[0-9]+$"
       required: true
@@ -27,19 +31,21 @@ production:
         icon: help
         text: _("Prefix must be numeric-only")
         label: _("Need help?")
-    brandId: 
+    brand:
       title: _('Brand')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
 staging: 
   _extends: production
 testing: 

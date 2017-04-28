@@ -38,7 +38,7 @@ production:
       shortcutOption: N
 #      fields:
 #        blacklist:
-#          huntGroupId: true
+#          huntGroup: true
     huntGroupsRelUsersEdit_screen: &huntGroupsRelUsersEdit_screenLink
       <<: *HuntGroupsRelUsers
       controller: edit
@@ -47,10 +47,10 @@ production:
       title: _("Edit %s %2s", ngettext('Hunt groups rel user', 'Hunt groups rel users', 1), "[format| (%parent%)]")
       fields:
         blacklist:
-          huntGroupId: false
+          huntGroup: false
         readOnly:
-          huntGroupId: true
-          userId: true
+          huntGroup: true
+          user: true
       
     #HuntGroups
 #    <<: *huntGroups_screensLink

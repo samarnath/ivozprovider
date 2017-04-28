@@ -1,0 +1,247 @@
+Core\Model\DDI\DDI:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\DDIDoctrineRepository
+  type: entity
+  table: DDIs
+  indexes:
+    companyId:
+      columns:
+        - companyId
+    externalCallFilterId:
+      columns:
+        - externalCallFilterId
+    userId:
+      columns:
+        - userId
+    IVRCommonId:
+      columns:
+        - IVRCommonId
+    IVRCustomId:
+      columns:
+        - IVRCustomId
+    huntGroupId:
+      columns:
+        - huntGroupId
+    faxId:
+      columns:
+        - faxId
+    Faxes_ibfk_8:
+      columns:
+        - peeringContractId
+    Faxes_ibfk_9:
+      columns:
+        - countryId
+    DDIs_ibfk_10:
+      columns:
+        - brandId
+    conferenceRoomId:
+      columns:
+        - conferenceRoomId
+    languageId:
+      columns:
+        - languageId
+    queueId:
+      columns:
+        - queueId
+  uniqueConstraints:
+    DDIcountry:
+      columns:
+        - DDI
+        - countryId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    ddi:
+      type: string
+      nullable: false
+      length: 25
+      options:
+        fixed: false
+      column: DDI
+    ddie164:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: DDIE164
+    recordCalls:
+      type: string
+      nullable: false
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:none|all|inbound|outbound]'
+        default: none
+      column: recordCalls
+    displayName:
+      type: string
+      nullable: true
+      length: 50
+      options:
+        fixed: false
+      column: displayName
+    routeType:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:user|IVRCommon|IVRCustom|huntGroup|fax|conferenceRoom|friend|queue]'
+      column: routeType
+    billInboundCalls:
+      type: boolean
+      nullable: false
+      options:
+        default: '0'
+        unsigned: true
+      column: billInboundCalls
+    friendValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: friendValue
+  manyToOne:
+    company:
+      targetEntity: \Core\Model\Company\Company
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        companyId:
+          referencedColumnName: id
+          unsigned: false
+          nullable: false
+      orphanRemoval: false
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          unsigned: false
+          nullable: false
+      orphanRemoval: false
+    conferenceRoom:
+      targetEntity: \Core\Model\ConferenceRoom\ConferenceRoom
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        conferenceRoomId:
+          referencedColumnName: id
+      orphanRemoval: false
+    language:
+      targetEntity: \Core\Model\Language\Language
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        languageId:
+          referencedColumnName: id
+      orphanRemoval: false
+    queue:
+      targetEntity: \Core\Model\Queue\Queue
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        queueId:
+          referencedColumnName: id
+      orphanRemoval: false
+    externalCallFilter:
+      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilter
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        externalCallFilterId:
+          referencedColumnName: id
+      orphanRemoval: false
+    user:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        userId:
+          referencedColumnName: id
+      orphanRemoval: false
+    IVRCommon:
+      targetEntity: \Core\Model\IVRCommon\IVRCommon
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        IVRCommonId:
+          referencedColumnName: id
+      orphanRemoval: false
+    IVRCustom:
+      targetEntity: \Core\Model\IVRCustom\IVRCustom
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        IVRCustomId:
+          referencedColumnName: id
+      orphanRemoval: false
+    huntGroup:
+      targetEntity: \Core\Model\HuntGroup\HuntGroup
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        huntGroupId:
+          referencedColumnName: id
+      orphanRemoval: false
+    fax:
+      targetEntity: \Core\Model\Fax\Fax
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        faxId:
+          referencedColumnName: id
+      orphanRemoval: false
+    peeringContract:
+      targetEntity: \Core\Model\PeeringContract\PeeringContract
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        peeringContractId:
+          referencedColumnName: id
+      orphanRemoval: false
+    country:
+      targetEntity: \Core\Model\Country\Country
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        countryId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

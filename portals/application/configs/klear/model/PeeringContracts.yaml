@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\PeeringContracts
+  dto: Core\Application\DTO\PeeringContractDTO
+  entity: Core\Model\PeeringContract\PeeringContract
   fields:
     name:
       title: ngettext('Name', 'Names', 1)
@@ -19,26 +21,30 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
-    transformationRulesetGroupsTrunksId:
+          order:
+            Brand.name: asc
+    transformationRulesetGroupsTrunkId:
       title: _('Numeric transformation')
       type: select
       source:
         data: mapper
         'null': 'E.164'
         config:
-          mapperName: \IvozProvider\Mapper\Sql\TransformationRulesetGroupsTrunks
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\TransformationRulesetGroupsTrunks
+          entity: \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            TransformationRulesetGroupsTrunk.name: asc
       options:
         screens:
           transformationRulesetGroupsTrunksList_screen: false

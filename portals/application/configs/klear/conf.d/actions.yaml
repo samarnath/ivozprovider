@@ -82,6 +82,6 @@ actions:
 
 forced:
   - &forcedBrand
-    brandId: ${auth.brandId}
+    brand: ${auth.brandId}
   - &forcedCompany
-    companyId: ${auth.companyId}
+    company: ${auth.companyId}

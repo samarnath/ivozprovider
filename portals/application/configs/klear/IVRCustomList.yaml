@@ -26,16 +26,16 @@ production:
           errorTarget: true
         blacklist:
           maxDigits: true
-          welcomeLocutionId: true
-          noAnswerLocutionId: true
-          errorLocutionId: true
-          successLocutionId: true
+          welcomeLocution: true
+          noAnswerLocution: true
+          errorLocution: true
+          successLocution: true
           timeoutNumberValue: true
-          timeoutExtensionId: true
-          timeoutVoiceMailUserId: true
+          timeoutExtension: true
+          timeoutVoiceMailUser: true
           errorNumberValue: true
-          errorExtensionId: true
-          errorVoiceMailUserId: true
+          errorExtension: true
+          errorVoiceMailUser: true
         options:
           title: _("Options")
           screens:
@@ -73,29 +73,29 @@ production:
             name: 4
             timeout: 4
             maxDigits: 4
-            welcomeLocutionId: 6
-            successLocutionId: 6
+            welcomeLocution: 6
+            successLocution: 6
         group1:
           label: _("No answer configuration")
           colsPerRow: 3
           fields:
-            noAnswerLocutionId: 2
+            noAnswerLocution: 2
             noAnswerTimeout: 1
             timeoutTargetType: 1
             timeoutNumberValue: 1
-            timeoutExtensionId: 1
-            noAnswerUserId: 1
-            timeoutVoiceMailUserId: 1
+            timeoutExtension: 1
+            noAnswerUser: 1
+            timeoutVoiceMailUser: 1
         group2:
           label: _("Error configuration")
           colsPerRow: 6
           fields:
-            ErrorLocutionId: 5
+            ErrorLocution: 5
             errorTargetType: 2
             errorNumberValue: 2
-            errorExtensionId: 2
-            errorUserId: 2
-            errorVoiceMailUserId: 2
+            errorExtension: 2
+            errorUser: 2
+            errorVoiceMailUser: 2
     iVRCustomEdit_screen: &iVRCustomEdit_screenLink
       <<: *IVRCustom
       controller: edit
@@ -115,15 +115,15 @@ production:
     <<: *iVRCustomEntries_screensLink
     iVRCustomEntriesList_screen:
       <<: *iVRCustomEntriesList_screenLink
-      filterField: IVRCustomId
+      filterField: IVRCustom
       parentOptionCustomizer:
         - recordCount
     iVRCustomEntriesNew_screen:
       <<: *iVRCustomEntriesNew_screenLink
-      filterField: IVRCustomId
+      filterField: IVRCustom
     iVRCustomEntriesEdit_screen:
       <<: *iVRCustomEntriesEdit_screenLink
-      filterField: IVRCustomId
+      filterField: IVRCustom
   dialogs:
     iVRCustomDel_dialog: &iVRCustomDel_dialogLink
       <<: *IVRCustom

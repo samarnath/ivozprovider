@@ -1,17 +1,21 @@
-production: 
+production:
   class: \IvozProvider\Model\RoutingPatterns
+  dto: Core\Application\DTO\RoutingPatternDTO
+  entity: Core\Model\RoutingPattern\RoutingPattern
   fields: 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
+      isMultilang: true
       required: true
       maxLength: 55
       default: true
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
+      isMultilang: true
       type: text
       maxLength: 55
-    regExp: 
+    regExp:
       title: _('Reg exp / Prefix')
       type: text
       required: true
@@ -22,19 +26,21 @@ production:
         icon: help
         text: _("If you want a prefix, use only digits. Otherwise, define your regular expresion.")
         label: _("Need help?")
-    brandId: 
+    brand:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
 staging: 
   _extends: production
 testing: 

@@ -1,0 +1,82 @@
+Core\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\PricingPlansRelTargetPatternDoctrineRepository
+  type: entity
+  table: PricingPlansRelTargetPatterns
+  indexes:
+    targetPatternId:
+      columns:
+        - targetPatternId
+    brandId:
+      columns:
+        - brandId
+    IDX_CAD1B6B5EDF37044:
+      columns:
+        - pricingPlanId
+  uniqueConstraints:
+    pricingPlanId:
+      columns:
+        - pricingPlanId
+        - targetPatternId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    connectionCharge:
+      type: decimal
+      nullable: false
+      precision: 10
+      scale: 4
+      column: connectionCharge
+    periodTime:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+      column: periodTime
+    perPeriodCharge:
+      type: decimal
+      nullable: false
+      precision: 10
+      scale: 4
+      column: perPeriodCharge
+  manyToOne:
+    pricingPlan:
+      targetEntity: \Core\Model\PricingPlan\PricingPlan
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        pricingPlanId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    targetPattern:
+      targetEntity: \Core\Model\TargetPattern\TargetPattern
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        targetPatternId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

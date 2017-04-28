@@ -1,0 +1,60 @@
+Core\Model\HolidayDate\HolidayDate:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\HolidayDateDoctrineRepository
+  type: entity
+  table: HolidayDates
+  indexes:
+    calendarId:
+      columns:
+        - calendarId
+    locutionId:
+      columns:
+        - locutionId
+  uniqueConstraints:
+    dateCalendar:
+      columns:
+        - eventDate
+        - calendarId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      column: name
+      type: string
+      nullable: false
+      length: 50
+      options:
+        fixed: false
+    eventDate:
+      type: date
+      nullable: false
+      column: eventDate
+  manyToOne:
+    calendar:
+      targetEntity: \Core\Model\Calendar\Calendar
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        calendarId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    locution:
+      targetEntity: \Core\Model\Locution\Locution
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        locutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

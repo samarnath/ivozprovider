@@ -24,7 +24,7 @@ production:
             locutionsDel_dialog: true
           default: locutionsEdit_screen
         order: &locutions_orderLink
-          companyId: true
+          company: true
           name: true
           originalFile: true
           recordingExtension: true
@@ -57,7 +57,7 @@ production:
         group0:
           colsPerRow: 2
           fields:
-            companyId: 1
+            company: 1
             name: 1
         group1:
           colsPerRow: 1
@@ -80,7 +80,7 @@ production:
         group0:
           colsPerRow: 2
           fields:
-            companyId: 1
+            company: 1
             name: 1
             recordingExtension: 1
         group1:

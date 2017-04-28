@@ -1,0 +1,146 @@
+Core\Model\KamTrunksUacreg\KamTrunksUacreg:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\KamTrunksUacregDoctrineRepository
+  type: entity
+  table: kam_trunks_uacreg
+  indexes:
+    brandId:
+      columns:
+        - brandId
+    peeringContractId:
+      columns:
+        - peeringContractId
+  uniqueConstraints:
+    l_uuid_idx:
+      columns:
+        - l_uuid
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    lUuid:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: ''
+      column: l_uuid
+    lUsername:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: unused
+      column: l_username
+    lDomain:
+      type: string
+      nullable: false
+      length: 190
+      options:
+        fixed: false
+        default: unused
+      column: l_domain
+    rUsername:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: ''
+      column: r_username
+    rDomain:
+      type: string
+      nullable: false
+      length: 190
+      options:
+        fixed: false
+        default: ''
+      column: r_domain
+    realm:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: ''
+    authUsername:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: ''
+      column: auth_username
+    authPassword:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: ''
+      column: auth_password
+    authProxy:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: ''
+      column: auth_proxy
+    expires:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+    flags:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+    regDelay:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+      column: reg_delay
+    multiddi:
+      type: boolean
+      nullable: false
+      options:
+        default: '0'
+        unsigned: true
+      column: multiDDI
+  manyToOne:
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    peeringContract:
+      targetEntity: \Core\Model\PeeringContract\PeeringContract
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        peeringContractId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

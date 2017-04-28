@@ -1,7 +1,9 @@
 production: 
   class: \IvozProvider\Model\KamRtpproxy
+  dto: Core\Application\DTO\KamRtpproxyDTO
+  entity: Core\Model\KamRtpproxy\KamRtpproxy
   fields: 
-    setid: 
+    id:
       title: _('Setid')
       type: text
       trim: both
@@ -14,7 +16,7 @@ production:
         icon: help
         text: _("Numeric value")
         label: _("Need help?")
-    url: 
+    url:
       title: ngettext('Url', 'Urls', 1)
       type: text
       trim: both
@@ -26,13 +28,13 @@ production:
         icon: help
         text: _("e.g. udp:127.0.0.1:22222")
         label: _("Need help?")
-    flags: 
+    flags:
       title: _('Flag')
       type: number
       defaultValue: 0
       source: 
         control: Spinner
-    weight: 
+    weight:
       title: _('Weight')
       type: number
       defaultValue: 1
@@ -46,23 +48,25 @@ production:
         icon: help
         text: _("0 disables if more available, 2 gets double calls than 1, 3 gets triple calls than 1, etc.")
         label: _("Need help?")
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       trim: both
       maxLength: 200
-    mediaRelaySetsId: 
+    mediaRelaySetId:
       title: _('Media relay sets id')
       type: select
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\MediaRelaySets
+#          mapperName: \IvozProvider\Mapper\Sql\MediaRelaySets
+          entity: \Core\Model\MediaRelaySet\MediaRelaySet
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            MediaRelaySet.name: asc
         'null': _("Unassigned")
 staging: 
   _extends: production

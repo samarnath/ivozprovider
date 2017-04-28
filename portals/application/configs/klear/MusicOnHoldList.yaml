@@ -24,7 +24,7 @@ production:
             musicOnHoldDel_dialog: true
           default: musicOnHoldEdit_screen
         order: &musicOnHold_orderLink
-          companyId: true
+          company: true
           name: true
           originalFile: true
         blacklist:
@@ -55,7 +55,7 @@ production:
         group0:
           colsPerRow: 2
           fields:
-            companyId: 1
+            company: 1
             name: 1
         group1:
           colsPerRow: 1

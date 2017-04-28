@@ -1,0 +1,143 @@
+Core\Model\Extension\Extension:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\ExtensionDoctrineRepository
+  type: entity
+  table: Extensions
+  indexes:
+    companyId:
+      columns:
+        - companyId
+    IVRCommonId:
+      columns:
+        - IVRCommonId
+    IVRCustomId:
+      columns:
+        - IVRCustomId
+    huntGroupId:
+      columns:
+        - huntGroupId
+    conferenceRoomId:
+      columns:
+        - conferenceRoomId
+    userId:
+      columns:
+        - userId
+    queueId:
+      columns:
+        - queueId
+  uniqueConstraints:
+    companyId_2:
+      columns:
+        - companyId
+        - number
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    number:
+      column: number
+      type: string
+      nullable: false
+      length: 10
+      options:
+        fixed: false
+    routeType:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:user|number|IVRCommon|IVRCustom|huntGroup|conferenceRoom|friend|queue]'
+      column: routeType
+    numberValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: numberValue
+    friendValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: friendValue
+  manyToOne:
+    company:
+      targetEntity: \Core\Model\Company\Company
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        companyId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    IVRCommon:
+      targetEntity: \Core\Model\IVRCommon\IVRCommon
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        IVRCommonId:
+          referencedColumnName: id
+      orphanRemoval: false
+    IVRCustom:
+      targetEntity: \Core\Model\IVRCustom\IVRCustom
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        IVRCustomId:
+          referencedColumnName: id
+      orphanRemoval: false
+    huntGroup:
+      targetEntity: \Core\Model\HuntGroup\HuntGroup
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        huntGroupId:
+          referencedColumnName: id
+      orphanRemoval: false
+    conferenceRoom:
+      targetEntity: \Core\Model\ConferenceRoom\ConferenceRoom
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        conferenceRoomId:
+          referencedColumnName: id
+      orphanRemoval: false
+    user:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        userId:
+          referencedColumnName: id
+      orphanRemoval: false
+    queue:
+      targetEntity: \Core\Model\Queue\Queue
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        queueId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

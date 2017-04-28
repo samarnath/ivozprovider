@@ -1,0 +1,68 @@
+Core\Model\Timezone\Timezone:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\TimezoneDoctrineRepository
+  type: entity
+  table: Timezones
+  indexes:
+    countryId:
+      columns:
+        - countryId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    tz:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    comment:
+      type: string
+      nullable: true
+      length: 150
+      options:
+        fixed: false
+        default: ''
+    timeZoneLabel:
+      type: string
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+        comment: '[ml]'
+        default: ''
+      column: timeZoneLabel
+    timeZoneLabelEn:
+      type: string
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+        default: ''
+      column: timeZoneLabel_en
+    timeZoneLabelEs:
+      type: string
+      nullable: false
+      length: 20
+      options:
+        fixed: false
+        default: ''
+      column: timeZoneLabel_es
+  manyToOne:
+    country:
+      targetEntity: \Core\Model\Country\Country
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        countryId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

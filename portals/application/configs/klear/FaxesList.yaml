@@ -20,7 +20,7 @@ production:
       fields: &faxes_fieldsLink
         order: &faxes_orderLink
           name: true
-          outgoingDDIId: true
+          outgoingDDI: true
           sendByEmail: true
           email: true
         options:
@@ -57,7 +57,7 @@ production:
           colsPerRow: 12
           fields:
             name: 6
-            outgoingDDIId: 6
+            outgoingDDI: 6
         group1:
           label: _("Inbound configuration")
           colsPerRow: 12
@@ -81,8 +81,8 @@ production:
       <<: *faxesInOutList_screenLink
       class: ui-silk-arrow-down
       title: _("List of Incoming %s %s", ngettext('Faxfile', 'Faxfiles', 0), "[format| (%parent%)]")
-      filterField: faxId
-      rawCondition: "type = 'In'"
+      filterField: Fax
+      rawCondition: "FaxesInOut.type = 'In'"
       parentOptionCustomizer:
         - recordCount
       fields:
@@ -106,8 +106,8 @@ production:
       <<: *faxesInOutList_screenLink
       class: ui-silk-arrow-up
       title: _("List of Outgoing %s %s", ngettext('Faxfile', 'Faxfiles', 0), "[format| (%parent%)]")
-      filterField: faxId
-      rawCondition: "type = 'Out'"
+      filterField: Fax
+      rawCondition: "FaxesInOut.type = 'Out'"
       parentOptionCustomizer:
         - recordCount
       fields:
@@ -134,7 +134,7 @@ production:
     faxesInView_screen:
       <<: *faxesInOutEdit_screenLink
       title: _("View Incoming %s %s", ngettext('Faxfile', 'Faxefiles', 0), "[format| (%item%)]")
-      filterField: faxId
+      filterField: Fax
       class: ui-silk-eye
       disableSave: true
 
@@ -149,7 +149,7 @@ production:
 
     faxesOutNew_screen:
       <<: *faxesInOutNew_screenLink
-      filterField: faxId
+      filterField: Fax
       forcedValues:
         type: 'Out'
         status: 'pending'
@@ -167,7 +167,7 @@ production:
         - IvozProvider_Klear_Options_OptionsCustomizerFilterForFax
       forcedValues:
         type: 'Out'
-      filterField: faxId
+      filterField: Fax
       forcedValues:
         type: 'Out'
       fields:

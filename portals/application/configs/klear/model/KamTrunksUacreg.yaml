@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\KamTrunksUacreg
+  dto: Core\Application\DTO\KamTrunksUacregDTO
+  entity: Core\Model\KamTrunksUacreg\KamTrunksUacreg
   fields:
     multiDDI:
       title: _('Multiddi')
@@ -18,7 +20,7 @@ production:
             visualFilter:
               show: []
               hide: ["l_uuid"]
-    l_uuid:
+    lUuid:
       title: _('DDI')
       type: text
       trim: both
@@ -31,24 +33,24 @@ production:
         text: _("Is sent in the username of Contact header in generated REGISTER.")
         label: _("Need help?")
       required: true
-    l_username:
+    lUsername:
       title: _('L username')
       type: text
       trim: both
       defaultValue:
-    l_domain:
+    lDomain:
       title: _('L domain')
       type: text
       trim: both
       defaultValue:
       maxLength: 190
-    r_username:
+    rUsername:
       title: _('Username')
       type: text
       trim: both
       defaultValue:
       required: true
-    r_domain:
+    rDomain:
       title: _('Domain')
       type: text
       trim: both
@@ -65,7 +67,7 @@ production:
         icon: help
         text: _("Leave empty to use the suggested default")
         label: _("Need help?")
-    auth_username:
+    authUsername:
       title: _('Auth username')
       type: text
       trim: both
@@ -77,13 +79,13 @@ production:
         icon: help
         text: _("Only if it's different from the Username")
         label: _("Need help?")
-    auth_password:
+    authPassword:
       title: _('Password')
       type: password
       defaultValue:
       adapter: PlainText
       required: true
-    auth_proxy:
+    authProxy:
       title: _('Registrar Server URI')
       type: text
       trim: both
@@ -103,19 +105,21 @@ production:
       source:
         control: Spinner
       required: true
-    brandId:
+    brand:
       title: _('Brand id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
     peeringContractId:
       title: _('Peering contract id')
       type: select
@@ -123,19 +127,21 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+#          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+          entity: \Core\Model\PeeringContract\PeeringContract
           fieldName:
             fields:
               - description
             template: '%description%'
-          order: description
+          order:
+            PeeringContract.description: asc
     flags:
       title: _('Flag')
       type: number
       defaultValue: 0
       source:
         control: Spinner
-    reg_delay:
+    regDelay:
       title: _('Reg delay')
       type: number
       defaultValue: 0

@@ -1,31 +1,35 @@
 production: 
   class: \IvozProvider\Model\HuntGroups
+  dto: Core\Application\DTO\HuntGroupDTO
+  entity: Core\Model\HuntGroup\HuntGroup
   fields: 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       defaultValue: 
       default: true
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       trim: both
       defaultValue: 
-    companyId: 
+    company:
       title: _('Company id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
-    strategy: 
+          order:
+            Company.name: asc
+    strategy:
       title: _('Strategy')
       type: select
       required: true
@@ -52,13 +56,13 @@ production:
             visualFilter:
               hide: ['ringAllTimeout']
               show: ['nextUserPosition']
-    ringAllTimeout: 
+    ringAllTimeout:
       title: _('Ring all timeout')
       type: number
       required: true
       source: 
         control: Spinner
-    noAnswerTargetType: 
+    noAnswerTargetType:
       title: _('Timeout target type')
       type: select
       source: 
@@ -83,55 +87,61 @@ production:
             visualFilter:
               show: ["noAnswerVoiceMailUserId"]
               hide: ["noAnswerExtensionId", "noAnswerNumberValue"]
-    noAnswerLocutionId: 
+    noAnswerLocution:
       title: _('No answer locution id')
       type: select
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
         'null': _("Unassigned")
-    noAnswerNumberValue: 
+    noAnswerNumberValue:
       title: _('Timeout number value')
       type: text
       required: true
       maxLength: 25
-    noAnswerExtensionId: 
+    noAnswerExtension:
       title: _('Timeout extension id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName: 
             fields: 
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
         'null': _("Unassigned")
-    noAnswerVoiceMailUserId: 
+    noAnswerVoiceMailUser:
       title: _('Timeout voice mail user id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName: 
             fields: 
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
 staging: 
   _extends: production

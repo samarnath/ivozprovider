@@ -75,16 +75,16 @@ production:
     callACLRelPatternsList_screen:
       <<: *callACLRelPatternsList_screenLink
       title: _("List of %s %2s", ngettext('Call ACL Rel rel pattern', 'Call ACL Rel rel pattern', 0), "[format| (%parent%)]")
-      filterField: CallACLId
+      filterField: CallACL
       parentOptionCustomizer:
         - recordCount
     callACLRelPatternsNew_screen:
       <<: *callACLRelPatternsNew_screenLink
       title: _("Add pattern to %2s", "[format| %parent%]")
-      filterField: CallACLId
+      filterField: CallACL
     callACLRelPatternsEdit_screen:
       <<: *callACLRelPatternsEdit_screenLink
-      filterField: CallACLId
+      filterField: CallACL
       title: _("Edit pattern of %s", ngettext('Call ACL Rel rel pattern', 'Call ACL Rel rel pattern', 1))
 
   dialogs: &callACL_dialogsLink

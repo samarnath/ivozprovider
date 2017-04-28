@@ -1,43 +1,49 @@
 production: 
   class: \IvozProvider\Model\PickUpGroups
+  dto: Core\Application\DTO\PickUpGroupDTO
+  entity: Core\Model\PickUpGroup\PickUpGroup
   fields: 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       required: true
       default: true
-    companyId: 
+    company:
       title: _('Company id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
-    PickUpRelUsers:
+          order:
+            Company.name: asc
+    PickUpRelUser:
       title: _('Users')
       type: multiselect
       source:
         data: mapper
         config:
           extraDataAttributes:
-            pickUpGroupId: id
-          relationMapper: \IvozProvider\Mapper\Sql\PickUpRelUsers
-          relatedMapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Users
-          relationProperty: User
-          relatedFieldName: 
+            pickUpGroup: id
+          relation: \Core\Model\PickUpRelUser\PickUpRelUser
+          relationProperty: pickUpGroup
+          relatedProperty: user
+          related: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Users
+          relatedFieldName:
             fields: 
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name          
+          order:
+            User.name: asc
 staging: 
   _extends: production
 testing: 

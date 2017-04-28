@@ -1,53 +1,57 @@
 production: 
   class: \IvozProvider\Model\TransformationRulesetGroupsTrunks
+  dto: Core\Application\DTO\TransformationRulesetGroupsTrunkDTO
+  entity: Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
   fields: 
-    brandId: 
+    brand:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
       default: true
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       required: true
       maxLength: 100
-    caller_in: 
+    callerIn:
       title: _('Caller in')
       type: number
       source: 
         control: Spinner
-    callee_in: 
+    calleeIn:
       title: _('Callee in')
       type: number
       source: 
         control: Spinner
-    caller_out: 
+    callerOut:
       title: _('Caller out')
       type: number
       source: 
         control: Spinner
-    callee_out: 
+    calleeOut:
       title: _('Callee out')
       type: number
       source: 
         control: Spinner
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       trim: both
       defaultValue: 
       maxLength: 500
-    automatic: 
+    automatic:
       title: _('Generate rules?')
       type: select
       defaultValue: 0
@@ -70,22 +74,24 @@ production:
         icon: help
         text: _("Will create default rules for a given country. This rules can be modified later.")
         label: _("Need help?")
-    countryId: 
+    country:
       title: _('Country code')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Countries
+#          mapperName: \IvozProvider\Mapper\Sql\Countries
+          entity: \Core\Model\Country\Country
           fieldName: 
             fields: 
               - name
-              - calling_code
-            template: '%name% (+%calling_code%)'
-          order: name_${lang}
+              - callingCode
+            template: '%name% (+%callingCode%)'
+          order:
+            Country.name${ucLang}: asc
       defaultValue: 70
-    internationalCode: 
+    internationalCode:
       title: _('International Code')
       type: text
       pattern: "^[0-9]{2,10}$"
@@ -97,7 +103,7 @@ production:
         icon: help
         text: _("Code used for internationals calls, usually 00.")
         label: _("Need help?")
-    nationalNumLength: 
+    nationalNumLength:
       title: _('National number length')
       type: number
       defaultValue: 9

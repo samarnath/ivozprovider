@@ -1,19 +1,23 @@
 production: 
   class: \IvozProvider\Model\Faxes
+  dto: Core\Application\DTO\FaxDTO
+  entity: Core\Model\Fax\Fax
   fields: 
-    companyId: 
+    company:
       title: _('Company id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
       default: true
     name:
       title: ngettext('Name', 'Names', 1)
@@ -22,13 +26,13 @@ production:
       required: true
       maxLength: 50
       default: true
-    email: 
+    email:
       title: ngettext('Email', 'Emails', 1)
       type: text
       trim: both
       required: true
       maxLength: 255
-    sendByEmail: 
+    sendByEmail:
       title: _('Send by email')
       type: select
       defaultValue: 1
@@ -43,19 +47,21 @@ production:
             title: _("Yes")
             visualFilter:
               show: ["email"]
-    outgoingDDIId:
+    outgoingDDI:
       title: _('Outgoing DDI')
       type: select
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\DDIs
-          filterClass: IvozProvider_Klear_Filter_Company          
+#          mapperName: \IvozProvider\Mapper\Sql\DDIs
+          entity: \Core\Model\DDI\DDI
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName: 
             fields: 
-              - DDIE164
-            template: '+%DDIE164%'
-          order: DDIE164
+              - ddie164
+            template: '+%ddie164%'
+          order:
+            DDI.ddie164: asc
         'null': _("Company's default")
 staging: 
   _extends: production

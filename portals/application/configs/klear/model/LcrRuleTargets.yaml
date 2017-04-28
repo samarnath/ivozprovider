@@ -1,21 +1,25 @@
 production: 
   class: \IvozProvider\Model\LcrRuleTargets
+  dto: Core\Application\DTO\LcrRuleTargetDTO
+  entity: Core\Model\LcrRuleTarget\LcrRuleTarget
   fields: 
-    companyId: 
+    company:
       title: _('Company id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
       default: true
-    rule_id: 
+    rule:
       title: _('Rule id')
       type: select
       required: true
@@ -23,49 +27,55 @@ production:
         data: mapper
         config: 
           mapperName: \IvozProvider\Mapper\Sql\LcrRules
+          entity: \Core\Model\LcrRule\LcrRule
           fieldName: 
             fields: 
               - prefix
             template: '%prefix%'
-          order: prefix
-    gw_id: 
+          order:
+            LcrRule.prefix: asc
+    gw:
       title: _('Gw id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\LcrGateways
+#          mapperName: \IvozProvider\Mapper\Sql\LcrGateways
+          entity: \Core\Model\LcrGateway\LcrGateway
           fieldName: 
             fields: 
               - gw_name
             template: '%gw_name%'
-          order: gw_name
-    priority: 
+          order:
+            LcrGateway.gw_name: asc
+    priority:
       title: _('Priority')
       type: number
       required: true
       source: 
         control: Spinner
-    weight: 
+    weight:
       title: _('Weight')
       type: number
       defaultValue: 1
       source: 
         control: Spinner
-    outgoingRoutingId: 
+    outgoingRouting:
       title: _('Outgoing routing id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\OutgoingRouting
+#          mapperName: \IvozProvider\Mapper\Sql\OutgoingRouting
+          entity: \Core\Model\OutgoingRouting\OutgoingRouting
           fieldName: 
             fields: 
               - id
             template: '%id%'
-          order: id
+          order:
+            OutgoingRouting.id: asc
 staging: 
   _extends: production
 testing: 

@@ -26,14 +26,14 @@ production:
             extensionsDel_dialog: true
           default: extensionsEdit_screen
         blacklist:
-          IVRCommonId: true
-          IVRCustomId: true
-          huntGroupId: true
-          userId: true
-          conferenceRoomId: true
+          IVRCommon: true
+          IVRCustom: true
+          huntGroup: true
+          user: true
+          conferenceRoom: true
           numberValue: true
           friendValue: true
-          queueId: true
+          queue: true
         order:
           number: true
           routeType: true
@@ -67,14 +67,14 @@ production:
           colsPerRow: 3
           fields:
             routeType: 2
-            IVRCommonId: 1
-            IVRCustomId: 1
-            huntGroupId: 1
-            conferenceRoomId: 1
-            userId: 1
+            IVRCommon: 1
+            IVRCustom: 1
+            huntGroup: 1
+            conferenceRoom: 1
+            user: 1
             numberValue: 1
             friendValue: 1
-            queueId: 1
+            queue: 1
     extensionsEdit_screen: &extensionsEdit_screenLink
       <<: *Extensions
       controller: edit
@@ -117,7 +117,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        companyId: ${auth.companyId}
+        company: ${auth.companyId}
 
   commands:
     importExtensionsFreeUpload_command:

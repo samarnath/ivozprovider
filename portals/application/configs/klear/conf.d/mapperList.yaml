@@ -1,116 +1,577 @@
 mappers:
-  - &ApplicationServers {mapper: \IvozProvider\Mapper\Sql\ApplicationServers, modelFile: ApplicationServers}
-  - &BillableCalls {mapper: \IvozProvider\Mapper\Sql\BillableCalls, modelFile: BillableCalls}
-  - &BrandOperators {mapper: \IvozProvider\Mapper\Sql\BrandOperators, modelFile: BrandOperators}
-  - &BrandServices {mapper: \IvozProvider\Mapper\Sql\BrandServices, modelFile: BrandServices}
-  - &BrandURLs {mapper: \IvozProvider\Mapper\Sql\BrandURLs, modelFile: BrandURLs}
-  - &Brands {mapper: \IvozProvider\Mapper\Sql\Brands, modelFile: Brands}
-  - &Calendars {mapper: \IvozProvider\Mapper\Sql\Calendars, modelFile: Calendars}
-  - &CallACL {mapper: \IvozProvider\Mapper\Sql\CallACL, modelFile: CallACL}
-  - &CallACLPatterns {mapper: \IvozProvider\Mapper\Sql\CallACLPatterns, modelFile: CallACLPatterns}
-  - &CallACLRelPatterns {mapper: \IvozProvider\Mapper\Sql\CallACLRelPatterns, modelFile: CallACLRelPatterns}
-  - &CallForwardSettings {mapper: \IvozProvider\Mapper\Sql\CallForwardSettings, modelFile: CallForwardSettings}
-  - &ChangeHistory {mapper: \IvozProvider\Mapper\Sql\ChangeHistory, modelFile: ChangeHistory}
-  - &Companies {mapper: \IvozProvider\Mapper\Sql\Companies, modelFile: Companies}
-  - &CompanyAdmins {mapper: \IvozProvider\Mapper\Sql\CompanyAdmins, modelFile: CompanyAdmins}
-  - &CompanyServices {mapper: \IvozProvider\Mapper\Sql\CompanyServices, modelFile: CompanyServices}
-  - &CompanyURLs {mapper: \IvozProvider\Mapper\Sql\BrandURLs, modelFile: CompanyURLs}
-  - &ConferenceRooms {mapper: \IvozProvider\Mapper\Sql\ConferenceRooms, modelFile: ConferenceRooms}
-  - &Countries {mapper: \IvozProvider\Mapper\Sql\Countries, modelFile: Countries}
-  - &DDIs {mapper: \IvozProvider\Mapper\Sql\DDIs, modelFile: DDIs}
-  - &Domains {mapper: \IvozProvider\Mapper\Sql\Domains, modelFile: Domains}
-  - &EtagVersions {mapper: \IvozProvider\Mapper\Sql\EtagVersions, modelFile: EtagVersions}
-  - &Extensions {mapper: \IvozProvider\Mapper\Sql\Extensions, modelFile: Extensions}
-  - &ExternalCallFilterRelCalendars {mapper: \IvozProvider\Mapper\Sql\ExternalCallFilterRelCalendars, modelFile: ExternalCallFilterRelCalendars}
-  - &ExternalCallFilterRelSchedules {mapper: \IvozProvider\Mapper\Sql\ExternalCallFilterRelSchedules, modelFile: ExternalCallFilterRelSchedules}
-  - &ExternalCallFilters {mapper: \IvozProvider\Mapper\Sql\ExternalCallFilters, modelFile: ExternalCallFilters}
-  - &ExternalCallFiltersRetail { mapper: \IvozProvider\Mapper\Sql\ExternalCallFilters, modelFile: ExternalCallFiltersRetail}
-  - &Faxes {mapper: \IvozProvider\Mapper\Sql\Faxes, modelFile: Faxes}
-  - &FaxesInOut {mapper: \IvozProvider\Mapper\Sql\FaxesInOut, modelFile: FaxesInOut}
-  - &Features {mapper: \IvozProvider\Mapper\Sql\Features, modelFile: Features}
-  - &FeaturesRelBrands {mapper: \IvozProvider\Mapper\Sql\FeaturesRelBrands, modelFile: FeaturesRelBrands}
-  - &FeaturesRelCompanies {mapper: \IvozProvider\Mapper\Sql\FeaturesRelCompanies, modelFile: FeaturesRelCompanies}
-  - &FixedCosts {mapper: \IvozProvider\Mapper\Sql\FixedCosts, modelFile: FixedCosts}
-  - &FixedCostsRelInvoices {mapper: \IvozProvider\Mapper\Sql\FixedCostsRelInvoices, modelFile: FixedCostsRelInvoices}
-  - &Friends {mapper: \IvozProvider\Mapper\Sql\Friends, modelFile: Friends}
-  - &FriendsPatterns {mapper: \IvozProvider\Mapper\Sql\FriendsPatterns, modelFile: FriendsPatterns}
-  - &GenericCallACLPatterns {mapper: \IvozProvider\Mapper\Sql\GenericCallACLPatterns, modelFile: GenericCallACLPatterns}
-  - &GenericMusicOnHold {mapper: \IvozProvider\Mapper\Sql\GenericMusicOnHold, modelFile: GenericMusicOnHold}
-  - &HolidayDates {mapper: \IvozProvider\Mapper\Sql\HolidayDates, modelFile: HolidayDates}
-  - &HuntGroups {mapper: \IvozProvider\Mapper\Sql\HuntGroups, modelFile: HuntGroups}
-  - &HuntGroupsRelUsers {mapper: \IvozProvider\Mapper\Sql\HuntGroupsRelUsers, modelFile: HuntGroupsRelUsers}
-  - &IVRCommon {mapper: \IvozProvider\Mapper\Sql\IVRCommon, modelFile: IVRCommon}
-  - &IVRCustom {mapper: \IvozProvider\Mapper\Sql\IVRCustom, modelFile: IVRCustom}
-  - &IVRCustomEntries {mapper: \IvozProvider\Mapper\Sql\IVRCustomEntries, modelFile: IVRCustomEntries}
-  - &InvoiceTemplates {mapper: \IvozProvider\Mapper\Sql\InvoiceTemplates, modelFile: InvoiceTemplates}
-  - &Invoices {mapper: \IvozProvider\Mapper\Sql\Invoices, modelFile: Invoices}
-  - &Languages {mapper: \IvozProvider\Mapper\Sql\Languages, modelFile: Languages}
-  - &LcrGateways {mapper: \IvozProvider\Mapper\Sql\LcrGateways, modelFile: LcrGateways}
-  - &LcrRuleTargets {mapper: \IvozProvider\Mapper\Sql\LcrRuleTargets, modelFile: LcrRuleTargets}
-  - &LcrRules {mapper: \IvozProvider\Mapper\Sql\LcrRules, modelFile: LcrRules}
-  - &Locutions {mapper: \IvozProvider\Mapper\Sql\Locutions, modelFile: Locutions}
-  - &MainOperators {mapper: \IvozProvider\Mapper\Sql\MainOperators, modelFile: MainOperators}
-  - &MatchListPatterns {mapper: \IvozProvider\Mapper\Sql\MatchListPatterns, modelFile: MatchListPatterns}
-  - &MatchLists {mapper: \IvozProvider\Mapper\Sql\MatchLists, modelFile: MatchLists}
-  - &MediaRelaySets {mapper: \IvozProvider\Mapper\Sql\MediaRelaySets, modelFile: MediaRelaySets}
-  - &MusicOnHold {mapper: \IvozProvider\Mapper\Sql\MusicOnHold, modelFile: MusicOnHold}
-  - &OutgoingRouting {mapper: \IvozProvider\Mapper\Sql\OutgoingRouting, modelFile: OutgoingRouting}
-  - &ParsedCDRs {mapper: \IvozProvider\Mapper\Sql\ParsedCDRs, modelFile: ParsedCDRs}
-  - &ParsedCDRsGod {mapper: \IvozProvider\Mapper\Sql\ParsedCDRs, modelFile: ParsedCDRsGod}
-  - &PeerServers {mapper: \IvozProvider\Mapper\Sql\PeerServers, modelFile: PeerServers}
-  - &PeeringContracts {mapper: \IvozProvider\Mapper\Sql\PeeringContracts, modelFile: PeeringContracts}
-  - &PickUpGroups {mapper: \IvozProvider\Mapper\Sql\PickUpGroups, modelFile: PickUpGroups}
-  - &PickUpRelUsers {mapper: \IvozProvider\Mapper\Sql\PickUpRelUsers, modelFile: PickUpRelUsers}
-  - &PricingPlans {mapper: \IvozProvider\Mapper\Sql\PricingPlans, modelFile: PricingPlans}
-  - &PricingPlansRelCompanies {mapper: \IvozProvider\Mapper\Sql\PricingPlansRelCompanies, modelFile: PricingPlansRelCompanies}
-  - &PricingPlansRelTargetPatterns {mapper: \IvozProvider\Mapper\Sql\PricingPlansRelTargetPatterns, modelFile: PricingPlansRelTargetPatterns}
-  - &ProxyTrunks {mapper: \IvozProvider\Mapper\Sql\ProxyTrunks, modelFile: ProxyTrunks}
-  - &ProxyUsers {mapper: \IvozProvider\Mapper\Sql\ProxyUsers, modelFile: ProxyUsers}
-  - &QueueMembers {mapper: \IvozProvider\Mapper\Sql\QueueMembers, modelFile: QueueMembers}
-  - &Queues {mapper: \IvozProvider\Mapper\Sql\Queues, modelFile: Queues}
-  - &Recordings {mapper: \IvozProvider\Mapper\Sql\Recordings, modelFile: Recordings}
-  - &RetailAccounts {mapper: \IvozProvider\Mapper\Sql\RetailAccounts, modelFile: RetailAccounts}
-  - &RetailClients {mapper: \IvozProvider\Mapper\Sql\Companies, modelFile: RetailClients}
-  - &RoutingPatternGroups {mapper: \IvozProvider\Mapper\Sql\RoutingPatternGroups, modelFile: RoutingPatternGroups}
-  - &RoutingPatternGroupsRelPatterns {mapper: \IvozProvider\Mapper\Sql\RoutingPatternGroupsRelPatterns, modelFile: RoutingPatternGroupsRelPatterns}
-  - &RoutingPatterns {mapper: \IvozProvider\Mapper\Sql\RoutingPatterns, modelFile: RoutingPatterns}
-  - &Schedules {mapper: \IvozProvider\Mapper\Sql\Schedules, modelFile: Schedules}
-  - &Services {mapper: \IvozProvider\Mapper\Sql\Services, modelFile: Services}
-  - &TargetPatterns {mapper: \IvozProvider\Mapper\Sql\TargetPatterns, modelFile: TargetPatterns}
-  - &TerminalManufacturers {mapper: \IvozProvider\Mapper\Sql\TerminalManufacturers, modelFile: TerminalManufacturers}
-  - &TerminalModels {mapper: \IvozProvider\Mapper\Sql\TerminalModels, modelFile: TerminalModels}
-  - &Terminals {mapper: \IvozProvider\Mapper\Sql\Terminals, modelFile: Terminals}
-  - &Timezones {mapper: \IvozProvider\Mapper\Sql\Timezones, modelFile: Timezones}
-  - &TransformationRulesetGroupsTrunks {mapper: \IvozProvider\Mapper\Sql\TransformationRulesetGroupsTrunks, modelFile: TransformationRulesetGroupsTrunks}
-  - &Users {mapper: \IvozProvider\Mapper\Sql\Users, modelFile: Users}
-  - &XMLRPCLogs {mapper: \IvozProvider\Mapper\Sql\XMLRPCLogs, modelFile: XMLRPCLogs}
-  - &AstHints {mapper: \IvozProvider\Mapper\Sql\AstHints, modelFile: AstHints}
-  - &AstMusiconhold {mapper: \IvozProvider\Mapper\Sql\AstMusiconhold, modelFile: AstMusiconhold}
-  - &AstPsAors {mapper: \IvozProvider\Mapper\Sql\AstPsAors, modelFile: AstPsAors}
-  - &AstPsEndpoints {mapper: \IvozProvider\Mapper\Sql\AstPsEndpoints, modelFile: AstPsEndpoints}
-  - &AstVoicemail {mapper: \IvozProvider\Mapper\Sql\AstVoicemail, modelFile: AstVoicemail}
-  - &AstQueueMembers {mapper: \IvozProvider\Mapper\Sql\AstQueueMembers, modelFile: AstQueueMembers}
-  - &AstQueues {mapper: \IvozProvider\Mapper\Sql\AstQueues, modelFile: AstQueues}
-  - &Changelog {mapper: \IvozProvider\Mapper\Sql\Changelog, modelFile: Changelog}
-  - &KamAccCdrsBrand {mapper: \IvozProvider\Mapper\Sql\KamAccCdrs, modelFile: KamAccCdrsBrand}
-  - &KamAccCdrs {mapper: \IvozProvider\Mapper\Sql\KamAccCdrs, modelFile: KamAccCdrs}
-  - &KamDispatcher {mapper: \IvozProvider\Mapper\Sql\KamDispatcher, modelFile: KamDispatcher}
-  - &KamPikeTrusted {mapper: \IvozProvider\Mapper\Sql\KamPikeTrusted, modelFile: KamPikeTrusted}
-  - &KamRtpproxy {mapper: \IvozProvider\Mapper\Sql\KamRtpproxy, modelFile: KamRtpproxy}
-  - &KamTrunksAcc {mapper: \IvozProvider\Mapper\Sql\KamTrunksAcc, modelFile: KamTrunksAcc}
-  - &KamTrunksAddress {mapper: \IvozProvider\Mapper\Sql\KamTrunksAddress, modelFile: KamTrunksAddress}
-  - &KamTrunksDialplan {mapper: \IvozProvider\Mapper\Sql\KamTrunksDialplan, modelFile: KamTrunksDialplan}
-  - &KamTrunksDomain {mapper: \IvozProvider\Mapper\Sql\KamTrunksDomain, modelFile: KamTrunksDomain}
-  - &KamTrunksDomainAttrs {mapper: \IvozProvider\Mapper\Sql\KamTrunksDomainAttrs, modelFile: KamTrunksDomainAttrs}
-  - &KamTrunksHtable {mapper: \IvozProvider\Mapper\Sql\KamTrunksHtable, modelFile: KamTrunksHtable}
-  - &KamTrunksUacreg {mapper: \IvozProvider\Mapper\Sql\KamTrunksUacreg, modelFile: KamTrunksUacreg}
-  - &KamUsers {mapper: \IvozProvider\Mapper\Sql\KamUsers, modelFile: KamUsers}
-  - &KamUsersAcc {mapper: \IvozProvider\Mapper\Sql\KamUsersAcc, modelFile: KamUsersAcc}
-  - &KamUsersAddress {mapper: \IvozProvider\Mapper\Sql\KamUsersAddress, modelFile: KamUsersAddress}
-  - &KamUsersDomain {mapper: \IvozProvider\Mapper\Sql\KamUsersDomain, modelFile: KamUsersDomain}
-  - &KamUsersDomainAttrs {mapper: \IvozProvider\Mapper\Sql\KamUsersDomainAttrs, modelFile: KamUsersDomainAttrs}
-  - &KamUsersHtable {mapper: \IvozProvider\Mapper\Sql\KamUsersHtable, modelFile: KamUsersHtable}
-  - &KamUsersLocation {mapper: \IvozProvider\Mapper\Sql\KamUsersLocation, modelFile: KamUsersLocation}
-  - &KamUsersLocationAttrs {mapper: \IvozProvider\Mapper\Sql\KamUsersLocationAttrs, modelFile: KamUsersLocationAttrs}
-  - &KamUsersMissedCalls {mapper: \IvozProvider\Mapper\Sql\KamUsersMissedCalls, modelFile: KamUsersMissedCalls}
-  - &KamVersion {mapper: \IvozProvider\Mapper\Sql\KamVersion, modelFile: KamVersion}
+  - &ApplicationServers {
+        mapper: \IvozProvider\Mapper\Sql\ApplicationServers,
+        modelFile: ApplicationServers,
+        entity: 'Core\\Model\\ApplicationServer\\ApplicationServer'
+    }
+  - &BillableCalls {
+        mapper: \IvozProvider\Mapper\Sql\BillableCalls,
+        modelFile: BillableCalls,
+        entity: 'Core\\Model\\BillableCall\\BillableCall'
+    }
+  - &BrandOperators {
+        mapper: \IvozProvider\Mapper\Sql\BrandOperators,
+        modelFile: BrandOperators,
+        entity: 'Core\\Model\\BrandOperator\\BrandOperator'
+    }
+  - &BrandServices {
+        mapper: \IvozProvider\Mapper\Sql\BrandServices,
+        modelFile: BrandServices,
+        entity: 'Core\\Model\\BrandService\\BrandService'
+    }
+  - &BrandURLs {
+        mapper: \IvozProvider\Mapper\Sql\BrandURLs,
+        modelFile: BrandURLs,
+        entity: 'Core\\Model\\BrandURL\\BrandURL'
+    }
+  - &Brands {
+        mapper: \IvozProvider\Mapper\Sql\Brands,
+        modelFile: Brands,
+        entity: 'Core\\Model\\Brand\\Brand'
+    }
+  - &Calendars {
+        mapper: \IvozProvider\Mapper\Sql\Calendars,
+        modelFile: Calendars,
+        entity: 'Core\\Model\\Calendar\\Calendar'
+    }
+  - &CallACL {
+        mapper: \IvozProvider\Mapper\Sql\CallACL,
+        modelFile: CallACL,
+        entity: 'Core\\Model\\CallACL\\CallACL'
+    }
+  - &CallACLPatterns {
+        mapper: \IvozProvider\Mapper\Sql\CallACLPatterns,
+        modelFile: CallACLPatterns,
+        entity: 'Core\\Model\\CallACLPattern\\CallACLPattern'
+    }
+  - &CallACLRelPatterns {
+        mapper: \IvozProvider\Mapper\Sql\CallACLRelPatterns,
+        modelFile: CallACLRelPatterns,
+        entity: 'Core\\Model\\CallACLRelPattern\\CallACLRelPattern'
+    }
+  - &CallForwardSettings {
+        mapper: \IvozProvider\Mapper\Sql\CallForwardSettings,
+        modelFile: CallForwardSettings,
+        entity: 'Core\\Model\\CallForwardSetting\\CallForwardSetting'
+    }
+  - &ChangeHistory {
+        mapper: \IvozProvider\Mapper\Sql\ChangeHistory,
+        modelFile: ChangeHistory,
+        entity: 'Core\\Model\\ChangeHistory\\ChangeHistory'
+    }
+  - &Companies {
+        mapper: \IvozProvider\Mapper\Sql\Companies,
+        modelFile: Companies,
+        entity: 'Core\\Model\\Company\\Company'
+    }
+  - &CompanyAdmins {
+        mapper: \IvozProvider\Mapper\Sql\CompanyAdmins,
+        modelFile: CompanyAdmins,
+        entity: 'Core\\Model\\CompanyAdmin\\CompanyAdmin'
+    }
+  - &CompanyServices {
+        mapper: \IvozProvider\Mapper\Sql\CompanyServices,
+        modelFile: CompanyServices,
+        entity: 'Core\\Model\\CompanyService\\CompanyService'
+    }
+  - &CompanyURLs {
+        mapper: \IvozProvider\Mapper\Sql\BrandURLs,
+        modelFile: BrandURLs,
+        entity: 'Core\\Model\\BrandURL\\BrandURL'
+    }
+  - &ConferenceRooms {
+        mapper: \IvozProvider\Mapper\Sql\ConferenceRooms,
+        modelFile: ConferenceRooms,
+        entity: 'Core\\Model\\ConferenceRoom\\ConferenceRoom'
+    }
+  - &Countries {
+        mapper: \IvozProvider\Mapper\Sql\Countries,
+        modelFile: Countries,
+        entity: 'Core\\Model\\Country\\Country'
+    }
+  - &DDIs {
+        mapper: \IvozProvider\Mapper\Sql\DDIs,
+        modelFile: DDIs,
+        entity: 'Core\\Model\\DDI\\DDI'
+    }
+  - &Domains {
+        mapper: \IvozProvider\Mapper\Sql\Domains,
+        modelFile: Domains,
+        entity: 'Core\\Model\\Domain\\Domain'
+    }
+  - &EtagVersions {
+        mapper: \IvozProvider\Mapper\Sql\EtagVersions,
+        modelFile: EtagVersions,
+        entity: 'Core\\Model\\EtagVersion\\EtagVersion'
+    }
+  - &Extensions {
+        mapper: \IvozProvider\Mapper\Sql\Extensions,
+        modelFile: Extensions,
+        entity: 'Core\\Model\\Extension\\Extension'
+    }
+  - &ExternalCallFilterRelCalendars {
+        mapper: \IvozProvider\Mapper\Sql\ExternalCallFilterRelCalendars,
+        modelFile: ExternalCallFilterRelCalendars,
+        entity: 'Core\\Model\\ExternalCallFilterRelCalendar\\ExternalCallFilterRelCalendar'
+    }
+  - &ExternalCallFilterRelSchedules {
+        mapper: \IvozProvider\Mapper\Sql\ExternalCallFilterRelSchedules,
+        modelFile: ExternalCallFilterRelSchedules,
+        entity: 'Core\\Model\\ExternalCallFilterRelSchedule\\ExternalCallFilterRelSchedule'
+    }
+  - &ExternalCallFilters {
+        mapper: \IvozProvider\Mapper\Sql\ExternalCallFilters,
+        modelFile: ExternalCallFilters,
+        entity: 'Core\\Model\\ExternalCallFilter\\ExternalCallFilter'
+    }
+  -  &ExternalCallFiltersRetail {
+        mapper: \IvozProvider\Mapper\Sql\ExternalCallFilters,
+        modelFile: ExternalCallFiltersRetail
+        entity: 'Core\\Model\\ExternalCallFilter\\ExternalCallFilter'
+  }
+
+  - &Faxes {
+        mapper: \IvozProvider\Mapper\Sql\Faxes,
+        modelFile: Faxes,
+        entity: 'Core\\Model\\Fax\\Fax'
+    }
+  - &FaxesInOut {
+        mapper: \IvozProvider\Mapper\Sql\FaxesInOut,
+        modelFile: FaxesInOut,
+        entity: 'Core\\Model\\FaxesInOut\\FaxesInOut'
+    }
+  - &Features {
+        mapper: \IvozProvider\Mapper\Sql\Features,
+        modelFile: Features,
+        entity: 'Core\\Model\\Feature\\Feature'
+    }
+  - &FeaturesRelBrands {
+        mapper: \IvozProvider\Mapper\Sql\FeaturesRelBrands,
+        modelFile: FeaturesRelBrands,
+        entity: 'Core\\Model\\FeaturesRelBrand\\FeaturesRelBrand'
+    }
+  - &FeaturesRelCompanies {
+        mapper: \IvozProvider\Mapper\Sql\FeaturesRelCompanies,
+        modelFile: FeaturesRelCompanies,
+        entity: 'Core\\Model\\FeaturesRelCompany\\FeaturesRelCompany'
+    }
+  - &FixedCosts {
+        mapper: \IvozProvider\Mapper\Sql\FixedCosts,
+        modelFile: FixedCosts,
+        entity: 'Core\\Model\\FixedCosts\\FixedCost'
+    }
+  - &FixedCostsRelInvoices {
+        mapper: \IvozProvider\Mapper\Sql\FixedCostsRelInvoices,
+        modelFile: FixedCostsRelInvoices,
+        entity: 'Core\\Model\\FixedCostsRelInvoice\\FixedCostsRelInvoice'
+    }
+  - &Friends {
+        mapper: \IvozProvider\Mapper\Sql\Friends,
+        modelFile: Friends,
+        entity: 'Core\\Model\\Friend\\Friend'
+    }
+  - &FriendsPatterns {
+        mapper: \IvozProvider\Mapper\Sql\FriendsPatterns,
+        modelFile: FriendsPatterns,
+        entity: 'Core\\Model\\FriendsPattern\\FriendsPattern'
+    }
+  - &GenericCallACLPatterns {
+        mapper: \IvozProvider\Mapper\Sql\GenericCallACLPatterns,
+        modelFile: GenericCallACLPatterns,
+        entity: 'Core\\Model\\GenericCallACLPattern\\GenericCallACLPattern'
+    }
+  - &GenericMusicOnHold {
+        mapper: \IvozProvider\Mapper\Sql\GenericMusicOnHold,
+        modelFile: GenericMusicOnHold,
+        entity: 'Core\\Model\\GenericMusicOnHold\\GenericMusicOnHold'
+    }
+  - &HolidayDates {
+        mapper: \IvozProvider\Mapper\Sql\HolidayDates,
+        modelFile: HolidayDates,
+        entity: 'Core\\Model\\HolidayDate\\HolidayDate'
+    }
+  - &HuntGroups {
+        mapper: \IvozProvider\Mapper\Sql\HuntGroups,
+        modelFile: HuntGroups,
+        entity: 'Core\\Model\\HuntGroup\\HuntGroup'
+    }
+  - &HuntGroupsRelUsers {
+        mapper: \IvozProvider\Mapper\Sql\HuntGroupsRelUsers,
+        modelFile: HuntGroupsRelUsers,
+        entity: 'Core\\Model\\HuntGroupRelUser\\HuntGroupRelUser'
+    }
+  - &IVRCommon {
+        mapper: \IvozProvider\Mapper\Sql\IVRCommon,
+        modelFile: IVRCommon,
+        entity: 'Core\\Model\\IVRCommon\\IVRCommon'
+    }
+  - &IVRCustom {
+        mapper: \IvozProvider\Mapper\Sql\IVRCustom,
+        modelFile: IVRCustom,
+        entity: 'Core\\Model\\IVRCustom\\IVRCustom'
+    }
+  - &IVRCustomEntries {
+        mapper: \IvozProvider\Mapper\Sql\IVRCustomEntries,
+        modelFile: IVRCustomEntries,
+        entity: 'Core\\Model\\IVRCustomEntry\\IVRCustomEntry'
+    }
+  - &InvoiceTemplates {
+        mapper: \IvozProvider\Mapper\Sql\InvoiceTemplates,
+        modelFile: InvoiceTemplates,
+        entity: 'Core\\Model\\InvoiceTemplate\\InvoiceTemplate'
+    }
+  - &Invoices {
+        mapper: \IvozProvider\Mapper\Sql\Invoices,
+        modelFile: Invoices,
+        entity: 'Core\\Model\\Invoice\\Invoice'
+    }
+  - &Languages {
+        mapper: \IvozProvider\Mapper\Sql\Languages,
+        modelFile: Languages,
+        entity: 'Core\\Model\\Language\\Language'
+    }
+  - &LcrGateways {
+        mapper: \IvozProvider\Mapper\Sql\LcrGateways,
+        modelFile: LcrGateways,
+        entity: 'Core\\Model\\LcrGateway\\LcrGateway'
+    }
+  - &LcrRuleTargets {
+        mapper: \IvozProvider\Mapper\Sql\LcrRuleTargets,
+        modelFile: LcrRuleTargets,
+        entity: 'Core\\Model\\LcrRuleTarget\\LcrRuleTarget'
+    }
+  - &LcrRules {
+        mapper: \IvozProvider\Mapper\Sql\LcrRules,
+        modelFile: LcrRules,
+        entity: 'Core\\Model\\LcrRule\\LcrRule'
+    }
+  - &Locutions {
+        mapper: \IvozProvider\Mapper\Sql\Locutions,
+        modelFile: Locutions,
+        entity: 'Core\\Model\\Locution\\Locution'
+    }
+  - &MainOperators {
+        mapper: \IvozProvider\Mapper\Sql\MainOperators,
+        modelFile: MainOperators,
+        entity: 'Core\\Model\\MainOperator\\MainOperator'
+    }
+  - &MatchListPatterns {
+      mapper: \IvozProvider\Mapper\Sql\MatchListPatterns,
+      modelFile: MatchListPatterns,
+      entity: 'Core\\Model\\MatchListPattern\\MatchListPattern'
+    }
+  - &MatchLists {
+      mapper: \IvozProvider\Mapper\Sql\MatchLists,
+      modelFile: MatchLists,
+      entity: 'Core\\Model\\MatchList\\MatchList'
+    }
+  - &MediaRelaySets {
+        mapper: \IvozProvider\Mapper\Sql\MediaRelaySets,
+        modelFile: MediaRelaySets,
+        entity: 'Core\\Model\\MediaRelaySet\\MediaRelaySet'
+    }
+  - &MusicOnHold {
+        mapper: \IvozProvider\Mapper\Sql\MusicOnHold,
+        modelFile: MusicOnHold,
+        entity: 'Core\\Model\\MusicOnHold\\MusicOnHold'
+    }
+  - &OutgoingRouting {
+        mapper: \IvozProvider\Mapper\Sql\OutgoingRouting,
+        modelFile: OutgoingRouting,
+        entity: 'Core\\Model\\OutgoingRouting\\OutgoingRouting'
+    }
+  - &ParsedCDRs {
+        mapper: \IvozProvider\Mapper\Sql\ParsedCDRs,
+        modelFile: ParsedCDRs,
+        entity: 'Core\\Model\\ParsedCDR\\ParsedCDR'
+    }
+  - &ParsedCDRsGod {
+        mapper: \IvozProvider\Mapper\Sql\ParsedCDRs,
+        modelFile: ParsedCDRsGod,
+        entity: 'Core\\Model\\ParsedCDRsGod\\ParsedCDRsGod'
+    }
+  - &PeerServers {
+        mapper: \IvozProvider\Mapper\Sql\PeerServers,
+        modelFile: PeerServers,
+        entity: 'Core\\Model\\PeerServer\\PeerServer'
+    }
+  - &PeeringContracts {
+        mapper: \IvozProvider\Mapper\Sql\PeeringContracts,
+        modelFile: PeeringContracts,
+        entity: 'Core\\Model\\PeeringContract\\PeeringContract'
+    }
+  - &PickUpGroups {
+        mapper: \IvozProvider\Mapper\Sql\PickUpGroups,
+        modelFile: PickUpGroups,
+        entity: 'Core\\Model\\PickUpGroup\\PickUpGroup'
+    }
+  - &PickUpRelUsers {
+        mapper: \IvozProvider\Mapper\Sql\PickUpRelUsers,
+        modelFile: PickUpRelUsers,
+        entity: 'Core\\Model\\PickUpRelUser\\PickUpRelUser'
+    }
+  - &PricingPlans {
+        mapper: \IvozProvider\Mapper\Sql\PricingPlans,
+        modelFile: PricingPlans,
+        entity: 'Core\\Model\\PricingPlan\\PricingPlan'
+    }
+  - &PricingPlansRelCompanies {
+        mapper: \IvozProvider\Mapper\Sql\PricingPlansRelCompanies,
+        modelFile: PricingPlansRelCompanies,
+        entity: 'Core\\Model\\PricingPlansRelCompany\\PricingPlanRelCompany'
+    }
+  - &PricingPlansRelTargetPatterns {
+        mapper: \IvozProvider\Mapper\Sql\PricingPlansRelTargetPatterns,
+        modelFile: PricingPlansRelTargetPatterns,
+        entity: 'Core\\Model\\PricingPlansRelTargetPattern\\PricingPlansRelTargetPattern'
+    }
+  - &ProxyTrunks {
+        mapper: \IvozProvider\Mapper\Sql\ProxyTrunks,
+        modelFile: ProxyTrunks,
+        entity: 'Core\\Model\\ProxyTrunk\\ProxyTrunk'
+    }
+  - &ProxyUsers {
+        mapper: \IvozProvider\Mapper\Sql\ProxyUsers,
+        modelFile: ProxyUsers,
+        entity: 'Core\\Model\\ProxyUser\\ProxyUser'
+    }
+  - &QueueMembers {
+        mapper: \IvozProvider\Mapper\Sql\QueueMembers,
+        modelFile: QueueMembers,
+        entity: 'Core\\Model\\QueueMember\\QueueMember'
+    }
+  - &Queues {
+        mapper: \IvozProvider\Mapper\Sql\Queues,
+        modelFile: Queues,
+        entity: 'Core\\Model\\Queue\\Queue'
+    }
+  - &Recordings {
+        mapper: \IvozProvider\Mapper\Sql\Recordings,
+        modelFile: Recordings,
+        entity: 'Core\\Model\\Recording\\Recording'
+    }
+  - &RetailAccounts {
+      mapper: \IvozProvider\Mapper\Sql\RetailAccounts,
+      modelFile: RetailAccounts,
+      entity: 'Core\\Model\\RetailAccount\\RetailAccount'
+    }
+  - &RetailClients {
+      mapper: \IvozProvider\Mapper\Sql\Companies,
+      modelFile: RetailClients,
+      entity: 'Core\\Model\\Company\\Company'
+  }
+  - &RoutingPatternGroups {
+        mapper: \IvozProvider\Mapper\Sql\RoutingPatternGroups,
+        modelFile: RoutingPatternGroups,
+        entity: 'Core\\Model\\RoutingPatternGroup\\RoutingPatternGroup'
+    }
+  - &RoutingPatternGroupsRelPatterns {
+        mapper: \IvozProvider\Mapper\Sql\RoutingPatternGroupsRelPatterns,
+        modelFile: RoutingPatternGroupsRelPatterns,
+        entity: 'Core\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPattern'
+    }
+  - &RoutingPatterns {
+        mapper: \IvozProvider\Mapper\Sql\RoutingPatterns,
+        modelFile: RoutingPatterns,
+        entity: 'Core\\Model\\RoutingPattern\\RoutingPattern'
+    }
+  - &Schedules {
+        mapper: \IvozProvider\Mapper\Sql\Schedules,
+        modelFile: Schedules,
+        entity: 'Core\\Model\\Schedule\\Schedule'
+    }
+  - &Services {
+        mapper: \IvozProvider\Mapper\Sql\Services,
+        modelFile: Services,
+        entity: 'Core\\Model\\Service\\Service'
+    }
+  - &TargetPatterns {
+        mapper: \IvozProvider\Mapper\Sql\TargetPatterns,
+        modelFile: TargetPatterns,
+        entity: 'Core\\Model\\TargetPattern\\TargetPattern'
+    }
+  - &TerminalManufacturers {
+        mapper: \IvozProvider\Mapper\Sql\TerminalManufacturers,
+        modelFile: TerminalManufacturers,
+        entity: 'Core\\Model\\TerminalManufacturer\\TerminalManufacturer'
+    }
+  - &TerminalModels {
+        mapper: \IvozProvider\Mapper\Sql\TerminalModels,
+        modelFile: TerminalModels,
+        entity: 'Core\\Model\\TerminalModel\\TerminalModel'
+    }
+  - &Terminals {
+        mapper: \IvozProvider\Mapper\Sql\Terminals,
+        modelFile: Terminals,
+        entity: 'Core\\Model\\Terminal\\Terminal'
+    }
+  - &Timezones {
+        mapper: \IvozProvider\Mapper\Sql\Timezones,
+        modelFile: Timezones,
+        entity: 'Core\\Model\\Timezone\\Timezone'
+    }
+  - &TransformationRulesetGroupsTrunks {
+        mapper: \IvozProvider\Mapper\Sql\TransformationRulesetGroupsTrunks,
+        modelFile: TransformationRulesetGroupsTrunks,
+        entity: 'Core\\Model\\TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunk'
+    }
+  - &Users {
+        mapper: \IvozProvider\Mapper\Sql\Users,
+        modelFile: Users,
+        entity: 'Core\\Model\\User\\User'
+    }
+  - &XMLRPCLogs {
+        mapper: \IvozProvider\Mapper\Sql\XMLRPCLogs,
+        modelFile: XMLRPCLogs,
+        entity: 'Core\\Model\\XMLRPCLog\\XMLRPCLog'
+    }
+  - &AstHints {
+        mapper: \IvozProvider\Mapper\Sql\AstHints,
+        modelFile: AstHints,
+        entity: 'Core\\Model\\AstHint\\AstHint'
+    }
+  - &AstMusiconhold {
+        mapper: \IvozProvider\Mapper\Sql\AstMusiconhold,
+        modelFile: AstMusiconhold,
+        entity: 'Core\\Model\\AstMusiconhold\\AstMusiconhold'
+    }
+  - &AstPsAors {
+        mapper: \IvozProvider\Mapper\Sql\AstPsAors,
+        modelFile: AstPsAors,
+        entity: 'Core\\Model\\AstPsAor\\AstPsAor'
+    }
+  - &AstPsEndpoints {
+        mapper: \IvozProvider\Mapper\Sql\AstPsEndpoints,
+        modelFile: AstPsEndpoints,
+        entity: 'Core\\Model\\AstPsEndpoint\\AstPsEndpoint'
+    }
+  - &AstVoicemail {
+        mapper: \IvozProvider\Mapper\Sql\AstVoicemail,
+        modelFile: AstVoicemail,
+        entity: 'Core\\Model\\AstVoicemail\\AstVoicemail'
+    }
+  - &AstQueueMembers {
+        mapper: \IvozProvider\Mapper\Sql\AstQueueMembers,
+        modelFile: AstQueueMembers,
+        entity: 'Core\\Model\\AstQueueMember\\AstQueueMember'
+    }
+  - &AstQueues {
+        mapper: \IvozProvider\Mapper\Sql\AstQueues,
+        modelFile: AstQueues,
+        entity: 'Core\\Model\\AstQueue\\AstQueue'
+    }
+  - &Changelog {
+        mapper: \IvozProvider\Mapper\Sql\Changelog,
+        modelFile: Changelog,
+        entity: 'Core\\Model\\Changelog\\Changelog'
+    }
+  - &KamAccCdrsBrand {
+        mapper: \IvozProvider\Mapper\Sql\KamAccCdrs,
+        modelFile: KamAccCdrsBrand,
+        entity: 'Core\\Model\\KamAccCdrsBrand\\KamAccCdrsBrand'
+    }
+  - &KamAccCdrs {
+        mapper: \IvozProvider\Mapper\Sql\KamAccCdrs,
+        modelFile: KamAccCdrs,
+        entity: 'Core\\Model\\KamAccCdr\\KamAccCdr'
+    }
+  - &KamDispatcher {
+        mapper: \IvozProvider\Mapper\Sql\KamDispatcher,
+        modelFile: KamDispatcher,
+        entity: 'Core\\Model\\KamDispatcher\\KamDispatcher'
+    }
+  - &KamPikeTrusted {
+        mapper: \IvozProvider\Mapper\Sql\KamPikeTrusted,
+        modelFile: KamPikeTrusted,
+        entity: 'Core\\Model\\KamPikeTrusted\\KamPikeTrusted'
+    }
+  - &KamRtpproxy {
+        mapper: \IvozProvider\Mapper\Sql\KamRtpproxy,
+        modelFile: KamRtpproxy,
+        entity: 'Core\\Model\\KamRtpproxy\\KamRtpproxy'
+    }
+  - &KamTrunksAcc {
+        mapper: \IvozProvider\Mapper\Sql\KamTrunksAcc,
+        modelFile: KamTrunksAcc,
+        entity: 'Core\\Model\\KamTrunksAcc\\KamTrunksAcc'
+    }
+  - &KamTrunksAddress {
+        mapper: \IvozProvider\Mapper\Sql\KamTrunksAddress,
+        modelFile: KamTrunksAddress,
+        entity: 'Core\\Model\\KamTrunksAddress\\KamTrunksAddress'
+    }
+  - &KamTrunksDialplan {
+        mapper: \IvozProvider\Mapper\Sql\KamTrunksDialplan,
+        modelFile: KamTrunksDialplan,
+        entity: 'Core\\Model\\KamTrunksDialplan\\KamTrunksDialplan'
+    }
+  - &KamTrunksDomain {
+        mapper: \IvozProvider\Mapper\Sql\KamTrunksDomain,
+        modelFile: KamTrunksDomain,
+        entity: 'Core\\Model\\KamTrunksDomain\\KamTrunksDomain'
+    }
+  - &KamTrunksDomainAttrs {
+        mapper: \IvozProvider\Mapper\Sql\KamTrunksDomainAttrs,
+        modelFile: KamTrunksDomainAttrs,
+        entity: 'Core\\Model\\KamTrunksDomainAttr\\KamTrunksDomainAttr'
+    }
+  - &KamTrunksHtable {
+        mapper: \IvozProvider\Mapper\Sql\KamTrunksHtable,
+        modelFile: KamTrunksHtable,
+        entity: 'Core\\Model\\KamTrunksHtable\\KamTrunksHtable'
+    }
+  - &KamTrunksUacreg {
+        mapper: \IvozProvider\Mapper\Sql\KamTrunksUacreg,
+        modelFile: KamTrunksUacreg,
+        entity: 'Core\\Model\\KamTrunksUacreg\\KamTrunksUacreg'
+    }
+  - &KamUsers {
+        mapper: \IvozProvider\Mapper\Sql\KamUsers,
+        modelFile: KamUsers,
+        entity: 'Core\\Model\\KamUser\\KamUser'
+    }
+  - &KamUsersAcc {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersAcc,
+        modelFile: KamUsersAcc,
+        entity: 'Core\\Model\\KamUsersAcc\\KamUsersAcc'
+    }
+  - &KamUsersAddress {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersAddress,
+        modelFile: KamUsersAddress,
+        entity: 'Core\\Model\\KamUsersAddress\\KamUsersAddress'
+    }
+  - &KamUsersDomain {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersDomain,
+        modelFile: KamUsersDomain,
+        entity: 'Core\\Model\\KamUsersDomain\\KamUsersDomain'
+    }
+  - &KamUsersDomainAttrs {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersDomainAttrs,
+        modelFile: KamUsersDomainAttrs,
+        entity: 'Core\\Model\\KamUsersDomainAttr\\KamUsersDomainAttr'
+    }
+  - &KamUsersHtable {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersHtable,
+        modelFile: KamUsersHtable,
+        entity: 'Core\\Model\\KamUsersHtable\\KamUsersHtable'
+    }
+  - &KamUsersLocation {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersLocation,
+        modelFile: KamUsersLocation,
+        entity: 'Core\\Model\\KamUsersLocation\\KamUsersLocation'
+    }
+  - &KamUsersLocationAttrs {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersLocationAttrs,
+        modelFile: KamUsersLocationAttrs,
+        entity: 'Core\\Model\\KamUsersLocationAttr\\KamUsersLocationAttr'
+    }
+  - &KamUsersMissedCalls {
+        mapper: \IvozProvider\Mapper\Sql\KamUsersMissedCalls,
+        modelFile: KamUsersMissedCalls,
+        entity: 'Core\\Model\\KamUsersMissedCalls\\KamUsersMissedCalls'
+    }
+  - &KamVersion {
+        mapper: \IvozProvider\Mapper\Sql\KamVersion,
+        modelFile: KamVersion,
+        entity: 'Core\\Model\\KamVersion\\KamVersion'
+    }

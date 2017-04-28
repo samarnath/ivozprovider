@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\OutgoingRouting
+  dto: Core\Application\DTO\OutgoingRoutingDTO
+  entity: Core\Model\OutgoingRouting\OutgoingRouting
   fields:
     type:
       title: ngettext('Type', 'Types', 1)
@@ -29,28 +31,32 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\RoutingPatterns
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\RoutingPatterns
+          entity: \Core\Model\RoutingPattern\RoutingPattern
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
               - name
               - description
               - regExp
             template: '%name% %description% (%regExp%)'
-          order: name_${lang}
+          order:
+            RoutingPattern.name${ucLang}: asc
     routingPatternGroupId:
       title: _('Select destination group')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\RoutingPatternGroups
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\RoutingPatternGroups
+          entity: \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            RoutingPatternGroup.name: asc
     peeringContractId:
       title: _('Peering contract')
       type: select
@@ -58,13 +64,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+          entity: \Core\Model\PeeringContract\PeeringContract
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            PeeringContract.name: asc
     priority:
       title: _('Priority')
       type: number
@@ -89,13 +97,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
         'null': _("Apply to all companies")
     target:
       title: _('Destination')

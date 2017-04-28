@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\LcrRules
+  dto: Core\Application\DTO\LcrRuleDTO
+  entity: Core\Model\LcrRule\LcrRule
   fields:
     brandId:
       title: _('Brand id')
@@ -8,12 +10,14 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
       default: true
     prefix:
       title: _('Prefix')

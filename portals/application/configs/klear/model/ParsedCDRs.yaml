@@ -1,58 +1,60 @@
 production: 
   class: \IvozProvider\Model\ParsedCDRs
+  dto: Core\Application\DTO\ParsedCDRDTO
+  entity: Core\Model\ParsedCDR\ParsedCDR
   fields: 
-    statId: 
+    statId:
       title: _('Stat id')
       type: number
       source: 
         control: Spinner
       default: true
-    xstatId: 
+    xstatId:
       title: _('Xstat id')
       type: number
       source: 
         control: Spinner
-    statType: 
+    statType:
       title: _('Stat type')
       type: text
       maxLength: 256
-    initialLeg: 
+    initialLeg:
       title: _('Initial leg')
       type: text
       maxLength: 128
-    initialLegHash: 
+    initialLegHash:
       title: _('Initial leg hash')
       type: text
       maxLength: 128
-    cid: 
+    cid:
       title: _('Cid')
       type: text
       maxLength: 128
-    cidHash: 
+    cidHash:
       title: _('Cid hash')
       type: text
       maxLength: 128
-    xcid: 
+    xcid:
       title: _('Xcid')
       type: text
       maxLength: 128
-    xcidHash: 
+    xcidHash:
       title: _('Xcid hash')
       type: text
       maxLength: 128
-    proxies: 
+    proxies:
       title: _('Proxy')
       type: text
       maxLength: 32
-    type: 
+    type:
       title: ngettext('Type', 'Types', 1)
       type: text
       maxLength: 32
-    subtype: 
+    subtype:
       title: _('Subtype')
       type: text
       maxLength: 64
-    calldate: 
+    calldate:
       title: _('Calldate')
       type: picker
       defaultValue: CURRENT_TIMESTAMP
@@ -60,90 +62,96 @@ production:
         control: datetime
         settings: 
           disabled: 'false'
-    duration: 
+    duration:
       title: _('Duration')
       type: number
       source: 
         control: Spinner
-    aParty: 
+    aParty:
       title: _('Caller')
       type: text
       maxLength: 128
-    bParty: 
+    bParty:
       title: _('Callee')
       type: text
       maxLength: 128
-    caller: 
+    caller:
       title: _('Original caller')
       type: text
       maxLength: 128
-    callee: 
+    callee:
       title: _('Dialed number')
       type: text
       maxLength: 128
-    xCaller: 
+    xCaller:
       title: _('Presented CID')
       type: text
       maxLength: 128
-    xCallee: 
+    xCallee:
       title: _('Final callee')
       type: text
       maxLength: 128
-    initialReferrer: 
+    initialReferrer:
       title: _('Initial referrer')
       type: text
       maxLength: 128
-    referrer: 
+    referrer:
       title: _('Referrer')
       type: text
       maxLength: 128
-    referee: 
+    referee:
       title: _('Referee')
       type: text
       maxLength: 128
-    lastForwarder: 
+    lastForwarder:
       title: _('Last forwarder')
       type: text
       maxLength: 32
-    brandId: 
+    brandId:
       title: _('Brand id')
       type: select
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
         'null': _("Unassigned")
-    companyId: 
+    companyId:
       title: _('Company id')
       type: select
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
         'null': _("Unassigned")
-    peeringContractId: 
+    peeringContractId:
       title: _('Peering contract id')
       type: select
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+#          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
+          entity: \Core\Model\PeeringContract\PeeringContract
           fieldName: 
             fields: 
               - description
             template: '%description%'
-          order: description
+          order:
+            PeeringContract.description: asc
         'null': _("Unassigned")
 staging: 
   _extends: production

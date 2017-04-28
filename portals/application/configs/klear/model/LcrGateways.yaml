@@ -1,109 +1,117 @@
 production: 
   class: \IvozProvider\Model\LcrGateways
+  dto: Core\Application\DTO\LcrGatewayDTO
+  entity: Core\Model\LcrGateway\LcrGateway
   fields: 
-    companyId: 
+    company:
       title: _('Company id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
       default: true
-    gw_name: 
+    gwName:
       title: _('Gw name')
       type: text
       trim: both
       required: true
       maxLength: 200
-    ip: 
+    ip:
       title: _('Ip')
       type: text
       trim: both
       required: true
       maxLength: 50
-    hostname: 
+    hostname:
       title: _('Hostname')
       type: text
       trim: both
       maxLength: 64
-    port: 
+    port:
       title: _('Port')
       type: number
       source: 
         control: Spinner
-    params: 
+    params:
       title: _('Param')
       type: text
       trim: both
       maxLength: 64
-    uri_scheme: 
+    uriScheme:
       title: _('Uri scheme')
       type: number
       source: 
         control: Spinner
-    transport: 
+    transport:
       title: _('Transport')
       type: number
       source: 
         control: Spinner
-    strip: 
+    strip:
       title: _('Strip')
       type: number
       source: 
         control: Spinner
-    prefix: 
+    prefix:
       title: _('Prefix')
       type: text
       trim: both
       maxLength: 16
-    tag: 
+    tag:
       title: _('Tag')
       type: text
       trim: both
       maxLength: 64
-    flags: 
+    flags:
       title: _('Flag')
       type: number
       defaultValue: 0
       source: 
         control: Spinner
-    defunct: 
+    defunct:
       title: _('Defunct')
       type: number
       source: 
         control: Spinner
-    peerServerId: 
+    peerServer:
       title: _('Peer server id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\PeerServers
+#          mapperName: \IvozProvider\Mapper\Sql\PeerServers
+          entity: \Core\Model\PeerServer\PeerServer
           fieldName: 
             fields: 
               - ip
             template: '%ip%'
-          order: ip
-    outgoingRoutingId: 
+          order:
+            PeerServer.ip: asc
+    outgoingRouting:
       title: _('Outgoing routing id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\OutgoingRouting
+#          mapperName: \IvozProvider\Mapper\Sql\OutgoingRouting
+          entity: \Core\Model\OutgoingRouting\OutgoingRouting
           fieldName: 
             fields: 
               - id
             template: '%id%'
-          order: id
+          order:
+            OutgoingRouting.id: asc
 staging: 
   _extends: production
 testing: 

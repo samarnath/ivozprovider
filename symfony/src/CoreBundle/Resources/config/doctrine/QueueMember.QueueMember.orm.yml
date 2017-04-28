@@ -1,0 +1,48 @@
+Core\Model\QueueMember\QueueMember:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\QueueMemberDoctrineRepository
+  type: entity
+  table: QueueMembers
+  indexes:
+    queueId:
+      columns:
+        - queueId
+    userId:
+      columns:
+        - userId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    penalty:
+      type: integer
+      nullable: true
+      options:
+        unsigned: false
+  manyToOne:
+    queue:
+      targetEntity: \Core\Model\Queue\Queue
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        queueId:
+          referencedColumnName: id
+      orphanRemoval: false
+    user:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        userId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

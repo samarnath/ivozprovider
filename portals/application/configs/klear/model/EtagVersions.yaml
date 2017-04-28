@@ -1,16 +1,18 @@
 production: 
   class: \IvozProvider\Model\EtagVersions
+  dto: Core\Application\DTO\EtagVersionDTO
+  entity: Core\Model\EtagVersion\EtagVersion
   fields: 
-    table: 
+    table:
       title: _('Table')
       type: text
       maxLength: 55
       default: true
-    etag: 
+    etag:
       title: _('Etag')
       type: text
       maxLength: 255
-    lastChange: 
+    lastChange:
       title: _('Last change')
       type: picker
       source: 

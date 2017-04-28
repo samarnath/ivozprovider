@@ -1,21 +1,25 @@
 production: 
   class: \IvozProvider\Model\CallForwardSettings
+  dto: Core\Application\DTO\CallForwardSettingDTO
+  entity: Core\Model\CallForwardSetting\CallForwardSetting
   fields: 
-    userId: 
+    userId:
       title: _('User id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Users
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            User.name: asc
       default: true
-    callTypeFilter: 
+    callTypeFilter:
       title: _('Call type')
       type: select
       required: true
@@ -25,7 +29,7 @@ production:
           'internal': _('internal')
           'external': _('external')
           'both': _('both')
-    callForwardType: 
+    callForwardType:
       title: _('Call forward type')
       type: select
       required: true
@@ -48,7 +52,7 @@ production:
             title: _('userNotRegistered')
             visualFilter:
               hide: ["noAnswerTimeout"]
-    targetType: 
+    targetType:
       title: _('Target type')
       type: select
       required: true
@@ -70,44 +74,48 @@ production:
             visualFilter:
               show: ["voiceMailUserId"]
               hide: ["extensionId", "numberValue"]
-    numberValue: 
+    numberValue:
       title: _('Number value')
       pattern: "^[0-9]+$"
       type: text
       trim: both
       required: true
-    extensionId: 
+    extensionId:
       title: _('Extension')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          filterClass: IvozProvider_Klear_Filter_ForwardExtension
-          fieldName: 
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
+          filterclass: IvozProvider_Klear_Filter_ForwardExtension
+          fieldName:
             fields: 
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
         'null': _("Unassigned")
-    voiceMailUserId: 
+    voiceMailUserId:
       title: _('Voice mail user')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName: 
             fields: 
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
-    noAnswerTimeout: 
+    noAnswerTimeout:
       title: _('No answer timeout')
       type: number
       defaultValue: 10

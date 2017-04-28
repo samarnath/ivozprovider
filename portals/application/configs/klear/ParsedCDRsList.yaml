@@ -12,9 +12,9 @@ production:
       csv: false
       order:
         field:
-          - brandId
-          - companyId
-          - calldate
+          - ParsedCDR.brand
+          - ParsedCDR.company
+          - ParsedCDR.calldate
         type: desc
       pagination: 
         items: 50
@@ -38,7 +38,7 @@ production:
           xcid: true
           xcidHash: true
           proxies: true
-          peeringContractId: true
+          peeringContract: true
           caller: true
           callee: true
           xCaller: true
@@ -49,8 +49,8 @@ production:
           lastForwarder: true
         order: &parsedCDRs_orderLink
           calldate: true
-          brandId: true
-          companyId: true
+          brand: true
+          company: true
           type: tru
           subtype: true
           aParty: true
@@ -68,8 +68,8 @@ production:
         order: 
           calldate: 1
           duration: 1
-          brandId: 1
-          companyId: 1
+          brand: 1
+          company: 1
           statId: 1
           xstatId: 1
           proxies: 1
@@ -92,7 +92,7 @@ production:
           cidHash: 1
           xcid: 1
           xcidHash: 1
-          peeringContractId: 1
+          peeringContract: 1
       fixedPositions:
         group0:
           label: _("Basic information")
@@ -100,8 +100,8 @@ production:
           fields:
             calldate: 8
             duration: 4
-            brandId: 12
-            companyId: 12
+            brand: 12
+            company: 12
         group1:
           label: _("Stats ids")
           colsPerRow: 12
@@ -147,7 +147,7 @@ production:
             cidHash: 4
             xcid: 8
             xcidHash: 4
-            peeringContractId: 8
+            peeringContract: 8
             statType: 4
 staging: 
   _extends: production

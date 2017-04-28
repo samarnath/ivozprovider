@@ -1,9 +1,36 @@
 <?php
+use Core\Application\DTO\PricingPlansRelTargetPatternDTO;
+
 class IvozProvider_Klear_Ghost_TargetPattern extends KlearMatrix_Model_Field_Ghost_Abstract {
-    
-    public function getTargetPattern(\IvozProvider\Model\Raw\PricingPlansRelTargetPatterns $model) {
-        if ($model->getTargetPattern() && $model->getTargetPattern()->getName()) {
-            return $model->getTargetPattern()->getName().' ('.$model->getTargetPattern()->getRegExp().')';
+
+    public function getTargetPattern($model)
+    {
+        if ($GLOBALS['sf']) {
+            if (!$model instanceof PricingPlansRelTargetPatternDTO) {
+                Throw new \Exception('model must be an instance of PricingPlansRelTargetPatternDTO');
+            }
+        } else if (!$GLOBALS['sf']) {
+            if (!$model instanceof \IvozProvider\Model\Raw\PricingPlansRelTargetPatterns) {
+                Throw new \Exception('model must be an instance of IvozProvider\Model\Raw\PricingPlansRelTargetPatterns');
+            }
+        }
+
+        if ($GLOBALS['sf']) {
+
+            if ($model->getTargetPatternId()) {
+                $dataGateway = \Zend_Registry::get('data_gateway');
+                $pattern = $dataGateway->find('Core\\Model\\TargetPattern\\TargetPattern', $model->getTargetPatternId());
+            }
+
+            if (isset($pattern)) {
+                return $pattern->getName().' ('.$pattern->getRegExp().')';
+            }
+
+        } else if (!$GLOBALS['sf']) {
+
+            if ($model->getTargetPattern() && $model->getTargetPattern()->getName()) {
+                return $model->getTargetPattern()->getName().' ('.$model->getTargetPattern()->getRegExp().')';
+            }
         }
 
         return '';
@@ -16,7 +43,20 @@ class IvozProvider_Klear_Ghost_TargetPattern extends KlearMatrix_Model_Field_Gho
         return "FIELD(campo,".implode(',',valoresOrdenados).")";
     }
 
-    public function getSearchConditionsForItem($values, $searchOps,\IvozProvider\Model\Raw\PricingPlansRelTargetPatterns $model) {
+    public function getSearchConditionsForItem($values, $searchOps, $model) {
+
+        if ($GLOBALS['sf']) {
+            if (!$model instanceof PricingPlansRelTargetPatternDTO) {
+                Throw new \Exception('model must be an instance of PricingPlansRelTargetPatternDTO');
+            }
+
+        } else if (!$GLOBALS['sf']) {
+
+            if (!$model instanceof \IvozProvider\Model\Raw\PricingPlansRelTargetPatterns) {
+                Throw new \Exception('model must be an instance of IvozProvider\Model\Raw\PricingPlansRelTargetPatterns');
+            }
+        }
+
         $conditions = array();
         $condition = array();
 
@@ -34,9 +74,16 @@ class IvozProvider_Klear_Ghost_TargetPattern extends KlearMatrix_Model_Field_Gho
             $conditions[] = '('.implode(' OR ',$condition).')';
         }
 
-        $mapperTargetPattern = new \IvozProvider\Mapper\Sql\TargetPatterns();
+        if ($GLOBALS['sf']) {
 
-        $targetPatterns = $mapperTargetPattern->fetchList(implode(' AND ',$conditions));
+            $dataGateway = \Zend_Registry::get('data_gateway');
+            $targetPatterns = $dataGateway->findBy('Core\\Model\\TargetPattern\\TargetPattern', $where);
+
+        } else if (!$GLOBALS['sf']) {
+
+            $mapperTargetPattern = new \IvozProvider\Mapper\Sql\TargetPatterns();
+            $targetPatterns = $mapperTargetPattern->fetchList(implode(' AND ',$conditions));
+        }
 
         $targetPatternsIds = array();
 

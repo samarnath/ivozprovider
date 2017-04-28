@@ -1,0 +1,51 @@
+Core\Model\KamTrunksHtable\KamTrunksHtable:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\KamTrunksHtableDoctrineRepository
+  type: entity
+  table: kam_trunks_htable
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    keyName:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+        default: ''
+      column: key_name
+    keyType:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+      column: key_type
+    valueType:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+      column: value_type
+    keyValue:
+      type: string
+      nullable: false
+      length: 128
+      options:
+        fixed: false
+        default: ''
+      column: key_value
+    expires:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+  lifecycleCallbacks: {  }

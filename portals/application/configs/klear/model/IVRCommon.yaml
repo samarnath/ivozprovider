@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\IVRCommon
+  dto: Core\Application\DTO\IVRCommonDTO
+  entity: Core\Model\IVRCommon\IVRCommon
   fields:
     companyId:
       title: _('Company id')
@@ -8,12 +10,14 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
       default: true
     name:
       title: ngettext('Name', 'Names', 1)
@@ -31,26 +35,30 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
     noAnswerLocutionId:
       title: _('No answer locution id')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
         'null': _("Unassigned")
     errorLocutionId:
       title: _('Error locution id')
@@ -58,13 +66,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
         'null': _("Unassigned")
     successLocutionId:
       title: _('Success locution id')
@@ -72,13 +82,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
         'null': _("Unassigned")
     timeout:
       title: _('Timeout')
@@ -152,13 +164,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
         'null': _("Unassigned")
     timeoutVoiceMailUserId:
       title: _('Timeout voice mail user id')
@@ -167,14 +181,16 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
     errorTargetType:
       title: _('Error target type')
@@ -213,13 +229,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
         'null': _("Unassigned")
     errorVoiceMailUserId:
       title: _('Error voice mail user id')
@@ -228,14 +246,16 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.number: asc
         'null': _("Unassigned")
     timeoutTarget:
       title: _('Timeout target')

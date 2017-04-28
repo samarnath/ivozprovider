@@ -25,19 +25,19 @@ production:
             externalCallFiltersDel_dialog: true
           default: externalCallFiltersEdit_screen
         blacklist:
-          companyId: false
+          company: false
           name: false
-          welcomeLocutionId: true
-          holidayLocutionId: true
-          outOfScheduleLocutionId: true
+          welcomeLocution: true
+          holidayLocution: true
+          outOfScheduleLocution: true
           holidayTargetType: false
           holidayNumberValue: true
-          holidayExtensionId: true
-          holidayVoiceMailUserId: true
+          holidayExtension: true
+          holidayVoiceMailUser: true
           outOfScheduleTargetType: false
           outOfScheduleNumberValue: true
-          outOfScheduleExtensionId: true
-          outOfScheduleVoiceMailUserId: true
+          outOfScheduleExtension: true
+          outOfScheduleVoiceMailUser: true
           ExternalCallFilterWhiteLists: true
           ExternalCallFilterBlackLists: true
         order: &externalCallFilters_orderLink
@@ -85,9 +85,9 @@ production:
         group0:
           colsPerRow: 2
           fields:
-            companyId: 1
+            company: 1
             name: 1
-            welcomeLocutionId: 1
+            welcomeLocution: 1
         group1:
           colsPerRow: 12
           fields:
@@ -96,19 +96,19 @@ production:
         group3:
           colsPerRow: 2
           fields:
-            holidayLocutionId: 2
+            holidayLocution: 2
             holidayTargetType: 1
             holidayNumberValue: 1
-            holidayExtensionId: 1
-            holidayVoiceMailUserId: 1
+            holidayExtension: 1
+            holidayVoiceMailUser: 1
         group4:
           colsPerRow: 2
           fields:
-            outOfScheduleLocutionId: 2
+            outOfScheduleLocution: 2
             outOfScheduleTargetType: 1
             outOfScheduleNumberValue: 1
-            outOfScheduleExtensionId: 1
-            outOfScheduleVoiceMailUserId: 1
+            outOfScheduleExtension: 1
+            outOfScheduleVoiceMailUser: 1
         group5:
           colsPerRow: 2
           fields:

@@ -30,7 +30,7 @@ production:
             peeringContractsDel_dialog: true
           default: peeringContractsEdit_screen
         order: &PeerContractsOrder_Link
-          brandId: true
+          brand: true
           name: true
           description: true
         blacklist:
@@ -74,28 +74,28 @@ production:
     <<: *peerServers_screensLink
     peerServersList_screen:
       <<: *peerServersList_screenLink
-      filterField: peeringContractId
+      filterField: PeeringContract
       parentOptionCustomizer:
         - recordCount
     peerServersNew_screen:
       <<: *peerServersNew_screenLink
-      filterField: peeringContractId
+      filterField: PeeringContract
     peerServersEdit_screen:
       <<: *peerServersEdit_screenLink
-      filterField: peeringContractId
+      filterField: PeeringContract
 
     #kamTrunksUacreg:
     kamTrunksUacregList_screen:
       <<: *kamTrunksUacregList_screenLink
-      filterField: peeringContractId
+      filterField: PeeringContract
       parentOptionCustomizer:
         - recordCount
     kamTrunksUacregNew_screen:
       <<: *kamTrunksUacregNew_screenLink
-      filterField: peeringContractId
+      filterField: PeeringContract
     kamTrunksUacregEdit_screen:
       <<: *kamTrunksUacregEdit_screenLink
-      filterField: peeringContractId
+      filterField: PeeringContract
 
     # TransformationRulesetGroupsTrunks
     <<: *transformationRulesetGroupsTrunks_screensLink

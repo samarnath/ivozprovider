@@ -1,39 +1,43 @@
 production: 
   class: \IvozProvider\Model\KamTrunksLcrRuleTarget
+  dto: Core\Application\DTO\KamTrunksLcrRuleTargetDTO
+  entity: Core\Model\KamTrunksLcrRuleTarget\KamTrunksLcrRuleTarget
   fields: 
-    lcrId: 
+    lcrId:
       title: _('Lcr id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
       default: true
-    ruleId: 
+    rule:
       title: _('Rule id')
       type: number
       required: true
       source: 
         control: Spinner
-    gwId: 
+    gw:
       title: _('Gw id')
       type: number
       required: true
       source: 
         control: Spinner
-    priority: 
+    priority:
       title: _('Priority')
       type: number
       required: true
       source: 
         control: Spinner
-    weight: 
+    weight:
       title: _('Weight')
       type: number
       defaultValue: 1

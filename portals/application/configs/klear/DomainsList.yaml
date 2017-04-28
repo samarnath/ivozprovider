@@ -30,13 +30,13 @@ production:
           target: true
           scope: true
           pointsTo: true
-          brandId: true
-          companyId: true
+          brand: true
+          company: true
           description: true
         blacklist:
           scope: true
-          brandId: true
-          companyId: true
+          brand: true
+          company: true
       options: 
         title: _("Options")
         screens: 
@@ -52,8 +52,8 @@ production:
           domain: true
           description: true
         blacklist:
-          companyId: true
-          brandId: true
+          company: true
+          brand: true
           target: true
         readOnly:
           scope: true
@@ -74,8 +74,8 @@ production:
           domain: true
           description: true
         blacklist:
-          companyId: true
-          brandId: true
+          company: true
+          brand: true
           scope: true
         readOnly:
           target: true
@@ -92,28 +92,28 @@ production:
     <<: *kamTrunksDomain_screensLink
     kamTrunksDomainList_screen: 
       <<: *kamTrunksDomainList_screenLink
-      filterField: domainId
+      filterField: Domain
       parentOptionCustomizer: 
         - recordCount
     kamTrunksDomainNew_screen: 
       <<: *kamTrunksDomainNew_screenLink
-      filterField: domainId
+      filterField: Domain
     kamTrunksDomainEdit_screen: 
       <<: *kamTrunksDomainEdit_screenLink
-      filterField: domainId
+      filterField: Domain
 
     #kamUsersDomain: 
     kamUsersDomainList_screen: 
       <<: *kamUsersDomainList_screenLink
-      filterField: domainId
+      filterField: Domain
       parentOptionCustomizer: 
         - recordCount
     kamUsersDomainNew_screen: 
       <<: *kamUsersDomainNew_screenLink
-      filterField: domainId
+      filterField: Domain
     kamUsersDomainEdit_screen: 
       <<: *kamUsersDomainEdit_screenLink
-      filterField: domainId
+      filterField: Domain
 
   dialogs: &domains_dialogsLink 
     domainsDel_dialog: &domainsDel_dialogLink 

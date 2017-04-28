@@ -11,11 +11,11 @@ production:
       csv: true
       order:
         field:
-          - start_time_utc
-          - brandId
-          - companyId
+          - KamAccCdr.startTimeUtc
+          - KamAccCdr.brand
+          - KamAccCdr.company
         type: desc
-      rawCondition: "peeringContractId IS NOT NULL AND peeringContractId != ''"
+      rawCondition: "KamAccCdr.peeringcontractid IS NOT NULL AND KamAccCdr.peeringcontractid != ''"
       pagination: 
         items: 25
       <<: *KamAccCdrs
@@ -45,25 +45,25 @@ production:
           externallyRated: true
           callidHash: true
           end_time_utc: true
-          pricingPlanId: true
+          pricingPlan: true
           pricingPlanName: true
-          targetPatternId: true
+          targetPattern: true
           targetPatternName: true
           targetPattern: true
           bounced: true
           metered: true
           pricingPlan: true
-          peeringContractId: true
+          peeringContract: true
         order:
           start_time_utc: true
-          brandId: true
-          companyId: true
+          brand: true
+          company: true
           direction: true
           caller: true
           callee: true
           duration: true
           price: true
-          invoiceId: true
+          invoice: true
     kamAccCdrsView_screen: &kamAccCdrsView_screenLink 
       <<: *KamAccCdrs
       controller: edit
@@ -88,22 +88,22 @@ production:
           pricingPlanDetails: true
           callidHash: true
           end_time_utc: true
-          pricingPlanId: true
+          pricingPlan: true
           pricingPlanName: true
-          targetPatternId: true
+          targetPattern: true
           targetPatternName: true
           bounced: true
         order:
-          brandId: 1
-          companyId: 1
+          brand: 1
+          company: 1
           caller: 1
           callee: 1
           start_time_utc: 1
           duration: 1
           price: 1
-          peeringContractId: 1
+          peeringContract: 1
           pricingPlan: 1
-          invoiceId: 1
+          invoice: 1
           metered: 1
           externallyRated: 1
           callid: 1
@@ -113,8 +113,8 @@ production:
           label: _("Basic information")
           colsPerRow: 12
           fields:
-            brandId: 6
-            companyId: 6
+            brand: 6
+            company: 6
             caller: 6
             callee: 6
             start_time_utc: 6
@@ -125,11 +125,11 @@ production:
           fields:
             price: 6
             pricingPlan: 6
-            peeringContractId: 6
+            peeringContract: 6
             targetPattern: 6
             pricingPlan: 6
             direction: 6
-            invoiceId: 6
+            invoice: 6
         group2:
           label: _("Troubleshooting details")
           colsPerRow: 12

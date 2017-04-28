@@ -53,18 +53,18 @@ production:
     <<: *holidayDates_screensLink
     holidayDatesList_screen:
       <<: *holidayDatesList_screenLink
-      filterField: calendarId
+      filterField: Calendar
       parentOptionCustomizer:
         - recordCount
 
     holidayDatesNew_screen:
       <<: *holidayDatesNew_screenLink
-      filterField: calendarId
+      filterField: Calendar
     holidayDatesEdit_screen:
       <<: *holidayDatesEdit_screenLink
       fields:
         readOnly:
-          calendarId: true
+          calendar: true
     
   dialogs: &calendars_dialogsLink
     calendarsDel_dialog: &calendarsDel_dialogLink 

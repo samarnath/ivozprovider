@@ -55,54 +55,54 @@ production:
     <<: *companies_screensLink
     companiesList_screen: 
       <<: *companiesList_screenLink
-      filterField: countryId
+      filterField: Country
       parentOptionCustomizer: 
         - recordCount
     companiesNew_screen: 
       <<: *companiesNew_screenLink
-      filterField: countryId
+      filterField: Country
     companiesEdit_screen: 
       <<: *companiesEdit_screenLink
-      filterField: countryId
+      filterField: Country
 
     #dDIs: 
     dDIsList_screen: 
       <<: *dDIsList_screenLink
-      filterField: countryId
+      filterField: Country
       parentOptionCustomizer: 
         - recordCount
     dDIsNew_screen: 
       <<: *dDIsNew_screenLink
-      filterField: countryId
+      filterField: Country
     dDIsEdit_screen: 
       <<: *dDIsEdit_screenLink
-      filterField: countryId
+      filterField: Country
 
     #timezones: 
     timezonesList_screen: 
       <<: *timezonesList_screenLink
-      filterField: countryId
+      filterField: Country
       parentOptionCustomizer: 
         - recordCount
     timezonesNew_screen: 
       <<: *timezonesNew_screenLink
-      filterField: countryId
+      filterField: Country
     timezonesEdit_screen: 
       <<: *timezonesEdit_screenLink
-      filterField: countryId
+      filterField: Country
 
     #users: 
     usersList_screen: 
       <<: *usersList_screenLink
-      filterField: countryId
+      filterField: Country
       parentOptionCustomizer: 
         - recordCount
     usersNew_screen: 
       <<: *usersNew_screenLink
-      filterField: countryId
+      filterField: Country
     usersEdit_screen: 
       <<: *usersEdit_screenLink
-      filterField: countryId
+      filterField: Country
 
   dialogs: &countries_dialogsLink 
     countriesDel_dialog: &countriesDel_dialogLink 

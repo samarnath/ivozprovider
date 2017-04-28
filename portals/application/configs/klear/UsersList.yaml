@@ -14,7 +14,8 @@ production:
       pagination:
         items: 25
       order:
-        field: name
+        field:
+          - User.name asc
       <<: *Users
       class: ui-silk-user
       title: _("List of %s %2s", ngettext('User', 'Users', 0), "[format| (%parent%)]")
@@ -31,21 +32,21 @@ production:
             usersDel_dialog: true
           default: usersEdit_screen
         order: &Users_orderLink
-          companyId: true
+          company: true
           name: true
           lastname: true
           email: true
           active: true
           pass: true
           doNotDisturb: true
-          timezoneId: true
-          extensionId: true
-          terminalId: true
-          outgoingDDIId: true
-          callACLId: true
+          timezone: true
+          extension: true
+          terminal: true
+          outgoingDDI: true
+          callACL: true
           voicemailEnabled: true
           isBoss: true
-          bossAssistantId: true
+          bossAssistant: true
           exceptionBoosAssistantRegExp: true
           PickUpRelUsers: true
         blacklist:
@@ -54,9 +55,9 @@ production:
           active: true
           doNotDisturb: true
           pass: true
-          timezoneId: true
-          callACLId: true
-          bossAssistantId: true
+          timezone: true
+          callACL: true
+          bossAssistant: true
           exceptionBoosAssistantRegExp: true
           HuntGroupsRelUsers: true
           PickUpRelUsers: true
@@ -64,12 +65,12 @@ production:
           isBoss: true
           maxCalls: true
           tokenKey: true
-          countryId: true
+          country: true
           areaCode: true
           voicemailEnabled: true
           voicemailAttachSound: true
           voicemailSendMail: true
-          languageId: true
+          language: true
           externalIpCalls: true
       options:
         title: _("Options")
@@ -98,9 +99,9 @@ production:
           active: true
           doNotDisturb: true
           pass: true
-          timezoneId: true
-          callACLId: true
-          bossAssistantId: true
+          timezone: true
+          callACL: true
+          bossAssistant: true
           exceptionBoosAssistantRegExp: true
           HuntGroupsRelUsers: true
           PickUpRelUsers: true
@@ -108,12 +109,12 @@ production:
           isBoss: true
           maxCalls: true
           tokenKey: true
-          countryId: true
+          country: true
           areaCode: true
           voicemailEnabled: true
           voicemailAttachSound: true
           voicemailSendMail: true
-          languageId: true
+          language: true
           externalIpCalls: true
       fixedPositions: &UsersFixedPositions_link
         group0:
@@ -127,9 +128,9 @@ production:
           label: _("Basic Configuration")
           colsPerRow: 6
           fields:
-            terminalId: 2
-            extensionId: 2
-            outgoingDDIId: 2
+            terminal: 2
+            extension: 2
+            outgoingDDI: 2
     usersEdit_screen: &usersEdit_screenLink
       <<: *Users
       controller: edit
@@ -152,10 +153,10 @@ production:
             name: 4
             lastname: 4
             email: 4
-            countryId: 5
+            country: 5
             areaCode: 5
-            languageId: 5
-            timezoneId: 5
+            language: 5
+            timezone: 5
         group1:
           label: _("Login info")
           colsPerRow: 3
@@ -167,18 +168,18 @@ production:
           colsPerRow: 12
           fields:
             isBoss: 4
-            bossAssistantId: 8
+            bossAssistant: 8
             exceptionBoosAssistantRegExp: 12
         group3:
           label: _("Basic Configuration")
           colsPerRow: 12
           fields:
-            terminalId: 4
-            extensionId: 4
-            outgoingDDIId: 4
-            callACLId: 6
-            doNotDisturb: 6
-            maxCalls: 6
+            terminal: 2
+            extension: 2
+            outgoingDDI: 2
+            callACL: 2
+            doNotDisturb: 2
+            maxCalls: 2
             externalIpCalls: 6
         group4:
           label: _("Voicemail")
@@ -199,31 +200,31 @@ production:
     huntGroupsRelUsersList_screen:
       <<: *huntGroupsRelUsersList_screenLink
       title: _("List of %s %2s", ngettext('Hunt group', 'Hunt groups', 0), "[format| (%parent%)]")
-      filterField: userId
+      filterField: User
       parentOptionCustomizer:
         - recordCount
     huntGroupsRelUsersNew_screen:
       <<: *huntGroupsRelUsersNew_screenLink
       title: _("Join to %s %2s", ngettext("hunt group", "hunt groups", 1), "[format| (%parent%)]")
-      filterField: userId
+      filterField: User
     huntGroupsRelUsersEdit_screen:
       <<: *huntGroupsRelUsersEdit_screenLink
-      filterField: userId
+      filterField: User
       title: _("Edit Join of %s", ngettext('Hunt group', 'Hunt groups', 1))
 
     #CallForwardSettings
     <<: *callForwardSettings_screensLink
     callForwardSettingsList_screen:
       <<: *callForwardSettingsList_screenLink
-      filterField: userId
+      filterField: User
       parentOptionCustomizer:
         - recordCount
     callForwardSettingsNew_screen:
       <<: *callForwardSettingsNew_screenLink
-      filterField: userId
+      filterField: User
     callForwardSettingsEdit_screen:
       <<: *callForwardSettingsEdit_screenLink
-      filterField: userId
+      filterField: User
       fields:
         blacklist:
           targetTypeValue: true
@@ -257,7 +258,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        companyId: ${auth.companyId}
+        company: ${auth.companyId}
 
 
     #HuntGroupsRelUsers

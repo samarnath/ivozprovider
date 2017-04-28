@@ -51,20 +51,20 @@ production:
     <<: *terminalModels_screensLink
     terminalModelsList_screen: 
       <<: *terminalModelsList_screenLink
-      filterField: TerminalManufacturerId
+      filterField: TerminalManufacturer
       parentOptionCustomizer:
         - recordCount
     terminalModelsNew_screen:
       <<: *terminalModelsNew_screenLink 
-      filterField: TerminalManufacturerId
+      filterField: TerminalManufacturer
     terminalModelsEdit_screen:
       <<: *terminalModelsEdit_screenLink
-#      filterField: TerminalManufacturerId
+#      filterField: IDENTITY(TerminalManufacturerId)
       fields:
         order:
           <<: *terminalModels_orderLink
         readOnly:
-          TerminalManufacturerId: true
+          TerminalManufacturer: true
     
   dialogs: 
     terminalManufacturersDel_dialog: &terminalManufacturersDel_dialogLink 

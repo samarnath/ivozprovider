@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\TerminalModels
+  dto: Core\Application\DTO\TerminalModelDTO
+  entity: Core\Model\TerminalModel\TerminalModel
   fields:
     iden:
       title: ngettext('Iden', 'Idens', 1)
@@ -25,13 +27,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\TerminalManufacturers
+#          mapperName: \IvozProvider\Mapper\Sql\TerminalManufacturers
+          entity: \Core\Model\TerminalManufacturer\TerminalManufacturer
           fieldName:
             fields:
               - iden
               - name
             template: '%name%'
-          order: iden
+          order:
+            TerminalManufacturer.iden: asc
     genericUrlPattern:
       title: _('Generic URL Pattern')
       type: text

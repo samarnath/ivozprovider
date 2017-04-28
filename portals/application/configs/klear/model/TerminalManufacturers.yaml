@@ -1,18 +1,20 @@
 production: 
   class: \IvozProvider\Model\TerminalManufacturers
+  dto: Core\Application\DTO\TerminalManufacturerDTO
+  entity: Core\Model\TerminalManufacturer\TerminalManufacturer
   fields: 
-    iden: 
+    iden:
       title: ngettext('Iden', 'Idens', 1)
       type: text
       trim: both
       required: true
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       defaultValue: 
       default: true
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       trim: both

@@ -1,0 +1,71 @@
+Core\Model\MainOperator\MainOperator:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\MainOperatorDoctrineRepository
+  type: entity
+  table: MainOperators
+  indexes:
+    timezoneId:
+      columns:
+        - timezoneId
+  uniqueConstraints:
+    username:
+      columns:
+        - username
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    username:
+      type: string
+      nullable: false
+      length: 65
+      options:
+        fixed: false
+    pass:
+      type: string
+      nullable: false
+      length: 80
+      options:
+        fixed: false
+        comment: '[password]'
+    email:
+      type: string
+      nullable: false
+      length: 100
+      options:
+        fixed: false
+        default: ''
+    active:
+      type: boolean
+      nullable: true
+      options:
+        default: '1'
+    name:
+      type: string
+      nullable: true
+      length: 100
+      options:
+        fixed: false
+    lastname:
+      type: string
+      nullable: true
+      length: 100
+      options:
+        fixed: false
+  manyToOne:
+    timezone:
+      targetEntity: \Core\Model\Timezone\Timezone
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        timezoneId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\ExternalCallFilters
+  dto: Core\Application\DTO\ExternalCallFilterDTO
+  entity: Core\Model\ExternalCallFilter\ExternalCallFilter
   fields:
     companyId:
       title: _('Company')
@@ -8,12 +10,14 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
     name:
       title: ngettext('Name', 'Names', 1)
       type: text
@@ -26,13 +30,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
           filterClass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
           extraDataAttributes:
             iden: companyId
         'null': _("Unassigned")
@@ -42,13 +48,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Locutions
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
           filterClass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
           extraDataAttributes:
             iden: companyId
         'null': _("Unassigned")
@@ -59,12 +67,15 @@ production:
         data: mapper
         config:
           mapperName: \IvozProvider\Mapper\Sql\Locutions
+#          mapperName: \IvozProvider\Mapper\Sql\Locutions
+          entity: \Core\Model\Locution\Locution
           filterClass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Locution.name: asc
           extraDataAttributes:
             iden: companyId
         'null': _("Unassigned")
@@ -105,13 +116,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
           filterClass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
           extraDataAttributes:
             iden: companyId
         'null': _("Unassigned")
@@ -122,14 +135,16 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
     outOfScheduleTargetType:
       title: _('Out of schedule target type')
@@ -168,13 +183,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Extensions
+#          mapperName: \IvozProvider\Mapper\Sql\Extensions
+          entity: \Core\Model\Extension\Extension
           filterClass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - number
             template: '%number%'
-          order: number
+          order:
+            Extension.number: asc
           extraDataAttributes:
             iden: companyId
         'null': _("Unassigned")
@@ -185,37 +202,41 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Voicemail
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
-    ExternalCallFilterRelSchedules:
+    ExternalCallFilterRelSchedule:
       title: _('Schedules')
       type: multiselect
       source:
         data: mapper
         config:
-          relationMapper: \IvozProvider\Mapper\Sql\ExternalCallFilterRelSchedules
-          relatedMapperName: \IvozProvider\Mapper\Sql\Schedules
-          relatedFieldName: name
+          relation: \Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule
           relationProperty: Schedule
-          filterClass: IvozProvider_Klear_Filter_Company
-    ExternalCallFilterRelCalendars:
+          relatedProperty: schedule
+          related: \Core\Model\Schedule\Schedule
+          filterclass: IvozProvider_Klear_Filter_Company
+          relatedFieldName: name
+    ExternalCallFilterRelCalendarId:
       title: _('Caledars')
       type: multiselect
       source:
         data: mapper
         config:
-          relationMapper: \IvozProvider\Mapper\Sql\ExternalCallFilterRelCalendars
-          relatedMapperName: \IvozProvider\Mapper\Sql\Calendars
+          relation: \Core\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar
+          relationProperty: filter
+          relatedProperty: calendar
+          related: \Core\Model\Calendar\Calendar
           relatedFieldName: name
-          relationProperty: Calendar
-          filterClass: IvozProvider_Klear_Filter_Company
+          filterclass: IvozProvider_Klear_Filter_Company
     holidayTarget:
       title: _('Holiday target')
       type: ghost

@@ -1,13 +1,15 @@
 production: 
   class: \IvozProvider\Model\ProxyUsers
+  dto: Core\Application\DTO\ProxyUserDTO
+  entity: Core\Model\ProxyUser\ProxyUser
   fields: 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       maxLength: 100
       default: true
-    ip: 
+    ip:
       title: _('Ip')
       type: text
       trim: both

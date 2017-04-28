@@ -2,20 +2,24 @@
 
 production:
   class: \IvozProvider\Model\Extensions
+  dto: Core\Application\DTO\ExtensionDTO
+  entity: Core\Model\Extension\Extension
   fields:
-    companyId:
+    company:
       title: _('Company id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
     number:
       title: _('Number')
       type: text
@@ -34,7 +38,7 @@ production:
       type: select
       source:
         data: inline
-        filterClass: IvozProvider_Klear_Filter_RouteTypes
+        filterclass: IvozProvider_Klear_Filter_RouteTypes
         values:
           '__null__':
             title: _("Unassigned")
@@ -115,81 +119,91 @@ production:
       required: true
       maxLength: 25
       trim: both
-    IVRCommonId:
+    IVRCommon:
       title: _('I v r common id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\IVRCommon
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\IVRCommon
+          entity: \Core\Model\IVRCommon\IVRCommon
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            IVRCommon.name: asc
         'null': _("Unassigned")
-    IVRCustomId:
+    IVRCustom:
       title: _('I v r custom id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\IVRCustom
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\IVRCustom
+          entity: \Core\Model\IVRCustom\IVRCustom
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            IVRCustom.name: asc
         'null': _("Unassigned")
-    huntGroupId:
+    huntGroup:
       title: _('Hunt group id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
+          entity: \Core\Model\HuntGroup\HuntGroup
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            HuntGroup.name: asc
         'null': _("Unassigned")
-    conferenceRoomId:
+    conferenceRoom:
       title: _('Conference room id')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\ConferenceRooms
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\ConferenceRooms
+          entity: \Core\Model\ConferenceRoom\ConferenceRoom
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            ConferenceRoom.name: asc
         'null': _("Unassigned")
-    userId:
+    user:
       title: _('User')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name
+          order:
+            User.name: asc
         'null': _("Unassigned")
     friendValue:
       title: _('Friend value')
@@ -197,20 +211,22 @@ production:
       maxLength: 25
       required: true
       <<: *friendValueHelp
-    queueId:
+    queue:
       title: _('Queue')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Queues
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Queues
+          entity: \Core\Model\Queue\Queue
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Queue.name: asc
         'null': _("Unassigned")
     target:
       title: _('Target')

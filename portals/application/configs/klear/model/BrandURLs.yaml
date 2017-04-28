@@ -1,20 +1,24 @@
 production: 
   class: \IvozProvider\Model\BrandURLs
+  dto: Core\Application\DTO\BrandURLDTO
+  entity: Core\Model\BrandURL\BrandURL
   fields: 
-    brandId: 
+    brandId:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
-    url: 
+          order:
+            Brand.name: asc
+    url:
       title: ngettext('Url', 'Urls', 1)
       type: text
       pattern: "^https://.*$"
@@ -27,13 +31,13 @@ production:
         icon: help
         text: _("'https://' URLs valid only")
         label: _("Need help?")
-    klearTheme: 
+    klearTheme:
       title: ngettext('Klear theme', 'Klear themes', 1)   
       type: select
       defaultValue: redmond
       source:
         data: themes
-    userTheme: 
+    userTheme:
       title: ngettext('User theme', 'User themes', 1)
       type: select
       defaultValue: redmond
@@ -76,7 +80,7 @@ production:
             title: United
           yeti:
             title: Yeti
-    urlType: 
+    urlType:
       title: _('Url type')
       type: select
       required: true
@@ -103,7 +107,7 @@ production:
             visualFilter:
               show: ["userTheme"]
               hide: ["klearTheme"]
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
@@ -116,53 +120,53 @@ production:
         icon: help
         text: _("Will be shown on page footer")
         label: _("Need help?")
-    logo: 
-      title: _('Logo')
-      type: file
-      source: 
-        data: fso
-        size_limit: 20M
-        options:
-          hiddenName: true        
-          download: 
-            external: true
-            type: command
-            target: brandURLsLogoDownload_command
-            icon: ui-silk-bullet-disk
-            title: _("Download file")
-            onNull: hide
-          delete:
-            type: setNullFso
-            icon: ui-silk-bin
-            title: _("Delete file")
-            onNull: hide
-          upload: 
-            type: command
-            target: brandURLsLogoUpload_command
-            title: _("Upload file")
-            class: qq-uploader
-            onNull: show
-          preview: 
-            target: brandURLsLogoPreview_command
-            type: command
-            class: filePreview
-            external: 1
-            props: 
-              width: 150
-              height: 150
-              crop: false
-            onNull: hide
-          previewList: 
-            target: brandURLsLogoPreview_command
-            type: command
-            class: filePreview
-            listController: 1
-            external: 1
-            props: 
-              width: 30
-              height: 30
-              crop: false
-            onNull: hide
+#    logo:
+#      title: _('Logo')
+#      type: file
+#      source:
+#        data: fso
+#        size_limit: 20M
+#        options:
+#          hiddenName: true
+#          download:
+#            external: true
+#            type: command
+#            target: brandURLsLogoDownload_command
+#            icon: ui-silk-bullet-disk
+#            title: _("Download file")
+#            onNull: hide
+#          delete:
+#            type: setNullFso
+#            icon: ui-silk-bin
+#            title: _("Delete file")
+#            onNull: hide
+#          upload:
+#            type: command
+#            target: brandURLsLogoUpload_command
+#            title: _("Upload file")
+#            class: qq-uploader
+#            onNull: show
+#          preview:
+#            target: brandURLsLogoPreview_command
+#            type: command
+#            class: filePreview
+#            external: 1
+#            props:
+#              width: 150
+#              height: 150
+#              crop: false
+#            onNull: hide
+#          previewList:
+#            target: brandURLsLogoPreview_command
+#            type: command
+#            class: filePreview
+#            listController: 1
+#            external: 1
+#            props:
+#              width: 30
+#              height: 30
+#              crop: false
+#            onNull: hide
 staging: 
   _extends: production
 testing: 

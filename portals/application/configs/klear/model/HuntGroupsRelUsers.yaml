@@ -1,42 +1,48 @@
 production: 
   class: \IvozProvider\Model\HuntGroupsRelUsers
+  dto: Core\Application\DTO\HuntGroupsRelUserDTO
+  entity: Core\Model\HuntGroupsRelUser\HuntGroupsRelUser
   fields: 
-    huntGroupId: 
+    huntGroup:
       title: _('Hunt group id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
+          entity: \Core\Model\HuntGroup\HuntGroup
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            HuntGroup.name: asc
       default: true
-    userId: 
+    user:
       title: _('User id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Users
-          filterClass: IvozProvider_Klear_Filter_Company
+#          mapperName: \IvozProvider\Mapper\Sql\Users
+          entity: \Core\Model\User\User
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName: 
             fields: 
               - name
               - lastname
             template: '%name% %lastname%'
-          order: name          
-    timeoutTime: 
+          order:
+            User.name: asc
+    timeoutTime:
       title: _('Timeout time')
       type: number
       source:
         control: Spinner
-    priority: 
+    priority:
       title: _('Priority')
       type: number
       source:

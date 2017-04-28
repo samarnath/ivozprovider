@@ -1,23 +1,25 @@
 production: 
   class: \IvozProvider\Model\MainOperators
+  dto: Core\Application\DTO\MainOperatorDTO
+  entity: Core\Model\MainOperator\MainOperator
   fields: 
-    username: 
+    username:
       title: _('Username')
       type: text
       trim: both
       required: true
       maxLength: 65
       default: true
-    pass: 
+    pass:
       title: _('Pass')
       type: password
       required: true
       adapter: Blowfish
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
-    lastname: 
+    lastname:
       title: _('Lastname')
       type: text
       trim: both
@@ -27,7 +29,7 @@ production:
       trim: both
       defaultValue:
       maxLength: 100
-    active: 
+    active:
       title: _('Active')
       type: select
       defaultValue: 1
@@ -38,7 +40,7 @@ production:
             title: _("No")
           '1': 
             title: _("Yes")
-    timezoneId: 
+    timezoneId:
       title: _('Timezone')
       type: select
       defaultValue: 145
@@ -46,12 +48,14 @@ production:
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Timezones
+#          mapperName: \IvozProvider\Mapper\Sql\Timezones
+          entity: \Core\Model\Timezone\Timezone
           fieldName: 
             fields: 
               - tz
             template: '%tz%'
-          order: tz
+          order:
+            Timezone.tz: asc
 staging: 
   _extends: production
 testing: 

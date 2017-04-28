@@ -33,7 +33,7 @@ production:
         order:
           name: true
           domain: true
-          TerminalModelId: true
+          TerminalModel: true
           mac: true
           allow_audio: true
           allow_video: true
@@ -66,7 +66,7 @@ production:
           allow_audio: true
           allow_video: true
           direct_media_method: true
-          TerminalModelId: true
+          TerminalModel: true
           mac: true
           lastProvisionDate: true
         blacklist:
@@ -92,7 +92,7 @@ production:
           label: _("Provisioning Info")
           colsPerRow: 12
           fields:
-            TerminalModelId: 6
+            TerminalModel: 6
             mac: 6
             lastProvisionDate: 6
     terminalsEdit_screen: &terminalsEdit_screenLink
@@ -119,7 +119,7 @@ production:
           allow_audio: true
           allow_video: true
           direct_media_method: true
-          TerminalModelId: true
+          TerminalModel: true
           mac: true
           lastProvisionDate: true
       fixedPositions:

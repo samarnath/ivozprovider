@@ -1,0 +1,54 @@
+Core\Model\RoutingPatternGroup\RoutingPatternGroup:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\RoutingPatternGroupDoctrineRepository
+  type: entity
+  table: RoutingPatternGroups
+  indexes:
+    brandId:
+      columns:
+        - brandId
+  uniqueConstraints:
+    name:
+      columns:
+        - name
+        - brandId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+    description:
+      type: string
+      nullable: true
+      length: 55
+      options:
+        fixed: false
+  manyToOne:
+    brand:
+      targetEntity: \Core\Model\Brand\Brand
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  oneToMany:
+    relPatterns:
+      targetEntity: Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern
+      mappedBy: routingPatternGroup
+      orphanRemoval: true
+      cascade: ['persist']
+  lifecycleCallbacks: {  }

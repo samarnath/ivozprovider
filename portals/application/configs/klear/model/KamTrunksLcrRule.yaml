@@ -1,39 +1,43 @@
 production: 
   class: \IvozProvider\Model\KamTrunksLcrRule
+  dto: Core\Application\DTO\KamTrunksLcrRuleDTO
+  entity: Core\Model\KamTrunksLcrRule\KamTrunksLcrRule
   fields: 
-    lcrId: 
+    lcrId:
       title: _('Lcr id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
       default: true
-    prefix: 
+    prefix:
       title: _('Prefix')
       type: text
       trim: both
-    fromUri: 
+    fromUri:
       title: _('From uri')
       type: text
       trim: both
-    requestUri: 
+    requestUri:
       title: _('Request uri')
       type: text
       trim: both
-    stopper: 
+    stopper:
       title: _('Stopper')
       type: number
       defaultValue: 0
       source: 
         control: Spinner
-    enabled: 
+    enabled:
       title: _('Enabled')
       type: number
       defaultValue: 1

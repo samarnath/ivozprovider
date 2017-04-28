@@ -1,0 +1,170 @@
+Core\Model\Brand\Brand:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\BrandDoctrineRepository
+  type: entity
+  table: Brands
+  indexes:
+    defaultTimezoneId:
+      columns:
+        - defaultTimezoneId
+    languageId:
+      columns:
+        - languageId
+  uniqueConstraints:
+    name:
+      columns:
+        - name
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 75
+      options:
+        fixed: false
+    nif:
+      type: string
+      nullable: false
+      length: 25
+      options:
+        fixed: false
+    domainTrunks:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: domain_trunks
+    logoFileSize:
+      type: integer
+      nullable: true
+      options:
+        unsigned: true
+        comment: '[FSO]'
+      column: logoFileSize
+    logoMimeType:
+      type: string
+      nullable: true
+      length: 80
+      options:
+        fixed: false
+      column: logoMimeType
+    logoBaseName:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: logoBaseName
+    postalAddress:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+      column: postalAddress
+    postalCode:
+      type: string
+      nullable: false
+      length: 10
+      options:
+        fixed: false
+      column: postalCode
+    town:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    province:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    country:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    registryData:
+      type: string
+      nullable: true
+      length: 1024
+      options:
+        fixed: false
+      column: registryData
+    fromName:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: FromName
+    fromAddress:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: FromAddress
+    recordingsLimitMB:
+      type: integer
+      nullable: true
+      options:
+        unsigned: false
+      column: recordingsLimitMB
+    recordingslimitemail:
+      type: string
+      nullable: true
+      length: 250
+      options:
+        fixed: false
+      column: recordingsLimitEmail
+  manyToOne:
+    language:
+      targetEntity: \Core\Model\Language\Language
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        languageId:
+          referencedColumnName: id
+      orphanRemoval: false
+    defaultTimezone:
+      targetEntity: \Core\Model\Timezone\Timezone
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        defaultTimezoneId:
+          referencedColumnName: id
+      orphanRemoval: false
+  oneToMany:
+    operators:
+      targetEntity: Core\Model\BrandOperator\BrandOperator
+      mappedBy: brand
+    services:
+      targetEntity: Core\Model\BrandService\BrandService
+      mappedBy: brand
+    urls:
+      targetEntity: Core\Model\BrandURL\BrandURL
+      mappedBy: brand
+    relFeatures:
+      targetEntity: Core\Model\FeaturesRelBrand\FeaturesRelBrand
+      mappedBy: brand
+    domains:
+      targetEntity: Core\Model\Domain\Domain
+      mappedBy: brand
+
+  lifecycleCallbacks: {  }

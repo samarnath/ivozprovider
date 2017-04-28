@@ -1,14 +1,16 @@
 production: 
   class: \IvozProvider\Model\Domains
+  dto: Core\Application\DTO\DomainDTO
+  entity: Core\Model\Domain\Domain
   fields: 
-    domain: 
+    domain:
       title: _('Domain')
       type: text
       trim: both
       required: true
       maxLength: 255
       default: true
-    scope: 
+    scope:
       title: _('Scope')
       type: select
       defaultValue: global
@@ -30,7 +32,7 @@ production:
             visualFilter:
               hide: ["companyId"]
               show: ["brandId", "pointsTo"]
-    pointsTo: 
+    pointsTo:
       title: _('Points to')
       type: select
       defaultValue: proxyusers
@@ -39,33 +41,37 @@ production:
         values: 
           'proxyusers': _('proxyusers')
           'proxytrunks': _('proxytrunks')
-    brandId: 
+    brandId:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
-    companyId: 
+          order:
+            Brand.name: asc
+    companyId:
       title: _('Company id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
-    descripton: 
+          order:
+            Company.name: asc
+    description:
       title: _('Description')
       type: text
       trim: both

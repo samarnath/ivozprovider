@@ -52,6 +52,7 @@ class ExternalDDICallAction extends ExternalCallAction
 
         // Check if the diversion header contains a valid number
         $this->checkDiversionNumber($company);
+
         // Update caller displayed number
         $this->updateOriginConnectedLine($e164number);
         // Check if DDI has recordings enabled

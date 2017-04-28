@@ -1,0 +1,178 @@
+Core\Model\ExternalCallFilter\ExternalCallFilter:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\ExternalCallFilterDoctrineRepository
+  type: entity
+  table: ExternalCallFilters
+  indexes:
+    companyId:
+      columns:
+        - companyId
+    welcomeLocutionId:
+      columns:
+        - welcomeLocutionId
+    holidayLocutionId:
+      columns:
+        - holidayLocutionId
+    outOfScheduleLocutionId:
+      columns:
+        - outOfScheduleLocutionId
+    holidayExtensionId:
+      columns:
+        - holidayExtensionId
+    outOfScheduleExtensionId:
+      columns:
+        - outOfScheduleExtensionId
+    holidayVoiceMailUserId:
+      columns:
+        - holidayVoiceMailUserId
+    outOfScheduleVoiceMailUserId:
+      columns:
+        - outOfScheduleVoiceMailUserId
+  uniqueConstraints:
+    nameCompany:
+      columns:
+        - name
+        - companyId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      column: name
+      type: string
+      nullable: false
+      length: 50
+      options:
+        fixed: false
+    holidayTargetType:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:number|extension|voicemail]'
+      column: holidayTargetType
+    holidayNumberValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: holidayNumberValue
+    outOfScheduleTargetType:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:number|extension|voicemail]'
+      column: outOfScheduleTargetType
+    outOfScheduleNumberValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: outOfScheduleNumberValue
+    blackListRegExp:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: blackListRegExp
+    whiteListRegExp:
+      type: string
+      nullable: true
+      length: 255
+      options:
+        fixed: false
+      column: whiteListRegExp
+  manyToOne:
+    company:
+      targetEntity: \Core\Model\Company\Company
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        companyId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    welcomeLocution:
+      targetEntity: \Core\Model\Locution\Locution
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        welcomeLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    holidayLocution:
+      targetEntity: \Core\Model\Locution\Locution
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        holidayLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    outOfScheduleLocution:
+      targetEntity: \Core\Model\Locution\Locution
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        outOfScheduleLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    holidayExtension:
+      targetEntity: \Core\Model\Extension\Extension
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        holidayExtensionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    outOfScheduleExtension:
+      targetEntity: \Core\Model\Extension\Extension
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        outOfScheduleExtensionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    holidayVoiceMailUser:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        holidayVoiceMailUserId:
+          referencedColumnName: id
+      orphanRemoval: false
+    outOfScheduleVoiceMailUser:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        outOfScheduleVoiceMailUserId:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

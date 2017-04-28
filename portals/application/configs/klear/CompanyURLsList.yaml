@@ -14,7 +14,7 @@ production:
   screens: &companyURLs_screensLink
     companyURLsList_screen: &companyURLsList_screenLink
       controller: list
-      rawCondition: "urlType IN ('admin', 'user')"
+      rawCondition: "BrandURL.urlType IN ('admin', 'user')"
       forcedValues:
         <<: *forcedBrand
       pagination:

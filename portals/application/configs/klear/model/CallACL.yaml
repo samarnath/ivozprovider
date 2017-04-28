@@ -1,5 +1,7 @@
 production:
   class: \IvozProvider\Model\CallACL
+  dto: Core\Application\DTO\CallACLDTO
+  entity: Core\Model\CallACL\CallACL
   fields:
     companyId:
       title: _('Company')
@@ -8,12 +10,14 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
     name:
       title: ngettext('Name', 'Names', 1)
       type: text
@@ -29,7 +33,7 @@ production:
         values:
           'allow': _('allow')
           'deny': _('deny')
-    CallACLRelPatterns:
+    CallACLRelPatternId:
       title: _('Call ACL Patterns')
       searchable: false
       type: ghost
@@ -37,14 +41,16 @@ production:
         predefined: list
       data: mapper
       config:
-        mapperName: \IvozProvider\Mapper\Sql\CallACLRelPatterns
-        filterField: CallACLId
+#        mapperName: \IvozProvider\Mapper\Sql\CallACLRelPatterns
+        entity: \Core\Model\CallACLRelPattern\CallACLRelPattern
+        filterField: CallACL
         showAsTable: true
         fieldName:
           fields:
-            CallACLPatternId:
+            CallACLPattern:
               title: _("Name")
-              mapperName: \IvozProvider\Mapper\Sql\CallACLPatterns
+#              mapperName: \IvozProvider\Mapper\Sql\CallACLPatterns
+              entity: \Core\Model\CallACLPattern\CallACLPattern
               field:
                 - name
               pattern: "%name%"
@@ -52,7 +58,8 @@ production:
               title: _("Priority")
             policy:
               title: _("Policy")
-        order: priority
+        order:
+          CallACLRelPattern.priority: asc
         options:
           dialogs:
             callACLRelPatternsDel_dialog: true

@@ -1,38 +1,42 @@
 production: 
   class: \IvozProvider\Model\BrandOperators
+  dto: Core\Application\DTO\BrandOperatorDTO
+  entity: Core\Model\BrandOperator\BrandOperator
   fields: 
-    brandId: 
+    brandId:
       title: _('Brand')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
-          fieldName: 
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
+          fieldName:
             fields: 
               - name
             template: '%name%'
-          order: name
-    username: 
+          order:
+            Brand.name: asc
+    username:
       title: _('Username')
       type: text
       trim: both
       required: true
       default: true
       maxLength: 65
-    pass: 
+    pass:
       title: _('Pass')
       type: password
       required: true
       adapter: Blowfish
-    email: 
+    email:
       title: ngettext('Email', 'Emails', 1)
       type: text
       trim: both
       defaultValue:
       maxLength: 100
-    active: 
+    active:
       title: _('Active')
       type: select
       defaultValue: 1
@@ -43,7 +47,7 @@ production:
             title: _("No")
           '1': 
             title: _("Yes")
-    timezoneId: 
+    timezoneId:
       title: _('Timezone')
       type: select
       defaultValue: 145
@@ -51,17 +55,19 @@ production:
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          fieldName: 
+#          mapperName: \IvozProvider\Mapper\Sql\Timezones
+          entity: \Core\Model\Timezone\Timezone
+          fieldName:
             fields: 
               - tz
             template: '%tz%'
-          order: tz
-    name: 
+          order:
+            Timezone.tz: asc
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
-    lastname: 
+    lastname:
       title: _('Lastname')
       type: text
       trim: both

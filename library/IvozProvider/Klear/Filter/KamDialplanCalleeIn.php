@@ -19,22 +19,37 @@ class IvozProvider_Klear_Filter_KamDialplanCalleeIn implements KlearMatrix_Model
         switch ($currentItemName) {
             case "transformationRulesetGroupsTrunksList_screen":
             case "kamTrunksDialplan_callee_inList_screen":
-                $mapper = new \IvozProvider\Mapper\Sql\TransformationRulesetGroupsTrunks();
+
+
+                if ($GLOBALS['sf']) {
+                    $entity = 'Core:TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunk';
+                } else if (!$GLOBALS['sf']) {
+                    $mapper = new \IvozProvider\Mapper\Sql\TransformationRulesetGroupsTrunks();
+                }
+
                 break;
-            case "transformationRulesetGroupsUsersList_screen":
-            case "kamUsersDialplan_callee_inList_screen":
-                $mapper = new \IvozProvider\Mapper\Sql\TransformationRulesetGroupsUsers();
-                break;
+//            case "transformationRulesetGroupsUsersList_screen":
+//            case "kamUsersDialplan_callee_inList_screen":
+//                $mapper = new \IvozProvider\Mapper\Sql\TransformationRulesetGroupsUsers();
+//                break;
             default:
                 throw new Klear_Exception_Default("List screen not valid");
                 break;
         }
 
-        $transformationRulesetGroupModel = $mapper->find($routeDispatcher->getParam("pk"));
+
+        if ($GLOBALS['sf']) {
+            $pk = $routeDispatcher->getParam("pk");
+            $dataGateway = \Zend_Registry::get('data_gateway');
+            $transformationRulesetGroupModel = $dataGateway->find($entity, $pk);
+        } else if (!$GLOBALS['sf']) {
+            $transformationRulesetGroupModel = $mapper->find($routeDispatcher->getParam("pk"));
+        }
+
         $filterValue = $transformationRulesetGroupModel->getCalleeIn();
-        $condition = "dpid = ".$filterValue;
+        $condition = "KamTrunksDialplan.dpid = ".$filterValue;
         if (is_null($filterValue)) {
-            $condition = "dpid is null";
+            $condition = "KamTrunksDialplan.dpid is null";
         }
 
         $this->_condition[] = $condition;

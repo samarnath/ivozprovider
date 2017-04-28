@@ -48,13 +48,13 @@ production:
     <<: *kamRtpproxy_screensLink
     kamRtpproxyList_screen: 
       <<: *kamRtpproxyList_screenLink
-      filterField: mediaRelaySetsId
+      filterField: MediaRelaySet
     kamRtpproxyNew_screen: 
       <<: *kamRtpproxyNew_screenLink
-      filterField: mediaRelaySetsId
+      filterField: MediaRelaySet
     kamRtpproxyEdit_screen: 
       <<: *kamRtpproxyEdit_screenLink
-      filterField: mediaRelaySetsId
+      filterField: MediaRelaySet
 
   dialogs: &mediaRelaySets_dialogsLink 
     mediaRelaySetsDel_dialog: &mediaRelaySetsDel_dialogLink 

@@ -1,0 +1,65 @@
+{
+    "name": "irontec/ivozprovider",
+    "description": "Multitenant solution for VoIP telephony providers",
+    "authors": [
+        {
+            "name": "Carlos Cruz",
+            "email": "carlos@irontec.com"
+        },
+        {
+            "name": "Gaizka Elexpe",
+            "email": "gaizka@irontec.com"
+        },
+        {
+            "name": "Gorka Gorrotxategi",
+            "email": "gorka.g@irontec.com"
+        },
+        {
+            "name": "Ivan Alonso",
+            "email": "kaian@irontec.com"
+        },
+        {
+            "name": "Luis Felipe García",
+            "email": "lfgarcia@irontec.com"
+        },
+        {
+            "name": "Mikel Madariaga",
+            "email": "mikel@irontec.com"
+        },
+        {
+            "name": "Victor Vargas",
+            "email": "victor@irontec.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/irontec/klear-library"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/irontec/klear"
+        },
+        {
+            "type":"vcs",
+            "url": "https://github.com/irontec/klearMatrix"
+        },
+        {
+            "type":"vcs",
+            "url": "https://github.com/irontec/klear-generator"
+        }
+        
+    ],
+    "require": {
+         "php": ">=5.6.30"
+    },
+    "require-dev": {
+        "irontec/klearMatrix": "dev-tayler",
+        "irontec/Iron": "dev-tayler",
+        "irontec/klear": "dev-tayler",
+        "irontec/Generator": "dev-tayler",
+        "zendframework/zendframework1": "1.12.*",
+        "phing/phing": "2.*",
+        "symfony/event-dispatcher": "3.2.*"
+    }
+}

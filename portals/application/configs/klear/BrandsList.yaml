@@ -20,8 +20,11 @@ production:
           name: true
           nif: true
           logo: true
-          defaultTimezoneId: true
-          languageId: true
+          defaultTimezone: true
+          language: true
+          domain_users: true
+          defaultTimezone: true
+          language: true
           postalAddress: true
           postalCode: true
           town: true
@@ -36,8 +39,8 @@ production:
           country: true
           town: true
           registryData: true
-          languageId: true
-          defaultTimezoneId: true
+          language: true
+          defaultTimezone: true
           FromName: true
           FromAddress: true
           recordingsLimitMB: true
@@ -70,8 +73,8 @@ production:
         blacklist:
           nif: true
           logo: true
-          defaultTimezoneId: true
-          languageId: true
+          defaultTimezone: true
+          language: true
           postalAddress: true
           postalCode: true
           town: true
@@ -104,8 +107,8 @@ production:
           label: _("Locales")
           colsPerRow: 2
           fields:
-            defaultTimezoneId: 1
-            languageId: 1
+            defaultTimezone: 1
+            language: 1
         group3:
           colsPerRow: 2
           label: _("Invoice data")
@@ -151,32 +154,32 @@ production:
     <<: *brandOperators_screensLink
     brandOperatorsList_screen:
       <<: *brandOperatorsList_screenLink
-      filterField: brandId
+      filterField: Brand
       forcedValues:
       parentOptionCustomizer:
         - recordCount
     brandOperatorsNew_screen:
       <<: *brandOperatorsNew_screenLink
-      filterField: brandId
+      filterField: Brand
       forcedValues:
     brandOperatorsEdit_screen:
       <<: *brandOperatorsEdit_screenLink
-      filterField: brandId
+      filterField: Brand
       forcedValues:
 
     # Brand URLs
     <<: *brandURLs_screensLink
     brandURLsList_screen:
       <<: *brandURLsList_screenLink
-      filterField: brandId
+      filterField: Brand
       parentOptionCustomizer:
         - recordCount
     brandURLsNew_screen:
       <<: *brandURLsNew_screenLink
-      filterField: brandId
+      filterField: Brand
     brandURLsEdit_screen:
       <<: *brandURLsEdit_screenLink
-      filterField: brandId
+      filterField: Brand
 
   dialogs:
     brandsDel_dialog: &brandsDel_dialogLink

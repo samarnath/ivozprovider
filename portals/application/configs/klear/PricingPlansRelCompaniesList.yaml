@@ -18,7 +18,7 @@ production:
         <<: *forcedBrand
       order:
         field:
-          - metric asc
+          - PricingPlansRelCompany.metric asc
       fields: &pricingPlansRelCompanies_fieldsLink 
         options: 
           title: _("Options")
@@ -55,7 +55,7 @@ production:
         group0:
           colsPerRow: 3
           fields:
-            pricingPlanId: 2
+            pricingPlan: 2
             metric: 1
         group1:
           colsPerRow: 2
@@ -82,9 +82,9 @@ production:
         - recordCount
       fields:
         order:
-          targetPatternId: true
+          targetPattern: true
         blacklist:
-          pricingPlanId: true
+          pricingPlan: true
       options: 
   dialogs: &pricingPlansRelCompanies_dialogsLink 
     pricingPlansRelCompaniesDel_dialog: &pricingPlansRelCompaniesDel_dialogLink 

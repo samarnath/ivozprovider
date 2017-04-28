@@ -1,21 +1,25 @@
 production: 
   class: \IvozProvider\Model\FixedCosts
+  dto: Core\Application\DTO\FixedCostDTO
+  entity: Core\Model\FixedCost\FixedCost
   fields: 
-    brandId: 
+    brandId:
       title: _('Brand id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
       default: true
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       maxLength: 255
@@ -23,7 +27,7 @@ production:
     description:
       title: ngettext('Description', 'Descriptions', 1)
       type: textarea
-    cost: 
+    cost:
       title: _('Cost')
       type: text
       pattern: "^[0-9]{1,6}([.][0-9]{1,2})?$"

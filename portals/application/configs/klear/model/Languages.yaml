@@ -1,15 +1,18 @@
 production: 
   class: \IvozProvider\Model\Languages
+  dto: Core\Application\DTO\LanguageDTO
+  entity: Core\Model\Language\Language
   fields: 
-    iden: 
+    iden:
       title: ngettext('Iden', 'Idens', 1)
       type: text
       trim: both
       required: true
       default: true
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
+      isMultilang: true
       trim: both
       defaultValue: 
 staging: 

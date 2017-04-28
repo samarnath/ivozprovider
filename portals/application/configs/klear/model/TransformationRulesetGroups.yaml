@@ -1,48 +1,52 @@
 production: 
   class: \IvozProvider\Model\TransformationRulesetGroups
+  dto: Core\Application\DTO\TransformationRulesetGroupDTO
+  entity: Core\Model\TransformationRulesetGroup\TransformationRulesetGroup
   fields: 
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       trim: both
       required: true
       maxLength: 100
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       trim: both
       defaultValue: 
       maxLength: 500
-    brandId: 
+    brandId:
       title: _('Brand')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
       default: true
-    caller_in: 
+    callerIn:
       title: _('Caller in')
       type: number
       source: 
         control: Spinner
-    callee_in: 
+    calleeIn:
       title: _('Callee in')
       type: number
       source: 
         control: Spinner
-    caller_out: 
+    callerOut:
       title: _('Caller out')
       type: number
       source: 
         control: Spinner
-    callee_out: 
+    calleeOut:
       title: _('Callee out')
       type: number
       source: 

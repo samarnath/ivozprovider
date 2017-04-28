@@ -1,0 +1,44 @@
+Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\ExternalCallFilterRelScheduleDoctrineRepository
+  type: entity
+  table: ExternalCallFilterRelSchedules
+  indexes:
+    filterId:
+      columns:
+        - filterId
+    scheduleId:
+      columns:
+        - scheduleId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  manyToOne:
+    filter:
+      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilter
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        filterId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    schedule:
+      targetEntity: \Core\Model\Schedule\Schedule
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        scheduleId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

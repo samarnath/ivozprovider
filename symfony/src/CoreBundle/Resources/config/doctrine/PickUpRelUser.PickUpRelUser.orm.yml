@@ -1,0 +1,44 @@
+Core\Model\PickUpRelUser\PickUpRelUser:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\PickUpRelUserDoctrineRepository
+  type: entity
+  table: PickUpRelUsers
+  indexes:
+    pickUpGroupId:
+      columns:
+        - pickUpGroupId
+    userId:
+      columns:
+        - userId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  manyToOne:
+    pickUpGroup:
+      targetEntity: \Core\Model\PickUpGroup\PickUpGroup
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        pickUpGroupId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    user:
+      targetEntity: \Core\Model\User\User
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        userId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

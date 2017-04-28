@@ -70,8 +70,8 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        companyId: ${auth.companyId}
-        calendarId: "%parent%"
+        company: ${auth.companyId}
+        calendar: "%parent%"
 
   commands: &holidayDates_commandsLink
     importHolidayDatesFreeUpload_command:

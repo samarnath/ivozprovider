@@ -1,0 +1,96 @@
+Core\Model\Country\Country:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\CountryDoctrineRepository
+  type: entity
+  table: Countries
+  uniqueConstraints:
+    languageCode:
+      columns:
+        - code
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    code:
+      type: string
+      nullable: false
+      length: 100
+      options:
+        fixed: false
+        default: ''
+    name:
+      type: string
+      nullable: true
+      length: 100
+      options:
+        fixed: false
+        comment: '[ml]'
+    nameEn:
+      type: string
+      nullable: true
+      length: 100
+      options:
+        fixed: false
+      column: name_en
+    nameEs:
+      type: string
+      nullable: true
+      length: 100
+      options:
+        fixed: false
+      column: name_es
+    zone:
+      type: string
+      nullable: true
+      length: 55
+      options:
+        fixed: false
+        comment: '[ml]'
+    zoneEn:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+        default: ''
+      column: zone_en
+    zoneEs:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+        default: ''
+      column: zone_es
+    callingCode:
+      type: integer
+      nullable: true
+      options:
+        unsigned: true
+      column: calling_code
+    intCode:
+      type: string
+      nullable: true
+      length: 5
+      options:
+        fixed: false
+      column: intCode
+    e164Pattern:
+      type: string
+      nullable: true
+      length: 250
+      options:
+        fixed: false
+      column: e164Pattern
+    nationalCC:
+      type: boolean
+      nullable: false
+      options:
+        default: '0'
+      column: nationalCC
+  lifecycleCallbacks: {  }

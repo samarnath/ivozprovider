@@ -1,0 +1,22 @@
+services:
+    core.doctrine_foreign_key_transformer:
+      class: Core\Infrastructure\Application\DoctrineForeignKeyTransformer
+      arguments:
+        - "@doctrine.orm.entity_manager"
+
+    core.doctrine_collection_transformer:
+      class: Core\Infrastructure\Application\DoctrineCollectionTransformer
+      arguments:
+        - "@doctrine.orm.entity_manager"
+
+    core.create_entity_from_dto:
+        class: Core\Application\Command\CreateEntityFromDTO
+        arguments:
+          - "@core.doctrine_foreign_key_transformer"
+          - "@core.doctrine_collection_transformer"
+
+    core.update_entity_from_dto:
+        class: Core\Application\Command\UpdateEntityFromDTO
+        arguments:
+          - "@core.doctrine_foreign_key_transformer"
+          - "@core.doctrine_collection_transformer"

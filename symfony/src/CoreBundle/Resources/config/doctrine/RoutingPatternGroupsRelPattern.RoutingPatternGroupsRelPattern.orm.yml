@@ -1,0 +1,50 @@
+Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern:
+  repositoryClass: Core\Infrastructure\Persistence\Doctrine\RoutingPatternGroupsRelPatternDoctrineRepository
+  type: entity
+  table: RoutingPatternGroupsRelPatterns
+  indexes:
+    routingPatternId:
+      columns:
+        - routingPatternId
+    routingPatternGroupId:
+      columns:
+        - routingPatternGroupId
+  uniqueConstraints:
+    rel:
+      columns:
+        - routingPatternId
+        - routingPatternGroupId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  manyToOne:
+    routingPattern:
+      targetEntity: \Core\Model\RoutingPattern\RoutingPattern
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        routingPatternId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    routingPatternGroup:
+      targetEntity: \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: relPatterns
+      joinColumns:
+        routingPatternGroupId:
+          referencedColumnName: id
+          unsigned: false
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

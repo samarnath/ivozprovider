@@ -1,14 +1,16 @@
 production: 
   class: \IvozProvider\Model\Invoices
+  dto: Core\Application\DTO\InvoiceDTO
+  entity: Core\Model\Invoice\Invoice
   fields: 
-    number: 
+    number:
       title: _('Number')
       type: text
       trim: both
       required: true
       maxLength: 30
       default: true
-    inDate: 
+    inDate:
       title: _('In date')
       type: picker
       required: true
@@ -18,7 +20,7 @@ production:
           disabled: 'false'
           dateFormate: 'dd-mm-yy'
 #          timeFormat: '00:00:00'
-    outDate: 
+    outDate:
       title: _('Out date')
       type: picker
       required: true
@@ -28,22 +30,36 @@ production:
           disabled: 'false'
           dateFormate: 'dd-mm-yy'
 #          timeFormat: '23:59:59'
-    total: 
+    total:
       title: _('Total')
       type: text
       trim: both
       sufix: "€"
-    taxRate: 
+    taxRate:
       title: _('Tax rate')
       type: text
       trim: both
       required: true
       sufix: "%"
-    totalWithTax: 
+    totalWithTax:
       title: _('Total with tax')
       type: text
       trim: both
       sufix: "€"
+#    language:
+#      title: _('Language')
+#      type: select
+#      required: true
+#      source: 
+#        data: mapper
+#        config: 
+#          mapperName: \IvozProvider\Mapper\Sql\Languages
+#          fieldName: 
+#            fields: 
+#              - name
+#            template: '%name%'
+#          order: iden
+#        'null': _("Unassigned")
     status:
       title: _('Status')
       type: select
@@ -54,7 +70,7 @@ production:
           'processing': _('processing')
           'created': _('created')
           'error': _('error')
-    pdfFile: 
+    pdfFile:
       title: _('Pdf file')
       type: file
       source: 
@@ -74,48 +90,54 @@ production:
       options:
         commands:
           invoicesPdfFileDownload_command: true
-    companyId: 
+    companyId:
       title: _('Company')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
         'null': _("Unassigned")
-    brandId: 
+    brandId:
       title: _('Brand')
       type: select
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
         'null': _("Unassigned")
-    invoiceTemplateId: 
+    invoiceTemplateId:
       title: _('Template')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\InvoiceTemplates
-          filterClass: IvozProvider_Klear_Filter_Brand
+#          mapperName: \IvozProvider\Mapper\Sql\InvoiceTemplates
+          entity: \Core\Model\InvoiceTemplate\InvoiceTemplate
+          filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            InvoiceTemplate.name: asc
         'null': _("Unassigned")
     FixedCostsRelInvoices:
       title: _('Fixed costs')
@@ -125,14 +147,18 @@ production:
         predefined: list
       data: mapper
       config:
-        mapperName: \IvozProvider\Mapper\Sql\FixedCostsRelInvoices
-        filterField: invoiceId
+#        mapperName: \IvozProvider\Mapper\Sql\FixedCostsRelInvoices
+        entity: \Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
+        entityClass: Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
+        filterField: FixedCostsRelInvoice.invoice
         showAsTable: true
         fieldName:
           fields:
-            fixedCostId:
+            fixedCost:
               title: _("Fixed cost")
-              mapperName: \IvozProvider\Mapper\Sql\FixedCosts
+#              mapperName: \IvozProvider\Mapper\Sql\FixedCosts
+              entity: \Core\Model\FixedCost\FixedCost
+              entityClass: Core\Model\FixedCost\FixedCost
               field:
                 - name
                 - cost

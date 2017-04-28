@@ -82,16 +82,16 @@ production:
     #pricingPlansRelTargetPatterns: 
     pricingPlansRelTargetPatternsList_screen: &pricingPlansRelTargetPatternsListEdit_screenLink 
       <<: *pricingPlansRelTargetPatternsList_screenLink
-      filterField: pricingPlanId
+      filterField: PricingPlan
       parentOptionCustomizer: 
 #        - IvozProvider_Klear_Options_OptionsCustomizer
         - recordCount
     pricingPlansRelTargetPatternsNew_screen: 
       <<: *pricingPlansRelTargetPatternsNew_screenLink
-      filterField: pricingPlanId
+      filterField: PricingPlan
     pricingPlansRelTargetPatternsEdit_screen: 
       <<: *pricingPlansRelTargetPatternsEdit_screenLink
-      filterField: pricingPlanId
+      filterField: PricingPlan
 
     #TargetPatterns: 
     targetPatternsList_screen:
@@ -161,7 +161,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        brandId: ${auth.brandId}
+        brand: ${auth.brandId}
 
   # pricingPlansRelTargetPatterns dialogs: 
     <<: *pricingPlansRelTargetPatterns_dialogsLink

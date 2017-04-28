@@ -32,21 +32,21 @@ production:
           weight: true
           memberCallTimeout: true
           memberCallRest: true
-          periodicAnnounceLocutionId: true
+          periodicAnnounceLocution: true
           maxWaitTime: true
           maxlen: true
         blacklist:
-          timeoutLocutionId: true
+          timeoutLocution: true
           timeoutTargetType: true
-          timeoutVoiceMailUserId: true
-          timeoutExtensionId: true
+          timeoutVoiceMailUser: true
+          timeoutExtension: true
           timeoutNumberValue: true
-          fullLocutionId: true
+          fullLocution: true
           fullTargetType: true
-          fullExtensionId: true
+          fullExtension: true
           fullNumberValue: true
-          fullVoiceMailUserId: true
-          periodicAnnounceLocutionId: true
+          fullVoiceMailUser: true
+          periodicAnnounceLocution: true
           periodicAnnounceFrequency: true
       options:
         title: _("Options")
@@ -79,7 +79,7 @@ production:
           label: _('Announce')
           colsPerRow: 12
           fields:
-            periodicAnnounceLocutionId: 6
+            periodicAnnounceLocution: 6
             periodicAnnounceFrequency: 6
         group3:
           label: _('Members configuration')
@@ -92,20 +92,20 @@ production:
           colsPerRow: 12
           fields:
             maxWaitTime: 6
-            timeoutLocutionId: 6
+            timeoutLocution: 6
             timeoutTargetType: 6
-            timeoutExtensionId: 6
-            timeoutVoiceMailUserId: 6
+            timeoutExtension: 6
+            timeoutVoiceMailUser: 6
             timeoutNumberValue: 6
         group5:
           label: _('Full Queue configuration')
           colsPerRow: 12
           fields:
             maxlen: 6
-            fullLocutionId: 6
+            fullLocution: 6
             fullTargetType: 6
-            fullExtensionId: 6
-            fullVoiceMailUserId: 6
+            fullExtension: 6
+            fullVoiceMailUser: 6
             fullNumberValue: 6
     queuesEdit_screen: &queuesEdit_screenLink
       <<: *Queues
@@ -125,15 +125,15 @@ production:
     # queueMembers
     queueMembersList_screen:
       <<: *queueMembersList_screenLink
-      filterField: queueId
+      filterField: Queue
       parentOptionCustomizer:
         - recordCount
     queueMembersNew_screen:
       <<: *queueMembersNew_screenLink
-      filterField: queueId
+      filterField: Queue
     queueMembersEdit_screen:
       <<: *queueMembersEdit_screenLink
-      filterField: queueId
+      filterField: Queue
 
   dialogs: &queues_dialogsLink
     queuesDel_dialog: &queuesDel_dialogLink

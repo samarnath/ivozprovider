@@ -1,26 +1,30 @@
 production: 
   class: \IvozProvider\Model\ConferenceRooms
+  dto: Core\Application\DTO\ConferenceRoomDTO
+  entity: Core\Model\ConferenceRoom\ConferenceRoom
   fields: 
-    companyId: 
+    companyId:
       title: _('Company id')
       type: select
       required: true
       source: 
         data: mapper
         config: 
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: \Core\Model\Company\Company
           fieldName: 
             fields: 
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
       default: true
-    name: 
+    name:
       title: ngettext('Name', 'Names', 1)
       type: text
       required: true
       maxLength: 50
-    pinProtected: 
+    pinProtected:
       title: _('Pin protected')
       type: select
       defaultValue: 0
@@ -36,11 +40,11 @@ production:
             title: _("Yes")
             visualFilter:
               show: [ "pinCode" ]
-    pinCode: 
+    pinCode:
       title: _('Pin code')
       type: text
       maxLength: 6
-    maxMembers: 
+    maxMembers:
       title: _('Max member')
       type: number
       defaultValue: 0

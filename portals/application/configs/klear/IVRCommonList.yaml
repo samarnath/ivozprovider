@@ -26,16 +26,16 @@ production:
           errorTarget: true
         blacklist:
           maxDigits: true
-          welcomeLocutionId: true
-          noAnswerLocutionId: true
-          errorLocutionId: true
-          successLocutionId: true
+          welcomeLocution: true
+          noAnswerLocution: true
+          errorLocution: true
+          successLocution: true
           timeoutNumberValue: true
-          timeoutExtensionId: true
-          timeoutVoiceMailUserId: true
+          timeoutExtension: true
+          timeoutVoiceMailUser: true
           errorNumberValue: true
-          errorExtensionId: true
-          errorVoiceMailUserId: true
+          errorExtension: true
+          errorVoiceMailUser: true
           blackListRegExp: true
         options:
           title: _("Options")
@@ -72,28 +72,28 @@ production:
             name: 4
             timeout: 4
             maxDigits: 4
-            welcomeLocutionId: 6
-            successLocutionId: 6
+            welcomeLocution: 6
+            successLocution: 6
             blackListRegExp: 8
         group1:
           label: _("No answer configuration")
           colsPerRow: 3
           fields:
-            noAnswerLocutionId: 2
+            noAnswerLocution: 2
             noAnswerTimeout: 1
             timeoutTargetType: 1
             timeoutNumberValue: 1
-            timeoutExtensionId: 1
-            timeoutVoiceMailUserId: 1
+            timeoutExtension: 1
+            timeoutVoiceMailUser: 1
         group2:
           label: _("Error configuration")
           colsPerRow: 6
           fields:
-            errorLocutionId: 5
+            errorLocution: 5
             errorTargetType: 2
             errorNumberValue: 2
-            errorExtensionId: 2
-            errorVoiceMailUserId: 2
+            errorExtension: 2
+            errorVoiceMailUser: 2
     iVRCommonEdit_screen: &iVRCommonEdit_screenLink
       <<: *IVRCommon
       controller: edit

@@ -12,9 +12,15 @@ class IvozProvider_Klear_Filter_OutgoingDDI implements KlearMatrix_Model_Field_S
         // Only display DDIs belonging to edited company
         if (is_array($pk)) {
             //Avoid multiple choice error on klear
-            $this->_condition[] = "1=2";
+            $this->_condition = ["1=2"];
             return true;
         }
+
+//      $this->_condition[] = "`companyId` = '" . $pk . "'";
+        $this->_condition = [
+            'DDI.company = :pk',
+            ['pk' => $pk ? $pk  : '']
+        ];
 
         $this->_condition[] = "`companyId` = '" . $pk . "'";
         return true;
@@ -22,10 +28,11 @@ class IvozProvider_Klear_Filter_OutgoingDDI implements KlearMatrix_Model_Field_S
 
     public function getCondition()
     {
-        if (count($this->_condition) > 0) {
-            return '(' . implode(" AND ", $this->_condition) . ')';
-        }
-        return;
+        return $this->_condition;
+//        if (count($this->_condition) > 0) {
+//            return '(' . implode(" AND ", $this->_condition) . ')';
+//        }
+//        return;
     }
 
 }

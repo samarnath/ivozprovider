@@ -1,38 +1,40 @@
 production: 
   class: \IvozProvider\Model\KamDispatcher
+  dto: Core\Application\DTO\KamDispatcherDTO
+  entity: Core\Model\KamDispatcher\KamDispatcher
   fields: 
-    setid: 
+    setid:
       title: _('Setid')
       type: number
       defaultValue: 0
       source: 
         control: Spinner
       default: true
-    destination: 
+    destination:
       title: _('Destination')
       type: text
       trim: both
       defaultValue: 
       maxLength: 192
-    flags: 
+    flags:
       title: _('Flag')
       type: number
       defaultValue: 0
       source: 
         control: Spinner
-    priority: 
+    priority:
       title: _('Priority')
       type: number
       defaultValue: 0
       source: 
         control: Spinner
-    attrs: 
+    attrs:
       title: _('Attr')
       type: text
       trim: both
       defaultValue: 
       maxLength: 128
-    description: 
+    description:
       title: ngettext('Description', 'Descriptions', 1)
       type: text
       trim: both
