@@ -1,7 +1,7 @@
 production: 
   class: \IvozProvider\Model\KamTrunksAddress
-  dto: Core\Application\DTO\KamTrunksAddressDTO
-  entity: Core\Model\KamTrunksAddress\KamTrunksAddress
+  dto: Kam\Application\DTO\KamTrunksAddressDTO
+  entity: Kam\Model\KamTrunksAddress\KamTrunksAddress
   fields: 
     grp:
       title: _('Grp')

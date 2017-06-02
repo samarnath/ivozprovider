@@ -1,7 +1,7 @@
 production: 
   class: \IvozProvider\Model\KamTrunksDomain
-  dto: Core\Application\DTO\KamTrunksDomainDTO
-  entity: Core\Model\KamTrunksDomain\KamTrunksDomain
+  dto: Kam\Application\DTO\KamTrunksDomainDTO
+  entity: Kam\Model\KamTrunksDomain\KamTrunksDomain
   fields: 
     domain:
       title: _('Domain')

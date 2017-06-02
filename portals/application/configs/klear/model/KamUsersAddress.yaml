@@ -1,7 +1,7 @@
 production: 
   class: \IvozProvider\Model\KamUsersAddress
-  dto: Core\Application\DTO\KamUsersAddressDTO
-  entity: Core\Model\KamUsersAddress\KamUsersAddress
+  dto: Kam\Application\DTO\KamUsersAddressDTO
+  entity: Kam\Model\KamUsersAddress\KamUsersAddress
   fields: 
     company:
       title: _('Company id')

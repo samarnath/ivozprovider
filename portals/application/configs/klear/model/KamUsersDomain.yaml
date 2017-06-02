@@ -1,7 +1,7 @@
 production: 
   class: \IvozProvider\Model\KamUsersDomain
-  dto: Core\Application\DTO\KamUsersDomainDTO
-  entity: Core\Model\KamUsersDomain\KamUsersDomain
+  dto: Kam\Application\DTO\KamUsersDomainDTO
+  entity: Kam\Model\KamUsersDomain\KamUsersDomain
   fields: 
     domain:
       title: _('Domain')

@@ -66,12 +66,21 @@ doctrine:
         auto_mapping: yes
         #quote_strategy: doctrine.orm.quote_strategy.ansi
         mappings:
-            CoreBundle:
+            Core:
                 type: yml
-                is_bundle: true
-                dir: Resources/config/doctrine
+                is_bundle: false
+                dir: '%kernel.root_dir%/../src/Core/Infrastructure/Persistence/Doctrine/Mapping'
                 prefix: Core\Model
-                alias: Core
+            Ast:
+                type: yml
+                is_bundle: false
+                dir: '%kernel.root_dir%/../src/Ast/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: Ast\Model
+            Kam:
+                type: yml
+                is_bundle: false
+                dir: '%kernel.root_dir%/../src/Kam/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: Kam\Model
 
 # Swiftmailer Configuration
 #swiftmailer:

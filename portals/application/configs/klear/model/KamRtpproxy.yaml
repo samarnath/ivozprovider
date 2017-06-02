@@ -1,7 +1,7 @@
 production: 
   class: \IvozProvider\Model\KamRtpproxy
-  dto: Core\Application\DTO\KamRtpproxyDTO
-  entity: Core\Model\KamRtpproxy\KamRtpproxy
+  dto: Kam\Application\DTO\KamRtpproxyDTO
+  entity: Kam\Model\KamRtpproxy\KamRtpproxy
   fields: 
     id:
       title: _('Setid')

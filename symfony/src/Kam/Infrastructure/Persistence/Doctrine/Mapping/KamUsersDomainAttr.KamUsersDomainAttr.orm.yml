@@ -1,0 +1,60 @@
+Kam\Model\KamUsersDomainAttr\KamUsersDomainAttr:
+  repositoryClass: Kam\Infrastructure\Persistence\Doctrine\KamUsersDomainAttrDoctrineRepository
+  type: entity
+  table: kam_users_domain_attrs
+  indexes:
+    IDX_F444738D4E7FCF41:
+      columns:
+        - did
+  uniqueConstraints:
+    domain_attrs_idx:
+      columns:
+        - did
+        - name
+        - value
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 32
+      options:
+        fixed: false
+    type:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+    value:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    lastModified:
+      type: datetime
+      nullable: false
+      options:
+        default: '1900-01-01 00:00:01'
+      column: last_modified
+  manyToOne:
+    did:
+      targetEntity: \Core\Model\Company\Company
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        did:
+          nullable: false
+          referencedColumnName: domain_users
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

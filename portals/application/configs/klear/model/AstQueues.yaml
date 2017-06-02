@@ -1,7 +1,7 @@
 production:
   class: \IvozProvider\Model\AstQueues
-  dto: Core\Application\DTO\AstQueueDTO
-  entity: Core\Model\AstQueue\AstQueue
+  dto: Ast\Application\DTO\AstQueueDTO
+  entity: Ast\Model\AstQueue\AstQueue
   fields:
     companyId:
       title: _('Companyid')

@@ -1,7 +1,7 @@
 production: 
   class: \IvozProvider\Model\KamAccCdrs
-  dto: Core\Application\DTO\KamAccCdrDTO
-  entity: Core\Model\KamAccCdr\KamAccCdr
+  dto: Kam\Application\DTO\KamAccCdrDTO
+  entity: Kam\Model\KamAccCdr\KamAccCdr
   fields: 
     proxy:
       title: _('Proxy')
