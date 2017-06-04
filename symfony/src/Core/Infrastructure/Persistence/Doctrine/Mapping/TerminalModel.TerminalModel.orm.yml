@@ -70,7 +70,7 @@ Core\Model\TerminalModel\TerminalModel:
       column: specificUrlPattern
   manyToOne:
     TerminalManufacturer:
-      targetEntity: \Core\Model\TerminalManufacturer\TerminalManufacturer
+      targetEntity: \Core\Model\TerminalManufacturer\TerminalManufacturerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -84,7 +84,7 @@ Core\Model\HuntGroup\HuntGroup:
       column: noAnswerNumberValue
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -95,7 +95,7 @@ Core\Model\HuntGroup\HuntGroup:
           nullable: false
       orphanRemoval: false
     noAnswerLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -105,7 +105,7 @@ Core\Model\HuntGroup\HuntGroup:
           referencedColumnName: id
       orphanRemoval: false
     noAnswerExtension:
-      targetEntity: \Core\Model\Extension\Extension
+      targetEntity: \Core\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -115,7 +115,7 @@ Core\Model\HuntGroup\HuntGroup:
           referencedColumnName: id
       orphanRemoval: false
     noAnswerVoiceMailUser:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

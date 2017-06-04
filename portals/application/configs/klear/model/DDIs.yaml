@@ -2,7 +2,6 @@
 
 production:
   class: \IvozProvider\Model\DDIs
-  dto: Core\Application\DTO\DDIDTO
   entity: Core\Model\DDI\DDI
   fields:
     companyId:

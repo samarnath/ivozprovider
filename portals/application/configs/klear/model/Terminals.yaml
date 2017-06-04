@@ -3,7 +3,6 @@
 
 production:
   class: \IvozProvider\Model\Terminals
-  dto: Core\Application\DTO\TerminalDTO
   entity: Core\Model\Terminal\Terminal
   fields:
     TerminalModelId:

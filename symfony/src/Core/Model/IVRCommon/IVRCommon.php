@@ -3,14 +3,13 @@
 namespace Core\Model\IVRCommon;
 
 use Assert\Assertion;
-use Core\Application\DTO\IVRCommonDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * IVRCommon
  */
-class IVRCommon implements EntityInterface
+class IVRCommon implements EntityInterface, IVRCommonInterface
 {
     /**
      * @var integer

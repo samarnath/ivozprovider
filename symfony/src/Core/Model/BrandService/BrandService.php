@@ -3,14 +3,13 @@
 namespace Core\Model\BrandService;
 
 use Assert\Assertion;
-use Core\Application\DTO\BrandServiceDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * BrandService
  */
-class BrandService implements EntityInterface
+class BrandService implements EntityInterface, BrandServiceInterface
 {
     /**
      * @var integer

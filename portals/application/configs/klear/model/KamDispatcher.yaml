@@ -1,7 +1,6 @@
 production: 
-  class: \IvozProvider\Model\KamDispatcher
-  dto: Kam\Application\DTO\KamDispatcherDTO
-  entity: Kam\Model\KamDispatcher\KamDispatcher
+  class: \IvozProvider\Model\Dispatcher
+  entity: Kam\Model\Dispatcher\Dispatcher
   fields: 
     setid:
       title: _('Setid')

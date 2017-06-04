@@ -2,7 +2,6 @@
 
 production: 
   class: \IvozProvider\Model\InvoiceTemplates
-  dto: Core\Application\DTO\InvoiceTemplateDTO
   entity: Core\Model\InvoiceTemplate\InvoiceTemplate
   fields: 
     name:

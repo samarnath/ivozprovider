@@ -3,14 +3,13 @@
 namespace Core\Model\PricingPlan;
 
 use Assert\Assertion;
-use Core\Application\DTO\PricingPlanDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PricingPlan
  */
-class PricingPlan implements EntityInterface
+class PricingPlan implements EntityInterface, PricingPlanInterface
 {
     /**
      * @var integer

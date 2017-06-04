@@ -3,14 +3,13 @@
 namespace Core\Model\PeerServer;
 
 use Assert\Assertion;
-use Core\Application\DTO\PeerServerDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PeerServer
  */
-class PeerServer implements EntityInterface
+class PeerServer implements EntityInterface, PeerServerInterface
 {
     /**
      * @var integer

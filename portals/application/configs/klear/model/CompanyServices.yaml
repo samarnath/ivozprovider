@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\CompanyServices
-  dto: Core\Application\DTO\CompanyServiceDTO
   entity: Core\Model\CompanyService\CompanyService
   fields: 
     service:

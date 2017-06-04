@@ -38,11 +38,12 @@ class DoctrineCollectionTransformer implements CollectionTransformerInterface
         foreach ($dtos as $dto) {
 
             if (!$dto instanceof DataTransferObjectInterface) {
-                throw new \UnexpectedValueException('Value must implement DataTransferObjectInterface');
+                throw new \UnexpectedValueException(
+                    'Value must implement DataTransferObjectInterface'
+                );
             }
 
             $entity = $this->getEntity($entityReflection, $dto);
-
             $entities->add($entity);
         }
 

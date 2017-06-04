@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Schedules
-  dto: Core\Application\DTO\ScheduleDTO
   entity: Core\Model\Schedule\Schedule
   fields: 
     company:

@@ -3,14 +3,13 @@
 namespace Core\Model\CallACL;
 
 use Assert\Assertion;
-use Core\Application\DTO\CallACLDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallACL
  */
-class CallACL implements EntityInterface
+class CallACL implements EntityInterface, CallACLInterface
 {
     /**
      * @var integer

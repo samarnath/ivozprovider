@@ -3,14 +3,13 @@
 namespace Core\Model\ExternalCallFilterRelSchedule;
 
 use Assert\Assertion;
-use Core\Application\DTO\ExternalCallFilterRelScheduleDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ExternalCallFilterRelSchedule
  */
-class ExternalCallFilterRelSchedule implements EntityInterface
+class ExternalCallFilterRelSchedule implements EntityInterface, ExternalCallFilterRelScheduleInterface
 {
     /**
      * @var integer

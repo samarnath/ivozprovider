@@ -80,7 +80,7 @@ Core\Model\GenericMusicOnHold\GenericMusicOnHold:
         comment: '[enum:pending|encoding|ready|error]'
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

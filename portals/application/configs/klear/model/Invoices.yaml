@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Invoices
-  dto: Core\Application\DTO\InvoiceDTO
   entity: Core\Model\Invoice\Invoice
   fields: 
     number:

@@ -88,7 +88,7 @@ Core\Model\Invoice\Invoice:
       column: pdfFileBaseName
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -99,7 +99,7 @@ Core\Model\Invoice\Invoice:
           nullable: false
       orphanRemoval: false
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

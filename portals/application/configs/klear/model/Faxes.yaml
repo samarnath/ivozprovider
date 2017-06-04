@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Faxes
-  dto: Core\Application\DTO\FaxDTO
   entity: Core\Model\Fax\Fax
   fields: 
     company:

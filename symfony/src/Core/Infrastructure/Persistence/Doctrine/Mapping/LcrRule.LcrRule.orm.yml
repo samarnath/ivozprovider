@@ -76,7 +76,7 @@ Core\Model\LcrRule\LcrRule:
         default: ''
   manyToOne:
     routingPattern:
-      targetEntity: \Core\Model\RoutingPattern\RoutingPattern
+      targetEntity: \Core\Model\RoutingPattern\RoutingPatternInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -86,7 +86,7 @@ Core\Model\LcrRule\LcrRule:
           referencedColumnName: id
       orphanRemoval: false
     outgoingRouting:
-      targetEntity: \Core\Model\OutgoingRouting\OutgoingRouting
+      targetEntity: \Core\Model\OutgoingRouting\OutgoingRoutingInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

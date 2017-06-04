@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\Services
-  dto: Core\Application\DTO\ServiceDTO
   entity: Core\Model\Service\Service
   fields:
     iden:

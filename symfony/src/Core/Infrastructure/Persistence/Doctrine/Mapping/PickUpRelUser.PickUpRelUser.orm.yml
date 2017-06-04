@@ -20,7 +20,7 @@ Core\Model\PickUpRelUser\PickUpRelUser:
         strategy: IDENTITY
   manyToOne:
     pickUpGroup:
-      targetEntity: \Core\Model\PickUpGroup\PickUpGroup
+      targetEntity: \Core\Model\PickUpGroup\PickUpGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\PickUpRelUser\PickUpRelUser:
           nullable: false
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\OutgoingRouting
-  dto: Core\Application\DTO\OutgoingRoutingDTO
   entity: Core\Model\OutgoingRouting\OutgoingRouting
   fields:
     type:

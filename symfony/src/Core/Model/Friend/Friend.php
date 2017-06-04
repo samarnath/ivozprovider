@@ -3,14 +3,13 @@
 namespace Core\Model\Friend;
 
 use Assert\Assertion;
-use Core\Application\DTO\FriendDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Friend
  */
-class Friend implements EntityInterface
+class Friend implements EntityInterface, FriendInterface
 {
     /**
      * @var integer

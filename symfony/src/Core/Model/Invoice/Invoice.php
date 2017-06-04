@@ -3,14 +3,13 @@
 namespace Core\Model\Invoice;
 
 use Assert\Assertion;
-use Core\Application\DTO\InvoiceDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Invoice
  */
-class Invoice implements EntityInterface
+class Invoice implements EntityInterface, InvoiceInterface
 {
     /**
      * @var integer
@@ -70,6 +69,11 @@ class Invoice implements EntityInterface
     protected $pdfFileBaseName;
 
     /**
+     * @var \Core\Model\InvoiceTemplate\InvoiceTemplate
+     */
+    protected $invoiceTemplate;
+
+    /**
      * @var \Core\Model\Brand\Brand
      */
     protected $brand;
@@ -78,11 +82,6 @@ class Invoice implements EntityInterface
      * @var \Core\Model\Company\Company
      */
     protected $company;
-
-    /**
-     * @var \Core\Model\InvoiceTemplate\InvoiceTemplate
-     */
-    protected $invoiceTemplate;
 
 
     /**
@@ -138,9 +137,9 @@ class Invoice implements EntityInterface
             ->setPdfFileFileSize($dto->getPdfFileFileSize())
             ->setPdfFileMimeType($dto->getPdfFileMimeType())
             ->setPdfFileBaseName($dto->getPdfFileBaseName())
+            ->setInvoiceTemplate($dto->getInvoiceTemplate())
             ->setBrand($dto->getBrand())
-            ->setCompany($dto->getCompany())
-            ->setInvoiceTemplate($dto->getInvoiceTemplate());
+            ->setCompany($dto->getCompany());
     }
 
     /**
@@ -162,9 +161,9 @@ class Invoice implements EntityInterface
             ->setPdfFileFileSize($dto->getPdfFileFileSize())
             ->setPdfFileMimeType($dto->getPdfFileMimeType())
             ->setPdfFileBaseName($dto->getPdfFileBaseName())
+            ->setInvoiceTemplate($dto->getInvoiceTemplate())
             ->setBrand($dto->getBrand())
-            ->setCompany($dto->getCompany())
-            ->setInvoiceTemplate($dto->getInvoiceTemplate());
+            ->setCompany($dto->getCompany());
 
 
         return $this;
@@ -187,9 +186,9 @@ class Invoice implements EntityInterface
             ->setPdfFileFileSize($this->getPdfFileFileSize())
             ->setPdfFileMimeType($this->getPdfFileMimeType())
             ->setPdfFileBaseName($this->getPdfFileBaseName())
+            ->setInvoiceTemplateId($this->getInvoiceTemplate() ? $this->getInvoiceTemplate()->getId() : null)
             ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setInvoiceTemplateId($this->getInvoiceTemplate() ? $this->getInvoiceTemplate()->getId() : null);
+            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null);
     }
 
     /**
@@ -209,9 +208,9 @@ class Invoice implements EntityInterface
             'pdfFileFileSize' => $this->getPdfFileFileSize(),
             'pdfFileMimeType' => $this->getPdfFileMimeType(),
             'pdfFileBaseName' => $this->getPdfFileBaseName(),
+            'invoiceTemplateId' => $this->getInvoiceTemplate() ? $this->getInvoiceTemplate()->getId() : null,
             'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'invoiceTemplateId' => $this->getInvoiceTemplate() ? $this->getInvoiceTemplate()->getId() : null
+            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
         ];
     }
 
@@ -320,7 +319,7 @@ class Invoice implements EntityInterface
     {
         if (!is_null($total)) {
             if (!is_null($total)) {
-                Assertion::float($total);
+                //Assertion::float($total);
             }
         }
 
@@ -350,7 +349,7 @@ class Invoice implements EntityInterface
     {
         if (!is_null($taxRate)) {
             if (!is_null($taxRate)) {
-                Assertion::float($taxRate);
+                //Assertion::float($taxRate);
             }
         }
 
@@ -380,7 +379,7 @@ class Invoice implements EntityInterface
     {
         if (!is_null($totalWithTax)) {
             if (!is_null($totalWithTax)) {
-                Assertion::float($totalWithTax);
+                //Assertion::float($totalWithTax);
             }
         }
 
@@ -521,6 +520,30 @@ class Invoice implements EntityInterface
     }
 
     /**
+     * Set invoiceTemplate
+     *
+     * @param \Core\Model\InvoiceTemplate\InvoiceTemplate $invoiceTemplate
+     *
+     * @return Invoice
+     */
+    protected function setInvoiceTemplate(\Core\Model\InvoiceTemplate\InvoiceTemplate $invoiceTemplate = null)
+    {
+        $this->invoiceTemplate = $invoiceTemplate;
+
+        return $this;
+    }
+
+    /**
+     * Get invoiceTemplate
+     *
+     * @return \Core\Model\InvoiceTemplate\InvoiceTemplate
+     */
+    public function getInvoiceTemplate()
+    {
+        return $this->invoiceTemplate;
+    }
+
+    /**
      * Set brand
      *
      * @param \Core\Model\Brand\Brand $brand
@@ -566,30 +589,6 @@ class Invoice implements EntityInterface
     public function getCompany()
     {
         return $this->company;
-    }
-
-    /**
-     * Set invoiceTemplate
-     *
-     * @param \Core\Model\InvoiceTemplate\InvoiceTemplate $invoiceTemplate
-     *
-     * @return Invoice
-     */
-    protected function setInvoiceTemplate(\Core\Model\InvoiceTemplate\InvoiceTemplate $invoiceTemplate = null)
-    {
-        $this->invoiceTemplate = $invoiceTemplate;
-
-        return $this;
-    }
-
-    /**
-     * Get invoiceTemplate
-     *
-     * @return \Core\Model\InvoiceTemplate\InvoiceTemplate
-     */
-    public function getInvoiceTemplate()
-    {
-        return $this->invoiceTemplate;
     }
 
 

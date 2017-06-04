@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\QueueMembers
-  dto: Core\Application\DTO\QueueMemberDTO
   entity: Core\Model\QueueMember\QueueMember
   fields:
     queueId:

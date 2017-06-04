@@ -3,14 +3,13 @@
 namespace Core\Model\User;
 
 use Assert\Assertion;
-use Core\Application\DTO\UserDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * User
  */
-class User implements EntityInterface
+class User implements EntityInterface, UserInterface
 {
     /**
      * @var integer

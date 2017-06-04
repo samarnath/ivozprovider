@@ -174,7 +174,8 @@ protected function <methodName>(<methodTypeHint>$<variableName>)
 <spaces>$updatedEntities = [];
 <spaces>$fallBackId = -1;
 <spaces>foreach ($<variableName> as $entity) {
-<spaces><spaces>$updatedEntities[$entity->getId() ?? $fallBackId--] = $entity;
+<spaces><spaces>$index = $entity->getId() ? $entity->getId() : $fallBackId--;
+<spaces><spaces>$updatedEntities[$index] = $entity;
 <spaces><spaces>$entity->set<mappedBy>($this);
 <spaces>}
 <spaces>$updatedEntityKeys = array_keys($updatedEntities);
@@ -234,11 +235,13 @@ protected function <methodName>(<methodTypeHint>$<variableName>)
      */
     protected function generateEntityClassName(ClassMetadataInfo $metadata)
     {
+        $className = $this->getClassName($metadata);
         $class = 'class '
-            . $this->getClassName($metadata)
+            . $className
             . ($this->extendsClass() ? ' extends ' . $this->getClassToExtendName() : null);
 
-        $class .= ' implements EntityInterface';
+        $class .= ' implements EntityInterface, ';
+        $class .= $className . 'Interface';
 
         return $class;
     }
@@ -255,11 +258,8 @@ protected function <methodName>(<methodTypeHint>$<variableName>)
              }
         }
 
-        $dtoClass = str_replace('\\Model\\', '\\Application\\DTO\\',  $metadata->namespace) . 'DTO';
-
         $response = [
             'use Assert\\Assertion;',
-            'use ' . $dtoClass . ';',
             'use Core\\Model\\EntityInterface;',
             'use Core\Application\DataTransferObjectInterface;',
         ];

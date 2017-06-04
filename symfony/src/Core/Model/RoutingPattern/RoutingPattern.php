@@ -3,14 +3,13 @@
 namespace Core\Model\RoutingPattern;
 
 use Assert\Assertion;
-use Core\Application\DTO\RoutingPatternDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * RoutingPattern
  */
-class RoutingPattern implements EntityInterface
+class RoutingPattern implements EntityInterface, RoutingPatternInterface
 {
     /**
      * @var integer

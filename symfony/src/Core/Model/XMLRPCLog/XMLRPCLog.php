@@ -3,14 +3,13 @@
 namespace Core\Model\XMLRPCLog;
 
 use Assert\Assertion;
-use Core\Application\DTO\XMLRPCLogDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * XMLRPCLog
  */
-class XMLRPCLog implements EntityInterface
+class XMLRPCLog implements EntityInterface, XMLRPCLogInterface
 {
     /**
      * @var integer

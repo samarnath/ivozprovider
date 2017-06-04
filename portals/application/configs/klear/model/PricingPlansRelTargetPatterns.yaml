@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\PricingPlansRelTargetPatterns
-  dto: Core\Application\DTO\PricingPlansRelTargetPatternDTO
   entity: Core\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern
   fields:  
     id:

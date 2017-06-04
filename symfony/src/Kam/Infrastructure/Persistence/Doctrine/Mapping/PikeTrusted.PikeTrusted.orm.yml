@@ -1,0 +1,54 @@
+Kam\Model\PikeTrusted\PikeTrusted:
+  repositoryClass: Kam\Infrastructure\Persistence\Doctrine\PikeTrustedDoctrineRepository
+  type: entity
+  table: kam_pike_trusted
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    srcIp:
+      type: string
+      nullable: true
+      length: 50
+      options:
+        fixed: false
+      column: src_ip
+    proto:
+      type: string
+      nullable: true
+      length: 4
+      options:
+        fixed: false
+    fromPattern:
+      type: string
+      nullable: true
+      length: 64
+      options:
+        fixed: false
+      column: from_pattern
+    ruriPattern:
+      type: string
+      nullable: true
+      length: 64
+      options:
+        fixed: false
+      column: ruri_pattern
+    tag:
+      type: string
+      nullable: true
+      length: 64
+      options:
+        fixed: false
+    priority:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+  lifecycleCallbacks: {  }

@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\PeeringContracts
-  dto: Core\Application\DTO\PeeringContractDTO
   entity: Core\Model\PeeringContract\PeeringContract
   fields:
     name:

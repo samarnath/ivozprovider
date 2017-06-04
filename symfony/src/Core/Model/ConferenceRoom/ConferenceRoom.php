@@ -3,14 +3,13 @@
 namespace Core\Model\ConferenceRoom;
 
 use Assert\Assertion;
-use Core\Application\DTO\ConferenceRoomDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ConferenceRoom
  */
-class ConferenceRoom implements EntityInterface
+class ConferenceRoom implements EntityInterface, ConferenceRoomInterface
 {
     /**
      * @var integer

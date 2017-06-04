@@ -3,14 +3,13 @@
 namespace Core\Model\FeaturesRelCompany;
 
 use Assert\Assertion;
-use Core\Application\DTO\FeaturesRelCompanyDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FeaturesRelCompany
  */
-class FeaturesRelCompany implements EntityInterface
+class FeaturesRelCompany implements EntityInterface, FeaturesRelCompanyInterface
 {
     /**
      * @var integer

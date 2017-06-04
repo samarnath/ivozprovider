@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\Brands
-  dto: Core\Application\DTO\BrandDTO
   entity: Core\Model\Brand\Brand
   fields:
     name:

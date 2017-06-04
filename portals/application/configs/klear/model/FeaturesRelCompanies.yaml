@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\FeaturesRelCompanies
-  dto: Core\Application\DTO\FeaturesRelCompanyDTO
   entity: Core\Model\FeaturesRelCompany\FeaturesRelCompany
   fields: 
     company:

@@ -3,14 +3,13 @@
 namespace Core\Model\Schedule;
 
 use Assert\Assertion;
-use Core\Application\DTO\ScheduleDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Schedule
  */
-class Schedule implements EntityInterface
+class Schedule implements EntityInterface, ScheduleInterface
 {
     /**
      * @var integer

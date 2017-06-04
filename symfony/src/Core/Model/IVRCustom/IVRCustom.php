@@ -3,14 +3,13 @@
 namespace Core\Model\IVRCustom;
 
 use Assert\Assertion;
-use Core\Application\DTO\IVRCustomDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * IVRCustom
  */
-class IVRCustom implements EntityInterface
+class IVRCustom implements EntityInterface, IVRCustomInterface
 {
     /**
      * @var integer

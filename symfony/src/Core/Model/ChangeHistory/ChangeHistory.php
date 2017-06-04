@@ -3,14 +3,13 @@
 namespace Core\Model\ChangeHistory;
 
 use Assert\Assertion;
-use Core\Application\DTO\ChangeHistoryDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ChangeHistory
  */
-class ChangeHistory implements EntityInterface
+class ChangeHistory implements EntityInterface, ChangeHistoryInterface
 {
     /**
      * @var integer

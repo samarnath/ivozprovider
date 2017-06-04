@@ -3,14 +3,13 @@
 namespace Core\Model\PricingPlansRelTargetPattern;
 
 use Assert\Assertion;
-use Core\Application\DTO\PricingPlansRelTargetPatternDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PricingPlansRelTargetPattern
  */
-class PricingPlansRelTargetPattern implements EntityInterface
+class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTargetPatternInterface
 {
     /**
      * @var integer
@@ -178,7 +177,7 @@ class PricingPlansRelTargetPattern implements EntityInterface
     protected function setConnectionCharge($connectionCharge)
     {
         Assertion::notNull($connectionCharge);
-        Assertion::float($connectionCharge);
+        //Assertion::float($connectionCharge);
 
         $this->connectionCharge = $connectionCharge;
 
@@ -232,7 +231,7 @@ class PricingPlansRelTargetPattern implements EntityInterface
     protected function setPerPeriodCharge($perPeriodCharge)
     {
         Assertion::notNull($perPeriodCharge);
-        Assertion::float($perPeriodCharge);
+        //Assertion::float($perPeriodCharge);
 
         $this->perPeriodCharge = $perPeriodCharge;
 

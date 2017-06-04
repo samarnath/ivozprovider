@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Countries
-  dto: Core\Application\DTO\CountryDTO
   entity: Core\Model\Countries\Country
   fields: 
     code:

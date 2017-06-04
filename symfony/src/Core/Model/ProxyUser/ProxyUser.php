@@ -3,14 +3,13 @@
 namespace Core\Model\ProxyUser;
 
 use Assert\Assertion;
-use Core\Application\DTO\ProxyUserDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ProxyUser
  */
-class ProxyUser implements EntityInterface
+class ProxyUser implements EntityInterface, ProxyUserInterface
 {
     /**
      * @var integer

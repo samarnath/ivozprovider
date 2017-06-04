@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Recordings
-  dto: Core\Application\DTO\RecordingDTO
   entity: Core\Model\Recording\Recording
   fields: 
     company:

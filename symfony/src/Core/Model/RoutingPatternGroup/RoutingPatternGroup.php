@@ -3,7 +3,6 @@
 namespace Core\Model\RoutingPatternGroup;
 
 use Assert\Assertion;
-use Core\Application\DTO\RoutingPatternGroupDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,7 +11,7 @@ use Doctrine\Common\Collections\Criteria;
 /**
  * RoutingPatternGroup
  */
-class RoutingPatternGroup implements EntityInterface
+class RoutingPatternGroup implements EntityInterface, RoutingPatternGroupInterface
 {
     /**
      * @var integer
@@ -238,7 +237,8 @@ class RoutingPatternGroup implements EntityInterface
         $updatedEntities = [];
         $fallBackId = -1;
         foreach ($relPatterns as $entity) {
-            $updatedEntities[$entity->getId() ?? $fallBackId--] = $entity;
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
             $entity->setRoutingPatternGroup($this);
         }
         $updatedEntityKeys = array_keys($updatedEntities);

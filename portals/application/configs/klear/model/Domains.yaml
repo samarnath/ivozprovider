@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Domains
-  dto: Core\Application\DTO\DomainDTO
   entity: Core\Model\Domain\Domain
   fields: 
     domain:

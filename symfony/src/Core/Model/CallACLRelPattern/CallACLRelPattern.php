@@ -3,14 +3,13 @@
 namespace Core\Model\CallACLRelPattern;
 
 use Assert\Assertion;
-use Core\Application\DTO\CallACLRelPatternDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallACLRelPattern
  */
-class CallACLRelPattern implements EntityInterface
+class CallACLRelPattern implements EntityInterface, CallACLRelPatternInterface
 {
     /**
      * @var integer

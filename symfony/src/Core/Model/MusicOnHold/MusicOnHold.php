@@ -3,14 +3,13 @@
 namespace Core\Model\MusicOnHold;
 
 use Assert\Assertion;
-use Core\Application\DTO\MusicOnHoldDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MusicOnHold
  */
-class MusicOnHold implements EntityInterface
+class MusicOnHold implements EntityInterface, MusicOnHoldInterface
 {
     /**
      * @var integer

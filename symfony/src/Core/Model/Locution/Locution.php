@@ -3,14 +3,13 @@
 namespace Core\Model\Locution;
 
 use Assert\Assertion;
-use Core\Application\DTO\LocutionDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Locution
  */
-class Locution implements EntityInterface
+class Locution implements EntityInterface, LocutionInterface
 {
     /**
      * @var integer

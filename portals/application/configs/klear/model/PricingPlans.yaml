@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\PricingPlans
-  dto: Core\Application\DTO\PricingPlanDTO
   entity: Core\Model\PricingPlan\PricingPlan
   fields: 
     id:

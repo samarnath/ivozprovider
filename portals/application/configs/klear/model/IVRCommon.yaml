@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\IVRCommon
-  dto: Core\Application\DTO\IVRCommonDTO
   entity: Core\Model\IVRCommon\IVRCommon
   fields:
     companyId:

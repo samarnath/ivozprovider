@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\BrandURLs
-  dto: Core\Application\DTO\BrandURLDTO
   entity: Core\Model\BrandURL\BrandURL
   fields:
     brandId:

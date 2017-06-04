@@ -116,7 +116,7 @@ production:
       <<: *peerServersEdit_screenLink
       filterField: TransformationRulesetGroupsTrunk
 
-    #KamTrunksDialplan
+    #TrunksDialplan
     <<: *kamTrunksDialplan_screensLink
     
     kamTrunksDialplan_caller_inList_screen:
@@ -124,7 +124,7 @@ production:
       title: _("Caller In transformations")
       order:
         field:
-          - KamTrunksDialplan.pr
+          - TrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCallerIn
       parentOptionCustomizer:
@@ -142,7 +142,7 @@ production:
       title: _("Callee In transformations")
       order:
         field:
-          - KamTrunksDialplan.pr
+          - TrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCalleeIn
       parentOptionCustomizer:
@@ -161,7 +161,7 @@ production:
       title: _("Caller Out transformations")
       order:
         field:
-          - KamTrunksDialplan.pr
+          - TrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCallerOut
       parentOptionCustomizer:
@@ -180,7 +180,7 @@ production:
       title: _("Callee Out transformations")
       order:
         field:
-          - KamTrunksDialplan.pr
+          - TrunksDialplan.pr
         type: asc
       filterClass: IvozProvider_Klear_Filter_KamDialplanCalleeOut
       parentOptionCustomizer:
@@ -210,7 +210,7 @@ production:
     <<: *peerServers_dialogsLink
     
     
-  #KamTrunksDialplan
+  #TrunksDialplan
     <<: *kamTrunksDialplan_dialogsLink
 staging: 
   _extends: production

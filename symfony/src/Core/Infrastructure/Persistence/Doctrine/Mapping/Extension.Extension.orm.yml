@@ -70,7 +70,7 @@ Core\Model\Extension\Extension:
       column: friendValue
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -81,7 +81,7 @@ Core\Model\Extension\Extension:
           nullable: false
       orphanRemoval: false
     IVRCommon:
-      targetEntity: \Core\Model\IVRCommon\IVRCommon
+      targetEntity: \Core\Model\IVRCommon\IVRCommonInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -91,7 +91,7 @@ Core\Model\Extension\Extension:
           referencedColumnName: id
       orphanRemoval: false
     IVRCustom:
-      targetEntity: \Core\Model\IVRCustom\IVRCustom
+      targetEntity: \Core\Model\IVRCustom\IVRCustomInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -101,7 +101,7 @@ Core\Model\Extension\Extension:
           referencedColumnName: id
       orphanRemoval: false
     huntGroup:
-      targetEntity: \Core\Model\HuntGroup\HuntGroup
+      targetEntity: \Core\Model\HuntGroup\HuntGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -111,7 +111,7 @@ Core\Model\Extension\Extension:
           referencedColumnName: id
       orphanRemoval: false
     conferenceRoom:
-      targetEntity: \Core\Model\ConferenceRoom\ConferenceRoom
+      targetEntity: \Core\Model\ConferenceRoom\ConferenceRoomInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -121,7 +121,7 @@ Core\Model\Extension\Extension:
           referencedColumnName: id
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -131,7 +131,7 @@ Core\Model\Extension\Extension:
           referencedColumnName: id
       orphanRemoval: false
     queue:
-      targetEntity: \Core\Model\Queue\Queue
+      targetEntity: \Core\Model\Queue\QueueInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

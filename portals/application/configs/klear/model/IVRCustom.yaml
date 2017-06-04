@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\IVRCustom
-  dto: Core\Application\DTO\IVRCustomDTO
   entity: Core\Model\IVRCustom\IVRCustom
   fields:
     company:

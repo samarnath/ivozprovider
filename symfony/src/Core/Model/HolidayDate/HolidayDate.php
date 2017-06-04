@@ -3,14 +3,13 @@
 namespace Core\Model\HolidayDate;
 
 use Assert\Assertion;
-use Core\Application\DTO\HolidayDateDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * HolidayDate
  */
-class HolidayDate implements EntityInterface
+class HolidayDate implements EntityInterface, HolidayDateInterface
 {
     /**
      * @var integer

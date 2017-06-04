@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\FaxesInOut
-  dto: Core\Application\DTO\FaxesInOutDTO
   entity: Core\Model\FaxesInOut\FaxesInOut
   fields:
     calldate:

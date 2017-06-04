@@ -3,14 +3,13 @@
 namespace Core\Model\FaxesInOut;
 
 use Assert\Assertion;
-use Core\Application\DTO\FaxesInOutDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FaxesInOut
  */
-class FaxesInOut implements EntityInterface
+class FaxesInOut implements EntityInterface, FaxesInOutInterface
 {
     /**
      * @var integer

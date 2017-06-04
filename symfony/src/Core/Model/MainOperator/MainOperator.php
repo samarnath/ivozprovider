@@ -3,14 +3,13 @@
 namespace Core\Model\MainOperator;
 
 use Assert\Assertion;
-use Core\Application\DTO\MainOperatorDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MainOperator
  */
-class MainOperator implements EntityInterface
+class MainOperator implements EntityInterface, MainOperatorInterface
 {
     /**
      * @var integer

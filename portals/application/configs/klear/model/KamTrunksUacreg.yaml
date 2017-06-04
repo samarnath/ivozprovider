@@ -1,7 +1,6 @@
 production:
-  class: \IvozProvider\Model\KamTrunksUacreg
-  dto: Kam\Application\DTO\KamTrunksUacregDTO
-  entity: Kam\Model\KamTrunksUacreg\KamTrunksUacreg
+  class: \IvozProvider\Model\TrunksUacreg
+  entity: Kam\Model\TrunksUacreg\TrunksUacreg
   fields:
     multiDDI:
       title: _('Multiddi')

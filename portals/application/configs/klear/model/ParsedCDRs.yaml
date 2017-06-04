@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\ParsedCDRs
-  dto: Core\Application\DTO\ParsedCDRDTO
   entity: Core\Model\ParsedCDR\ParsedCDR
   fields: 
     statId:

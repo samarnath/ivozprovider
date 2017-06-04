@@ -48,7 +48,7 @@ Core\Model\OutgoingRouting\OutgoingRouting:
         default: '1'
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -59,7 +59,7 @@ Core\Model\OutgoingRouting\OutgoingRouting:
           nullable: false
       orphanRemoval: false
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -69,7 +69,7 @@ Core\Model\OutgoingRouting\OutgoingRouting:
           referencedColumnName: id
       orphanRemoval: false
     peeringContract:
-      targetEntity: \Core\Model\PeeringContract\PeeringContract
+      targetEntity: \Core\Model\PeeringContract\PeeringContractInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -80,7 +80,7 @@ Core\Model\OutgoingRouting\OutgoingRouting:
           nullable: false
       orphanRemoval: false
     routingPattern:
-      targetEntity: \Core\Model\RoutingPattern\RoutingPattern
+      targetEntity: \Core\Model\RoutingPattern\RoutingPatternInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -90,7 +90,7 @@ Core\Model\OutgoingRouting\OutgoingRouting:
           referencedColumnName: id
       orphanRemoval: false
     routingPatternGroup:
-      targetEntity: \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+      targetEntity: \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

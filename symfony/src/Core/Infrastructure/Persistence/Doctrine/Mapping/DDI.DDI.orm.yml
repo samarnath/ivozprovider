@@ -111,7 +111,7 @@ Core\Model\DDI\DDI:
       column: friendValue
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -123,7 +123,7 @@ Core\Model\DDI\DDI:
           nullable: false
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -135,7 +135,7 @@ Core\Model\DDI\DDI:
           nullable: false
       orphanRemoval: false
     conferenceRoom:
-      targetEntity: \Core\Model\ConferenceRoom\ConferenceRoom
+      targetEntity: \Core\Model\ConferenceRoom\ConferenceRoomInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -145,7 +145,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     language:
-      targetEntity: \Core\Model\Language\Language
+      targetEntity: \Core\Model\Language\LanguageInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -155,7 +155,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     queue:
-      targetEntity: \Core\Model\Queue\Queue
+      targetEntity: \Core\Model\Queue\QueueInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -165,7 +165,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     externalCallFilter:
-      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilter
+      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -175,7 +175,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -185,7 +185,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     IVRCommon:
-      targetEntity: \Core\Model\IVRCommon\IVRCommon
+      targetEntity: \Core\Model\IVRCommon\IVRCommonInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -195,7 +195,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     IVRCustom:
-      targetEntity: \Core\Model\IVRCustom\IVRCustom
+      targetEntity: \Core\Model\IVRCustom\IVRCustomInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -205,7 +205,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     huntGroup:
-      targetEntity: \Core\Model\HuntGroup\HuntGroup
+      targetEntity: \Core\Model\HuntGroup\HuntGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -215,7 +215,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     fax:
-      targetEntity: \Core\Model\Fax\Fax
+      targetEntity: \Core\Model\Fax\FaxInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -225,7 +225,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     peeringContract:
-      targetEntity: \Core\Model\PeeringContract\PeeringContract
+      targetEntity: \Core\Model\PeeringContract\PeeringContractInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -235,7 +235,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     country:
-      targetEntity: \Core\Model\Country\Country
+      targetEntity: \Core\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

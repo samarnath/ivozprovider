@@ -143,7 +143,7 @@ Core\Model\PeerServer\PeerServer:
       column: from_domain
   manyToOne:
     peeringContract:
-      targetEntity: \Core\Model\PeeringContract\PeeringContract
+      targetEntity: \Core\Model\PeeringContract\PeeringContractInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -154,7 +154,7 @@ Core\Model\PeerServer\PeerServer:
           nullable: false
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

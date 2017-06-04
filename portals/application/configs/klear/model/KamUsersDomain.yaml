@@ -1,7 +1,6 @@
 production: 
-  class: \IvozProvider\Model\KamUsersDomain
-  dto: Kam\Application\DTO\KamUsersDomainDTO
-  entity: Kam\Model\KamUsersDomain\KamUsersDomain
+  class: \IvozProvider\Model\UsersDomain
+  entity: Kam\Model\UsersDomain\UsersDomain
   fields: 
     domain:
       title: _('Domain')

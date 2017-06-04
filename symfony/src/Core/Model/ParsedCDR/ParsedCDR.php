@@ -3,14 +3,13 @@
 namespace Core\Model\ParsedCDR;
 
 use Assert\Assertion;
-use Core\Application\DTO\ParsedCDRDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ParsedCDR
  */
-class ParsedCDR implements EntityInterface
+class ParsedCDR implements EntityInterface, ParsedCDRInterface
 {
     /**
      * @var integer

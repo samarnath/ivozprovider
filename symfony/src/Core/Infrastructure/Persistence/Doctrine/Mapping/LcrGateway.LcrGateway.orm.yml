@@ -101,7 +101,7 @@ Core\Model\LcrGateway\LcrGateway:
         unsigned: true
   manyToOne:
     peerServer:
-      targetEntity: \Core\Model\PeerServer\PeerServer
+      targetEntity: \Core\Model\PeerServer\PeerServerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

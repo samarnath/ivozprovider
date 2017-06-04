@@ -18,28 +18,13 @@ use EntityGeneratorBundle\Tools\DTOGenerator;
  */
 class GenerateDTOCommand extends ParentCommand
 {
-    protected $dtoNamespace = 'Core\\Application\\DTO';
 
     protected function configure()
     {
         parent::configure();
          $this
             ->setName('provider:generate:dtos')
-            ->setAliases(array('generate:provider:dtos'))
-            ->addOption('dto-namespace', null, InputOption::VALUE_REQUIRED, 'The DTO namespace');
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $dtoNamespace = $input->getOption('dto-namespace');
-        if ($dtoNamespace) {
-            $this->dtoNamespace = $dtoNamespace;
-        }
-
-        return parent::execute($input, $output);
+            ->setAliases(array('generate:provider:dtos'));
     }
 
     /**
@@ -55,7 +40,6 @@ class GenerateDTOCommand extends ParentCommand
         $entityGenerator->setRegenerateEntityIfExists(true);
         $entityGenerator->setUpdateEntityIfExists(true);
         $entityGenerator->setNumSpaces(4);
-        $entityGenerator->setDtoNamespace($this->dtoNamespace);
         $entityGenerator->setAnnotationPrefix('ORM\\');
 
         return $entityGenerator;

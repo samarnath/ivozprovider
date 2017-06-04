@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\FriendsPatterns
-  dto: Core\Application\DTO\FriendsPatternDTO
   entity: Core\Model\FriendsPattern\FriendsPattern
   fields: 
     friend:

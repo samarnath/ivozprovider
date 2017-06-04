@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\FixedCostsRelInvoices
-  dto: Core\Application\DTO\FixedCostsRelInvoiceDTO
   entity: Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
   fields: 
     brand:

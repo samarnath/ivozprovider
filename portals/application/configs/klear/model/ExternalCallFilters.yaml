@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\ExternalCallFilters
-  dto: Core\Application\DTO\ExternalCallFilterDTO
   entity: Core\Model\ExternalCallFilter\ExternalCallFilter
   fields:
     companyId:

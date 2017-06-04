@@ -155,7 +155,7 @@ Core\Model\Company\Company:
       column: recordingsLimitEmail
   manyToOne:
     language:
-      targetEntity: \Core\Model\Language\Language
+      targetEntity: \Core\Model\Language\LanguageInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -165,7 +165,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     mediaRelaySets:
-      targetEntity: \Core\Model\MediaRelaySet\MediaRelaySet
+      targetEntity: \Core\Model\MediaRelaySet\MediaRelaySetInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -175,7 +175,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     defaultTimezone:
-      targetEntity: \Core\Model\Timezone\Timezone
+      targetEntity: \Core\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -185,7 +185,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -196,7 +196,7 @@ Core\Model\Company\Company:
           nullable: false
       orphanRemoval: false
     applicationServer:
-      targetEntity: \Core\Model\ApplicationServer\ApplicationServer
+      targetEntity: \Core\Model\ApplicationServer\ApplicationServerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -206,7 +206,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     countryCode:
-      targetEntity: \Core\Model\Country\Country
+      targetEntity: \Core\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -216,7 +216,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     outgoingDDI:
-      targetEntity: \Core\Model\DDI\DDI
+      targetEntity: \Core\Model\DDI\DDIInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

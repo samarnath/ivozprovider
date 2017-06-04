@@ -3,14 +3,13 @@
 namespace Core\Model\DDI;
 
 use Assert\Assertion;
-use Core\Application\DTO\DDIDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * DDI
  */
-class DDI implements EntityInterface
+class DDI implements EntityInterface, DDIInterface
 {
     /**
      * @var integer

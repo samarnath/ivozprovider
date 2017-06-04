@@ -3,14 +3,13 @@
 namespace Core\Model\ExternalCallFilter;
 
 use Assert\Assertion;
-use Core\Application\DTO\ExternalCallFilterDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ExternalCallFilter
  */
-class ExternalCallFilter implements EntityInterface
+class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
 {
     /**
      * @var integer

@@ -1,7 +1,6 @@
 production:
-  class: \IvozProvider\Model\AstQueues
-  dto: Ast\Application\DTO\AstQueueDTO
-  entity: Ast\Model\AstQueue\AstQueue
+  class: \IvozProvider\Model\Queues
+  entity: Ast\Model\Queue\Queue
   fields:
     companyId:
       title: _('Companyid')

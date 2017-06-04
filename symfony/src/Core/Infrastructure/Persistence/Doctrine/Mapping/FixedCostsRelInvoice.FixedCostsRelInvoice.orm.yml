@@ -30,7 +30,7 @@ Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
         unsigned: false
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -41,7 +41,7 @@ Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
           nullable: false
       orphanRemoval: false
     fixedCost:
-      targetEntity: \Core\Model\FixedCost\FixedCost
+      targetEntity: \Core\Model\FixedCost\FixedCostInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -52,7 +52,7 @@ Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
           nullable: false
       orphanRemoval: false
     invoice:
-      targetEntity: \Core\Model\Invoice\Invoice
+      targetEntity: \Core\Model\Invoice\InvoiceInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

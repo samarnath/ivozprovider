@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\EtagVersions
-  dto: Core\Application\DTO\EtagVersionDTO
   entity: Core\Model\EtagVersion\EtagVersion
   fields: 
     table:

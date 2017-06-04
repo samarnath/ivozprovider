@@ -3,14 +3,13 @@
 namespace Core\Model\TargetPattern;
 
 use Assert\Assertion;
-use Core\Application\DTO\TargetPatternDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TargetPattern
  */
-class TargetPattern implements EntityInterface
+class TargetPattern implements EntityInterface, TargetPatternInterface
 {
     /**
      * @var integer

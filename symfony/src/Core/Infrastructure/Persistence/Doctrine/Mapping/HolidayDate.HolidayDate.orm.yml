@@ -37,7 +37,7 @@ Core\Model\HolidayDate\HolidayDate:
       column: eventDate
   manyToOne:
     calendar:
-      targetEntity: \Core\Model\Calendar\Calendar
+      targetEntity: \Core\Model\Calendar\CalendarInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -48,7 +48,7 @@ Core\Model\HolidayDate\HolidayDate:
           nullable: false
       orphanRemoval: false
     locution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

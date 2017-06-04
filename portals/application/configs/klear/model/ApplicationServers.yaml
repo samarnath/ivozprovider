@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\ApplicationServers
-  dto: Core\Application\DTO\ApplicationServerDTO
   entity: Core\Model\ApplicationServer\ApplicationServer
   fields:
     # brand:

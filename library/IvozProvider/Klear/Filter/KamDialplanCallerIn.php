@@ -43,9 +43,9 @@ class IvozProvider_Klear_Filter_KamDialplanCallerIn implements KlearMatrix_Model
         }
 
         $filterValue = $transformationRulesetGroupModel->getCallerIn();
-        $condition = "KamTrunksDialplan.dpid = ".$filterValue;
+        $condition = "TrunksDialplan.dpid = ".$filterValue;
         if (is_null($filterValue)) {
-            $condition = "KamTrunksDialplan.dpid is null";
+            $condition = "TrunksDialplan.dpid is null";
         }
 
         $this->_condition[] = $condition;

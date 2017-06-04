@@ -20,7 +20,7 @@ Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
         strategy: IDENTITY
   manyToOne:
     filter:
-      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilter
+      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
           nullable: false
       orphanRemoval: false
     schedule:
-      targetEntity: \Core\Model\Schedule\Schedule
+      targetEntity: \Core\Model\Schedule\ScheduleInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

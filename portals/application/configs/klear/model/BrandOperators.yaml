@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\BrandOperators
-  dto: Core\Application\DTO\BrandOperatorDTO
   entity: Core\Model\BrandOperator\BrandOperator
   fields: 
     brandId:

@@ -59,7 +59,7 @@ Core\Model\MainOperator\MainOperator:
         fixed: false
   manyToOne:
     timezone:
-      targetEntity: \Core\Model\Timezone\Timezone
+      targetEntity: \Core\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

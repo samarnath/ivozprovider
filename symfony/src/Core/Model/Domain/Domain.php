@@ -3,14 +3,13 @@
 namespace Core\Model\Domain;
 
 use Assert\Assertion;
-use Core\Application\DTO\DomainDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Domain
  */
-class Domain implements EntityInterface
+class Domain implements EntityInterface, DomainInterface
 {
     /**
      * @var integer

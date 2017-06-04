@@ -37,7 +37,7 @@ Core\Model\CallACL\CallACL:
       column: defaultPolicy
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

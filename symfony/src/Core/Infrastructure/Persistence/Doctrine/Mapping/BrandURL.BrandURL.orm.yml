@@ -80,7 +80,7 @@ Core\Model\BrandURL\BrandURL:
       column: userTheme
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

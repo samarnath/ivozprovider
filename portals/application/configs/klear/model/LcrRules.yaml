@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\LcrRules
-  dto: Core\Application\DTO\LcrRuleDTO
   entity: Core\Model\LcrRule\LcrRule
   fields:
     brandId:

@@ -1,6 +1,6 @@
 @@ MODELS @@
 
-AstPsEndpoints
+PsEndpoints
 Brands
 CallACL
 CallForwardSettings
@@ -15,7 +15,7 @@ GenericMusicOnHold
 HuntGroups
 IVRCommon
 IVRCustom
-KamAccCdrs
+AccCdrs
 LcrRules
 Locutions
 MusicOnHold

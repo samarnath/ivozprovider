@@ -3,14 +3,13 @@
 namespace Core\Model\FixedCost;
 
 use Assert\Assertion;
-use Core\Application\DTO\FixedCostDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FixedCost
  */
-class FixedCost implements EntityInterface
+class FixedCost implements EntityInterface, FixedCostInterface
 {
     /**
      * @var integer
@@ -210,7 +209,7 @@ class FixedCost implements EntityInterface
     {
         if (!is_null($cost)) {
             if (!is_null($cost)) {
-                Assertion::float($cost);
+                //Assertion::float($cost);
             }
         }
 

@@ -3,7 +3,6 @@
 
 production:
   class: \IvozProvider\Model\Friends
-  dto: Core\Application\DTO\FriendDTO
   entity: Core\Model\Friend\Friend
   fields:
     company:

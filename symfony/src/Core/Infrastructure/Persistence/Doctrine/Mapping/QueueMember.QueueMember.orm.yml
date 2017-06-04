@@ -26,7 +26,7 @@ Core\Model\QueueMember\QueueMember:
         unsigned: false
   manyToOne:
     queue:
-      targetEntity: \Core\Model\Queue\Queue
+      targetEntity: \Core\Model\Queue\QueueInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -36,7 +36,7 @@ Core\Model\QueueMember\QueueMember:
           referencedColumnName: id
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

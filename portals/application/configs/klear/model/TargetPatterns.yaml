@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\TargetPatterns
-  dto: Core\Application\DTO\TargetPatternDTO
   entity: Core\Model\TargetPattern\TargetPattern
   fields: 
     id:

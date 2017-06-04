@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\CallForwardSettings
-  dto: Core\Application\DTO\CallForwardSettingDTO
   entity: Core\Model\CallForwardSetting\CallForwardSetting
   fields: 
     userId:

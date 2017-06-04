@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\LcrGateways
-  dto: Core\Application\DTO\LcrGatewayDTO
   entity: Core\Model\LcrGateway\LcrGateway
   fields: 
     company:

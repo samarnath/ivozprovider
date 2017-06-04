@@ -1,0 +1,69 @@
+Kam\Model\UsersAddres\UsersAddres:
+  repositoryClass: Kam\Infrastructure\Persistence\Doctrine\UsersAddresDoctrineRepository
+  type: entity
+  table: kam_users_address
+  indexes:
+    companyId:
+      columns:
+        - companyId
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    sourceAddress:
+      type: string
+      nullable: false
+      length: 100
+      options:
+        fixed: false
+      column: source_address
+    ipAddr:
+      type: string
+      nullable: true
+      length: 50
+      options:
+        fixed: false
+      column: ip_addr
+    mask:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '32'
+    port:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+    tag:
+      type: string
+      nullable: true
+      length: 64
+      options:
+        fixed: false
+    description:
+      type: string
+      nullable: true
+      length: 200
+      options:
+        fixed: false
+  manyToOne:
+    company:
+      targetEntity: \Core\Model\Company\CompanyInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        companyId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

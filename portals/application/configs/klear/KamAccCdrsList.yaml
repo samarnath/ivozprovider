@@ -11,11 +11,11 @@ production:
       csv: true
       order:
         field:
-          - KamAccCdr.startTimeUtc
-          - KamAccCdr.brand
-          - KamAccCdr.company
+          - AccCdr.startTimeUtc
+          - AccCdr.brand
+          - AccCdr.company
         type: desc
-      rawCondition: "KamAccCdr.peeringcontractid IS NOT NULL AND KamAccCdr.peeringcontractid != ''"
+      rawCondition: "AccCdr.peeringcontractid IS NOT NULL AND AccCdr.peeringcontractid != ''"
       pagination: 
         items: 25
       <<: *KamAccCdrs

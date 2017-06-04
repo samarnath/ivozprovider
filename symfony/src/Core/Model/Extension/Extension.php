@@ -3,14 +3,13 @@
 namespace Core\Model\Extension;
 
 use Assert\Assertion;
-use Core\Application\DTO\ExtensionDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Extension
  */
-class Extension implements EntityInterface
+class Extension implements EntityInterface, ExtensionInterface
 {
     /**
      * @var integer

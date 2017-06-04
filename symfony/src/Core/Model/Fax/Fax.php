@@ -3,14 +3,13 @@
 namespace Core\Model\Fax;
 
 use Assert\Assertion;
-use Core\Application\DTO\FaxDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Fax
  */
-class Fax implements EntityInterface
+class Fax implements EntityInterface, FaxInterface
 {
     /**
      * @var integer

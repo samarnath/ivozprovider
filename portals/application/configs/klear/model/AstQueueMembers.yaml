@@ -1,7 +1,6 @@
 production:
-  class: \IvozProvider\Model\AstQueueMembers
-  dto: Ast\Application\DTO\AstQueueMemberDTO
-  entity: Ast\Model\AstQueueMember\AstQueueMember
+  class: \IvozProvider\Model\QueueMembers
+  entity: Ast\Model\QueueMember\QueueMember
   fields:
     queueId:
       title: _('Queue')
@@ -9,8 +8,8 @@ production:
       source:
         data: mapper
         config:
-#          mapperName: \IvozProvider\Mapper\Sql\AstQueues
-          entity: Ast\Model\AstQueue\AstQueue
+#          mapperName: \IvozProvider\Mapper\Sql\Queues
+          entity: Ast\Model\Queue\Queue
           fieldName:
             fields:
               - name

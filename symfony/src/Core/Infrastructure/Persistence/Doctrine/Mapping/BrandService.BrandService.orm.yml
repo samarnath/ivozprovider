@@ -27,7 +27,7 @@ Core\Model\BrandService\BrandService:
         fixed: false
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -38,7 +38,7 @@ Core\Model\BrandService\BrandService:
           nullable: false
       orphanRemoval: false
     service:
-      targetEntity: \Core\Model\Service\Service
+      targetEntity: \Core\Model\Service\ServiceInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

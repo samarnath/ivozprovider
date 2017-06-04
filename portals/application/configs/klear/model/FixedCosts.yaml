@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\FixedCosts
-  dto: Core\Application\DTO\FixedCostDTO
   entity: Core\Model\FixedCost\FixedCost
   fields: 
     brandId:

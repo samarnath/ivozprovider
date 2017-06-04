@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\GenericMusicOnHold
-  dto: Core\Application\DTO\GenericMusicOnHoldDTO
   entity: Core\Model\GenericMusicOnHold\GenericMusicOnHold
   fields: 
     brand:

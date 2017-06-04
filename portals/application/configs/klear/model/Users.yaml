@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\Users
-  dto: Core\Application\DTO\UserDTO
   entity: Core\Model\User\User
   fields:
     company:

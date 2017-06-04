@@ -3,14 +3,13 @@
 namespace Core\Model\FixedCostsRelInvoice;
 
 use Assert\Assertion;
-use Core\Application\DTO\FixedCostsRelInvoiceDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FixedCostsRelInvoice
  */
-class FixedCostsRelInvoice implements EntityInterface
+class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInterface
 {
     /**
      * @var integer
@@ -23,14 +22,14 @@ class FixedCostsRelInvoice implements EntityInterface
     protected $quantity;
 
     /**
+     * @var \Core\Model\FixedCost\FixedCostInterface
+     */
+    protected $fixedCost;
+
+    /**
      * @var \Core\Model\Brand\Brand
      */
     protected $brand;
-
-    /**
-     * @var \Core\Model\FixedCost\FixedCost
-     */
-    protected $fixedCost;
 
     /**
      * @var \Core\Model\Invoice\Invoice
@@ -81,8 +80,8 @@ class FixedCostsRelInvoice implements EntityInterface
 
         return $self
             ->setQuantity($dto->getQuantity())
-            ->setBrand($dto->getBrand())
             ->setFixedCost($dto->getFixedCost())
+            ->setBrand($dto->getBrand())
             ->setInvoice($dto->getInvoice());
     }
 
@@ -96,8 +95,8 @@ class FixedCostsRelInvoice implements EntityInterface
 
         $this
             ->setQuantity($dto->getQuantity())
-            ->setBrand($dto->getBrand())
             ->setFixedCost($dto->getFixedCost())
+            ->setBrand($dto->getBrand())
             ->setInvoice($dto->getInvoice());
 
 
@@ -112,8 +111,8 @@ class FixedCostsRelInvoice implements EntityInterface
         return self::createDTO()
             ->setId($this->getId())
             ->setQuantity($this->getQuantity())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
             ->setFixedCostId($this->getFixedCost() ? $this->getFixedCost()->getId() : null)
+            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
             ->setInvoiceId($this->getInvoice() ? $this->getInvoice()->getId() : null);
     }
 
@@ -125,8 +124,8 @@ class FixedCostsRelInvoice implements EntityInterface
         return [
             'id' => $this->getId(),
             'quantity' => $this->getQuantity(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
             'fixedCostId' => $this->getFixedCost() ? $this->getFixedCost()->getId() : null,
+            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
             'invoiceId' => $this->getInvoice() ? $this->getInvoice()->getId() : null
         ];
     }
@@ -175,6 +174,30 @@ class FixedCostsRelInvoice implements EntityInterface
     }
 
     /**
+     * Set fixedCost
+     *
+     * @param \Core\Model\FixedCost\FixedCostInterface $fixedCost
+     *
+     * @return FixedCostsRelInvoice
+     */
+    protected function setFixedCost(\Core\Model\FixedCost\FixedCostInterface $fixedCost)
+    {
+        $this->fixedCost = $fixedCost;
+
+        return $this;
+    }
+
+    /**
+     * Get fixedCost
+     *
+     * @return \Core\Model\FixedCost\FixedCostInterface
+     */
+    public function getFixedCost()
+    {
+        return $this->fixedCost;
+    }
+
+    /**
      * Set brand
      *
      * @param \Core\Model\Brand\Brand $brand
@@ -196,30 +219,6 @@ class FixedCostsRelInvoice implements EntityInterface
     public function getBrand()
     {
         return $this->brand;
-    }
-
-    /**
-     * Set fixedCost
-     *
-     * @param \Core\Model\FixedCost\FixedCost $fixedCost
-     *
-     * @return FixedCostsRelInvoice
-     */
-    protected function setFixedCost(\Core\Model\FixedCost\FixedCost $fixedCost)
-    {
-        $this->fixedCost = $fixedCost;
-
-        return $this;
-    }
-
-    /**
-     * Get fixedCost
-     *
-     * @return \Core\Model\FixedCost\FixedCost
-     */
-    public function getFixedCost()
-    {
-        return $this->fixedCost;
     }
 
     /**

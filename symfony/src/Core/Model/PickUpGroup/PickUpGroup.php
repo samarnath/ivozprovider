@@ -3,14 +3,13 @@
 namespace Core\Model\PickUpGroup;
 
 use Assert\Assertion;
-use Core\Application\DTO\PickUpGroupDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PickUpGroup
  */
-class PickUpGroup implements EntityInterface
+class PickUpGroup implements EntityInterface, PickUpGroupInterface
 {
     /**
      * @var integer

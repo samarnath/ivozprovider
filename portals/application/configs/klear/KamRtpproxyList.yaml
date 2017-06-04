@@ -12,7 +12,7 @@ production:
       controller: list
       pagination: 
         items: 25
-      <<: *KamRtpproxy
+      <<: *Rtpproxy
       class: ui-silk-bell-link
       title: _("List of %s %2s", ngettext('Media relay', 'Media relay(s)', 0), "[format| (%parent%)]")
       fields: &kamRtpproxy_fieldsLink 
@@ -34,7 +34,7 @@ production:
           kamRtpproxyDel_dialog: true
       <<: *kamRtpproxyHelp
     kamRtpproxyNew_screen: &kamRtpproxyNew_screenLink 
-      <<: *KamRtpproxy
+      <<: *Rtpproxy
       controller: new
       class: ui-silk-add
       fields:
@@ -47,7 +47,7 @@ production:
       shortcutOption: N
       <<: *kamRtpproxyHelp
     kamRtpproxyEdit_screen: &kamRtpproxyEdit_screenLink 
-      <<: *KamRtpproxy
+      <<: *Rtpproxy
       controller: edit
       class: ui-silk-pencil
       fields:
@@ -60,7 +60,7 @@ production:
       <<: *kamRtpproxyHelp
   dialogs: &kamRtpproxy_dialogsLink 
     kamRtpproxyDel_dialog: &kamRtpproxyDel_dialogLink 
-      <<: *KamRtpproxy
+      <<: *Rtpproxy
       controller: delete
       class: ui-silk-bin
       labelOption: false

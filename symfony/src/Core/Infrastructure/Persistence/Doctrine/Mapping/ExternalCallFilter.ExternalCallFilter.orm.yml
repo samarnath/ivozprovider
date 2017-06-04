@@ -95,7 +95,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
       column: whiteListRegExp
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -106,7 +106,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
           nullable: false
       orphanRemoval: false
     welcomeLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -116,7 +116,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
           referencedColumnName: id
       orphanRemoval: false
     holidayLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -126,7 +126,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
           referencedColumnName: id
       orphanRemoval: false
     outOfScheduleLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -136,7 +136,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
           referencedColumnName: id
       orphanRemoval: false
     holidayExtension:
-      targetEntity: \Core\Model\Extension\Extension
+      targetEntity: \Core\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -146,7 +146,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
           referencedColumnName: id
       orphanRemoval: false
     outOfScheduleExtension:
-      targetEntity: \Core\Model\Extension\Extension
+      targetEntity: \Core\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -156,7 +156,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
           referencedColumnName: id
       orphanRemoval: false
     holidayVoiceMailUser:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -166,7 +166,7 @@ Core\Model\ExternalCallFilter\ExternalCallFilter:
           referencedColumnName: id
       orphanRemoval: false
     outOfScheduleVoiceMailUser:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

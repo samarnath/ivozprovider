@@ -3,14 +3,13 @@
 namespace Core\Model\EtagVersion;
 
 use Assert\Assertion;
-use Core\Application\DTO\EtagVersionDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * EtagVersion
  */
-class EtagVersion implements EntityInterface
+class EtagVersion implements EntityInterface, EtagVersionInterface
 {
     /**
      * @var integer

@@ -3,14 +3,13 @@
 namespace Core\Model\BrandURL;
 
 use Assert\Assertion;
-use Core\Application\DTO\BrandURLDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * BrandURL
  */
-class BrandURL implements EntityInterface
+class BrandURL implements EntityInterface, BrandURLInterface
 {
     /**
      * @var integer

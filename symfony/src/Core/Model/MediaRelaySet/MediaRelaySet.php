@@ -3,14 +3,13 @@
 namespace Core\Model\MediaRelaySet;
 
 use Assert\Assertion;
-use Core\Application\DTO\MediaRelaySetDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MediaRelaySet
  */
-class MediaRelaySet implements EntityInterface
+class MediaRelaySet implements EntityInterface, MediaRelaySetInterface
 {
     /**
      * @var integer

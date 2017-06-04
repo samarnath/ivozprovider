@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\PickUpGroups
-  dto: Core\Application\DTO\PickUpGroupDTO
   entity: Core\Model\PickUpGroup\PickUpGroup
   fields: 
     name:

@@ -11,7 +11,7 @@ production:
       controller: list
       pagination: 
         items: 25
-      <<: *KamTrunksDialplan
+      <<: *TrunksDialplan
       class: ui-silk-text-list-bullets
       title: _("List of %s %2s", ngettext('Kam trunks dialplan', 'Kam trunks dialplan(s)', 0), "[format| (%parent%)]")
       filterField: TransformationRulesetGroupsTrunk
@@ -35,7 +35,7 @@ production:
         dialogs: 
           kamTrunksDialplanDel_dialog: true
     kamTrunksDialplanNew_screen: &kamTrunksDialplanNew_screenLink 
-      <<: *KamTrunksDialplan
+      <<: *TrunksDialplan
       controller: new
       class: ui-silk-add
       label: true
@@ -58,7 +58,7 @@ production:
             match_exp: 1
             repl_exp: 1
     kamTrunksDialplanEdit_screen: &kamTrunksDialplanEdit_screenLink 
-      <<: *KamTrunksDialplan
+      <<: *TrunksDialplan
       controller: edit
       class: ui-silk-pencil
       label: false
@@ -71,7 +71,7 @@ production:
         <<: *kamTrunksDialplanFixedPositions_screenLink
   dialogs: &kamTrunksDialplan_dialogsLink 
     kamTrunksDialplanDel_dialog: &kamTrunksDialplanDel_dialogLink 
-      <<: *KamTrunksDialplan
+      <<: *TrunksDialplan
       controller: delete
       class: ui-silk-bin
       labelOption: false

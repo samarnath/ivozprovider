@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\ConferenceRooms
-  dto: Core\Application\DTO\ConferenceRoomDTO
   entity: Core\Model\ConferenceRoom\ConferenceRoom
   fields: 
     companyId:

@@ -3,14 +3,13 @@
 namespace Core\Model\ProxyTrunk;
 
 use Assert\Assertion;
-use Core\Application\DTO\ProxyTrunkDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ProxyTrunk
  */
-class ProxyTrunk implements EntityInterface
+class ProxyTrunk implements EntityInterface, ProxyTrunkInterface
 {
     /**
      * @var integer

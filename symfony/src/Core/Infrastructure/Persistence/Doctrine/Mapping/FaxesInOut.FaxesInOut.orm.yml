@@ -83,7 +83,7 @@ Core\Model\FaxesInOut\FaxesInOut:
       column: fileBaseName
   manyToOne:
     fax:
-      targetEntity: \Core\Model\Fax\Fax
+      targetEntity: \Core\Model\Fax\FaxInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

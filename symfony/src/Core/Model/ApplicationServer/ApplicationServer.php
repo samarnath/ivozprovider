@@ -3,14 +3,13 @@
 namespace Core\Model\ApplicationServer;
 
 use Assert\Assertion;
-use Core\Application\DTO\ApplicationServerDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ApplicationServer
  */
-class ApplicationServer implements EntityInterface
+class ApplicationServer implements EntityInterface, ApplicationServerInterface
 {
     /**
      * @var integer

@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\CallACLPatterns
-  dto: Core\Application\DTO\CallACLPatternDTO
   entity: Core\Model\CallACLPattern\CallACLPattern
   fields:
     companyId:

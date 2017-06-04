@@ -11,7 +11,7 @@ production:
       controller: list
       pagination: 
         items: 25
-      <<: *KamDispatcher
+      <<: *Dispatcher
       class: ui-silk-text-list-bullets
       title: _("List of %s %2s", ngettext('Kam dispatcher', 'Kam dispatcher(s)', 0), "[format| (%parent%)]")
       fields: &kamDispatcher_fieldsLink 
@@ -29,7 +29,7 @@ production:
         dialogs: 
           kamDispatcherDel_dialog: true
     kamDispatcherNew_screen: &kamDispatcherNew_screenLink 
-      <<: *KamDispatcher
+      <<: *Dispatcher
       controller: new
       class: ui-silk-add
       label: true
@@ -37,7 +37,7 @@ production:
       title: _("Add %s", ngettext('Kam dispatcher', 'Kam dispatcher(s)', 1), "[format| (%parent%)]")
       shortcutOption: N
     kamDispatcherEdit_screen: &kamDispatcherEdit_screenLink 
-      <<: *KamDispatcher
+      <<: *Dispatcher
       controller: edit
       class: ui-silk-pencil
       label: false
@@ -45,7 +45,7 @@ production:
       title: _("Edit %s %2s", ngettext('Kam dispatcher', 'Kam dispatcher(s)', 1), "[format| (%item%)]")
   dialogs: &kamDispatcher_dialogsLink 
     kamDispatcherDel_dialog: &kamDispatcherDel_dialogLink 
-      <<: *KamDispatcher
+      <<: *Dispatcher
       controller: delete
       class: ui-silk-bin
       labelOption: false

@@ -45,7 +45,7 @@ Core\Model\PeeringContract\PeeringContract:
       column: externallyRated
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -56,7 +56,7 @@ Core\Model\PeeringContract\PeeringContract:
           nullable: false
       orphanRemoval: false
     transformationRulesetGroupsTrunk:
-      targetEntity: \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+      targetEntity: \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

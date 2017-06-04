@@ -38,7 +38,7 @@ Core\Model\CallACLRelPattern\CallACLRelPattern:
         comment: '[enum:allow|deny]'
   manyToOne:
     callACL:
-      targetEntity: \Core\Model\CallACL\CallACL
+      targetEntity: \Core\Model\CallACL\CallACLInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -49,7 +49,7 @@ Core\Model\CallACLRelPattern\CallACLRelPattern:
           nullable: false
       orphanRemoval: false
     callACLPattern:
-      targetEntity: \Core\Model\CallACLPattern\CallACLPattern
+      targetEntity: \Core\Model\CallACLPattern\CallACLPatternInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

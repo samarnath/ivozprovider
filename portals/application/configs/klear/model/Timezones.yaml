@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Timezones
-  dto: Core\Application\DTO\TimezoneDTO
   entity: Core\Model\Timezone\Timezone
   fields: 
     country:

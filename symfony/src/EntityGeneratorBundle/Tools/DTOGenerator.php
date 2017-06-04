@@ -14,8 +14,6 @@ use Doctrine\Common\Util\Inflector;
  */
 class DTOGenerator extends ParentGenerator
 {
-    protected $dtoNamespace;
-
     protected $codeCoverageIgnoreBlock = false;
 
     /**
@@ -81,18 +79,6 @@ public function <methodName>()
 }';
 
     /**
-     * Visibility of the field
-     *
-     * @var string
-     */
-    protected $fieldVisibility = 'public';
-
-    public function setDtoNamespace($dtoNamespace)
-    {
-        $this->dtoNamespace = $dtoNamespace;
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function writeEntityClass(ClassMetadataInfo $metadata, $outputDirectory)
@@ -102,17 +88,11 @@ public function <methodName>()
 
     private function transformMetadata(ClassMetadataInfo $metadata)
     {
-        $metadata->name = $this->entityNameToDto($metadata->namespace, $metadata->name);
+        $metadata->name .= 'DTO';
         $metadata->rootEntityName = $metadata->name;
-        $metadata->namespace = $this->dtoNamespace;
         $metadata->customRepositoryClassName = null;
 
         return $metadata;
-    }
-
-    private function entityNameToDto($namespace, $name)
-    {
-        return str_replace($namespace, $this->dtoNamespace, $name) . 'DTO';
     }
 
     /**

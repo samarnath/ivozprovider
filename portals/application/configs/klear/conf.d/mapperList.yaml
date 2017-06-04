@@ -428,37 +428,37 @@ mappers:
   - &AstHints {
         mapper: \IvozProvider\Mapper\Sql\AstHints,
         modelFile: AstHints,
-        entity: 'Core\\Model\\AstHint\\AstHint'
+        entity: 'Ast\\Model\\Hint\\Hint'
     }
-  - &AstMusiconhold {
+  - &Musiconhold {
         mapper: \IvozProvider\Mapper\Sql\AstMusiconhold,
-        modelFile: AstMusiconhold,
-        entity: 'Core\\Model\\AstMusiconhold\\AstMusiconhold'
+        modelFile: Musiconhold,
+        entity: 'Core\\Model\\Musiconhold\\Musiconhold'
     }
   - &AstPsAors {
         mapper: \IvozProvider\Mapper\Sql\AstPsAors,
         modelFile: AstPsAors,
-        entity: 'Core\\Model\\AstPsAor\\AstPsAor'
+        entity: 'Ast\\Model\\PsAor\\PsAor'
     }
   - &AstPsEndpoints {
         mapper: \IvozProvider\Mapper\Sql\AstPsEndpoints,
         modelFile: AstPsEndpoints,
-        entity: 'Core\\Model\\AstPsEndpoint\\AstPsEndpoint'
+        entity: 'Ast\\Model\\PsEndpoint\\PsEndpoint'
     }
-  - &AstVoicemail {
+  - &Voicemail {
         mapper: \IvozProvider\Mapper\Sql\AstVoicemail,
-        modelFile: AstVoicemail,
-        entity: 'Core\\Model\\AstVoicemail\\AstVoicemail'
+        modelFile: Voicemail,
+        entity: 'Core\\Model\\Voicemail\\Voicemail'
     }
   - &AstQueueMembers {
         mapper: \IvozProvider\Mapper\Sql\AstQueueMembers,
         modelFile: AstQueueMembers,
-        entity: 'Core\\Model\\AstQueueMember\\AstQueueMember'
+        entity: 'Ast\\Model\\QueueMember\\QueueMember'
     }
   - &AstQueues {
         mapper: \IvozProvider\Mapper\Sql\AstQueues,
         modelFile: AstQueues,
-        entity: 'Core\\Model\\AstQueue\\AstQueue'
+        entity: 'Ast\\Model\\Queue\\Queue'
     }
   - &Changelog {
         mapper: \IvozProvider\Mapper\Sql\Changelog,
@@ -468,110 +468,110 @@ mappers:
   - &KamAccCdrsBrand {
         mapper: \IvozProvider\Mapper\Sql\KamAccCdrs,
         modelFile: KamAccCdrsBrand,
-        entity: 'Core\\Model\\KamAccCdrsBrand\\KamAccCdrsBrand'
+        entity: 'Kam\\Model\\AccCdrsBrand\\AccCdrsBrand'
     }
   - &KamAccCdrs {
         mapper: \IvozProvider\Mapper\Sql\KamAccCdrs,
         modelFile: KamAccCdrs,
-        entity: 'Core\\Model\\KamAccCdr\\KamAccCdr'
+        entity: 'Kam\\Model\\AccCdr\\AccCdr'
     }
-  - &KamDispatcher {
+  - &Dispatcher {
         mapper: \IvozProvider\Mapper\Sql\KamDispatcher,
         modelFile: KamDispatcher,
-        entity: 'Core\\Model\\KamDispatcher\\KamDispatcher'
+        entity: 'Kam\\Model\\Dispatcher\\Dispatcher'
     }
-  - &KamPikeTrusted {
+  - &PikeTrusted {
         mapper: \IvozProvider\Mapper\Sql\KamPikeTrusted,
         modelFile: KamPikeTrusted,
-        entity: 'Core\\Model\\KamPikeTrusted\\KamPikeTrusted'
+        entity: 'Kam\\Model\\PikeTrusted\\PikeTrusted'
     }
-  - &KamRtpproxy {
+  - &Rtpproxy {
         mapper: \IvozProvider\Mapper\Sql\KamRtpproxy,
         modelFile: KamRtpproxy,
-        entity: 'Core\\Model\\KamRtpproxy\\KamRtpproxy'
+        entity: 'Kam\\Model\\Rtpproxy\\Rtpproxy'
     }
   - &KamTrunksAcc {
         mapper: \IvozProvider\Mapper\Sql\KamTrunksAcc,
         modelFile: KamTrunksAcc,
-        entity: 'Core\\Model\\KamTrunksAcc\\KamTrunksAcc'
+        entity: 'Kam\\Model\\TrunksAcc\\TrunksAcc'
     }
   - &KamTrunksAddress {
         mapper: \IvozProvider\Mapper\Sql\KamTrunksAddress,
         modelFile: KamTrunksAddress,
-        entity: 'Core\\Model\\KamTrunksAddress\\KamTrunksAddress'
+        entity: 'Kam\\Model\\TrunksAddress\\TrunksAddress'
     }
-  - &KamTrunksDialplan {
+  - &TrunksDialplan {
         mapper: \IvozProvider\Mapper\Sql\KamTrunksDialplan,
-        modelFile: KamTrunksDialplan,
-        entity: 'Core\\Model\\KamTrunksDialplan\\KamTrunksDialplan'
+        modelFile: TrunksDialplan,
+        entity: 'Core\\Model\\TrunksDialplan\\TrunksDialplan'
     }
   - &KamTrunksDomain {
         mapper: \IvozProvider\Mapper\Sql\KamTrunksDomain,
         modelFile: KamTrunksDomain,
-        entity: 'Core\\Model\\KamTrunksDomain\\KamTrunksDomain'
+        entity: 'Kam\\Model\\TrunksDomain\\TrunksDomain'
     }
   - &KamTrunksDomainAttrs {
-        mapper: \IvozProvider\Mapper\Sql\KamTrunksDomainAttrs,
+        mapper: \IvozProvider\Mapper\Sql\TrunksDomainAttrs,
         modelFile: KamTrunksDomainAttrs,
-        entity: 'Core\\Model\\KamTrunksDomainAttr\\KamTrunksDomainAttr'
+        entity: 'Kam\\Model\\TrunksDomainAttr\\TrunksDomainAttr'
     }
-  - &KamTrunksHtable {
+  - &TrunksHtable {
         mapper: \IvozProvider\Mapper\Sql\KamTrunksHtable,
-        modelFile: KamTrunksHtable,
-        entity: 'Core\\Model\\KamTrunksHtable\\KamTrunksHtable'
+        modelFile: TrunksHtable,
+        entity: 'Core\\Model\\TrunksHtable\\TrunksHtable'
     }
-  - &KamTrunksUacreg {
+  - &TrunksUacreg {
         mapper: \IvozProvider\Mapper\Sql\KamTrunksUacreg,
-        modelFile: KamTrunksUacreg,
-        entity: 'Core\\Model\\KamTrunksUacreg\\KamTrunksUacreg'
+        modelFile: TrunksUacreg,
+        entity: 'Core\\Model\\TrunksUacreg\\TrunksUacreg'
     }
   - &KamUsers {
         mapper: \IvozProvider\Mapper\Sql\KamUsers,
         modelFile: KamUsers,
-        entity: 'Core\\Model\\KamUser\\KamUser'
+        entity: 'Kam\\Model\\User\\User'
     }
-  - &KamUsersAcc {
+  - &UsersAcc {
         mapper: \IvozProvider\Mapper\Sql\KamUsersAcc,
-        modelFile: KamUsersAcc,
-        entity: 'Core\\Model\\KamUsersAcc\\KamUsersAcc'
+        modelFile: UsersAcc,
+        entity: 'Core\\Model\\UsersAcc\\UsersAcc'
     }
   - &KamUsersAddress {
         mapper: \IvozProvider\Mapper\Sql\KamUsersAddress,
         modelFile: KamUsersAddress,
-        entity: 'Core\\Model\\KamUsersAddress\\KamUsersAddress'
+        entity: 'Kam\\Model\\UsersAddress\\UsersAddress'
     }
   - &KamUsersDomain {
         mapper: \IvozProvider\Mapper\Sql\KamUsersDomain,
         modelFile: KamUsersDomain,
-        entity: 'Core\\Model\\KamUsersDomain\\KamUsersDomain'
+        entity: 'Kam\\Model\\UsersDomain\\UsersDomain'
     }
   - &KamUsersDomainAttrs {
         mapper: \IvozProvider\Mapper\Sql\KamUsersDomainAttrs,
         modelFile: KamUsersDomainAttrs,
-        entity: 'Core\\Model\\KamUsersDomainAttr\\KamUsersDomainAttr'
+        entity: 'Kam\\Model\\UsersDomainAttr\\UsersDomainAttr'
     }
-  - &KamUsersHtable {
+  - &UsersHtable {
         mapper: \IvozProvider\Mapper\Sql\KamUsersHtable,
-        modelFile: KamUsersHtable,
-        entity: 'Core\\Model\\KamUsersHtable\\KamUsersHtable'
+        modelFile: UsersHtable,
+        entity: 'Core\\Model\\UsersHtable\\UsersHtable'
     }
-  - &KamUsersLocation {
+  - &UsersLocation {
         mapper: \IvozProvider\Mapper\Sql\KamUsersLocation,
-        modelFile: KamUsersLocation,
-        entity: 'Core\\Model\\KamUsersLocation\\KamUsersLocation'
+        modelFile: UsersLocation,
+        entity: 'Core\\Model\\UsersLocation\\UsersLocation'
     }
   - &KamUsersLocationAttrs {
         mapper: \IvozProvider\Mapper\Sql\KamUsersLocationAttrs,
         modelFile: KamUsersLocationAttrs,
-        entity: 'Core\\Model\\KamUsersLocationAttr\\KamUsersLocationAttr'
+        entity: 'Kam\\Model\\UsersLocationAttr\\UsersLocationAttr'
     }
   - &KamUsersMissedCalls {
         mapper: \IvozProvider\Mapper\Sql\KamUsersMissedCalls,
         modelFile: KamUsersMissedCalls,
-        entity: 'Core\\Model\\KamUsersMissedCalls\\KamUsersMissedCalls'
+        entity: 'Kam\\Model\\UsersMissedCalls\\UsersMissedCalls'
     }
   - &KamVersion {
         mapper: \IvozProvider\Mapper\Sql\KamVersion,
         modelFile: KamVersion,
-        entity: 'Core\\Model\\KamVersion\\KamVersion'
+        entity: 'Kam\\Model\\Version\\Version'
     }

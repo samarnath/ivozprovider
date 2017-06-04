@@ -2,7 +2,6 @@
 
 production:
   class: \IvozProvider\Model\Extensions
-  dto: Core\Application\DTO\ExtensionDTO
   entity: Core\Model\Extension\Extension
   fields:
     company:

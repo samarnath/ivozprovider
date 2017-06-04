@@ -3,14 +3,13 @@
 namespace Core\Model\CompanyAdmin;
 
 use Assert\Assertion;
-use Core\Application\DTO\CompanyAdminDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CompanyAdmin
  */
-class CompanyAdmin implements EntityInterface
+class CompanyAdmin implements EntityInterface, CompanyAdminInterface
 {
     /**
      * @var integer

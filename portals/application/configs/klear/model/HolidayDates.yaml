@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\HolidayDates
-  dto: Core\Application\DTO\HolidayDateDTO
   entity: Core\Model\HolidayDate\HolidayDate
   fields: 
     calendarId:

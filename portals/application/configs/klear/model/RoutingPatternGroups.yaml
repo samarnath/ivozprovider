@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\RoutingPatternGroups
-  dto: Core\Application\DTO\RoutingPatternGroupDTO
   entity: Core\Model\RoutingPatternGroup\RoutingPatternGroup
   fields: 
     name:

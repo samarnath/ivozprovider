@@ -83,7 +83,7 @@ Core\Model\Recording\Recording:
       column: recordedFileBaseName
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

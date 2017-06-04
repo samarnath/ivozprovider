@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\XMLRPCLogs
-  dto: Core\Application\DTO\XMLRPCLogDTO
   entity: Core\Model\XMLRPCLog\XMLRPCLog
   fields: 
     proxy:

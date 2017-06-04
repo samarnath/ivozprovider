@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\MediaRelaySets
-  dto: Core\Application\DTO\MediaRelaySetDTO
   entity: Core\Model\MediaRelaySet\MediaRelaySet
   fields: 
     name:

@@ -3,14 +3,13 @@
 namespace Core\Model\LcrGateway;
 
 use Assert\Assertion;
-use Core\Application\DTO\LcrGatewayDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * LcrGateway
  */
-class LcrGateway implements EntityInterface
+class LcrGateway implements EntityInterface, LcrGatewayInterface
 {
     /**
      * @var integer

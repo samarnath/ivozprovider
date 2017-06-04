@@ -3,14 +3,13 @@
 namespace Core\Model\RoutingPatternGroupsRelPattern;
 
 use Assert\Assertion;
-use Core\Application\DTO\RoutingPatternGroupsRelPatternDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * RoutingPatternGroupsRelPattern
  */
-class RoutingPatternGroupsRelPattern implements EntityInterface
+class RoutingPatternGroupsRelPattern implements EntityInterface, RoutingPatternGroupsRelPatternInterface
 {
     /**
      * @var integer

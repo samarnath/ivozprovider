@@ -131,7 +131,7 @@ Core\Model\Brand\Brand:
       column: recordingsLimitEmail
   manyToOne:
     language:
-      targetEntity: \Core\Model\Language\Language
+      targetEntity: \Core\Model\Language\LanguageInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -141,7 +141,7 @@ Core\Model\Brand\Brand:
           referencedColumnName: id
       orphanRemoval: false
     defaultTimezone:
-      targetEntity: \Core\Model\Timezone\Timezone
+      targetEntity: \Core\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -152,19 +152,19 @@ Core\Model\Brand\Brand:
       orphanRemoval: false
   oneToMany:
     operators:
-      targetEntity: Core\Model\BrandOperator\BrandOperator
+      targetEntity: Core\Model\BrandOperator\BrandOperatorInterface
       mappedBy: brand
     services:
-      targetEntity: Core\Model\BrandService\BrandService
+      targetEntity: Core\Model\BrandService\BrandServiceInterface
       mappedBy: brand
     urls:
-      targetEntity: Core\Model\BrandURL\BrandURL
+      targetEntity: Core\Model\BrandURL\BrandURLInterface
       mappedBy: brand
     relFeatures:
-      targetEntity: Core\Model\FeaturesRelBrand\FeaturesRelBrand
+      targetEntity: Core\Model\FeaturesRelBrand\FeaturesRelBrandInterface
       mappedBy: brand
     domains:
-      targetEntity: Core\Model\Domain\Domain
+      targetEntity: Core\Model\Domain\DomainInterface
       mappedBy: brand
 
   lifecycleCallbacks: {  }

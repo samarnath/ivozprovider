@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\LcrRuleTargets
-  dto: Core\Application\DTO\LcrRuleTargetDTO
   entity: Core\Model\LcrRuleTarget\LcrRuleTarget
   fields: 
     company:

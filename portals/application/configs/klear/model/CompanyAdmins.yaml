@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\CompanyAdmins
-  dto: Core\Application\DTO\CompanyAdminDTO
   entity: Core\Model\CompanyAdmin\CompanyAdmin
   fields: 
     companyId:

@@ -3,14 +3,13 @@
 namespace Core\Model\Country;
 
 use Assert\Assertion;
-use Core\Application\DTO\CountryDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Country
  */
-class Country implements EntityInterface
+class Country implements EntityInterface, CountryInterface
 {
     /**
      * @var integer

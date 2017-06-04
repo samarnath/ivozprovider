@@ -3,14 +3,13 @@
 namespace Core\Model\Calendar;
 
 use Assert\Assertion;
-use Core\Application\DTO\CalendarDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Calendar
  */
-class Calendar implements EntityInterface
+class Calendar implements EntityInterface, CalendarInterface
 {
     /**
      * @var integer

@@ -35,6 +35,10 @@
         {
             "type":"git",
             "url": "https://github.com/irontec/klear-generator"
+        },
+        {
+            "type":"git",
+            "url": "https://github.com/irontec/klear-library.git"
         }
     ],
     "autoload": {
@@ -81,7 +85,8 @@
         "crada/php-apidoc":"@dev",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
-        "irontec/Generator": "dev-tayler"
+        "irontec/Generator": "dev-tayler",
+        "irontec/Iron": "dev-tayler"
     },
     "scripts": {
         "symfony-scripts": [

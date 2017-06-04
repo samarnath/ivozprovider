@@ -3,7 +3,6 @@
 namespace Core\Model\Brand;
 
 use Assert\Assertion;
-use Core\Application\DTO\BrandDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,7 +11,7 @@ use Doctrine\Common\Collections\Criteria;
 /**
  * Brand
  */
-class Brand implements EntityInterface
+class Brand implements EntityInterface, BrandInterface
 {
     /**
      * @var integer
@@ -815,7 +814,8 @@ class Brand implements EntityInterface
         $updatedEntities = [];
         $fallBackId = -1;
         foreach ($operators as $entity) {
-            $updatedEntities[$entity->getId() ?? $fallBackId--] = $entity;
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
             $entity->setBrand($this);
         }
         $updatedEntityKeys = array_keys($updatedEntities);
@@ -886,7 +886,8 @@ class Brand implements EntityInterface
         $updatedEntities = [];
         $fallBackId = -1;
         foreach ($services as $entity) {
-            $updatedEntities[$entity->getId() ?? $fallBackId--] = $entity;
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
             $entity->setBrand($this);
         }
         $updatedEntityKeys = array_keys($updatedEntities);
@@ -957,7 +958,8 @@ class Brand implements EntityInterface
         $updatedEntities = [];
         $fallBackId = -1;
         foreach ($urls as $entity) {
-            $updatedEntities[$entity->getId() ?? $fallBackId--] = $entity;
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
             $entity->setBrand($this);
         }
         $updatedEntityKeys = array_keys($updatedEntities);
@@ -1028,7 +1030,8 @@ class Brand implements EntityInterface
         $updatedEntities = [];
         $fallBackId = -1;
         foreach ($relFeatures as $entity) {
-            $updatedEntities[$entity->getId() ?? $fallBackId--] = $entity;
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
             $entity->setBrand($this);
         }
         $updatedEntityKeys = array_keys($updatedEntities);
@@ -1099,7 +1102,8 @@ class Brand implements EntityInterface
         $updatedEntities = [];
         $fallBackId = -1;
         foreach ($domains as $entity) {
-            $updatedEntities[$entity->getId() ?? $fallBackId--] = $entity;
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
             $entity->setBrand($this);
         }
         $updatedEntityKeys = array_keys($updatedEntities);

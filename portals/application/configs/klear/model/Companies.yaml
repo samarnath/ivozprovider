@@ -2,7 +2,6 @@
 
 production:
   class: \IvozProvider\Model\Companies
-  dto: Core\Application\DTO\CompanyDTO
   entity: Core\Model\Company\Company
   fields:
     id:

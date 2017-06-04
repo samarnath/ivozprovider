@@ -3,14 +3,13 @@
 namespace Core\Model\LcrRule;
 
 use Assert\Assertion;
-use Core\Application\DTO\LcrRuleDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * LcrRule
  */
-class LcrRule implements EntityInterface
+class LcrRule implements EntityInterface, LcrRuleInterface
 {
     /**
      * @var integer

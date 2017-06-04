@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\HuntGroupsRelUsers
-  dto: Core\Application\DTO\HuntGroupsRelUserDTO
   entity: Core\Model\HuntGroupsRelUser\HuntGroupsRelUser
   fields: 
     huntGroup:

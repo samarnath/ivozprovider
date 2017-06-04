@@ -3,14 +3,13 @@
 namespace Core\Model\InvoiceTemplate;
 
 use Assert\Assertion;
-use Core\Application\DTO\InvoiceTemplateDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * InvoiceTemplate
  */
-class InvoiceTemplate implements EntityInterface
+class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
 {
     /**
      * @var integer

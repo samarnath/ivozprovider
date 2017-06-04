@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\FeaturesRelBrands
-  dto: Core\Application\DTO\FeaturesRelBrandDTO
   entity: Core\Model\FeaturesRelBrand\FeaturesRelBrand
   fields: 
     brand:

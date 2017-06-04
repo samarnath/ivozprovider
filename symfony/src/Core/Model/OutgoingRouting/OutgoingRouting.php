@@ -3,14 +3,13 @@
 namespace Core\Model\OutgoingRouting;
 
 use Assert\Assertion;
-use Core\Application\DTO\OutgoingRoutingDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * OutgoingRouting
  */
-class OutgoingRouting implements EntityInterface
+class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
 {
     /**
      * @var integer

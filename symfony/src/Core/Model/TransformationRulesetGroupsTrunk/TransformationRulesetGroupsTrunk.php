@@ -3,14 +3,13 @@
 namespace Core\Model\TransformationRulesetGroupsTrunk;
 
 use Assert\Assertion;
-use Core\Application\DTO\TransformationRulesetGroupsTrunkDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TransformationRulesetGroupsTrunk
  */
-class TransformationRulesetGroupsTrunk implements EntityInterface
+class TransformationRulesetGroupsTrunk implements EntityInterface, TransformationRulesetGroupsTrunkInterface
 {
     /**
      * @var integer

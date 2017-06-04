@@ -3,14 +3,13 @@
 namespace Core\Model\HuntGroup;
 
 use Assert\Assertion;
-use Core\Application\DTO\HuntGroupDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * HuntGroup
  */
-class HuntGroup implements EntityInterface
+class HuntGroup implements EntityInterface, HuntGroupInterface
 {
     /**
      * @var integer

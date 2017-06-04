@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\GenericCallACLPatterns
-  dto: Core\Application\DTO\GenericCallACLPatternDTO
   entity: Core\Model\GenericCallACLPattern\GenericCallACLPattern
   fields: 
     brand:

@@ -3,14 +3,13 @@
 namespace Core\Model\Feature;
 
 use Assert\Assertion;
-use Core\Application\DTO\FeatureDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Feature
  */
-class Feature implements EntityInterface
+class Feature implements EntityInterface, FeatureInterface
 {
     /**
      * @var integer

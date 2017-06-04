@@ -67,7 +67,7 @@ Core\Model\RoutingPattern\RoutingPattern:
       column: regExp
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

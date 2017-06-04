@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\Locutions
-  dto: Core\Application\DTO\LocutionDTO
   entity: Core\Model\Locution\Locution
   fields: 
     company:

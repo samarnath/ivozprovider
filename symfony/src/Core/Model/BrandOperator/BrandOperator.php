@@ -3,14 +3,13 @@
 namespace Core\Model\BrandOperator;
 
 use Assert\Assertion;
-use Core\Application\DTO\BrandOperatorDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * BrandOperator
  */
-class BrandOperator implements EntityInterface
+class BrandOperator implements EntityInterface, BrandOperatorInterface
 {
     /**
      * @var integer

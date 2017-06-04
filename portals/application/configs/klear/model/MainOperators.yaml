@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\MainOperators
-  dto: Core\Application\DTO\MainOperatorDTO
   entity: Core\Model\MainOperator\MainOperator
   fields: 
     username:

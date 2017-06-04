@@ -3,14 +3,13 @@
 namespace Core\Model\Recording;
 
 use Assert\Assertion;
-use Core\Application\DTO\RecordingDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Recording
  */
-class Recording implements EntityInterface
+class Recording implements EntityInterface, RecordingInterface
 {
     /**
      * @var integer
@@ -306,7 +305,7 @@ class Recording implements EntityInterface
     protected function setDuration($duration)
     {
         Assertion::notNull($duration);
-        Assertion::float($duration);
+        //Assertion::float($duration);
 
         $this->duration = $duration;
 

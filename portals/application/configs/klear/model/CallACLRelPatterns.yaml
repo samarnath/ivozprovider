@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\CallACLRelPatterns
-  dto: Core\Application\DTO\CallACLRelPatternDTO
   entity: Core\Model\CallACLRelPattern\CallACLRelPattern
   fields:
     CallACL:

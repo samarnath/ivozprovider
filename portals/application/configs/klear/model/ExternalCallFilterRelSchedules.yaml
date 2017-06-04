@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\ExternalCallFilterRelSchedules
-  dto: Core\Application\DTO\ExternalCallFilterRelScheduleDTO
   entity: Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule
   fields: 
     filter:

@@ -45,7 +45,7 @@ Core\Model\LcrRuleTarget\LcrRuleTarget:
         default: '1'
   manyToOne:
     rule:
-      targetEntity: \Core\Model\LcrRule\LcrRule
+      targetEntity: \Core\Model\LcrRule\LcrRuleInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -56,7 +56,7 @@ Core\Model\LcrRuleTarget\LcrRuleTarget:
           nullable: false
       orphanRemoval: false
     gw:
-      targetEntity: \Core\Model\LcrGateway\LcrGateway
+      targetEntity: \Core\Model\LcrGateway\LcrGatewayInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -67,7 +67,7 @@ Core\Model\LcrRuleTarget\LcrRuleTarget:
           nullable: false
       orphanRemoval: false
     outgoingRouting:
-      targetEntity: \Core\Model\OutgoingRouting\OutgoingRouting
+      targetEntity: \Core\Model\OutgoingRouting\OutgoingRoutingInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

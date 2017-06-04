@@ -3,14 +3,13 @@
 namespace Core\Model\PeeringContract;
 
 use Assert\Assertion;
-use Core\Application\DTO\PeeringContractDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PeeringContract
  */
-class PeeringContract implements EntityInterface
+class PeeringContract implements EntityInterface, PeeringContractInterface
 {
     /**
      * @var integer

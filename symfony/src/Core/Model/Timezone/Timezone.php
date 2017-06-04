@@ -3,14 +3,13 @@
 namespace Core\Model\Timezone;
 
 use Assert\Assertion;
-use Core\Application\DTO\TimezoneDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Timezone
  */
-class Timezone implements EntityInterface
+class Timezone implements EntityInterface, TimezoneInterface
 {
     /**
      * @var integer

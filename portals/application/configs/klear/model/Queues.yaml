@@ -2,7 +2,6 @@
 
 production:
   class: \IvozProvider\Model\Queues
-  dto: Core\Application\DTO\QueueDTO
   entity: Core\Model\Queue\Queue
   fields:
     companyId:

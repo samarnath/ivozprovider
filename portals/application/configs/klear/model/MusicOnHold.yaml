@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\MusicOnHold
-  dto: Core\Application\DTO\MusicOnHoldDTO
   entity: Core\Model\MusicOnHold\MusicOnHold
   fields: 
     company:

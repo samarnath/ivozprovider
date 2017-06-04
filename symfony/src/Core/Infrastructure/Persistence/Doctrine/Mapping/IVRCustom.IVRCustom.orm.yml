@@ -101,7 +101,7 @@ Core\Model\IVRCustom\IVRCustom:
       column: errorNumberValue
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -112,7 +112,7 @@ Core\Model\IVRCustom\IVRCustom:
           nullable: false
       orphanRemoval: false
     welcomeLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -122,7 +122,7 @@ Core\Model\IVRCustom\IVRCustom:
           referencedColumnName: id
       orphanRemoval: false
     noAnswerLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -132,7 +132,7 @@ Core\Model\IVRCustom\IVRCustom:
           referencedColumnName: id
       orphanRemoval: false
     errorLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -142,7 +142,7 @@ Core\Model\IVRCustom\IVRCustom:
           referencedColumnName: id
       orphanRemoval: false
     successLocution:
-      targetEntity: \Core\Model\Locution\Locution
+      targetEntity: \Core\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -152,7 +152,7 @@ Core\Model\IVRCustom\IVRCustom:
           referencedColumnName: id
       orphanRemoval: false
     timeoutExtension:
-      targetEntity: \Core\Model\Extension\Extension
+      targetEntity: \Core\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -162,7 +162,7 @@ Core\Model\IVRCustom\IVRCustom:
           referencedColumnName: id
       orphanRemoval: false
     errorExtension:
-      targetEntity: \Core\Model\Extension\Extension
+      targetEntity: \Core\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -172,7 +172,7 @@ Core\Model\IVRCustom\IVRCustom:
           referencedColumnName: id
       orphanRemoval: false
     timeoutVoiceMailUser:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -182,7 +182,7 @@ Core\Model\IVRCustom\IVRCustom:
           referencedColumnName: id
       orphanRemoval: false
     errorVoiceMailUser:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

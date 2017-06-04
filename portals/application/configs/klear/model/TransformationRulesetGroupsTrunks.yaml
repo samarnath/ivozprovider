@@ -1,6 +1,5 @@
 production: 
   class: \IvozProvider\Model\TransformationRulesetGroupsTrunks
-  dto: Core\Application\DTO\TransformationRulesetGroupsTrunkDTO
   entity: Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
   fields: 
     brand:

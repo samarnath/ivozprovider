@@ -1,7 +1,6 @@
 production: 
-  class: \IvozProvider\Model\KamTrunksLcrRule
-  dto: Kam\Application\DTO\KamTrunksLcrRuleDTO
-  entity: Kam\Model\KamTrunksLcrRule\KamTrunksLcrRule
+  class: \IvozProvider\Model\TrunksLcrRule
+  entity: Kam\Model\TrunksLcrRule\TrunksLcrRule
   fields: 
     lcrId:
       title: _('Lcr id')

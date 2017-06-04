@@ -3,14 +3,13 @@
 namespace Core\Model\GenericCallACLPattern;
 
 use Assert\Assertion;
-use Core\Application\DTO\GenericCallACLPatternDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * GenericCallACLPattern
  */
-class GenericCallACLPattern implements EntityInterface
+class GenericCallACLPattern implements EntityInterface, GenericCallACLPatternInterface
 {
     /**
      * @var integer

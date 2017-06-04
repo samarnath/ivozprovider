@@ -63,7 +63,7 @@ Core\Model\Domain\Domain:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -73,7 +73,7 @@ Core\Model\Domain\Domain:
           referencedColumnName: id
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\Brand
+      targetEntity: \Core\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

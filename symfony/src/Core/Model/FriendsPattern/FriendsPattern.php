@@ -3,14 +3,13 @@
 namespace Core\Model\FriendsPattern;
 
 use Assert\Assertion;
-use Core\Application\DTO\FriendsPatternDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FriendsPattern
  */
-class FriendsPattern implements EntityInterface
+class FriendsPattern implements EntityInterface, FriendsPatternInterface
 {
     /**
      * @var integer

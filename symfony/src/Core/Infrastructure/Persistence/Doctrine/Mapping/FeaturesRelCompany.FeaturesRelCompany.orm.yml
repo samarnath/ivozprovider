@@ -20,7 +20,7 @@ Core\Model\FeaturesRelCompany\FeaturesRelCompany:
         strategy: IDENTITY
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\FeaturesRelCompany\FeaturesRelCompany:
           nullable: false
       orphanRemoval: false
     feature:
-      targetEntity: \Core\Model\Feature\Feature
+      targetEntity: \Core\Model\Feature\FeatureInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -10,7 +10,7 @@ production:
       controller: list
       pagination: 
         items: 25
-      <<: *KamTrunksUacreg
+      <<: *TrunksUacreg
       class: ui-silk-server-link
       title: _("List of %s %2s", ngettext('Kam trunks uacreg', 'Kam trunks uacreg(s)', 0), "[format| (%parent%)]")
       forcedValues:
@@ -64,7 +64,7 @@ production:
         dialogs: 
           kamTrunksUacregDel_dialog: true
     kamTrunksUacregNew_screen: &kamTrunksUacregNew_screenLink 
-      <<: *KamTrunksUacreg
+      <<: *TrunksUacreg
       controller: new
       class: ui-silk-add
       label: true
@@ -92,7 +92,7 @@ production:
       fixedPositions:
         <<: *kamTrunksUacregFixedPositions_link
     kamTrunksUacregEdit_screen: &kamTrunksUacregEdit_screenLink 
-      <<: *KamTrunksUacreg
+      <<: *TrunksUacreg
       controller: edit
       class: ui-silk-pencil
       label: false
@@ -120,7 +120,7 @@ production:
         <<: *kamTrunksUacregFixedPositions_link
   dialogs: &kamTrunksUacreg_dialogsLink 
     kamTrunksUacregDel_dialog: &kamTrunksUacregDel_dialogLink 
-      <<: *KamTrunksUacreg
+      <<: *TrunksUacreg
       controller: delete
       class: ui-silk-bin
       labelOption: false

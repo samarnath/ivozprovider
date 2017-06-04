@@ -3,14 +3,13 @@
 namespace Core\Model\QueueMember;
 
 use Assert\Assertion;
-use Core\Application\DTO\QueueMemberDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * QueueMember
  */
-class QueueMember implements EntityInterface
+class QueueMember implements EntityInterface, QueueMemberInterface
 {
     /**
      * @var integer

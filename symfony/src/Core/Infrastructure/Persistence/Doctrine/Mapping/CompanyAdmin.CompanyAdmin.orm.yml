@@ -58,7 +58,7 @@ Core\Model\CompanyAdmin\CompanyAdmin:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\Company
+      targetEntity: \Core\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -69,7 +69,7 @@ Core\Model\CompanyAdmin\CompanyAdmin:
           nullable: false
       orphanRemoval: false
     timezone:
-      targetEntity: \Core\Model\Timezone\Timezone
+      targetEntity: \Core\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\TerminalModels
-  dto: Core\Application\DTO\TerminalModelDTO
   entity: Core\Model\TerminalModel\TerminalModel
   fields:
     iden:

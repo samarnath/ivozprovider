@@ -1,6 +1,5 @@
 production:
   class: \IvozProvider\Model\CallACL
-  dto: Core\Application\DTO\CallACLDTO
   entity: Core\Model\CallACL\CallACL
   fields:
     companyId:

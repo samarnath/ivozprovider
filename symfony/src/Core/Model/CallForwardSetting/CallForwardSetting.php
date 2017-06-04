@@ -3,14 +3,13 @@
 namespace Core\Model\CallForwardSetting;
 
 use Assert\Assertion;
-use Core\Application\DTO\CallForwardSettingDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallForwardSetting
  */
-class CallForwardSetting implements EntityInterface
+class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
 {
     /**
      * @var integer

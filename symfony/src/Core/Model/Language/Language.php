@@ -3,14 +3,13 @@
 namespace Core\Model\Language;
 
 use Assert\Assertion;
-use Core\Application\DTO\LanguageDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Language
  */
-class Language implements EntityInterface
+class Language implements EntityInterface, LanguageInterface
 {
     /**
      * @var integer

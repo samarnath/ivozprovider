@@ -32,7 +32,7 @@ Core\Model\FriendsPattern\FriendsPattern:
       column: regExp
   manyToOne:
     friend:
-      targetEntity: \Core\Model\Friend\Friend
+      targetEntity: \Core\Model\Friend\FriendInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

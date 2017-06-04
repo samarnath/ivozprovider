@@ -1,0 +1,84 @@
+Kam\Model\UsersPresentity\UsersPresentity:
+  repositoryClass: Kam\Infrastructure\Persistence\Doctrine\UsersPresentityDoctrineRepository
+  type: entity
+  table: kam_users_presentity
+  indexes:
+    kam_users_presentity_expires:
+      columns:
+        - expires
+    account_idx:
+      columns:
+        - username
+        - domain
+        - event
+  uniqueConstraints:
+    kam_users_presentity_idx:
+      columns:
+        - username
+        - domain
+        - event
+        - etag
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    username:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+    domain:
+      type: string
+      nullable: false
+      length: 190
+      options:
+        fixed: false
+    event:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+    etag:
+      type: string
+      nullable: false
+      length: 64
+      options:
+        fixed: false
+    expires:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+    receivedTime:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+      column: received_time
+    body:
+      type: blob
+      nullable: false
+      length: 65535
+      options:
+        fixed: false
+    sender:
+      type: string
+      nullable: false
+      length: 128
+      options:
+        fixed: false
+    priority:
+      type: integer
+      nullable: false
+      options:
+        unsigned: false
+        default: '0'
+  lifecycleCallbacks: {  }

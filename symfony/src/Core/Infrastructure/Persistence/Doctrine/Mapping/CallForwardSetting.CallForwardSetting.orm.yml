@@ -68,7 +68,7 @@ Core\Model\CallForwardSetting\CallForwardSetting:
       column: noAnswerTimeout
   manyToOne:
     user:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -79,7 +79,7 @@ Core\Model\CallForwardSetting\CallForwardSetting:
           nullable: false
       orphanRemoval: false
     extension:
-      targetEntity: \Core\Model\Extension\Extension
+      targetEntity: \Core\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -89,7 +89,7 @@ Core\Model\CallForwardSetting\CallForwardSetting:
           referencedColumnName: id
       orphanRemoval: false
     voiceMailUser:
-      targetEntity: \Core\Model\User\User
+      targetEntity: \Core\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

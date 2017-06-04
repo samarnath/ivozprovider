@@ -3,14 +3,13 @@
 namespace Core\Model\TerminalModel;
 
 use Assert\Assertion;
-use Core\Application\DTO\TerminalModelDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TerminalModel
  */
-class TerminalModel implements EntityInterface
+class TerminalModel implements EntityInterface, TerminalModelInterface
 {
     /**
      * @var integer

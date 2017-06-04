@@ -3,14 +3,13 @@
 namespace Core\Model\GenericMusicOnHold;
 
 use Assert\Assertion;
-use Core\Application\DTO\GenericMusicOnHoldDTO;
 use Core\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * GenericMusicOnHold
  */
-class GenericMusicOnHold implements EntityInterface
+class GenericMusicOnHold implements EntityInterface, GenericMusicOnHoldInterface
 {
     /**
      * @var integer
