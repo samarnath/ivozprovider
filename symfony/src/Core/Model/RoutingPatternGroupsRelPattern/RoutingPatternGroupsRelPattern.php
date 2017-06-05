@@ -17,12 +17,12 @@ class RoutingPatternGroupsRelPattern implements EntityInterface, RoutingPatternG
     protected $id;
 
     /**
-     * @var \Core\Model\RoutingPattern\RoutingPattern
+     * @var \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     protected $routingPattern;
 
     /**
-     * @var \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+     * @var \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
      */
     protected $routingPatternGroup;
 
@@ -128,11 +128,11 @@ class RoutingPatternGroupsRelPattern implements EntityInterface, RoutingPatternG
     /**
      * Set routingPattern
      *
-     * @param \Core\Model\RoutingPattern\RoutingPattern $routingPattern
+     * @param \Core\Model\RoutingPattern\RoutingPatternInterface $routingPattern
      *
      * @return RoutingPatternGroupsRelPattern
      */
-    protected function setRoutingPattern(\Core\Model\RoutingPattern\RoutingPattern $routingPattern)
+    protected function setRoutingPattern(\Core\Model\RoutingPattern\RoutingPatternInterface $routingPattern)
     {
         $this->routingPattern = $routingPattern;
 
@@ -142,7 +142,7 @@ class RoutingPatternGroupsRelPattern implements EntityInterface, RoutingPatternG
     /**
      * Get routingPattern
      *
-     * @return \Core\Model\RoutingPattern\RoutingPattern
+     * @return \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     public function getRoutingPattern()
     {
@@ -152,11 +152,11 @@ class RoutingPatternGroupsRelPattern implements EntityInterface, RoutingPatternG
     /**
      * Set routingPatternGroup
      *
-     * @param \Core\Model\RoutingPatternGroup\RoutingPatternGroup $routingPatternGroup
+     * @param \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface $routingPatternGroup
      *
      * @return RoutingPatternGroupsRelPattern
      */
-    public function setRoutingPatternGroup(\Core\Model\RoutingPatternGroup\RoutingPatternGroup $routingPatternGroup = null)
+    public function setRoutingPatternGroup(\Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface $routingPatternGroup = null)
     {
         $this->routingPatternGroup = $routingPatternGroup;
 
@@ -166,7 +166,7 @@ class RoutingPatternGroupsRelPattern implements EntityInterface, RoutingPatternG
     /**
      * Get routingPatternGroup
      *
-     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
      */
     public function getRoutingPatternGroup()
     {

@@ -58,7 +58,7 @@ class PricingPlan implements EntityInterface, PricingPlanInterface
     protected $createdOn = 'CURRENT_TIMESTAMP';
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -390,11 +390,11 @@ class PricingPlan implements EntityInterface, PricingPlanInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return PricingPlan
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -404,7 +404,7 @@ class PricingPlan implements EntityInterface, PricingPlanInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

@@ -73,7 +73,7 @@ interface TerminalModelInterface
     /**
      * Get terminalManufacturer
      *
-     * @return \Core\Model\TerminalManufacturer\TerminalManufacturer
+     * @return \Core\Model\TerminalManufacturer\TerminalManufacturerInterface
      */
     public function getTerminalManufacturer();
 

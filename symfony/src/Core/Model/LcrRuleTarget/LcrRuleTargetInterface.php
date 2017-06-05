@@ -41,7 +41,7 @@ interface LcrRuleTargetInterface
     /**
      * Get rule
      *
-     * @return \Core\Model\LcrRule\LcrRule
+     * @return \Core\Model\LcrRule\LcrRuleInterface
      */
     public function getRule();
 
@@ -49,7 +49,7 @@ interface LcrRuleTargetInterface
     /**
      * Get gw
      *
-     * @return \Core\Model\LcrGateway\LcrGateway
+     * @return \Core\Model\LcrGateway\LcrGatewayInterface
      */
     public function getGw();
 
@@ -57,7 +57,7 @@ interface LcrRuleTargetInterface
     /**
      * Get outgoingRouting
      *
-     * @return \Core\Model\OutgoingRouting\OutgoingRouting
+     * @return \Core\Model\OutgoingRouting\OutgoingRoutingInterface
      */
     public function getOutgoingRouting();
 

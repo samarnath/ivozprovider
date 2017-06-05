@@ -48,12 +48,12 @@ class BrandOperator implements EntityInterface, BrandOperatorInterface
     protected $lastname;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Timezone\Timezone
+     * @var \Core\Model\Timezone\TimezoneInterface
      */
     protected $timezone;
 
@@ -351,11 +351,11 @@ class BrandOperator implements EntityInterface, BrandOperatorInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return BrandOperator
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null)
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 
@@ -365,7 +365,7 @@ class BrandOperator implements EntityInterface, BrandOperatorInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -375,11 +375,11 @@ class BrandOperator implements EntityInterface, BrandOperatorInterface
     /**
      * Set timezone
      *
-     * @param \Core\Model\Timezone\Timezone $timezone
+     * @param \Core\Model\Timezone\TimezoneInterface $timezone
      *
      * @return BrandOperator
      */
-    protected function setTimezone(\Core\Model\Timezone\Timezone $timezone = null)
+    protected function setTimezone(\Core\Model\Timezone\TimezoneInterface $timezone = null)
     {
         $this->timezone = $timezone;
 
@@ -389,7 +389,7 @@ class BrandOperator implements EntityInterface, BrandOperatorInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone()
     {

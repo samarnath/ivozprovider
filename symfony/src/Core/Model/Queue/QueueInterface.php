@@ -113,7 +113,7 @@ interface QueueInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -121,7 +121,7 @@ interface QueueInterface
     /**
      * Get periodicAnnounceLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getPeriodicAnnounceLocution();
 
@@ -129,7 +129,7 @@ interface QueueInterface
     /**
      * Get timeoutLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getTimeoutLocution();
 
@@ -137,7 +137,7 @@ interface QueueInterface
     /**
      * Get timeoutExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getTimeoutExtension();
 
@@ -145,7 +145,7 @@ interface QueueInterface
     /**
      * Get timeoutVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getTimeoutVoiceMailUser();
 
@@ -153,7 +153,7 @@ interface QueueInterface
     /**
      * Get fullLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getFullLocution();
 
@@ -161,7 +161,7 @@ interface QueueInterface
     /**
      * Get fullExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getFullExtension();
 
@@ -169,7 +169,7 @@ interface QueueInterface
     /**
      * Get fullVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getFullVoiceMailUser();
 

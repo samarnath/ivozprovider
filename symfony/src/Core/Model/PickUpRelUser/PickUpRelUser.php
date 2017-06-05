@@ -17,12 +17,12 @@ class PickUpRelUser implements EntityInterface, PickUpRelUserInterface
     protected $id;
 
     /**
-     * @var \Core\Model\PickUpGroup\PickUpGroup
+     * @var \Core\Model\PickUpGroup\PickUpGroupInterface
      */
     protected $pickUpGroup;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $user;
 
@@ -128,11 +128,11 @@ class PickUpRelUser implements EntityInterface, PickUpRelUserInterface
     /**
      * Set pickUpGroup
      *
-     * @param \Core\Model\PickUpGroup\PickUpGroup $pickUpGroup
+     * @param \Core\Model\PickUpGroup\PickUpGroupInterface $pickUpGroup
      *
      * @return PickUpRelUser
      */
-    protected function setPickUpGroup(\Core\Model\PickUpGroup\PickUpGroup $pickUpGroup)
+    protected function setPickUpGroup(\Core\Model\PickUpGroup\PickUpGroupInterface $pickUpGroup)
     {
         $this->pickUpGroup = $pickUpGroup;
 
@@ -142,7 +142,7 @@ class PickUpRelUser implements EntityInterface, PickUpRelUserInterface
     /**
      * Get pickUpGroup
      *
-     * @return \Core\Model\PickUpGroup\PickUpGroup
+     * @return \Core\Model\PickUpGroup\PickUpGroupInterface
      */
     public function getPickUpGroup()
     {
@@ -152,11 +152,11 @@ class PickUpRelUser implements EntityInterface, PickUpRelUserInterface
     /**
      * Set user
      *
-     * @param \Core\Model\User\User $user
+     * @param \Core\Model\User\UserInterface $user
      *
      * @return PickUpRelUser
      */
-    protected function setUser(\Core\Model\User\User $user)
+    protected function setUser(\Core\Model\User\UserInterface $user)
     {
         $this->user = $user;
 
@@ -166,7 +166,7 @@ class PickUpRelUser implements EntityInterface, PickUpRelUserInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser()
     {

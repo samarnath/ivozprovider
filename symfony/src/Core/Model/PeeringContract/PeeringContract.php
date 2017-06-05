@@ -32,12 +32,12 @@ class PeeringContract implements EntityInterface, PeeringContractInterface
     protected $externallyRated = '0';
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+     * @var \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
      */
     protected $transformationRulesetGroupsTrunk;
 
@@ -239,11 +239,11 @@ class PeeringContract implements EntityInterface, PeeringContractInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return PeeringContract
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -253,7 +253,7 @@ class PeeringContract implements EntityInterface, PeeringContractInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -263,11 +263,11 @@ class PeeringContract implements EntityInterface, PeeringContractInterface
     /**
      * Set transformationRulesetGroupsTrunk
      *
-     * @param \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk $transformationRulesetGroupsTrunk
+     * @param \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface $transformationRulesetGroupsTrunk
      *
      * @return PeeringContract
      */
-    protected function setTransformationRulesetGroupsTrunk(\Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk $transformationRulesetGroupsTrunk = null)
+    protected function setTransformationRulesetGroupsTrunk(\Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface $transformationRulesetGroupsTrunk = null)
     {
         $this->transformationRulesetGroupsTrunk = $transformationRulesetGroupsTrunk;
 
@@ -277,7 +277,7 @@ class PeeringContract implements EntityInterface, PeeringContractInterface
     /**
      * Get transformationRulesetGroupsTrunk
      *
-     * @return \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+     * @return \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
      */
     public function getTransformationRulesetGroupsTrunk()
     {

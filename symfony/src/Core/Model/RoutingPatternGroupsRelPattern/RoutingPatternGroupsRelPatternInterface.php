@@ -17,7 +17,7 @@ interface RoutingPatternGroupsRelPatternInterface
     /**
      * Get routingPattern
      *
-     * @return \Core\Model\RoutingPattern\RoutingPattern
+     * @return \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     public function getRoutingPattern();
 
@@ -25,17 +25,17 @@ interface RoutingPatternGroupsRelPatternInterface
     /**
      * Set routingPatternGroup
      *
-     * @param \Core\Model\RoutingPatternGroup\RoutingPatternGroup $routingPatternGroup
+     * @param \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface $routingPatternGroup
      *
      * @return RoutingPatternGroupsRelPatternInterface
      */
-    public function setRoutingPatternGroup(\Core\Model\RoutingPatternGroup\RoutingPatternGroup $routingPatternGroup = null);
+    public function setRoutingPatternGroup(\Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface $routingPatternGroup = null);
 
 
     /**
      * Get routingPatternGroup
      *
-     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
      */
     public function getRoutingPatternGroup();
 

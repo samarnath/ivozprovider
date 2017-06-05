@@ -60,7 +60,7 @@ class Locution implements EntityInterface, LocutionInterface
     protected $status;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
@@ -430,11 +430,11 @@ class Locution implements EntityInterface, LocutionInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Locution
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -444,7 +444,7 @@ class Locution implements EntityInterface, LocutionInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

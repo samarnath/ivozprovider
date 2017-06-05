@@ -25,7 +25,7 @@ interface FixedCostsRelInvoiceInterface
     /**
      * Get fixedCost
      *
-     * @return \Core\Model\FixedCost\FixedCostInterface
+     * @return \Core\Model\FixedCost\FixedCostInterfaceInterface
      */
     public function getFixedCost();
 
@@ -33,7 +33,7 @@ interface FixedCostsRelInvoiceInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -41,7 +41,7 @@ interface FixedCostsRelInvoiceInterface
     /**
      * Get invoice
      *
-     * @return \Core\Model\Invoice\Invoice
+     * @return \Core\Model\Invoice\InvoiceInterface
      */
     public function getInvoice();
 

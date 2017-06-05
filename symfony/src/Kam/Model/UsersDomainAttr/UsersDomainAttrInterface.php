@@ -49,7 +49,7 @@ interface UsersDomainAttrInterface
     /**
      * Get did
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getDid();
 

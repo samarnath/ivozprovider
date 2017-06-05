@@ -33,7 +33,7 @@ interface HuntGroupsRelUserInterface
     /**
      * Get huntGroup
      *
-     * @return \Core\Model\HuntGroup\HuntGroup
+     * @return \Core\Model\HuntGroup\HuntGroupInterface
      */
     public function getHuntGroup();
 
@@ -41,7 +41,7 @@ interface HuntGroupsRelUserInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser();
 

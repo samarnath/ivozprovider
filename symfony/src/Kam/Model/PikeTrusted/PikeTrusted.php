@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * PikeTrusted
  */
-class PikeTrusted implements EntityInterface, PikeTrustedInterface
+class PikeTrusted
 {
     /**
      * @var integer

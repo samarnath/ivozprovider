@@ -57,7 +57,7 @@ interface CallForwardSettingInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser();
 
@@ -65,7 +65,7 @@ interface CallForwardSettingInterface
     /**
      * Get extension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getExtension();
 
@@ -73,7 +73,7 @@ interface CallForwardSettingInterface
     /**
      * Get voiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getVoiceMailUser();
 

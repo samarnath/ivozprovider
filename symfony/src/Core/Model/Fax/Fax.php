@@ -32,12 +32,12 @@ class Fax implements EntityInterface, FaxInterface
     protected $sendByEmail = '1';
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\DDI\DDI
+     * @var \Core\Model\DDI\DDIInterface
      */
     protected $outgoingDDI;
 
@@ -239,11 +239,11 @@ class Fax implements EntityInterface, FaxInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Fax
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -253,7 +253,7 @@ class Fax implements EntityInterface, FaxInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -263,11 +263,11 @@ class Fax implements EntityInterface, FaxInterface
     /**
      * Set outgoingDDI
      *
-     * @param \Core\Model\DDI\DDI $outgoingDDI
+     * @param \Core\Model\DDI\DDIInterface $outgoingDDI
      *
      * @return Fax
      */
-    protected function setOutgoingDDI(\Core\Model\DDI\DDI $outgoingDDI = null)
+    protected function setOutgoingDDI(\Core\Model\DDI\DDIInterface $outgoingDDI = null)
     {
         $this->outgoingDDI = $outgoingDDI;
 
@@ -277,7 +277,7 @@ class Fax implements EntityInterface, FaxInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI()
     {

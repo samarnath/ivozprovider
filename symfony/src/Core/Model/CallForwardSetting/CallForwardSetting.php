@@ -45,17 +45,17 @@ class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
     protected $noAnswerTimeout = '10';
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $user;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $extension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $voiceMailUser;
 
@@ -345,11 +345,11 @@ class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
     /**
      * Set user
      *
-     * @param \Core\Model\User\User $user
+     * @param \Core\Model\User\UserInterface $user
      *
      * @return CallForwardSetting
      */
-    protected function setUser(\Core\Model\User\User $user)
+    protected function setUser(\Core\Model\User\UserInterface $user)
     {
         $this->user = $user;
 
@@ -359,7 +359,7 @@ class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser()
     {
@@ -369,11 +369,11 @@ class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
     /**
      * Set extension
      *
-     * @param \Core\Model\Extension\Extension $extension
+     * @param \Core\Model\Extension\ExtensionInterface $extension
      *
      * @return CallForwardSetting
      */
-    protected function setExtension(\Core\Model\Extension\Extension $extension = null)
+    protected function setExtension(\Core\Model\Extension\ExtensionInterface $extension = null)
     {
         $this->extension = $extension;
 
@@ -383,7 +383,7 @@ class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
     /**
      * Get extension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getExtension()
     {
@@ -393,11 +393,11 @@ class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
     /**
      * Set voiceMailUser
      *
-     * @param \Core\Model\User\User $voiceMailUser
+     * @param \Core\Model\User\UserInterface $voiceMailUser
      *
      * @return CallForwardSetting
      */
-    protected function setVoiceMailUser(\Core\Model\User\User $voiceMailUser = null)
+    protected function setVoiceMailUser(\Core\Model\User\UserInterface $voiceMailUser = null)
     {
         $this->voiceMailUser = $voiceMailUser;
 
@@ -407,7 +407,7 @@ class CallForwardSetting implements EntityInterface, CallForwardSettingInterface
     /**
      * Get voiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getVoiceMailUser()
     {

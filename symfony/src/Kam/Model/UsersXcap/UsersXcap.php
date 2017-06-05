@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersXcap
  */
-class UsersXcap implements EntityInterface, UsersXcapInterface
+class UsersXcap
 {
     /**
      * @var integer

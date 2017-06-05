@@ -185,7 +185,7 @@ interface BrandInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage();
 
@@ -193,7 +193,7 @@ interface BrandInterface
     /**
      * Get defaultTimezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getDefaultTimezone();
 

@@ -17,7 +17,7 @@ interface ExternalCallFilterRelCalendarInterface
     /**
      * Get filter
      *
-     * @return \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @return \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     public function getFilter();
 
@@ -25,7 +25,7 @@ interface ExternalCallFilterRelCalendarInterface
     /**
      * Get calendar
      *
-     * @return \Core\Model\Calendar\Calendar
+     * @return \Core\Model\Calendar\CalendarInterface
      */
     public function getCalendar();
 

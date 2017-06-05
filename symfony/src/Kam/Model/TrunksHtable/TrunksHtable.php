@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * TrunksHtable
  */
-class TrunksHtable implements EntityInterface, TrunksHtableInterface
+class TrunksHtable
 {
     /**
      * @var integer

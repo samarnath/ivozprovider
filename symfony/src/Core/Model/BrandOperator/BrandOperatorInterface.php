@@ -65,17 +65,17 @@ interface BrandOperatorInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return BrandOperatorInterface
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null);
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null);
 
 
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -83,7 +83,7 @@ interface BrandOperatorInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone();
 

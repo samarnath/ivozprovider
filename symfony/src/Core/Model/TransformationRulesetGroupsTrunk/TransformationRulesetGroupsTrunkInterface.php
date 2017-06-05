@@ -89,7 +89,7 @@ interface TransformationRulesetGroupsTrunkInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -97,7 +97,7 @@ interface TransformationRulesetGroupsTrunkInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry();
 

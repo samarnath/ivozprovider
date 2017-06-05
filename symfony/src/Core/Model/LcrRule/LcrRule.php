@@ -60,12 +60,12 @@ class LcrRule implements EntityInterface, LcrRuleInterface
     protected $description = '';
 
     /**
-     * @var \Core\Model\RoutingPattern\RoutingPattern
+     * @var \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     protected $routingPattern;
 
     /**
-     * @var \Core\Model\OutgoingRouting\OutgoingRouting
+     * @var \Core\Model\OutgoingRouting\OutgoingRoutingInterface
      */
     protected $outgoingRouting;
 
@@ -435,11 +435,11 @@ class LcrRule implements EntityInterface, LcrRuleInterface
     /**
      * Set routingPattern
      *
-     * @param \Core\Model\RoutingPattern\RoutingPattern $routingPattern
+     * @param \Core\Model\RoutingPattern\RoutingPatternInterface $routingPattern
      *
      * @return LcrRule
      */
-    protected function setRoutingPattern(\Core\Model\RoutingPattern\RoutingPattern $routingPattern = null)
+    protected function setRoutingPattern(\Core\Model\RoutingPattern\RoutingPatternInterface $routingPattern = null)
     {
         $this->routingPattern = $routingPattern;
 
@@ -449,7 +449,7 @@ class LcrRule implements EntityInterface, LcrRuleInterface
     /**
      * Get routingPattern
      *
-     * @return \Core\Model\RoutingPattern\RoutingPattern
+     * @return \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     public function getRoutingPattern()
     {
@@ -459,11 +459,11 @@ class LcrRule implements EntityInterface, LcrRuleInterface
     /**
      * Set outgoingRouting
      *
-     * @param \Core\Model\OutgoingRouting\OutgoingRouting $outgoingRouting
+     * @param \Core\Model\OutgoingRouting\OutgoingRoutingInterface $outgoingRouting
      *
      * @return LcrRule
      */
-    protected function setOutgoingRouting(\Core\Model\OutgoingRouting\OutgoingRouting $outgoingRouting)
+    protected function setOutgoingRouting(\Core\Model\OutgoingRouting\OutgoingRoutingInterface $outgoingRouting)
     {
         $this->outgoingRouting = $outgoingRouting;
 
@@ -473,7 +473,7 @@ class LcrRule implements EntityInterface, LcrRuleInterface
     /**
      * Get outgoingRouting
      *
-     * @return \Core\Model\OutgoingRouting\OutgoingRouting
+     * @return \Core\Model\OutgoingRouting\OutgoingRoutingInterface
      */
     public function getOutgoingRouting()
     {

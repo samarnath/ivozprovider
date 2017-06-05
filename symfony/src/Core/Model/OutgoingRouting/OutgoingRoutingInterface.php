@@ -41,7 +41,7 @@ interface OutgoingRoutingInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -49,7 +49,7 @@ interface OutgoingRoutingInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -57,7 +57,7 @@ interface OutgoingRoutingInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Model\PeeringContract\PeeringContract
+     * @return \Core\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract();
 
@@ -65,7 +65,7 @@ interface OutgoingRoutingInterface
     /**
      * Get routingPattern
      *
-     * @return \Core\Model\RoutingPattern\RoutingPattern
+     * @return \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     public function getRoutingPattern();
 
@@ -73,7 +73,7 @@ interface OutgoingRoutingInterface
     /**
      * Get routingPatternGroup
      *
-     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
      */
     public function getRoutingPatternGroup();
 

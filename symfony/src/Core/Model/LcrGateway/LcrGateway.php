@@ -85,7 +85,7 @@ class LcrGateway implements EntityInterface, LcrGatewayInterface
     protected $defunct;
 
     /**
-     * @var \Core\Model\PeerServer\PeerServer
+     * @var \Core\Model\PeerServer\PeerServerInterface
      */
     protected $peerServer;
 
@@ -611,11 +611,11 @@ class LcrGateway implements EntityInterface, LcrGatewayInterface
     /**
      * Set peerServer
      *
-     * @param \Core\Model\PeerServer\PeerServer $peerServer
+     * @param \Core\Model\PeerServer\PeerServerInterface $peerServer
      *
      * @return LcrGateway
      */
-    protected function setPeerServer(\Core\Model\PeerServer\PeerServer $peerServer)
+    protected function setPeerServer(\Core\Model\PeerServer\PeerServerInterface $peerServer)
     {
         $this->peerServer = $peerServer;
 
@@ -625,7 +625,7 @@ class LcrGateway implements EntityInterface, LcrGatewayInterface
     /**
      * Get peerServer
      *
-     * @return \Core\Model\PeerServer\PeerServer
+     * @return \Core\Model\PeerServer\PeerServerInterface
      */
     public function getPeerServer()
     {

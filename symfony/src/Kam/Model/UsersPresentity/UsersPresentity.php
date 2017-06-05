@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersPresentity
  */
-class UsersPresentity implements EntityInterface, UsersPresentityInterface
+class UsersPresentity
 {
     /**
      * @var integer

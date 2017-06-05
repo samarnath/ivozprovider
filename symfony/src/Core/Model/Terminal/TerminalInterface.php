@@ -81,7 +81,7 @@ interface TerminalInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -89,7 +89,7 @@ interface TerminalInterface
     /**
      * Get terminalModel
      *
-     * @return \Core\Model\TerminalModel\TerminalModel
+     * @return \Core\Model\TerminalModel\TerminalModelInterface
      */
     public function getTerminalModel();
 

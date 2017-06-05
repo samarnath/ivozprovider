@@ -54,22 +54,22 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     protected $noAnswerNumberValue;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $noAnswerLocution;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $noAnswerExtension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $noAnswerVoiceMailUser;
 
@@ -425,11 +425,11 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return HuntGroup
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -439,7 +439,7 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -449,11 +449,11 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Set noAnswerLocution
      *
-     * @param \Core\Model\Locution\Locution $noAnswerLocution
+     * @param \Core\Model\Locution\LocutionInterface $noAnswerLocution
      *
      * @return HuntGroup
      */
-    protected function setNoAnswerLocution(\Core\Model\Locution\Locution $noAnswerLocution = null)
+    protected function setNoAnswerLocution(\Core\Model\Locution\LocutionInterface $noAnswerLocution = null)
     {
         $this->noAnswerLocution = $noAnswerLocution;
 
@@ -463,7 +463,7 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Get noAnswerLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getNoAnswerLocution()
     {
@@ -473,11 +473,11 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Set noAnswerExtension
      *
-     * @param \Core\Model\Extension\Extension $noAnswerExtension
+     * @param \Core\Model\Extension\ExtensionInterface $noAnswerExtension
      *
      * @return HuntGroup
      */
-    protected function setNoAnswerExtension(\Core\Model\Extension\Extension $noAnswerExtension = null)
+    protected function setNoAnswerExtension(\Core\Model\Extension\ExtensionInterface $noAnswerExtension = null)
     {
         $this->noAnswerExtension = $noAnswerExtension;
 
@@ -487,7 +487,7 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Get noAnswerExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getNoAnswerExtension()
     {
@@ -497,11 +497,11 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Set noAnswerVoiceMailUser
      *
-     * @param \Core\Model\User\User $noAnswerVoiceMailUser
+     * @param \Core\Model\User\UserInterface $noAnswerVoiceMailUser
      *
      * @return HuntGroup
      */
-    protected function setNoAnswerVoiceMailUser(\Core\Model\User\User $noAnswerVoiceMailUser = null)
+    protected function setNoAnswerVoiceMailUser(\Core\Model\User\UserInterface $noAnswerVoiceMailUser = null)
     {
         $this->noAnswerVoiceMailUser = $noAnswerVoiceMailUser;
 
@@ -511,7 +511,7 @@ class HuntGroup implements EntityInterface, HuntGroupInterface
     /**
      * Get noAnswerVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getNoAnswerVoiceMailUser()
     {

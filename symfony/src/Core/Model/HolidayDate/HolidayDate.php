@@ -27,12 +27,12 @@ class HolidayDate implements EntityInterface, HolidayDateInterface
     protected $eventDate;
 
     /**
-     * @var \Core\Model\Calendar\Calendar
+     * @var \Core\Model\Calendar\CalendarInterface
      */
     protected $calendar;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $locution;
 
@@ -201,11 +201,11 @@ class HolidayDate implements EntityInterface, HolidayDateInterface
     /**
      * Set calendar
      *
-     * @param \Core\Model\Calendar\Calendar $calendar
+     * @param \Core\Model\Calendar\CalendarInterface $calendar
      *
      * @return HolidayDate
      */
-    protected function setCalendar(\Core\Model\Calendar\Calendar $calendar)
+    protected function setCalendar(\Core\Model\Calendar\CalendarInterface $calendar)
     {
         $this->calendar = $calendar;
 
@@ -215,7 +215,7 @@ class HolidayDate implements EntityInterface, HolidayDateInterface
     /**
      * Get calendar
      *
-     * @return \Core\Model\Calendar\Calendar
+     * @return \Core\Model\Calendar\CalendarInterface
      */
     public function getCalendar()
     {
@@ -225,11 +225,11 @@ class HolidayDate implements EntityInterface, HolidayDateInterface
     /**
      * Set locution
      *
-     * @param \Core\Model\Locution\Locution $locution
+     * @param \Core\Model\Locution\LocutionInterface $locution
      *
      * @return HolidayDate
      */
-    protected function setLocution(\Core\Model\Locution\Locution $locution = null)
+    protected function setLocution(\Core\Model\Locution\LocutionInterface $locution = null)
     {
         $this->locution = $locution;
 
@@ -239,7 +239,7 @@ class HolidayDate implements EntityInterface, HolidayDateInterface
     /**
      * Get locution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getLocution()
     {

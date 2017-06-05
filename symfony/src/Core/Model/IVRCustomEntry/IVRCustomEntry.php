@@ -33,22 +33,22 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     protected $targetNumberValue;
 
     /**
-     * @var \Core\Model\IVRCustom\IVRCustom
+     * @var \Core\Model\IVRCustom\IVRCustomInterface
      */
     protected $IVRCustom;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $welcomeLocution;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $targetExtension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $targetVoiceMailUser;
 
@@ -263,11 +263,11 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Set iVRCustom
      *
-     * @param \Core\Model\IVRCustom\IVRCustom $iVRCustom
+     * @param \Core\Model\IVRCustom\IVRCustomInterface $iVRCustom
      *
      * @return IVRCustomEntry
      */
-    protected function setIVRCustom(\Core\Model\IVRCustom\IVRCustom $iVRCustom)
+    protected function setIVRCustom(\Core\Model\IVRCustom\IVRCustomInterface $iVRCustom)
     {
         $this->IVRCustom = $iVRCustom;
 
@@ -277,7 +277,7 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Get iVRCustom
      *
-     * @return \Core\Model\IVRCustom\IVRCustom
+     * @return \Core\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom()
     {
@@ -287,11 +287,11 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Set welcomeLocution
      *
-     * @param \Core\Model\Locution\Locution $welcomeLocution
+     * @param \Core\Model\Locution\LocutionInterface $welcomeLocution
      *
      * @return IVRCustomEntry
      */
-    protected function setWelcomeLocution(\Core\Model\Locution\Locution $welcomeLocution = null)
+    protected function setWelcomeLocution(\Core\Model\Locution\LocutionInterface $welcomeLocution = null)
     {
         $this->welcomeLocution = $welcomeLocution;
 
@@ -301,7 +301,7 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Get welcomeLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution()
     {
@@ -311,11 +311,11 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Set targetExtension
      *
-     * @param \Core\Model\Extension\Extension $targetExtension
+     * @param \Core\Model\Extension\ExtensionInterface $targetExtension
      *
      * @return IVRCustomEntry
      */
-    protected function setTargetExtension(\Core\Model\Extension\Extension $targetExtension = null)
+    protected function setTargetExtension(\Core\Model\Extension\ExtensionInterface $targetExtension = null)
     {
         $this->targetExtension = $targetExtension;
 
@@ -325,7 +325,7 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Get targetExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getTargetExtension()
     {
@@ -335,11 +335,11 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Set targetVoiceMailUser
      *
-     * @param \Core\Model\User\User $targetVoiceMailUser
+     * @param \Core\Model\User\UserInterface $targetVoiceMailUser
      *
      * @return IVRCustomEntry
      */
-    protected function setTargetVoiceMailUser(\Core\Model\User\User $targetVoiceMailUser = null)
+    protected function setTargetVoiceMailUser(\Core\Model\User\UserInterface $targetVoiceMailUser = null)
     {
         $this->targetVoiceMailUser = $targetVoiceMailUser;
 
@@ -349,7 +349,7 @@ class IVRCustomEntry implements EntityInterface, IVRCustomEntryInterface
     /**
      * Get targetVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getTargetVoiceMailUser()
     {

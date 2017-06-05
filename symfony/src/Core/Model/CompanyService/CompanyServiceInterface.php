@@ -25,7 +25,7 @@ interface CompanyServiceInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -33,7 +33,7 @@ interface CompanyServiceInterface
     /**
      * Get service
      *
-     * @return \Core\Model\Service\Service
+     * @return \Core\Model\Service\ServiceInterface
      */
     public function getService();
 

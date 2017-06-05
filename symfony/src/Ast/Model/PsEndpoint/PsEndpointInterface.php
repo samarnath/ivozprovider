@@ -153,7 +153,7 @@ interface PsEndpointInterface
     /**
      * Get terminal
      *
-     * @return \Core\Model\Terminal\Terminal
+     * @return \Core\Model\Terminal\TerminalInterface
      */
     public function getTerminal();
 
@@ -161,7 +161,7 @@ interface PsEndpointInterface
     /**
      * Get friend
      *
-     * @return \Core\Model\Friend\Friend
+     * @return \Core\Model\Friend\FriendInterface
      */
     public function getFriend();
 

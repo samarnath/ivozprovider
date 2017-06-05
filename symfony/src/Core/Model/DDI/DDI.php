@@ -54,67 +54,67 @@ class DDI implements EntityInterface, DDIInterface
     protected $friendValue;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\ConferenceRoom\ConferenceRoom
+     * @var \Core\Model\ConferenceRoom\ConferenceRoomInterface
      */
     protected $conferenceRoom;
 
     /**
-     * @var \Core\Model\Language\Language
+     * @var \Core\Model\Language\LanguageInterface
      */
     protected $language;
 
     /**
-     * @var \Core\Model\Queue\Queue
+     * @var \Core\Model\Queue\QueueInterface
      */
     protected $queue;
 
     /**
-     * @var \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @var \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     protected $externalCallFilter;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $user;
 
     /**
-     * @var \Core\Model\IVRCommon\IVRCommon
+     * @var \Core\Model\IVRCommon\IVRCommonInterface
      */
     protected $IVRCommon;
 
     /**
-     * @var \Core\Model\IVRCustom\IVRCustom
+     * @var \Core\Model\IVRCustom\IVRCustomInterface
      */
     protected $IVRCustom;
 
     /**
-     * @var \Core\Model\HuntGroup\HuntGroup
+     * @var \Core\Model\HuntGroup\HuntGroupInterface
      */
     protected $huntGroup;
 
     /**
-     * @var \Core\Model\Fax\Fax
+     * @var \Core\Model\Fax\FaxInterface
      */
     protected $fax;
 
     /**
-     * @var \Core\Model\PeeringContract\PeeringContract
+     * @var \Core\Model\PeeringContract\PeeringContractInterface
      */
     protected $peeringContract;
 
     /**
-     * @var \Core\Model\Country\Country
+     * @var \Core\Model\Country\CountryInterface
      */
     protected $country;
 
@@ -504,11 +504,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return DDI
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -518,7 +518,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -528,11 +528,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return DDI
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -542,7 +542,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -552,11 +552,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set conferenceRoom
      *
-     * @param \Core\Model\ConferenceRoom\ConferenceRoom $conferenceRoom
+     * @param \Core\Model\ConferenceRoom\ConferenceRoomInterface $conferenceRoom
      *
      * @return DDI
      */
-    protected function setConferenceRoom(\Core\Model\ConferenceRoom\ConferenceRoom $conferenceRoom = null)
+    protected function setConferenceRoom(\Core\Model\ConferenceRoom\ConferenceRoomInterface $conferenceRoom = null)
     {
         $this->conferenceRoom = $conferenceRoom;
 
@@ -566,7 +566,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get conferenceRoom
      *
-     * @return \Core\Model\ConferenceRoom\ConferenceRoom
+     * @return \Core\Model\ConferenceRoom\ConferenceRoomInterface
      */
     public function getConferenceRoom()
     {
@@ -576,11 +576,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set language
      *
-     * @param \Core\Model\Language\Language $language
+     * @param \Core\Model\Language\LanguageInterface $language
      *
      * @return DDI
      */
-    protected function setLanguage(\Core\Model\Language\Language $language = null)
+    protected function setLanguage(\Core\Model\Language\LanguageInterface $language = null)
     {
         $this->language = $language;
 
@@ -590,7 +590,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {
@@ -600,11 +600,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set queue
      *
-     * @param \Core\Model\Queue\Queue $queue
+     * @param \Core\Model\Queue\QueueInterface $queue
      *
      * @return DDI
      */
-    protected function setQueue(\Core\Model\Queue\Queue $queue = null)
+    protected function setQueue(\Core\Model\Queue\QueueInterface $queue = null)
     {
         $this->queue = $queue;
 
@@ -614,7 +614,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue()
     {
@@ -624,11 +624,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set externalCallFilter
      *
-     * @param \Core\Model\ExternalCallFilter\ExternalCallFilter $externalCallFilter
+     * @param \Core\Model\ExternalCallFilter\ExternalCallFilterInterface $externalCallFilter
      *
      * @return DDI
      */
-    protected function setExternalCallFilter(\Core\Model\ExternalCallFilter\ExternalCallFilter $externalCallFilter = null)
+    protected function setExternalCallFilter(\Core\Model\ExternalCallFilter\ExternalCallFilterInterface $externalCallFilter = null)
     {
         $this->externalCallFilter = $externalCallFilter;
 
@@ -638,7 +638,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get externalCallFilter
      *
-     * @return \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @return \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     public function getExternalCallFilter()
     {
@@ -648,11 +648,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set user
      *
-     * @param \Core\Model\User\User $user
+     * @param \Core\Model\User\UserInterface $user
      *
      * @return DDI
      */
-    protected function setUser(\Core\Model\User\User $user = null)
+    protected function setUser(\Core\Model\User\UserInterface $user = null)
     {
         $this->user = $user;
 
@@ -662,7 +662,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser()
     {
@@ -672,11 +672,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set iVRCommon
      *
-     * @param \Core\Model\IVRCommon\IVRCommon $iVRCommon
+     * @param \Core\Model\IVRCommon\IVRCommonInterface $iVRCommon
      *
      * @return DDI
      */
-    protected function setIVRCommon(\Core\Model\IVRCommon\IVRCommon $iVRCommon = null)
+    protected function setIVRCommon(\Core\Model\IVRCommon\IVRCommonInterface $iVRCommon = null)
     {
         $this->IVRCommon = $iVRCommon;
 
@@ -686,7 +686,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get iVRCommon
      *
-     * @return \Core\Model\IVRCommon\IVRCommon
+     * @return \Core\Model\IVRCommon\IVRCommonInterface
      */
     public function getIVRCommon()
     {
@@ -696,11 +696,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set iVRCustom
      *
-     * @param \Core\Model\IVRCustom\IVRCustom $iVRCustom
+     * @param \Core\Model\IVRCustom\IVRCustomInterface $iVRCustom
      *
      * @return DDI
      */
-    protected function setIVRCustom(\Core\Model\IVRCustom\IVRCustom $iVRCustom = null)
+    protected function setIVRCustom(\Core\Model\IVRCustom\IVRCustomInterface $iVRCustom = null)
     {
         $this->IVRCustom = $iVRCustom;
 
@@ -710,7 +710,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get iVRCustom
      *
-     * @return \Core\Model\IVRCustom\IVRCustom
+     * @return \Core\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom()
     {
@@ -720,11 +720,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set huntGroup
      *
-     * @param \Core\Model\HuntGroup\HuntGroup $huntGroup
+     * @param \Core\Model\HuntGroup\HuntGroupInterface $huntGroup
      *
      * @return DDI
      */
-    protected function setHuntGroup(\Core\Model\HuntGroup\HuntGroup $huntGroup = null)
+    protected function setHuntGroup(\Core\Model\HuntGroup\HuntGroupInterface $huntGroup = null)
     {
         $this->huntGroup = $huntGroup;
 
@@ -734,7 +734,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get huntGroup
      *
-     * @return \Core\Model\HuntGroup\HuntGroup
+     * @return \Core\Model\HuntGroup\HuntGroupInterface
      */
     public function getHuntGroup()
     {
@@ -744,11 +744,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set fax
      *
-     * @param \Core\Model\Fax\Fax $fax
+     * @param \Core\Model\Fax\FaxInterface $fax
      *
      * @return DDI
      */
-    protected function setFax(\Core\Model\Fax\Fax $fax = null)
+    protected function setFax(\Core\Model\Fax\FaxInterface $fax = null)
     {
         $this->fax = $fax;
 
@@ -758,7 +758,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get fax
      *
-     * @return \Core\Model\Fax\Fax
+     * @return \Core\Model\Fax\FaxInterface
      */
     public function getFax()
     {
@@ -768,11 +768,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set peeringContract
      *
-     * @param \Core\Model\PeeringContract\PeeringContract $peeringContract
+     * @param \Core\Model\PeeringContract\PeeringContractInterface $peeringContract
      *
      * @return DDI
      */
-    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContract $peeringContract = null)
+    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContractInterface $peeringContract = null)
     {
         $this->peeringContract = $peeringContract;
 
@@ -782,7 +782,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Model\PeeringContract\PeeringContract
+     * @return \Core\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract()
     {
@@ -792,11 +792,11 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Set country
      *
-     * @param \Core\Model\Country\Country $country
+     * @param \Core\Model\Country\CountryInterface $country
      *
      * @return DDI
      */
-    protected function setCountry(\Core\Model\Country\Country $country = null)
+    protected function setCountry(\Core\Model\Country\CountryInterface $country = null)
     {
         $this->country = $country;
 
@@ -806,7 +806,7 @@ class DDI implements EntityInterface, DDIInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry()
     {

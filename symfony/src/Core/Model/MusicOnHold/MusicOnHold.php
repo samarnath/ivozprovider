@@ -60,7 +60,7 @@ class MusicOnHold implements EntityInterface, MusicOnHoldInterface
     protected $status;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
@@ -430,11 +430,11 @@ class MusicOnHold implements EntityInterface, MusicOnHoldInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return MusicOnHold
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -444,7 +444,7 @@ class MusicOnHold implements EntityInterface, MusicOnHoldInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

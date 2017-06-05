@@ -104,37 +104,37 @@ class Company implements EntityInterface, CompanyInterface
     protected $recordingsLimitEmail;
 
     /**
-     * @var \Core\Model\Brand\BrandInterfaceInterface
-     */
-    protected $brand;
-
-    /**
-     * @var \Core\Model\Language\Language
+     * @var \Core\Model\Language\LanguageInterface
      */
     protected $language;
 
     /**
-     * @var \Core\Model\MediaRelaySet\MediaRelaySet
+     * @var \Core\Model\MediaRelaySet\MediaRelaySetInterface
      */
     protected $mediaRelaySets;
 
     /**
-     * @var \Core\Model\Timezone\Timezone
+     * @var \Core\Model\Timezone\TimezoneInterface
      */
     protected $defaultTimezone;
 
     /**
-     * @var \Core\Model\ApplicationServer\ApplicationServer
+     * @var \Core\Model\Brand\BrandInterface
+     */
+    protected $brand;
+
+    /**
+     * @var \Core\Model\ApplicationServer\ApplicationServerInterface
      */
     protected $applicationServer;
 
     /**
-     * @var \Core\Model\Country\Country
+     * @var \Core\Model\Country\CountryInterface
      */
     protected $countryCode;
 
     /**
-     * @var \Core\Model\DDI\DDI
+     * @var \Core\Model\DDI\DDIInterface
      */
     protected $outgoingDDI;
 
@@ -216,10 +216,10 @@ class Company implements EntityInterface, CompanyInterface
             ->setExternallyExtraOpts($dto->getExternallyExtraOpts())
             ->setRecordingsLimitMB($dto->getRecordingsLimitMB())
             ->setRecordingsLimitEmail($dto->getRecordingsLimitEmail())
-            ->setBrand($dto->getBrand())
             ->setLanguage($dto->getLanguage())
             ->setMediaRelaySets($dto->getMediaRelaySets())
             ->setDefaultTimezone($dto->getDefaultTimezone())
+            ->setBrand($dto->getBrand())
             ->setApplicationServer($dto->getApplicationServer())
             ->setCountryCode($dto->getCountryCode())
             ->setOutgoingDDI($dto->getOutgoingDDI());
@@ -251,10 +251,10 @@ class Company implements EntityInterface, CompanyInterface
             ->setExternallyExtraOpts($dto->getExternallyExtraOpts())
             ->setRecordingsLimitMB($dto->getRecordingsLimitMB())
             ->setRecordingsLimitEmail($dto->getRecordingsLimitEmail())
-            ->setBrand($dto->getBrand())
             ->setLanguage($dto->getLanguage())
             ->setMediaRelaySets($dto->getMediaRelaySets())
             ->setDefaultTimezone($dto->getDefaultTimezone())
+            ->setBrand($dto->getBrand())
             ->setApplicationServer($dto->getApplicationServer())
             ->setCountryCode($dto->getCountryCode())
             ->setOutgoingDDI($dto->getOutgoingDDI());
@@ -287,10 +287,10 @@ class Company implements EntityInterface, CompanyInterface
             ->setExternallyExtraOpts($this->getExternallyExtraOpts())
             ->setRecordingsLimitMB($this->getRecordingsLimitMB())
             ->setRecordingsLimitEmail($this->getRecordingsLimitEmail())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
             ->setLanguageId($this->getLanguage() ? $this->getLanguage()->getId() : null)
             ->setMediaRelaySetsId($this->getMediaRelaySets() ? $this->getMediaRelaySets()->getId() : null)
             ->setDefaultTimezoneId($this->getDefaultTimezone() ? $this->getDefaultTimezone()->getId() : null)
+            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
             ->setApplicationServerId($this->getApplicationServer() ? $this->getApplicationServer()->getId() : null)
             ->setCountryCodeId($this->getCountryCode() ? $this->getCountryCode()->getId() : null)
             ->setOutgoingDDIId($this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null);
@@ -320,10 +320,10 @@ class Company implements EntityInterface, CompanyInterface
             'externallyExtraOpts' => $this->getExternallyExtraOpts(),
             'recordingsLimitMB' => $this->getRecordingsLimitMB(),
             'recordingsLimitEmail' => $this->getRecordingsLimitEmail(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
             'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
             'mediaRelaySetsId' => $this->getMediaRelaySets() ? $this->getMediaRelaySets()->getId() : null,
             'defaultTimezoneId' => $this->getDefaultTimezone() ? $this->getDefaultTimezone()->getId() : null,
+            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
             'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null,
             'countryCodeId' => $this->getCountryCode() ? $this->getCountryCode()->getId() : null,
             'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
@@ -814,37 +814,13 @@ class Company implements EntityInterface, CompanyInterface
     }
 
     /**
-     * Set brand
-     *
-     * @param \Core\Model\Brand\BrandInterfaceInterface $brand
-     *
-     * @return Company
-     */
-    protected function setBrand(\Core\Model\Brand\BrandInterfaceInterface $brand)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Get brand
-     *
-     * @return \Core\Model\Brand\BrandInterfaceInterface
-     */
-    public function getBrand()
-    {
-        return $this->brand;
-    }
-
-    /**
      * Set language
      *
-     * @param \Core\Model\Language\Language $language
+     * @param \Core\Model\Language\LanguageInterface $language
      *
      * @return Company
      */
-    protected function setLanguage(\Core\Model\Language\Language $language = null)
+    protected function setLanguage(\Core\Model\Language\LanguageInterface $language = null)
     {
         $this->language = $language;
 
@@ -854,7 +830,7 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {
@@ -864,11 +840,11 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Set mediaRelaySets
      *
-     * @param \Core\Model\MediaRelaySet\MediaRelaySet $mediaRelaySets
+     * @param \Core\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySets
      *
      * @return Company
      */
-    protected function setMediaRelaySets(\Core\Model\MediaRelaySet\MediaRelaySet $mediaRelaySets = null)
+    protected function setMediaRelaySets(\Core\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySets = null)
     {
         $this->mediaRelaySets = $mediaRelaySets;
 
@@ -878,7 +854,7 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Get mediaRelaySets
      *
-     * @return \Core\Model\MediaRelaySet\MediaRelaySet
+     * @return \Core\Model\MediaRelaySet\MediaRelaySetInterface
      */
     public function getMediaRelaySets()
     {
@@ -888,11 +864,11 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Set defaultTimezone
      *
-     * @param \Core\Model\Timezone\Timezone $defaultTimezone
+     * @param \Core\Model\Timezone\TimezoneInterface $defaultTimezone
      *
      * @return Company
      */
-    protected function setDefaultTimezone(\Core\Model\Timezone\Timezone $defaultTimezone = null)
+    protected function setDefaultTimezone(\Core\Model\Timezone\TimezoneInterface $defaultTimezone = null)
     {
         $this->defaultTimezone = $defaultTimezone;
 
@@ -902,7 +878,7 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Get defaultTimezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getDefaultTimezone()
     {
@@ -910,13 +886,37 @@ class Company implements EntityInterface, CompanyInterface
     }
 
     /**
-     * Set applicationServer
+     * Set brand
      *
-     * @param \Core\Model\ApplicationServer\ApplicationServer $applicationServer
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return Company
      */
-    protected function setApplicationServer(\Core\Model\ApplicationServer\ApplicationServer $applicationServer = null)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return \Core\Model\Brand\BrandInterface
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * Set applicationServer
+     *
+     * @param \Core\Model\ApplicationServer\ApplicationServerInterface $applicationServer
+     *
+     * @return Company
+     */
+    protected function setApplicationServer(\Core\Model\ApplicationServer\ApplicationServerInterface $applicationServer = null)
     {
         $this->applicationServer = $applicationServer;
 
@@ -926,7 +926,7 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Get applicationServer
      *
-     * @return \Core\Model\ApplicationServer\ApplicationServer
+     * @return \Core\Model\ApplicationServer\ApplicationServerInterface
      */
     public function getApplicationServer()
     {
@@ -936,11 +936,11 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Set countryCode
      *
-     * @param \Core\Model\Country\Country $countryCode
+     * @param \Core\Model\Country\CountryInterface $countryCode
      *
      * @return Company
      */
-    protected function setCountryCode(\Core\Model\Country\Country $countryCode = null)
+    protected function setCountryCode(\Core\Model\Country\CountryInterface $countryCode = null)
     {
         $this->countryCode = $countryCode;
 
@@ -950,7 +950,7 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Get countryCode
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountryCode()
     {
@@ -960,11 +960,11 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Set outgoingDDI
      *
-     * @param \Core\Model\DDI\DDI $outgoingDDI
+     * @param \Core\Model\DDI\DDIInterface $outgoingDDI
      *
      * @return Company
      */
-    protected function setOutgoingDDI(\Core\Model\DDI\DDI $outgoingDDI = null)
+    protected function setOutgoingDDI(\Core\Model\DDI\DDIInterface $outgoingDDI = null)
     {
         $this->outgoingDDI = $outgoingDDI;
 
@@ -974,7 +974,7 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI()
     {

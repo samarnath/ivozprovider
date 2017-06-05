@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersLocationAttr
  */
-class UsersLocationAttr implements EntityInterface, UsersLocationAttrInterface
+class UsersLocationAttr
 {
     /**
      * @var integer

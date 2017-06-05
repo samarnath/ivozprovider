@@ -81,7 +81,7 @@ interface LcrRuleInterface
     /**
      * Get routingPattern
      *
-     * @return \Core\Model\RoutingPattern\RoutingPattern
+     * @return \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     public function getRoutingPattern();
 
@@ -89,7 +89,7 @@ interface LcrRuleInterface
     /**
      * Get outgoingRouting
      *
-     * @return \Core\Model\OutgoingRouting\OutgoingRouting
+     * @return \Core\Model\OutgoingRouting\OutgoingRoutingInterface
      */
     public function getOutgoingRouting();
 

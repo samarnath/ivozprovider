@@ -33,7 +33,7 @@ interface CallACLRelPatternInterface
     /**
      * Get callACL
      *
-     * @return \Core\Model\CallACL\CallACL
+     * @return \Core\Model\CallACL\CallACLInterface
      */
     public function getCallACL();
 
@@ -41,7 +41,7 @@ interface CallACLRelPatternInterface
     /**
      * Get callACLPattern
      *
-     * @return \Core\Model\CallACLPattern\CallACLPattern
+     * @return \Core\Model\CallACLPattern\CallACLPatternInterface
      */
     public function getCallACLPattern();
 

@@ -17,12 +17,12 @@ class FeaturesRelCompany implements EntityInterface, FeaturesRelCompanyInterface
     protected $id;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Feature\Feature
+     * @var \Core\Model\Feature\FeatureInterface
      */
     protected $feature;
 
@@ -128,11 +128,11 @@ class FeaturesRelCompany implements EntityInterface, FeaturesRelCompanyInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return FeaturesRelCompany
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -142,7 +142,7 @@ class FeaturesRelCompany implements EntityInterface, FeaturesRelCompanyInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -152,11 +152,11 @@ class FeaturesRelCompany implements EntityInterface, FeaturesRelCompanyInterface
     /**
      * Set feature
      *
-     * @param \Core\Model\Feature\Feature $feature
+     * @param \Core\Model\Feature\FeatureInterface $feature
      *
      * @return FeaturesRelCompany
      */
-    protected function setFeature(\Core\Model\Feature\Feature $feature)
+    protected function setFeature(\Core\Model\Feature\FeatureInterface $feature)
     {
         $this->feature = $feature;
 
@@ -166,7 +166,7 @@ class FeaturesRelCompany implements EntityInterface, FeaturesRelCompanyInterface
     /**
      * Get feature
      *
-     * @return \Core\Model\Feature\Feature
+     * @return \Core\Model\Feature\FeatureInterface
      */
     public function getFeature()
     {

@@ -120,12 +120,12 @@ class PeerServer implements EntityInterface, PeerServerInterface
     protected $fromDomain;
 
     /**
-     * @var \Core\Model\PeeringContract\PeeringContract
+     * @var \Core\Model\PeeringContract\PeeringContractInterface
      */
     protected $peeringContract;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -841,11 +841,11 @@ class PeerServer implements EntityInterface, PeerServerInterface
     /**
      * Set peeringContract
      *
-     * @param \Core\Model\PeeringContract\PeeringContract $peeringContract
+     * @param \Core\Model\PeeringContract\PeeringContractInterface $peeringContract
      *
      * @return PeerServer
      */
-    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContract $peeringContract)
+    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContractInterface $peeringContract)
     {
         $this->peeringContract = $peeringContract;
 
@@ -855,7 +855,7 @@ class PeerServer implements EntityInterface, PeerServerInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Model\PeeringContract\PeeringContract
+     * @return \Core\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract()
     {
@@ -865,11 +865,11 @@ class PeerServer implements EntityInterface, PeerServerInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return PeerServer
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -879,7 +879,7 @@ class PeerServer implements EntityInterface, PeerServerInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

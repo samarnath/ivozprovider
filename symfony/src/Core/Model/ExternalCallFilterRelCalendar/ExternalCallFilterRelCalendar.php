@@ -17,12 +17,12 @@ class ExternalCallFilterRelCalendar implements EntityInterface, ExternalCallFilt
     protected $id;
 
     /**
-     * @var \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @var \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     protected $filter;
 
     /**
-     * @var \Core\Model\Calendar\Calendar
+     * @var \Core\Model\Calendar\CalendarInterface
      */
     protected $calendar;
 
@@ -128,11 +128,11 @@ class ExternalCallFilterRelCalendar implements EntityInterface, ExternalCallFilt
     /**
      * Set filter
      *
-     * @param \Core\Model\ExternalCallFilter\ExternalCallFilter $filter
+     * @param \Core\Model\ExternalCallFilter\ExternalCallFilterInterface $filter
      *
      * @return ExternalCallFilterRelCalendar
      */
-    protected function setFilter(\Core\Model\ExternalCallFilter\ExternalCallFilter $filter)
+    protected function setFilter(\Core\Model\ExternalCallFilter\ExternalCallFilterInterface $filter)
     {
         $this->filter = $filter;
 
@@ -142,7 +142,7 @@ class ExternalCallFilterRelCalendar implements EntityInterface, ExternalCallFilt
     /**
      * Get filter
      *
-     * @return \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @return \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     public function getFilter()
     {
@@ -152,11 +152,11 @@ class ExternalCallFilterRelCalendar implements EntityInterface, ExternalCallFilt
     /**
      * Set calendar
      *
-     * @param \Core\Model\Calendar\Calendar $calendar
+     * @param \Core\Model\Calendar\CalendarInterface $calendar
      *
      * @return ExternalCallFilterRelCalendar
      */
-    protected function setCalendar(\Core\Model\Calendar\Calendar $calendar)
+    protected function setCalendar(\Core\Model\Calendar\CalendarInterface $calendar)
     {
         $this->calendar = $calendar;
 
@@ -166,7 +166,7 @@ class ExternalCallFilterRelCalendar implements EntityInterface, ExternalCallFilt
     /**
      * Get calendar
      *
-     * @return \Core\Model\Calendar\Calendar
+     * @return \Core\Model\Calendar\CalendarInterface
      */
     public function getCalendar()
     {

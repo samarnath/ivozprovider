@@ -17,7 +17,7 @@ interface ExternalCallFilterRelScheduleInterface
     /**
      * Get filter
      *
-     * @return \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @return \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     public function getFilter();
 
@@ -25,7 +25,7 @@ interface ExternalCallFilterRelScheduleInterface
     /**
      * Get schedule
      *
-     * @return \Core\Model\Schedule\Schedule
+     * @return \Core\Model\Schedule\ScheduleInterface
      */
     public function getSchedule();
 

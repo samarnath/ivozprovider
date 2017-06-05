@@ -64,47 +64,47 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     protected $errorNumberValue;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $welcomeLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $noAnswerLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $errorLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $successLocution;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $timeoutExtension;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $errorExtension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $timeoutVoiceMailUser;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $errorVoiceMailUser;
 
@@ -540,11 +540,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return IVRCommon
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -554,7 +554,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -564,11 +564,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set welcomeLocution
      *
-     * @param \Core\Model\Locution\Locution $welcomeLocution
+     * @param \Core\Model\Locution\LocutionInterface $welcomeLocution
      *
      * @return IVRCommon
      */
-    protected function setWelcomeLocution(\Core\Model\Locution\Locution $welcomeLocution = null)
+    protected function setWelcomeLocution(\Core\Model\Locution\LocutionInterface $welcomeLocution = null)
     {
         $this->welcomeLocution = $welcomeLocution;
 
@@ -578,7 +578,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get welcomeLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution()
     {
@@ -588,11 +588,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set noAnswerLocution
      *
-     * @param \Core\Model\Locution\Locution $noAnswerLocution
+     * @param \Core\Model\Locution\LocutionInterface $noAnswerLocution
      *
      * @return IVRCommon
      */
-    protected function setNoAnswerLocution(\Core\Model\Locution\Locution $noAnswerLocution = null)
+    protected function setNoAnswerLocution(\Core\Model\Locution\LocutionInterface $noAnswerLocution = null)
     {
         $this->noAnswerLocution = $noAnswerLocution;
 
@@ -602,7 +602,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get noAnswerLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getNoAnswerLocution()
     {
@@ -612,11 +612,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set errorLocution
      *
-     * @param \Core\Model\Locution\Locution $errorLocution
+     * @param \Core\Model\Locution\LocutionInterface $errorLocution
      *
      * @return IVRCommon
      */
-    protected function setErrorLocution(\Core\Model\Locution\Locution $errorLocution = null)
+    protected function setErrorLocution(\Core\Model\Locution\LocutionInterface $errorLocution = null)
     {
         $this->errorLocution = $errorLocution;
 
@@ -626,7 +626,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get errorLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getErrorLocution()
     {
@@ -636,11 +636,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set successLocution
      *
-     * @param \Core\Model\Locution\Locution $successLocution
+     * @param \Core\Model\Locution\LocutionInterface $successLocution
      *
      * @return IVRCommon
      */
-    protected function setSuccessLocution(\Core\Model\Locution\Locution $successLocution = null)
+    protected function setSuccessLocution(\Core\Model\Locution\LocutionInterface $successLocution = null)
     {
         $this->successLocution = $successLocution;
 
@@ -650,7 +650,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get successLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getSuccessLocution()
     {
@@ -660,11 +660,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set timeoutExtension
      *
-     * @param \Core\Model\Extension\Extension $timeoutExtension
+     * @param \Core\Model\Extension\ExtensionInterface $timeoutExtension
      *
      * @return IVRCommon
      */
-    protected function setTimeoutExtension(\Core\Model\Extension\Extension $timeoutExtension = null)
+    protected function setTimeoutExtension(\Core\Model\Extension\ExtensionInterface $timeoutExtension = null)
     {
         $this->timeoutExtension = $timeoutExtension;
 
@@ -674,7 +674,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get timeoutExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getTimeoutExtension()
     {
@@ -684,11 +684,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set errorExtension
      *
-     * @param \Core\Model\Extension\Extension $errorExtension
+     * @param \Core\Model\Extension\ExtensionInterface $errorExtension
      *
      * @return IVRCommon
      */
-    protected function setErrorExtension(\Core\Model\Extension\Extension $errorExtension = null)
+    protected function setErrorExtension(\Core\Model\Extension\ExtensionInterface $errorExtension = null)
     {
         $this->errorExtension = $errorExtension;
 
@@ -698,7 +698,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get errorExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getErrorExtension()
     {
@@ -708,11 +708,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set timeoutVoiceMailUser
      *
-     * @param \Core\Model\User\User $timeoutVoiceMailUser
+     * @param \Core\Model\User\UserInterface $timeoutVoiceMailUser
      *
      * @return IVRCommon
      */
-    protected function setTimeoutVoiceMailUser(\Core\Model\User\User $timeoutVoiceMailUser = null)
+    protected function setTimeoutVoiceMailUser(\Core\Model\User\UserInterface $timeoutVoiceMailUser = null)
     {
         $this->timeoutVoiceMailUser = $timeoutVoiceMailUser;
 
@@ -722,7 +722,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get timeoutVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getTimeoutVoiceMailUser()
     {
@@ -732,11 +732,11 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Set errorVoiceMailUser
      *
-     * @param \Core\Model\User\User $errorVoiceMailUser
+     * @param \Core\Model\User\UserInterface $errorVoiceMailUser
      *
      * @return IVRCommon
      */
-    protected function setErrorVoiceMailUser(\Core\Model\User\User $errorVoiceMailUser = null)
+    protected function setErrorVoiceMailUser(\Core\Model\User\UserInterface $errorVoiceMailUser = null)
     {
         $this->errorVoiceMailUser = $errorVoiceMailUser;
 
@@ -746,7 +746,7 @@ class IVRCommon implements EntityInterface, IVRCommonInterface
     /**
      * Get errorVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getErrorVoiceMailUser()
     {

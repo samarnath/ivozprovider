@@ -65,7 +65,7 @@ interface MainOperatorInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone();
 

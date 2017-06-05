@@ -32,7 +32,7 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
     protected $template;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -230,11 +230,11 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return InvoiceTemplate
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -244,7 +244,7 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

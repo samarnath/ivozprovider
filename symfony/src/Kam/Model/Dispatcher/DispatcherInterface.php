@@ -65,7 +65,7 @@ interface DispatcherInterface
     /**
      * Get applicationServer
      *
-     * @return \Core\Model\ApplicationServer\ApplicationServer
+     * @return \Core\Model\ApplicationServer\ApplicationServerInterface
      */
     public function getApplicationServer();
 

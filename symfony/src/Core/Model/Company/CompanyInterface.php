@@ -151,17 +151,9 @@ interface CompanyInterface
 
 
     /**
-     * Get brand
-     *
-     * @return \Core\Model\Brand\BrandInterfaceInterface
-     */
-    public function getBrand();
-
-
-    /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage();
 
@@ -169,7 +161,7 @@ interface CompanyInterface
     /**
      * Get mediaRelaySets
      *
-     * @return \Core\Model\MediaRelaySet\MediaRelaySet
+     * @return \Core\Model\MediaRelaySet\MediaRelaySetInterface
      */
     public function getMediaRelaySets();
 
@@ -177,15 +169,23 @@ interface CompanyInterface
     /**
      * Get defaultTimezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getDefaultTimezone();
 
 
     /**
+     * Get brand
+     *
+     * @return \Core\Model\Brand\BrandInterface
+     */
+    public function getBrand();
+
+
+    /**
      * Get applicationServer
      *
-     * @return \Core\Model\ApplicationServer\ApplicationServer
+     * @return \Core\Model\ApplicationServer\ApplicationServerInterface
      */
     public function getApplicationServer();
 
@@ -193,7 +193,7 @@ interface CompanyInterface
     /**
      * Get countryCode
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountryCode();
 
@@ -201,7 +201,7 @@ interface CompanyInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI();
 

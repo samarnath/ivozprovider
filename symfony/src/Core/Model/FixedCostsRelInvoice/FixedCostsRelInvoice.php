@@ -22,17 +22,17 @@ class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInter
     protected $quantity;
 
     /**
-     * @var \Core\Model\FixedCost\FixedCostInterface
+     * @var \Core\Model\FixedCost\FixedCostInterfaceInterface
      */
     protected $fixedCost;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Invoice\Invoice
+     * @var \Core\Model\Invoice\InvoiceInterface
      */
     protected $invoice;
 
@@ -176,11 +176,11 @@ class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInter
     /**
      * Set fixedCost
      *
-     * @param \Core\Model\FixedCost\FixedCostInterface $fixedCost
+     * @param \Core\Model\FixedCost\FixedCostInterfaceInterface $fixedCost
      *
      * @return FixedCostsRelInvoice
      */
-    protected function setFixedCost(\Core\Model\FixedCost\FixedCostInterface $fixedCost)
+    protected function setFixedCost(\Core\Model\FixedCost\FixedCostInterfaceInterface $fixedCost)
     {
         $this->fixedCost = $fixedCost;
 
@@ -190,7 +190,7 @@ class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInter
     /**
      * Get fixedCost
      *
-     * @return \Core\Model\FixedCost\FixedCostInterface
+     * @return \Core\Model\FixedCost\FixedCostInterfaceInterface
      */
     public function getFixedCost()
     {
@@ -200,11 +200,11 @@ class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInter
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return FixedCostsRelInvoice
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -214,7 +214,7 @@ class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInter
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -224,11 +224,11 @@ class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInter
     /**
      * Set invoice
      *
-     * @param \Core\Model\Invoice\Invoice $invoice
+     * @param \Core\Model\Invoice\InvoiceInterface $invoice
      *
      * @return FixedCostsRelInvoice
      */
-    protected function setInvoice(\Core\Model\Invoice\Invoice $invoice)
+    protected function setInvoice(\Core\Model\Invoice\InvoiceInterface $invoice)
     {
         $this->invoice = $invoice;
 
@@ -238,7 +238,7 @@ class FixedCostsRelInvoice implements EntityInterface, FixedCostsRelInvoiceInter
     /**
      * Get invoice
      *
-     * @return \Core\Model\Invoice\Invoice
+     * @return \Core\Model\Invoice\InvoiceInterface
      */
     public function getInvoice()
     {

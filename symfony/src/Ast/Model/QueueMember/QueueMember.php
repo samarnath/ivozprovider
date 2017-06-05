@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * QueueMember
  */
-class QueueMember implements EntityInterface, QueueMemberInterface
+class QueueMember
 {
     /**
      * @var integer
@@ -49,7 +49,7 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     protected $paused;
 
     /**
-     * @var \Core\Model\QueueMember\QueueMember
+     * @var \Core\Model\QueueMember\QueueMemberInterface
      */
     protected $queueMember;
 
@@ -365,11 +365,11 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     /**
      * Set queueMember
      *
-     * @param \Core\Model\QueueMember\QueueMember $queueMember
+     * @param \Core\Model\QueueMember\QueueMemberInterface $queueMember
      *
      * @return QueueMember
      */
-    protected function setQueueMember(\Core\Model\QueueMember\QueueMember $queueMember = null)
+    protected function setQueueMember(\Core\Model\QueueMember\QueueMemberInterface $queueMember = null)
     {
         $this->queueMember = $queueMember;
 
@@ -379,7 +379,7 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     /**
      * Get queueMember
      *
-     * @return \Core\Model\QueueMember\QueueMember
+     * @return \Core\Model\QueueMember\QueueMemberInterface
      */
     public function getQueueMember()
     {

@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * Queue
  */
-class Queue implements EntityInterface, QueueInterface
+class Queue
 {
     /**
      * @var string
@@ -64,7 +64,7 @@ class Queue implements EntityInterface, QueueInterface
     protected $weight;
 
     /**
-     * @var \Core\Model\Queue\Queue
+     * @var \Core\Model\Queue\QueueInterface
      */
     protected $queue;
 
@@ -478,11 +478,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set queue
      *
-     * @param \Core\Model\Queue\Queue $queue
+     * @param \Core\Model\Queue\QueueInterface $queue
      *
      * @return Queue
      */
-    protected function setQueue(\Core\Model\Queue\Queue $queue)
+    protected function setQueue(\Core\Model\Queue\QueueInterface $queue)
     {
         $this->queue = $queue;
 
@@ -492,7 +492,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue()
     {

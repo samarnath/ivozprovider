@@ -41,7 +41,7 @@ interface PricingPlansRelTargetPatternInterface
     /**
      * Get pricingPlan
      *
-     * @return \Core\Model\PricingPlan\PricingPlan
+     * @return \Core\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan();
 
@@ -49,7 +49,7 @@ interface PricingPlansRelTargetPatternInterface
     /**
      * Get targetPattern
      *
-     * @return \Core\Model\TargetPattern\TargetPattern
+     * @return \Core\Model\TargetPattern\TargetPatternInterface
      */
     public function getTargetPattern();
 
@@ -57,7 +57,7 @@ interface PricingPlansRelTargetPatternInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 

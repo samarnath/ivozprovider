@@ -121,7 +121,7 @@ interface LcrGatewayInterface
     /**
      * Get peerServer
      *
-     * @return \Core\Model\PeerServer\PeerServer
+     * @return \Core\Model\PeerServer\PeerServerInterface
      */
     public function getPeerServer();
 

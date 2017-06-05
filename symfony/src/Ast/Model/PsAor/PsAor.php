@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * PsAor
  */
-class PsAor implements EntityInterface, PsAorInterface
+class PsAor
 {
     /**
      * @var integer

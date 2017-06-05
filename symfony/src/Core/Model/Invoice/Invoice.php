@@ -69,17 +69,17 @@ class Invoice implements EntityInterface, InvoiceInterface
     protected $pdfFileBaseName;
 
     /**
-     * @var \Core\Model\InvoiceTemplate\InvoiceTemplate
+     * @var \Core\Model\InvoiceTemplate\InvoiceTemplateInterface
      */
     protected $invoiceTemplate;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
@@ -522,11 +522,11 @@ class Invoice implements EntityInterface, InvoiceInterface
     /**
      * Set invoiceTemplate
      *
-     * @param \Core\Model\InvoiceTemplate\InvoiceTemplate $invoiceTemplate
+     * @param \Core\Model\InvoiceTemplate\InvoiceTemplateInterface $invoiceTemplate
      *
      * @return Invoice
      */
-    protected function setInvoiceTemplate(\Core\Model\InvoiceTemplate\InvoiceTemplate $invoiceTemplate = null)
+    protected function setInvoiceTemplate(\Core\Model\InvoiceTemplate\InvoiceTemplateInterface $invoiceTemplate = null)
     {
         $this->invoiceTemplate = $invoiceTemplate;
 
@@ -536,7 +536,7 @@ class Invoice implements EntityInterface, InvoiceInterface
     /**
      * Get invoiceTemplate
      *
-     * @return \Core\Model\InvoiceTemplate\InvoiceTemplate
+     * @return \Core\Model\InvoiceTemplate\InvoiceTemplateInterface
      */
     public function getInvoiceTemplate()
     {
@@ -546,11 +546,11 @@ class Invoice implements EntityInterface, InvoiceInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return Invoice
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -560,7 +560,7 @@ class Invoice implements EntityInterface, InvoiceInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -570,11 +570,11 @@ class Invoice implements EntityInterface, InvoiceInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Invoice
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -584,7 +584,7 @@ class Invoice implements EntityInterface, InvoiceInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

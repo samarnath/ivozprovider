@@ -60,12 +60,12 @@ class Terminal implements EntityInterface, TerminalInterface
     protected $lastProvisionDate;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\TerminalModel\TerminalModel
+     * @var \Core\Model\TerminalModel\TerminalModelInterface
      */
     protected $TerminalModel;
 
@@ -434,11 +434,11 @@ class Terminal implements EntityInterface, TerminalInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Terminal
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -448,7 +448,7 @@ class Terminal implements EntityInterface, TerminalInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -458,11 +458,11 @@ class Terminal implements EntityInterface, TerminalInterface
     /**
      * Set terminalModel
      *
-     * @param \Core\Model\TerminalModel\TerminalModel $terminalModel
+     * @param \Core\Model\TerminalModel\TerminalModelInterface $terminalModel
      *
      * @return Terminal
      */
-    protected function setTerminalModel(\Core\Model\TerminalModel\TerminalModel $terminalModel = null)
+    protected function setTerminalModel(\Core\Model\TerminalModel\TerminalModelInterface $terminalModel = null)
     {
         $this->TerminalModel = $terminalModel;
 
@@ -472,7 +472,7 @@ class Terminal implements EntityInterface, TerminalInterface
     /**
      * Get terminalModel
      *
-     * @return \Core\Model\TerminalModel\TerminalModel
+     * @return \Core\Model\TerminalModel\TerminalModelInterface
      */
     public function getTerminalModel()
     {

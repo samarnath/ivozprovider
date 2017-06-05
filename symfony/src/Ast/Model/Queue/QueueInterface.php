@@ -89,7 +89,7 @@ interface QueueInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue();
 

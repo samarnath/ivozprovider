@@ -79,42 +79,42 @@ class Queue implements EntityInterface, QueueInterface
     protected $weight;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $periodicAnnounceLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $timeoutLocution;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $timeoutExtension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $timeoutVoiceMailUser;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $fullLocution;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $fullExtension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $fullVoiceMailUser;
 
@@ -649,11 +649,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Queue
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -663,7 +663,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -673,11 +673,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set periodicAnnounceLocution
      *
-     * @param \Core\Model\Locution\Locution $periodicAnnounceLocution
+     * @param \Core\Model\Locution\LocutionInterface $periodicAnnounceLocution
      *
      * @return Queue
      */
-    protected function setPeriodicAnnounceLocution(\Core\Model\Locution\Locution $periodicAnnounceLocution = null)
+    protected function setPeriodicAnnounceLocution(\Core\Model\Locution\LocutionInterface $periodicAnnounceLocution = null)
     {
         $this->periodicAnnounceLocution = $periodicAnnounceLocution;
 
@@ -687,7 +687,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get periodicAnnounceLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getPeriodicAnnounceLocution()
     {
@@ -697,11 +697,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set timeoutLocution
      *
-     * @param \Core\Model\Locution\Locution $timeoutLocution
+     * @param \Core\Model\Locution\LocutionInterface $timeoutLocution
      *
      * @return Queue
      */
-    protected function setTimeoutLocution(\Core\Model\Locution\Locution $timeoutLocution = null)
+    protected function setTimeoutLocution(\Core\Model\Locution\LocutionInterface $timeoutLocution = null)
     {
         $this->timeoutLocution = $timeoutLocution;
 
@@ -711,7 +711,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get timeoutLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getTimeoutLocution()
     {
@@ -721,11 +721,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set timeoutExtension
      *
-     * @param \Core\Model\Extension\Extension $timeoutExtension
+     * @param \Core\Model\Extension\ExtensionInterface $timeoutExtension
      *
      * @return Queue
      */
-    protected function setTimeoutExtension(\Core\Model\Extension\Extension $timeoutExtension = null)
+    protected function setTimeoutExtension(\Core\Model\Extension\ExtensionInterface $timeoutExtension = null)
     {
         $this->timeoutExtension = $timeoutExtension;
 
@@ -735,7 +735,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get timeoutExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getTimeoutExtension()
     {
@@ -745,11 +745,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set timeoutVoiceMailUser
      *
-     * @param \Core\Model\User\User $timeoutVoiceMailUser
+     * @param \Core\Model\User\UserInterface $timeoutVoiceMailUser
      *
      * @return Queue
      */
-    protected function setTimeoutVoiceMailUser(\Core\Model\User\User $timeoutVoiceMailUser = null)
+    protected function setTimeoutVoiceMailUser(\Core\Model\User\UserInterface $timeoutVoiceMailUser = null)
     {
         $this->timeoutVoiceMailUser = $timeoutVoiceMailUser;
 
@@ -759,7 +759,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get timeoutVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getTimeoutVoiceMailUser()
     {
@@ -769,11 +769,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set fullLocution
      *
-     * @param \Core\Model\Locution\Locution $fullLocution
+     * @param \Core\Model\Locution\LocutionInterface $fullLocution
      *
      * @return Queue
      */
-    protected function setFullLocution(\Core\Model\Locution\Locution $fullLocution = null)
+    protected function setFullLocution(\Core\Model\Locution\LocutionInterface $fullLocution = null)
     {
         $this->fullLocution = $fullLocution;
 
@@ -783,7 +783,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get fullLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getFullLocution()
     {
@@ -793,11 +793,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set fullExtension
      *
-     * @param \Core\Model\Extension\Extension $fullExtension
+     * @param \Core\Model\Extension\ExtensionInterface $fullExtension
      *
      * @return Queue
      */
-    protected function setFullExtension(\Core\Model\Extension\Extension $fullExtension = null)
+    protected function setFullExtension(\Core\Model\Extension\ExtensionInterface $fullExtension = null)
     {
         $this->fullExtension = $fullExtension;
 
@@ -807,7 +807,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get fullExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getFullExtension()
     {
@@ -817,11 +817,11 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Set fullVoiceMailUser
      *
-     * @param \Core\Model\User\User $fullVoiceMailUser
+     * @param \Core\Model\User\UserInterface $fullVoiceMailUser
      *
      * @return Queue
      */
-    protected function setFullVoiceMailUser(\Core\Model\User\User $fullVoiceMailUser = null)
+    protected function setFullVoiceMailUser(\Core\Model\User\UserInterface $fullVoiceMailUser = null)
     {
         $this->fullVoiceMailUser = $fullVoiceMailUser;
 
@@ -831,7 +831,7 @@ class Queue implements EntityInterface, QueueInterface
     /**
      * Get fullVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getFullVoiceMailUser()
     {

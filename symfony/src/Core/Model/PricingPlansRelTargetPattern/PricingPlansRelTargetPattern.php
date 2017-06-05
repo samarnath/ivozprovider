@@ -32,17 +32,17 @@ class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTa
     protected $perPeriodCharge;
 
     /**
-     * @var \Core\Model\PricingPlan\PricingPlan
+     * @var \Core\Model\PricingPlan\PricingPlanInterface
      */
     protected $pricingPlan;
 
     /**
-     * @var \Core\Model\TargetPattern\TargetPattern
+     * @var \Core\Model\TargetPattern\TargetPatternInterface
      */
     protected $targetPattern;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -251,11 +251,11 @@ class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTa
     /**
      * Set pricingPlan
      *
-     * @param \Core\Model\PricingPlan\PricingPlan $pricingPlan
+     * @param \Core\Model\PricingPlan\PricingPlanInterface $pricingPlan
      *
      * @return PricingPlansRelTargetPattern
      */
-    protected function setPricingPlan(\Core\Model\PricingPlan\PricingPlan $pricingPlan)
+    protected function setPricingPlan(\Core\Model\PricingPlan\PricingPlanInterface $pricingPlan)
     {
         $this->pricingPlan = $pricingPlan;
 
@@ -265,7 +265,7 @@ class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTa
     /**
      * Get pricingPlan
      *
-     * @return \Core\Model\PricingPlan\PricingPlan
+     * @return \Core\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan()
     {
@@ -275,11 +275,11 @@ class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTa
     /**
      * Set targetPattern
      *
-     * @param \Core\Model\TargetPattern\TargetPattern $targetPattern
+     * @param \Core\Model\TargetPattern\TargetPatternInterface $targetPattern
      *
      * @return PricingPlansRelTargetPattern
      */
-    protected function setTargetPattern(\Core\Model\TargetPattern\TargetPattern $targetPattern)
+    protected function setTargetPattern(\Core\Model\TargetPattern\TargetPatternInterface $targetPattern)
     {
         $this->targetPattern = $targetPattern;
 
@@ -289,7 +289,7 @@ class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTa
     /**
      * Get targetPattern
      *
-     * @return \Core\Model\TargetPattern\TargetPattern
+     * @return \Core\Model\TargetPattern\TargetPatternInterface
      */
     public function getTargetPattern()
     {
@@ -299,11 +299,11 @@ class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTa
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return PricingPlansRelTargetPattern
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -313,7 +313,7 @@ class PricingPlansRelTargetPattern implements EntityInterface, PricingPlansRelTa
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

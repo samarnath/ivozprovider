@@ -22,12 +22,12 @@ class CompanyService implements EntityInterface, CompanyServiceInterface
     protected $code;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Service\Service
+     * @var \Core\Model\Service\ServiceInterface
      */
     protected $service;
 
@@ -165,11 +165,11 @@ class CompanyService implements EntityInterface, CompanyServiceInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return CompanyService
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -179,7 +179,7 @@ class CompanyService implements EntityInterface, CompanyServiceInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -189,11 +189,11 @@ class CompanyService implements EntityInterface, CompanyServiceInterface
     /**
      * Set service
      *
-     * @param \Core\Model\Service\Service $service
+     * @param \Core\Model\Service\ServiceInterface $service
      *
      * @return CompanyService
      */
-    protected function setService(\Core\Model\Service\Service $service)
+    protected function setService(\Core\Model\Service\ServiceInterface $service)
     {
         $this->service = $service;
 
@@ -203,7 +203,7 @@ class CompanyService implements EntityInterface, CompanyServiceInterface
     /**
      * Get service
      *
-     * @return \Core\Model\Service\Service
+     * @return \Core\Model\Service\ServiceInterface
      */
     public function getService()
     {

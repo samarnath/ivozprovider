@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * Rtpproxy
  */
-class Rtpproxy implements EntityInterface, RtpproxyInterface
+class Rtpproxy
 {
     /**
      * @var integer
@@ -42,7 +42,7 @@ class Rtpproxy implements EntityInterface, RtpproxyInterface
     protected $description;
 
     /**
-     * @var \Core\Model\MediaRelaySet\MediaRelaySet
+     * @var \Core\Model\MediaRelaySet\MediaRelaySetInterface
      */
     protected $mediaRelaySet;
 
@@ -306,11 +306,11 @@ class Rtpproxy implements EntityInterface, RtpproxyInterface
     /**
      * Set mediaRelaySet
      *
-     * @param \Core\Model\MediaRelaySet\MediaRelaySet $mediaRelaySet
+     * @param \Core\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet
      *
      * @return Rtpproxy
      */
-    protected function setMediaRelaySet(\Core\Model\MediaRelaySet\MediaRelaySet $mediaRelaySet = null)
+    protected function setMediaRelaySet(\Core\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet = null)
     {
         $this->mediaRelaySet = $mediaRelaySet;
 
@@ -320,7 +320,7 @@ class Rtpproxy implements EntityInterface, RtpproxyInterface
     /**
      * Get mediaRelaySet
      *
-     * @return \Core\Model\MediaRelaySet\MediaRelaySet
+     * @return \Core\Model\MediaRelaySet\MediaRelaySetInterface
      */
     public function getMediaRelaySet()
     {

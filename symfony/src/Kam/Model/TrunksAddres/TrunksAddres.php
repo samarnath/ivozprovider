@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * TrunksAddres
  */
-class TrunksAddres implements EntityInterface, TrunksAddresInterface
+class TrunksAddres
 {
     /**
      * @var integer

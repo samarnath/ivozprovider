@@ -65,7 +65,7 @@ interface QueueMemberInterface
     /**
      * Get queueMember
      *
-     * @return \Core\Model\QueueMember\QueueMember
+     * @return \Core\Model\QueueMember\QueueMemberInterface
      */
     public function getQueueMember();
 

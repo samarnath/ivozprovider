@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersWatcher
  */
-class UsersWatcher implements EntityInterface, UsersWatcherInterface
+class UsersWatcher
 {
     /**
      * @var integer

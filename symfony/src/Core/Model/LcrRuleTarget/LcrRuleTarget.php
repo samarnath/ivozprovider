@@ -33,17 +33,17 @@ class LcrRuleTarget implements EntityInterface, LcrRuleTargetInterface
     protected $weight = '1';
 
     /**
-     * @var \Core\Model\LcrRule\LcrRule
+     * @var \Core\Model\LcrRule\LcrRuleInterface
      */
     protected $rule;
 
     /**
-     * @var \Core\Model\LcrGateway\LcrGateway
+     * @var \Core\Model\LcrGateway\LcrGatewayInterface
      */
     protected $gw;
 
     /**
-     * @var \Core\Model\OutgoingRouting\OutgoingRouting
+     * @var \Core\Model\OutgoingRouting\OutgoingRoutingInterface
      */
     protected $outgoingRouting;
 
@@ -251,11 +251,11 @@ class LcrRuleTarget implements EntityInterface, LcrRuleTargetInterface
     /**
      * Set rule
      *
-     * @param \Core\Model\LcrRule\LcrRule $rule
+     * @param \Core\Model\LcrRule\LcrRuleInterface $rule
      *
      * @return LcrRuleTarget
      */
-    protected function setRule(\Core\Model\LcrRule\LcrRule $rule)
+    protected function setRule(\Core\Model\LcrRule\LcrRuleInterface $rule)
     {
         $this->rule = $rule;
 
@@ -265,7 +265,7 @@ class LcrRuleTarget implements EntityInterface, LcrRuleTargetInterface
     /**
      * Get rule
      *
-     * @return \Core\Model\LcrRule\LcrRule
+     * @return \Core\Model\LcrRule\LcrRuleInterface
      */
     public function getRule()
     {
@@ -275,11 +275,11 @@ class LcrRuleTarget implements EntityInterface, LcrRuleTargetInterface
     /**
      * Set gw
      *
-     * @param \Core\Model\LcrGateway\LcrGateway $gw
+     * @param \Core\Model\LcrGateway\LcrGatewayInterface $gw
      *
      * @return LcrRuleTarget
      */
-    protected function setGw(\Core\Model\LcrGateway\LcrGateway $gw)
+    protected function setGw(\Core\Model\LcrGateway\LcrGatewayInterface $gw)
     {
         $this->gw = $gw;
 
@@ -289,7 +289,7 @@ class LcrRuleTarget implements EntityInterface, LcrRuleTargetInterface
     /**
      * Get gw
      *
-     * @return \Core\Model\LcrGateway\LcrGateway
+     * @return \Core\Model\LcrGateway\LcrGatewayInterface
      */
     public function getGw()
     {
@@ -299,11 +299,11 @@ class LcrRuleTarget implements EntityInterface, LcrRuleTargetInterface
     /**
      * Set outgoingRouting
      *
-     * @param \Core\Model\OutgoingRouting\OutgoingRouting $outgoingRouting
+     * @param \Core\Model\OutgoingRouting\OutgoingRoutingInterface $outgoingRouting
      *
      * @return LcrRuleTarget
      */
-    protected function setOutgoingRouting(\Core\Model\OutgoingRouting\OutgoingRouting $outgoingRouting)
+    protected function setOutgoingRouting(\Core\Model\OutgoingRouting\OutgoingRoutingInterface $outgoingRouting)
     {
         $this->outgoingRouting = $outgoingRouting;
 
@@ -313,7 +313,7 @@ class LcrRuleTarget implements EntityInterface, LcrRuleTargetInterface
     /**
      * Get outgoingRouting
      *
-     * @return \Core\Model\OutgoingRouting\OutgoingRouting
+     * @return \Core\Model\OutgoingRouting\OutgoingRoutingInterface
      */
     public function getOutgoingRouting()
     {

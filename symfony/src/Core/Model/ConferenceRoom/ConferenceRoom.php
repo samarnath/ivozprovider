@@ -37,7 +37,7 @@ class ConferenceRoom implements EntityInterface, ConferenceRoomInterface
     protected $maxMembers = '0';
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
@@ -267,11 +267,11 @@ class ConferenceRoom implements EntityInterface, ConferenceRoomInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return ConferenceRoom
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -281,7 +281,7 @@ class ConferenceRoom implements EntityInterface, ConferenceRoomInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

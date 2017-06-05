@@ -57,7 +57,7 @@ interface RtpproxyInterface
     /**
      * Get mediaRelaySet
      *
-     * @return \Core\Model\MediaRelaySet\MediaRelaySet
+     * @return \Core\Model\MediaRelaySet\MediaRelaySetInterface
      */
     public function getMediaRelaySet();
 

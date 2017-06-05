@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersAcc
  */
-class UsersAcc implements EntityInterface, UsersAccInterface
+class UsersAcc
 {
     /**
      * @var integer

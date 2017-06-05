@@ -89,7 +89,7 @@ interface FaxesInOutInterface
     /**
      * Get fax
      *
-     * @return \Core\Model\Fax\Fax
+     * @return \Core\Model\Fax\FaxInterface
      */
     public function getFax();
 

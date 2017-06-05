@@ -73,7 +73,7 @@ interface DDIInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -81,7 +81,7 @@ interface DDIInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -89,7 +89,7 @@ interface DDIInterface
     /**
      * Get conferenceRoom
      *
-     * @return \Core\Model\ConferenceRoom\ConferenceRoom
+     * @return \Core\Model\ConferenceRoom\ConferenceRoomInterface
      */
     public function getConferenceRoom();
 
@@ -97,7 +97,7 @@ interface DDIInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage();
 
@@ -105,7 +105,7 @@ interface DDIInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue();
 
@@ -113,7 +113,7 @@ interface DDIInterface
     /**
      * Get externalCallFilter
      *
-     * @return \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @return \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     public function getExternalCallFilter();
 
@@ -121,7 +121,7 @@ interface DDIInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser();
 
@@ -129,7 +129,7 @@ interface DDIInterface
     /**
      * Get iVRCommon
      *
-     * @return \Core\Model\IVRCommon\IVRCommon
+     * @return \Core\Model\IVRCommon\IVRCommonInterface
      */
     public function getIVRCommon();
 
@@ -137,7 +137,7 @@ interface DDIInterface
     /**
      * Get iVRCustom
      *
-     * @return \Core\Model\IVRCustom\IVRCustom
+     * @return \Core\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom();
 
@@ -145,7 +145,7 @@ interface DDIInterface
     /**
      * Get huntGroup
      *
-     * @return \Core\Model\HuntGroup\HuntGroup
+     * @return \Core\Model\HuntGroup\HuntGroupInterface
      */
     public function getHuntGroup();
 
@@ -153,7 +153,7 @@ interface DDIInterface
     /**
      * Get fax
      *
-     * @return \Core\Model\Fax\Fax
+     * @return \Core\Model\Fax\FaxInterface
      */
     public function getFax();
 
@@ -161,7 +161,7 @@ interface DDIInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Model\PeeringContract\PeeringContract
+     * @return \Core\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract();
 
@@ -169,7 +169,7 @@ interface DDIInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry();
 

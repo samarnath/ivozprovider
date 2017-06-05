@@ -126,12 +126,12 @@ class Brand implements EntityInterface, BrandInterface
     protected $domains;
 
     /**
-     * @var \Core\Model\Language\Language
+     * @var \Core\Model\Language\LanguageInterface
      */
     protected $language;
 
     /**
-     * @var \Core\Model\Timezone\Timezone
+     * @var \Core\Model\Timezone\TimezoneInterface
      */
     protected $defaultTimezone;
 
@@ -782,11 +782,11 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Add operator
      *
-     * @param \Core\Model\BrandOperator\BrandOperator $operator
+     * @param \Core\Model\BrandOperator\BrandOperatorInterface $operator
      *
      * @return Brand
      */
-    protected function addOperator(\Core\Model\BrandOperator\BrandOperator $operator)
+    protected function addOperator(\Core\Model\BrandOperator\BrandOperatorInterface $operator)
     {
         $this->operators[] = $operator;
 
@@ -796,9 +796,9 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Remove operator
      *
-     * @param \Core\Model\BrandOperator\BrandOperator $operator
+     * @param \Core\Model\BrandOperator\BrandOperatorInterface $operator
      */
-    protected function removeOperator(\Core\Model\BrandOperator\BrandOperator $operator)
+    protected function removeOperator(\Core\Model\BrandOperator\BrandOperatorInterface $operator)
     {
         $this->operators->removeElement($operator);
     }
@@ -854,11 +854,11 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Add service
      *
-     * @param \Core\Model\BrandService\BrandService $service
+     * @param \Core\Model\BrandService\BrandServiceInterface $service
      *
      * @return Brand
      */
-    protected function addService(\Core\Model\BrandService\BrandService $service)
+    protected function addService(\Core\Model\BrandService\BrandServiceInterface $service)
     {
         $this->services[] = $service;
 
@@ -868,9 +868,9 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Remove service
      *
-     * @param \Core\Model\BrandService\BrandService $service
+     * @param \Core\Model\BrandService\BrandServiceInterface $service
      */
-    protected function removeService(\Core\Model\BrandService\BrandService $service)
+    protected function removeService(\Core\Model\BrandService\BrandServiceInterface $service)
     {
         $this->services->removeElement($service);
     }
@@ -926,11 +926,11 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Add url
      *
-     * @param \Core\Model\BrandURL\BrandURL $url
+     * @param \Core\Model\BrandURL\BrandURLInterface $url
      *
      * @return Brand
      */
-    protected function addUrl(\Core\Model\BrandURL\BrandURL $url)
+    protected function addUrl(\Core\Model\BrandURL\BrandURLInterface $url)
     {
         $this->urls[] = $url;
 
@@ -940,9 +940,9 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Remove url
      *
-     * @param \Core\Model\BrandURL\BrandURL $url
+     * @param \Core\Model\BrandURL\BrandURLInterface $url
      */
-    protected function removeUrl(\Core\Model\BrandURL\BrandURL $url)
+    protected function removeUrl(\Core\Model\BrandURL\BrandURLInterface $url)
     {
         $this->urls->removeElement($url);
     }
@@ -998,11 +998,11 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Add relFeature
      *
-     * @param \Core\Model\FeaturesRelBrand\FeaturesRelBrand $relFeature
+     * @param \Core\Model\FeaturesRelBrand\FeaturesRelBrandInterface $relFeature
      *
      * @return Brand
      */
-    protected function addRelFeature(\Core\Model\FeaturesRelBrand\FeaturesRelBrand $relFeature)
+    protected function addRelFeature(\Core\Model\FeaturesRelBrand\FeaturesRelBrandInterface $relFeature)
     {
         $this->relFeatures[] = $relFeature;
 
@@ -1012,9 +1012,9 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Remove relFeature
      *
-     * @param \Core\Model\FeaturesRelBrand\FeaturesRelBrand $relFeature
+     * @param \Core\Model\FeaturesRelBrand\FeaturesRelBrandInterface $relFeature
      */
-    protected function removeRelFeature(\Core\Model\FeaturesRelBrand\FeaturesRelBrand $relFeature)
+    protected function removeRelFeature(\Core\Model\FeaturesRelBrand\FeaturesRelBrandInterface $relFeature)
     {
         $this->relFeatures->removeElement($relFeature);
     }
@@ -1070,11 +1070,11 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Add domain
      *
-     * @param \Core\Model\Domain\Domain $domain
+     * @param \Core\Model\Domain\DomainInterface $domain
      *
      * @return Brand
      */
-    protected function addDomain(\Core\Model\Domain\Domain $domain)
+    protected function addDomain(\Core\Model\Domain\DomainInterface $domain)
     {
         $this->domains[] = $domain;
 
@@ -1084,9 +1084,9 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Remove domain
      *
-     * @param \Core\Model\Domain\Domain $domain
+     * @param \Core\Model\Domain\DomainInterface $domain
      */
-    protected function removeDomain(\Core\Model\Domain\Domain $domain)
+    protected function removeDomain(\Core\Model\Domain\DomainInterface $domain)
     {
         $this->domains->removeElement($domain);
     }
@@ -1142,11 +1142,11 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Set language
      *
-     * @param \Core\Model\Language\Language $language
+     * @param \Core\Model\Language\LanguageInterface $language
      *
      * @return Brand
      */
-    protected function setLanguage(\Core\Model\Language\Language $language = null)
+    protected function setLanguage(\Core\Model\Language\LanguageInterface $language = null)
     {
         $this->language = $language;
 
@@ -1156,7 +1156,7 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {
@@ -1166,11 +1166,11 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Set defaultTimezone
      *
-     * @param \Core\Model\Timezone\Timezone $defaultTimezone
+     * @param \Core\Model\Timezone\TimezoneInterface $defaultTimezone
      *
      * @return Brand
      */
-    protected function setDefaultTimezone(\Core\Model\Timezone\Timezone $defaultTimezone = null)
+    protected function setDefaultTimezone(\Core\Model\Timezone\TimezoneInterface $defaultTimezone = null)
     {
         $this->defaultTimezone = $defaultTimezone;
 
@@ -1180,7 +1180,7 @@ class Brand implements EntityInterface, BrandInterface
     /**
      * Get defaultTimezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getDefaultTimezone()
     {

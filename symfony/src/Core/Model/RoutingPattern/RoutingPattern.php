@@ -58,7 +58,7 @@ class RoutingPattern implements EntityInterface, RoutingPatternInterface
     protected $regExp;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -384,11 +384,11 @@ class RoutingPattern implements EntityInterface, RoutingPatternInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return RoutingPattern
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -398,7 +398,7 @@ class RoutingPattern implements EntityInterface, RoutingPatternInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

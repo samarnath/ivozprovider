@@ -81,7 +81,7 @@ interface TrunksDialplanInterface
     /**
      * Get transformationRulesetGroupsTrunk
      *
-     * @return \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+     * @return \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
      */
     public function getTransformationRulesetGroupsTrunk();
 

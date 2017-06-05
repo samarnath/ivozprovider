@@ -65,7 +65,7 @@ class FaxesInOut implements EntityInterface, FaxesInOutInterface
     protected $fileBaseName;
 
     /**
-     * @var \Core\Model\Fax\Fax
+     * @var \Core\Model\Fax\FaxInterface
      */
     protected $fax;
 
@@ -460,11 +460,11 @@ class FaxesInOut implements EntityInterface, FaxesInOutInterface
     /**
      * Set fax
      *
-     * @param \Core\Model\Fax\Fax $fax
+     * @param \Core\Model\Fax\FaxInterface $fax
      *
      * @return FaxesInOut
      */
-    protected function setFax(\Core\Model\Fax\Fax $fax)
+    protected function setFax(\Core\Model\Fax\FaxInterface $fax)
     {
         $this->fax = $fax;
 
@@ -474,7 +474,7 @@ class FaxesInOut implements EntityInterface, FaxesInOutInterface
     /**
      * Get fax
      *
-     * @return \Core\Model\Fax\Fax
+     * @return \Core\Model\Fax\FaxInterface
      */
     public function getFax()
     {

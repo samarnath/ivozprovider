@@ -27,7 +27,7 @@ class CallACLPattern implements EntityInterface, CallACLPatternInterface
     protected $regExp;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
@@ -193,11 +193,11 @@ class CallACLPattern implements EntityInterface, CallACLPatternInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return CallACLPattern
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -207,7 +207,7 @@ class CallACLPattern implements EntityInterface, CallACLPatternInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

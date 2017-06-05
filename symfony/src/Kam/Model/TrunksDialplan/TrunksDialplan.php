@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * TrunksDialplan
  */
-class TrunksDialplan implements EntityInterface, TrunksDialplanInterface
+class TrunksDialplan
 {
     /**
      * @var integer
@@ -62,7 +62,7 @@ class TrunksDialplan implements EntityInterface, TrunksDialplanInterface
     protected $attrs;
 
     /**
-     * @var \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+     * @var \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
      */
     protected $transformationRulesetGroupsTrunk;
 
@@ -428,11 +428,11 @@ class TrunksDialplan implements EntityInterface, TrunksDialplanInterface
     /**
      * Set transformationRulesetGroupsTrunk
      *
-     * @param \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk $transformationRulesetGroupsTrunk
+     * @param \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface $transformationRulesetGroupsTrunk
      *
      * @return TrunksDialplan
      */
-    protected function setTransformationRulesetGroupsTrunk(\Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk $transformationRulesetGroupsTrunk)
+    protected function setTransformationRulesetGroupsTrunk(\Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface $transformationRulesetGroupsTrunk)
     {
         $this->transformationRulesetGroupsTrunk = $transformationRulesetGroupsTrunk;
 
@@ -442,7 +442,7 @@ class TrunksDialplan implements EntityInterface, TrunksDialplanInterface
     /**
      * Get transformationRulesetGroupsTrunk
      *
-     * @return \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+     * @return \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
      */
     public function getTransformationRulesetGroupsTrunk()
     {

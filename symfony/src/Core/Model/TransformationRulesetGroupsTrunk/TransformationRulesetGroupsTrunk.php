@@ -66,12 +66,12 @@ class TransformationRulesetGroupsTrunk implements EntityInterface, Transformatio
     protected $nationalNumLength;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Country\Country
+     * @var \Core\Model\Country\CountryInterface
      */
     protected $country;
 
@@ -476,11 +476,11 @@ class TransformationRulesetGroupsTrunk implements EntityInterface, Transformatio
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return TransformationRulesetGroupsTrunk
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -490,7 +490,7 @@ class TransformationRulesetGroupsTrunk implements EntityInterface, Transformatio
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -500,11 +500,11 @@ class TransformationRulesetGroupsTrunk implements EntityInterface, Transformatio
     /**
      * Set country
      *
-     * @param \Core\Model\Country\Country $country
+     * @param \Core\Model\Country\CountryInterface $country
      *
      * @return TransformationRulesetGroupsTrunk
      */
-    protected function setCountry(\Core\Model\Country\Country $country = null)
+    protected function setCountry(\Core\Model\Country\CountryInterface $country = null)
     {
         $this->country = $country;
 
@@ -514,7 +514,7 @@ class TransformationRulesetGroupsTrunk implements EntityInterface, Transformatio
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry()
     {

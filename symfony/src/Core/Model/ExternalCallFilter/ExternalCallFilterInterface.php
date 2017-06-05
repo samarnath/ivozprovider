@@ -73,7 +73,7 @@ interface ExternalCallFilterInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -81,7 +81,7 @@ interface ExternalCallFilterInterface
     /**
      * Get welcomeLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution();
 
@@ -89,7 +89,7 @@ interface ExternalCallFilterInterface
     /**
      * Get holidayLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getHolidayLocution();
 
@@ -97,7 +97,7 @@ interface ExternalCallFilterInterface
     /**
      * Get outOfScheduleLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getOutOfScheduleLocution();
 
@@ -105,7 +105,7 @@ interface ExternalCallFilterInterface
     /**
      * Get holidayExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getHolidayExtension();
 
@@ -113,7 +113,7 @@ interface ExternalCallFilterInterface
     /**
      * Get outOfScheduleExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getOutOfScheduleExtension();
 
@@ -121,7 +121,7 @@ interface ExternalCallFilterInterface
     /**
      * Get holidayVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getHolidayVoiceMailUser();
 
@@ -129,7 +129,7 @@ interface ExternalCallFilterInterface
     /**
      * Get outOfScheduleVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getOutOfScheduleVoiceMailUser();
 

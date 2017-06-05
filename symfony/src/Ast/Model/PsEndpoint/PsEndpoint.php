@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * PsEndpoint
  */
-class PsEndpoint implements EntityInterface, PsEndpointInterface
+class PsEndpoint
 {
     /**
      * @var integer
@@ -113,12 +113,12 @@ class PsEndpoint implements EntityInterface, PsEndpointInterface
     protected $trustIdInbound;
 
     /**
-     * @var \Core\Model\Terminal\Terminal
+     * @var \Core\Model\Terminal\TerminalInterface
      */
     protected $terminal;
 
     /**
-     * @var \Core\Model\Friend\Friend
+     * @var \Core\Model\Friend\FriendInterface
      */
     protected $friend;
 
@@ -773,11 +773,11 @@ class PsEndpoint implements EntityInterface, PsEndpointInterface
     /**
      * Set terminal
      *
-     * @param \Core\Model\Terminal\Terminal $terminal
+     * @param \Core\Model\Terminal\TerminalInterface $terminal
      *
      * @return PsEndpoint
      */
-    protected function setTerminal(\Core\Model\Terminal\Terminal $terminal = null)
+    protected function setTerminal(\Core\Model\Terminal\TerminalInterface $terminal = null)
     {
         $this->terminal = $terminal;
 
@@ -787,7 +787,7 @@ class PsEndpoint implements EntityInterface, PsEndpointInterface
     /**
      * Get terminal
      *
-     * @return \Core\Model\Terminal\Terminal
+     * @return \Core\Model\Terminal\TerminalInterface
      */
     public function getTerminal()
     {
@@ -797,11 +797,11 @@ class PsEndpoint implements EntityInterface, PsEndpointInterface
     /**
      * Set friend
      *
-     * @param \Core\Model\Friend\Friend $friend
+     * @param \Core\Model\Friend\FriendInterface $friend
      *
      * @return PsEndpoint
      */
-    protected function setFriend(\Core\Model\Friend\Friend $friend = null)
+    protected function setFriend(\Core\Model\Friend\FriendInterface $friend = null)
     {
         $this->friend = $friend;
 
@@ -811,7 +811,7 @@ class PsEndpoint implements EntityInterface, PsEndpointInterface
     /**
      * Get friend
      *
-     * @return \Core\Model\Friend\Friend
+     * @return \Core\Model\Friend\FriendInterface
      */
     public function getFriend()
     {

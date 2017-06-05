@@ -41,7 +41,7 @@ interface FaxInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -49,7 +49,7 @@ interface FaxInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI();
 

@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * Voicemail
  */
-class Voicemail implements EntityInterface, VoicemailInterface
+class Voicemail
 {
     /**
      * @var integer
@@ -184,7 +184,7 @@ class Voicemail implements EntityInterface, VoicemailInterface
     protected $stamp;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $user;
 
@@ -1337,11 +1337,11 @@ class Voicemail implements EntityInterface, VoicemailInterface
     /**
      * Set user
      *
-     * @param \Core\Model\User\User $user
+     * @param \Core\Model\User\UserInterface $user
      *
      * @return Voicemail
      */
-    protected function setUser(\Core\Model\User\User $user = null)
+    protected function setUser(\Core\Model\User\UserInterface $user = null)
     {
         $this->user = $user;
 
@@ -1351,7 +1351,7 @@ class Voicemail implements EntityInterface, VoicemailInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser()
     {

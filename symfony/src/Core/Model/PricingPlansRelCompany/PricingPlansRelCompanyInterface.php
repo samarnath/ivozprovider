@@ -41,7 +41,7 @@ interface PricingPlansRelCompanyInterface
     /**
      * Get pricingPlan
      *
-     * @return \Core\Model\PricingPlan\PricingPlan
+     * @return \Core\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan();
 
@@ -49,7 +49,7 @@ interface PricingPlansRelCompanyInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -57,7 +57,7 @@ interface PricingPlansRelCompanyInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 

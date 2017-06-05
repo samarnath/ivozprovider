@@ -57,7 +57,7 @@ interface TimezoneInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry();
 

@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersPua
  */
-class UsersPua implements EntityInterface, UsersPuaInterface
+class UsersPua
 {
     /**
      * @var integer

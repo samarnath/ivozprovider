@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersHtable
  */
-class UsersHtable implements EntityInterface, UsersHtableInterface
+class UsersHtable
 {
     /**
      * @var integer

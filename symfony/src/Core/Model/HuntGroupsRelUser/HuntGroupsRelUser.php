@@ -27,12 +27,12 @@ class HuntGroupsRelUser implements EntityInterface, HuntGroupsRelUserInterface
     protected $priority;
 
     /**
-     * @var \Core\Model\HuntGroup\HuntGroup
+     * @var \Core\Model\HuntGroup\HuntGroupInterface
      */
     protected $huntGroup;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $user;
 
@@ -206,11 +206,11 @@ class HuntGroupsRelUser implements EntityInterface, HuntGroupsRelUserInterface
     /**
      * Set huntGroup
      *
-     * @param \Core\Model\HuntGroup\HuntGroup $huntGroup
+     * @param \Core\Model\HuntGroup\HuntGroupInterface $huntGroup
      *
      * @return HuntGroupsRelUser
      */
-    protected function setHuntGroup(\Core\Model\HuntGroup\HuntGroup $huntGroup)
+    protected function setHuntGroup(\Core\Model\HuntGroup\HuntGroupInterface $huntGroup)
     {
         $this->huntGroup = $huntGroup;
 
@@ -220,7 +220,7 @@ class HuntGroupsRelUser implements EntityInterface, HuntGroupsRelUserInterface
     /**
      * Get huntGroup
      *
-     * @return \Core\Model\HuntGroup\HuntGroup
+     * @return \Core\Model\HuntGroup\HuntGroupInterface
      */
     public function getHuntGroup()
     {
@@ -230,11 +230,11 @@ class HuntGroupsRelUser implements EntityInterface, HuntGroupsRelUserInterface
     /**
      * Set user
      *
-     * @param \Core\Model\User\User $user
+     * @param \Core\Model\User\UserInterface $user
      *
      * @return HuntGroupsRelUser
      */
-    protected function setUser(\Core\Model\User\User $user)
+    protected function setUser(\Core\Model\User\UserInterface $user)
     {
         $this->user = $user;
 
@@ -244,7 +244,7 @@ class HuntGroupsRelUser implements EntityInterface, HuntGroupsRelUserInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser()
     {

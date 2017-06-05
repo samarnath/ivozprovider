@@ -37,12 +37,12 @@ class Domain implements EntityInterface, DomainInterface
     protected $description;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -274,11 +274,11 @@ class Domain implements EntityInterface, DomainInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Domain
      */
-    protected function setCompany(\Core\Model\Company\Company $company = null)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company = null)
     {
         $this->company = $company;
 
@@ -288,7 +288,7 @@ class Domain implements EntityInterface, DomainInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -298,11 +298,11 @@ class Domain implements EntityInterface, DomainInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return Domain
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null)
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 
@@ -312,7 +312,7 @@ class Domain implements EntityInterface, DomainInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

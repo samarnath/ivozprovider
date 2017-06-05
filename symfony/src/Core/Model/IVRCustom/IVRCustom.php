@@ -59,47 +59,47 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     protected $errorNumberValue;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $welcomeLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $noAnswerLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $errorLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $successLocution;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $timeoutExtension;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $errorExtension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $timeoutVoiceMailUser;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $errorVoiceMailUser;
 
@@ -503,11 +503,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return IVRCustom
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -517,7 +517,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -527,11 +527,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set welcomeLocution
      *
-     * @param \Core\Model\Locution\Locution $welcomeLocution
+     * @param \Core\Model\Locution\LocutionInterface $welcomeLocution
      *
      * @return IVRCustom
      */
-    protected function setWelcomeLocution(\Core\Model\Locution\Locution $welcomeLocution = null)
+    protected function setWelcomeLocution(\Core\Model\Locution\LocutionInterface $welcomeLocution = null)
     {
         $this->welcomeLocution = $welcomeLocution;
 
@@ -541,7 +541,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get welcomeLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution()
     {
@@ -551,11 +551,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set noAnswerLocution
      *
-     * @param \Core\Model\Locution\Locution $noAnswerLocution
+     * @param \Core\Model\Locution\LocutionInterface $noAnswerLocution
      *
      * @return IVRCustom
      */
-    protected function setNoAnswerLocution(\Core\Model\Locution\Locution $noAnswerLocution = null)
+    protected function setNoAnswerLocution(\Core\Model\Locution\LocutionInterface $noAnswerLocution = null)
     {
         $this->noAnswerLocution = $noAnswerLocution;
 
@@ -565,7 +565,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get noAnswerLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getNoAnswerLocution()
     {
@@ -575,11 +575,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set errorLocution
      *
-     * @param \Core\Model\Locution\Locution $errorLocution
+     * @param \Core\Model\Locution\LocutionInterface $errorLocution
      *
      * @return IVRCustom
      */
-    protected function setErrorLocution(\Core\Model\Locution\Locution $errorLocution = null)
+    protected function setErrorLocution(\Core\Model\Locution\LocutionInterface $errorLocution = null)
     {
         $this->errorLocution = $errorLocution;
 
@@ -589,7 +589,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get errorLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getErrorLocution()
     {
@@ -599,11 +599,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set successLocution
      *
-     * @param \Core\Model\Locution\Locution $successLocution
+     * @param \Core\Model\Locution\LocutionInterface $successLocution
      *
      * @return IVRCustom
      */
-    protected function setSuccessLocution(\Core\Model\Locution\Locution $successLocution = null)
+    protected function setSuccessLocution(\Core\Model\Locution\LocutionInterface $successLocution = null)
     {
         $this->successLocution = $successLocution;
 
@@ -613,7 +613,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get successLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getSuccessLocution()
     {
@@ -623,11 +623,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set timeoutExtension
      *
-     * @param \Core\Model\Extension\Extension $timeoutExtension
+     * @param \Core\Model\Extension\ExtensionInterface $timeoutExtension
      *
      * @return IVRCustom
      */
-    protected function setTimeoutExtension(\Core\Model\Extension\Extension $timeoutExtension = null)
+    protected function setTimeoutExtension(\Core\Model\Extension\ExtensionInterface $timeoutExtension = null)
     {
         $this->timeoutExtension = $timeoutExtension;
 
@@ -637,7 +637,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get timeoutExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getTimeoutExtension()
     {
@@ -647,11 +647,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set errorExtension
      *
-     * @param \Core\Model\Extension\Extension $errorExtension
+     * @param \Core\Model\Extension\ExtensionInterface $errorExtension
      *
      * @return IVRCustom
      */
-    protected function setErrorExtension(\Core\Model\Extension\Extension $errorExtension = null)
+    protected function setErrorExtension(\Core\Model\Extension\ExtensionInterface $errorExtension = null)
     {
         $this->errorExtension = $errorExtension;
 
@@ -661,7 +661,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get errorExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getErrorExtension()
     {
@@ -671,11 +671,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set timeoutVoiceMailUser
      *
-     * @param \Core\Model\User\User $timeoutVoiceMailUser
+     * @param \Core\Model\User\UserInterface $timeoutVoiceMailUser
      *
      * @return IVRCustom
      */
-    protected function setTimeoutVoiceMailUser(\Core\Model\User\User $timeoutVoiceMailUser = null)
+    protected function setTimeoutVoiceMailUser(\Core\Model\User\UserInterface $timeoutVoiceMailUser = null)
     {
         $this->timeoutVoiceMailUser = $timeoutVoiceMailUser;
 
@@ -685,7 +685,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get timeoutVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getTimeoutVoiceMailUser()
     {
@@ -695,11 +695,11 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Set errorVoiceMailUser
      *
-     * @param \Core\Model\User\User $errorVoiceMailUser
+     * @param \Core\Model\User\UserInterface $errorVoiceMailUser
      *
      * @return IVRCustom
      */
-    protected function setErrorVoiceMailUser(\Core\Model\User\User $errorVoiceMailUser = null)
+    protected function setErrorVoiceMailUser(\Core\Model\User\UserInterface $errorVoiceMailUser = null)
     {
         $this->errorVoiceMailUser = $errorVoiceMailUser;
 
@@ -709,7 +709,7 @@ class IVRCustom implements EntityInterface, IVRCustomInterface
     /**
      * Get errorVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getErrorVoiceMailUser()
     {

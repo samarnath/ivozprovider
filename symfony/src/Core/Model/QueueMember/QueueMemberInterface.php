@@ -25,7 +25,7 @@ interface QueueMemberInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue();
 
@@ -33,7 +33,7 @@ interface QueueMemberInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser();
 

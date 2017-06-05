@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * TrunksUacreg
  */
-class TrunksUacreg implements EntityInterface, TrunksUacregInterface
+class TrunksUacreg
 {
     /**
      * @var integer
@@ -91,12 +91,12 @@ class TrunksUacreg implements EntityInterface, TrunksUacregInterface
     protected $multiddi = '0';
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\PeeringContract\PeeringContract
+     * @var \Core\Model\PeeringContract\PeeringContractInterface
      */
     protected $peeringContract;
 
@@ -631,11 +631,11 @@ class TrunksUacreg implements EntityInterface, TrunksUacregInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return TrunksUacreg
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -645,7 +645,7 @@ class TrunksUacreg implements EntityInterface, TrunksUacregInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -655,11 +655,11 @@ class TrunksUacreg implements EntityInterface, TrunksUacregInterface
     /**
      * Set peeringContract
      *
-     * @param \Core\Model\PeeringContract\PeeringContract $peeringContract
+     * @param \Core\Model\PeeringContract\PeeringContractInterface $peeringContract
      *
      * @return TrunksUacreg
      */
-    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContract $peeringContract)
+    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContractInterface $peeringContract)
     {
         $this->peeringContract = $peeringContract;
 
@@ -669,7 +669,7 @@ class TrunksUacreg implements EntityInterface, TrunksUacregInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Model\PeeringContract\PeeringContract
+     * @return \Core\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract()
     {

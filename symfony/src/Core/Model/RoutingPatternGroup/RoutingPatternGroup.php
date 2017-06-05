@@ -34,7 +34,7 @@ class RoutingPatternGroup implements EntityInterface, RoutingPatternGroupInterfa
     protected $relPatterns;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -205,11 +205,11 @@ class RoutingPatternGroup implements EntityInterface, RoutingPatternGroupInterfa
     /**
      * Add relPattern
      *
-     * @param \Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern $relPattern
+     * @param \Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPatternInterface $relPattern
      *
      * @return RoutingPatternGroup
      */
-    protected function addRelPattern(\Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern $relPattern)
+    protected function addRelPattern(\Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPatternInterface $relPattern)
     {
         $this->relPatterns[] = $relPattern;
 
@@ -219,9 +219,9 @@ class RoutingPatternGroup implements EntityInterface, RoutingPatternGroupInterfa
     /**
      * Remove relPattern
      *
-     * @param \Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern $relPattern
+     * @param \Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPatternInterface $relPattern
      */
-    protected function removeRelPattern(\Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern $relPattern)
+    protected function removeRelPattern(\Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPatternInterface $relPattern)
     {
         $this->relPatterns->removeElement($relPattern);
     }
@@ -277,11 +277,11 @@ class RoutingPatternGroup implements EntityInterface, RoutingPatternGroupInterfa
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return RoutingPatternGroup
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -291,7 +291,7 @@ class RoutingPatternGroup implements EntityInterface, RoutingPatternGroupInterfa
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

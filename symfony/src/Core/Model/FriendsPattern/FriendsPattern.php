@@ -27,7 +27,7 @@ class FriendsPattern implements EntityInterface, FriendsPatternInterface
     protected $regExp;
 
     /**
-     * @var \Core\Model\Friend\Friend
+     * @var \Core\Model\Friend\FriendInterface
      */
     protected $friend;
 
@@ -193,11 +193,11 @@ class FriendsPattern implements EntityInterface, FriendsPatternInterface
     /**
      * Set friend
      *
-     * @param \Core\Model\Friend\Friend $friend
+     * @param \Core\Model\Friend\FriendInterface $friend
      *
      * @return FriendsPattern
      */
-    protected function setFriend(\Core\Model\Friend\Friend $friend)
+    protected function setFriend(\Core\Model\Friend\FriendInterface $friend)
     {
         $this->friend = $friend;
 
@@ -207,7 +207,7 @@ class FriendsPattern implements EntityInterface, FriendsPatternInterface
     /**
      * Get friend
      *
-     * @return \Core\Model\Friend\Friend
+     * @return \Core\Model\Friend\FriendInterface
      */
     public function getFriend()
     {

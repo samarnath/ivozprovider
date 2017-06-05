@@ -22,12 +22,12 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     protected $penalty;
 
     /**
-     * @var \Core\Model\Queue\Queue
+     * @var \Core\Model\Queue\QueueInterface
      */
     protected $queue;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $user;
 
@@ -167,11 +167,11 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     /**
      * Set queue
      *
-     * @param \Core\Model\Queue\Queue $queue
+     * @param \Core\Model\Queue\QueueInterface $queue
      *
      * @return QueueMember
      */
-    protected function setQueue(\Core\Model\Queue\Queue $queue = null)
+    protected function setQueue(\Core\Model\Queue\QueueInterface $queue = null)
     {
         $this->queue = $queue;
 
@@ -181,7 +181,7 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue()
     {
@@ -191,11 +191,11 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     /**
      * Set user
      *
-     * @param \Core\Model\User\User $user
+     * @param \Core\Model\User\UserInterface $user
      *
      * @return QueueMember
      */
-    protected function setUser(\Core\Model\User\User $user = null)
+    protected function setUser(\Core\Model\User\UserInterface $user = null)
     {
         $this->user = $user;
 
@@ -205,7 +205,7 @@ class QueueMember implements EntityInterface, QueueMemberInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser()
     {

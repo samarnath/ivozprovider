@@ -59,7 +59,7 @@ class BrandURL implements EntityInterface, BrandURLInterface
     protected $userTheme = '';
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -426,11 +426,11 @@ class BrandURL implements EntityInterface, BrandURLInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return BrandURL
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null)
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 
@@ -440,7 +440,7 @@ class BrandURL implements EntityInterface, BrandURLInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

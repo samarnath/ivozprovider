@@ -241,7 +241,7 @@ interface AccCdrInterface
     /**
      * Get pricingPlan
      *
-     * @return \Core\Model\PricingPlan\PricingPlan
+     * @return \Core\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan();
 
@@ -249,7 +249,7 @@ interface AccCdrInterface
     /**
      * Get targetPattern
      *
-     * @return \Core\Model\TargetPattern\TargetPattern
+     * @return \Core\Model\TargetPattern\TargetPatternInterface
      */
     public function getTargetPattern();
 
@@ -257,7 +257,7 @@ interface AccCdrInterface
     /**
      * Get invoice
      *
-     * @return \Core\Model\Invoice\Invoice
+     * @return \Core\Model\Invoice\InvoiceInterface
      */
     public function getInvoice();
 
@@ -265,7 +265,7 @@ interface AccCdrInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -273,7 +273,7 @@ interface AccCdrInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 

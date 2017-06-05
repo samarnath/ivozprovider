@@ -32,17 +32,17 @@ class PricingPlansRelCompany implements EntityInterface, PricingPlansRelCompanyI
     protected $metric = '10';
 
     /**
-     * @var \Core\Model\PricingPlan\PricingPlan
+     * @var \Core\Model\PricingPlan\PricingPlanInterface
      */
     protected $pricingPlan;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -246,11 +246,11 @@ class PricingPlansRelCompany implements EntityInterface, PricingPlansRelCompanyI
     /**
      * Set pricingPlan
      *
-     * @param \Core\Model\PricingPlan\PricingPlan $pricingPlan
+     * @param \Core\Model\PricingPlan\PricingPlanInterface $pricingPlan
      *
      * @return PricingPlansRelCompany
      */
-    protected function setPricingPlan(\Core\Model\PricingPlan\PricingPlan $pricingPlan)
+    protected function setPricingPlan(\Core\Model\PricingPlan\PricingPlanInterface $pricingPlan)
     {
         $this->pricingPlan = $pricingPlan;
 
@@ -260,7 +260,7 @@ class PricingPlansRelCompany implements EntityInterface, PricingPlansRelCompanyI
     /**
      * Get pricingPlan
      *
-     * @return \Core\Model\PricingPlan\PricingPlan
+     * @return \Core\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan()
     {
@@ -270,11 +270,11 @@ class PricingPlansRelCompany implements EntityInterface, PricingPlansRelCompanyI
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return PricingPlansRelCompany
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -284,7 +284,7 @@ class PricingPlansRelCompany implements EntityInterface, PricingPlansRelCompanyI
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -294,11 +294,11 @@ class PricingPlansRelCompany implements EntityInterface, PricingPlansRelCompanyI
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return PricingPlansRelCompany
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -308,7 +308,7 @@ class PricingPlansRelCompany implements EntityInterface, PricingPlansRelCompanyI
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

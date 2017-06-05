@@ -49,7 +49,7 @@ interface DomainInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -57,17 +57,17 @@ interface DomainInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return DomainInterface
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null);
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null);
 
 
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 

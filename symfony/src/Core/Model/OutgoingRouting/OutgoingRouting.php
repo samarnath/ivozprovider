@@ -32,27 +32,27 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     protected $weight = '1';
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\PeeringContract\PeeringContract
+     * @var \Core\Model\PeeringContract\PeeringContractInterface
      */
     protected $peeringContract;
 
     /**
-     * @var \Core\Model\RoutingPattern\RoutingPattern
+     * @var \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     protected $routingPattern;
 
     /**
-     * @var \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+     * @var \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
      */
     protected $routingPatternGroup;
 
@@ -266,11 +266,11 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return OutgoingRouting
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -280,7 +280,7 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -290,11 +290,11 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return OutgoingRouting
      */
-    protected function setCompany(\Core\Model\Company\Company $company = null)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company = null)
     {
         $this->company = $company;
 
@@ -304,7 +304,7 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -314,11 +314,11 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Set peeringContract
      *
-     * @param \Core\Model\PeeringContract\PeeringContract $peeringContract
+     * @param \Core\Model\PeeringContract\PeeringContractInterface $peeringContract
      *
      * @return OutgoingRouting
      */
-    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContract $peeringContract)
+    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContractInterface $peeringContract)
     {
         $this->peeringContract = $peeringContract;
 
@@ -328,7 +328,7 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Model\PeeringContract\PeeringContract
+     * @return \Core\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract()
     {
@@ -338,11 +338,11 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Set routingPattern
      *
-     * @param \Core\Model\RoutingPattern\RoutingPattern $routingPattern
+     * @param \Core\Model\RoutingPattern\RoutingPatternInterface $routingPattern
      *
      * @return OutgoingRouting
      */
-    protected function setRoutingPattern(\Core\Model\RoutingPattern\RoutingPattern $routingPattern = null)
+    protected function setRoutingPattern(\Core\Model\RoutingPattern\RoutingPatternInterface $routingPattern = null)
     {
         $this->routingPattern = $routingPattern;
 
@@ -352,7 +352,7 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Get routingPattern
      *
-     * @return \Core\Model\RoutingPattern\RoutingPattern
+     * @return \Core\Model\RoutingPattern\RoutingPatternInterface
      */
     public function getRoutingPattern()
     {
@@ -362,11 +362,11 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Set routingPatternGroup
      *
-     * @param \Core\Model\RoutingPatternGroup\RoutingPatternGroup $routingPatternGroup
+     * @param \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface $routingPatternGroup
      *
      * @return OutgoingRouting
      */
-    protected function setRoutingPatternGroup(\Core\Model\RoutingPatternGroup\RoutingPatternGroup $routingPatternGroup = null)
+    protected function setRoutingPatternGroup(\Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface $routingPatternGroup = null)
     {
         $this->routingPatternGroup = $routingPatternGroup;
 
@@ -376,7 +376,7 @@ class OutgoingRouting implements EntityInterface, OutgoingRoutingInterface
     /**
      * Get routingPatternGroup
      *
-     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroup
+     * @return \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
      */
     public function getRoutingPatternGroup()
     {

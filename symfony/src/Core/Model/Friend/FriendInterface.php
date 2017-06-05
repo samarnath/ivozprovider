@@ -153,7 +153,7 @@ interface FriendInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -161,7 +161,7 @@ interface FriendInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry();
 
@@ -169,7 +169,7 @@ interface FriendInterface
     /**
      * Get callACL
      *
-     * @return \Core\Model\CallACL\CallACL
+     * @return \Core\Model\CallACL\CallACLInterface
      */
     public function getCallACL();
 
@@ -177,7 +177,7 @@ interface FriendInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI();
 
@@ -185,7 +185,7 @@ interface FriendInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage();
 

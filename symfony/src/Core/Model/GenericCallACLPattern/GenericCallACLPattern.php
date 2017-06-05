@@ -27,7 +27,7 @@ class GenericCallACLPattern implements EntityInterface, GenericCallACLPatternInt
     protected $regExp;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -193,11 +193,11 @@ class GenericCallACLPattern implements EntityInterface, GenericCallACLPatternInt
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return GenericCallACLPattern
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -207,7 +207,7 @@ class GenericCallACLPattern implements EntityInterface, GenericCallACLPatternInt
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

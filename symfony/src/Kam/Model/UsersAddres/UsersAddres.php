@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersAddres
  */
-class UsersAddres implements EntityInterface, UsersAddresInterface
+class UsersAddres
 {
     /**
      * @var integer
@@ -49,7 +49,7 @@ class UsersAddres implements EntityInterface, UsersAddresInterface
     protected $description;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
@@ -343,11 +343,11 @@ class UsersAddres implements EntityInterface, UsersAddresInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return UsersAddres
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -357,7 +357,7 @@ class UsersAddres implements EntityInterface, UsersAddresInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

@@ -17,12 +17,12 @@ class ExternalCallFilterRelSchedule implements EntityInterface, ExternalCallFilt
     protected $id;
 
     /**
-     * @var \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @var \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     protected $filter;
 
     /**
-     * @var \Core\Model\Schedule\Schedule
+     * @var \Core\Model\Schedule\ScheduleInterface
      */
     protected $schedule;
 
@@ -128,11 +128,11 @@ class ExternalCallFilterRelSchedule implements EntityInterface, ExternalCallFilt
     /**
      * Set filter
      *
-     * @param \Core\Model\ExternalCallFilter\ExternalCallFilter $filter
+     * @param \Core\Model\ExternalCallFilter\ExternalCallFilterInterface $filter
      *
      * @return ExternalCallFilterRelSchedule
      */
-    protected function setFilter(\Core\Model\ExternalCallFilter\ExternalCallFilter $filter)
+    protected function setFilter(\Core\Model\ExternalCallFilter\ExternalCallFilterInterface $filter)
     {
         $this->filter = $filter;
 
@@ -142,7 +142,7 @@ class ExternalCallFilterRelSchedule implements EntityInterface, ExternalCallFilt
     /**
      * Get filter
      *
-     * @return \Core\Model\ExternalCallFilter\ExternalCallFilter
+     * @return \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
     public function getFilter()
     {
@@ -152,11 +152,11 @@ class ExternalCallFilterRelSchedule implements EntityInterface, ExternalCallFilt
     /**
      * Set schedule
      *
-     * @param \Core\Model\Schedule\Schedule $schedule
+     * @param \Core\Model\Schedule\ScheduleInterface $schedule
      *
      * @return ExternalCallFilterRelSchedule
      */
-    protected function setSchedule(\Core\Model\Schedule\Schedule $schedule)
+    protected function setSchedule(\Core\Model\Schedule\ScheduleInterface $schedule)
     {
         $this->schedule = $schedule;
 
@@ -166,7 +166,7 @@ class ExternalCallFilterRelSchedule implements EntityInterface, ExternalCallFilt
     /**
      * Get schedule
      *
-     * @return \Core\Model\Schedule\Schedule
+     * @return \Core\Model\Schedule\ScheduleInterface
      */
     public function getSchedule()
     {

@@ -33,7 +33,7 @@ interface HolidayDateInterface
     /**
      * Get calendar
      *
-     * @return \Core\Model\Calendar\Calendar
+     * @return \Core\Model\Calendar\CalendarInterface
      */
     public function getCalendar();
 
@@ -41,7 +41,7 @@ interface HolidayDateInterface
     /**
      * Get locution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getLocution();
 

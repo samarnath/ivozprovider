@@ -97,7 +97,7 @@ interface InvoiceInterface
     /**
      * Get invoiceTemplate
      *
-     * @return \Core\Model\InvoiceTemplate\InvoiceTemplate
+     * @return \Core\Model\InvoiceTemplate\InvoiceTemplateInterface
      */
     public function getInvoiceTemplate();
 
@@ -105,7 +105,7 @@ interface InvoiceInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -113,7 +113,7 @@ interface InvoiceInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 

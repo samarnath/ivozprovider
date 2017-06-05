@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * AccCdr
  */
-class AccCdr implements EntityInterface, AccCdrInterface
+class AccCdr
 {
     /**
      * @var integer
@@ -161,27 +161,27 @@ class AccCdr implements EntityInterface, AccCdrInterface
     protected $remeteringdate;
 
     /**
-     * @var \Core\Model\PricingPlan\PricingPlan
+     * @var \Core\Model\PricingPlan\PricingPlanInterface
      */
     protected $pricingPlan;
 
     /**
-     * @var \Core\Model\TargetPattern\TargetPattern
+     * @var \Core\Model\TargetPattern\TargetPatternInterface
      */
     protected $targetPattern;
 
     /**
-     * @var \Core\Model\Invoice\Invoice
+     * @var \Core\Model\Invoice\InvoiceInterface
      */
     protected $invoice;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
@@ -1194,11 +1194,11 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Set pricingPlan
      *
-     * @param \Core\Model\PricingPlan\PricingPlan $pricingPlan
+     * @param \Core\Model\PricingPlan\PricingPlanInterface $pricingPlan
      *
      * @return AccCdr
      */
-    protected function setPricingPlan(\Core\Model\PricingPlan\PricingPlan $pricingPlan = null)
+    protected function setPricingPlan(\Core\Model\PricingPlan\PricingPlanInterface $pricingPlan = null)
     {
         $this->pricingPlan = $pricingPlan;
 
@@ -1208,7 +1208,7 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Get pricingPlan
      *
-     * @return \Core\Model\PricingPlan\PricingPlan
+     * @return \Core\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan()
     {
@@ -1218,11 +1218,11 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Set targetPattern
      *
-     * @param \Core\Model\TargetPattern\TargetPattern $targetPattern
+     * @param \Core\Model\TargetPattern\TargetPatternInterface $targetPattern
      *
      * @return AccCdr
      */
-    protected function setTargetPattern(\Core\Model\TargetPattern\TargetPattern $targetPattern = null)
+    protected function setTargetPattern(\Core\Model\TargetPattern\TargetPatternInterface $targetPattern = null)
     {
         $this->targetPattern = $targetPattern;
 
@@ -1232,7 +1232,7 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Get targetPattern
      *
-     * @return \Core\Model\TargetPattern\TargetPattern
+     * @return \Core\Model\TargetPattern\TargetPatternInterface
      */
     public function getTargetPattern()
     {
@@ -1242,11 +1242,11 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Set invoice
      *
-     * @param \Core\Model\Invoice\Invoice $invoice
+     * @param \Core\Model\Invoice\InvoiceInterface $invoice
      *
      * @return AccCdr
      */
-    protected function setInvoice(\Core\Model\Invoice\Invoice $invoice = null)
+    protected function setInvoice(\Core\Model\Invoice\InvoiceInterface $invoice = null)
     {
         $this->invoice = $invoice;
 
@@ -1256,7 +1256,7 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Get invoice
      *
-     * @return \Core\Model\Invoice\Invoice
+     * @return \Core\Model\Invoice\InvoiceInterface
      */
     public function getInvoice()
     {
@@ -1266,11 +1266,11 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return AccCdr
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand = null)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 
@@ -1280,7 +1280,7 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -1290,11 +1290,11 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return AccCdr
      */
-    protected function setCompany(\Core\Model\Company\Company $company = null)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company = null)
     {
         $this->company = $company;
 
@@ -1304,7 +1304,7 @@ class AccCdr implements EntityInterface, AccCdrInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

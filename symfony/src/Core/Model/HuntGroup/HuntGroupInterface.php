@@ -73,7 +73,7 @@ interface HuntGroupInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -81,7 +81,7 @@ interface HuntGroupInterface
     /**
      * Get noAnswerLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getNoAnswerLocution();
 
@@ -89,7 +89,7 @@ interface HuntGroupInterface
     /**
      * Get noAnswerExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getNoAnswerExtension();
 
@@ -97,7 +97,7 @@ interface HuntGroupInterface
     /**
      * Get noAnswerVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getNoAnswerVoiceMailUser();
 

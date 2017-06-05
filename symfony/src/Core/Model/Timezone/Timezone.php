@@ -45,7 +45,7 @@ class Timezone implements EntityInterface, TimezoneInterface
     protected $timeZoneLabelEs = '';
 
     /**
-     * @var \Core\Model\Country\Country
+     * @var \Core\Model\Country\CountryInterface
      */
     protected $country;
 
@@ -311,11 +311,11 @@ class Timezone implements EntityInterface, TimezoneInterface
     /**
      * Set country
      *
-     * @param \Core\Model\Country\Country $country
+     * @param \Core\Model\Country\CountryInterface $country
      *
      * @return Timezone
      */
-    protected function setCountry(\Core\Model\Country\Country $country = null)
+    protected function setCountry(\Core\Model\Country\CountryInterface $country = null)
     {
         $this->country = $country;
 
@@ -325,7 +325,7 @@ class Timezone implements EntityInterface, TimezoneInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry()
     {

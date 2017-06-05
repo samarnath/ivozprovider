@@ -17,7 +17,7 @@ interface FeaturesRelCompanyInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -25,7 +25,7 @@ interface FeaturesRelCompanyInterface
     /**
      * Get feature
      *
-     * @return \Core\Model\Feature\Feature
+     * @return \Core\Model\Feature\FeatureInterface
      */
     public function getFeature();
 

@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * Musiconhold
  */
-class Musiconhold implements EntityInterface, MusiconholdInterface
+class Musiconhold
 {
     /**
      * @var integer

@@ -81,17 +81,17 @@ interface BrandURLInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return BrandURLInterface
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null);
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null);
 
 
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand();
 

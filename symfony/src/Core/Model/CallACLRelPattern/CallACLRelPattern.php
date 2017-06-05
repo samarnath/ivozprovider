@@ -28,12 +28,12 @@ class CallACLRelPattern implements EntityInterface, CallACLRelPatternInterface
     protected $policy;
 
     /**
-     * @var \Core\Model\CallACL\CallACL
+     * @var \Core\Model\CallACL\CallACLInterface
      */
     protected $callACL;
 
     /**
-     * @var \Core\Model\CallACLPattern\CallACLPattern
+     * @var \Core\Model\CallACLPattern\CallACLPatternInterface
      */
     protected $callACLPattern;
 
@@ -207,11 +207,11 @@ class CallACLRelPattern implements EntityInterface, CallACLRelPatternInterface
     /**
      * Set callACL
      *
-     * @param \Core\Model\CallACL\CallACL $callACL
+     * @param \Core\Model\CallACL\CallACLInterface $callACL
      *
      * @return CallACLRelPattern
      */
-    protected function setCallACL(\Core\Model\CallACL\CallACL $callACL)
+    protected function setCallACL(\Core\Model\CallACL\CallACLInterface $callACL)
     {
         $this->callACL = $callACL;
 
@@ -221,7 +221,7 @@ class CallACLRelPattern implements EntityInterface, CallACLRelPatternInterface
     /**
      * Get callACL
      *
-     * @return \Core\Model\CallACL\CallACL
+     * @return \Core\Model\CallACL\CallACLInterface
      */
     public function getCallACL()
     {
@@ -231,11 +231,11 @@ class CallACLRelPattern implements EntityInterface, CallACLRelPatternInterface
     /**
      * Set callACLPattern
      *
-     * @param \Core\Model\CallACLPattern\CallACLPattern $callACLPattern
+     * @param \Core\Model\CallACLPattern\CallACLPatternInterface $callACLPattern
      *
      * @return CallACLRelPattern
      */
-    protected function setCallACLPattern(\Core\Model\CallACLPattern\CallACLPattern $callACLPattern)
+    protected function setCallACLPattern(\Core\Model\CallACLPattern\CallACLPatternInterface $callACLPattern)
     {
         $this->callACLPattern = $callACLPattern;
 
@@ -245,7 +245,7 @@ class CallACLRelPattern implements EntityInterface, CallACLRelPatternInterface
     /**
      * Get callACLPattern
      *
-     * @return \Core\Model\CallACLPattern\CallACLPattern
+     * @return \Core\Model\CallACLPattern\CallACLPatternInterface
      */
     public function getCallACLPattern()
     {

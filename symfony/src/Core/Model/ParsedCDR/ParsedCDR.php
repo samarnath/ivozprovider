@@ -137,17 +137,17 @@ class ParsedCDR implements EntityInterface, ParsedCDRInterface
     protected $lastForwarder;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\PeeringContract\PeeringContract
+     * @var \Core\Model\PeeringContract\PeeringContractInterface
      */
     protected $peeringContract;
 
@@ -1033,11 +1033,11 @@ class ParsedCDR implements EntityInterface, ParsedCDRInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return ParsedCDR
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand = null)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 
@@ -1047,7 +1047,7 @@ class ParsedCDR implements EntityInterface, ParsedCDRInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -1057,11 +1057,11 @@ class ParsedCDR implements EntityInterface, ParsedCDRInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return ParsedCDR
      */
-    protected function setCompany(\Core\Model\Company\Company $company = null)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company = null)
     {
         $this->company = $company;
 
@@ -1071,7 +1071,7 @@ class ParsedCDR implements EntityInterface, ParsedCDRInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -1081,11 +1081,11 @@ class ParsedCDR implements EntityInterface, ParsedCDRInterface
     /**
      * Set peeringContract
      *
-     * @param \Core\Model\PeeringContract\PeeringContract $peeringContract
+     * @param \Core\Model\PeeringContract\PeeringContractInterface $peeringContract
      *
      * @return ParsedCDR
      */
-    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContract $peeringContract = null)
+    protected function setPeeringContract(\Core\Model\PeeringContract\PeeringContractInterface $peeringContract = null)
     {
         $this->peeringContract = $peeringContract;
 
@@ -1095,7 +1095,7 @@ class ParsedCDR implements EntityInterface, ParsedCDRInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Model\PeeringContract\PeeringContract
+     * @return \Core\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract()
     {

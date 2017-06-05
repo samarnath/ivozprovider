@@ -60,7 +60,7 @@ class GenericMusicOnHold implements EntityInterface, GenericMusicOnHoldInterface
     protected $status;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
@@ -430,11 +430,11 @@ class GenericMusicOnHold implements EntityInterface, GenericMusicOnHoldInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return GenericMusicOnHold
      */
-    protected function setBrand(\Core\Model\Brand\Brand $brand)
+    protected function setBrand(\Core\Model\Brand\BrandInterface $brand)
     {
         $this->brand = $brand;
 
@@ -444,7 +444,7 @@ class GenericMusicOnHold implements EntityInterface, GenericMusicOnHoldInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

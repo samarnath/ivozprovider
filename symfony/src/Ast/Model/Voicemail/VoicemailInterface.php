@@ -281,7 +281,7 @@ interface VoicemailInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser();
 

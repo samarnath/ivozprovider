@@ -81,7 +81,7 @@ interface IVRCustomInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -89,7 +89,7 @@ interface IVRCustomInterface
     /**
      * Get welcomeLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution();
 
@@ -97,7 +97,7 @@ interface IVRCustomInterface
     /**
      * Get noAnswerLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getNoAnswerLocution();
 
@@ -105,7 +105,7 @@ interface IVRCustomInterface
     /**
      * Get errorLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getErrorLocution();
 
@@ -113,7 +113,7 @@ interface IVRCustomInterface
     /**
      * Get successLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getSuccessLocution();
 
@@ -121,7 +121,7 @@ interface IVRCustomInterface
     /**
      * Get timeoutExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getTimeoutExtension();
 
@@ -129,7 +129,7 @@ interface IVRCustomInterface
     /**
      * Get errorExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getErrorExtension();
 
@@ -137,7 +137,7 @@ interface IVRCustomInterface
     /**
      * Get timeoutVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getTimeoutVoiceMailUser();
 
@@ -145,7 +145,7 @@ interface IVRCustomInterface
     /**
      * Get errorVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getErrorVoiceMailUser();
 

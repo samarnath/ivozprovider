@@ -48,12 +48,12 @@ class CompanyAdmin implements EntityInterface, CompanyAdminInterface
     protected $lastname;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Timezone\Timezone
+     * @var \Core\Model\Timezone\TimezoneInterface
      */
     protected $timezone;
 
@@ -351,11 +351,11 @@ class CompanyAdmin implements EntityInterface, CompanyAdminInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return CompanyAdmin
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -365,7 +365,7 @@ class CompanyAdmin implements EntityInterface, CompanyAdminInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -375,11 +375,11 @@ class CompanyAdmin implements EntityInterface, CompanyAdminInterface
     /**
      * Set timezone
      *
-     * @param \Core\Model\Timezone\Timezone $timezone
+     * @param \Core\Model\Timezone\TimezoneInterface $timezone
      *
      * @return CompanyAdmin
      */
-    protected function setTimezone(\Core\Model\Timezone\Timezone $timezone = null)
+    protected function setTimezone(\Core\Model\Timezone\TimezoneInterface $timezone = null)
     {
         $this->timezone = $timezone;
 
@@ -389,7 +389,7 @@ class CompanyAdmin implements EntityInterface, CompanyAdminInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone()
     {

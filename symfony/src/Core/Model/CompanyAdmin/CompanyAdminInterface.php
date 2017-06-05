@@ -65,7 +65,7 @@ interface CompanyAdminInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -73,7 +73,7 @@ interface CompanyAdminInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone();
 

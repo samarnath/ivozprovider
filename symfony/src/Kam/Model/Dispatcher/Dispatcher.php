@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * Dispatcher
  */
-class Dispatcher implements EntityInterface, DispatcherInterface
+class Dispatcher
 {
     /**
      * @var integer
@@ -47,7 +47,7 @@ class Dispatcher implements EntityInterface, DispatcherInterface
     protected $description = '';
 
     /**
-     * @var \Core\Model\ApplicationServer\ApplicationServer
+     * @var \Core\Model\ApplicationServer\ApplicationServerInterface
      */
     protected $applicationServer;
 
@@ -347,11 +347,11 @@ class Dispatcher implements EntityInterface, DispatcherInterface
     /**
      * Set applicationServer
      *
-     * @param \Core\Model\ApplicationServer\ApplicationServer $applicationServer
+     * @param \Core\Model\ApplicationServer\ApplicationServerInterface $applicationServer
      *
      * @return Dispatcher
      */
-    protected function setApplicationServer(\Core\Model\ApplicationServer\ApplicationServer $applicationServer)
+    protected function setApplicationServer(\Core\Model\ApplicationServer\ApplicationServerInterface $applicationServer)
     {
         $this->applicationServer = $applicationServer;
 
@@ -361,7 +361,7 @@ class Dispatcher implements EntityInterface, DispatcherInterface
     /**
      * Get applicationServer
      *
-     * @return \Core\Model\ApplicationServer\ApplicationServer
+     * @return \Core\Model\ApplicationServer\ApplicationServerInterface
      */
     public function getApplicationServer()
     {

@@ -196,6 +196,22 @@ protected function <methodName>(<methodTypeHint>$<variableName>)
 
 <spaces>return $this;
 }';
+    /**
+     * {@inheritDoc}
+     */
+    public function writeEntityClass(ClassMetadataInfo $metadata, $outputDirectory)
+    {
+        return parent::writeEntityClass($this->transformMetadata($metadata), $outputDirectory);
+    }
+
+    private function transformMetadata(ClassMetadataInfo $metadata)
+    {
+        foreach ($metadata->associationMappings as $key => $association) {
+            $metadata->associationMappings[$key]['targetEntity'] .= 'Interface';
+        }
+
+        return $metadata;
+    }
 
     /**
      * {@inheritDoc}

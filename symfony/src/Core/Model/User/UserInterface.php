@@ -129,7 +129,7 @@ interface UserInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -137,7 +137,7 @@ interface UserInterface
     /**
      * Get callACL
      *
-     * @return \Core\Model\CallACL\CallACL
+     * @return \Core\Model\CallACL\CallACLInterface
      */
     public function getCallACL();
 
@@ -145,7 +145,7 @@ interface UserInterface
     /**
      * Get bossAssistant
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getBossAssistant();
 
@@ -153,7 +153,7 @@ interface UserInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry();
 
@@ -161,7 +161,7 @@ interface UserInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage();
 
@@ -169,7 +169,7 @@ interface UserInterface
     /**
      * Get terminal
      *
-     * @return \Core\Model\Terminal\Terminal
+     * @return \Core\Model\Terminal\TerminalInterface
      */
     public function getTerminal();
 
@@ -177,7 +177,7 @@ interface UserInterface
     /**
      * Get extension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getExtension();
 
@@ -185,7 +185,7 @@ interface UserInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone();
 
@@ -193,7 +193,7 @@ interface UserInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI();
 

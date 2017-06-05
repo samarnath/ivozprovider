@@ -49,7 +49,7 @@ interface ExtensionInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany();
 
@@ -57,7 +57,7 @@ interface ExtensionInterface
     /**
      * Get iVRCommon
      *
-     * @return \Core\Model\IVRCommon\IVRCommon
+     * @return \Core\Model\IVRCommon\IVRCommonInterface
      */
     public function getIVRCommon();
 
@@ -65,7 +65,7 @@ interface ExtensionInterface
     /**
      * Get iVRCustom
      *
-     * @return \Core\Model\IVRCustom\IVRCustom
+     * @return \Core\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom();
 
@@ -73,7 +73,7 @@ interface ExtensionInterface
     /**
      * Get huntGroup
      *
-     * @return \Core\Model\HuntGroup\HuntGroup
+     * @return \Core\Model\HuntGroup\HuntGroupInterface
      */
     public function getHuntGroup();
 
@@ -81,7 +81,7 @@ interface ExtensionInterface
     /**
      * Get conferenceRoom
      *
-     * @return \Core\Model\ConferenceRoom\ConferenceRoom
+     * @return \Core\Model\ConferenceRoom\ConferenceRoomInterface
      */
     public function getConferenceRoom();
 
@@ -89,7 +89,7 @@ interface ExtensionInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser();
 
@@ -97,7 +97,7 @@ interface ExtensionInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue();
 

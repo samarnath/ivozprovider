@@ -88,47 +88,47 @@ class User implements EntityInterface, UserInterface
     protected $areaCode;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\CallACL\CallACL
+     * @var \Core\Model\CallACL\CallACLInterface
      */
     protected $callACL;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $bossAssistant;
 
     /**
-     * @var \Core\Model\Country\Country
+     * @var \Core\Model\Country\CountryInterface
      */
     protected $country;
 
     /**
-     * @var \Core\Model\Language\Language
+     * @var \Core\Model\Language\LanguageInterface
      */
     protected $language;
 
     /**
-     * @var \Core\Model\Terminal\Terminal
+     * @var \Core\Model\Terminal\TerminalInterface
      */
     protected $terminal;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $extension;
 
     /**
-     * @var \Core\Model\Timezone\Timezone
+     * @var \Core\Model\Timezone\TimezoneInterface
      */
     protected $timezone;
 
     /**
-     * @var \Core\Model\DDI\DDI
+     * @var \Core\Model\DDI\DDIInterface
      */
     protected $outgoingDDI;
 
@@ -720,11 +720,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return User
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -734,7 +734,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -744,11 +744,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set callACL
      *
-     * @param \Core\Model\CallACL\CallACL $callACL
+     * @param \Core\Model\CallACL\CallACLInterface $callACL
      *
      * @return User
      */
-    protected function setCallACL(\Core\Model\CallACL\CallACL $callACL = null)
+    protected function setCallACL(\Core\Model\CallACL\CallACLInterface $callACL = null)
     {
         $this->callACL = $callACL;
 
@@ -758,7 +758,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get callACL
      *
-     * @return \Core\Model\CallACL\CallACL
+     * @return \Core\Model\CallACL\CallACLInterface
      */
     public function getCallACL()
     {
@@ -768,11 +768,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set bossAssistant
      *
-     * @param \Core\Model\User\User $bossAssistant
+     * @param \Core\Model\User\UserInterface $bossAssistant
      *
      * @return User
      */
-    protected function setBossAssistant(\Core\Model\User\User $bossAssistant = null)
+    protected function setBossAssistant(\Core\Model\User\UserInterface $bossAssistant = null)
     {
         $this->bossAssistant = $bossAssistant;
 
@@ -782,7 +782,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get bossAssistant
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getBossAssistant()
     {
@@ -792,11 +792,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set country
      *
-     * @param \Core\Model\Country\Country $country
+     * @param \Core\Model\Country\CountryInterface $country
      *
      * @return User
      */
-    protected function setCountry(\Core\Model\Country\Country $country = null)
+    protected function setCountry(\Core\Model\Country\CountryInterface $country = null)
     {
         $this->country = $country;
 
@@ -806,7 +806,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry()
     {
@@ -816,11 +816,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set language
      *
-     * @param \Core\Model\Language\Language $language
+     * @param \Core\Model\Language\LanguageInterface $language
      *
      * @return User
      */
-    protected function setLanguage(\Core\Model\Language\Language $language = null)
+    protected function setLanguage(\Core\Model\Language\LanguageInterface $language = null)
     {
         $this->language = $language;
 
@@ -830,7 +830,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {
@@ -840,11 +840,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set terminal
      *
-     * @param \Core\Model\Terminal\Terminal $terminal
+     * @param \Core\Model\Terminal\TerminalInterface $terminal
      *
      * @return User
      */
-    protected function setTerminal(\Core\Model\Terminal\Terminal $terminal = null)
+    protected function setTerminal(\Core\Model\Terminal\TerminalInterface $terminal = null)
     {
         $this->terminal = $terminal;
 
@@ -854,7 +854,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get terminal
      *
-     * @return \Core\Model\Terminal\Terminal
+     * @return \Core\Model\Terminal\TerminalInterface
      */
     public function getTerminal()
     {
@@ -864,11 +864,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set extension
      *
-     * @param \Core\Model\Extension\Extension $extension
+     * @param \Core\Model\Extension\ExtensionInterface $extension
      *
      * @return User
      */
-    protected function setExtension(\Core\Model\Extension\Extension $extension = null)
+    protected function setExtension(\Core\Model\Extension\ExtensionInterface $extension = null)
     {
         $this->extension = $extension;
 
@@ -878,7 +878,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get extension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getExtension()
     {
@@ -888,11 +888,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set timezone
      *
-     * @param \Core\Model\Timezone\Timezone $timezone
+     * @param \Core\Model\Timezone\TimezoneInterface $timezone
      *
      * @return User
      */
-    protected function setTimezone(\Core\Model\Timezone\Timezone $timezone = null)
+    protected function setTimezone(\Core\Model\Timezone\TimezoneInterface $timezone = null)
     {
         $this->timezone = $timezone;
 
@@ -902,7 +902,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone()
     {
@@ -912,11 +912,11 @@ class User implements EntityInterface, UserInterface
     /**
      * Set outgoingDDI
      *
-     * @param \Core\Model\DDI\DDI $outgoingDDI
+     * @param \Core\Model\DDI\DDIInterface $outgoingDDI
      *
      * @return User
      */
-    protected function setOutgoingDDI(\Core\Model\DDI\DDI $outgoingDDI = null)
+    protected function setOutgoingDDI(\Core\Model\DDI\DDIInterface $outgoingDDI = null)
     {
         $this->outgoingDDI = $outgoingDDI;
 
@@ -926,7 +926,7 @@ class User implements EntityInterface, UserInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI()
     {

@@ -17,7 +17,7 @@ interface PickUpRelUserInterface
     /**
      * Get pickUpGroup
      *
-     * @return \Core\Model\PickUpGroup\PickUpGroup
+     * @return \Core\Model\PickUpGroup\PickUpGroupInterface
      */
     public function getPickUpGroup();
 
@@ -25,7 +25,7 @@ interface PickUpRelUserInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser();
 

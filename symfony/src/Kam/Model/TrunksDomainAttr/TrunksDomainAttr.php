@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * TrunksDomainAttr
  */
-class TrunksDomainAttr implements EntityInterface, TrunksDomainAttrInterface
+class TrunksDomainAttr
 {
     /**
      * @var integer

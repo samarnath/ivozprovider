@@ -41,7 +41,7 @@ interface IVRCustomEntryInterface
     /**
      * Get iVRCustom
      *
-     * @return \Core\Model\IVRCustom\IVRCustom
+     * @return \Core\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom();
 
@@ -49,7 +49,7 @@ interface IVRCustomEntryInterface
     /**
      * Get welcomeLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution();
 
@@ -57,7 +57,7 @@ interface IVRCustomEntryInterface
     /**
      * Get targetExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getTargetExtension();
 
@@ -65,7 +65,7 @@ interface IVRCustomEntryInterface
     /**
      * Get targetVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getTargetVoiceMailUser();
 

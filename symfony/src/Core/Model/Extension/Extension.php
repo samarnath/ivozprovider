@@ -38,37 +38,37 @@ class Extension implements EntityInterface, ExtensionInterface
     protected $friendValue;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\IVRCommon\IVRCommon
+     * @var \Core\Model\IVRCommon\IVRCommonInterface
      */
     protected $IVRCommon;
 
     /**
-     * @var \Core\Model\IVRCustom\IVRCustom
+     * @var \Core\Model\IVRCustom\IVRCustomInterface
      */
     protected $IVRCustom;
 
     /**
-     * @var \Core\Model\HuntGroup\HuntGroup
+     * @var \Core\Model\HuntGroup\HuntGroupInterface
      */
     protected $huntGroup;
 
     /**
-     * @var \Core\Model\ConferenceRoom\ConferenceRoom
+     * @var \Core\Model\ConferenceRoom\ConferenceRoomInterface
      */
     protected $conferenceRoom;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $user;
 
     /**
-     * @var \Core\Model\Queue\Queue
+     * @var \Core\Model\Queue\QueueInterface
      */
     protected $queue;
 
@@ -332,11 +332,11 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Extension
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -346,7 +346,7 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -356,11 +356,11 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Set iVRCommon
      *
-     * @param \Core\Model\IVRCommon\IVRCommon $iVRCommon
+     * @param \Core\Model\IVRCommon\IVRCommonInterface $iVRCommon
      *
      * @return Extension
      */
-    protected function setIVRCommon(\Core\Model\IVRCommon\IVRCommon $iVRCommon = null)
+    protected function setIVRCommon(\Core\Model\IVRCommon\IVRCommonInterface $iVRCommon = null)
     {
         $this->IVRCommon = $iVRCommon;
 
@@ -370,7 +370,7 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Get iVRCommon
      *
-     * @return \Core\Model\IVRCommon\IVRCommon
+     * @return \Core\Model\IVRCommon\IVRCommonInterface
      */
     public function getIVRCommon()
     {
@@ -380,11 +380,11 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Set iVRCustom
      *
-     * @param \Core\Model\IVRCustom\IVRCustom $iVRCustom
+     * @param \Core\Model\IVRCustom\IVRCustomInterface $iVRCustom
      *
      * @return Extension
      */
-    protected function setIVRCustom(\Core\Model\IVRCustom\IVRCustom $iVRCustom = null)
+    protected function setIVRCustom(\Core\Model\IVRCustom\IVRCustomInterface $iVRCustom = null)
     {
         $this->IVRCustom = $iVRCustom;
 
@@ -394,7 +394,7 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Get iVRCustom
      *
-     * @return \Core\Model\IVRCustom\IVRCustom
+     * @return \Core\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom()
     {
@@ -404,11 +404,11 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Set huntGroup
      *
-     * @param \Core\Model\HuntGroup\HuntGroup $huntGroup
+     * @param \Core\Model\HuntGroup\HuntGroupInterface $huntGroup
      *
      * @return Extension
      */
-    protected function setHuntGroup(\Core\Model\HuntGroup\HuntGroup $huntGroup = null)
+    protected function setHuntGroup(\Core\Model\HuntGroup\HuntGroupInterface $huntGroup = null)
     {
         $this->huntGroup = $huntGroup;
 
@@ -418,7 +418,7 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Get huntGroup
      *
-     * @return \Core\Model\HuntGroup\HuntGroup
+     * @return \Core\Model\HuntGroup\HuntGroupInterface
      */
     public function getHuntGroup()
     {
@@ -428,11 +428,11 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Set conferenceRoom
      *
-     * @param \Core\Model\ConferenceRoom\ConferenceRoom $conferenceRoom
+     * @param \Core\Model\ConferenceRoom\ConferenceRoomInterface $conferenceRoom
      *
      * @return Extension
      */
-    protected function setConferenceRoom(\Core\Model\ConferenceRoom\ConferenceRoom $conferenceRoom = null)
+    protected function setConferenceRoom(\Core\Model\ConferenceRoom\ConferenceRoomInterface $conferenceRoom = null)
     {
         $this->conferenceRoom = $conferenceRoom;
 
@@ -442,7 +442,7 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Get conferenceRoom
      *
-     * @return \Core\Model\ConferenceRoom\ConferenceRoom
+     * @return \Core\Model\ConferenceRoom\ConferenceRoomInterface
      */
     public function getConferenceRoom()
     {
@@ -452,11 +452,11 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Set user
      *
-     * @param \Core\Model\User\User $user
+     * @param \Core\Model\User\UserInterface $user
      *
      * @return Extension
      */
-    protected function setUser(\Core\Model\User\User $user = null)
+    protected function setUser(\Core\Model\User\UserInterface $user = null)
     {
         $this->user = $user;
 
@@ -466,7 +466,7 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Get user
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getUser()
     {
@@ -476,11 +476,11 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Set queue
      *
-     * @param \Core\Model\Queue\Queue $queue
+     * @param \Core\Model\Queue\QueueInterface $queue
      *
      * @return Extension
      */
-    protected function setQueue(\Core\Model\Queue\Queue $queue = null)
+    protected function setQueue(\Core\Model\Queue\QueueInterface $queue = null)
     {
         $this->queue = $queue;
 
@@ -490,7 +490,7 @@ class Extension implements EntityInterface, ExtensionInterface
     /**
      * Get queue
      *
-     * @return \Core\Model\Queue\Queue
+     * @return \Core\Model\Queue\QueueInterface
      */
     public function getQueue()
     {

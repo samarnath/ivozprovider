@@ -112,27 +112,27 @@ class Friend implements EntityInterface, FriendInterface
     protected $directConnectivity = 'yes';
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Country\Country
+     * @var \Core\Model\Country\CountryInterface
      */
     protected $country;
 
     /**
-     * @var \Core\Model\CallACL\CallACL
+     * @var \Core\Model\CallACL\CallACLInterface
      */
     protected $callACL;
 
     /**
-     * @var \Core\Model\DDI\DDI
+     * @var \Core\Model\DDI\DDIInterface
      */
     protected $outgoingDDI;
 
     /**
-     * @var \Core\Model\Language\Language
+     * @var \Core\Model\Language\LanguageInterface
      */
     protected $language;
 
@@ -824,11 +824,11 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return Friend
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -838,7 +838,7 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -848,11 +848,11 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Set country
      *
-     * @param \Core\Model\Country\Country $country
+     * @param \Core\Model\Country\CountryInterface $country
      *
      * @return Friend
      */
-    protected function setCountry(\Core\Model\Country\Country $country = null)
+    protected function setCountry(\Core\Model\Country\CountryInterface $country = null)
     {
         $this->country = $country;
 
@@ -862,7 +862,7 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Get country
      *
-     * @return \Core\Model\Country\Country
+     * @return \Core\Model\Country\CountryInterface
      */
     public function getCountry()
     {
@@ -872,11 +872,11 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Set callACL
      *
-     * @param \Core\Model\CallACL\CallACL $callACL
+     * @param \Core\Model\CallACL\CallACLInterface $callACL
      *
      * @return Friend
      */
-    protected function setCallACL(\Core\Model\CallACL\CallACL $callACL = null)
+    protected function setCallACL(\Core\Model\CallACL\CallACLInterface $callACL = null)
     {
         $this->callACL = $callACL;
 
@@ -886,7 +886,7 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Get callACL
      *
-     * @return \Core\Model\CallACL\CallACL
+     * @return \Core\Model\CallACL\CallACLInterface
      */
     public function getCallACL()
     {
@@ -896,11 +896,11 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Set outgoingDDI
      *
-     * @param \Core\Model\DDI\DDI $outgoingDDI
+     * @param \Core\Model\DDI\DDIInterface $outgoingDDI
      *
      * @return Friend
      */
-    protected function setOutgoingDDI(\Core\Model\DDI\DDI $outgoingDDI = null)
+    protected function setOutgoingDDI(\Core\Model\DDI\DDIInterface $outgoingDDI = null)
     {
         $this->outgoingDDI = $outgoingDDI;
 
@@ -910,7 +910,7 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Get outgoingDDI
      *
-     * @return \Core\Model\DDI\DDI
+     * @return \Core\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI()
     {
@@ -920,11 +920,11 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Set language
      *
-     * @param \Core\Model\Language\Language $language
+     * @param \Core\Model\Language\LanguageInterface $language
      *
      * @return Friend
      */
-    protected function setLanguage(\Core\Model\Language\Language $language = null)
+    protected function setLanguage(\Core\Model\Language\LanguageInterface $language = null)
     {
         $this->language = $language;
 
@@ -934,7 +934,7 @@ class Friend implements EntityInterface, FriendInterface
     /**
      * Get language
      *
-     * @return \Core\Model\Language\Language
+     * @return \Core\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {

@@ -33,7 +33,7 @@ interface FriendsPatternInterface
     /**
      * Get friend
      *
-     * @return \Core\Model\Friend\Friend
+     * @return \Core\Model\Friend\FriendInterface
      */
     public function getFriend();
 

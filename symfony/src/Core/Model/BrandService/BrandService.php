@@ -22,12 +22,12 @@ class BrandService implements EntityInterface, BrandServiceInterface
     protected $code;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Service\Service
+     * @var \Core\Model\Service\ServiceInterface
      */
     protected $service;
 
@@ -165,11 +165,11 @@ class BrandService implements EntityInterface, BrandServiceInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return BrandService
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null)
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 
@@ -179,7 +179,7 @@ class BrandService implements EntityInterface, BrandServiceInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -189,11 +189,11 @@ class BrandService implements EntityInterface, BrandServiceInterface
     /**
      * Set service
      *
-     * @param \Core\Model\Service\Service $service
+     * @param \Core\Model\Service\ServiceInterface $service
      *
      * @return BrandService
      */
-    protected function setService(\Core\Model\Service\Service $service)
+    protected function setService(\Core\Model\Service\ServiceInterface $service)
     {
         $this->service = $service;
 
@@ -203,7 +203,7 @@ class BrandService implements EntityInterface, BrandServiceInterface
     /**
      * Get service
      *
-     * @return \Core\Model\Service\Service
+     * @return \Core\Model\Service\ServiceInterface
      */
     public function getService()
     {

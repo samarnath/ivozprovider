@@ -17,12 +17,12 @@ class FeaturesRelBrand implements EntityInterface, FeaturesRelBrandInterface
     protected $id;
 
     /**
-     * @var \Core\Model\Brand\Brand
+     * @var \Core\Model\Brand\BrandInterface
      */
     protected $brand;
 
     /**
-     * @var \Core\Model\Feature\Feature
+     * @var \Core\Model\Feature\FeatureInterface
      */
     protected $feature;
 
@@ -128,11 +128,11 @@ class FeaturesRelBrand implements EntityInterface, FeaturesRelBrandInterface
     /**
      * Set brand
      *
-     * @param \Core\Model\Brand\Brand $brand
+     * @param \Core\Model\Brand\BrandInterface $brand
      *
      * @return FeaturesRelBrand
      */
-    public function setBrand(\Core\Model\Brand\Brand $brand = null)
+    public function setBrand(\Core\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 
@@ -142,7 +142,7 @@ class FeaturesRelBrand implements EntityInterface, FeaturesRelBrandInterface
     /**
      * Get brand
      *
-     * @return \Core\Model\Brand\Brand
+     * @return \Core\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -152,11 +152,11 @@ class FeaturesRelBrand implements EntityInterface, FeaturesRelBrandInterface
     /**
      * Set feature
      *
-     * @param \Core\Model\Feature\Feature $feature
+     * @param \Core\Model\Feature\FeatureInterface $feature
      *
      * @return FeaturesRelBrand
      */
-    protected function setFeature(\Core\Model\Feature\Feature $feature)
+    protected function setFeature(\Core\Model\Feature\FeatureInterface $feature)
     {
         $this->feature = $feature;
 
@@ -166,7 +166,7 @@ class FeaturesRelBrand implements EntityInterface, FeaturesRelBrandInterface
     /**
      * Get feature
      *
-     * @return \Core\Model\Feature\Feature
+     * @return \Core\Model\Feature\FeatureInterface
      */
     public function getFeature()
     {

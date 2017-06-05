@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersDomainAttr
  */
-class UsersDomainAttr implements EntityInterface, UsersDomainAttrInterface
+class UsersDomainAttr
 {
     /**
      * @var integer
@@ -38,7 +38,7 @@ class UsersDomainAttr implements EntityInterface, UsersDomainAttrInterface
     protected $lastModified = '1900-01-01 00:00:01';
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $did;
 
@@ -268,11 +268,11 @@ class UsersDomainAttr implements EntityInterface, UsersDomainAttrInterface
     /**
      * Set did
      *
-     * @param \Core\Model\Company\Company $did
+     * @param \Core\Model\Company\CompanyInterface $did
      *
      * @return UsersDomainAttr
      */
-    protected function setDid(\Core\Model\Company\Company $did)
+    protected function setDid(\Core\Model\Company\CompanyInterface $did)
     {
         $this->did = $did;
 
@@ -282,7 +282,7 @@ class UsersDomainAttr implements EntityInterface, UsersDomainAttrInterface
     /**
      * Get did
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getDid()
     {

@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * UsersMissedCall
  */
-class UsersMissedCall implements EntityInterface, UsersMissedCallInterface
+class UsersMissedCall
 {
     /**
      * @var integer

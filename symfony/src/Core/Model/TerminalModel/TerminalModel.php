@@ -52,7 +52,7 @@ class TerminalModel implements EntityInterface, TerminalModelInterface
     protected $specificUrlPattern;
 
     /**
-     * @var \Core\Model\TerminalManufacturer\TerminalManufacturer
+     * @var \Core\Model\TerminalManufacturer\TerminalManufacturerInterface
      */
     protected $TerminalManufacturer;
 
@@ -378,11 +378,11 @@ class TerminalModel implements EntityInterface, TerminalModelInterface
     /**
      * Set terminalManufacturer
      *
-     * @param \Core\Model\TerminalManufacturer\TerminalManufacturer $terminalManufacturer
+     * @param \Core\Model\TerminalManufacturer\TerminalManufacturerInterface $terminalManufacturer
      *
      * @return TerminalModel
      */
-    protected function setTerminalManufacturer(\Core\Model\TerminalManufacturer\TerminalManufacturer $terminalManufacturer)
+    protected function setTerminalManufacturer(\Core\Model\TerminalManufacturer\TerminalManufacturerInterface $terminalManufacturer)
     {
         $this->TerminalManufacturer = $terminalManufacturer;
 
@@ -392,7 +392,7 @@ class TerminalModel implements EntityInterface, TerminalModelInterface
     /**
      * Get terminalManufacturer
      *
-     * @return \Core\Model\TerminalManufacturer\TerminalManufacturer
+     * @return \Core\Model\TerminalManufacturer\TerminalManufacturerInterface
      */
     public function getTerminalManufacturer()
     {

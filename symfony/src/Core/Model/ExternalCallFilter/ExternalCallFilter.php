@@ -54,42 +54,42 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     protected $whiteListRegExp;
 
     /**
-     * @var \Core\Model\Company\Company
+     * @var \Core\Model\Company\CompanyInterface
      */
     protected $company;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $welcomeLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $holidayLocution;
 
     /**
-     * @var \Core\Model\Locution\Locution
+     * @var \Core\Model\Locution\LocutionInterface
      */
     protected $outOfScheduleLocution;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $holidayExtension;
 
     /**
-     * @var \Core\Model\Extension\Extension
+     * @var \Core\Model\Extension\ExtensionInterface
      */
     protected $outOfScheduleExtension;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $holidayVoiceMailUser;
 
     /**
-     * @var \Core\Model\User\User
+     * @var \Core\Model\User\UserInterface
      */
     protected $outOfScheduleVoiceMailUser;
 
@@ -453,11 +453,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set company
      *
-     * @param \Core\Model\Company\Company $company
+     * @param \Core\Model\Company\CompanyInterface $company
      *
      * @return ExternalCallFilter
      */
-    protected function setCompany(\Core\Model\Company\Company $company)
+    protected function setCompany(\Core\Model\Company\CompanyInterface $company)
     {
         $this->company = $company;
 
@@ -467,7 +467,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get company
      *
-     * @return \Core\Model\Company\Company
+     * @return \Core\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -477,11 +477,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set welcomeLocution
      *
-     * @param \Core\Model\Locution\Locution $welcomeLocution
+     * @param \Core\Model\Locution\LocutionInterface $welcomeLocution
      *
      * @return ExternalCallFilter
      */
-    protected function setWelcomeLocution(\Core\Model\Locution\Locution $welcomeLocution = null)
+    protected function setWelcomeLocution(\Core\Model\Locution\LocutionInterface $welcomeLocution = null)
     {
         $this->welcomeLocution = $welcomeLocution;
 
@@ -491,7 +491,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get welcomeLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution()
     {
@@ -501,11 +501,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set holidayLocution
      *
-     * @param \Core\Model\Locution\Locution $holidayLocution
+     * @param \Core\Model\Locution\LocutionInterface $holidayLocution
      *
      * @return ExternalCallFilter
      */
-    protected function setHolidayLocution(\Core\Model\Locution\Locution $holidayLocution = null)
+    protected function setHolidayLocution(\Core\Model\Locution\LocutionInterface $holidayLocution = null)
     {
         $this->holidayLocution = $holidayLocution;
 
@@ -515,7 +515,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get holidayLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getHolidayLocution()
     {
@@ -525,11 +525,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set outOfScheduleLocution
      *
-     * @param \Core\Model\Locution\Locution $outOfScheduleLocution
+     * @param \Core\Model\Locution\LocutionInterface $outOfScheduleLocution
      *
      * @return ExternalCallFilter
      */
-    protected function setOutOfScheduleLocution(\Core\Model\Locution\Locution $outOfScheduleLocution = null)
+    protected function setOutOfScheduleLocution(\Core\Model\Locution\LocutionInterface $outOfScheduleLocution = null)
     {
         $this->outOfScheduleLocution = $outOfScheduleLocution;
 
@@ -539,7 +539,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get outOfScheduleLocution
      *
-     * @return \Core\Model\Locution\Locution
+     * @return \Core\Model\Locution\LocutionInterface
      */
     public function getOutOfScheduleLocution()
     {
@@ -549,11 +549,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set holidayExtension
      *
-     * @param \Core\Model\Extension\Extension $holidayExtension
+     * @param \Core\Model\Extension\ExtensionInterface $holidayExtension
      *
      * @return ExternalCallFilter
      */
-    protected function setHolidayExtension(\Core\Model\Extension\Extension $holidayExtension = null)
+    protected function setHolidayExtension(\Core\Model\Extension\ExtensionInterface $holidayExtension = null)
     {
         $this->holidayExtension = $holidayExtension;
 
@@ -563,7 +563,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get holidayExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getHolidayExtension()
     {
@@ -573,11 +573,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set outOfScheduleExtension
      *
-     * @param \Core\Model\Extension\Extension $outOfScheduleExtension
+     * @param \Core\Model\Extension\ExtensionInterface $outOfScheduleExtension
      *
      * @return ExternalCallFilter
      */
-    protected function setOutOfScheduleExtension(\Core\Model\Extension\Extension $outOfScheduleExtension = null)
+    protected function setOutOfScheduleExtension(\Core\Model\Extension\ExtensionInterface $outOfScheduleExtension = null)
     {
         $this->outOfScheduleExtension = $outOfScheduleExtension;
 
@@ -587,7 +587,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get outOfScheduleExtension
      *
-     * @return \Core\Model\Extension\Extension
+     * @return \Core\Model\Extension\ExtensionInterface
      */
     public function getOutOfScheduleExtension()
     {
@@ -597,11 +597,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set holidayVoiceMailUser
      *
-     * @param \Core\Model\User\User $holidayVoiceMailUser
+     * @param \Core\Model\User\UserInterface $holidayVoiceMailUser
      *
      * @return ExternalCallFilter
      */
-    protected function setHolidayVoiceMailUser(\Core\Model\User\User $holidayVoiceMailUser = null)
+    protected function setHolidayVoiceMailUser(\Core\Model\User\UserInterface $holidayVoiceMailUser = null)
     {
         $this->holidayVoiceMailUser = $holidayVoiceMailUser;
 
@@ -611,7 +611,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get holidayVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getHolidayVoiceMailUser()
     {
@@ -621,11 +621,11 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Set outOfScheduleVoiceMailUser
      *
-     * @param \Core\Model\User\User $outOfScheduleVoiceMailUser
+     * @param \Core\Model\User\UserInterface $outOfScheduleVoiceMailUser
      *
      * @return ExternalCallFilter
      */
-    protected function setOutOfScheduleVoiceMailUser(\Core\Model\User\User $outOfScheduleVoiceMailUser = null)
+    protected function setOutOfScheduleVoiceMailUser(\Core\Model\User\UserInterface $outOfScheduleVoiceMailUser = null)
     {
         $this->outOfScheduleVoiceMailUser = $outOfScheduleVoiceMailUser;
 
@@ -635,7 +635,7 @@ class ExternalCallFilter implements EntityInterface, ExternalCallFilterInterface
     /**
      * Get outOfScheduleVoiceMailUser
      *
-     * @return \Core\Model\User\User
+     * @return \Core\Model\User\UserInterface
      */
     public function getOutOfScheduleVoiceMailUser()
     {

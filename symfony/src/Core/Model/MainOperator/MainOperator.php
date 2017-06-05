@@ -48,7 +48,7 @@ class MainOperator implements EntityInterface, MainOperatorInterface
     protected $lastname;
 
     /**
-     * @var \Core\Model\Timezone\Timezone
+     * @var \Core\Model\Timezone\TimezoneInterface
      */
     protected $timezone;
 
@@ -342,11 +342,11 @@ class MainOperator implements EntityInterface, MainOperatorInterface
     /**
      * Set timezone
      *
-     * @param \Core\Model\Timezone\Timezone $timezone
+     * @param \Core\Model\Timezone\TimezoneInterface $timezone
      *
      * @return MainOperator
      */
-    protected function setTimezone(\Core\Model\Timezone\Timezone $timezone = null)
+    protected function setTimezone(\Core\Model\Timezone\TimezoneInterface $timezone = null)
     {
         $this->timezone = $timezone;
 
@@ -356,7 +356,7 @@ class MainOperator implements EntityInterface, MainOperatorInterface
     /**
      * Get timezone
      *
-     * @return \Core\Model\Timezone\Timezone
+     * @return \Core\Model\Timezone\TimezoneInterface
      */
     public function getTimezone()
     {
