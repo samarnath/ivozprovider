@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\CompanyAdmins
-  entity: Core\Model\CompanyAdmin\CompanyAdmin
+  entity: Core\Domain\Model\CompanyAdmin\CompanyAdmin
   fields: 
     companyId:
       title: _('Company id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name
@@ -55,7 +55,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          entity: \Core\Model\Timezone\Timezone
+          entity: \Core\Domain\Model\Timezone\Timezone
           fieldName: 
             fields: 
               - tz

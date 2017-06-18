@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\PricingPlan\PricingPlanRepository;
+use Core\Domain\Model\PricingPlan\PricingPlanRepository;
 
 /**
  * PricingPlanDoctrineRepository

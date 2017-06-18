@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\RoutingPatternGroup\RoutingPatternGroupRepository;
+use Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroupRepository;
 
 /**
  * RoutingPatternGroupDoctrineRepository

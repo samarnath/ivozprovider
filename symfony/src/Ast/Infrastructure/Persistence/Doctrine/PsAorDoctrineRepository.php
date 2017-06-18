@@ -3,7 +3,7 @@
 namespace Ast\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Ast\Model\PsAor\PsAorRepository;
+use Ast\Domain\Model\PsAor\PsAorRepository;
 
 /**
  * PsAorDoctrineRepository

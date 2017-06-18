@@ -1,4 +1,4 @@
-Core\Model\PeeringContract\PeeringContract:
+Core\Domain\Model\PeeringContract\PeeringContract:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\PeeringContractDoctrineRepository
   type: entity
   table: PeeringContracts
@@ -45,7 +45,7 @@ Core\Model\PeeringContract\PeeringContract:
       column: externallyRated
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -56,7 +56,7 @@ Core\Model\PeeringContract\PeeringContract:
           nullable: false
       orphanRemoval: false
     transformationRulesetGroupsTrunk:
-      targetEntity: \Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
+      targetEntity: \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

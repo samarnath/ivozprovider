@@ -3,7 +3,7 @@
 
 production:
   class: \IvozProvider\Model\Terminals
-  entity: Core\Model\Terminal\Terminal
+  entity: Core\Domain\Model\Terminal\Terminal
   fields:
     TerminalModelId:
       title: _('Terminal model id')
@@ -13,7 +13,7 @@ production:
         data: mapper
         config:
           mapperName: \IvozProvider\Mapper\Sql\TerminalModels
-          entity: \Core\Model\TerminalModel\TerminalModel
+          entity: \Core\Domain\Model\TerminalModel\TerminalModel
           fieldName:
             fields:
               - iden
@@ -105,7 +105,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           fieldName:
             fields:
               - name

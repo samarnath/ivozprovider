@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoiceRepository;
+use Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoiceRepository;
 
 /**
  * FixedCostsRelInvoiceDoctrineRepository

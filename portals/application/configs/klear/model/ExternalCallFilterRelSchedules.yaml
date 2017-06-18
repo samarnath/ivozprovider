@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\ExternalCallFilterRelSchedules
-  entity: Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule
+  entity: Core\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule
   fields: 
     filter:
       title: _('Filter id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\ExternalCallFilters
-          entity: \Core\Model\ExternalCallFilter\ExternalCallFilter
+          entity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilter
           fieldName: 
             fields: 
               - name

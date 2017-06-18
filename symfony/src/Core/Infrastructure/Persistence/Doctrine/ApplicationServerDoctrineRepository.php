@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ApplicationServer\ApplicationServerRepository;
+use Core\Domain\Model\ApplicationServer\ApplicationServerRepository;
 
 /**
  * ApplicationServerDoctrineRepository

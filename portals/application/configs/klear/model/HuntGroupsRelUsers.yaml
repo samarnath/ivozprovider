@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\HuntGroupsRelUsers
-  entity: Core\Model\HuntGroupsRelUser\HuntGroupsRelUser
+  entity: Core\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUser
   fields: 
     huntGroup:
       title: _('Hunt group id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
-          entity: \Core\Model\HuntGroup\HuntGroup
+          entity: \Core\Domain\Model\HuntGroup\HuntGroup
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields: 
@@ -27,7 +27,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Model\User\User
+          entity: \Core\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName: 
             fields: 

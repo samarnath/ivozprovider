@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Locution\LocutionRepository;
+use Core\Domain\Model\Locution\LocutionRepository;
 
 /**
  * LocutionDoctrineRepository

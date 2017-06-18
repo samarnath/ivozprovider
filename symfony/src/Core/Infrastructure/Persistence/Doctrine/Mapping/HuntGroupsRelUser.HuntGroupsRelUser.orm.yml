@@ -1,4 +1,4 @@
-Core\Model\HuntGroupsRelUser\HuntGroupsRelUser:
+Core\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUser:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\HuntGroupsRelUserDoctrineRepository
   type: entity
   table: HuntGroupsRelUsers
@@ -41,7 +41,7 @@ Core\Model\HuntGroupsRelUser\HuntGroupsRelUser:
         unsigned: false
   manyToOne:
     huntGroup:
-      targetEntity: \Core\Model\HuntGroup\HuntGroupInterface
+      targetEntity: \Core\Domain\Model\HuntGroup\HuntGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -52,7 +52,7 @@ Core\Model\HuntGroupsRelUser\HuntGroupsRelUser:
           nullable: false
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

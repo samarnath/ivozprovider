@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\GenericMusicOnHold\GenericMusicOnHoldRepository;
+use Core\Domain\Model\GenericMusicOnHold\GenericMusicOnHoldRepository;
 
 /**
  * GenericMusicOnHoldDoctrineRepository

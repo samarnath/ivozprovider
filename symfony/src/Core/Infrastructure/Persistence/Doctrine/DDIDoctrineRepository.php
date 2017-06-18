@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\DDI\DDIRepository;
+use Core\Domain\Model\DDI\DDIRepository;
 
 /**
  * DDIDoctrineRepository

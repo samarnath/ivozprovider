@@ -1,4 +1,4 @@
-Ast\Model\Musiconhold\Musiconhold:
+Ast\Domain\Model\Musiconhold\Musiconhold:
   repositoryClass: Ast\Infrastructure\Persistence\Doctrine\MusiconholdDoctrineRepository
   type: entity
   table: ast_musiconhold

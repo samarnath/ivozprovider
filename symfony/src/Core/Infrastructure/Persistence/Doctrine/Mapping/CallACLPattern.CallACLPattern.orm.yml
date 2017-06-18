@@ -1,4 +1,4 @@
-Core\Model\CallACLPattern\CallACLPattern:
+Core\Domain\Model\CallACLPattern\CallACLPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CallACLPatternDoctrineRepository
   type: entity
   table: CallACLPatterns
@@ -36,7 +36,7 @@ Core\Model\CallACLPattern\CallACLPattern:
       column: regExp
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

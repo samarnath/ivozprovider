@@ -1,4 +1,4 @@
-Kam\Model\UsersPua\UsersPua:
+Kam\Domain\Model\UsersPua\UsersPua:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\UsersPuaDoctrineRepository
   type: entity
   table: kam_users_pua

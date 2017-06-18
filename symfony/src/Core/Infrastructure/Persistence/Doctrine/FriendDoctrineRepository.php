@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Friend\FriendRepository;
+use Core\Domain\Model\Friend\FriendRepository;
 
 /**
  * FriendDoctrineRepository

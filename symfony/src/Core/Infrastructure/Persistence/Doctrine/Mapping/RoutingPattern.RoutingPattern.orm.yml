@@ -1,4 +1,4 @@
-Core\Model\RoutingPattern\RoutingPattern:
+Core\Domain\Model\RoutingPattern\RoutingPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\RoutingPatternDoctrineRepository
   type: entity
   table: RoutingPatterns
@@ -67,7 +67,7 @@ Core\Model\RoutingPattern\RoutingPattern:
       column: regExp
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

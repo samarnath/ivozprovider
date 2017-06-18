@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\MainOperators
-  entity: Core\Model\MainOperator\MainOperator
+  entity: Core\Domain\Model\MainOperator\MainOperator
   fields: 
     username:
       title: _('Username')
@@ -48,7 +48,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          entity: \Core\Model\Timezone\Timezone
+          entity: \Core\Domain\Model\Timezone\Timezone
           fieldName: 
             fields: 
               - tz

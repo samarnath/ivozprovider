@@ -1,4 +1,4 @@
-Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern:
+Core\Domain\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\RoutingPatternGroupsRelPatternDoctrineRepository
   type: entity
   table: RoutingPatternGroupsRelPatterns
@@ -25,7 +25,7 @@ Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern:
         strategy: IDENTITY
   manyToOne:
     routingPattern:
-      targetEntity: \Core\Model\RoutingPattern\RoutingPatternInterface
+      targetEntity: \Core\Domain\Model\RoutingPattern\RoutingPatternInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -36,7 +36,7 @@ Core\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern:
           nullable: false
       orphanRemoval: false
     routingPatternGroup:
-      targetEntity: \Core\Model\RoutingPatternGroup\RoutingPatternGroupInterface
+      targetEntity: \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

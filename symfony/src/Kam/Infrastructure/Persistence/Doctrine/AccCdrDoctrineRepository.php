@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\AccCdr\AccCdrRepository;
+use Kam\Domain\Model\AccCdr\AccCdrRepository;
 
 /**
  * AccCdrDoctrineRepository

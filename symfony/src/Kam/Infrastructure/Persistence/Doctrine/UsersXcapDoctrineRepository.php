@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\UsersXcap\UsersXcapRepository;
+use Kam\Domain\Model\UsersXcap\UsersXcapRepository;
 
 /**
  * UsersXcapDoctrineRepository

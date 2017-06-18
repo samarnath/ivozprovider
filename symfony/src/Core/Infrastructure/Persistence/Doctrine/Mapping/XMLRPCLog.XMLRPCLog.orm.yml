@@ -1,4 +1,4 @@
-Core\Model\XMLRPCLog\XMLRPCLog:
+Core\Domain\Model\XMLRPCLog\XMLRPCLog:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\XMLRPCLogDoctrineRepository
   type: entity
   table: XMLRPCLogs

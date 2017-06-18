@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\MusicOnHold\MusicOnHoldRepository;
+use Core\Domain\Model\MusicOnHold\MusicOnHoldRepository;
 
 /**
  * MusicOnHoldDoctrineRepository

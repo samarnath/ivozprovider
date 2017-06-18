@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\UsersWatcher\UsersWatcherRepository;
+use Kam\Domain\Model\UsersWatcher\UsersWatcherRepository;
 
 /**
  * UsersWatcherDoctrineRepository

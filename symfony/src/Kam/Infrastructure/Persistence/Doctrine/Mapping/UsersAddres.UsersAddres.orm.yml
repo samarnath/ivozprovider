@@ -1,4 +1,4 @@
-Kam\Model\UsersAddres\UsersAddres:
+Kam\Domain\Model\UsersAddres\UsersAddres:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\UsersAddresDoctrineRepository
   type: entity
   table: kam_users_address
@@ -56,7 +56,7 @@ Kam\Model\UsersAddres\UsersAddres:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

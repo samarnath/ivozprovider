@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ParsedCDR\ParsedCDRRepository;
+use Core\Domain\Model\ParsedCDR\ParsedCDRRepository;
 
 /**
  * ParsedCDRDoctrineRepository

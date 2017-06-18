@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\PikeTrusted
-  entity: Kam\Model\PikeTrusted\PikeTrusted
+  entity: Kam\Domain\Model\PikeTrusted\PikeTrusted
   fields: 
     srcIp:
       title: _('IP')

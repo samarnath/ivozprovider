@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\BrandURL\BrandURLRepository;
+use Core\Domain\Model\BrandURL\BrandURLRepository;
 
 /**
  * BrandURLDoctrineRepository

@@ -1,4 +1,4 @@
-Core\Model\Schedule\Schedule:
+Core\Domain\Model\Schedule\Schedule:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ScheduleDoctrineRepository
   type: entity
   table: Schedules
@@ -78,7 +78,7 @@ Core\Model\Schedule\Schedule:
         unsigned: true
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

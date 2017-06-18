@@ -1,4 +1,4 @@
-Core\Model\Country\Country:
+Core\Domain\Model\Country\Country:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CountryDoctrineRepository
   type: entity
   table: Countries

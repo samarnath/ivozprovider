@@ -1,4 +1,4 @@
-Core\Model\LcrRuleTarget\LcrRuleTarget:
+Core\Domain\Model\LcrRuleTarget\LcrRuleTarget:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\LcrRuleTargetDoctrineRepository
   type: entity
   table: LcrRuleTargets
@@ -45,7 +45,7 @@ Core\Model\LcrRuleTarget\LcrRuleTarget:
         default: '1'
   manyToOne:
     rule:
-      targetEntity: \Core\Model\LcrRule\LcrRuleInterface
+      targetEntity: \Core\Domain\Model\LcrRule\LcrRuleInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -56,7 +56,7 @@ Core\Model\LcrRuleTarget\LcrRuleTarget:
           nullable: false
       orphanRemoval: false
     gw:
-      targetEntity: \Core\Model\LcrGateway\LcrGatewayInterface
+      targetEntity: \Core\Domain\Model\LcrGateway\LcrGatewayInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -67,7 +67,7 @@ Core\Model\LcrRuleTarget\LcrRuleTarget:
           nullable: false
       orphanRemoval: false
     outgoingRouting:
-      targetEntity: \Core\Model\OutgoingRouting\OutgoingRoutingInterface
+      targetEntity: \Core\Domain\Model\OutgoingRouting\OutgoingRoutingInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

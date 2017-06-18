@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Changelog\ChangelogRepository;
+use Core\Domain\Model\Changelog\ChangelogRepository;
 
 /**
  * ChangelogDoctrineRepository

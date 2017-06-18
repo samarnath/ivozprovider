@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\UsersLocationAttr\UsersLocationAttrRepository;
+use Kam\Domain\Model\UsersLocationAttr\UsersLocationAttrRepository;
 
 /**
  * UsersLocationAttrDoctrineRepository

@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\ApplicationServers
-  entity: Core\Model\ApplicationServer\ApplicationServer
+  entity: Core\Domain\Model\ApplicationServer\ApplicationServer
   fields:
     # brand:
       # title: _('Brand id')

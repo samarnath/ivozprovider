@@ -1,4 +1,4 @@
-Core\Model\ChangeHistory\ChangeHistory:
+Core\Domain\Model\ChangeHistory\ChangeHistory:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ChangeHistoryDoctrineRepository
   type: entity
   table: ChangeHistory

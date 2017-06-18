@@ -71,17 +71,17 @@ doctrine:
                 type: yml
                 is_bundle: false
                 dir: '%kernel.root_dir%/../src/Core/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: Core\Model
+                prefix: Core\Domain\Model
             Ast:
                 type: yml
                 is_bundle: false
                 dir: '%kernel.root_dir%/../src/Ast/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: Ast\Model
+                prefix: Ast\Domain\Model
             Kam:
                 type: yml
                 is_bundle: false
                 dir: '%kernel.root_dir%/../src/Kam/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: Kam\Model
+                prefix: Kam\Domain\Model
 
 # Swiftmailer Configuration
 #swiftmailer:

@@ -1,4 +1,4 @@
-Core\Model\ConferenceRoom\ConferenceRoom:
+Core\Domain\Model\ConferenceRoom\ConferenceRoom:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ConferenceRoomDoctrineRepository
   type: entity
   table: ConferenceRooms
@@ -50,7 +50,7 @@ Core\Model\ConferenceRoom\ConferenceRoom:
       column: maxMembers
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ConferenceRoom\ConferenceRoomRepository;
+use Core\Domain\Model\ConferenceRoom\ConferenceRoomRepository;
 
 /**
  * ConferenceRoomDoctrineRepository

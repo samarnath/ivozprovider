@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\GenericMusicOnHold
-  entity: Core\Model\GenericMusicOnHold\GenericMusicOnHold
+  entity: Core\Domain\Model\GenericMusicOnHold\GenericMusicOnHold
   fields: 
     brand:
       title: _('Brand id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName:
             fields: 
               - name

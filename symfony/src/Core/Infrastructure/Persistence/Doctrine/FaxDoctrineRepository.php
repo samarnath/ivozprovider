@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Fax\FaxRepository;
+use Core\Domain\Model\Fax\FaxRepository;
 
 /**
  * FaxesInOutDoctrineRepository

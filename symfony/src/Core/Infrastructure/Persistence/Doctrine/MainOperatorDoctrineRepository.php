@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\MainOperator\MainOperatorRepository;
+use Core\Domain\Model\MainOperator\MainOperatorRepository;
 
 /**
  * MainOperatorDoctrineRepository

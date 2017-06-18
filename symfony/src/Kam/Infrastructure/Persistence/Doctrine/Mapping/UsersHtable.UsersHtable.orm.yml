@@ -1,4 +1,4 @@
-Kam\Model\UsersHtable\UsersHtable:
+Kam\Domain\Model\UsersHtable\UsersHtable:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\UsersHtableDoctrineRepository
   type: entity
   table: kam_users_htable

@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\FixedCost\FixedCostRepository;
+use Core\Domain\Model\FixedCost\FixedCostRepository;
 
 /**
  * FixedCostDoctrineRepository

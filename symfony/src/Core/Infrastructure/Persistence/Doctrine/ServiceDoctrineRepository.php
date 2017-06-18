@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Service\ServiceRepository;
+use Core\Domain\Model\Service\ServiceRepository;
 
 /**
  * ServiceDoctrineRepository

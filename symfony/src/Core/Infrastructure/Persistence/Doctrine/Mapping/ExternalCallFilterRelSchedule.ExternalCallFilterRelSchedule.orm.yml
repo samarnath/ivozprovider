@@ -1,4 +1,4 @@
-Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
+Core\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ExternalCallFilterRelScheduleDoctrineRepository
   type: entity
   table: ExternalCallFilterRelSchedules
@@ -20,7 +20,7 @@ Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
         strategy: IDENTITY
   manyToOne:
     filter:
-      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
+      targetEntity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
           nullable: false
       orphanRemoval: false
     schedule:
-      targetEntity: \Core\Model\Schedule\ScheduleInterface
+      targetEntity: \Core\Domain\Model\Schedule\ScheduleInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

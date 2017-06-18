@@ -1,4 +1,4 @@
-Core\Model\MusicOnHold\MusicOnHold:
+Core\Domain\Model\MusicOnHold\MusicOnHold:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\MusicOnHoldDoctrineRepository
   type: entity
   table: MusicOnHold
@@ -78,7 +78,7 @@ Core\Model\MusicOnHold\MusicOnHold:
         comment: '[enum:pending|encoding|ready|error]'
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,4 +1,4 @@
-Core\Model\Service\Service:
+Core\Domain\Model\Service\Service:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ServiceDoctrineRepository
   type: entity
   table: Services

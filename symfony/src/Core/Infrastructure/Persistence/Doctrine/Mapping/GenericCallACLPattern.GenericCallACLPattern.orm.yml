@@ -1,4 +1,4 @@
-Core\Model\GenericCallACLPattern\GenericCallACLPattern:
+Core\Domain\Model\GenericCallACLPattern\GenericCallACLPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\GenericCallACLPatternDoctrineRepository
   type: entity
   table: GenericCallACLPatterns
@@ -37,7 +37,7 @@ Core\Model\GenericCallACLPattern\GenericCallACLPattern:
       column: regExp
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\Users
-  entity: Core\Model\User\User
+  entity: Core\Domain\Model\User\User
   fields:
     company:
       title: _('Company')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           fieldName:
             fields:
               - name
@@ -68,7 +68,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          entity: \Core\Model\Timezone\Timezone
+          entity: \Core\Domain\Model\Timezone\Timezone
           fieldName:
             fields:
               - tz
@@ -82,7 +82,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Terminals
-          entity: \Core\Model\Terminal\Terminal
+          entity: \Core\Domain\Model\Terminal\Terminal
           filterclass: IvozProvider_Klear_Filter_Terminals
           fieldName:
             fields:
@@ -98,7 +98,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          entity: \Core\Model\Extension\Extension
+          entity: \Core\Domain\Model\Extension\Extension
           filterclass: IvozProvider_Klear_Filter_Extensions
           fieldName:
             fields:
@@ -114,7 +114,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\DDIs
-          entity: \Core\Model\DDI\DDI
+          entity: \Core\Domain\Model\DDI\DDI
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -130,7 +130,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\CallACL
-          entity: \Core\Model\CallACL\CallACL
+          entity: \Core\Domain\Model\CallACL\CallACL
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -174,7 +174,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Model\User\User
+          entity: \Core\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Bossassistant
           fieldName:
             fields:
@@ -261,10 +261,10 @@ production:
         config:
           extraDataAttributes:
             company: companyId
-          relation: \Core\Model\PickUpRelUser\PickUpRelUser
+          relation: \Core\Domain\Model\PickUpRelUser\PickUpRelUser
           relationProperty: user
           relatedProperty: pickUpGroup
-          related: \Core\Model\PickUpGroup\PickUpGroup
+          related: \Core\Domain\Model\PickUpGroup\PickUpGroup
           relatedFieldName: name
           filterclass: IvozProvider_Klear_Filter_Company
     country:
@@ -274,7 +274,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Countries
-          entity: \Core\Model\Country\Country
+          entity: \Core\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
@@ -302,7 +302,7 @@ production:
       data: mapper
       config:
 #        mapperName: \IvozProvider\Mapper\Sql\HuntGroupsRelUsers
-        entity: \Core\Model\HuntGroupsRelUser\HuntGroupsRelUser
+        entity: \Core\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUser
         filterField: HuntGroupsRelUser.User
         showAsTable: true
         fieldName:
@@ -310,7 +310,7 @@ production:
             huntGroup:
               title: _("Hunt group")
 #              mapperName: \IvozProvider\Mapper\Sql\HuntGroups
-              entity: \Core\Model\HuntGroup\HuntGroup
+              entity: \Core\Domain\Model\HuntGroup\HuntGroup
               field:
                 - name
               pattern: "%name%"
@@ -335,7 +335,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Languages
-          entity: \Core\Model\Language\Language
+          entity: \Core\Domain\Model\Language\Language
           fieldName:
             fields:
               - name

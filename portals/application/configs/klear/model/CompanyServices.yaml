@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\CompanyServices
-  entity: Core\Model\CompanyService\CompanyService
+  entity: Core\Domain\Model\CompanyService\CompanyService
   fields: 
     service:
       title: _('Service id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
           mapperName: \IvozProvider\Mapper\Sql\Services
-          entity: \Core\Model\Service\Service
+          entity: \Core\Domain\Model\Service\Service
           filterclass: IvozProvider_Klear_Filter_CompanyServices
           fieldName: 
             fields: 
@@ -27,7 +27,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name

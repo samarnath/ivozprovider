@@ -1,4 +1,4 @@
-Core\Model\ProxyTrunk\ProxyTrunk:
+Core\Domain\Model\ProxyTrunk\ProxyTrunk:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ProxyTrunkDoctrineRepository
   type: entity
   table: ProxyTrunks

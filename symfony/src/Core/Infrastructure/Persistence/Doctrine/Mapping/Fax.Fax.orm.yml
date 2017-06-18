@@ -1,4 +1,4 @@
-Core\Model\Fax\Fax:
+Core\Domain\Model\Fax\Fax:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FaxDoctrineRepository
   type: entity
   table: Faxes
@@ -47,7 +47,7 @@ Core\Model\Fax\Fax:
       column: sendByEmail
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -58,7 +58,7 @@ Core\Model\Fax\Fax:
           nullable: false
       orphanRemoval: false
     outgoingDDI:
-      targetEntity: \Core\Model\DDI\DDIInterface
+      targetEntity: \Core\Domain\Model\DDI\DDIInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

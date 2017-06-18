@@ -1,4 +1,4 @@
-Ast\Model\PsAor\PsAor:
+Ast\Domain\Model\PsAor\PsAor:
   repositoryClass: Ast\Infrastructure\Persistence\Doctrine\PsAorDoctrineRepository
   type: entity
   table: ast_ps_aors
@@ -89,7 +89,7 @@ Ast\Model\PsAor\PsAor:
       column: qualify_frequency
 #  oneToOne:
 #    id:
-#      targetEntity: \Ast\Model\PsEndpoints\PsEndpointsInterface
+#      targetEntity: \Ast\Domain\Model\PsEndpoints\PsEndpointsInterface
 #      cascade: {  }
 #      fetch: LAZY
 #      mappedBy: null

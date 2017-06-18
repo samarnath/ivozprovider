@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\TargetPattern\TargetPatternRepository;
+use Core\Domain\Model\TargetPattern\TargetPatternRepository;
 
 /**
  * TargetPatternDoctrineRepository

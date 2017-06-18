@@ -1,4 +1,4 @@
-Core\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar:
+Core\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ExternalCallFilterRelCalendarDoctrineRepository
   type: entity
   table: ExternalCallFilterRelCalendars
@@ -20,7 +20,7 @@ Core\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar:
         strategy: IDENTITY
   manyToOne:
     filter:
-      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
+      targetEntity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar:
           nullable: false
       orphanRemoval: false
     calendar:
-      targetEntity: \Core\Model\Calendar\CalendarInterface
+      targetEntity: \Core\Domain\Model\Calendar\CalendarInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

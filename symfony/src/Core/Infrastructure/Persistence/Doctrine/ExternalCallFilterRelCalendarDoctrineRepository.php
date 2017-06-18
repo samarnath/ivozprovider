@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendarRepository;
+use Core\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendarRepository;
 
 /**
  * ExternalCallFilterRelCalendarDoctrineRepository

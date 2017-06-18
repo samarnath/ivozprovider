@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\EtagVersions
-  entity: Core\Model\EtagVersion\EtagVersion
+  entity: Core\Domain\Model\EtagVersion\EtagVersion
   fields: 
     table:
       title: _('Table')

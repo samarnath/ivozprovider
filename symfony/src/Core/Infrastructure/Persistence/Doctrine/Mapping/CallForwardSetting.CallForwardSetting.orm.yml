@@ -1,4 +1,4 @@
-Core\Model\CallForwardSetting\CallForwardSetting:
+Core\Domain\Model\CallForwardSetting\CallForwardSetting:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CallForwardSettingDoctrineRepository
   type: entity
   table: CallForwardSettings
@@ -68,7 +68,7 @@ Core\Model\CallForwardSetting\CallForwardSetting:
       column: noAnswerTimeout
   manyToOne:
     user:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -79,7 +79,7 @@ Core\Model\CallForwardSetting\CallForwardSetting:
           nullable: false
       orphanRemoval: false
     extension:
-      targetEntity: \Core\Model\Extension\ExtensionInterface
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -89,7 +89,7 @@ Core\Model\CallForwardSetting\CallForwardSetting:
           referencedColumnName: id
       orphanRemoval: false
     voiceMailUser:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,4 +1,4 @@
-Core\Model\FeaturesRelCompany\FeaturesRelCompany:
+Core\Domain\Model\FeaturesRelCompany\FeaturesRelCompany:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FeaturesRelCompanyDoctrineRepository
   type: entity
   table: FeaturesRelCompanies
@@ -20,7 +20,7 @@ Core\Model\FeaturesRelCompany\FeaturesRelCompany:
         strategy: IDENTITY
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\FeaturesRelCompany\FeaturesRelCompany:
           nullable: false
       orphanRemoval: false
     feature:
-      targetEntity: \Core\Model\Feature\FeatureInterface
+      targetEntity: \Core\Domain\Model\Feature\FeatureInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

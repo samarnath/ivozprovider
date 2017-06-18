@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\AccCdrs
-  entity: Kam\Model\AccCdr\AccCdr
+  entity: Kam\Domain\Model\AccCdr\AccCdr
   fields: 
     proxy:
       title: _('Proxy')
@@ -74,7 +74,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 
@@ -90,7 +90,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
@@ -135,7 +135,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
-          entity: \Core\Model\PeeringContract\PeeringContract
+          entity: \Core\Domain\Model\PeeringContract\PeeringContract
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 
@@ -188,7 +188,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\PricingPlans
-          entity: \Core\Model\PricingPlan\PricingPlan
+          entity: \Core\Domain\Model\PricingPlan\PricingPlan
           fieldName: 
             fields: 
               - name
@@ -203,7 +203,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\TargetPatterns
-          entity: \Core\Model\TargetPattern\TargetPattern
+          entity: \Core\Domain\Model\TargetPattern\TargetPattern
           fieldName: 
             fields: 
               - name
@@ -229,7 +229,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Invoices
-          entity: \Core\Model\Invoice\Invoice
+          entity: \Core\Domain\Model\Invoice\Invoice
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 

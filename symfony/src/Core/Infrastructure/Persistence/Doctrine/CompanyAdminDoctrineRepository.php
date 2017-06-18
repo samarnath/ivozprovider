@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\CompanyAdmin\CompanyAdminRepository;
+use Core\Domain\Model\CompanyAdmin\CompanyAdminRepository;
 
 /**
  * CompanyAdminDoctrineRepository

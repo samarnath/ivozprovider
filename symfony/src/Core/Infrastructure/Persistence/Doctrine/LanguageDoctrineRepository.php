@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Language\LanguageRepository;
+use Core\Domain\Model\Language\LanguageRepository;
 
 /**
  * LanguageDoctrineRepository

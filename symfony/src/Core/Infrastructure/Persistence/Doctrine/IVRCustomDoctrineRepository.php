@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\IVRCustom\IVRCustomRepository;
+use Core\Domain\Model\IVRCustom\IVRCustomRepository;
 
 /**
  * IVRCustomDoctrineRepository

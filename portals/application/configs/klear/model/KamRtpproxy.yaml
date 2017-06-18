@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Rtpproxy
-  entity: Kam\Model\Rtpproxy\Rtpproxy
+  entity: Kam\Domain\Model\Rtpproxy\Rtpproxy
   fields: 
     id:
       title: _('Setid')
@@ -59,7 +59,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\MediaRelaySets
-          entity: \Core\Model\MediaRelaySet\MediaRelaySet
+          entity: \Core\Domain\Model\MediaRelaySet\MediaRelaySet
           fieldName: 
             fields: 
               - name

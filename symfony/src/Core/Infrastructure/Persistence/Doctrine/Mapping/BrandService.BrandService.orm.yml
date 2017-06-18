@@ -1,4 +1,4 @@
-Core\Model\BrandService\BrandService:
+Core\Domain\Model\BrandService\BrandService:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\BrandServiceDoctrineRepository
   type: entity
   table: BrandServices
@@ -27,7 +27,7 @@ Core\Model\BrandService\BrandService:
         fixed: false
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -38,7 +38,7 @@ Core\Model\BrandService\BrandService:
           nullable: false
       orphanRemoval: false
     service:
-      targetEntity: \Core\Model\Service\ServiceInterface
+      targetEntity: \Core\Domain\Model\Service\ServiceInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Domains
-  entity: Core\Model\Domain\Domain
+  entity: Core\Domain\Model\Domain\Domain
   fields: 
     domain:
       title: _('Domain')
@@ -48,7 +48,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
@@ -63,7 +63,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name

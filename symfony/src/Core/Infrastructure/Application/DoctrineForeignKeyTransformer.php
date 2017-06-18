@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Application;
 
 use Core\Application\ForeignKeyTransformerInterface;
-use Core\Model\EntityInterface;
+use Core\Domain\Model\EntityInterface;
 use Doctrine\ORM\EntityManager;
 
 class DoctrineForeignKeyTransformer implements ForeignKeyTransformerInterface

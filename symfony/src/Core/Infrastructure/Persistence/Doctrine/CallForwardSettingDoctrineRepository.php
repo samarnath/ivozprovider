@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\CallForwardSetting\CallForwardSettingRepository;
+use Core\Domain\Model\CallForwardSetting\CallForwardSettingRepository;
 
 /**
  * CallForwardSettingDoctrineRepository

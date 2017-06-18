@@ -1,4 +1,4 @@
-Core\Model\ParsedCDR\ParsedCDR:
+Core\Domain\Model\ParsedCDR\ParsedCDR:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ParsedCDRDoctrineRepository
   type: entity
   table: ParsedCDRs
@@ -181,7 +181,7 @@ Core\Model\ParsedCDR\ParsedCDR:
       column: lastForwarder
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -191,7 +191,7 @@ Core\Model\ParsedCDR\ParsedCDR:
           referencedColumnName: id
       orphanRemoval: false
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -201,7 +201,7 @@ Core\Model\ParsedCDR\ParsedCDR:
           referencedColumnName: id
       orphanRemoval: false
     peeringContract:
-      targetEntity: \Core\Model\PeeringContract\PeeringContractInterface
+      targetEntity: \Core\Domain\Model\PeeringContract\PeeringContractInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

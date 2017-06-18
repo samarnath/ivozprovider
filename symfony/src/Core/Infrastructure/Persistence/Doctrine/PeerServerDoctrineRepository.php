@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\PeerServer\PeerServerRepository;
+use Core\Domain\Model\PeerServer\PeerServerRepository;
 
 /**
  * PeerServerDoctrineRepository

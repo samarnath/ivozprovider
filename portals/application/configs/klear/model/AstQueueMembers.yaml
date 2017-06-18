@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\QueueMembers
-  entity: Ast\Model\QueueMember\QueueMember
+  entity: Ast\Domain\Model\QueueMember\QueueMember
   fields:
     queueId:
       title: _('Queue')
@@ -9,7 +9,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Queues
-          entity: Ast\Model\Queue\Queue
+          entity: Ast\Domain\Model\Queue\Queue
           fieldName:
             fields:
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Model\User\User
+          entity: \Core\Domain\Model\User\User
           fieldName:
             fields:
               - name

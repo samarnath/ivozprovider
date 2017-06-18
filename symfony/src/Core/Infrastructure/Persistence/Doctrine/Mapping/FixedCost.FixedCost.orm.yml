@@ -1,4 +1,4 @@
-Core\Model\FixedCost\FixedCost:
+Core\Domain\Model\FixedCost\FixedCost:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FixedCostDoctrineRepository
   type: entity
   table: FixedCosts
@@ -39,7 +39,7 @@ Core\Model\FixedCost\FixedCost:
       scale: 4
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

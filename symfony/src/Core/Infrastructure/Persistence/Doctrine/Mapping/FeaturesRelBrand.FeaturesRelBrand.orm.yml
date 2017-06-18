@@ -1,4 +1,4 @@
-Core\Model\FeaturesRelBrand\FeaturesRelBrand:
+Core\Domain\Model\FeaturesRelBrand\FeaturesRelBrand:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FeaturesRelBrandDoctrineRepository
   type: entity
   table: FeaturesRelBrands
@@ -20,7 +20,7 @@ Core\Model\FeaturesRelBrand\FeaturesRelBrand:
         strategy: IDENTITY
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\FeaturesRelBrand\FeaturesRelBrand:
           nullable: false
       orphanRemoval: false
     feature:
-      targetEntity: \Core\Model\Feature\FeatureInterface
+      targetEntity: \Core\Domain\Model\Feature\FeatureInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

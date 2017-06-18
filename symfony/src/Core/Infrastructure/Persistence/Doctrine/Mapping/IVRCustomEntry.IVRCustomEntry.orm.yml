@@ -1,4 +1,4 @@
-Core\Model\IVRCustomEntry\IVRCustomEntry:
+Core\Domain\Model\IVRCustomEntry\IVRCustomEntry:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\IVRCustomEntryDoctrineRepository
   type: entity
   table: IVRCustomEntries
@@ -53,7 +53,7 @@ Core\Model\IVRCustomEntry\IVRCustomEntry:
       column: targetNumberValue
   manyToOne:
     IVRCustom:
-      targetEntity: \Core\Model\IVRCustom\IVRCustomInterface
+      targetEntity: \Core\Domain\Model\IVRCustom\IVRCustomInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -64,7 +64,7 @@ Core\Model\IVRCustomEntry\IVRCustomEntry:
           nullable: false
       orphanRemoval: false
     welcomeLocution:
-      targetEntity: \Core\Model\Locution\LocutionInterface
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -74,7 +74,7 @@ Core\Model\IVRCustomEntry\IVRCustomEntry:
           referencedColumnName: id
       orphanRemoval: false
     targetExtension:
-      targetEntity: \Core\Model\Extension\ExtensionInterface
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -84,7 +84,7 @@ Core\Model\IVRCustomEntry\IVRCustomEntry:
           referencedColumnName: id
       orphanRemoval: false
     targetVoiceMailUser:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

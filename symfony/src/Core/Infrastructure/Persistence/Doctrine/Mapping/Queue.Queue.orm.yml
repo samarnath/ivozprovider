@@ -1,4 +1,4 @@
-Core\Model\Queue\Queue:
+Core\Domain\Model\Queue\Queue:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\QueueDoctrineRepository
   type: entity
   table: Queues
@@ -120,7 +120,7 @@ Core\Model\Queue\Queue:
         unsigned: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -131,7 +131,7 @@ Core\Model\Queue\Queue:
           nullable: false
       orphanRemoval: false
     periodicAnnounceLocution:
-      targetEntity: \Core\Model\Locution\LocutionInterface
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -141,7 +141,7 @@ Core\Model\Queue\Queue:
           referencedColumnName: id
       orphanRemoval: false
     timeoutLocution:
-      targetEntity: \Core\Model\Locution\LocutionInterface
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -151,7 +151,7 @@ Core\Model\Queue\Queue:
           referencedColumnName: id
       orphanRemoval: false
     timeoutExtension:
-      targetEntity: \Core\Model\Extension\ExtensionInterface
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -161,7 +161,7 @@ Core\Model\Queue\Queue:
           referencedColumnName: id
       orphanRemoval: false
     timeoutVoiceMailUser:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -171,7 +171,7 @@ Core\Model\Queue\Queue:
           referencedColumnName: id
       orphanRemoval: false
     fullLocution:
-      targetEntity: \Core\Model\Locution\LocutionInterface
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -181,7 +181,7 @@ Core\Model\Queue\Queue:
           referencedColumnName: id
       orphanRemoval: false
     fullExtension:
-      targetEntity: \Core\Model\Extension\ExtensionInterface
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -191,7 +191,7 @@ Core\Model\Queue\Queue:
           referencedColumnName: id
       orphanRemoval: false
     fullVoiceMailUser:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

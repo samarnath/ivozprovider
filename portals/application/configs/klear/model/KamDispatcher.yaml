@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Dispatcher
-  entity: Kam\Model\Dispatcher\Dispatcher
+  entity: Kam\Domain\Model\Dispatcher\Dispatcher
   fields: 
     setid:
       title: _('Setid')

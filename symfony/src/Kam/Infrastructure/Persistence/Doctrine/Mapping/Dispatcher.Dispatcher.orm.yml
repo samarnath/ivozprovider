@@ -1,4 +1,4 @@
-Kam\Model\Dispatcher\Dispatcher:
+Kam\Domain\Model\Dispatcher\Dispatcher:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\DispatcherDoctrineRepository
   type: entity
   table: kam_dispatcher
@@ -57,7 +57,7 @@ Kam\Model\Dispatcher\Dispatcher:
         default: ''
   manyToOne:
     applicationServer:
-      targetEntity: \Core\Model\ApplicationServer\ApplicationServerInterface
+      targetEntity: \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\FixedCostsRelInvoices
-  entity: Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
+  entity: Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
   fields: 
     brand:
       title: _('Brand id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\FixedCosts
-          entity: \Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
+          entity: \Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields:
@@ -43,7 +43,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Invoices
-          entity: \Core\Model\Invoice\Invoice
+          entity: \Core\Domain\Model\Invoice\Invoice
           fieldName: 
             fields: 
               - number

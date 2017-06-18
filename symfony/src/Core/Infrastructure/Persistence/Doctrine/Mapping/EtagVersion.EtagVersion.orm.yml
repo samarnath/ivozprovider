@@ -1,4 +1,4 @@
-Core\Model\EtagVersion\EtagVersion:
+Core\Domain\Model\EtagVersion\EtagVersion:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\EtagVersionDoctrineRepository
   type: entity
   table: EtagVersions

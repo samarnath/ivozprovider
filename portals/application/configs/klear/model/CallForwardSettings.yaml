@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\CallForwardSettings
-  entity: Core\Model\CallForwardSetting\CallForwardSetting
+  entity: Core\Domain\Model\CallForwardSetting\CallForwardSetting
   fields: 
     userId:
       title: _('User id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Model\User\User
+          entity: \Core\Domain\Model\User\User
           fieldName: 
             fields: 
               - name
@@ -87,7 +87,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          entity: \Core\Model\Extension\Extension
+          entity: \Core\Domain\Model\Extension\Extension
           filterclass: IvozProvider_Klear_Filter_ForwardExtension
           fieldName:
             fields: 
@@ -104,7 +104,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Model\User\User
+          entity: \Core\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName: 
             fields: 

@@ -1,4 +1,4 @@
-Core\Model\Timezone\Timezone:
+Core\Domain\Model\Timezone\Timezone:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TimezoneDoctrineRepository
   type: entity
   table: Timezones
@@ -56,7 +56,7 @@ Core\Model\Timezone\Timezone:
       column: timeZoneLabel_es
   manyToOne:
     country:
-      targetEntity: \Core\Model\Country\CountryInterface
+      targetEntity: \Core\Domain\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

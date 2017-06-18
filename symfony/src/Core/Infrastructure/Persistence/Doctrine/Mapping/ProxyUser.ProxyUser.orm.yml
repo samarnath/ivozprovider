@@ -1,4 +1,4 @@
-Core\Model\ProxyUser\ProxyUser:
+Core\Domain\Model\ProxyUser\ProxyUser:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ProxyUserDoctrineRepository
   type: entity
   table: ProxyUsers

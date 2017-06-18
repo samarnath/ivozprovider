@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Recording\RecordingRepository;
+use Core\Domain\Model\Recording\RecordingRepository;
 
 /**
  * RecordingDoctrineRepository

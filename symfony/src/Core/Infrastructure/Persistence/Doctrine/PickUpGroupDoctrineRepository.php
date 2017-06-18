@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\PickUpGroup\PickUpGroupRepository;
+use Core\Domain\Model\PickUpGroup\PickUpGroupRepository;
 
 /**
  * PickUpGroupDoctrineRepository

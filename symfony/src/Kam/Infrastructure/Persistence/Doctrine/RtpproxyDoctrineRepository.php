@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\Rtpproxy\RtpproxyRepository;
+use Kam\Domain\Model\Rtpproxy\RtpproxyRepository;
 
 /**
  * RtpproxyDoctrineRepository

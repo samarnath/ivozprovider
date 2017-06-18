@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\ExternalCallFilterRelCalendars
-  entity: Core\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar
+  entity: Core\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar
   fields: 
     filter:
       title: _('Filter id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\ExternalCallFilters
-          entity: \Core\Model\ExternalCallFilter\ExternalCallFilter
+          entity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilter
           fieldName: 
             fields: 
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Calendars
-          entity: \Core\Model\Calendar\Calendar
+          entity: \Core\Domain\Model\Calendar\Calendar
           fieldName: 
             fields: 
               - name

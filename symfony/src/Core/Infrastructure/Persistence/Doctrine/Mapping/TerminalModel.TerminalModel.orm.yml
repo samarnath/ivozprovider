@@ -1,4 +1,4 @@
-Core\Model\TerminalModel\TerminalModel:
+Core\Domain\Model\TerminalModel\TerminalModel:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TerminalModelDoctrineRepository
   type: entity
   table: TerminalModels
@@ -70,7 +70,7 @@ Core\Model\TerminalModel\TerminalModel:
       column: specificUrlPattern
   manyToOne:
     TerminalManufacturer:
-      targetEntity: \Core\Model\TerminalManufacturer\TerminalManufacturerInterface
+      targetEntity: \Core\Domain\Model\TerminalManufacturer\TerminalManufacturerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

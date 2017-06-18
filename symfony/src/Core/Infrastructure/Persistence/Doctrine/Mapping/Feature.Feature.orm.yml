@@ -1,4 +1,4 @@
-Core\Model\Feature\Feature:
+Core\Domain\Model\Feature\Feature:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FeatureDoctrineRepository
   type: entity
   table: Features

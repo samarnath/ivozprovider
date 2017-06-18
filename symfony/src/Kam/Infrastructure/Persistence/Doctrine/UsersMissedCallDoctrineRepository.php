@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\UsersMissedCall\UsersMissedCallRepository;
+use Kam\Domain\Model\UsersMissedCall\UsersMissedCallRepository;
 
 /**
  * UsersMissedCallDoctrineRepository

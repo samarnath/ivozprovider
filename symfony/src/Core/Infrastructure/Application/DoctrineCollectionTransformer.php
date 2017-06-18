@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\Common\Collections\ArrayCollection;
 use Core\Application\CollectionTransformerInterface;
 use Core\Application\DataTransferObjectInterface;
-use Core\Model\EntityInterface;
+use Core\Domain\Model\EntityInterface;
 
 class DoctrineCollectionTransformer implements CollectionTransformerInterface
 {

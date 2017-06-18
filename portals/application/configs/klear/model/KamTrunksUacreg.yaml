@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\TrunksUacreg
-  entity: Kam\Model\TrunksUacreg\TrunksUacreg
+  entity: Kam\Domain\Model\TrunksUacreg\TrunksUacreg
   fields:
     multiDDI:
       title: _('Multiddi')
@@ -112,7 +112,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName:
             fields:
               - name
@@ -127,7 +127,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
-          entity: \Core\Model\PeeringContract\PeeringContract
+          entity: \Core\Domain\Model\PeeringContract\PeeringContract
           fieldName:
             fields:
               - description

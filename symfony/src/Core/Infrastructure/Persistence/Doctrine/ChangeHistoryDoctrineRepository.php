@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ChangeHistory\ChangeHistoryRepository;
+use Core\Domain\Model\ChangeHistory\ChangeHistoryRepository;
 
 /**
  * ChangeHistoryDoctrineRepository

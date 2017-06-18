@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\BrandOperators
-  entity: Core\Model\BrandOperator\BrandOperator
+  entity: Core\Domain\Model\BrandOperator\BrandOperator
   fields: 
     brandId:
       title: _('Brand')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName:
             fields: 
               - name
@@ -55,7 +55,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          entity: \Core\Model\Timezone\Timezone
+          entity: \Core\Domain\Model\Timezone\Timezone
           fieldName:
             fields: 
               - tz

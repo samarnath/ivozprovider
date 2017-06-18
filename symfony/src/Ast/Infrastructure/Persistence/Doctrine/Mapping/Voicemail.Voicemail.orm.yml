@@ -1,4 +1,4 @@
-Ast\Model\Voicemail\Voicemail:
+Ast\Domain\Model\Voicemail\Voicemail:
   repositoryClass: Ast\Infrastructure\Persistence\Doctrine\VoicemailDoctrineRepository
   type: entity
   table: ast_voicemail
@@ -225,7 +225,7 @@ Ast\Model\Voicemail\Voicemail:
       nullable: true
   manyToOne:
     user:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

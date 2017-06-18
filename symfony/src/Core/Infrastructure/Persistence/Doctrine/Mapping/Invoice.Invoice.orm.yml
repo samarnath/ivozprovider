@@ -1,4 +1,4 @@
-Core\Model\Invoice\Invoice:
+Core\Domain\Model\Invoice\Invoice:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\InvoiceDoctrineRepository
   type: entity
   table: Invoices
@@ -88,7 +88,7 @@ Core\Model\Invoice\Invoice:
       column: pdfFileBaseName
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -99,7 +99,7 @@ Core\Model\Invoice\Invoice:
           nullable: false
       orphanRemoval: false
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -110,7 +110,7 @@ Core\Model\Invoice\Invoice:
           nullable: false
       orphanRemoval: false
     invoiceTemplate:
-      targetEntity: \Core\Model\InvoiceTemplate\InvoiceTemplate
+      targetEntity: \Core\Domain\Model\InvoiceTemplate\InvoiceTemplate
       cascade: {  }
       fetch: LAZY
       mappedBy: null

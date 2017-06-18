@@ -3,7 +3,7 @@
 namespace Ast\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Ast\Model\Queue\QueueRepository;
+use Ast\Domain\Model\Queue\QueueRepository;
 
 /**
  * QueueDoctrineRepository

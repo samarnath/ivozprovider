@@ -3,7 +3,7 @@
 namespace Ast\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Ast\Model\Voicemail\VoicemailRepository;
+use Ast\Domain\Model\Voicemail\VoicemailRepository;
 
 /**
  * VoicemailDoctrineRepository

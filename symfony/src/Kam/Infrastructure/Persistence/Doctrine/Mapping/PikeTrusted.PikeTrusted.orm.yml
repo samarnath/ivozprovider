@@ -1,4 +1,4 @@
-Kam\Model\PikeTrusted\PikeTrusted:
+Kam\Domain\Model\PikeTrusted\PikeTrusted:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\PikeTrustedDoctrineRepository
   type: entity
   table: kam_pike_trusted

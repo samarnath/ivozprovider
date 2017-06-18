@@ -1,4 +1,4 @@
-Core\Model\Language\Language:
+Core\Domain\Model\Language\Language:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\LanguageDoctrineRepository
   type: entity
   table: Languages

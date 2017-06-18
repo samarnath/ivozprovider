@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\HuntGroupsRelUser\HuntGroupsRelUserRepository;
+use Core\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUserRepository;
 
 /**
  * HuntGroupsRelUserDoctrineRepository

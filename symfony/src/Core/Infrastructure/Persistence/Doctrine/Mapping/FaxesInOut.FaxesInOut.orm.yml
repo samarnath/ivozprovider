@@ -1,4 +1,4 @@
-Core\Model\FaxesInOut\FaxesInOut:
+Core\Domain\Model\FaxesInOut\FaxesInOut:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FaxesInOutDoctrineRepository
   type: entity
   table: FaxesInOut
@@ -83,7 +83,7 @@ Core\Model\FaxesInOut\FaxesInOut:
       column: fileBaseName
   manyToOne:
     fax:
-      targetEntity: \Core\Model\Fax\FaxInterface
+      targetEntity: \Core\Domain\Model\Fax\FaxInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Schedule\ScheduleRepository;
+use Core\Domain\Model\Schedule\ScheduleRepository;
 
 /**
  * ScheduleDoctrineRepository

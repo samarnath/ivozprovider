@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\CallACL\CallACLRepository;
+use Core\Domain\Model\CallACL\CallACLRepository;
 
 /**
  * CallACLDoctrineRepository

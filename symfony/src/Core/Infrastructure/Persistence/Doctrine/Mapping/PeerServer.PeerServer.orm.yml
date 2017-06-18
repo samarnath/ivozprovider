@@ -1,4 +1,4 @@
-Core\Model\PeerServer\PeerServer:
+Core\Domain\Model\PeerServer\PeerServer:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\PeerServerDoctrineRepository
   type: entity
   table: PeerServers
@@ -143,7 +143,7 @@ Core\Model\PeerServer\PeerServer:
       column: from_domain
   manyToOne:
     peeringContract:
-      targetEntity: \Core\Model\PeeringContract\PeeringContractInterface
+      targetEntity: \Core\Domain\Model\PeeringContract\PeeringContractInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -154,7 +154,7 @@ Core\Model\PeerServer\PeerServer:
           nullable: false
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\UsersDomain
-  entity: Kam\Model\UsersDomain\UsersDomain
+  entity: Kam\Domain\Model\UsersDomain\UsersDomain
   fields: 
     domain:
       title: _('Domain')
@@ -29,7 +29,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Domains
-          entity: \Core\Model\Domain\Domain
+          entity: \Core\Domain\Model\Domain\Domain
           fieldName: 
             fields: 
               - domain

@@ -1,4 +1,4 @@
-Core\Model\LcrGateway\LcrGateway:
+Core\Domain\Model\LcrGateway\LcrGateway:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\LcrGatewayDoctrineRepository
   type: entity
   table: LcrGateways
@@ -101,7 +101,7 @@ Core\Model\LcrGateway\LcrGateway:
         unsigned: true
   manyToOne:
     peerServer:
-      targetEntity: \Core\Model\PeerServer\PeerServerInterface
+      targetEntity: \Core\Domain\Model\PeerServer\PeerServerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

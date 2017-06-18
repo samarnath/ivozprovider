@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ExternalCallFilter\ExternalCallFilterRepository;
+use Core\Domain\Model\ExternalCallFilter\ExternalCallFilterRepository;
 
 /**
  * ExternalCallFilterDoctrineRepository

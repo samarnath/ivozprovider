@@ -1,4 +1,4 @@
-Kam\Model\UsersDomainAttr\UsersDomainAttr:
+Kam\Domain\Model\UsersDomainAttr\UsersDomainAttr:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\UsersDomainAttrDoctrineRepository
   type: entity
   table: kam_users_domain_attrs
@@ -47,7 +47,7 @@ Kam\Model\UsersDomainAttr\UsersDomainAttr:
       column: last_modified
   manyToOne:
     did:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

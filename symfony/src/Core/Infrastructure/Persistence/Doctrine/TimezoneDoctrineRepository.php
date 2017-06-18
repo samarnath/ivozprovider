@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Timezone\TimezoneRepository;
+use Core\Domain\Model\Timezone\TimezoneRepository;
 
 /**
  * TimezoneDoctrineRepository

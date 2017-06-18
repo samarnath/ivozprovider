@@ -1,4 +1,4 @@
-Core\Model\BrandOperator\BrandOperator:
+Core\Domain\Model\BrandOperator\BrandOperator:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\BrandOperatorDoctrineRepository
   type: entity
   table: BrandOperators
@@ -63,7 +63,7 @@ Core\Model\BrandOperator\BrandOperator:
         fixed: false
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -74,7 +74,7 @@ Core\Model\BrandOperator\BrandOperator:
           nullable: false
       orphanRemoval: false
     timezone:
-      targetEntity: \Core\Model\Timezone\TimezoneInterface
+      targetEntity: \Core\Domain\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

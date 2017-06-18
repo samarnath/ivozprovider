@@ -3,7 +3,7 @@
 namespace Ast\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Ast\Model\PsEndpoint\PsEndpointRepository;
+use Ast\Domain\Model\PsEndpoint\PsEndpointRepository;
 
 /**
  * PsEndpointDoctrineRepository

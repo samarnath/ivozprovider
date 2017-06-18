@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\User\UserRepository;
+use Core\Domain\Model\User\UserRepository;
 
 /**
  * UserDoctrineRepository

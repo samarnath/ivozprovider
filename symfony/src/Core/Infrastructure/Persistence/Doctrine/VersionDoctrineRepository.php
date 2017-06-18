@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Version\VersionRepository;
+use Core\Domain\Model\Version\VersionRepository;
 
 /**
  * VersionDoctrineRepository

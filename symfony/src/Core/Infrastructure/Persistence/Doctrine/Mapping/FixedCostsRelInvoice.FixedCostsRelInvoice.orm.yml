@@ -1,4 +1,4 @@
-Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
+Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FixedCostsRelInvoiceDoctrineRepository
   type: entity
   table: FixedCostsRelInvoices
@@ -30,7 +30,7 @@ Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
         unsigned: false
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -41,7 +41,7 @@ Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
           nullable: false
       orphanRemoval: false
     fixedCost:
-      targetEntity: \Core\Model\FixedCost\FixedCostInterface
+      targetEntity: \Core\Domain\Model\FixedCost\FixedCostInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -52,7 +52,7 @@ Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
           nullable: false
       orphanRemoval: false
     invoice:
-      targetEntity: \Core\Model\Invoice\InvoiceInterface
+      targetEntity: \Core\Domain\Model\Invoice\InvoiceInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

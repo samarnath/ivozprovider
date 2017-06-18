@@ -1,7 +1,7 @@
 <?php
 namespace Core\Application;
 
-use Core\Model\EntityInterface;
+use Core\Domain\Model\EntityInterface;
 
 interface ForeignKeyTransformerInterface
 {

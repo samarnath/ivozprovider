@@ -1,4 +1,4 @@
-Core\Model\Calendar\Calendar:
+Core\Domain\Model\Calendar\Calendar:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CalendarDoctrineRepository
   type: entity
   table: Calendars
@@ -29,7 +29,7 @@ Core\Model\Calendar\Calendar:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

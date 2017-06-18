@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\OutgoingRouting\OutgoingRoutingRepository;
+use Core\Domain\Model\OutgoingRouting\OutgoingRoutingRepository;
 
 /**
  * OutgoingRoutingDoctrineRepository

@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\TrunksHtable\TrunksHtableRepository;
+use Kam\Domain\Model\TrunksHtable\TrunksHtableRepository;
 
 /**
  * TrunksHtableDoctrineRepository

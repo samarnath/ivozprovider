@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\Dispatcher\DispatcherRepository;
+use Kam\Domain\Model\Dispatcher\DispatcherRepository;
 
 /**
  * DispatcherDoctrineRepository

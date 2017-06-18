@@ -1,4 +1,4 @@
-Core\Model\Domain\Domain:
+Core\Domain\Model\Domain\Domain:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\DomainDoctrineRepository
   type: entity
   table: Domains
@@ -63,7 +63,7 @@ Core\Model\Domain\Domain:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -73,7 +73,7 @@ Core\Model\Domain\Domain:
           referencedColumnName: id
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

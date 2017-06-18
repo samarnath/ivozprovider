@@ -1,4 +1,4 @@
-Core\Model\PickUpRelUser\PickUpRelUser:
+Core\Domain\Model\PickUpRelUser\PickUpRelUser:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\PickUpRelUserDoctrineRepository
   type: entity
   table: PickUpRelUsers
@@ -20,7 +20,7 @@ Core\Model\PickUpRelUser\PickUpRelUser:
         strategy: IDENTITY
   manyToOne:
     pickUpGroup:
-      targetEntity: \Core\Model\PickUpGroup\PickUpGroupInterface
+      targetEntity: \Core\Domain\Model\PickUpGroup\PickUpGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -31,7 +31,7 @@ Core\Model\PickUpRelUser\PickUpRelUser:
           nullable: false
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

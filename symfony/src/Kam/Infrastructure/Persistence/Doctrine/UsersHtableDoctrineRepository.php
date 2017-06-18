@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\UsersHtable\UsersHtableRepository;
+use Kam\Domain\Model\UsersHtable\UsersHtableRepository;
 
 /**
  * UsersHtableDoctrineRepository

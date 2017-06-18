@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Calendar\CalendarRepository;
+use Core\Domain\Model\Calendar\CalendarRepository;
 
 /**
  * CalendarDoctrineRepository

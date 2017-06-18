@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkRepository;
+use Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkRepository;
 
 /**
  * TransformationRulesetGroupsTrunkDoctrineRepository

@@ -1,4 +1,4 @@
-Kam\Model\Rtpproxy\Rtpproxy:
+Kam\Domain\Model\Rtpproxy\Rtpproxy:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\RtpproxyDoctrineRepository
   type: entity
   table: kam_rtpproxy
@@ -49,7 +49,7 @@ Kam\Model\Rtpproxy\Rtpproxy:
         fixed: false
   manyToOne:
     mediaRelaySet:
-      targetEntity: \Core\Model\MediaRelaySet\MediaRelaySetInterface
+      targetEntity: \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

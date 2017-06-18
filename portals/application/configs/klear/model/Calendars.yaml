@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Calendars
-  entity: Core\Model\Calendar\Calendar
+  entity: Core\Domain\Model\Calendar\Calendar
   fields: 
     companyId:
       title: _('Company')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name

@@ -1,4 +1,4 @@
-Core\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern:
+Core\Domain\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\PricingPlansRelTargetPatternDoctrineRepository
   type: entity
   table: PricingPlansRelTargetPatterns
@@ -47,7 +47,7 @@ Core\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern:
       column: perPeriodCharge
   manyToOne:
     pricingPlan:
-      targetEntity: \Core\Model\PricingPlan\PricingPlanInterface
+      targetEntity: \Core\Domain\Model\PricingPlan\PricingPlanInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -58,7 +58,7 @@ Core\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern:
           nullable: false
       orphanRemoval: false
     targetPattern:
-      targetEntity: \Core\Model\TargetPattern\TargetPatternInterface
+      targetEntity: \Core\Domain\Model\TargetPattern\TargetPatternInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -69,7 +69,7 @@ Core\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern:
           nullable: false
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

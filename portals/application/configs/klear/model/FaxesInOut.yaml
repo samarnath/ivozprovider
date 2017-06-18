@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\FaxesInOut
-  entity: Core\Model\FaxesInOut\FaxesInOut
+  entity: Core\Domain\Model\FaxesInOut\FaxesInOut
   fields:
     calldate:
       title: _('Calldate')
@@ -18,7 +18,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Faxes
-          entity: \Core\Model\Fax\Fax
+          entity: \Core\Domain\Model\Fax\Fax
           fieldName:
             fields:
               - name

@@ -2,7 +2,7 @@
 
 namespace Core\Application\Command;
 
-use Core\Model\EntityInterface;
+use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 use Core\Application\ForeignKeyTransformerInterface;
 use Core\Application\CollectionTransformerInterface;

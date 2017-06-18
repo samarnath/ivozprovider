@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\TrunksUacreg\TrunksUacregRepository;
+use Kam\Domain\Model\TrunksUacreg\TrunksUacregRepository;
 
 /**
  * TrunksUacregDoctrineRepository

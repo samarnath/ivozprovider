@@ -1,4 +1,4 @@
-Core\Model\InvoiceTemplate\InvoiceTemplate:
+Core\Domain\Model\InvoiceTemplate\InvoiceTemplate:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\InvoiceTemplateDoctrineRepository
   type: entity
   table: InvoiceTemplates
@@ -41,7 +41,7 @@ Core\Model\InvoiceTemplate\InvoiceTemplate:
         fixed: false
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

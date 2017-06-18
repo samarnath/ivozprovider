@@ -1,4 +1,4 @@
-Core\Model\BrandURL\BrandURL:
+Core\Domain\Model\BrandURL\BrandURL:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\BrandURLDoctrineRepository
   type: entity
   table: BrandURLs
@@ -80,7 +80,7 @@ Core\Model\BrandURL\BrandURL:
       column: userTheme
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

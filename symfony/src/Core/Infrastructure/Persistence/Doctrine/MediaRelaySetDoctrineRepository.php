@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\MediaRelaySet\MediaRelaySetRepository;
+use Core\Domain\Model\MediaRelaySet\MediaRelaySetRepository;
 
 /**
  * MediaRelaySetDoctrineRepository

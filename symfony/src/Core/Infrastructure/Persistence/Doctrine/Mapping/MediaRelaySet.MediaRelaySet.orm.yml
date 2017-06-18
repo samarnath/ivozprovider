@@ -1,4 +1,4 @@
-Core\Model\MediaRelaySet\MediaRelaySet:
+Core\Domain\Model\MediaRelaySet\MediaRelaySet:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\MediaRelaySetDoctrineRepository
   type: entity
   table: MediaRelaySets

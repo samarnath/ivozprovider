@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\FeaturesRelBrands
-  entity: Core\Model\FeaturesRelBrand\FeaturesRelBrand
+  entity: Core\Domain\Model\FeaturesRelBrand\FeaturesRelBrand
   fields: 
     brand:
       title: _('Brandid')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Features
-          entity: \Core\Model\Terminal\Feature\Feature
+          entity: \Core\Domain\Model\Terminal\Feature\Feature
           fieldName: 
             fields: 
               - name

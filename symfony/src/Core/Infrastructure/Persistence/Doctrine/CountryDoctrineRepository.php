@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Country\CountryRepository;
+use Core\Domain\Model\Country\CountryRepository;
 
 /**
  * CountryDoctrineRepository

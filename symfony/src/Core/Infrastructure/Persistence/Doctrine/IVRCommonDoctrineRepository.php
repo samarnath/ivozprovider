@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\IVRCommon\IVRCommonRepository;
+use Core\Domain\Model\IVRCommon\IVRCommonRepository;
 
 /**
  * IVRCommonDoctrineRepository

@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\ProxyTrunks
-  entity: Core\Model\ProxyTrunk\ProxyTrunk
+  entity: Core\Domain\Model\ProxyTrunk\ProxyTrunk
   fields: 
     name:
       title: ngettext('Name', 'Names', 1)

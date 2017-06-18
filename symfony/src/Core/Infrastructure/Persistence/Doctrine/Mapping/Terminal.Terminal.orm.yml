@@ -1,4 +1,4 @@
-Core\Model\Terminal\Terminal:
+Core\Domain\Model\Terminal\Terminal:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TerminalDoctrineRepository
   type: entity
   table: Terminals
@@ -83,7 +83,7 @@ Core\Model\Terminal\Terminal:
       column: lastProvisionDate
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -94,7 +94,7 @@ Core\Model\Terminal\Terminal:
           nullable: false
       orphanRemoval: false
     TerminalModel:
-      targetEntity: \Core\Model\TerminalModel\TerminalModelInterface
+      targetEntity: \Core\Domain\Model\TerminalModel\TerminalModelInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

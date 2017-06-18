@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\UsersDomainAttrs
-  entity: Kam\Model\UsersDomainAttr\UsersDomainAttr
+  entity: Kam\Domain\Model\UsersDomainAttr\UsersDomainAttr
   fields: 
     did:
       title: _('Did')

@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\TrunksAddress
-  entity: Kam\Model\TrunksAddress\TrunksAddress
+  entity: Kam\Domain\Model\TrunksAddress\TrunksAddress
   fields: 
     grp:
       title: _('Grp')

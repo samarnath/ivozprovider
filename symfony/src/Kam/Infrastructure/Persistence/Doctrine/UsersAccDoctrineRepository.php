@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\UsersAcc\UsersAccRepository;
+use Kam\Domain\Model\UsersAcc\UsersAccRepository;
 
 /**
  * UsersAccDoctrineRepository

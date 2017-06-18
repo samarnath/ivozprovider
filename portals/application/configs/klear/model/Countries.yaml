@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Countries
-  entity: Core\Model\Countries\Country
+  entity: Core\Domain\Model\Countries\Country
   fields: 
     code:
       title: _('Code')

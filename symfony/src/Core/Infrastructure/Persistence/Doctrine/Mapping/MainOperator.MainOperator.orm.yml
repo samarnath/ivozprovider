@@ -1,4 +1,4 @@
-Core\Model\MainOperator\MainOperator:
+Core\Domain\Model\MainOperator\MainOperator:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\MainOperatorDoctrineRepository
   type: entity
   table: MainOperators
@@ -59,7 +59,7 @@ Core\Model\MainOperator\MainOperator:
         fixed: false
   manyToOne:
     timezone:
-      targetEntity: \Core\Model\Timezone\TimezoneInterface
+      targetEntity: \Core\Domain\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,4 +1,4 @@
-Core\Model\PickUpGroup\PickUpGroup:
+Core\Domain\Model\PickUpGroup\PickUpGroup:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\PickUpGroupDoctrineRepository
   type: entity
   table: PickUpGroups
@@ -29,7 +29,7 @@ Core\Model\PickUpGroup\PickUpGroup:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

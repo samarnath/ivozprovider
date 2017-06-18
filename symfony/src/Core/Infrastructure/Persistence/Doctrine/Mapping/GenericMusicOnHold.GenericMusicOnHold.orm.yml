@@ -1,4 +1,4 @@
-Core\Model\GenericMusicOnHold\GenericMusicOnHold:
+Core\Domain\Model\GenericMusicOnHold\GenericMusicOnHold:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\GenericMusicOnHoldDoctrineRepository
   type: entity
   table: GenericMusicOnHold
@@ -80,7 +80,7 @@ Core\Model\GenericMusicOnHold\GenericMusicOnHold:
         comment: '[enum:pending|encoding|ready|error]'
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

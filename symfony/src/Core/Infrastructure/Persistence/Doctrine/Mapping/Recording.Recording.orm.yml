@@ -1,4 +1,4 @@
-Core\Model\Recording\Recording:
+Core\Domain\Model\Recording\Recording:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\RecordingDoctrineRepository
   type: entity
   table: Recordings
@@ -83,7 +83,7 @@ Core\Model\Recording\Recording:
       column: recordedFileBaseName
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

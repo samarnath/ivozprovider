@@ -126,7 +126,7 @@ mappers:
     }
   -  &ExternalCallFiltersRetail {
         mapper: \IvozProvider\Mapper\Sql\ExternalCallFilters,
-        modelFile: ExternalCallFiltersRetail
+        modelFile: ExternalCallFiltersRetail,
         entity: 'Core\\Model\\ExternalCallFilter\\ExternalCallFilter'
   }
 

@@ -1,4 +1,4 @@
-Ast\Model\PsEndpoint\PsEndpoint:
+Ast\Domain\Model\PsEndpoint\PsEndpoint:
   repositoryClass: Ast\Infrastructure\Persistence\Doctrine\PsEndpointDoctrineRepository
   type: entity
   table: ast_ps_endpoints
@@ -150,7 +150,7 @@ Ast\Model\PsEndpoint\PsEndpoint:
       column: trust_id_inbound
   manyToOne:
     terminal:
-      targetEntity: \Core\Model\Terminal\TerminalInterface
+      targetEntity: \Core\Domain\Model\Terminal\TerminalInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -160,7 +160,7 @@ Ast\Model\PsEndpoint\PsEndpoint:
           referencedColumnName: id
       orphanRemoval: false
     friend:
-      targetEntity: \Core\Model\Friend\FriendInterface
+      targetEntity: \Core\Domain\Model\Friend\FriendInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\LcrRuleTarget\LcrRuleTargetRepository;
+use Core\Domain\Model\LcrRuleTarget\LcrRuleTargetRepository;
 
 /**
  * LcrRuleTargetDoctrineRepository

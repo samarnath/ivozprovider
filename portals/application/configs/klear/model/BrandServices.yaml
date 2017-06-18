@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\BrandServices
-  entity: Core\Model\BrandService\BrandService
+  entity: Core\Domain\Model\BrandService\BrandService
   fields: 
     service:
       title: _('Service id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Services
-          entity: \Core\Model\Service\Service
+          entity: \Core\Domain\Model\Service\Service
           filterclass: IvozProvider_Klear_Filter_BrandServices
           fieldName: 
             fields: 
@@ -27,7 +27,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name

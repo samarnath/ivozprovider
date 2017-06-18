@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ProxyUser\ProxyUserRepository;
+use Core\Domain\Model\ProxyUser\ProxyUserRepository;
 
 /**
  * ProxyUserDoctrineRepository

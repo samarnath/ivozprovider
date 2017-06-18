@@ -1,4 +1,4 @@
-Core\Model\Company\Company:
+Core\Domain\Model\Company\Company:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CompanyDoctrineRepository
   type: entity
   table: Companies
@@ -155,7 +155,7 @@ Core\Model\Company\Company:
       column: recordingsLimitEmail
   manyToOne:
     language:
-      targetEntity: \Core\Model\Language\LanguageInterface
+      targetEntity: \Core\Domain\Model\Language\LanguageInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -165,7 +165,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     mediaRelaySets:
-      targetEntity: \Core\Model\MediaRelaySet\MediaRelaySetInterface
+      targetEntity: \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -175,7 +175,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     defaultTimezone:
-      targetEntity: \Core\Model\Timezone\TimezoneInterface
+      targetEntity: \Core\Domain\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -185,7 +185,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -196,7 +196,7 @@ Core\Model\Company\Company:
           nullable: false
       orphanRemoval: false
     applicationServer:
-      targetEntity: \Core\Model\ApplicationServer\ApplicationServerInterface
+      targetEntity: \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -206,7 +206,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     countryCode:
-      targetEntity: \Core\Model\Country\CountryInterface
+      targetEntity: \Core\Domain\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -216,7 +216,7 @@ Core\Model\Company\Company:
           referencedColumnName: id
       orphanRemoval: false
     outgoingDDI:
-      targetEntity: \Core\Model\DDI\DDIInterface
+      targetEntity: \Core\Domain\Model\DDI\DDIInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

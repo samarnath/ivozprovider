@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\CallACL
-  entity: Core\Model\CallACL\CallACL
+  entity: Core\Domain\Model\CallACL\CallACL
   fields:
     companyId:
       title: _('Company')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           fieldName:
             fields:
               - name
@@ -41,7 +41,7 @@ production:
       data: mapper
       config:
 #        mapperName: \IvozProvider\Mapper\Sql\CallACLRelPatterns
-        entity: \Core\Model\CallACLRelPattern\CallACLRelPattern
+        entity: \Core\Domain\Model\CallACLRelPattern\CallACLRelPattern
         filterField: CallACL
         showAsTable: true
         fieldName:
@@ -49,7 +49,7 @@ production:
             CallACLPattern:
               title: _("Name")
 #              mapperName: \IvozProvider\Mapper\Sql\CallACLPatterns
-              entity: \Core\Model\CallACLPattern\CallACLPattern
+              entity: \Core\Domain\Model\CallACLPattern\CallACLPattern
               field:
                 - name
               pattern: "%name%"

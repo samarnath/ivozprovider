@@ -1,4 +1,4 @@
-Core\Model\QueueMember\QueueMember:
+Core\Domain\Model\QueueMember\QueueMember:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\QueueMemberDoctrineRepository
   type: entity
   table: QueueMembers
@@ -26,7 +26,7 @@ Core\Model\QueueMember\QueueMember:
         unsigned: false
   manyToOne:
     queue:
-      targetEntity: \Core\Model\Queue\QueueInterface
+      targetEntity: \Core\Domain\Model\Queue\QueueInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -36,7 +36,7 @@ Core\Model\QueueMember\QueueMember:
           referencedColumnName: id
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

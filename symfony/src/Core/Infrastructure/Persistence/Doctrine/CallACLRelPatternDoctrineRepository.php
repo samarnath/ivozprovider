@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\CallACLRelPattern\CallACLRelPatternRepository;
+use Core\Domain\Model\CallACLRelPattern\CallACLRelPatternRepository;
 
 /**
  * CallACLRelPatternDoctrineRepository

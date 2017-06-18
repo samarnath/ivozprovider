@@ -1,4 +1,4 @@
-Core\Model\TargetPattern\TargetPattern:
+Core\Domain\Model\TargetPattern\TargetPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TargetPatternDoctrineRepository
   type: entity
   table: TargetPatterns
@@ -72,7 +72,7 @@ Core\Model\TargetPattern\TargetPattern:
       column: regExp
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

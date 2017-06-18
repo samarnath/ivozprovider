@@ -1,4 +1,4 @@
-Core\Model\PricingPlan\PricingPlan:
+Core\Domain\Model\PricingPlan\PricingPlan:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\PricingPlanDoctrineRepository
   type: entity
   table: PricingPlans
@@ -75,7 +75,7 @@ Core\Model\PricingPlan\PricingPlan:
       column: createdOn
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

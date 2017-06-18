@@ -1,4 +1,4 @@
-Core\Model\CompanyAdmin\CompanyAdmin:
+Core\Domain\Model\CompanyAdmin\CompanyAdmin:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CompanyAdminDoctrineRepository
   type: entity
   table: CompanyAdmins
@@ -58,7 +58,7 @@ Core\Model\CompanyAdmin\CompanyAdmin:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -69,7 +69,7 @@ Core\Model\CompanyAdmin\CompanyAdmin:
           nullable: false
       orphanRemoval: false
     timezone:
-      targetEntity: \Core\Model\Timezone\TimezoneInterface
+      targetEntity: \Core\Domain\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

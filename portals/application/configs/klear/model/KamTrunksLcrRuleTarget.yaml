@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\TrunksLcrRuleTarget
-  entity: Kam\Model\TrunksLcrRuleTarget\TrunksLcrRuleTarget
+  entity: Kam\Domain\Model\TrunksLcrRuleTarget\TrunksLcrRuleTarget
   fields: 
     lcrId:
       title: _('Lcr id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name

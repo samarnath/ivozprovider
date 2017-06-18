@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\UsersPua\UsersPuaRepository;
+use Kam\Domain\Model\UsersPua\UsersPuaRepository;
 
 /**
  * UsersPuaDoctrineRepository

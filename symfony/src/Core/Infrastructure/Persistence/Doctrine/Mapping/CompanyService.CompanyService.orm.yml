@@ -1,4 +1,4 @@
-Core\Model\CompanyService\CompanyService:
+Core\Domain\Model\CompanyService\CompanyService:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CompanyServiceDoctrineRepository
   type: entity
   table: CompanyServices
@@ -27,7 +27,7 @@ Core\Model\CompanyService\CompanyService:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -38,7 +38,7 @@ Core\Model\CompanyService\CompanyService:
           nullable: false
       orphanRemoval: false
     service:
-      targetEntity: \Core\Model\Service\ServiceInterface
+      targetEntity: \Core\Domain\Model\Service\ServiceInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

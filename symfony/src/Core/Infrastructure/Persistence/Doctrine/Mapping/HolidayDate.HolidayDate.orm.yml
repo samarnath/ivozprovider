@@ -1,4 +1,4 @@
-Core\Model\HolidayDate\HolidayDate:
+Core\Domain\Model\HolidayDate\HolidayDate:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\HolidayDateDoctrineRepository
   type: entity
   table: HolidayDates
@@ -37,7 +37,7 @@ Core\Model\HolidayDate\HolidayDate:
       column: eventDate
   manyToOne:
     calendar:
-      targetEntity: \Core\Model\Calendar\CalendarInterface
+      targetEntity: \Core\Domain\Model\Calendar\CalendarInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -48,7 +48,7 @@ Core\Model\HolidayDate\HolidayDate:
           nullable: false
       orphanRemoval: false
     locution:
-      targetEntity: \Core\Model\Locution\LocutionInterface
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

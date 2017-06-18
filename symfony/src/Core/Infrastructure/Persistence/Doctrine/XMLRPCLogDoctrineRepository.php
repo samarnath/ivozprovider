@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\XMLRPCLog\XMLRPCLogRepository;
+use Core\Domain\Model\XMLRPCLog\XMLRPCLogRepository;
 
 /**
  * XMLRPCLogDoctrineRepository

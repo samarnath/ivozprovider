@@ -1,4 +1,4 @@
-Core\Model\HuntGroup\HuntGroup:
+Core\Domain\Model\HuntGroup\HuntGroup:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\HuntGroupDoctrineRepository
   type: entity
   table: HuntGroups
@@ -84,7 +84,7 @@ Core\Model\HuntGroup\HuntGroup:
       column: noAnswerNumberValue
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -95,7 +95,7 @@ Core\Model\HuntGroup\HuntGroup:
           nullable: false
       orphanRemoval: false
     noAnswerLocution:
-      targetEntity: \Core\Model\Locution\LocutionInterface
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -105,7 +105,7 @@ Core\Model\HuntGroup\HuntGroup:
           referencedColumnName: id
       orphanRemoval: false
     noAnswerExtension:
-      targetEntity: \Core\Model\Extension\ExtensionInterface
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -115,7 +115,7 @@ Core\Model\HuntGroup\HuntGroup:
           referencedColumnName: id
       orphanRemoval: false
     noAnswerVoiceMailUser:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

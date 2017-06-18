@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\HolidayDates
-  entity: Core\Model\HolidayDate\HolidayDate
+  entity: Core\Domain\Model\HolidayDate\HolidayDate
   fields: 
     calendarId:
       title: _('Calendar')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Calendars
-          entity: \Core\Model\Calendar\Calendar
+          entity: \Core\Domain\Model\Calendar\Calendar
           fieldName: 
             fields: 
               - name
@@ -39,7 +39,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          entity: \Core\Model\Locution\Locution
+          entity: \Core\Domain\Model\Locution\Locution
           filterclass: IvozProvider_Klear_Filter_HolidayDateSelectLocution
           fieldName: 
             fields: 

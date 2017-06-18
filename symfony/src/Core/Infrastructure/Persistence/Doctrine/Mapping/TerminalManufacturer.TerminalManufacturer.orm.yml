@@ -1,4 +1,4 @@
-Core\Model\TerminalManufacturer\TerminalManufacturer:
+Core\Domain\Model\TerminalManufacturer\TerminalManufacturer:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TerminalManufacturerDoctrineRepository
   type: entity
   table: TerminalManufacturers

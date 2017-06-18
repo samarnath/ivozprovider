@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\QueueMember\QueueMemberRepository;
+use Core\Domain\Model\QueueMember\QueueMemberRepository;
 
 /**
  * QueueMemberDoctrineRepository

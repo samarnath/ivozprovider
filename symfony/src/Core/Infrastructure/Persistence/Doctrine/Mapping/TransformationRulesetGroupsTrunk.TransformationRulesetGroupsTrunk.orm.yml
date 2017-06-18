@@ -1,4 +1,4 @@
-Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk:
+Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TransformationRulesetGroupsTrunkDoctrineRepository
   type: entity
   table: TransformationRulesetGroupsTrunks
@@ -82,7 +82,7 @@ Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk:
       column: nationalNumLength
   manyToOne:
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -93,7 +93,7 @@ Core\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk:
           nullable: false
       orphanRemoval: false
     country:
-      targetEntity: \Core\Model\Country\CountryInterface
+      targetEntity: \Core\Domain\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

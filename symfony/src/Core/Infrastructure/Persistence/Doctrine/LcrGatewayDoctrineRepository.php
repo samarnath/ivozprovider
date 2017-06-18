@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\LcrGateway\LcrGatewayRepository;
+use Core\Domain\Model\LcrGateway\LcrGatewayRepository;
 
 /**
  * LcrGatewayDoctrineRepository

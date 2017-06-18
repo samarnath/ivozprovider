@@ -1,4 +1,4 @@
-Core\Model\User\User:
+Core\Domain\Model\User\User:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\UserDoctrineRepository
   type: entity
   table: Users
@@ -143,7 +143,7 @@ Core\Model\User\User:
       column: areaCode
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -154,7 +154,7 @@ Core\Model\User\User:
           nullable: false
       orphanRemoval: false
     callACL:
-      targetEntity: \Core\Model\CallACL\CallACLInterface
+      targetEntity: \Core\Domain\Model\CallACL\CallACLInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -164,7 +164,7 @@ Core\Model\User\User:
           referencedColumnName: id
       orphanRemoval: false
     bossAssistant:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -174,7 +174,7 @@ Core\Model\User\User:
           referencedColumnName: id
       orphanRemoval: false
     country:
-      targetEntity: \Core\Model\Country\CountryInterface
+      targetEntity: \Core\Domain\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -184,7 +184,7 @@ Core\Model\User\User:
           referencedColumnName: id
       orphanRemoval: false
     language:
-      targetEntity: \Core\Model\Language\LanguageInterface
+      targetEntity: \Core\Domain\Model\Language\LanguageInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -194,7 +194,7 @@ Core\Model\User\User:
           referencedColumnName: id
       orphanRemoval: false
     terminal:
-      targetEntity: \Core\Model\Terminal\TerminalInterface
+      targetEntity: \Core\Domain\Model\Terminal\TerminalInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -204,7 +204,7 @@ Core\Model\User\User:
           referencedColumnName: id
       orphanRemoval: false
     extension:
-      targetEntity: \Core\Model\Extension\ExtensionInterface
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -214,7 +214,7 @@ Core\Model\User\User:
           referencedColumnName: id
       orphanRemoval: false
     timezone:
-      targetEntity: \Core\Model\Timezone\TimezoneInterface
+      targetEntity: \Core\Domain\Model\Timezone\TimezoneInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -224,7 +224,7 @@ Core\Model\User\User:
           referencedColumnName: id
       orphanRemoval: false
     outgoingDDI:
-      targetEntity: \Core\Model\DDI\DDIInterface
+      targetEntity: \Core\Domain\Model\DDI\DDIInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

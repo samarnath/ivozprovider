@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Invoices
-  entity: Core\Model\Invoice\Invoice
+  entity: Core\Domain\Model\Invoice\Invoice
   fields: 
     number:
       title: _('Number')
@@ -97,7 +97,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Model\Company\Company
+          entity: \Core\Domain\Model\Company\Company
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 
@@ -113,7 +113,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
@@ -129,7 +129,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\InvoiceTemplates
-          entity: \Core\Model\InvoiceTemplate\InvoiceTemplate
+          entity: \Core\Domain\Model\InvoiceTemplate\InvoiceTemplate
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields: 
@@ -147,8 +147,8 @@ production:
       data: mapper
       config:
 #        mapperName: \IvozProvider\Mapper\Sql\FixedCostsRelInvoices
-        entity: \Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
-        entityClass: Core\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
+        entity: \Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
+        entityClass: Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoice
         filterField: FixedCostsRelInvoice.invoice
         showAsTable: true
         fieldName:
@@ -156,8 +156,8 @@ production:
             fixedCost:
               title: _("Fixed cost")
 #              mapperName: \IvozProvider\Mapper\Sql\FixedCosts
-              entity: \Core\Model\FixedCost\FixedCost
-              entityClass: Core\Model\FixedCost\FixedCost
+              entity: \Core\Domain\Model\FixedCost\FixedCost
+              entityClass: Core\Domain\Model\FixedCost\FixedCost
               field:
                 - name
                 - cost

@@ -1,4 +1,4 @@
-Ast\Model\Queue\Queue:
+Ast\Domain\Model\Queue\Queue:
   repositoryClass: Ast\Infrastructure\Persistence\Doctrine\QueueDoctrineRepository
   type: entity
   table: ast_queues
@@ -72,7 +72,7 @@ Ast\Model\Queue\Queue:
         unsigned: false
   manyToOne:
     queue:
-      targetEntity: \Core\Model\Queue\QueueInterface
+      targetEntity: \Core\Domain\Model\Queue\QueueInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

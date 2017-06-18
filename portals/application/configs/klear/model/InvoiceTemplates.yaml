@@ -2,7 +2,7 @@
 
 production: 
   class: \IvozProvider\Model\InvoiceTemplates
-  entity: Core\Model\InvoiceTemplate\InvoiceTemplate
+  entity: Core\Domain\Model\InvoiceTemplate\InvoiceTemplate
   fields: 
     name:
       title: ngettext('Name', 'Names', 1)
@@ -61,7 +61,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Model\Brand\Brand
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name

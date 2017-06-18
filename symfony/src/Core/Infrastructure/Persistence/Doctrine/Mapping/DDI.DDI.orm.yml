@@ -1,4 +1,4 @@
-Core\Model\DDI\DDI:
+Core\Domain\Model\DDI\DDI:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\DDIDoctrineRepository
   type: entity
   table: DDIs
@@ -111,7 +111,7 @@ Core\Model\DDI\DDI:
       column: friendValue
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -123,7 +123,7 @@ Core\Model\DDI\DDI:
           nullable: false
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Model\Brand\BrandInterface
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -135,7 +135,7 @@ Core\Model\DDI\DDI:
           nullable: false
       orphanRemoval: false
     conferenceRoom:
-      targetEntity: \Core\Model\ConferenceRoom\ConferenceRoomInterface
+      targetEntity: \Core\Domain\Model\ConferenceRoom\ConferenceRoomInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -145,7 +145,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     language:
-      targetEntity: \Core\Model\Language\LanguageInterface
+      targetEntity: \Core\Domain\Model\Language\LanguageInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -155,7 +155,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     queue:
-      targetEntity: \Core\Model\Queue\QueueInterface
+      targetEntity: \Core\Domain\Model\Queue\QueueInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -165,7 +165,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     externalCallFilter:
-      targetEntity: \Core\Model\ExternalCallFilter\ExternalCallFilterInterface
+      targetEntity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -175,7 +175,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     user:
-      targetEntity: \Core\Model\User\UserInterface
+      targetEntity: \Core\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -185,7 +185,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     IVRCommon:
-      targetEntity: \Core\Model\IVRCommon\IVRCommonInterface
+      targetEntity: \Core\Domain\Model\IVRCommon\IVRCommonInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -195,7 +195,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     IVRCustom:
-      targetEntity: \Core\Model\IVRCustom\IVRCustomInterface
+      targetEntity: \Core\Domain\Model\IVRCustom\IVRCustomInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -205,7 +205,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     huntGroup:
-      targetEntity: \Core\Model\HuntGroup\HuntGroupInterface
+      targetEntity: \Core\Domain\Model\HuntGroup\HuntGroupInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -215,7 +215,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     fax:
-      targetEntity: \Core\Model\Fax\FaxInterface
+      targetEntity: \Core\Domain\Model\Fax\FaxInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -225,7 +225,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     peeringContract:
-      targetEntity: \Core\Model\PeeringContract\PeeringContractInterface
+      targetEntity: \Core\Domain\Model\PeeringContract\PeeringContractInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -235,7 +235,7 @@ Core\Model\DDI\DDI:
           referencedColumnName: id
       orphanRemoval: false
     country:
-      targetEntity: \Core\Model\Country\CountryInterface
+      targetEntity: \Core\Domain\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

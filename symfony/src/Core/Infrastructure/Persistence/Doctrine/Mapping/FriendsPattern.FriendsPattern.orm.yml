@@ -1,4 +1,4 @@
-Core\Model\FriendsPattern\FriendsPattern:
+Core\Domain\Model\FriendsPattern\FriendsPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FriendsPatternDoctrineRepository
   type: entity
   table: FriendsPatterns
@@ -32,7 +32,7 @@ Core\Model\FriendsPattern\FriendsPattern:
       column: regExp
   manyToOne:
     friend:
-      targetEntity: \Core\Model\Friend\FriendInterface
+      targetEntity: \Core\Domain\Model\Friend\FriendInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

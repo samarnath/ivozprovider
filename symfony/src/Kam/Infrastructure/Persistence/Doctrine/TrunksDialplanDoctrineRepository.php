@@ -3,7 +3,7 @@
 namespace Kam\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Kam\Model\TrunksDialplan\TrunksDialplanRepository;
+use Kam\Domain\Model\TrunksDialplan\TrunksDialplanRepository;
 
 /**
  * TrunksDialplanDoctrineRepository

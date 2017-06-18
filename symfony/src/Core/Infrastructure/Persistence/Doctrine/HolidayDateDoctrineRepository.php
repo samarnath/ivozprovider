@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\HolidayDate\HolidayDateRepository;
+use Core\Domain\Model\HolidayDate\HolidayDateRepository;
 
 /**
  * HolidayDateDoctrineRepository

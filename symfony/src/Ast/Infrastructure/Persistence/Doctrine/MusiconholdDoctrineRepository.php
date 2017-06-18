@@ -3,7 +3,7 @@
 namespace Ast\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Ast\Model\Musiconhold\MusiconholdRepository;
+use Ast\Domain\Model\Musiconhold\MusiconholdRepository;
 
 /**
  * MusiconholdDoctrineRepository

@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelScheduleRepository;
+use Core\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelScheduleRepository;
 
 /**
  * ExternalCallFilterRelScheduleDoctrineRepository

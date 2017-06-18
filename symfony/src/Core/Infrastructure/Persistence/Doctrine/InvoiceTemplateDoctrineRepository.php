@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\InvoiceTemplate\InvoiceTemplateRepository;
+use Core\Domain\Model\InvoiceTemplate\InvoiceTemplateRepository;
 
 /**
  * InvoiceTemplateDoctrineRepository

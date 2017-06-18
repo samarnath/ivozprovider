@@ -1,4 +1,4 @@
-Core\Model\Friend\Friend:
+Core\Domain\Model\Friend\Friend:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FriendDoctrineRepository
   type: entity
   table: Friends
@@ -166,7 +166,7 @@ Core\Model\Friend\Friend:
       column: directConnectivity
   manyToOne:
     company:
-      targetEntity: \Core\Model\Company\CompanyInterface
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -177,7 +177,7 @@ Core\Model\Friend\Friend:
           nullable: false
       orphanRemoval: false
     country:
-      targetEntity: \Core\Model\Country\CountryInterface
+      targetEntity: \Core\Domain\Model\Country\CountryInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -187,7 +187,7 @@ Core\Model\Friend\Friend:
           referencedColumnName: id
       orphanRemoval: false
     callACL:
-      targetEntity: \Core\Model\CallACL\CallACLInterface
+      targetEntity: \Core\Domain\Model\CallACL\CallACLInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -197,7 +197,7 @@ Core\Model\Friend\Friend:
           referencedColumnName: id
       orphanRemoval: false
     outgoingDDI:
-      targetEntity: \Core\Model\DDI\DDIInterface
+      targetEntity: \Core\Domain\Model\DDI\DDIInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -207,7 +207,7 @@ Core\Model\Friend\Friend:
           referencedColumnName: id
       orphanRemoval: false
     language:
-      targetEntity: \Core\Model\Language\LanguageInterface
+      targetEntity: \Core\Domain\Model\Language\LanguageInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

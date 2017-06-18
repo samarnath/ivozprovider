@@ -3,7 +3,7 @@
 namespace Core\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
-use Core\Model\Terminal\TerminalRepository;
+use Core\Domain\Model\Terminal\TerminalRepository;
 
 /**
  * TerminalDoctrineRepository

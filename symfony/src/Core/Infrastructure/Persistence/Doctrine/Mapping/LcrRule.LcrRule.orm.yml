@@ -1,4 +1,4 @@
-Core\Model\LcrRule\LcrRule:
+Core\Domain\Model\LcrRule\LcrRule:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\LcrRuleDoctrineRepository
   type: entity
   table: LcrRules
@@ -76,7 +76,7 @@ Core\Model\LcrRule\LcrRule:
         default: ''
   manyToOne:
     routingPattern:
-      targetEntity: \Core\Model\RoutingPattern\RoutingPatternInterface
+      targetEntity: \Core\Domain\Model\RoutingPattern\RoutingPatternInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -86,7 +86,7 @@ Core\Model\LcrRule\LcrRule:
           referencedColumnName: id
       orphanRemoval: false
     outgoingRouting:
-      targetEntity: \Core\Model\OutgoingRouting\OutgoingRoutingInterface
+      targetEntity: \Core\Domain\Model\OutgoingRouting\OutgoingRoutingInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
