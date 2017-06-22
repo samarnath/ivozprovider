@@ -14,29 +14,29 @@ class LanguageDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $iden;
+    private $iden;
 
     /**
      * @var string
      */
-    public $name = '';
+    private $name = '';
 
     /**
      * @column name_en
      * @var string
      */
-    public $nameEn = '';
+    private $nameEn = '';
 
     /**
      * @column name_es
      * @var string
      */
-    public $nameEs = '';
+    private $nameEs = '';
 
     /**
      * @return array

@@ -39,11 +39,19 @@ interface TerminalInterface
 
 
     /**
-     * Get allow
+     * Get allowAudio
      *
      * @return string
      */
-    public function getAllow();
+    public function getAllowAudio();
+
+
+    /**
+     * Get allowVideo
+     *
+     * @return string
+     */
+    public function getAllowVideo();
 
 
     /**

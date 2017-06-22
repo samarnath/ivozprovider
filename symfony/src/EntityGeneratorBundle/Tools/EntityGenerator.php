@@ -275,8 +275,8 @@ protected function <methodName>(<methodTypeHint>$<variableName>)
         }
 
         $response = [
-            'use Assert\\Assertion;',
-            'use Core\\Model\\EntityInterface;',
+            'use Assert\Assertion;',
+            'use Core\Domain\Model\EntityInterface;',
             'use Core\Application\DataTransferObjectInterface;',
         ];
         if ($useCollections) {

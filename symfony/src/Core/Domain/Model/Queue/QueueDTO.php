@@ -14,147 +14,147 @@ class QueueDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var integer
      */
-    public $maxWaitTime;
+    private $maxWaitTime;
 
     /**
      * @var string
      */
-    public $timeoutTargetType;
+    private $timeoutTargetType;
 
     /**
      * @var string
      */
-    public $timeoutNumberValue;
+    private $timeoutNumberValue;
 
     /**
      * @var integer
      */
-    public $maxlen;
+    private $maxlen;
 
     /**
      * @var string
      */
-    public $fullTargetType;
+    private $fullTargetType;
 
     /**
      * @var string
      */
-    public $fullNumberValue;
+    private $fullNumberValue;
 
     /**
      * @var integer
      */
-    public $periodicAnnounceFrequency;
+    private $periodicAnnounceFrequency;
 
     /**
      * @var integer
      */
-    public $memberCallRest;
+    private $memberCallRest;
 
     /**
      * @var integer
      */
-    public $memberCallTimeout;
+    private $memberCallTimeout;
 
     /**
      * @var string
      */
-    public $strategy;
+    private $strategy;
 
     /**
      * @var integer
      */
-    public $weight;
+    private $weight;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $periodicAnnounceLocutionId;
+    private $periodicAnnounceLocutionId;
 
     /**
      * @var mixed
      */
-    public $timeoutLocutionId;
+    private $timeoutLocutionId;
 
     /**
      * @var mixed
      */
-    public $timeoutExtensionId;
+    private $timeoutExtensionId;
 
     /**
      * @var mixed
      */
-    public $timeoutVoiceMailUserId;
+    private $timeoutVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $fullLocutionId;
+    private $fullLocutionId;
 
     /**
      * @var mixed
      */
-    public $fullExtensionId;
+    private $fullExtensionId;
 
     /**
      * @var mixed
      */
-    public $fullVoiceMailUserId;
+    private $fullVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $periodicAnnounceLocution;
+    private $periodicAnnounceLocution;
 
     /**
      * @var mixed
      */
-    public $timeoutLocution;
+    private $timeoutLocution;
 
     /**
      * @var mixed
      */
-    public $timeoutExtension;
+    private $timeoutExtension;
 
     /**
      * @var mixed
      */
-    public $timeoutVoiceMailUser;
+    private $timeoutVoiceMailUser;
 
     /**
      * @var mixed
      */
-    public $fullLocution;
+    private $fullLocution;
 
     /**
      * @var mixed
      */
-    public $fullExtension;
+    private $fullExtension;
 
     /**
      * @var mixed
      */
-    public $fullVoiceMailUser;
+    private $fullVoiceMailUser;
 
     /**
      * @return array
@@ -219,14 +219,14 @@ class QueueDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->periodicAnnounceLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getPeriodicAnnounceLocutionId());
-        $this->timeoutLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getTimeoutLocutionId());
-        $this->timeoutExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getTimeoutExtensionId());
-        $this->timeoutVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getTimeoutVoiceMailUserId());
-        $this->fullLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getFullLocutionId());
-        $this->fullExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getFullExtensionId());
-        $this->fullVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getFullVoiceMailUserId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->periodicAnnounceLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getPeriodicAnnounceLocutionId());
+        $this->timeoutLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getTimeoutLocutionId());
+        $this->timeoutExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getTimeoutExtensionId());
+        $this->timeoutVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getTimeoutVoiceMailUserId());
+        $this->fullLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getFullLocutionId());
+        $this->fullExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getFullExtensionId());
+        $this->fullVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getFullVoiceMailUserId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -515,7 +515,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -543,7 +543,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getPeriodicAnnounceLocution()
     {
@@ -571,7 +571,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getTimeoutLocution()
     {
@@ -599,7 +599,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getTimeoutExtension()
     {
@@ -627,7 +627,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getTimeoutVoiceMailUser()
     {
@@ -655,7 +655,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getFullLocution()
     {
@@ -683,7 +683,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getFullExtension()
     {
@@ -711,7 +711,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getFullVoiceMailUser()
     {

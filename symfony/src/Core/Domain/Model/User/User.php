@@ -63,6 +63,12 @@ class User implements EntityInterface, UserInterface
     protected $maxCalls = '0';
 
     /**
+     * @comment enum:0|1|2|3
+     * @var boolean
+     */
+    protected $externalIpCalls = '0';
+
+    /**
      * @var boolean
      */
     protected $voicemailEnabled = '1';
@@ -149,6 +155,7 @@ class User implements EntityInterface, UserInterface
         $isBoss,
         $active,
         $maxCalls,
+        $externalIpCalls,
         $voicemailEnabled,
         $voicemailSendMail,
         $voicemailAttachSound
@@ -159,6 +166,7 @@ class User implements EntityInterface, UserInterface
         $this->setIsBoss($isBoss);
         $this->setActive($active);
         $this->setMaxCalls($maxCalls);
+        $this->setExternalIpCalls($externalIpCalls);
         $this->setVoicemailEnabled($voicemailEnabled);
         $this->setVoicemailSendMail($voicemailSendMail);
         $this->setVoicemailAttachSound($voicemailAttachSound);
@@ -196,6 +204,7 @@ class User implements EntityInterface, UserInterface
             $dto->getIsBoss(),
             $dto->getActive(),
             $dto->getMaxCalls(),
+            $dto->getExternalIpCalls(),
             $dto->getVoicemailEnabled(),
             $dto->getVoicemailSendMail(),
             $dto->getVoicemailAttachSound()
@@ -236,6 +245,7 @@ class User implements EntityInterface, UserInterface
             ->setExceptionBoosAssistantRegExp($dto->getExceptionBoosAssistantRegExp())
             ->setActive($dto->getActive())
             ->setMaxCalls($dto->getMaxCalls())
+            ->setExternalIpCalls($dto->getExternalIpCalls())
             ->setVoicemailEnabled($dto->getVoicemailEnabled())
             ->setVoicemailSendMail($dto->getVoicemailSendMail())
             ->setVoicemailAttachSound($dto->getVoicemailAttachSound())
@@ -271,6 +281,7 @@ class User implements EntityInterface, UserInterface
             ->setExceptionBoosAssistantRegExp($this->getExceptionBoosAssistantRegExp())
             ->setActive($this->getActive())
             ->setMaxCalls($this->getMaxCalls())
+            ->setExternalIpCalls($this->getExternalIpCalls())
             ->setVoicemailEnabled($this->getVoicemailEnabled())
             ->setVoicemailSendMail($this->getVoicemailSendMail())
             ->setVoicemailAttachSound($this->getVoicemailAttachSound())
@@ -303,6 +314,7 @@ class User implements EntityInterface, UserInterface
             'exceptionBoosAssistantRegExp' => $this->getExceptionBoosAssistantRegExp(),
             'active' => $this->getActive(),
             'maxCalls' => $this->getMaxCalls(),
+            'externalIpCalls' => $this->getExternalIpCalls(),
             'voicemailEnabled' => $this->getVoicemailEnabled(),
             'voicemailSendMail' => $this->getVoicemailSendMail(),
             'voicemailAttachSound' => $this->getVoicemailAttachSound(),
@@ -578,6 +590,39 @@ class User implements EntityInterface, UserInterface
     public function getMaxCalls()
     {
         return $this->maxCalls;
+    }
+
+    /**
+     * Set externalIpCalls
+     *
+     * @param boolean $externalIpCalls
+     *
+     * @return User
+     */
+    protected function setExternalIpCalls($externalIpCalls)
+    {
+        Assertion::notNull($externalIpCalls);
+        Assertion::between(intval($externalIpCalls), 0, 1);
+        Assertion::choice($externalIpCalls, array (
+          0 => '0',
+          1 => '1',
+          2 => '2',
+          3 => '3',
+        ));
+
+        $this->externalIpCalls = $externalIpCalls;
+
+        return $this;
+    }
+
+    /**
+     * Get externalIpCalls
+     *
+     * @return boolean
+     */
+    public function getExternalIpCalls()
+    {
+        return $this->externalIpCalls;
     }
 
     /**

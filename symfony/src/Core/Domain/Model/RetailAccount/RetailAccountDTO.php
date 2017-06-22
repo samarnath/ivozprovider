@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Domain\Model\Friend;
+namespace Core\Domain\Model\RetailAccount;
 
 use Core\Application\DataTransferObjectInterface;
 use Core\Application\ForeignKeyTransformerInterface;
@@ -9,7 +9,7 @@ use Core\Application\CollectionTransformerInterface;
 /**
  * @codeCoverageIgnore
  */
-class FriendDTO implements DataTransferObjectInterface
+class RetailAccountDTO implements DataTransferObjectInterface
 {
     /**
      * @var integer
@@ -63,11 +63,6 @@ class FriendDTO implements DataTransferObjectInterface
     private $areaCode;
 
     /**
-     * @var integer
-     */
-    private $priority = '1';
-
-    /**
      * @var string
      */
     private $disallow = 'all';
@@ -109,17 +104,17 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @var mixed
      */
+    private $brandId;
+
+    /**
+     * @var mixed
+     */
     private $companyId;
 
     /**
      * @var mixed
      */
     private $countryId;
-
-    /**
-     * @var mixed
-     */
-    private $callACLId;
 
     /**
      * @var mixed
@@ -134,17 +129,17 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @var mixed
      */
+    private $brand;
+
+    /**
+     * @var mixed
+     */
     private $company;
 
     /**
      * @var mixed
      */
     private $country;
-
-    /**
-     * @var mixed
-     */
-    private $callACL;
 
     /**
      * @var mixed
@@ -172,7 +167,6 @@ class FriendDTO implements DataTransferObjectInterface
             'authNeeded' => $this->getAuthNeeded(),
             'password' => $this->getPassword(),
             'areaCode' => $this->getAreaCode(),
-            'priority' => $this->getPriority(),
             'disallow' => $this->getDisallow(),
             'allow' => $this->getAllow(),
             'directMediaMethod' => $this->getDirectMediaMethod(),
@@ -180,9 +174,9 @@ class FriendDTO implements DataTransferObjectInterface
             'updateCallerid' => $this->getUpdateCallerid(),
             'fromDomain' => $this->getFromDomain(),
             'directConnectivity' => $this->getDirectConnectivity(),
+            'brandId' => $this->getBrandId(),
             'companyId' => $this->getCompanyId(),
             'countryId' => $this->getCountryId(),
-            'callACLId' => $this->getCallACLId(),
             'outgoingDDIId' => $this->getOutgoingDDIId(),
             'languageId' => $this->getLanguageId()
         ];
@@ -206,7 +200,6 @@ class FriendDTO implements DataTransferObjectInterface
             ->setAuthNeeded(isset($data['authNeeded']) ? $data['authNeeded'] : null)
             ->setPassword(isset($data['password']) ? $data['password'] : null)
             ->setAreaCode(isset($data['areaCode']) ? $data['areaCode'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null)
             ->setDisallow(isset($data['disallow']) ? $data['disallow'] : null)
             ->setAllow(isset($data['allow']) ? $data['allow'] : null)
             ->setDirectMediaMethod(isset($data['directMediaMethod']) ? $data['directMediaMethod'] : null)
@@ -214,18 +207,18 @@ class FriendDTO implements DataTransferObjectInterface
             ->setUpdateCallerid(isset($data['updateCallerid']) ? $data['updateCallerid'] : null)
             ->setFromDomain(isset($data['fromDomain']) ? $data['fromDomain'] : null)
             ->setDirectConnectivity(isset($data['directConnectivity']) ? $data['directConnectivity'] : null)
+            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
             ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null)
-            ->setCallACLId(isset($data['callACLId']) ? $data['callACLId'] : null)
             ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null)
             ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null);
     }
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
         $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
         $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
-        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACLInterface', $this->getCallACLId());
         $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
         $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
     }
@@ -238,7 +231,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param integer $id
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setId($id)
     {
@@ -258,7 +251,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $name
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setName($name)
     {
@@ -278,7 +271,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $domain
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setDomain($domain = null)
     {
@@ -298,7 +291,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $description
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setDescription($description)
     {
@@ -318,7 +311,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $transport
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setTransport($transport)
     {
@@ -338,7 +331,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $ip
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setIp($ip = null)
     {
@@ -358,7 +351,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param integer $port
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setPort($port = null)
     {
@@ -378,7 +371,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $authNeeded
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setAuthNeeded($authNeeded)
     {
@@ -398,7 +391,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $password
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setPassword($password = null)
     {
@@ -418,7 +411,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $areaCode
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setAreaCode($areaCode = null)
     {
@@ -436,29 +429,9 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param integer $priority
-     *
-     * @return FriendDTO
-     */
-    public function setPriority($priority)
-    {
-        $this->priority = $priority;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getPriority()
-    {
-        return $this->priority;
-    }
-
-    /**
      * @param string $disallow
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setDisallow($disallow)
     {
@@ -478,7 +451,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $allow
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setAllow($allow)
     {
@@ -498,7 +471,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $directMediaMethod
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setDirectMediaMethod($directMediaMethod)
     {
@@ -518,7 +491,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $calleridUpdateHeader
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setCalleridUpdateHeader($calleridUpdateHeader)
     {
@@ -538,7 +511,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $updateCallerid
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setUpdateCallerid($updateCallerid)
     {
@@ -558,7 +531,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $fromDomain
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setFromDomain($fromDomain = null)
     {
@@ -578,7 +551,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param string $directConnectivity
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setDirectConnectivity($directConnectivity)
     {
@@ -596,9 +569,37 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $brandId
+     *
+     * @return RetailAccountDTO
+     */
+    public function setBrandId($brandId)
+    {
+        $this->brandId = $brandId;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getBrandId()
+    {
+        return $this->brandId;
+    }
+
+    /**
+     * @return \Core\Domain\Model\Brand\BrandInterface
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
      * @param integer $companyId
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setCompanyId($companyId)
     {
@@ -626,7 +627,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param integer $countryId
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setCountryId($countryId)
     {
@@ -652,37 +653,9 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param integer $callACLId
-     *
-     * @return FriendDTO
-     */
-    public function setCallACLId($callACLId)
-    {
-        $this->callACLId = $callACLId;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getCallACLId()
-    {
-        return $this->callACLId;
-    }
-
-    /**
-     * @return \Core\Domain\Model\CallACL\CallACLInterface
-     */
-    public function getCallACL()
-    {
-        return $this->callACL;
-    }
-
-    /**
      * @param integer $outgoingDDIId
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setOutgoingDDIId($outgoingDDIId)
     {
@@ -710,7 +683,7 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param integer $languageId
      *
-     * @return FriendDTO
+     * @return RetailAccountDTO
      */
     public function setLanguageId($languageId)
     {

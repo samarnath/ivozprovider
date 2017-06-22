@@ -14,164 +14,164 @@ class CompanyDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @column domain_users
      * @var string
      */
-    public $domainUsers;
+    private $domainUsers;
 
     /**
      * @var string
      */
-    public $nif;
+    private $nif;
 
     /**
      * @var integer
      */
-    public $externalMaxCalls = '0';
+    private $externalMaxCalls = '0';
 
     /**
      * @var string
      */
-    public $postalAddress;
+    private $postalAddress;
 
     /**
      * @var string
      */
-    public $postalCode;
+    private $postalCode;
 
     /**
      * @var string
      */
-    public $town;
+    private $town;
 
     /**
      * @var string
      */
-    public $province;
+    private $province;
 
     /**
      * @var string
      */
-    public $country;
+    private $country;
 
     /**
      * @column outbound_prefix
      * @var string
      */
-    public $outboundPrefix;
+    private $outboundPrefix;
 
     /**
      * @var boolean
      */
-    public $ipfilter = '1';
+    private $ipfilter = '1';
 
     /**
      * @var boolean
      */
-    public $onDemandRecord = '0';
+    private $onDemandRecord = '0';
 
     /**
      * @var string
      */
-    public $onDemandRecordCode;
+    private $onDemandRecordCode;
 
     /**
      * @var string
      */
-    public $areaCode;
+    private $areaCode;
 
     /**
      * @var string
      */
-    public $externallyExtraOpts;
+    private $externallyExtraOpts;
 
     /**
      * @var integer
      */
-    public $recordingsLimitMB;
+    private $recordingsLimitMB;
 
     /**
      * @var string
      */
-    public $recordingsLimitEmail;
+    private $recordingsLimitEmail;
 
     /**
      * @var mixed
      */
-    public $languageId;
+    private $languageId;
 
     /**
      * @var mixed
      */
-    public $mediaRelaySetsId;
+    private $mediaRelaySetsId;
 
     /**
      * @var mixed
      */
-    public $defaultTimezoneId;
+    private $defaultTimezoneId;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $applicationServerId;
+    private $applicationServerId;
 
     /**
      * @var mixed
      */
-    public $countryCodeId;
+    private $countryCodeId;
 
     /**
      * @var mixed
      */
-    public $outgoingDDIId;
+    private $outgoingDDIId;
 
     /**
      * @var mixed
      */
-    public $language;
+    private $language;
 
     /**
      * @var mixed
      */
-    public $mediaRelaySets;
+    private $mediaRelaySets;
 
     /**
      * @var mixed
      */
-    public $defaultTimezone;
+    private $defaultTimezone;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $applicationServer;
+    private $applicationServer;
 
     /**
      * @var mixed
      */
-    public $countryCode;
+    private $countryCode;
 
     /**
      * @var mixed
      */
-    public $outgoingDDI;
+    private $outgoingDDI;
 
     /**
      * @return array
@@ -244,13 +244,13 @@ class CompanyDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->language = $transformer->transform('Core\\Model\\Language\\Language', $this->getLanguageId());
-        $this->mediaRelaySets = $transformer->transform('Core\\Model\\MediaRelaySet\\MediaRelaySet', $this->getMediaRelaySetsId());
-        $this->defaultTimezone = $transformer->transform('Core\\Model\\Timezone\\Timezone', $this->getDefaultTimezoneId());
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->applicationServer = $transformer->transform('Core\\Model\\ApplicationServer\\ApplicationServer', $this->getApplicationServerId());
-        $this->countryCode = $transformer->transform('Core\\Model\\Country\\Country', $this->getCountryCodeId());
-        $this->outgoingDDI = $transformer->transform('Core\\Model\\DDI\\DDI', $this->getOutgoingDDIId());
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
+        $this->mediaRelaySets = $transformer->transform('Core\\Domain\\Model\\MediaRelaySet\\MediaRelaySetInterface', $this->getMediaRelaySetsId());
+        $this->defaultTimezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getDefaultTimezoneId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->applicationServer = $transformer->transform('Core\\Domain\\Model\\ApplicationServer\\ApplicationServerInterface', $this->getApplicationServerId());
+        $this->countryCode = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryCodeId());
+        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -639,7 +639,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Language\Language
+     * @return \Core\Domain\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {
@@ -667,7 +667,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySet
+     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
      */
     public function getMediaRelaySets()
     {
@@ -695,7 +695,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\Timezone
+     * @return \Core\Domain\Model\Timezone\TimezoneInterface
      */
     public function getDefaultTimezone()
     {
@@ -723,7 +723,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -751,7 +751,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\ApplicationServer\ApplicationServer
+     * @return \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
      */
     public function getApplicationServer()
     {
@@ -779,7 +779,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\Country
+     * @return \Core\Domain\Model\Country\CountryInterface
      */
     public function getCountryCode()
     {
@@ -807,7 +807,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\DDI\DDI
+     * @return \Core\Domain\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI()
     {

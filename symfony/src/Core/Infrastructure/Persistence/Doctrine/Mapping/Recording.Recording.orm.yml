@@ -65,7 +65,7 @@ Core\Domain\Model\Recording\Recording:
       nullable: true
       options:
         unsigned: true
-        comment: '[FSO:keepExtension|storeInBaseFolder]'
+        comment: '[FSO:keepExtension]'
       column: recordedFileFileSize
     recordedFileMimeType:
       type: string

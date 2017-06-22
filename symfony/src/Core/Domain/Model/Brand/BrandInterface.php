@@ -31,11 +31,11 @@ interface BrandInterface
 
 
     /**
-     * Get domainTrunks
+     * Get domainUsers
      *
      * @return string
      */
-    public function getDomainTrunks();
+    public function getDomainUsers();
 
 
     /**

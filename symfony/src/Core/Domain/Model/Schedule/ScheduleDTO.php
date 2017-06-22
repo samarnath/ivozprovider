@@ -14,67 +14,67 @@ class ScheduleDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var \DateTime
      */
-    public $timeIn;
+    private $timeIn;
 
     /**
      * @var \DateTime
      */
-    public $timeout;
+    private $timeout;
 
     /**
      * @var boolean
      */
-    public $monday = '0';
+    private $monday = '0';
 
     /**
      * @var boolean
      */
-    public $tuesday = '0';
+    private $tuesday = '0';
 
     /**
      * @var boolean
      */
-    public $wednesday = '0';
+    private $wednesday = '0';
 
     /**
      * @var boolean
      */
-    public $thursday = '0';
+    private $thursday = '0';
 
     /**
      * @var boolean
      */
-    public $friday = '0';
+    private $friday = '0';
 
     /**
      * @var boolean
      */
-    public $saturday = '0';
+    private $saturday = '0';
 
     /**
      * @var boolean
      */
-    public $sunday = '0';
+    private $sunday = '0';
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @return array
@@ -121,7 +121,7 @@ class ScheduleDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -370,7 +370,7 @@ class ScheduleDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

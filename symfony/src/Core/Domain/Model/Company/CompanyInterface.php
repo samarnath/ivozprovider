@@ -15,6 +15,14 @@ interface CompanyInterface
 
 
     /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType();
+
+
+    /**
      * Get name
      *
      * @return string
@@ -127,11 +135,11 @@ interface CompanyInterface
 
 
     /**
-     * Get externallyExtraOpts
+     * Get externallyextraopts
      *
      * @return string
      */
-    public function getExternallyExtraOpts();
+    public function getExternallyextraopts();
 
 
     /**

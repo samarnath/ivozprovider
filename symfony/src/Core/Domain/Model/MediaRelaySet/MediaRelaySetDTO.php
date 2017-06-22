@@ -14,17 +14,17 @@ class MediaRelaySetDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name = '0';
+    private $name = '0';
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @return array

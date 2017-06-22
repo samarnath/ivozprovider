@@ -14,52 +14,52 @@ class TerminalModelDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $iden;
+    private $iden;
 
     /**
      * @var string
      */
-    public $name = '';
+    private $name = '';
 
     /**
      * @var string
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @var string
      */
-    public $genericTemplate;
+    private $genericTemplate;
 
     /**
      * @var string
      */
-    public $specificTemplate;
+    private $specificTemplate;
 
     /**
      * @var string
      */
-    public $genericUrlPattern;
+    private $genericUrlPattern;
 
     /**
      * @var string
      */
-    public $specificUrlPattern;
+    private $specificUrlPattern;
 
     /**
      * @var mixed
      */
-    public $TerminalManufacturerId;
+    private $TerminalManufacturerId;
 
     /**
      * @var mixed
      */
-    public $TerminalManufacturer;
+    private $TerminalManufacturer;
 
     /**
      * @return array
@@ -100,7 +100,7 @@ class TerminalModelDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->terminalManufacturer = $transformer->transform('Core\\Model\\TerminalManufacturer\\TerminalManufacturer', $this->getTerminalManufacturerId());
+        $this->terminalManufacturer = $transformer->transform('Core\\Domain\\Model\\TerminalManufacturer\\TerminalManufacturerInterface', $this->getTerminalManufacturerId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -289,7 +289,7 @@ class TerminalModelDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TerminalManufacturer\TerminalManufacturer
+     * @return \Core\Domain\Model\TerminalManufacturer\TerminalManufacturerInterface
      */
     public function getTerminalManufacturer()
     {

@@ -14,85 +14,85 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column lcr_id
      * @var integer
      */
-    public $lcrId = '1';
+    private $lcrId = '1';
 
     /**
      * @column gw_name
      * @var string
      */
-    public $gwName;
+    private $gwName;
 
     /**
      * @var string
      */
-    public $ip;
+    private $ip;
 
     /**
      * @var string
      */
-    public $hostname;
+    private $hostname;
 
     /**
      * @var integer
      */
-    public $port;
+    private $port;
 
     /**
      * @var string
      */
-    public $params;
+    private $params;
 
     /**
      * @column uri_scheme
      * @var boolean
      */
-    public $uriScheme;
+    private $uriScheme;
 
     /**
      * @var boolean
      */
-    public $transport;
+    private $transport;
 
     /**
      * @var boolean
      */
-    public $strip;
+    private $strip;
 
     /**
      * @var string
      */
-    public $prefix;
+    private $prefix;
 
     /**
      * @var string
      */
-    public $tag;
+    private $tag;
 
     /**
      * @var integer
      */
-    public $flags = '0';
+    private $flags = '0';
 
     /**
      * @var integer
      */
-    public $defunct;
+    private $defunct;
 
     /**
      * @var mixed
      */
-    public $peerServerId;
+    private $peerServerId;
 
     /**
      * @var mixed
      */
-    public $peerServer;
+    private $peerServer;
 
     /**
      * @return array
@@ -145,7 +145,7 @@ class LcrGatewayDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->peerServer = $transformer->transform('Core\\Model\\PeerServer\\PeerServer', $this->getPeerServerId());
+        $this->peerServer = $transformer->transform('Core\\Domain\\Model\\PeerServer\\PeerServerInterface', $this->getPeerServerId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -454,7 +454,7 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PeerServer\PeerServer
+     * @return \Core\Domain\Model\PeerServer\PeerServerInterface
      */
     public function getPeerServer()
     {

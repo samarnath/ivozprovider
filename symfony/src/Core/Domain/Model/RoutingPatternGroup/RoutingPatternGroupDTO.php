@@ -14,32 +14,32 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var array|null
      */
-    public $relPatterns = null;
+    private $relPatterns = null;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @return array
@@ -76,18 +76,18 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
         $this->relPatterns = [];
         foreach ($items as $item) {
             $this->relPatterns[] = $transformer->tranform(
-                'Core\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPattern',
+                'Core\\Domain\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPatternInterface',
                 $item
             );
         }
 
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
         $this->relPatterns = $transformer->transform(
-            'Core\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPattern',
+            'Core\\Domain\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPatternInterface',
             $this->relPatterns
         );
     }
@@ -193,7 +193,7 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

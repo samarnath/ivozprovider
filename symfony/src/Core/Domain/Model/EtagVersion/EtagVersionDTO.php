@@ -14,22 +14,22 @@ class EtagVersionDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $table;
+    private $table;
 
     /**
      * @var string
      */
-    public $etag;
+    private $etag;
 
     /**
      * @var \DateTime
      */
-    public $lastChange;
+    private $lastChange;
 
     /**
      * @return array

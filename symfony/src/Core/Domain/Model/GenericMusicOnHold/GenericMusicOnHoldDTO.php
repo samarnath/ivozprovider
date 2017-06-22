@@ -14,57 +14,57 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var integer
      */
-    public $originalFileFileSize;
+    private $originalFileFileSize;
 
     /**
      * @var string
      */
-    public $originalFileMimeType;
+    private $originalFileMimeType;
 
     /**
      * @var string
      */
-    public $originalFileBaseName;
+    private $originalFileBaseName;
 
     /**
      * @var integer
      */
-    public $encodedFileFileSize;
+    private $encodedFileFileSize;
 
     /**
      * @var string
      */
-    public $encodedFileMimeType;
+    private $encodedFileMimeType;
 
     /**
      * @var string
      */
-    public $encodedFileBaseName;
+    private $encodedFileBaseName;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @return array
@@ -107,7 +107,7 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -316,7 +316,7 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

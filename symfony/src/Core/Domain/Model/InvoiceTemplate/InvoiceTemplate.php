@@ -32,6 +32,16 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
     protected $template;
 
     /**
+     * @var string
+     */
+    protected $templateHeader;
+
+    /**
+     * @var string
+     */
+    protected $templateFooter;
+
+    /**
      * @var \Core\Domain\Model\Brand\BrandInterface
      */
     protected $brand;
@@ -84,6 +94,8 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
 
         return $self
             ->setDescription($dto->getDescription())
+            ->setTemplateHeader($dto->getTemplateHeader())
+            ->setTemplateFooter($dto->getTemplateFooter())
             ->setBrand($dto->getBrand());
     }
 
@@ -99,6 +111,8 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
             ->setName($dto->getName())
             ->setDescription($dto->getDescription())
             ->setTemplate($dto->getTemplate())
+            ->setTemplateHeader($dto->getTemplateHeader())
+            ->setTemplateFooter($dto->getTemplateFooter())
             ->setBrand($dto->getBrand());
 
 
@@ -115,6 +129,8 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
             ->setName($this->getName())
             ->setDescription($this->getDescription())
             ->setTemplate($this->getTemplate())
+            ->setTemplateHeader($this->getTemplateHeader())
+            ->setTemplateFooter($this->getTemplateFooter())
             ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null);
     }
 
@@ -128,6 +144,8 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
             'name' => $this->getName(),
             'description' => $this->getDescription(),
             'template' => $this->getTemplate(),
+            'templateHeader' => $this->getTemplateHeader(),
+            'templateFooter' => $this->getTemplateFooter(),
             'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
         ];
     }
@@ -225,6 +243,62 @@ class InvoiceTemplate implements EntityInterface, InvoiceTemplateInterface
     public function getTemplate()
     {
         return $this->template;
+    }
+
+    /**
+     * Set templateHeader
+     *
+     * @param string $templateHeader
+     *
+     * @return InvoiceTemplate
+     */
+    protected function setTemplateHeader($templateHeader = null)
+    {
+        if (!is_null($templateHeader)) {
+            Assertion::maxLength($templateHeader, 65535);
+        }
+
+        $this->templateHeader = $templateHeader;
+
+        return $this;
+    }
+
+    /**
+     * Get templateHeader
+     *
+     * @return string
+     */
+    public function getTemplateHeader()
+    {
+        return $this->templateHeader;
+    }
+
+    /**
+     * Set templateFooter
+     *
+     * @param string $templateFooter
+     *
+     * @return InvoiceTemplate
+     */
+    protected function setTemplateFooter($templateFooter = null)
+    {
+        if (!is_null($templateFooter)) {
+            Assertion::maxLength($templateFooter, 65535);
+        }
+
+        $this->templateFooter = $templateFooter;
+
+        return $this;
+    }
+
+    /**
+     * Get templateFooter
+     *
+     * @return string
+     */
+    public function getTemplateFooter()
+    {
+        return $this->templateFooter;
     }
 
     /**

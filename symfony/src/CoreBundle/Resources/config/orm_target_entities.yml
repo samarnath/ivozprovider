@@ -75,6 +75,7 @@ doctrine:
       Core\Domain\Model\QueueMember\QueueMemberInterface: Core\Domain\Model\QueueMember\QueueMember
       Core\Domain\Model\Queue\QueueInterface: Core\Domain\Model\Queue\Queue
       Core\Domain\Model\Recording\RecordingInterface: Core\Domain\Model\Recording\Recording
+      Core\Domain\Model\RetailAccount\RetailAccountInterface: Core\Domain\Model\RetailAccount\RetailAccount
       Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroupInterface: Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
       Core\Domain\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPatternInterface: Core\Domain\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern
       Core\Domain\Model\RoutingPattern\RoutingPatternInterface: Core\Domain\Model\RoutingPattern\RoutingPattern

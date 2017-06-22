@@ -14,57 +14,57 @@ class CompanyAdminDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $username;
+    private $username;
 
     /**
      * @var string
      */
-    public $pass;
+    private $pass;
 
     /**
      * @var string
      */
-    public $email = '';
+    private $email = '';
 
     /**
      * @var boolean
      */
-    public $active = '1';
+    private $active = '1';
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $lastname;
+    private $lastname;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $timezoneId;
+    private $timezoneId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $timezone;
+    private $timezone;
 
     /**
      * @return array
@@ -105,8 +105,8 @@ class CompanyAdminDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->timezone = $transformer->transform('Core\\Model\\Timezone\\Timezone', $this->getTimezoneId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getTimezoneId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -199,7 +199,7 @@ class CompanyAdminDTO implements DataTransferObjectInterface
      *
      * @return CompanyAdminDTO
      */
-    public function setActive($active = null)
+    public function setActive($active)
     {
         $this->active = $active;
 
@@ -275,7 +275,7 @@ class CompanyAdminDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -303,7 +303,7 @@ class CompanyAdminDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\Timezone
+     * @return \Core\Domain\Model\Timezone\TimezoneInterface
      */
     public function getTimezone()
     {

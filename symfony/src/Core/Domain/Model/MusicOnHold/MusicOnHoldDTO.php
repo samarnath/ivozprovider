@@ -14,57 +14,57 @@ class MusicOnHoldDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var integer
      */
-    public $originalFileFileSize;
+    private $originalFileFileSize;
 
     /**
      * @var string
      */
-    public $originalFileMimeType;
+    private $originalFileMimeType;
 
     /**
      * @var string
      */
-    public $originalFileBaseName;
+    private $originalFileBaseName;
 
     /**
      * @var integer
      */
-    public $encodedFileFileSize;
+    private $encodedFileFileSize;
 
     /**
      * @var string
      */
-    public $encodedFileMimeType;
+    private $encodedFileMimeType;
 
     /**
      * @var string
      */
-    public $encodedFileBaseName;
+    private $encodedFileBaseName;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @return array
@@ -107,7 +107,7 @@ class MusicOnHoldDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -316,7 +316,7 @@ class MusicOnHoldDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

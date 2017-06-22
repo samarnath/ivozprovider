@@ -14,32 +14,32 @@ class CompanyServiceDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $code;
+    private $code;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $serviceId;
+    private $serviceId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $service;
+    private $service;
 
     /**
      * @return array
@@ -70,8 +70,8 @@ class CompanyServiceDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->service = $transformer->transform('Core\\Model\\Service\\Service', $this->getServiceId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->service = $transformer->transform('Core\\Domain\\Model\\Service\\ServiceInterface', $this->getServiceId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -140,7 +140,7 @@ class CompanyServiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -168,7 +168,7 @@ class CompanyServiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Service\Service
+     * @return \Core\Domain\Model\Service\ServiceInterface
      */
     public function getService()
     {

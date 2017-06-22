@@ -14,57 +14,57 @@ class BrandOperatorDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $username;
+    private $username;
 
     /**
      * @var string
      */
-    public $pass;
+    private $pass;
 
     /**
      * @var string
      */
-    public $email = '';
+    private $email = '';
 
     /**
      * @var boolean
      */
-    public $active = '1';
+    private $active = '1';
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $lastname;
+    private $lastname;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $timezoneId;
+    private $timezoneId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $timezone;
+    private $timezone;
 
     /**
      * @return array
@@ -105,8 +105,8 @@ class BrandOperatorDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->timezone = $transformer->transform('Core\\Model\\Timezone\\Timezone', $this->getTimezoneId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getTimezoneId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -275,7 +275,7 @@ class BrandOperatorDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -303,7 +303,7 @@ class BrandOperatorDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\Timezone
+     * @return \Core\Domain\Model\Timezone\TimezoneInterface
      */
     public function getTimezone()
     {

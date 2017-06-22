@@ -34,7 +34,12 @@ class Terminal implements EntityInterface, TerminalInterface
     /**
      * @var string
      */
-    protected $allow = 'alaw';
+    protected $allow_audio = 'alaw';
+
+    /**
+     * @var string
+     */
+    protected $allow_video;
 
     /**
      * @column direct_media_method
@@ -81,12 +86,12 @@ class Terminal implements EntityInterface, TerminalInterface
      */
     public function __construct(
         $disallow,
-        $allow,
+        $allowAudio,
         $directMediaMethod,
         $password
     ) {
         $this->setDisallow($disallow);
-        $this->setAllow($allow);
+        $this->setAllowAudio($allowAudio);
         $this->setDirectMediaMethod($directMediaMethod);
         $this->setPassword($password);
     }
@@ -118,7 +123,7 @@ class Terminal implements EntityInterface, TerminalInterface
 
         $self = new self(
             $dto->getDisallow(),
-            $dto->getAllow(),
+            $dto->getAllowAudio(),
             $dto->getDirectMediaMethod(),
             $dto->getPassword()
         );
@@ -126,6 +131,7 @@ class Terminal implements EntityInterface, TerminalInterface
         return $self
             ->setName($dto->getName())
             ->setDomain($dto->getDomain())
+            ->setAllowVideo($dto->getAllowVideo())
             ->setMac($dto->getMac())
             ->setLastProvisionDate($dto->getLastProvisionDate())
             ->setCompany($dto->getCompany())
@@ -144,7 +150,8 @@ class Terminal implements EntityInterface, TerminalInterface
             ->setName($dto->getName())
             ->setDomain($dto->getDomain())
             ->setDisallow($dto->getDisallow())
-            ->setAllow($dto->getAllow())
+            ->setAllowAudio($dto->getAllowAudio())
+            ->setAllowVideo($dto->getAllowVideo())
             ->setDirectMediaMethod($dto->getDirectMediaMethod())
             ->setPassword($dto->getPassword())
             ->setMac($dto->getMac())
@@ -166,7 +173,8 @@ class Terminal implements EntityInterface, TerminalInterface
             ->setName($this->getName())
             ->setDomain($this->getDomain())
             ->setDisallow($this->getDisallow())
-            ->setAllow($this->getAllow())
+            ->setAllowAudio($this->getAllowAudio())
+            ->setAllowVideo($this->getAllowVideo())
             ->setDirectMediaMethod($this->getDirectMediaMethod())
             ->setPassword($this->getPassword())
             ->setMac($this->getMac())
@@ -185,7 +193,8 @@ class Terminal implements EntityInterface, TerminalInterface
             'name' => $this->getName(),
             'domain' => $this->getDomain(),
             'disallow' => $this->getDisallow(),
-            'allow' => $this->getAllow(),
+            'allowAudio' => $this->getAllowAudio(),
+            'allowVideo' => $this->getAllowVideo(),
             'directMediaMethod' => $this->getDirectMediaMethod(),
             'password' => $this->getPassword(),
             'mac' => $this->getMac(),
@@ -292,30 +301,58 @@ class Terminal implements EntityInterface, TerminalInterface
     }
 
     /**
-     * Set allow
+     * Set allowAudio
      *
-     * @param string $allow
+     * @param string $allowAudio
      *
      * @return Terminal
      */
-    protected function setAllow($allow)
+    protected function setAllowAudio($allowAudio)
     {
-        Assertion::notNull($allow);
-        Assertion::maxLength($allow, 200);
+        Assertion::notNull($allow_audio);
+        Assertion::maxLength($allow_audio, 200);
 
-        $this->allow = $allow;
+        $this->allow_audio = $allowAudio;
 
         return $this;
     }
 
     /**
-     * Get allow
+     * Get allowAudio
      *
      * @return string
      */
-    public function getAllow()
+    public function getAllowAudio()
     {
-        return $this->allow;
+        return $this->allow_audio;
+    }
+
+    /**
+     * Set allowVideo
+     *
+     * @param string $allowVideo
+     *
+     * @return Terminal
+     */
+    protected function setAllowVideo($allowVideo = null)
+    {
+        if (!is_null($allow_video)) {
+            Assertion::maxLength($allow_video, 200);
+        }
+
+        $this->allow_video = $allowVideo;
+
+        return $this;
+    }
+
+    /**
+     * Get allowVideo
+     *
+     * @return string
+     */
+    public function getAllowVideo()
+    {
+        return $this->allow_video;
     }
 
     /**

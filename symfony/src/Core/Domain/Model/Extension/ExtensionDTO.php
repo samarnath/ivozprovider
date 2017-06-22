@@ -14,97 +14,97 @@ class ExtensionDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $number;
+    private $number;
 
     /**
      * @var string
      */
-    public $routeType;
+    private $routeType;
 
     /**
      * @var string
      */
-    public $numberValue;
+    private $numberValue;
 
     /**
      * @var string
      */
-    public $friendValue;
+    private $friendValue;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $IVRCommonId;
+    private $IVRCommonId;
 
     /**
      * @var mixed
      */
-    public $IVRCustomId;
+    private $IVRCustomId;
 
     /**
      * @var mixed
      */
-    public $huntGroupId;
+    private $huntGroupId;
 
     /**
      * @var mixed
      */
-    public $conferenceRoomId;
+    private $conferenceRoomId;
 
     /**
      * @var mixed
      */
-    public $userId;
+    private $userId;
 
     /**
      * @var mixed
      */
-    public $queueId;
+    private $queueId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $IVRCommon;
+    private $IVRCommon;
 
     /**
      * @var mixed
      */
-    public $IVRCustom;
+    private $IVRCustom;
 
     /**
      * @var mixed
      */
-    public $huntGroup;
+    private $huntGroup;
 
     /**
      * @var mixed
      */
-    public $conferenceRoom;
+    private $conferenceRoom;
 
     /**
      * @var mixed
      */
-    public $user;
+    private $user;
 
     /**
      * @var mixed
      */
-    public $queue;
+    private $queue;
 
     /**
      * @return array
@@ -151,13 +151,13 @@ class ExtensionDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->iVRCommon = $transformer->transform('Core\\Model\\IVRCommon\\IVRCommon', $this->getIVRCommonId());
-        $this->iVRCustom = $transformer->transform('Core\\Model\\IVRCustom\\IVRCustom', $this->getIVRCustomId());
-        $this->huntGroup = $transformer->transform('Core\\Model\\HuntGroup\\HuntGroup', $this->getHuntGroupId());
-        $this->conferenceRoom = $transformer->transform('Core\\Model\\ConferenceRoom\\ConferenceRoom', $this->getConferenceRoomId());
-        $this->user = $transformer->transform('Core\\Model\\User\\User', $this->getUserId());
-        $this->queue = $transformer->transform('Core\\Model\\Queue\\Queue', $this->getQueueId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->iVRCommon = $transformer->transform('Core\\Domain\\Model\\IVRCommon\\IVRCommonInterface', $this->getIVRCommonId());
+        $this->iVRCustom = $transformer->transform('Core\\Domain\\Model\\IVRCustom\\IVRCustomInterface', $this->getIVRCustomId());
+        $this->huntGroup = $transformer->transform('Core\\Domain\\Model\\HuntGroup\\HuntGroupInterface', $this->getHuntGroupId());
+        $this->conferenceRoom = $transformer->transform('Core\\Domain\\Model\\ConferenceRoom\\ConferenceRoomInterface', $this->getConferenceRoomId());
+        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getUserId());
+        $this->queue = $transformer->transform('Core\\Domain\\Model\\Queue\\QueueInterface', $this->getQueueId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -286,7 +286,7 @@ class ExtensionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -314,7 +314,7 @@ class ExtensionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\IVRCommon\IVRCommon
+     * @return \Core\Domain\Model\IVRCommon\IVRCommonInterface
      */
     public function getIVRCommon()
     {
@@ -342,7 +342,7 @@ class ExtensionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\IVRCustom\IVRCustom
+     * @return \Core\Domain\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom()
     {
@@ -370,7 +370,7 @@ class ExtensionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\HuntGroup\HuntGroup
+     * @return \Core\Domain\Model\HuntGroup\HuntGroupInterface
      */
     public function getHuntGroup()
     {
@@ -398,7 +398,7 @@ class ExtensionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\ConferenceRoom\ConferenceRoom
+     * @return \Core\Domain\Model\ConferenceRoom\ConferenceRoomInterface
      */
     public function getConferenceRoom()
     {
@@ -426,7 +426,7 @@ class ExtensionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getUser()
     {
@@ -454,7 +454,7 @@ class ExtensionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Queue\Queue
+     * @return \Core\Domain\Model\Queue\QueueInterface
      */
     public function getQueue()
     {

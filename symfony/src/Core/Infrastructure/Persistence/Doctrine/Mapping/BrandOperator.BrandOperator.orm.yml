@@ -46,7 +46,7 @@ Core\Domain\Model\BrandOperator\BrandOperator:
         default: ''
     active:
       type: boolean
-      nullable: true
+      nullable: false
       options:
         default: '1'
     name:

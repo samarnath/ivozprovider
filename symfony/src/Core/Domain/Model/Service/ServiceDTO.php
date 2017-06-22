@@ -14,56 +14,56 @@ class ServiceDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $iden = '';
+    private $iden = '';
 
     /**
      * @var string
      */
-    public $name = '';
+    private $name = '';
 
     /**
      * @column name_en
      * @var string
      */
-    public $nameEn = '';
+    private $nameEn = '';
 
     /**
      * @column name_es
      * @var string
      */
-    public $nameEs = '';
+    private $nameEs = '';
 
     /**
      * @var string
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @column description_en
      * @var string
      */
-    public $descriptionEn = '';
+    private $descriptionEn = '';
 
     /**
      * @column description_es
      * @var string
      */
-    public $descriptionEs = '';
+    private $descriptionEs = '';
 
     /**
      * @var string
      */
-    public $defaultCode;
+    private $defaultCode;
 
     /**
      * @var boolean
      */
-    public $extraArgs = '0';
+    private $extraArgs = '0';
 
     /**
      * @return array

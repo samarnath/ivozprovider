@@ -14,17 +14,17 @@ class ProxyTrunkDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $ip;
+    private $ip;
 
     /**
      * @return array

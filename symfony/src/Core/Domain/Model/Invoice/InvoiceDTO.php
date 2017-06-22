@@ -14,87 +14,87 @@ class InvoiceDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $number;
+    private $number;
 
     /**
      * @var \DateTime
      */
-    public $inDate;
+    private $inDate;
 
     /**
      * @var \DateTime
      */
-    public $outDate;
+    private $outDate;
 
     /**
      * @var string
      */
-    public $total;
+    private $total;
 
     /**
      * @var string
      */
-    public $taxRate;
+    private $taxRate;
 
     /**
      * @var string
      */
-    public $totalWithTax;
+    private $totalWithTax;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * @var integer
      */
-    public $pdfFileFileSize;
+    private $pdfFileFileSize;
 
     /**
      * @var string
      */
-    public $pdfFileMimeType;
+    private $pdfFileMimeType;
 
     /**
      * @var string
      */
-    public $pdfFileBaseName;
+    private $pdfFileBaseName;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $invoiceTemplateId;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $invoiceTemplateId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $invoiceTemplate;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $invoiceTemplate;
+    private $company;
 
     /**
      * @return array
@@ -113,9 +113,9 @@ class InvoiceDTO implements DataTransferObjectInterface
             'pdfFileFileSize' => $this->getPdfFileFileSize(),
             'pdfFileMimeType' => $this->getPdfFileMimeType(),
             'pdfFileBaseName' => $this->getPdfFileBaseName(),
+            'invoiceTemplateId' => $this->getInvoiceTemplateId(),
             'brandId' => $this->getBrandId(),
-            'companyId' => $this->getCompanyId(),
-            'invoiceTemplateId' => $this->getInvoiceTemplateId()
+            'companyId' => $this->getCompanyId()
         ];
     }
 
@@ -138,16 +138,16 @@ class InvoiceDTO implements DataTransferObjectInterface
             ->setPdfFileFileSize(isset($data['pdfFileFileSize']) ? $data['pdfFileFileSize'] : null)
             ->setPdfFileMimeType(isset($data['pdfFileMimeType']) ? $data['pdfFileMimeType'] : null)
             ->setPdfFileBaseName(isset($data['pdfFileBaseName']) ? $data['pdfFileBaseName'] : null)
+            ->setInvoiceTemplateId(isset($data['invoiceTemplateId']) ? $data['invoiceTemplateId'] : null)
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setInvoiceTemplateId(isset($data['invoiceTemplateId']) ? $data['invoiceTemplateId'] : null);
+            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
     }
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->invoiceTemplate = $transformer->transform('Core\\Model\\InvoiceTemplate\\InvoiceTemplate', $this->getInvoiceTemplateId());
+        $this->invoiceTemplate = $transformer->transform('Core\\Domain\\Model\\InvoiceTemplate\\InvoiceTemplateInterface', $this->getInvoiceTemplateId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -376,6 +376,34 @@ class InvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $invoiceTemplateId
+     *
+     * @return InvoiceDTO
+     */
+    public function setInvoiceTemplateId($invoiceTemplateId)
+    {
+        $this->invoiceTemplateId = $invoiceTemplateId;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getInvoiceTemplateId()
+    {
+        return $this->invoiceTemplateId;
+    }
+
+    /**
+     * @return \Core\Domain\Model\InvoiceTemplate\InvoiceTemplateInterface
+     */
+    public function getInvoiceTemplate()
+    {
+        return $this->invoiceTemplate;
+    }
+
+    /**
      * @param integer $brandId
      *
      * @return InvoiceDTO
@@ -396,7 +424,7 @@ class InvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -424,39 +452,11 @@ class InvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
         return $this->company;
-    }
-
-    /**
-     * @param integer $invoiceTemplateId
-     *
-     * @return InvoiceDTO
-     */
-    public function setInvoiceTemplateId($invoiceTemplateId)
-    {
-        $this->invoiceTemplateId = $invoiceTemplateId;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getInvoiceTemplateId()
-    {
-        return $this->invoiceTemplateId;
-    }
-
-    /**
-     * @return \Core\Domain\Model\InvoiceTemplate\InvoiceTemplate
-     */
-    public function getInvoiceTemplate()
-    {
-        return $this->invoiceTemplate;
     }
 }
 

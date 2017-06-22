@@ -14,62 +14,62 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $entry;
+    private $entry;
 
     /**
      * @var string
      */
-    public $targetType;
+    private $targetType;
 
     /**
      * @var string
      */
-    public $targetNumberValue;
+    private $targetNumberValue;
 
     /**
      * @var mixed
      */
-    public $IVRCustomId;
+    private $IVRCustomId;
 
     /**
      * @var mixed
      */
-    public $welcomeLocutionId;
+    private $welcomeLocutionId;
 
     /**
      * @var mixed
      */
-    public $targetExtensionId;
+    private $targetExtensionId;
 
     /**
      * @var mixed
      */
-    public $targetVoiceMailUserId;
+    private $targetVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $IVRCustom;
+    private $IVRCustom;
 
     /**
      * @var mixed
      */
-    public $welcomeLocution;
+    private $welcomeLocution;
 
     /**
      * @var mixed
      */
-    public $targetExtension;
+    private $targetExtension;
 
     /**
      * @var mixed
      */
-    public $targetVoiceMailUser;
+    private $targetVoiceMailUser;
 
     /**
      * @return array
@@ -108,10 +108,10 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->iVRCustom = $transformer->transform('Core\\Model\\IVRCustom\\IVRCustom', $this->getIVRCustomId());
-        $this->welcomeLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getWelcomeLocutionId());
-        $this->targetExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getTargetExtensionId());
-        $this->targetVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getTargetVoiceMailUserId());
+        $this->iVRCustom = $transformer->transform('Core\\Domain\\Model\\IVRCustom\\IVRCustomInterface', $this->getIVRCustomId());
+        $this->welcomeLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getWelcomeLocutionId());
+        $this->targetExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getTargetExtensionId());
+        $this->targetVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getTargetVoiceMailUserId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -220,7 +220,7 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\IVRCustom\IVRCustom
+     * @return \Core\Domain\Model\IVRCustom\IVRCustomInterface
      */
     public function getIVRCustom()
     {
@@ -248,7 +248,7 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution()
     {
@@ -276,7 +276,7 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getTargetExtension()
     {
@@ -304,7 +304,7 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getTargetVoiceMailUser()
     {

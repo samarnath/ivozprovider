@@ -42,6 +42,14 @@ Core\Domain\Model\Company\Company:
       generator:
         strategy: IDENTITY
   fields:
+    type:
+      type: string
+      nullable: false
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:vpbx|retail]'
+        default: vpbx
     name:
       type: string
       nullable: false
@@ -50,7 +58,7 @@ Core\Domain\Model\Company\Company:
         fixed: false
     domainUsers:
       type: string
-      nullable: false
+      nullable: true
       length: 190
       options:
         fixed: false
@@ -133,10 +141,10 @@ Core\Domain\Model\Company\Company:
       options:
         fixed: false
       column: areaCode
-    externallyExtraOpts:
-      type: string
+    externallyextraopts:
+      type: text
       nullable: true
-      length: 255
+      length: 65535
       options:
         fixed: false
       column: externallyExtraOpts

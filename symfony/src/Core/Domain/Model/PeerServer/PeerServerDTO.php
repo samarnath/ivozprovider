@@ -14,130 +14,120 @@ class PeerServerDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $ip;
+    private $ip;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description = '';
-
-    /**
-     * @var string
-     */
-    public $hostname;
+    private $hostname;
 
     /**
      * @var integer
      */
-    public $port;
+    private $port;
 
     /**
      * @var string
      */
-    public $params;
+    private $params;
 
     /**
      * @column uri_scheme
      * @var boolean
      */
-    public $uriScheme;
+    private $uriScheme;
 
     /**
      * @var boolean
      */
-    public $transport;
+    private $transport;
 
     /**
      * @var boolean
      */
-    public $strip;
+    private $strip;
 
     /**
      * @var string
      */
-    public $prefix;
+    private $prefix;
 
     /**
      * @var boolean
      */
-    public $sendPAI = '0';
+    private $sendPAI = '0';
 
     /**
      * @var boolean
      */
-    public $sendRPID = '0';
+    private $sendRPID = '0';
 
     /**
      * @column auth_needed
      * @var string
      */
-    public $authNeeded = 'no';
+    private $authNeeded = 'no';
 
     /**
      * @column auth_user
      * @var string
      */
-    public $authUser;
+    private $authUser;
 
     /**
      * @column auth_password
      * @var string
      */
-    public $authPassword;
+    private $authPassword;
 
     /**
      * @column sip_proxy
      * @var string
      */
-    public $sipProxy;
+    private $sipProxy;
 
     /**
      * @column outbound_proxy
      * @var string
      */
-    public $outboundProxy;
+    private $outboundProxy;
 
     /**
      * @column from_user
      * @var string
      */
-    public $fromUser;
+    private $fromUser;
 
     /**
      * @column from_domain
      * @var string
      */
-    public $fromDomain;
+    private $fromDomain;
 
     /**
      * @var mixed
      */
-    public $peeringContractId;
+    private $peeringContractId;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $peeringContract;
+    private $peeringContract;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @return array
@@ -147,8 +137,6 @@ class PeerServerDTO implements DataTransferObjectInterface
         return [
             'id' => $this->getId(),
             'ip' => $this->getIp(),
-            'name' => $this->getName(),
-            'description' => $this->getDescription(),
             'hostname' => $this->getHostname(),
             'port' => $this->getPort(),
             'params' => $this->getParams(),
@@ -180,8 +168,6 @@ class PeerServerDTO implements DataTransferObjectInterface
         return $dto
             ->setId(isset($data['id']) ? $data['id'] : null)
             ->setIp(isset($data['ip']) ? $data['ip'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
             ->setHostname(isset($data['hostname']) ? $data['hostname'] : null)
             ->setPort(isset($data['port']) ? $data['port'] : null)
             ->setParams(isset($data['params']) ? $data['params'] : null)
@@ -204,8 +190,8 @@ class PeerServerDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->peeringContract = $transformer->transform('Core\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContractInterface', $this->getPeeringContractId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -251,46 +237,6 @@ class PeerServerDTO implements DataTransferObjectInterface
     public function getIp()
     {
         return $this->ip;
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return PeerServerDTO
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $description
-     *
-     * @return PeerServerDTO
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**
@@ -634,7 +580,7 @@ class PeerServerDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PeeringContract\PeeringContract
+     * @return \Core\Domain\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract()
     {
@@ -662,7 +608,7 @@ class PeerServerDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

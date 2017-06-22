@@ -14,67 +14,67 @@ class RecordingDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $callid;
+    private $callid;
 
     /**
      * @var \DateTime
      */
-    public $calldate = 'CURRENT_TIMESTAMP';
+    private $calldate = 'CURRENT_TIMESTAMP';
 
     /**
      * @var string
      */
-    public $type = 'ddi';
+    private $type = 'ddi';
 
     /**
      * @var float
      */
-    public $duration = '0.000';
+    private $duration = '0.000';
 
     /**
      * @var string
      */
-    public $caller;
+    private $caller;
 
     /**
      * @var string
      */
-    public $callee;
+    private $callee;
 
     /**
      * @var string
      */
-    public $recorder;
+    private $recorder;
 
     /**
      * @var integer
      */
-    public $recordedFileFileSize;
+    private $recordedFileFileSize;
 
     /**
      * @var string
      */
-    public $recordedFileMimeType;
+    private $recordedFileMimeType;
 
     /**
      * @var string
      */
-    public $recordedFileBaseName;
+    private $recordedFileBaseName;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @return array
@@ -121,7 +121,7 @@ class RecordingDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -370,7 +370,7 @@ class RecordingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {

@@ -14,67 +14,67 @@ class CountryDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $code = '';
+    private $code = '';
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @column name_en
      * @var string
      */
-    public $nameEn;
+    private $nameEn;
 
     /**
      * @column name_es
      * @var string
      */
-    public $nameEs;
+    private $nameEs;
 
     /**
      * @var string
      */
-    public $zone;
+    private $zone;
 
     /**
      * @column zone_en
      * @var string
      */
-    public $zoneEn = '';
+    private $zoneEn = '';
 
     /**
      * @column zone_es
      * @var string
      */
-    public $zoneEs = '';
+    private $zoneEs = '';
 
     /**
      * @column calling_code
      * @var integer
      */
-    public $callingCode;
+    private $callingCode;
 
     /**
      * @var string
      */
-    public $intCode;
+    private $intCode;
 
     /**
      * @var string
      */
-    public $e164Pattern;
+    private $e164Pattern;
 
     /**
      * @var boolean
      */
-    public $nationalCC = '0';
+    private $nationalCC = '0';
 
     /**
      * @return array

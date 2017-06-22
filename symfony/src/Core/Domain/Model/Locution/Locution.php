@@ -38,7 +38,7 @@ class Locution implements EntityInterface, LocutionInterface
     protected $originalFileBaseName;
 
     /**
-     * @comment FSO:keepExtension|storeInBaseFolder
+     * @comment FSO:keepExtension
      * @var integer
      */
     protected $encodedFileFileSize;

@@ -14,42 +14,42 @@ class PeeringContractDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var boolean
      */
-    public $externallyRated = '0';
+    private $externallyRated = '0';
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $transformationRulesetGroupsTrunkId;
+    private $transformationRulesetGroupsTrunkId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $transformationRulesetGroupsTrunk;
+    private $transformationRulesetGroupsTrunk;
 
     /**
      * @return array
@@ -84,8 +84,8 @@ class PeeringContractDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->transformationRulesetGroupsTrunk = $transformer->transform('Core\\Model\\TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunk', $this->getTransformationRulesetGroupsTrunkId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->transformationRulesetGroupsTrunk = $transformer->transform('Core\\Domain\\Model\\TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunkInterface', $this->getTransformationRulesetGroupsTrunkId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -194,7 +194,7 @@ class PeeringContractDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -222,7 +222,7 @@ class PeeringContractDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+     * @return \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
      */
     public function getTransformationRulesetGroupsTrunk()
     {

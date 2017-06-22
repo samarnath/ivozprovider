@@ -14,157 +14,157 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $statId;
+    private $statId;
 
     /**
      * @var integer
      */
-    public $xstatId;
+    private $xstatId;
 
     /**
      * @var string
      */
-    public $statType;
+    private $statType;
 
     /**
      * @var string
      */
-    public $initialLeg;
+    private $initialLeg;
 
     /**
      * @var string
      */
-    public $initialLegHash;
+    private $initialLegHash;
 
     /**
      * @var string
      */
-    public $cid;
+    private $cid;
 
     /**
      * @var string
      */
-    public $cidHash;
+    private $cidHash;
 
     /**
      * @var string
      */
-    public $xcid;
+    private $xcid;
 
     /**
      * @var string
      */
-    public $xcidHash;
+    private $xcidHash;
 
     /**
      * @var string
      */
-    public $proxies;
+    private $proxies;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @var string
      */
-    public $subtype;
+    private $subtype;
 
     /**
      * @var \DateTime
      */
-    public $calldate = 'CURRENT_TIMESTAMP';
+    private $calldate = 'CURRENT_TIMESTAMP';
 
     /**
      * @var integer
      */
-    public $duration;
+    private $duration;
 
     /**
      * @var string
      */
-    public $aParty;
+    private $aParty;
 
     /**
      * @var string
      */
-    public $bParty;
+    private $bParty;
 
     /**
      * @var string
      */
-    public $caller;
+    private $caller;
 
     /**
      * @var string
      */
-    public $callee;
+    private $callee;
 
     /**
      * @var string
      */
-    public $xCaller;
+    private $xCaller;
 
     /**
      * @var string
      */
-    public $xCallee;
+    private $xCallee;
 
     /**
      * @var string
      */
-    public $initialReferrer;
+    private $initialReferrer;
 
     /**
      * @var string
      */
-    public $referrer;
+    private $referrer;
 
     /**
      * @var string
      */
-    public $referee;
+    private $referee;
 
     /**
      * @var string
      */
-    public $lastForwarder;
+    private $lastForwarder;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $peeringContractId;
+    private $peeringContractId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $peeringContract;
+    private $peeringContract;
 
     /**
      * @return array
@@ -243,9 +243,9 @@ class ParsedCDRDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->peeringContract = $transformer->transform('Core\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContractInterface', $this->getPeeringContractId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -774,7 +774,7 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -802,7 +802,7 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -830,7 +830,7 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PeeringContract\PeeringContract
+     * @return \Core\Domain\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract()
     {

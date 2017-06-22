@@ -14,137 +14,137 @@ class IVRCustomDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var integer
      */
-    public $timeout;
+    private $timeout;
 
     /**
      * @var integer
      */
-    public $maxDigits;
+    private $maxDigits;
 
     /**
      * @var integer
      */
-    public $noAnswerTimeout = '10';
+    private $noAnswerTimeout = '10';
 
     /**
      * @var string
      */
-    public $timeoutTargetType;
+    private $timeoutTargetType;
 
     /**
      * @var string
      */
-    public $timeoutNumberValue;
+    private $timeoutNumberValue;
 
     /**
      * @var string
      */
-    public $errorTargetType;
+    private $errorTargetType;
 
     /**
      * @var string
      */
-    public $errorNumberValue;
+    private $errorNumberValue;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $welcomeLocutionId;
+    private $welcomeLocutionId;
 
     /**
      * @var mixed
      */
-    public $noAnswerLocutionId;
+    private $noAnswerLocutionId;
 
     /**
      * @var mixed
      */
-    public $errorLocutionId;
+    private $errorLocutionId;
 
     /**
      * @var mixed
      */
-    public $successLocutionId;
+    private $successLocutionId;
 
     /**
      * @var mixed
      */
-    public $timeoutExtensionId;
+    private $timeoutExtensionId;
 
     /**
      * @var mixed
      */
-    public $errorExtensionId;
+    private $errorExtensionId;
 
     /**
      * @var mixed
      */
-    public $timeoutVoiceMailUserId;
+    private $timeoutVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $errorVoiceMailUserId;
+    private $errorVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $welcomeLocution;
+    private $welcomeLocution;
 
     /**
      * @var mixed
      */
-    public $noAnswerLocution;
+    private $noAnswerLocution;
 
     /**
      * @var mixed
      */
-    public $errorLocution;
+    private $errorLocution;
 
     /**
      * @var mixed
      */
-    public $successLocution;
+    private $successLocution;
 
     /**
      * @var mixed
      */
-    public $timeoutExtension;
+    private $timeoutExtension;
 
     /**
      * @var mixed
      */
-    public $errorExtension;
+    private $errorExtension;
 
     /**
      * @var mixed
      */
-    public $timeoutVoiceMailUser;
+    private $timeoutVoiceMailUser;
 
     /**
      * @var mixed
      */
-    public $errorVoiceMailUser;
+    private $errorVoiceMailUser;
 
     /**
      * @return array
@@ -203,15 +203,15 @@ class IVRCustomDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->welcomeLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getWelcomeLocutionId());
-        $this->noAnswerLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getNoAnswerLocutionId());
-        $this->errorLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getErrorLocutionId());
-        $this->successLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getSuccessLocutionId());
-        $this->timeoutExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getTimeoutExtensionId());
-        $this->errorExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getErrorExtensionId());
-        $this->timeoutVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getTimeoutVoiceMailUserId());
-        $this->errorVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getErrorVoiceMailUserId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->welcomeLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getWelcomeLocutionId());
+        $this->noAnswerLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getNoAnswerLocutionId());
+        $this->errorLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getErrorLocutionId());
+        $this->successLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getSuccessLocutionId());
+        $this->timeoutExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getTimeoutExtensionId());
+        $this->errorExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getErrorExtensionId());
+        $this->timeoutVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getTimeoutVoiceMailUserId());
+        $this->errorVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getErrorVoiceMailUserId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -420,7 +420,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -448,7 +448,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution()
     {
@@ -476,7 +476,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getNoAnswerLocution()
     {
@@ -504,7 +504,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getErrorLocution()
     {
@@ -532,7 +532,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getSuccessLocution()
     {
@@ -560,7 +560,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getTimeoutExtension()
     {
@@ -588,7 +588,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getErrorExtension()
     {
@@ -616,7 +616,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getTimeoutVoiceMailUser()
     {
@@ -644,7 +644,7 @@ class IVRCustomDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getErrorVoiceMailUser()
     {

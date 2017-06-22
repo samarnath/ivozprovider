@@ -14,42 +14,42 @@ class XMLRPCLogDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $proxy;
+    private $proxy;
 
     /**
      * @var string
      */
-    public $module;
+    private $module;
 
     /**
      * @var string
      */
-    public $method;
+    private $method;
 
     /**
      * @var string
      */
-    public $mapperName;
+    private $mapperName;
 
     /**
      * @var \DateTime
      */
-    public $startDate = 'CURRENT_TIMESTAMP';
+    private $startDate = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \DateTime
      */
-    public $execDate;
+    private $execDate;
 
     /**
      * @var \DateTime
      */
-    public $finishDate;
+    private $finishDate;
 
     /**
      * @return array

@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * Voicemail
  */
-class Voicemail
+class Voicemail implements EntityInterface, VoicemailInterface
 {
     /**
      * @var integer

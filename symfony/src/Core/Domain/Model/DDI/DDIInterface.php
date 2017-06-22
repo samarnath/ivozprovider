@@ -174,6 +174,14 @@ interface DDIInterface
     public function getCountry();
 
 
+    /**
+     * Get retailAccount
+     *
+     * @return \Core\Domain\Model\RetailAccount\RetailAccountInterface
+     */
+    public function getRetailAccount();
+
+
 
 }
 

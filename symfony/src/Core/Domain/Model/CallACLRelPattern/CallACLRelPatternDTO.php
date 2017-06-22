@@ -14,37 +14,37 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $priority;
+    private $priority;
 
     /**
      * @var string
      */
-    public $policy;
+    private $policy;
 
     /**
      * @var mixed
      */
-    public $callACLId;
+    private $callACLId;
 
     /**
      * @var mixed
      */
-    public $callACLPatternId;
+    private $callACLPatternId;
 
     /**
      * @var mixed
      */
-    public $callACL;
+    private $callACL;
 
     /**
      * @var mixed
      */
-    public $callACLPattern;
+    private $callACLPattern;
 
     /**
      * @return array
@@ -77,8 +77,8 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->callACL = $transformer->transform('Core\\Model\\CallACL\\CallACL', $this->getCallACLId());
-        $this->callACLPattern = $transformer->transform('Core\\Model\\CallACLPattern\\CallACLPattern', $this->getCallACLPatternId());
+        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACLInterface', $this->getCallACLId());
+        $this->callACLPattern = $transformer->transform('Core\\Domain\\Model\\CallACLPattern\\CallACLPatternInterface', $this->getCallACLPatternId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -167,7 +167,7 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\CallACL\CallACL
+     * @return \Core\Domain\Model\CallACL\CallACLInterface
      */
     public function getCallACL()
     {
@@ -195,7 +195,7 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\CallACLPattern\CallACLPattern
+     * @return \Core\Domain\Model\CallACLPattern\CallACLPatternInterface
      */
     public function getCallACLPattern()
     {

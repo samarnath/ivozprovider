@@ -24,18 +24,21 @@ Core\Domain\Model\DDI\DDI:
     faxId:
       columns:
         - faxId
-    Faxes_ibfk_8:
+    peeringContractId:
       columns:
         - peeringContractId
-    Faxes_ibfk_9:
+    countryId:
       columns:
         - countryId
-    DDIs_ibfk_10:
+    brandId:
       columns:
         - brandId
     conferenceRoomId:
       columns:
         - conferenceRoomId
+    retailAccountId:
+      columns:
+        - retailAccountId
     languageId:
       columns:
         - languageId
@@ -93,7 +96,7 @@ Core\Domain\Model\DDI\DDI:
       length: 25
       options:
         fixed: false
-        comment: '[enum:user|IVRCommon|IVRCustom|huntGroup|fax|conferenceRoom|friend|queue]'
+        comment: '[enum:user|IVRCommon|IVRCustom|huntGroup|fax|conferenceRoom|friend|queue|retailAccount]'
       column: routeType
     billInboundCalls:
       type: boolean
@@ -114,12 +117,10 @@ Core\Domain\Model\DDI\DDI:
       targetEntity: \Core\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
-      mappedBy: null
       inversedBy: null
       joinColumns:
         companyId:
           referencedColumnName: id
-          unsigned: false
           nullable: false
       orphanRemoval: false
     brand:
@@ -131,7 +132,6 @@ Core\Domain\Model\DDI\DDI:
       joinColumns:
         brandId:
           referencedColumnName: id
-          unsigned: false
           nullable: false
       orphanRemoval: false
     conferenceRoom:
@@ -242,6 +242,16 @@ Core\Domain\Model\DDI\DDI:
       inversedBy: null
       joinColumns:
         countryId:
+          referencedColumnName: id
+      orphanRemoval: false
+    retailAccount:
+      targetEntity: \Core\Domain\Model\RetailAccount\RetailAccountInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        retailAccountId:
           referencedColumnName: id
       orphanRemoval: false
   lifecycleCallbacks: {  }

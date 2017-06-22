@@ -14,47 +14,47 @@ class DomainDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $domain;
+    private $domain;
 
     /**
      * @var string
      */
-    public $scope = 'global';
+    private $scope = 'global';
 
     /**
      * @var string
      */
-    public $pointsTo = 'proxyusers';
+    private $pointsTo = 'proxyusers';
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @return array
@@ -91,8 +91,8 @@ class DomainDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -221,7 +221,7 @@ class DomainDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -249,7 +249,7 @@ class DomainDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

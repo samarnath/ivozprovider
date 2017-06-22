@@ -39,6 +39,20 @@ Core\Domain\Model\InvoiceTemplate\InvoiceTemplate:
       length: 65535
       options:
         fixed: false
+    templateHeader:
+      type: text
+      nullable: true
+      length: 65535
+      options:
+        fixed: false
+      column: templateHeader
+    templateFooter:
+      type: text
+      nullable: true
+      length: 65535
+      options:
+        fixed: false
+      column: templateFooter
   manyToOne:
     brand:
       targetEntity: \Core\Domain\Model\Brand\BrandInterface

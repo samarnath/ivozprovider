@@ -14,44 +14,44 @@ class TimezoneDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $tz;
+    private $tz;
 
     /**
      * @var string
      */
-    public $comment = '';
+    private $comment = '';
 
     /**
      * @var string
      */
-    public $timeZoneLabel = '';
+    private $timeZoneLabel = '';
 
     /**
      * @column timeZoneLabel_en
      * @var string
      */
-    public $timeZoneLabelEn = '';
+    private $timeZoneLabelEn = '';
 
     /**
      * @column timeZoneLabel_es
      * @var string
      */
-    public $timeZoneLabelEs = '';
+    private $timeZoneLabelEs = '';
 
     /**
      * @var mixed
      */
-    public $countryId;
+    private $countryId;
 
     /**
      * @var mixed
      */
-    public $country;
+    private $country;
 
     /**
      * @return array
@@ -88,7 +88,7 @@ class TimezoneDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->country = $transformer->transform('Core\\Model\\Country\\Country', $this->getCountryId());
+        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -237,7 +237,7 @@ class TimezoneDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\Country
+     * @return \Core\Domain\Model\Country\CountryInterface
      */
     public function getCountry()
     {

@@ -106,6 +106,13 @@ Core\Domain\Model\User\User:
         default: '0'
         unsigned: true
       column: maxCalls
+    externalIpCalls:
+      type: boolean
+      nullable: false
+      options:
+        comment: '[enum:0|1|2|3]'
+        default: '0'
+      column: externalIpCalls
     voicemailEnabled:
       type: boolean
       nullable: false

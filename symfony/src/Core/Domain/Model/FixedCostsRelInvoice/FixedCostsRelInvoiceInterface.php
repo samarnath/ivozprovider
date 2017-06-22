@@ -23,19 +23,19 @@ interface FixedCostsRelInvoiceInterface
 
 
     /**
-     * Get fixedCost
-     *
-     * @return \Core\Domain\Model\FixedCost\FixedCostInterfaceInterface
-     */
-    public function getFixedCost();
-
-
-    /**
      * Get brand
      *
      * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand();
+
+
+    /**
+     * Get fixedCost
+     *
+     * @return \Core\Domain\Model\FixedCost\FixedCostInterface
+     */
+    public function getFixedCost();
 
 
     /**

@@ -53,7 +53,7 @@ class Recording implements EntityInterface, RecordingInterface
     protected $recorder;
 
     /**
-     * @comment FSO:keepExtension|storeInBaseFolder
+     * @comment FSO:keepExtension
      * @var integer
      */
     protected $recordedFileFileSize;

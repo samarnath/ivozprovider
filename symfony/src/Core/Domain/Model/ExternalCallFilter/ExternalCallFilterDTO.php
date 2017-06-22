@@ -14,122 +14,122 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $holidayTargetType;
+    private $holidayTargetType;
 
     /**
      * @var string
      */
-    public $holidayNumberValue;
+    private $holidayNumberValue;
 
     /**
      * @var string
      */
-    public $outOfScheduleTargetType;
+    private $outOfScheduleTargetType;
 
     /**
      * @var string
      */
-    public $outOfScheduleNumberValue;
+    private $outOfScheduleNumberValue;
 
     /**
      * @var string
      */
-    public $blackListRegExp;
+    private $blackListRegExp;
 
     /**
      * @var string
      */
-    public $whiteListRegExp;
+    private $whiteListRegExp;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $welcomeLocutionId;
+    private $welcomeLocutionId;
 
     /**
      * @var mixed
      */
-    public $holidayLocutionId;
+    private $holidayLocutionId;
 
     /**
      * @var mixed
      */
-    public $outOfScheduleLocutionId;
+    private $outOfScheduleLocutionId;
 
     /**
      * @var mixed
      */
-    public $holidayExtensionId;
+    private $holidayExtensionId;
 
     /**
      * @var mixed
      */
-    public $outOfScheduleExtensionId;
+    private $outOfScheduleExtensionId;
 
     /**
      * @var mixed
      */
-    public $holidayVoiceMailUserId;
+    private $holidayVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $outOfScheduleVoiceMailUserId;
+    private $outOfScheduleVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $welcomeLocution;
+    private $welcomeLocution;
 
     /**
      * @var mixed
      */
-    public $holidayLocution;
+    private $holidayLocution;
 
     /**
      * @var mixed
      */
-    public $outOfScheduleLocution;
+    private $outOfScheduleLocution;
 
     /**
      * @var mixed
      */
-    public $holidayExtension;
+    private $holidayExtension;
 
     /**
      * @var mixed
      */
-    public $outOfScheduleExtension;
+    private $outOfScheduleExtension;
 
     /**
      * @var mixed
      */
-    public $holidayVoiceMailUser;
+    private $holidayVoiceMailUser;
 
     /**
      * @var mixed
      */
-    public $outOfScheduleVoiceMailUser;
+    private $outOfScheduleVoiceMailUser;
 
     /**
      * @return array
@@ -184,14 +184,14 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->welcomeLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getWelcomeLocutionId());
-        $this->holidayLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getHolidayLocutionId());
-        $this->outOfScheduleLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getOutOfScheduleLocutionId());
-        $this->holidayExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getHolidayExtensionId());
-        $this->outOfScheduleExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getOutOfScheduleExtensionId());
-        $this->holidayVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getHolidayVoiceMailUserId());
-        $this->outOfScheduleVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getOutOfScheduleVoiceMailUserId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->welcomeLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getWelcomeLocutionId());
+        $this->holidayLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getHolidayLocutionId());
+        $this->outOfScheduleLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getOutOfScheduleLocutionId());
+        $this->holidayExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getHolidayExtensionId());
+        $this->outOfScheduleExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getOutOfScheduleExtensionId());
+        $this->holidayVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getHolidayVoiceMailUserId());
+        $this->outOfScheduleVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getOutOfScheduleVoiceMailUserId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -380,7 +380,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -408,7 +408,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getWelcomeLocution()
     {
@@ -436,7 +436,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getHolidayLocution()
     {
@@ -464,7 +464,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getOutOfScheduleLocution()
     {
@@ -492,7 +492,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getHolidayExtension()
     {
@@ -520,7 +520,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getOutOfScheduleExtension()
     {
@@ -548,7 +548,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getHolidayVoiceMailUser()
     {
@@ -576,7 +576,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getOutOfScheduleVoiceMailUser()
     {

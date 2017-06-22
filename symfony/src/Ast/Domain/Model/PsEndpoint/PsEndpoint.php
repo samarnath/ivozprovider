@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * PsEndpoint
  */
-class PsEndpoint
+class PsEndpoint implements EntityInterface, PsEndpointInterface
 {
     /**
      * @var integer
@@ -122,6 +122,11 @@ class PsEndpoint
      */
     protected $friend;
 
+    /**
+     * @var \Core\Domain\Model\RetailAccount\RetailAccountInterface
+     */
+    protected $retailAccount;
+
 
     /**
      * Changelog tracking purpose
@@ -195,7 +200,8 @@ class PsEndpoint
             ->setOutboundProxy($dto->getOutboundProxy())
             ->setTrustIdInbound($dto->getTrustIdInbound())
             ->setTerminal($dto->getTerminal())
-            ->setFriend($dto->getFriend());
+            ->setFriend($dto->getFriend())
+            ->setRetailAccount($dto->getRetailAccount());
     }
 
     /**
@@ -225,7 +231,8 @@ class PsEndpoint
             ->setOutboundProxy($dto->getOutboundProxy())
             ->setTrustIdInbound($dto->getTrustIdInbound())
             ->setTerminal($dto->getTerminal())
-            ->setFriend($dto->getFriend());
+            ->setFriend($dto->getFriend())
+            ->setRetailAccount($dto->getRetailAccount());
 
 
         return $this;
@@ -256,7 +263,8 @@ class PsEndpoint
             ->setOutboundProxy($this->getOutboundProxy())
             ->setTrustIdInbound($this->getTrustIdInbound())
             ->setTerminalId($this->getTerminal() ? $this->getTerminal()->getId() : null)
-            ->setFriendId($this->getFriend() ? $this->getFriend()->getId() : null);
+            ->setFriendId($this->getFriend() ? $this->getFriend()->getId() : null)
+            ->setRetailAccountId($this->getRetailAccount() ? $this->getRetailAccount()->getId() : null);
     }
 
     /**
@@ -284,7 +292,8 @@ class PsEndpoint
             'outboundProxy' => $this->getOutboundProxy(),
             'trustIdInbound' => $this->getTrustIdInbound(),
             'terminalId' => $this->getTerminal() ? $this->getTerminal()->getId() : null,
-            'friendId' => $this->getFriend() ? $this->getFriend()->getId() : null
+            'friendId' => $this->getFriend() ? $this->getFriend()->getId() : null,
+            'retailAccountId' => $this->getRetailAccount() ? $this->getRetailAccount()->getId() : null
         ];
     }
 
@@ -816,6 +825,30 @@ class PsEndpoint
     public function getFriend()
     {
         return $this->friend;
+    }
+
+    /**
+     * Set retailAccount
+     *
+     * @param \Core\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount
+     *
+     * @return PsEndpoint
+     */
+    protected function setRetailAccount(\Core\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount = null)
+    {
+        $this->retailAccount = $retailAccount;
+
+        return $this;
+    }
+
+    /**
+     * Get retailAccount
+     *
+     * @return \Core\Domain\Model\RetailAccount\RetailAccountInterface
+     */
+    public function getRetailAccount()
+    {
+        return $this->retailAccount;
     }
 
 

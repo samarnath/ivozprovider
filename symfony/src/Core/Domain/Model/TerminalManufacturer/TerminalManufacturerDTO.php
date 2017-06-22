@@ -14,22 +14,22 @@ class TerminalManufacturerDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $iden;
+    private $iden;
 
     /**
      * @var string
      */
-    public $name = '';
+    private $name = '';
 
     /**
      * @var string
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @return array

@@ -14,82 +14,82 @@ class HuntGroupDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name = '';
+    private $name = '';
 
     /**
      * @var string
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @var string
      */
-    public $strategy;
+    private $strategy;
 
     /**
      * @var integer
      */
-    public $ringAllTimeout;
+    private $ringAllTimeout;
 
     /**
      * @var integer
      */
-    public $nextUserPosition = '0';
+    private $nextUserPosition = '0';
 
     /**
      * @var string
      */
-    public $noAnswerTargetType;
+    private $noAnswerTargetType;
 
     /**
      * @var string
      */
-    public $noAnswerNumberValue;
+    private $noAnswerNumberValue;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $noAnswerLocutionId;
+    private $noAnswerLocutionId;
 
     /**
      * @var mixed
      */
-    public $noAnswerExtensionId;
+    private $noAnswerExtensionId;
 
     /**
      * @var mixed
      */
-    public $noAnswerVoiceMailUserId;
+    private $noAnswerVoiceMailUserId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $noAnswerLocution;
+    private $noAnswerLocution;
 
     /**
      * @var mixed
      */
-    public $noAnswerExtension;
+    private $noAnswerExtension;
 
     /**
      * @var mixed
      */
-    public $noAnswerVoiceMailUser;
+    private $noAnswerVoiceMailUser;
 
     /**
      * @return array
@@ -136,10 +136,10 @@ class HuntGroupDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->noAnswerLocution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getNoAnswerLocutionId());
-        $this->noAnswerExtension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getNoAnswerExtensionId());
-        $this->noAnswerVoiceMailUser = $transformer->transform('Core\\Model\\User\\User', $this->getNoAnswerVoiceMailUserId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->noAnswerLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getNoAnswerLocutionId());
+        $this->noAnswerExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getNoAnswerExtensionId());
+        $this->noAnswerVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getNoAnswerVoiceMailUserId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -328,7 +328,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -356,7 +356,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getNoAnswerLocution()
     {
@@ -384,7 +384,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getNoAnswerExtension()
     {
@@ -412,7 +412,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getNoAnswerVoiceMailUser()
     {

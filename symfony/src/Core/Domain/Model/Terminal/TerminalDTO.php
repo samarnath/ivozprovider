@@ -14,68 +14,73 @@ class TerminalDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $domain;
+    private $domain;
 
     /**
      * @var string
      */
-    public $disallow = 'all';
+    private $disallow = 'all';
 
     /**
      * @var string
      */
-    public $allow = 'alaw';
+    private $allow_audio = 'alaw';
+
+    /**
+     * @var string
+     */
+    private $allow_video;
 
     /**
      * @column direct_media_method
      * @var string
      */
-    public $directMediaMethod = 'update';
+    private $directMediaMethod = 'update';
 
     /**
      * @var string
      */
-    public $password = '';
+    private $password = '';
 
     /**
      * @var string
      */
-    public $mac;
+    private $mac;
 
     /**
      * @var \DateTime
      */
-    public $lastProvisionDate;
+    private $lastProvisionDate;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $TerminalModelId;
+    private $TerminalModelId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $TerminalModel;
+    private $TerminalModel;
 
     /**
      * @return array
@@ -87,7 +92,8 @@ class TerminalDTO implements DataTransferObjectInterface
             'name' => $this->getName(),
             'domain' => $this->getDomain(),
             'disallow' => $this->getDisallow(),
-            'allow' => $this->getAllow(),
+            'allowAudio' => $this->getAllowAudio(),
+            'allowVideo' => $this->getAllowVideo(),
             'directMediaMethod' => $this->getDirectMediaMethod(),
             'password' => $this->getPassword(),
             'mac' => $this->getMac(),
@@ -109,7 +115,8 @@ class TerminalDTO implements DataTransferObjectInterface
             ->setName(isset($data['name']) ? $data['name'] : null)
             ->setDomain(isset($data['domain']) ? $data['domain'] : null)
             ->setDisallow(isset($data['disallow']) ? $data['disallow'] : null)
-            ->setAllow(isset($data['allow']) ? $data['allow'] : null)
+            ->setAllowAudio(isset($data['allow_audio']) ? $data['allow_audio'] : null)
+            ->setAllowVideo(isset($data['allow_video']) ? $data['allow_video'] : null)
             ->setDirectMediaMethod(isset($data['directMediaMethod']) ? $data['directMediaMethod'] : null)
             ->setPassword(isset($data['password']) ? $data['password'] : null)
             ->setMac(isset($data['mac']) ? $data['mac'] : null)
@@ -120,8 +127,8 @@ class TerminalDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->terminalModel = $transformer->transform('Core\\Model\\TerminalModel\\TerminalModel', $this->getTerminalModelId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->terminalModel = $transformer->transform('Core\\Domain\\Model\\TerminalModel\\TerminalModelInterface', $this->getTerminalModelId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -210,13 +217,13 @@ class TerminalDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param string $allow
+     * @param string $allowAudio
      *
      * @return TerminalDTO
      */
-    public function setAllow($allow)
+    public function setAllowAudio($allowAudio)
     {
-        $this->allow = $allow;
+        $this->allow_audio = $allowAudio;
 
         return $this;
     }
@@ -224,9 +231,29 @@ class TerminalDTO implements DataTransferObjectInterface
     /**
      * @return string
      */
-    public function getAllow()
+    public function getAllowAudio()
     {
-        return $this->allow;
+        return $this->allow_audio;
+    }
+
+    /**
+     * @param string $allowVideo
+     *
+     * @return TerminalDTO
+     */
+    public function setAllowVideo($allowVideo = null)
+    {
+        $this->allow_video = $allowVideo;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAllowVideo()
+    {
+        return $this->allow_video;
     }
 
     /**
@@ -330,7 +357,7 @@ class TerminalDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -358,7 +385,7 @@ class TerminalDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TerminalModel\TerminalModel
+     * @return \Core\Domain\Model\TerminalModel\TerminalModelInterface
      */
     public function getTerminalModel()
     {

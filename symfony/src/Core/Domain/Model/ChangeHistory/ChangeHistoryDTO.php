@@ -14,49 +14,49 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $user;
+    private $user;
 
     /**
      * @var \DateTime
      */
-    public $date = 'CURRENT_TIMESTAMP';
+    private $date = 'CURRENT_TIMESTAMP';
 
     /**
      * @var string
      */
-    public $action;
+    private $action;
 
     /**
      * @var string
      */
-    public $table;
+    private $table;
 
     /**
      * @var integer
      */
-    public $objid;
+    private $objid;
 
     /**
      * @var string
      */
-    public $field;
+    private $field;
 
     /**
      * @column old_value
      * @var string
      */
-    public $oldValue;
+    private $oldValue;
 
     /**
      * @column new_value
      * @var string
      */
-    public $newValue;
+    private $newValue;
 
     /**
      * @return array

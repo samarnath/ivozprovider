@@ -14,56 +14,56 @@ class PricingPlanDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @column name_en
      * @var string
      */
-    public $nameEn;
+    private $nameEn;
 
     /**
      * @column name_es
      * @var string
      */
-    public $nameEs;
+    private $nameEs;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @column description_en
      * @var string
      */
-    public $descriptionEn;
+    private $descriptionEn;
 
     /**
      * @column description_es
      * @var string
      */
-    public $descriptionEs;
+    private $descriptionEs;
 
     /**
      * @var \DateTime
      */
-    public $createdOn = 'CURRENT_TIMESTAMP';
+    private $createdOn = 'CURRENT_TIMESTAMP';
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @return array
@@ -104,7 +104,7 @@ class PricingPlanDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -293,7 +293,7 @@ class PricingPlanDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

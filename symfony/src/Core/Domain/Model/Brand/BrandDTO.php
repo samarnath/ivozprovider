@@ -14,133 +14,133 @@ class BrandDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $nif;
+    private $nif;
 
     /**
-     * @column domain_trunks
+     * @column domain_users
      * @var string
      */
-    public $domainTrunks;
+    private $domainUsers;
 
     /**
      * @var integer
      */
-    public $logoFileSize;
+    private $logoFileSize;
 
     /**
      * @var string
      */
-    public $logoMimeType;
+    private $logoMimeType;
 
     /**
      * @var string
      */
-    public $logoBaseName;
+    private $logoBaseName;
 
     /**
      * @var string
      */
-    public $postalAddress;
+    private $postalAddress;
 
     /**
      * @var string
      */
-    public $postalCode;
+    private $postalCode;
 
     /**
      * @var string
      */
-    public $town;
+    private $town;
 
     /**
      * @var string
      */
-    public $province;
+    private $province;
 
     /**
      * @var string
      */
-    public $country;
+    private $country;
 
     /**
      * @var string
      */
-    public $registryData;
+    private $registryData;
 
     /**
      * @var string
      */
-    public $fromName;
+    private $fromName;
 
     /**
      * @var string
      */
-    public $fromAddress;
+    private $fromAddress;
 
     /**
      * @var integer
      */
-    public $recordingsLimitMB;
+    private $recordingsLimitMB;
 
     /**
      * @var string
      */
-    public $recordingslimitemail;
+    private $recordingslimitemail;
 
     /**
      * @var mixed
      */
-    public $languageId;
+    private $languageId;
 
     /**
      * @var mixed
      */
-    public $defaultTimezoneId;
+    private $defaultTimezoneId;
 
     /**
      * @var array|null
      */
-    public $operators = null;
+    private $operators = null;
 
     /**
      * @var array|null
      */
-    public $services = null;
+    private $services = null;
 
     /**
      * @var array|null
      */
-    public $urls = null;
+    private $urls = null;
 
     /**
      * @var array|null
      */
-    public $relFeatures = null;
+    private $relFeatures = null;
 
     /**
      * @var array|null
      */
-    public $domains = null;
+    private $domains = null;
 
     /**
      * @var mixed
      */
-    public $language;
+    private $language;
 
     /**
      * @var mixed
      */
-    public $defaultTimezone;
+    private $defaultTimezone;
 
     /**
      * @return array
@@ -151,7 +151,7 @@ class BrandDTO implements DataTransferObjectInterface
             'id' => $this->getId(),
             'name' => $this->getName(),
             'nif' => $this->getNif(),
-            'domainTrunks' => $this->getDomainTrunks(),
+            'domainUsers' => $this->getDomainUsers(),
             'logoFileSize' => $this->getLogoFileSize(),
             'logoMimeType' => $this->getLogoMimeType(),
             'logoBaseName' => $this->getLogoBaseName(),
@@ -186,7 +186,7 @@ class BrandDTO implements DataTransferObjectInterface
             ->setId(isset($data['id']) ? $data['id'] : null)
             ->setName(isset($data['name']) ? $data['name'] : null)
             ->setNif(isset($data['nif']) ? $data['nif'] : null)
-            ->setDomainTrunks(isset($data['domainTrunks']) ? $data['domainTrunks'] : null)
+            ->setDomainUsers(isset($data['domainUsers']) ? $data['domainUsers'] : null)
             ->setLogoFileSize(isset($data['logoFileSize']) ? $data['logoFileSize'] : null)
             ->setLogoMimeType(isset($data['logoMimeType']) ? $data['logoMimeType'] : null)
             ->setLogoBaseName(isset($data['logoBaseName']) ? $data['logoBaseName'] : null)
@@ -215,7 +215,7 @@ class BrandDTO implements DataTransferObjectInterface
         $this->operators = [];
         foreach ($items as $item) {
             $this->operators[] = $transformer->tranform(
-                'Core\\Model\\BrandOperator\\BrandOperator',
+                'Core\\Domain\\Model\\BrandOperator\\BrandOperatorInterface',
                 $item
             );
         }
@@ -224,7 +224,7 @@ class BrandDTO implements DataTransferObjectInterface
         $this->services = [];
         foreach ($items as $item) {
             $this->services[] = $transformer->tranform(
-                'Core\\Model\\BrandService\\BrandService',
+                'Core\\Domain\\Model\\BrandService\\BrandServiceInterface',
                 $item
             );
         }
@@ -233,7 +233,7 @@ class BrandDTO implements DataTransferObjectInterface
         $this->urls = [];
         foreach ($items as $item) {
             $this->urls[] = $transformer->tranform(
-                'Core\\Model\\BrandURL\\BrandURL',
+                'Core\\Domain\\Model\\BrandURL\\BrandURLInterface',
                 $item
             );
         }
@@ -242,7 +242,7 @@ class BrandDTO implements DataTransferObjectInterface
         $this->relFeatures = [];
         foreach ($items as $item) {
             $this->relFeatures[] = $transformer->tranform(
-                'Core\\Model\\FeaturesRelBrand\\FeaturesRelBrand',
+                'Core\\Domain\\Model\\FeaturesRelBrand\\FeaturesRelBrandInterface',
                 $item
             );
         }
@@ -251,35 +251,35 @@ class BrandDTO implements DataTransferObjectInterface
         $this->domains = [];
         foreach ($items as $item) {
             $this->domains[] = $transformer->tranform(
-                'Core\\Model\\Domain\\Domain',
+                'Core\\Domain\\Model\\Domain\\DomainInterface',
                 $item
             );
         }
 
-        $this->language = $transformer->transform('Core\\Model\\Language\\Language', $this->getLanguageId());
-        $this->defaultTimezone = $transformer->transform('Core\\Model\\Timezone\\Timezone', $this->getDefaultTimezoneId());
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
+        $this->defaultTimezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getDefaultTimezoneId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
         $this->operators = $transformer->transform(
-            'Core\\Model\\BrandOperator\\BrandOperator',
+            'Core\\Domain\\Model\\BrandOperator\\BrandOperatorInterface',
             $this->operators
         );
         $this->services = $transformer->transform(
-            'Core\\Model\\BrandService\\BrandService',
+            'Core\\Domain\\Model\\BrandService\\BrandServiceInterface',
             $this->services
         );
         $this->urls = $transformer->transform(
-            'Core\\Model\\BrandURL\\BrandURL',
+            'Core\\Domain\\Model\\BrandURL\\BrandURLInterface',
             $this->urls
         );
         $this->relFeatures = $transformer->transform(
-            'Core\\Model\\FeaturesRelBrand\\FeaturesRelBrand',
+            'Core\\Domain\\Model\\FeaturesRelBrand\\FeaturesRelBrandInterface',
             $this->relFeatures
         );
         $this->domains = $transformer->transform(
-            'Core\\Model\\Domain\\Domain',
+            'Core\\Domain\\Model\\Domain\\DomainInterface',
             $this->domains
         );
     }
@@ -345,13 +345,13 @@ class BrandDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param string $domainTrunks
+     * @param string $domainUsers
      *
      * @return BrandDTO
      */
-    public function setDomainTrunks($domainTrunks = null)
+    public function setDomainUsers($domainUsers = null)
     {
-        $this->domainTrunks = $domainTrunks;
+        $this->domainUsers = $domainUsers;
 
         return $this;
     }
@@ -359,9 +359,9 @@ class BrandDTO implements DataTransferObjectInterface
     /**
      * @return string
      */
-    public function getDomainTrunks()
+    public function getDomainUsers()
     {
-        return $this->domainTrunks;
+        return $this->domainUsers;
     }
 
     /**
@@ -745,7 +745,7 @@ class BrandDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Language\Language
+     * @return \Core\Domain\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {
@@ -773,7 +773,7 @@ class BrandDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\Timezone
+     * @return \Core\Domain\Model\Timezone\TimezoneInterface
      */
     public function getDefaultTimezone()
     {

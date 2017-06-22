@@ -14,32 +14,32 @@ class BrandServiceDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $code;
+    private $code;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $serviceId;
+    private $serviceId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $service;
+    private $service;
 
     /**
      * @return array
@@ -70,8 +70,8 @@ class BrandServiceDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->service = $transformer->transform('Core\\Model\\Service\\Service', $this->getServiceId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->service = $transformer->transform('Core\\Domain\\Model\\Service\\ServiceInterface', $this->getServiceId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -140,7 +140,7 @@ class BrandServiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -168,7 +168,7 @@ class BrandServiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Service\Service
+     * @return \Core\Domain\Model\Service\ServiceInterface
      */
     public function getService()
     {

@@ -169,4 +169,14 @@ Ast\Domain\Model\PsEndpoint\PsEndpoint:
         friendId:
           referencedColumnName: id
       orphanRemoval: false
+    retailAccount:
+      targetEntity: \Core\Domain\Model\RetailAccount\RetailAccountInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        retailAccountId:
+          referencedColumnName: id
+      orphanRemoval: false
   lifecycleCallbacks: {  }

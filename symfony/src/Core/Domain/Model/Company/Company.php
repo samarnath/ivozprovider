@@ -17,6 +17,12 @@ class Company implements EntityInterface, CompanyInterface
     protected $id;
 
     /**
+     * @comment enum:vpbx|retail
+     * @var string
+     */
+    protected $type = 'vpbx';
+
+    /**
      * @var string
      */
     protected $name;
@@ -91,7 +97,7 @@ class Company implements EntityInterface, CompanyInterface
     /**
      * @var string
      */
-    protected $externallyExtraOpts;
+    protected $externallyextraopts;
 
     /**
      * @var integer
@@ -149,8 +155,8 @@ class Company implements EntityInterface, CompanyInterface
      * Constructor
      */
     public function __construct(
+        $type,
         $name,
-        $domainUsers,
         $nif,
         $externalMaxCalls,
         $postalAddress,
@@ -159,8 +165,8 @@ class Company implements EntityInterface, CompanyInterface
         $province,
         $country
     ) {
+        $this->setType($type);
         $this->setName($name);
-        $this->setDomainUsers($domainUsers);
         $this->setNif($nif);
         $this->setExternalMaxCalls($externalMaxCalls);
         $this->setPostalAddress($postalAddress);
@@ -196,8 +202,8 @@ class Company implements EntityInterface, CompanyInterface
         Assertion::isInstanceOf($dto, CompanyDTO::class);
 
         $self = new self(
+            $dto->getType(),
             $dto->getName(),
-            $dto->getDomainUsers(),
             $dto->getNif(),
             $dto->getExternalMaxCalls(),
             $dto->getPostalAddress(),
@@ -208,12 +214,13 @@ class Company implements EntityInterface, CompanyInterface
         );
 
         return $self
+            ->setDomainUsers($dto->getDomainUsers())
             ->setOutboundPrefix($dto->getOutboundPrefix())
             ->setIpfilter($dto->getIpfilter())
             ->setOnDemandRecord($dto->getOnDemandRecord())
             ->setOnDemandRecordCode($dto->getOnDemandRecordCode())
             ->setAreaCode($dto->getAreaCode())
-            ->setExternallyExtraOpts($dto->getExternallyExtraOpts())
+            ->setExternallyextraopts($dto->getExternallyextraopts())
             ->setRecordingsLimitMB($dto->getRecordingsLimitMB())
             ->setRecordingsLimitEmail($dto->getRecordingsLimitEmail())
             ->setLanguage($dto->getLanguage())
@@ -234,6 +241,7 @@ class Company implements EntityInterface, CompanyInterface
         Assertion::isInstanceOf($dto, CompanyDTO::class);
 
         $this
+            ->setType($dto->getType())
             ->setName($dto->getName())
             ->setDomainUsers($dto->getDomainUsers())
             ->setNif($dto->getNif())
@@ -248,7 +256,7 @@ class Company implements EntityInterface, CompanyInterface
             ->setOnDemandRecord($dto->getOnDemandRecord())
             ->setOnDemandRecordCode($dto->getOnDemandRecordCode())
             ->setAreaCode($dto->getAreaCode())
-            ->setExternallyExtraOpts($dto->getExternallyExtraOpts())
+            ->setExternallyextraopts($dto->getExternallyextraopts())
             ->setRecordingsLimitMB($dto->getRecordingsLimitMB())
             ->setRecordingsLimitEmail($dto->getRecordingsLimitEmail())
             ->setLanguage($dto->getLanguage())
@@ -270,6 +278,7 @@ class Company implements EntityInterface, CompanyInterface
     {
         return self::createDTO()
             ->setId($this->getId())
+            ->setType($this->getType())
             ->setName($this->getName())
             ->setDomainUsers($this->getDomainUsers())
             ->setNif($this->getNif())
@@ -284,7 +293,7 @@ class Company implements EntityInterface, CompanyInterface
             ->setOnDemandRecord($this->getOnDemandRecord())
             ->setOnDemandRecordCode($this->getOnDemandRecordCode())
             ->setAreaCode($this->getAreaCode())
-            ->setExternallyExtraOpts($this->getExternallyExtraOpts())
+            ->setExternallyextraopts($this->getExternallyextraopts())
             ->setRecordingsLimitMB($this->getRecordingsLimitMB())
             ->setRecordingsLimitEmail($this->getRecordingsLimitEmail())
             ->setLanguageId($this->getLanguage() ? $this->getLanguage()->getId() : null)
@@ -303,6 +312,7 @@ class Company implements EntityInterface, CompanyInterface
     {
         return [
             'id' => $this->getId(),
+            'type' => $this->getType(),
             'name' => $this->getName(),
             'domainUsers' => $this->getDomainUsers(),
             'nif' => $this->getNif(),
@@ -317,7 +327,7 @@ class Company implements EntityInterface, CompanyInterface
             'onDemandRecord' => $this->getOnDemandRecord(),
             'onDemandRecordCode' => $this->getOnDemandRecordCode(),
             'areaCode' => $this->getAreaCode(),
-            'externallyExtraOpts' => $this->getExternallyExtraOpts(),
+            'externallyextraopts' => $this->getExternallyextraopts(),
             'recordingsLimitMB' => $this->getRecordingsLimitMB(),
             'recordingsLimitEmail' => $this->getRecordingsLimitEmail(),
             'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
@@ -341,6 +351,37 @@ class Company implements EntityInterface, CompanyInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Company
+     */
+    protected function setType($type)
+    {
+        Assertion::notNull($type);
+        Assertion::maxLength($type, 25);
+        Assertion::choice($type, array (
+          0 => 'vpbx',
+          1 => 'retail',
+        ));
+
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -377,10 +418,11 @@ class Company implements EntityInterface, CompanyInterface
      *
      * @return Company
      */
-    protected function setDomainUsers($domainUsers)
+    protected function setDomainUsers($domainUsers = null)
     {
-        Assertion::notNull($domainUsers);
-        Assertion::maxLength($domainUsers, 190);
+        if (!is_null($domainUsers)) {
+            Assertion::maxLength($domainUsers, 190);
+        }
 
         $this->domainUsers = $domainUsers;
 
@@ -728,31 +770,31 @@ class Company implements EntityInterface, CompanyInterface
     }
 
     /**
-     * Set externallyExtraOpts
+     * Set externallyextraopts
      *
-     * @param string $externallyExtraOpts
+     * @param string $externallyextraopts
      *
      * @return Company
      */
-    protected function setExternallyExtraOpts($externallyExtraOpts = null)
+    protected function setExternallyextraopts($externallyextraopts = null)
     {
-        if (!is_null($externallyExtraOpts)) {
-            Assertion::maxLength($externallyExtraOpts, 255);
+        if (!is_null($externallyextraopts)) {
+            Assertion::maxLength($externallyextraopts, 65535);
         }
 
-        $this->externallyExtraOpts = $externallyExtraOpts;
+        $this->externallyextraopts = $externallyextraopts;
 
         return $this;
     }
 
     /**
-     * Get externallyExtraOpts
+     * Get externallyextraopts
      *
      * @return string
      */
-    public function getExternallyExtraOpts()
+    public function getExternallyextraopts()
     {
-        return $this->externallyExtraOpts;
+        return $this->externallyextraopts;
     }
 
     /**

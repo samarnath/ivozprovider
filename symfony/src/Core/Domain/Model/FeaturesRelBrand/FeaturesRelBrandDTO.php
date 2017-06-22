@@ -14,27 +14,27 @@ class FeaturesRelBrandDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $featureId;
+    private $featureId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $feature;
+    private $feature;
 
     /**
      * @return array
@@ -63,8 +63,8 @@ class FeaturesRelBrandDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->feature = $transformer->transform('Core\\Model\\Feature\\Feature', $this->getFeatureId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->feature = $transformer->transform('Core\\Domain\\Model\\Feature\\FeatureInterface', $this->getFeatureId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -113,7 +113,7 @@ class FeaturesRelBrandDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -141,7 +141,7 @@ class FeaturesRelBrandDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Feature\Feature
+     * @return \Core\Domain\Model\Feature\FeatureInterface
      */
     public function getFeature()
     {

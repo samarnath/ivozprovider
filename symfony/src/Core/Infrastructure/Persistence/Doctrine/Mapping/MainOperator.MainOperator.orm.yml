@@ -42,7 +42,7 @@ Core\Domain\Model\MainOperator\MainOperator:
         default: ''
     active:
       type: boolean
-      nullable: true
+      nullable: false
       options:
         default: '1'
     name:

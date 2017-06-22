@@ -24,16 +24,6 @@ class PeerServer implements EntityInterface, PeerServerInterface
     /**
      * @var string
      */
-    protected $name;
-
-    /**
-     * @var string
-     */
-    protected $description = '';
-
-    /**
-     * @var string
-     */
     protected $hostname;
 
     /**
@@ -139,10 +129,8 @@ class PeerServer implements EntityInterface, PeerServerInterface
     /**
      * Constructor
      */
-    public function __construct($name, $description, $authNeeded)
+    public function __construct($authNeeded)
     {
-        $this->setName($name);
-        $this->setDescription($description);
         $this->setAuthNeeded($authNeeded);
     }
 
@@ -172,8 +160,6 @@ class PeerServer implements EntityInterface, PeerServerInterface
         Assertion::isInstanceOf($dto, PeerServerDTO::class);
 
         $self = new self(
-            $dto->getName(),
-            $dto->getDescription(),
             $dto->getAuthNeeded()
         );
 
@@ -208,8 +194,6 @@ class PeerServer implements EntityInterface, PeerServerInterface
 
         $this
             ->setIp($dto->getIp())
-            ->setName($dto->getName())
-            ->setDescription($dto->getDescription())
             ->setHostname($dto->getHostname())
             ->setPort($dto->getPort())
             ->setParams($dto->getParams())
@@ -241,8 +225,6 @@ class PeerServer implements EntityInterface, PeerServerInterface
         return self::createDTO()
             ->setId($this->getId())
             ->setIp($this->getIp())
-            ->setName($this->getName())
-            ->setDescription($this->getDescription())
             ->setHostname($this->getHostname())
             ->setPort($this->getPort())
             ->setParams($this->getParams())
@@ -271,8 +253,6 @@ class PeerServer implements EntityInterface, PeerServerInterface
         return [
             'id' => $this->getId(),
             'ip' => $this->getIp(),
-            'name' => $this->getName(),
-            'description' => $this->getDescription(),
             'hostname' => $this->getHostname(),
             'port' => $this->getPort(),
             'params' => $this->getParams(),
@@ -333,60 +313,6 @@ class PeerServer implements EntityInterface, PeerServerInterface
     public function getIp()
     {
         return $this->ip;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return PeerServer
-     */
-    protected function setName($name)
-    {
-        Assertion::notNull($name);
-        Assertion::maxLength($name, 200);
-
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return PeerServer
-     */
-    protected function setDescription($description)
-    {
-        Assertion::notNull($description);
-        Assertion::maxLength($description, 500);
-
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**

@@ -62,11 +62,12 @@ class MainOperator implements EntityInterface, MainOperatorInterface
     /**
      * Constructor
      */
-    public function __construct($username, $pass, $email)
+    public function __construct($username, $pass, $email, $active)
     {
         $this->setUsername($username);
         $this->setPass($pass);
         $this->setEmail($email);
+        $this->setActive($active);
     }
 
      public function __wakeup()
@@ -97,11 +98,11 @@ class MainOperator implements EntityInterface, MainOperatorInterface
         $self = new self(
             $dto->getUsername(),
             $dto->getPass(),
-            $dto->getEmail()
+            $dto->getEmail(),
+            $dto->getActive()
         );
 
         return $self
-            ->setActive($dto->getActive())
             ->setName($dto->getName())
             ->setLastname($dto->getLastname())
             ->setTimezone($dto->getTimezone());
@@ -262,11 +263,10 @@ class MainOperator implements EntityInterface, MainOperatorInterface
      *
      * @return MainOperator
      */
-    protected function setActive($active = null)
+    protected function setActive($active)
     {
-        if (!is_null($active)) {
-            Assertion::between(intval($active), 0, 1);
-        }
+        Assertion::notNull($active);
+        Assertion::between(intval($active), 0, 1);
 
         $this->active = $active;
 

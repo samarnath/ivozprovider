@@ -29,10 +29,10 @@ class Brand implements EntityInterface, BrandInterface
     protected $nif;
 
     /**
-     * @column domain_trunks
+     * @column domain_users
      * @var string
      */
-    protected $domainTrunks;
+    protected $domainUsers;
 
     /**
      * @comment FSO
@@ -205,7 +205,7 @@ class Brand implements EntityInterface, BrandInterface
         );
 
         return $self
-            ->setDomainTrunks($dto->getDomainTrunks())
+            ->setDomainUsers($dto->getDomainUsers())
             ->setLogoFileSize($dto->getLogoFileSize())
             ->setLogoMimeType($dto->getLogoMimeType())
             ->setLogoBaseName($dto->getLogoBaseName())
@@ -234,7 +234,7 @@ class Brand implements EntityInterface, BrandInterface
         $this
             ->setName($dto->getName())
             ->setNif($dto->getNif())
-            ->setDomainTrunks($dto->getDomainTrunks())
+            ->setDomainUsers($dto->getDomainUsers())
             ->setLogoFileSize($dto->getLogoFileSize())
             ->setLogoMimeType($dto->getLogoMimeType())
             ->setLogoBaseName($dto->getLogoBaseName())
@@ -269,7 +269,7 @@ class Brand implements EntityInterface, BrandInterface
             ->setId($this->getId())
             ->setName($this->getName())
             ->setNif($this->getNif())
-            ->setDomainTrunks($this->getDomainTrunks())
+            ->setDomainUsers($this->getDomainUsers())
             ->setLogoFileSize($this->getLogoFileSize())
             ->setLogoMimeType($this->getLogoMimeType())
             ->setLogoBaseName($this->getLogoBaseName())
@@ -301,7 +301,7 @@ class Brand implements EntityInterface, BrandInterface
             'id' => $this->getId(),
             'name' => $this->getName(),
             'nif' => $this->getNif(),
-            'domainTrunks' => $this->getDomainTrunks(),
+            'domainUsers' => $this->getDomainUsers(),
             'logoFileSize' => $this->getLogoFileSize(),
             'logoMimeType' => $this->getLogoMimeType(),
             'logoBaseName' => $this->getLogoBaseName(),
@@ -388,31 +388,31 @@ class Brand implements EntityInterface, BrandInterface
     }
 
     /**
-     * Set domainTrunks
+     * Set domainUsers
      *
-     * @param string $domainTrunks
+     * @param string $domainUsers
      *
      * @return Brand
      */
-    protected function setDomainTrunks($domainTrunks = null)
+    protected function setDomainUsers($domainUsers = null)
     {
-        if (!is_null($domainTrunks)) {
-            Assertion::maxLength($domainTrunks, 255);
+        if (!is_null($domainUsers)) {
+            Assertion::maxLength($domainUsers, 255);
         }
 
-        $this->domainTrunks = $domainTrunks;
+        $this->domainUsers = $domainUsers;
 
         return $this;
     }
 
     /**
-     * Get domainTrunks
+     * Get domainUsers
      *
      * @return string
      */
-    public function getDomainTrunks()
+    public function getDomainUsers()
     {
-        return $this->domainTrunks;
+        return $this->domainUsers;
     }
 
     /**

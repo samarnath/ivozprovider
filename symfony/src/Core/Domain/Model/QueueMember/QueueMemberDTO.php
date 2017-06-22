@@ -14,32 +14,32 @@ class QueueMemberDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $penalty;
+    private $penalty;
 
     /**
      * @var mixed
      */
-    public $queueId;
+    private $queueId;
 
     /**
      * @var mixed
      */
-    public $userId;
+    private $userId;
 
     /**
      * @var mixed
      */
-    public $queue;
+    private $queue;
 
     /**
      * @var mixed
      */
-    public $user;
+    private $user;
 
     /**
      * @return array
@@ -70,8 +70,8 @@ class QueueMemberDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->queue = $transformer->transform('Core\\Model\\Queue\\Queue', $this->getQueueId());
-        $this->user = $transformer->transform('Core\\Model\\User\\User', $this->getUserId());
+        $this->queue = $transformer->transform('Core\\Domain\\Model\\Queue\\QueueInterface', $this->getQueueId());
+        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getUserId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -140,7 +140,7 @@ class QueueMemberDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Queue\Queue
+     * @return \Core\Domain\Model\Queue\QueueInterface
      */
     public function getQueue()
     {
@@ -168,7 +168,7 @@ class QueueMemberDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getUser()
     {

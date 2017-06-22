@@ -14,62 +14,62 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var \DateTime
      */
-    public $calldate = '0000-00-00 00:00:00';
+    private $calldate = '0000-00-00 00:00:00';
 
     /**
      * @var string
      */
-    public $src;
+    private $src;
 
     /**
      * @var string
      */
-    public $dst;
+    private $dst;
 
     /**
      * @var string
      */
-    public $type = 'Out';
+    private $type = 'Out';
 
     /**
      * @var string
      */
-    public $pages;
+    private $pages;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * @var integer
      */
-    public $fileFileSize;
+    private $fileFileSize;
 
     /**
      * @var string
      */
-    public $fileMimeType;
+    private $fileMimeType;
 
     /**
      * @var string
      */
-    public $fileBaseName;
+    private $fileBaseName;
 
     /**
      * @var mixed
      */
-    public $faxId;
+    private $faxId;
 
     /**
      * @var mixed
      */
-    public $fax;
+    private $fax;
 
     /**
      * @return array
@@ -114,7 +114,7 @@ class FaxesInOutDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->fax = $transformer->transform('Core\\Model\\Fax\\Fax', $this->getFaxId());
+        $this->fax = $transformer->transform('Core\\Domain\\Model\\Fax\\FaxInterface', $this->getFaxId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -343,7 +343,7 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Fax\Fax
+     * @return \Core\Domain\Model\Fax\FaxInterface
      */
     public function getFax()
     {

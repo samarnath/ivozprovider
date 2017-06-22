@@ -14,17 +14,17 @@ class ApplicationServerDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $ip;
+    private $ip;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @return array

@@ -9,7 +9,7 @@ use Core\Application\DataTransferObjectInterface;
 /**
  * Queue
  */
-class Queue
+class Queue implements EntityInterface, QueueInterface
 {
     /**
      * @var string

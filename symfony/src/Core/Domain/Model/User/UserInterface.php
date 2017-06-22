@@ -87,6 +87,14 @@ interface UserInterface
 
 
     /**
+     * Get externalIpCalls
+     *
+     * @return boolean
+     */
+    public function getExternalIpCalls();
+
+
+    /**
      * Get voicemailEnabled
      *
      * @return boolean

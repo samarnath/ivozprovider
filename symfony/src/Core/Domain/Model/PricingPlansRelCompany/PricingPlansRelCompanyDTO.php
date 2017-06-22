@@ -14,52 +14,52 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var \DateTime
      */
-    public $validFrom;
+    private $validFrom;
 
     /**
      * @var \DateTime
      */
-    public $validTo;
+    private $validTo;
 
     /**
      * @var integer
      */
-    public $metric = '10';
+    private $metric = '10';
 
     /**
      * @var mixed
      */
-    public $pricingPlanId;
+    private $pricingPlanId;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $pricingPlan;
+    private $pricingPlan;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @return array
@@ -96,9 +96,9 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->pricingPlan = $transformer->transform('Core\\Model\\PricingPlan\\PricingPlan', $this->getPricingPlanId());
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->pricingPlan = $transformer->transform('Core\\Domain\\Model\\PricingPlan\\PricingPlanInterface', $this->getPricingPlanId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -207,7 +207,7 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PricingPlan\PricingPlan
+     * @return \Core\Domain\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan()
     {
@@ -235,7 +235,7 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -263,7 +263,7 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {

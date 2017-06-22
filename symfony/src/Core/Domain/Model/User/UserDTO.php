@@ -14,167 +14,167 @@ class UserDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $lastname;
+    private $lastname;
 
     /**
      * @var string
      */
-    public $email;
+    private $email;
 
     /**
      * @var string
      */
-    public $pass;
+    private $pass;
 
     /**
      * @var boolean
      */
-    public $doNotDisturb = '0';
+    private $doNotDisturb = '0';
 
     /**
      * @var boolean
      */
-    public $isBoss = '0';
+    private $isBoss = '0';
 
     /**
      * @var string
      */
-    public $exceptionBoosAssistantRegExp;
+    private $exceptionBoosAssistantRegExp;
 
     /**
      * @var boolean
      */
-    public $active = '0';
+    private $active = '0';
 
     /**
      * @var integer
      */
-    public $maxCalls = '0';
+    private $maxCalls = '0';
 
     /**
      * @var boolean
      */
-    public $voicemailEnabled = '1';
+    private $voicemailEnabled = '1';
 
     /**
      * @var boolean
      */
-    public $voicemailSendMail = '0';
+    private $voicemailSendMail = '0';
 
     /**
      * @var boolean
      */
-    public $voicemailAttachSound = '1';
+    private $voicemailAttachSound = '1';
 
     /**
      * @var string
      */
-    public $tokenKey;
+    private $tokenKey;
 
     /**
      * @var string
      */
-    public $areaCode;
+    private $areaCode;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $callACLId;
+    private $callACLId;
 
     /**
      * @var mixed
      */
-    public $bossAssistantId;
+    private $bossAssistantId;
 
     /**
      * @var mixed
      */
-    public $countryId;
+    private $countryId;
 
     /**
      * @var mixed
      */
-    public $languageId;
+    private $languageId;
 
     /**
      * @var mixed
      */
-    public $terminalId;
+    private $terminalId;
 
     /**
      * @var mixed
      */
-    public $extensionId;
+    private $extensionId;
 
     /**
      * @var mixed
      */
-    public $timezoneId;
+    private $timezoneId;
 
     /**
      * @var mixed
      */
-    public $outgoingDDIId;
+    private $outgoingDDIId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $callACL;
+    private $callACL;
 
     /**
      * @var mixed
      */
-    public $bossAssistant;
+    private $bossAssistant;
 
     /**
      * @var mixed
      */
-    public $country;
+    private $country;
 
     /**
      * @var mixed
      */
-    public $language;
+    private $language;
 
     /**
      * @var mixed
      */
-    public $terminal;
+    private $terminal;
 
     /**
      * @var mixed
      */
-    public $extension;
+    private $extension;
 
     /**
      * @var mixed
      */
-    public $timezone;
+    private $timezone;
 
     /**
      * @var mixed
      */
-    public $outgoingDDI;
+    private $outgoingDDI;
 
     /**
      * @return array
@@ -245,15 +245,15 @@ class UserDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->callACL = $transformer->transform('Core\\Model\\CallACL\\CallACL', $this->getCallACLId());
-        $this->bossAssistant = $transformer->transform('Core\\Model\\User\\User', $this->getBossAssistantId());
-        $this->country = $transformer->transform('Core\\Model\\Country\\Country', $this->getCountryId());
-        $this->language = $transformer->transform('Core\\Model\\Language\\Language', $this->getLanguageId());
-        $this->terminal = $transformer->transform('Core\\Model\\Terminal\\Terminal', $this->getTerminalId());
-        $this->extension = $transformer->transform('Core\\Model\\Extension\\Extension', $this->getExtensionId());
-        $this->timezone = $transformer->transform('Core\\Model\\Timezone\\Timezone', $this->getTimezoneId());
-        $this->outgoingDDI = $transformer->transform('Core\\Model\\DDI\\DDI', $this->getOutgoingDDIId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACLInterface', $this->getCallACLId());
+        $this->bossAssistant = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getBossAssistantId());
+        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
+        $this->terminal = $transformer->transform('Core\\Domain\\Model\\Terminal\\TerminalInterface', $this->getTerminalId());
+        $this->extension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getExtensionId());
+        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getTimezoneId());
+        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -582,7 +582,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -610,7 +610,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\CallACL\CallACL
+     * @return \Core\Domain\Model\CallACL\CallACLInterface
      */
     public function getCallACL()
     {
@@ -638,7 +638,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Core\Domain\Model\User\UserInterface
      */
     public function getBossAssistant()
     {
@@ -666,7 +666,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\Country
+     * @return \Core\Domain\Model\Country\CountryInterface
      */
     public function getCountry()
     {
@@ -694,7 +694,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Language\Language
+     * @return \Core\Domain\Model\Language\LanguageInterface
      */
     public function getLanguage()
     {
@@ -722,7 +722,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Terminal\Terminal
+     * @return \Core\Domain\Model\Terminal\TerminalInterface
      */
     public function getTerminal()
     {
@@ -750,7 +750,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\Extension
+     * @return \Core\Domain\Model\Extension\ExtensionInterface
      */
     public function getExtension()
     {
@@ -778,7 +778,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\Timezone
+     * @return \Core\Domain\Model\Timezone\TimezoneInterface
      */
     public function getTimezone()
     {
@@ -806,7 +806,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\DDI\DDI
+     * @return \Core\Domain\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI()
     {

@@ -14,27 +14,27 @@ class FeaturesRelCompanyDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $featureId;
+    private $featureId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $feature;
+    private $feature;
 
     /**
      * @return array
@@ -63,8 +63,8 @@ class FeaturesRelCompanyDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->feature = $transformer->transform('Core\\Model\\Feature\\Feature', $this->getFeatureId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->feature = $transformer->transform('Core\\Domain\\Model\\Feature\\FeatureInterface', $this->getFeatureId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -113,7 +113,7 @@ class FeaturesRelCompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -141,7 +141,7 @@ class FeaturesRelCompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Feature\Feature
+     * @return \Core\Domain\Model\Feature\FeatureInterface
      */
     public function getFeature()
     {

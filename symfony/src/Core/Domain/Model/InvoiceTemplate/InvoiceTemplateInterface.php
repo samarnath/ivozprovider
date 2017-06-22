@@ -39,6 +39,22 @@ interface InvoiceTemplateInterface
 
 
     /**
+     * Get templateHeader
+     *
+     * @return string
+     */
+    public function getTemplateHeader();
+
+
+    /**
+     * Get templateFooter
+     *
+     * @return string
+     */
+    public function getTemplateFooter();
+
+
+    /**
      * Get brand
      *
      * @return \Core\Domain\Model\Brand\BrandInterface

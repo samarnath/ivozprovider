@@ -166,6 +166,14 @@ interface PsEndpointInterface
     public function getFriend();
 
 
+    /**
+     * Get retailAccount
+     *
+     * @return \Core\Domain\Model\RetailAccount\RetailAccountInterface
+     */
+    public function getRetailAccount();
+
+
 
 }
 

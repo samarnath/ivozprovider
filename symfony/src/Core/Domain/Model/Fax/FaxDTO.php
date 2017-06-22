@@ -14,42 +14,42 @@ class FaxDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $email;
+    private $email;
 
     /**
      * @var boolean
      */
-    public $sendByEmail = '1';
+    private $sendByEmail = '1';
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $outgoingDDIId;
+    private $outgoingDDIId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @var mixed
      */
-    public $outgoingDDI;
+    private $outgoingDDI;
 
     /**
      * @return array
@@ -84,8 +84,8 @@ class FaxDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
-        $this->outgoingDDI = $transformer->transform('Core\\Model\\DDI\\DDI', $this->getOutgoingDDIId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -194,7 +194,7 @@ class FaxDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Core\Domain\Model\Company\CompanyInterface
      */
     public function getCompany()
     {
@@ -222,7 +222,7 @@ class FaxDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\DDI\DDI
+     * @return \Core\Domain\Model\DDI\DDIInterface
      */
     public function getOutgoingDDI()
     {

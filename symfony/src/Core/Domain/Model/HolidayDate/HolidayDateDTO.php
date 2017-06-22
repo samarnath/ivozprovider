@@ -14,37 +14,37 @@ class HolidayDateDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var \DateTime
      */
-    public $eventDate;
+    private $eventDate;
 
     /**
      * @var mixed
      */
-    public $calendarId;
+    private $calendarId;
 
     /**
      * @var mixed
      */
-    public $locutionId;
+    private $locutionId;
 
     /**
      * @var mixed
      */
-    public $calendar;
+    private $calendar;
 
     /**
      * @var mixed
      */
-    public $locution;
+    private $locution;
 
     /**
      * @return array
@@ -77,8 +77,8 @@ class HolidayDateDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->calendar = $transformer->transform('Core\\Model\\Calendar\\Calendar', $this->getCalendarId());
-        $this->locution = $transformer->transform('Core\\Model\\Locution\\Locution', $this->getLocutionId());
+        $this->calendar = $transformer->transform('Core\\Domain\\Model\\Calendar\\CalendarInterface', $this->getCalendarId());
+        $this->locution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getLocutionId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -167,7 +167,7 @@ class HolidayDateDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Calendar\Calendar
+     * @return \Core\Domain\Model\Calendar\CalendarInterface
      */
     public function getCalendar()
     {
@@ -195,7 +195,7 @@ class HolidayDateDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\Locution
+     * @return \Core\Domain\Model\Locution\LocutionInterface
      */
     public function getLocution()
     {

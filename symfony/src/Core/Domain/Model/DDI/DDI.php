@@ -38,7 +38,7 @@ class DDI implements EntityInterface, DDIInterface
     protected $displayName;
 
     /**
-     * @comment enum:user|IVRCommon|IVRCustom|huntGroup|fax|conferenceRoom|friend|queue
+     * @comment enum:user|IVRCommon|IVRCustom|huntGroup|fax|conferenceRoom|friend|queue|retailAccount
      * @var string
      */
     protected $routeType;
@@ -118,6 +118,11 @@ class DDI implements EntityInterface, DDIInterface
      */
     protected $country;
 
+    /**
+     * @var \Core\Domain\Model\RetailAccount\RetailAccountInterface
+     */
+    protected $retailAccount;
+
 
     /**
      * Changelog tracking purpose
@@ -183,7 +188,8 @@ class DDI implements EntityInterface, DDIInterface
             ->setHuntGroup($dto->getHuntGroup())
             ->setFax($dto->getFax())
             ->setPeeringContract($dto->getPeeringContract())
-            ->setCountry($dto->getCountry());
+            ->setCountry($dto->getCountry())
+            ->setRetailAccount($dto->getRetailAccount());
     }
 
     /**
@@ -214,7 +220,8 @@ class DDI implements EntityInterface, DDIInterface
             ->setHuntGroup($dto->getHuntGroup())
             ->setFax($dto->getFax())
             ->setPeeringContract($dto->getPeeringContract())
-            ->setCountry($dto->getCountry());
+            ->setCountry($dto->getCountry())
+            ->setRetailAccount($dto->getRetailAccount());
 
 
         return $this;
@@ -246,7 +253,8 @@ class DDI implements EntityInterface, DDIInterface
             ->setHuntGroupId($this->getHuntGroup() ? $this->getHuntGroup()->getId() : null)
             ->setFaxId($this->getFax() ? $this->getFax()->getId() : null)
             ->setPeeringContractId($this->getPeeringContract() ? $this->getPeeringContract()->getId() : null)
-            ->setCountryId($this->getCountry() ? $this->getCountry()->getId() : null);
+            ->setCountryId($this->getCountry() ? $this->getCountry()->getId() : null)
+            ->setRetailAccountId($this->getRetailAccount() ? $this->getRetailAccount()->getId() : null);
     }
 
     /**
@@ -275,7 +283,8 @@ class DDI implements EntityInterface, DDIInterface
             'huntGroupId' => $this->getHuntGroup() ? $this->getHuntGroup()->getId() : null,
             'faxId' => $this->getFax() ? $this->getFax()->getId() : null,
             'peeringContractId' => $this->getPeeringContract() ? $this->getPeeringContract()->getId() : null,
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null
+            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null,
+            'retailAccountId' => $this->getRetailAccount() ? $this->getRetailAccount()->getId() : null
         ];
     }
 
@@ -428,6 +437,7 @@ class DDI implements EntityInterface, DDIInterface
           5 => '    conferenceRoom',
           6 => '    friend',
           7 => '    queue',
+          8 => '    retailAccount',
         ));
         }
 
@@ -811,6 +821,30 @@ class DDI implements EntityInterface, DDIInterface
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Set retailAccount
+     *
+     * @param \Core\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount
+     *
+     * @return DDI
+     */
+    protected function setRetailAccount(\Core\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount = null)
+    {
+        $this->retailAccount = $retailAccount;
+
+        return $this;
+    }
+
+    /**
+     * Get retailAccount
+     *
+     * @return \Core\Domain\Model\RetailAccount\RetailAccountInterface
+     */
+    public function getRetailAccount()
+    {
+        return $this->retailAccount;
     }
 
 

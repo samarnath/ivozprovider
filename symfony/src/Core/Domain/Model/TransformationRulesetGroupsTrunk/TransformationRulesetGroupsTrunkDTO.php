@@ -14,76 +14,76 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @column caller_in
      * @var integer
      */
-    public $callerIn;
+    private $callerIn;
 
     /**
      * @column callee_in
      * @var integer
      */
-    public $calleeIn;
+    private $calleeIn;
 
     /**
      * @column caller_out
      * @var integer
      */
-    public $callerOut;
+    private $callerOut;
 
     /**
      * @column callee_out
      * @var integer
      */
-    public $calleeOut;
+    private $calleeOut;
 
     /**
      * @var string
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @var boolean
      */
-    public $automatic = '0';
+    private $automatic = '0';
 
     /**
      * @var string
      */
-    public $internationalCode;
+    private $internationalCode;
 
     /**
      * @var integer
      */
-    public $nationalNumLength;
+    private $nationalNumLength;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $countryId;
+    private $countryId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $country;
+    private $country;
 
     /**
      * @return array
@@ -130,8 +130,8 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
 
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->country = $transformer->transform('Core\\Model\\Country\\Country', $this->getCountryId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
     }
 
     public function transformCollections(CollectionTransformerInterface $transformer)
@@ -360,7 +360,7 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Core\Domain\Model\Brand\BrandInterface
      */
     public function getBrand()
     {
@@ -388,7 +388,7 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\Country
+     * @return \Core\Domain\Model\Country\CountryInterface
      */
     public function getCountry()
     {
