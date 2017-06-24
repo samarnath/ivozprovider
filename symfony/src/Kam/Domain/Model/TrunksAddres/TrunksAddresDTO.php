@@ -14,33 +14,33 @@ class TrunksAddresDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $grp = '1';
+    private $grp = '1';
 
     /**
      * @column ip_addr
      * @var string
      */
-    public $ipAddr;
+    private $ipAddr;
 
     /**
      * @var integer
      */
-    public $mask = '32';
+    private $mask = '32';
 
     /**
      * @var integer
      */
-    public $port = '0';
+    private $port = '0';
 
     /**
      * @var string
      */
-    public $tag;
+    private $tag;
 
     /**
      * @return array
@@ -60,7 +60,8 @@ class TrunksAddresDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -72,12 +73,19 @@ class TrunksAddresDTO implements DataTransferObjectInterface
             ->setPort(isset($data['port']) ? $data['port'] : null)
             ->setTag(isset($data['tag']) ? $data['tag'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

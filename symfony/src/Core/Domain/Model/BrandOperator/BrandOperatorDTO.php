@@ -87,7 +87,8 @@ class BrandOperatorDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -102,13 +103,20 @@ class BrandOperatorDTO implements DataTransferObjectInterface
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setTimezoneId(isset($data['timezoneId']) ? $data['timezoneId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getTimezoneId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\Timezone', $this->getTimezoneId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -199,7 +207,7 @@ class BrandOperatorDTO implements DataTransferObjectInterface
      *
      * @return BrandOperatorDTO
      */
-    public function setActive($active = null)
+    public function setActive($active)
     {
         $this->active = $active;
 
@@ -275,7 +283,7 @@ class BrandOperatorDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -303,7 +311,7 @@ class BrandOperatorDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\TimezoneInterface
+     * @return \Core\Domain\Model\Timezone\Timezone
      */
     public function getTimezone()
     {

@@ -14,122 +14,132 @@ class PsEndpointDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column sorcery_id
      * @var string
      */
-    public $sorceryId;
+    private $sorceryId;
 
     /**
      * @column from_domain
      * @var string
      */
-    public $fromDomain;
+    private $fromDomain;
 
     /**
      * @var string
      */
-    public $aors;
+    private $aors;
 
     /**
      * @var string
      */
-    public $callerid;
+    private $callerid;
 
     /**
      * @var string
      */
-    public $context = 'users';
+    private $context = 'users';
 
     /**
      * @var string
      */
-    public $disallow = 'all';
+    private $disallow = 'all';
 
     /**
      * @var string
      */
-    public $allow = 'all';
+    private $allow = 'all';
 
     /**
      * @column direct_media
      * @var string
      */
-    public $directMedia = 'yes';
+    private $directMedia = 'yes';
 
     /**
      * @column direct_media_method
      * @var string
      */
-    public $directMediaMethod = 'update';
+    private $directMediaMethod = 'update';
 
     /**
      * @var string
      */
-    public $mailboxes;
+    private $mailboxes;
 
     /**
      * @column pickup_group
      * @var string
      */
-    public $pickupGroup;
+    private $pickupGroup;
 
     /**
      * @column send_diversion
      * @var string
      */
-    public $sendDiversion = 'yes';
+    private $sendDiversion = 'yes';
 
     /**
      * @column send_pai
      * @var string
      */
-    public $sendPai = 'yes';
+    private $sendPai = 'yes';
 
     /**
      * @var string
      */
-    public $subscribecontext = 'default';
+    private $subscribecontext = 'default';
 
     /**
      * @column 100rel
      * @var string
      */
-    public $oneHundredRel = 'no';
+    private $oneHundredRel = 'no';
 
     /**
      * @column outbound_proxy
      * @var string
      */
-    public $outboundProxy;
+    private $outboundProxy;
 
     /**
      * @column trust_id_inbound
      * @var string
      */
-    public $trustIdInbound;
+    private $trustIdInbound;
 
     /**
      * @var mixed
      */
-    public $terminalId;
+    private $terminalId;
 
     /**
      * @var mixed
      */
-    public $friendId;
+    private $friendId;
 
     /**
      * @var mixed
      */
-    public $terminal;
+    private $retailAccountId;
 
     /**
      * @var mixed
      */
-    public $friend;
+    private $terminal;
+
+    /**
+     * @var mixed
+     */
+    private $friend;
+
+    /**
+     * @var mixed
+     */
+    private $retailAccount;
 
     /**
      * @return array
@@ -156,14 +166,16 @@ class PsEndpointDTO implements DataTransferObjectInterface
             'outboundProxy' => $this->getOutboundProxy(),
             'trustIdInbound' => $this->getTrustIdInbound(),
             'terminalId' => $this->getTerminalId(),
-            'friendId' => $this->getFriendId()
+            'friendId' => $this->getFriendId(),
+            'retailAccountId' => $this->getRetailAccountId()
         ];
     }
 
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -187,15 +199,24 @@ class PsEndpointDTO implements DataTransferObjectInterface
             ->setOutboundProxy(isset($data['outboundProxy']) ? $data['outboundProxy'] : null)
             ->setTrustIdInbound(isset($data['trustIdInbound']) ? $data['trustIdInbound'] : null)
             ->setTerminalId(isset($data['terminalId']) ? $data['terminalId'] : null)
-            ->setFriendId(isset($data['friendId']) ? $data['friendId'] : null);
+            ->setFriendId(isset($data['friendId']) ? $data['friendId'] : null)
+            ->setRetailAccountId(isset($data['retailAccountId']) ? $data['retailAccountId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->terminal = $transformer->transform('Core\\Model\\Terminal\\Terminal', $this->getTerminalId());
-        $this->friend = $transformer->transform('Core\\Model\\Friend\\Friend', $this->getFriendId());
+        $this->terminal = $transformer->transform('Core\\Domain\\Model\\Terminal\\Terminal', $this->getTerminalId());
+        $this->friend = $transformer->transform('Core\\Domain\\Model\\Friend\\Friend', $this->getFriendId());
+        $this->retailAccount = $transformer->transform('Core\\Domain\\Model\\RetailAccount\\RetailAccount', $this->getRetailAccountId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -615,6 +636,34 @@ class PsEndpointDTO implements DataTransferObjectInterface
     public function getFriend()
     {
         return $this->friend;
+    }
+
+    /**
+     * @param integer $retailAccountId
+     *
+     * @return PsEndpointDTO
+     */
+    public function setRetailAccountId($retailAccountId)
+    {
+        $this->retailAccountId = $retailAccountId;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getRetailAccountId()
+    {
+        return $this->retailAccountId;
+    }
+
+    /**
+     * @return \Core\Domain\Model\RetailAccount\RetailAccount
+     */
+    public function getRetailAccount()
+    {
+        return $this->retailAccount;
     }
 }
 

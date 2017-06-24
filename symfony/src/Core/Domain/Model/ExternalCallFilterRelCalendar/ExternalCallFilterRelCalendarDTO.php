@@ -51,7 +51,8 @@ class ExternalCallFilterRelCalendarDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -60,13 +61,20 @@ class ExternalCallFilterRelCalendarDTO implements DataTransferObjectInterface
             ->setFilterId(isset($data['filterId']) ? $data['filterId'] : null)
             ->setCalendarId(isset($data['calendarId']) ? $data['calendarId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->filter = $transformer->transform('Core\\Domain\\Model\\ExternalCallFilter\\ExternalCallFilterInterface', $this->getFilterId());
-        $this->calendar = $transformer->transform('Core\\Domain\\Model\\Calendar\\CalendarInterface', $this->getCalendarId());
+        $this->filter = $transformer->transform('Core\\Domain\\Model\\ExternalCallFilter\\ExternalCallFilter', $this->getFilterId());
+        $this->calendar = $transformer->transform('Core\\Domain\\Model\\Calendar\\Calendar', $this->getCalendarId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -113,7 +121,7 @@ class ExternalCallFilterRelCalendarDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
+     * @return \Core\Domain\Model\ExternalCallFilter\ExternalCallFilter
      */
     public function getFilter()
     {
@@ -141,7 +149,7 @@ class ExternalCallFilterRelCalendarDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Calendar\CalendarInterface
+     * @return \Core\Domain\Model\Calendar\Calendar
      */
     public function getCalendar()
     {

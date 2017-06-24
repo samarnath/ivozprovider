@@ -122,7 +122,8 @@ class InvoiceDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -142,14 +143,21 @@ class InvoiceDTO implements DataTransferObjectInterface
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->invoiceTemplate = $transformer->transform('Core\\Domain\\Model\\InvoiceTemplate\\InvoiceTemplateInterface', $this->getInvoiceTemplateId());
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
+        $this->invoiceTemplate = $transformer->transform('Core\\Domain\\Model\\InvoiceTemplate\\InvoiceTemplate', $this->getInvoiceTemplateId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -396,7 +404,7 @@ class InvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\InvoiceTemplate\InvoiceTemplateInterface
+     * @return \Core\Domain\Model\InvoiceTemplate\InvoiceTemplate
      */
     public function getInvoiceTemplate()
     {
@@ -424,7 +432,7 @@ class InvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -452,7 +460,7 @@ class InvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {

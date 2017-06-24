@@ -69,7 +69,8 @@ class FaxDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -81,13 +82,20 @@ class FaxDTO implements DataTransferObjectInterface
             ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
             ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDI', $this->getOutgoingDDIId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -194,7 +202,7 @@ class FaxDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -222,7 +230,7 @@ class FaxDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\DDI\DDIInterface
+     * @return \Core\Domain\Model\DDI\DDI
      */
     public function getOutgoingDDI()
     {

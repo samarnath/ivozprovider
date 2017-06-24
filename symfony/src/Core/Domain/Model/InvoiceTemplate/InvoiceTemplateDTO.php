@@ -32,6 +32,16 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     private $template;
 
     /**
+     * @var string
+     */
+    private $templateHeader;
+
+    /**
+     * @var string
+     */
+    private $templateFooter;
+
+    /**
      * @var mixed
      */
     private $brandId;
@@ -51,6 +61,8 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
             'name' => $this->getName(),
             'description' => $this->getDescription(),
             'template' => $this->getTemplate(),
+            'templateHeader' => $this->getTemplateHeader(),
+            'templateFooter' => $this->getTemplateFooter(),
             'brandId' => $this->getBrandId()
         ];
     }
@@ -58,7 +70,8 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -67,14 +80,23 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
             ->setName(isset($data['name']) ? $data['name'] : null)
             ->setDescription(isset($data['description']) ? $data['description'] : null)
             ->setTemplate(isset($data['template']) ? $data['template'] : null)
+            ->setTemplateHeader(isset($data['templateHeader']) ? $data['templateHeader'] : null)
+            ->setTemplateFooter(isset($data['templateFooter']) ? $data['templateFooter'] : null)
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -161,6 +183,46 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param string $templateHeader
+     *
+     * @return InvoiceTemplateDTO
+     */
+    public function setTemplateHeader($templateHeader = null)
+    {
+        $this->templateHeader = $templateHeader;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplateHeader()
+    {
+        return $this->templateHeader;
+    }
+
+    /**
+     * @param string $templateFooter
+     *
+     * @return InvoiceTemplateDTO
+     */
+    public function setTemplateFooter($templateFooter = null)
+    {
+        $this->templateFooter = $templateFooter;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplateFooter()
+    {
+        return $this->templateFooter;
+    }
+
+    /**
      * @param integer $brandId
      *
      * @return InvoiceTemplateDTO
@@ -181,7 +243,7 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {

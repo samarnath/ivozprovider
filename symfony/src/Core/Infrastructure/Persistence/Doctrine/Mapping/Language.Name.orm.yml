@@ -1,0 +1,27 @@
+Core\Domain\Model\Language\Name:
+  type: embeddable
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 100
+      options:
+        fixed: false
+        comment: '[ml]'
+        default: ''
+    nameEn:
+      type: string
+      nullable: false
+      length: 100
+      options:
+        fixed: false
+        default: ''
+      column: name_en
+    nameEs:
+      type: string
+      nullable: false
+      length: 100
+      options:
+        fixed: false
+        default: ''
+      column: name_es

@@ -14,49 +14,49 @@ class QueueMemberDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $uniqueid;
+    private $uniqueid;
 
     /**
      * @column queue_name
      * @var string
      */
-    public $queueName;
+    private $queueName;
 
     /**
      * @var string
      */
-    public $interface;
+    private $interface;
 
     /**
      * @var string
      */
-    public $membername;
+    private $membername;
 
     /**
      * @column state_interface
      * @var string
      */
-    public $stateInterface;
+    private $stateInterface;
 
     /**
      * @var integer
      */
-    public $penalty;
+    private $penalty;
 
     /**
      * @var integer
      */
-    public $paused;
+    private $paused;
 
     /**
      * @var mixed
      */
-    public $queueMemberId;
+    private $queueMemberId;
 
     /**
      * @var mixed
      */
-    public $queueMember;
+    private $queueMember;
 
     /**
      * @return array
@@ -78,7 +78,8 @@ class QueueMemberDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -92,12 +93,19 @@ class QueueMemberDTO implements DataTransferObjectInterface
             ->setPaused(isset($data['paused']) ? $data['paused'] : null)
             ->setQueueMemberId(isset($data['queueMemberId']) ? $data['queueMemberId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->queueMember = $transformer->transform('Core\\Model\\QueueMember\\QueueMember', $this->getQueueMemberId());
+        $this->queueMember = $transformer->transform('Core\\Domain\\Model\\QueueMember\\QueueMember', $this->getQueueMemberId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

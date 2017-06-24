@@ -182,7 +182,8 @@ class IVRCommonDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -207,20 +208,27 @@ class IVRCommonDTO implements DataTransferObjectInterface
             ->setTimeoutVoiceMailUserId(isset($data['timeoutVoiceMailUserId']) ? $data['timeoutVoiceMailUserId'] : null)
             ->setErrorVoiceMailUserId(isset($data['errorVoiceMailUserId']) ? $data['errorVoiceMailUserId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->welcomeLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getWelcomeLocutionId());
-        $this->noAnswerLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getNoAnswerLocutionId());
-        $this->errorLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getErrorLocutionId());
-        $this->successLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getSuccessLocutionId());
-        $this->timeoutExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getTimeoutExtensionId());
-        $this->errorExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getErrorExtensionId());
-        $this->timeoutVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getTimeoutVoiceMailUserId());
-        $this->errorVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getErrorVoiceMailUserId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->welcomeLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\Locution', $this->getWelcomeLocutionId());
+        $this->noAnswerLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\Locution', $this->getNoAnswerLocutionId());
+        $this->errorLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\Locution', $this->getErrorLocutionId());
+        $this->successLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\Locution', $this->getSuccessLocutionId());
+        $this->timeoutExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\Extension', $this->getTimeoutExtensionId());
+        $this->errorExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\Extension', $this->getErrorExtensionId());
+        $this->timeoutVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getTimeoutVoiceMailUserId());
+        $this->errorVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getErrorVoiceMailUserId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -447,7 +455,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -475,7 +483,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\LocutionInterface
+     * @return \Core\Domain\Model\Locution\Locution
      */
     public function getWelcomeLocution()
     {
@@ -503,7 +511,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\LocutionInterface
+     * @return \Core\Domain\Model\Locution\Locution
      */
     public function getNoAnswerLocution()
     {
@@ -531,7 +539,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\LocutionInterface
+     * @return \Core\Domain\Model\Locution\Locution
      */
     public function getErrorLocution()
     {
@@ -559,7 +567,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\LocutionInterface
+     * @return \Core\Domain\Model\Locution\Locution
      */
     public function getSuccessLocution()
     {
@@ -587,7 +595,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\ExtensionInterface
+     * @return \Core\Domain\Model\Extension\Extension
      */
     public function getTimeoutExtension()
     {
@@ -615,7 +623,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\ExtensionInterface
+     * @return \Core\Domain\Model\Extension\Extension
      */
     public function getErrorExtension()
     {
@@ -643,7 +651,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getTimeoutVoiceMailUser()
     {
@@ -671,7 +679,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getErrorVoiceMailUser()
     {

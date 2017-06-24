@@ -54,11 +54,6 @@ class DDIDTO implements DataTransferObjectInterface
     /**
      * @var mixed
      */
-    private $retailAccountId;
-
-    /**
-     * @var mixed
-     */
     private $companyId;
 
     /**
@@ -124,7 +119,7 @@ class DDIDTO implements DataTransferObjectInterface
     /**
      * @var mixed
      */
-    private $retailAccount;
+    private $retailAccountId;
 
     /**
      * @var mixed
@@ -192,6 +187,11 @@ class DDIDTO implements DataTransferObjectInterface
     private $country;
 
     /**
+     * @var mixed
+     */
+    private $retailAccount;
+
+    /**
      * @return array
      */
     public function __toArray()
@@ -205,7 +205,6 @@ class DDIDTO implements DataTransferObjectInterface
             'routeType' => $this->getRouteType(),
             'billInboundCalls' => $this->getBillInboundCalls(),
             'friendValue' => $this->getFriendValue(),
-            'retailAccountId' => $this->getRetailAccountId(),
             'companyId' => $this->getCompanyId(),
             'brandId' => $this->getBrandId(),
             'conferenceRoomId' => $this->getConferenceRoomId(),
@@ -218,14 +217,16 @@ class DDIDTO implements DataTransferObjectInterface
             'huntGroupId' => $this->getHuntGroupId(),
             'faxId' => $this->getFaxId(),
             'peeringContractId' => $this->getPeeringContractId(),
-            'countryId' => $this->getCountryId()
+            'countryId' => $this->getCountryId(),
+            'retailAccountId' => $this->getRetailAccountId()
         ];
     }
 
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -238,7 +239,6 @@ class DDIDTO implements DataTransferObjectInterface
             ->setRouteType(isset($data['routeType']) ? $data['routeType'] : null)
             ->setBillInboundCalls(isset($data['billInboundCalls']) ? $data['billInboundCalls'] : null)
             ->setFriendValue(isset($data['friendValue']) ? $data['friendValue'] : null)
-            ->setRetailAccountId(isset($data['retailAccountId']) ? $data['retailAccountId'] : null)
             ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setConferenceRoomId(isset($data['conferenceRoomId']) ? $data['conferenceRoomId'] : null)
@@ -251,27 +251,35 @@ class DDIDTO implements DataTransferObjectInterface
             ->setHuntGroupId(isset($data['huntGroupId']) ? $data['huntGroupId'] : null)
             ->setFaxId(isset($data['faxId']) ? $data['faxId'] : null)
             ->setPeeringContractId(isset($data['peeringContractId']) ? $data['peeringContractId'] : null)
-            ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null);
+            ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null)
+            ->setRetailAccountId(isset($data['retailAccountId']) ? $data['retailAccountId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->retailAccount = $transformer->transform('Core\\Domain\\Model\\RetailAccount\\RetailAccountInterfaceInterface', $this->getRetailAccountId());
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->conferenceRoom = $transformer->transform('Core\\Domain\\Model\\ConferenceRoom\\ConferenceRoomInterface', $this->getConferenceRoomId());
-        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
-        $this->queue = $transformer->transform('Core\\Domain\\Model\\Queue\\QueueInterface', $this->getQueueId());
-        $this->externalCallFilter = $transformer->transform('Core\\Domain\\Model\\ExternalCallFilter\\ExternalCallFilterInterface', $this->getExternalCallFilterId());
-        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getUserId());
-        $this->iVRCommon = $transformer->transform('Core\\Domain\\Model\\IVRCommon\\IVRCommonInterface', $this->getIVRCommonId());
-        $this->iVRCustom = $transformer->transform('Core\\Domain\\Model\\IVRCustom\\IVRCustomInterface', $this->getIVRCustomId());
-        $this->huntGroup = $transformer->transform('Core\\Domain\\Model\\HuntGroup\\HuntGroupInterface', $this->getHuntGroupId());
-        $this->fax = $transformer->transform('Core\\Domain\\Model\\Fax\\FaxInterface', $this->getFaxId());
-        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContractInterface', $this->getPeeringContractId());
-        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->conferenceRoom = $transformer->transform('Core\\Domain\\Model\\ConferenceRoom\\ConferenceRoom', $this->getConferenceRoomId());
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\Language', $this->getLanguageId());
+        $this->queue = $transformer->transform('Core\\Domain\\Model\\Queue\\Queue', $this->getQueueId());
+        $this->externalCallFilter = $transformer->transform('Core\\Domain\\Model\\ExternalCallFilter\\ExternalCallFilter', $this->getExternalCallFilterId());
+        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getUserId());
+        $this->iVRCommon = $transformer->transform('Core\\Domain\\Model\\IVRCommon\\IVRCommon', $this->getIVRCommonId());
+        $this->iVRCustom = $transformer->transform('Core\\Domain\\Model\\IVRCustom\\IVRCustom', $this->getIVRCustomId());
+        $this->huntGroup = $transformer->transform('Core\\Domain\\Model\\HuntGroup\\HuntGroup', $this->getHuntGroupId());
+        $this->fax = $transformer->transform('Core\\Domain\\Model\\Fax\\Fax', $this->getFaxId());
+        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
+        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\Country', $this->getCountryId());
+        $this->retailAccount = $transformer->transform('Core\\Domain\\Model\\RetailAccount\\RetailAccount', $this->getRetailAccountId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -438,34 +446,6 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param integer $retailAccountId
-     *
-     * @return DDIDTO
-     */
-    public function setRetailAccountId($retailAccountId)
-    {
-        $this->retailAccountId = $retailAccountId;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getRetailAccountId()
-    {
-        return $this->retailAccountId;
-    }
-
-    /**
-     * @return \Core\Domain\Model\RetailAccount\RetailAccountInterfaceInterface
-     */
-    public function getRetailAccount()
-    {
-        return $this->retailAccount;
-    }
-
-    /**
      * @param integer $companyId
      *
      * @return DDIDTO
@@ -486,7 +466,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -514,7 +494,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -542,7 +522,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\ConferenceRoom\ConferenceRoomInterface
+     * @return \Core\Domain\Model\ConferenceRoom\ConferenceRoom
      */
     public function getConferenceRoom()
     {
@@ -570,7 +550,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Language\LanguageInterface
+     * @return \Core\Domain\Model\Language\Language
      */
     public function getLanguage()
     {
@@ -598,7 +578,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Queue\QueueInterface
+     * @return \Core\Domain\Model\Queue\Queue
      */
     public function getQueue()
     {
@@ -626,7 +606,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
+     * @return \Core\Domain\Model\ExternalCallFilter\ExternalCallFilter
      */
     public function getExternalCallFilter()
     {
@@ -654,7 +634,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getUser()
     {
@@ -682,7 +662,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\IVRCommon\IVRCommonInterface
+     * @return \Core\Domain\Model\IVRCommon\IVRCommon
      */
     public function getIVRCommon()
     {
@@ -710,7 +690,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\IVRCustom\IVRCustomInterface
+     * @return \Core\Domain\Model\IVRCustom\IVRCustom
      */
     public function getIVRCustom()
     {
@@ -738,7 +718,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\HuntGroup\HuntGroupInterface
+     * @return \Core\Domain\Model\HuntGroup\HuntGroup
      */
     public function getHuntGroup()
     {
@@ -766,7 +746,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Fax\FaxInterface
+     * @return \Core\Domain\Model\Fax\Fax
      */
     public function getFax()
     {
@@ -794,7 +774,7 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PeeringContract\PeeringContractInterface
+     * @return \Core\Domain\Model\PeeringContract\PeeringContract
      */
     public function getPeeringContract()
     {
@@ -822,11 +802,39 @@ class DDIDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\CountryInterface
+     * @return \Core\Domain\Model\Country\Country
      */
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * @param integer $retailAccountId
+     *
+     * @return DDIDTO
+     */
+    public function setRetailAccountId($retailAccountId)
+    {
+        $this->retailAccountId = $retailAccountId;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getRetailAccountId()
+    {
+        return $this->retailAccountId;
+    }
+
+    /**
+     * @return \Core\Domain\Model\RetailAccount\RetailAccount
+     */
+    public function getRetailAccount()
+    {
+        return $this->retailAccount;
     }
 }
 

@@ -14,47 +14,47 @@ class DispatcherDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $setid = '0';
+    private $setid = '0';
 
     /**
      * @var string
      */
-    public $destination = '';
+    private $destination = '';
 
     /**
      * @var integer
      */
-    public $flags = '0';
+    private $flags = '0';
 
     /**
      * @var integer
      */
-    public $priority = '0';
+    private $priority = '0';
 
     /**
      * @var string
      */
-    public $attrs = '';
+    private $attrs = '';
 
     /**
      * @var string
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @var mixed
      */
-    public $applicationServerId;
+    private $applicationServerId;
 
     /**
      * @var mixed
      */
-    public $applicationServer;
+    private $applicationServer;
 
     /**
      * @return array
@@ -76,7 +76,8 @@ class DispatcherDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -90,12 +91,19 @@ class DispatcherDTO implements DataTransferObjectInterface
             ->setDescription(isset($data['description']) ? $data['description'] : null)
             ->setApplicationServerId(isset($data['applicationServerId']) ? $data['applicationServerId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->applicationServer = $transformer->transform('Core\\Model\\ApplicationServer\\ApplicationServer', $this->getApplicationServerId());
+        $this->applicationServer = $transformer->transform('Core\\Domain\\Model\\ApplicationServer\\ApplicationServer', $this->getApplicationServerId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

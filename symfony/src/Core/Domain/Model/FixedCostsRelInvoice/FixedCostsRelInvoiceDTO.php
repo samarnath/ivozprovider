@@ -68,7 +68,8 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -79,14 +80,21 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
             ->setFixedCostId(isset($data['fixedCostId']) ? $data['fixedCostId'] : null)
             ->setInvoiceId(isset($data['invoiceId']) ? $data['invoiceId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->fixedCost = $transformer->transform('Core\\Domain\\Model\\FixedCost\\FixedCostInterface', $this->getFixedCostId());
-        $this->invoice = $transformer->transform('Core\\Domain\\Model\\Invoice\\InvoiceInterface', $this->getInvoiceId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->fixedCost = $transformer->transform('Core\\Domain\\Model\\FixedCost\\FixedCost', $this->getFixedCostId());
+        $this->invoice = $transformer->transform('Core\\Domain\\Model\\Invoice\\Invoice', $this->getInvoiceId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -153,7 +161,7 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -181,7 +189,7 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\FixedCost\FixedCostInterface
+     * @return \Core\Domain\Model\FixedCost\FixedCost
      */
     public function getFixedCost()
     {
@@ -209,7 +217,7 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Invoice\InvoiceInterface
+     * @return \Core\Domain\Model\Invoice\Invoice
      */
     public function getInvoice()
     {

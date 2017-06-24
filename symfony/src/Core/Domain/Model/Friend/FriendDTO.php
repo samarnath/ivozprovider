@@ -191,7 +191,8 @@ class FriendDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -220,16 +221,23 @@ class FriendDTO implements DataTransferObjectInterface
             ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null)
             ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
-        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACLInterface', $this->getCallACLId());
-        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
-        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\Country', $this->getCountryId());
+        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACL', $this->getCallACLId());
+        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDI', $this->getOutgoingDDIId());
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\Language', $this->getLanguageId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -616,7 +624,7 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -644,7 +652,7 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\CountryInterface
+     * @return \Core\Domain\Model\Country\Country
      */
     public function getCountry()
     {
@@ -672,7 +680,7 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\CallACL\CallACLInterface
+     * @return \Core\Domain\Model\CallACL\CallACL
      */
     public function getCallACL()
     {
@@ -700,7 +708,7 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\DDI\DDIInterface
+     * @return \Core\Domain\Model\DDI\DDI
      */
     public function getOutgoingDDI()
     {
@@ -728,7 +736,7 @@ class FriendDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Language\LanguageInterface
+     * @return \Core\Domain\Model\Language\Language
      */
     public function getLanguage()
     {

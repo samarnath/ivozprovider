@@ -14,38 +14,38 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var integer
      */
-    public $type;
+    private $type;
 
     /**
      * @var string
      */
-    public $value;
+    private $value;
 
     /**
      * @column last_modified
      * @var \DateTime
      */
-    public $lastModified = '1900-01-01 00:00:01';
+    private $lastModified = '1900-01-01 00:00:01';
 
     /**
      * @var mixed
      */
-    public $didId;
+    private $didId;
 
     /**
      * @var mixed
      */
-    public $did;
+    private $did;
 
     /**
      * @return array
@@ -65,7 +65,8 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -77,12 +78,19 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
             ->setLastModified(isset($data['lastModified']) ? $data['lastModified'] : null)
             ->setDidId(isset($data['didId']) ? $data['didId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->did = $transformer->transform('Core\\Model\\Company\\Company', $this->getDidId());
+        $this->did = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getDidId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

@@ -47,7 +47,8 @@ class TerminalManufacturerDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -57,12 +58,19 @@ class TerminalManufacturerDTO implements DataTransferObjectInterface
             ->setName(isset($data['name']) ? $data['name'] : null)
             ->setDescription(isset($data['description']) ? $data['description'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

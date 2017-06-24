@@ -14,62 +14,62 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $dpid;
+    private $dpid;
 
     /**
      * @var integer
      */
-    public $pr;
+    private $pr;
 
     /**
      * @column match_op
      * @var integer
      */
-    public $matchOp;
+    private $matchOp;
 
     /**
      * @column match_exp
      * @var string
      */
-    public $matchExp;
+    private $matchExp;
 
     /**
      * @column match_len
      * @var integer
      */
-    public $matchLen;
+    private $matchLen;
 
     /**
      * @column subst_exp
      * @var string
      */
-    public $substExp;
+    private $substExp;
 
     /**
      * @column repl_exp
      * @var string
      */
-    public $replExp;
+    private $replExp;
 
     /**
      * @var string
      */
-    public $attrs;
+    private $attrs;
 
     /**
      * @var mixed
      */
-    public $transformationRulesetGroupsTrunkId;
+    private $transformationRulesetGroupsTrunkId;
 
     /**
      * @var mixed
      */
-    public $transformationRulesetGroupsTrunk;
+    private $transformationRulesetGroupsTrunk;
 
     /**
      * @return array
@@ -93,7 +93,8 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -109,12 +110,19 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
             ->setAttrs(isset($data['attrs']) ? $data['attrs'] : null)
             ->setTransformationRulesetGroupsTrunkId(isset($data['transformationRulesetGroupsTrunkId']) ? $data['transformationRulesetGroupsTrunkId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->transformationRulesetGroupsTrunk = $transformer->transform('Core\\Model\\TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunk', $this->getTransformationRulesetGroupsTrunkId());
+        $this->transformationRulesetGroupsTrunk = $transformer->transform('Core\\Domain\\Model\\TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunk', $this->getTransformationRulesetGroupsTrunkId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

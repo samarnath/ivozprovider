@@ -63,7 +63,8 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -74,13 +75,20 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
             ->setCallACLId(isset($data['callACLId']) ? $data['callACLId'] : null)
             ->setCallACLPatternId(isset($data['callACLPatternId']) ? $data['callACLPatternId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACLInterface', $this->getCallACLId());
-        $this->callACLPattern = $transformer->transform('Core\\Domain\\Model\\CallACLPattern\\CallACLPatternInterface', $this->getCallACLPatternId());
+        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACL', $this->getCallACLId());
+        $this->callACLPattern = $transformer->transform('Core\\Domain\\Model\\CallACLPattern\\CallACLPattern', $this->getCallACLPatternId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -167,7 +175,7 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\CallACL\CallACLInterface
+     * @return \Core\Domain\Model\CallACL\CallACL
      */
     public function getCallACL()
     {
@@ -195,7 +203,7 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\CallACLPattern\CallACLPatternInterface
+     * @return \Core\Domain\Model\CallACLPattern\CallACLPattern
      */
     public function getCallACLPattern()
     {

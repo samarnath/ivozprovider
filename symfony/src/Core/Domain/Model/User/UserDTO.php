@@ -64,6 +64,11 @@ class UserDTO implements DataTransferObjectInterface
     /**
      * @var boolean
      */
+    private $externalIpCalls = '0';
+
+    /**
+     * @var boolean
+     */
     private $voicemailEnabled = '1';
 
     /**
@@ -192,6 +197,7 @@ class UserDTO implements DataTransferObjectInterface
             'exceptionBoosAssistantRegExp' => $this->getExceptionBoosAssistantRegExp(),
             'active' => $this->getActive(),
             'maxCalls' => $this->getMaxCalls(),
+            'externalIpCalls' => $this->getExternalIpCalls(),
             'voicemailEnabled' => $this->getVoicemailEnabled(),
             'voicemailSendMail' => $this->getVoicemailSendMail(),
             'voicemailAttachSound' => $this->getVoicemailAttachSound(),
@@ -212,7 +218,8 @@ class UserDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -227,6 +234,7 @@ class UserDTO implements DataTransferObjectInterface
             ->setExceptionBoosAssistantRegExp(isset($data['exceptionBoosAssistantRegExp']) ? $data['exceptionBoosAssistantRegExp'] : null)
             ->setActive(isset($data['active']) ? $data['active'] : null)
             ->setMaxCalls(isset($data['maxCalls']) ? $data['maxCalls'] : null)
+            ->setExternalIpCalls(isset($data['externalIpCalls']) ? $data['externalIpCalls'] : null)
             ->setVoicemailEnabled(isset($data['voicemailEnabled']) ? $data['voicemailEnabled'] : null)
             ->setVoicemailSendMail(isset($data['voicemailSendMail']) ? $data['voicemailSendMail'] : null)
             ->setVoicemailAttachSound(isset($data['voicemailAttachSound']) ? $data['voicemailAttachSound'] : null)
@@ -242,20 +250,27 @@ class UserDTO implements DataTransferObjectInterface
             ->setTimezoneId(isset($data['timezoneId']) ? $data['timezoneId'] : null)
             ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACLInterface', $this->getCallACLId());
-        $this->bossAssistant = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getBossAssistantId());
-        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
-        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
-        $this->terminal = $transformer->transform('Core\\Domain\\Model\\Terminal\\TerminalInterface', $this->getTerminalId());
-        $this->extension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getExtensionId());
-        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getTimezoneId());
-        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->callACL = $transformer->transform('Core\\Domain\\Model\\CallACL\\CallACL', $this->getCallACLId());
+        $this->bossAssistant = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getBossAssistantId());
+        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\Country', $this->getCountryId());
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\Language', $this->getLanguageId());
+        $this->terminal = $transformer->transform('Core\\Domain\\Model\\Terminal\\Terminal', $this->getTerminalId());
+        $this->extension = $transformer->transform('Core\\Domain\\Model\\Extension\\Extension', $this->getExtensionId());
+        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\Timezone', $this->getTimezoneId());
+        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDI', $this->getOutgoingDDIId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -462,6 +477,26 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param boolean $externalIpCalls
+     *
+     * @return UserDTO
+     */
+    public function setExternalIpCalls($externalIpCalls)
+    {
+        $this->externalIpCalls = $externalIpCalls;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getExternalIpCalls()
+    {
+        return $this->externalIpCalls;
+    }
+
+    /**
      * @param boolean $voicemailEnabled
      *
      * @return UserDTO
@@ -582,7 +617,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -610,7 +645,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\CallACL\CallACLInterface
+     * @return \Core\Domain\Model\CallACL\CallACL
      */
     public function getCallACL()
     {
@@ -638,7 +673,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getBossAssistant()
     {
@@ -666,7 +701,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\CountryInterface
+     * @return \Core\Domain\Model\Country\Country
      */
     public function getCountry()
     {
@@ -694,7 +729,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Language\LanguageInterface
+     * @return \Core\Domain\Model\Language\Language
      */
     public function getLanguage()
     {
@@ -722,7 +757,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Terminal\TerminalInterface
+     * @return \Core\Domain\Model\Terminal\Terminal
      */
     public function getTerminal()
     {
@@ -750,7 +785,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\ExtensionInterface
+     * @return \Core\Domain\Model\Extension\Extension
      */
     public function getExtension()
     {
@@ -778,7 +813,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\TimezoneInterface
+     * @return \Core\Domain\Model\Timezone\Timezone
      */
     public function getTimezone()
     {
@@ -806,7 +841,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\DDI\DDIInterface
+     * @return \Core\Domain\Model\DDI\DDI
      */
     public function getOutgoingDDI()
     {

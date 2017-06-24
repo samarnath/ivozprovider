@@ -14,108 +14,108 @@ class UsersPuaDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column pres_uri
      * @var string
      */
-    public $presUri;
+    private $presUri;
 
     /**
      * @column pres_id
      * @var string
      */
-    public $presId;
+    private $presId;
 
     /**
      * @var integer
      */
-    public $event;
+    private $event;
 
     /**
      * @var integer
      */
-    public $expires;
+    private $expires;
 
     /**
      * @column desired_expires
      * @var integer
      */
-    public $desiredExpires;
+    private $desiredExpires;
 
     /**
      * @var integer
      */
-    public $flag;
+    private $flag;
 
     /**
      * @var string
      */
-    public $etag;
+    private $etag;
 
     /**
      * @column tuple_id
      * @var string
      */
-    public $tupleId;
+    private $tupleId;
 
     /**
      * @column watcher_uri
      * @var string
      */
-    public $watcherUri;
+    private $watcherUri;
 
     /**
      * @column call_id
      * @var string
      */
-    public $callId;
+    private $callId;
 
     /**
      * @column to_tag
      * @var string
      */
-    public $toTag;
+    private $toTag;
 
     /**
      * @column from_tag
      * @var string
      */
-    public $fromTag;
+    private $fromTag;
 
     /**
      * @var integer
      */
-    public $cseq;
+    private $cseq;
 
     /**
      * @column record_route
      * @var string
      */
-    public $recordRoute;
+    private $recordRoute;
 
     /**
      * @var string
      */
-    public $contact;
+    private $contact;
 
     /**
      * @column remote_contact
      * @var string
      */
-    public $remoteContact;
+    private $remoteContact;
 
     /**
      * @var integer
      */
-    public $version;
+    private $version;
 
     /**
      * @column extra_headers
      * @var string
      */
-    public $extraHeaders;
+    private $extraHeaders;
 
     /**
      * @return array
@@ -148,7 +148,8 @@ class UsersPuaDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -173,12 +174,19 @@ class UsersPuaDTO implements DataTransferObjectInterface
             ->setVersion(isset($data['version']) ? $data['version'] : null)
             ->setExtraHeaders(isset($data['extraHeaders']) ? $data['extraHeaders'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

@@ -100,7 +100,8 @@ class CountryDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -118,12 +119,19 @@ class CountryDTO implements DataTransferObjectInterface
             ->setE164Pattern(isset($data['e164Pattern']) ? $data['e164Pattern'] : null)
             ->setNationalCC(isset($data['nationalCC']) ? $data['nationalCC'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

@@ -109,7 +109,8 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -127,13 +128,20 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->country = $transformer->transform('Core\\Domain\\Model\\Country\\Country', $this->getCountryId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -360,7 +368,7 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -388,7 +396,7 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\CountryInterface
+     * @return \Core\Domain\Model\Country\Country
      */
     public function getCountry()
     {

@@ -71,7 +71,8 @@ class XMLRPCLogDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -85,12 +86,19 @@ class XMLRPCLogDTO implements DataTransferObjectInterface
             ->setExecDate(isset($data['execDate']) ? $data['execDate'] : null)
             ->setFinishDate(isset($data['finishDate']) ? $data['finishDate'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

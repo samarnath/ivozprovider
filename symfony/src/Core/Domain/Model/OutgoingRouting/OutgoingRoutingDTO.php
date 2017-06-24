@@ -102,7 +102,8 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -117,16 +118,23 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
             ->setRoutingPatternId(isset($data['routingPatternId']) ? $data['routingPatternId'] : null)
             ->setRoutingPatternGroupId(isset($data['routingPatternGroupId']) ? $data['routingPatternGroupId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContractInterface', $this->getPeeringContractId());
-        $this->routingPattern = $transformer->transform('Core\\Domain\\Model\\RoutingPattern\\RoutingPatternInterface', $this->getRoutingPatternId());
-        $this->routingPatternGroup = $transformer->transform('Core\\Domain\\Model\\RoutingPatternGroup\\RoutingPatternGroupInterface', $this->getRoutingPatternGroupId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
+        $this->routingPattern = $transformer->transform('Core\\Domain\\Model\\RoutingPattern\\RoutingPattern', $this->getRoutingPatternId());
+        $this->routingPatternGroup = $transformer->transform('Core\\Domain\\Model\\RoutingPatternGroup\\RoutingPatternGroup', $this->getRoutingPatternGroupId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -233,7 +241,7 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -261,7 +269,7 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -289,7 +297,7 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PeeringContract\PeeringContractInterface
+     * @return \Core\Domain\Model\PeeringContract\PeeringContract
      */
     public function getPeeringContract()
     {
@@ -317,7 +325,7 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\RoutingPattern\RoutingPatternInterface
+     * @return \Core\Domain\Model\RoutingPattern\RoutingPattern
      */
     public function getRoutingPattern()
     {
@@ -345,7 +353,7 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroupInterface
+     * @return \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
      */
     public function getRoutingPatternGroup()
     {

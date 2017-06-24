@@ -14,154 +14,154 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column presentity_uri
      * @var string
      */
-    public $presentityUri;
+    private $presentityUri;
 
     /**
      * @column watcher_username
      * @var string
      */
-    public $watcherUsername;
+    private $watcherUsername;
 
     /**
      * @column watcher_domain
      * @var string
      */
-    public $watcherDomain;
+    private $watcherDomain;
 
     /**
      * @column to_user
      * @var string
      */
-    public $toUser;
+    private $toUser;
 
     /**
      * @column to_domain
      * @var string
      */
-    public $toDomain;
+    private $toDomain;
 
     /**
      * @var string
      */
-    public $event = 'presence';
+    private $event = 'presence';
 
     /**
      * @column event_id
      * @var string
      */
-    public $eventId;
+    private $eventId;
 
     /**
      * @column to_tag
      * @var string
      */
-    public $toTag;
+    private $toTag;
 
     /**
      * @column from_tag
      * @var string
      */
-    public $fromTag;
+    private $fromTag;
 
     /**
      * @var string
      */
-    public $callid;
+    private $callid;
 
     /**
      * @column local_cseq
      * @var integer
      */
-    public $localCseq;
+    private $localCseq;
 
     /**
      * @column remote_cseq
      * @var integer
      */
-    public $remoteCseq;
+    private $remoteCseq;
 
     /**
      * @var string
      */
-    public $contact;
+    private $contact;
 
     /**
      * @column record_route
      * @var string
      */
-    public $recordRoute;
+    private $recordRoute;
 
     /**
      * @var integer
      */
-    public $expires;
+    private $expires;
 
     /**
      * @var integer
      */
-    public $status = '2';
+    private $status = '2';
 
     /**
      * @var string
      */
-    public $reason;
+    private $reason;
 
     /**
      * @var integer
      */
-    public $version = '0';
+    private $version = '0';
 
     /**
      * @column socket_info
      * @var string
      */
-    public $socketInfo;
+    private $socketInfo;
 
     /**
      * @column local_contact
      * @var string
      */
-    public $localContact;
+    private $localContact;
 
     /**
      * @column from_user
      * @var string
      */
-    public $fromUser;
+    private $fromUser;
 
     /**
      * @column from_domain
      * @var string
      */
-    public $fromDomain;
+    private $fromDomain;
 
     /**
      * @var integer
      */
-    public $updated;
+    private $updated;
 
     /**
      * @column updated_winfo
      * @var integer
      */
-    public $updatedWinfo;
+    private $updatedWinfo;
 
     /**
      * @var integer
      */
-    public $flags = '0';
+    private $flags = '0';
 
     /**
      * @column user_agent
      * @var string
      */
-    public $userAgent = '';
+    private $userAgent = '';
 
     /**
      * @return array
@@ -202,7 +202,8 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -235,12 +236,19 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
             ->setFlags(isset($data['flags']) ? $data['flags'] : null)
             ->setUserAgent(isset($data['userAgent']) ? $data['userAgent'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

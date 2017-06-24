@@ -19,6 +19,11 @@ class CompanyDTO implements DataTransferObjectInterface
     /**
      * @var string
      */
+    private $type = 'vpbx';
+
+    /**
+     * @var string
+     */
     private $name;
 
     /**
@@ -91,7 +96,7 @@ class CompanyDTO implements DataTransferObjectInterface
     /**
      * @var string
      */
-    private $externallyExtraOpts;
+    private $externallyextraopts;
 
     /**
      * @var integer
@@ -180,6 +185,7 @@ class CompanyDTO implements DataTransferObjectInterface
     {
         return [
             'id' => $this->getId(),
+            'type' => $this->getType(),
             'name' => $this->getName(),
             'domainUsers' => $this->getDomainUsers(),
             'nif' => $this->getNif(),
@@ -194,7 +200,7 @@ class CompanyDTO implements DataTransferObjectInterface
             'onDemandRecord' => $this->getOnDemandRecord(),
             'onDemandRecordCode' => $this->getOnDemandRecordCode(),
             'areaCode' => $this->getAreaCode(),
-            'externallyExtraOpts' => $this->getExternallyExtraOpts(),
+            'externallyextraopts' => $this->getExternallyextraopts(),
             'recordingsLimitMB' => $this->getRecordingsLimitMB(),
             'recordingsLimitEmail' => $this->getRecordingsLimitEmail(),
             'languageId' => $this->getLanguageId(),
@@ -210,12 +216,14 @@ class CompanyDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
         return $dto
             ->setId(isset($data['id']) ? $data['id'] : null)
+            ->setType(isset($data['type']) ? $data['type'] : null)
             ->setName(isset($data['name']) ? $data['name'] : null)
             ->setDomainUsers(isset($data['domainUsers']) ? $data['domainUsers'] : null)
             ->setNif(isset($data['nif']) ? $data['nif'] : null)
@@ -230,7 +238,7 @@ class CompanyDTO implements DataTransferObjectInterface
             ->setOnDemandRecord(isset($data['onDemandRecord']) ? $data['onDemandRecord'] : null)
             ->setOnDemandRecordCode(isset($data['onDemandRecordCode']) ? $data['onDemandRecordCode'] : null)
             ->setAreaCode(isset($data['areaCode']) ? $data['areaCode'] : null)
-            ->setExternallyExtraOpts(isset($data['externallyExtraOpts']) ? $data['externallyExtraOpts'] : null)
+            ->setExternallyextraopts(isset($data['externallyextraopts']) ? $data['externallyextraopts'] : null)
             ->setRecordingsLimitMB(isset($data['recordingsLimitMB']) ? $data['recordingsLimitMB'] : null)
             ->setRecordingsLimitEmail(isset($data['recordingsLimitEmail']) ? $data['recordingsLimitEmail'] : null)
             ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null)
@@ -241,18 +249,25 @@ class CompanyDTO implements DataTransferObjectInterface
             ->setCountryCodeId(isset($data['countryCodeId']) ? $data['countryCodeId'] : null)
             ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\LanguageInterface', $this->getLanguageId());
-        $this->mediaRelaySets = $transformer->transform('Core\\Domain\\Model\\MediaRelaySet\\MediaRelaySetInterface', $this->getMediaRelaySetsId());
-        $this->defaultTimezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getDefaultTimezoneId());
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->applicationServer = $transformer->transform('Core\\Domain\\Model\\ApplicationServer\\ApplicationServerInterface', $this->getApplicationServerId());
-        $this->countryCode = $transformer->transform('Core\\Domain\\Model\\Country\\CountryInterface', $this->getCountryCodeId());
-        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDIInterface', $this->getOutgoingDDIId());
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\Language', $this->getLanguageId());
+        $this->mediaRelaySets = $transformer->transform('Core\\Domain\\Model\\MediaRelaySet\\MediaRelaySet', $this->getMediaRelaySetsId());
+        $this->defaultTimezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\Timezone', $this->getDefaultTimezoneId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->applicationServer = $transformer->transform('Core\\Domain\\Model\\ApplicationServer\\ApplicationServer', $this->getApplicationServerId());
+        $this->countryCode = $transformer->transform('Core\\Domain\\Model\\Country\\Country', $this->getCountryCodeId());
+        $this->outgoingDDI = $transformer->transform('Core\\Domain\\Model\\DDI\\DDI', $this->getOutgoingDDIId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -276,6 +291,26 @@ class CompanyDTO implements DataTransferObjectInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param string $type
+     *
+     * @return CompanyDTO
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -303,7 +338,7 @@ class CompanyDTO implements DataTransferObjectInterface
      *
      * @return CompanyDTO
      */
-    public function setDomainUsers($domainUsers)
+    public function setDomainUsers($domainUsers = null)
     {
         $this->domainUsers = $domainUsers;
 
@@ -559,13 +594,13 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param string $externallyExtraOpts
+     * @param string $externallyextraopts
      *
      * @return CompanyDTO
      */
-    public function setExternallyExtraOpts($externallyExtraOpts = null)
+    public function setExternallyextraopts($externallyextraopts = null)
     {
-        $this->externallyExtraOpts = $externallyExtraOpts;
+        $this->externallyextraopts = $externallyextraopts;
 
         return $this;
     }
@@ -573,9 +608,9 @@ class CompanyDTO implements DataTransferObjectInterface
     /**
      * @return string
      */
-    public function getExternallyExtraOpts()
+    public function getExternallyextraopts()
     {
-        return $this->externallyExtraOpts;
+        return $this->externallyextraopts;
     }
 
     /**
@@ -639,7 +674,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Language\LanguageInterface
+     * @return \Core\Domain\Model\Language\Language
      */
     public function getLanguage()
     {
@@ -667,7 +702,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
+     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySet
      */
     public function getMediaRelaySets()
     {
@@ -695,7 +730,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\TimezoneInterface
+     * @return \Core\Domain\Model\Timezone\Timezone
      */
     public function getDefaultTimezone()
     {
@@ -723,7 +758,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -751,7 +786,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
+     * @return \Core\Domain\Model\ApplicationServer\ApplicationServer
      */
     public function getApplicationServer()
     {
@@ -779,7 +814,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Country\CountryInterface
+     * @return \Core\Domain\Model\Country\Country
      */
     public function getCountryCode()
     {
@@ -807,7 +842,7 @@ class CompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\DDI\DDIInterface
+     * @return \Core\Domain\Model\DDI\DDI
      */
     public function getOutgoingDDI()
     {

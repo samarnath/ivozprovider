@@ -57,7 +57,8 @@ class BrandServiceDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -67,13 +68,20 @@ class BrandServiceDTO implements DataTransferObjectInterface
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setServiceId(isset($data['serviceId']) ? $data['serviceId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
-        $this->service = $transformer->transform('Core\\Domain\\Model\\Service\\ServiceInterface', $this->getServiceId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->service = $transformer->transform('Core\\Domain\\Model\\Service\\Service', $this->getServiceId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -140,7 +148,7 @@ class BrandServiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -168,7 +176,7 @@ class BrandServiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Service\ServiceInterface
+     * @return \Core\Domain\Model\Service\Service
      */
     public function getService()
     {

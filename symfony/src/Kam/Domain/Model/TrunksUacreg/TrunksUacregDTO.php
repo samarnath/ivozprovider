@@ -14,101 +14,101 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column l_uuid
      * @var string
      */
-    public $lUuid = '';
+    private $lUuid = '';
 
     /**
      * @column l_username
      * @var string
      */
-    public $lUsername = 'unused';
+    private $lUsername = 'unused';
 
     /**
      * @column l_domain
      * @var string
      */
-    public $lDomain = 'unused';
+    private $lDomain = 'unused';
 
     /**
      * @column r_username
      * @var string
      */
-    public $rUsername = '';
+    private $rUsername = '';
 
     /**
      * @column r_domain
      * @var string
      */
-    public $rDomain = '';
+    private $rDomain = '';
 
     /**
      * @var string
      */
-    public $realm = '';
+    private $realm = '';
 
     /**
      * @column auth_username
      * @var string
      */
-    public $authUsername = '';
+    private $authUsername = '';
 
     /**
      * @column auth_password
      * @var string
      */
-    public $authPassword = '';
+    private $authPassword = '';
 
     /**
      * @column auth_proxy
      * @var string
      */
-    public $authProxy = '';
+    private $authProxy = '';
 
     /**
      * @var integer
      */
-    public $expires = '0';
+    private $expires = '0';
 
     /**
      * @var integer
      */
-    public $flags = '0';
+    private $flags = '0';
 
     /**
      * @column reg_delay
      * @var integer
      */
-    public $regDelay = '0';
+    private $regDelay = '0';
 
     /**
      * @var boolean
      */
-    public $multiddi = '0';
+    private $multiddi = '0';
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $peeringContractId;
+    private $peeringContractId;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $peeringContract;
+    private $peeringContract;
 
     /**
      * @return array
@@ -138,7 +138,8 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -160,13 +161,20 @@ class TrunksUacregDTO implements DataTransferObjectInterface
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setPeeringContractId(isset($data['peeringContractId']) ? $data['peeringContractId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->peeringContract = $transformer->transform('Core\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

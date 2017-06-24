@@ -87,7 +87,8 @@ class ServiceDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -103,12 +104,19 @@ class ServiceDTO implements DataTransferObjectInterface
             ->setDefaultCode(isset($data['defaultCode']) ? $data['defaultCode'] : null)
             ->setExtraArgs(isset($data['extraArgs']) ? $data['extraArgs'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

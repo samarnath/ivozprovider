@@ -94,7 +94,8 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -111,12 +112,19 @@ class FaxesInOutDTO implements DataTransferObjectInterface
             ->setFileBaseName(isset($data['fileBaseName']) ? $data['fileBaseName'] : null)
             ->setFaxId(isset($data['faxId']) ? $data['faxId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->fax = $transformer->transform('Core\\Domain\\Model\\Fax\\FaxInterface', $this->getFaxId());
+        $this->fax = $transformer->transform('Core\\Domain\\Model\\Fax\\Fax', $this->getFaxId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -343,7 +351,7 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Fax\FaxInterface
+     * @return \Core\Domain\Model\Fax\Fax
      */
     public function getFax()
     {

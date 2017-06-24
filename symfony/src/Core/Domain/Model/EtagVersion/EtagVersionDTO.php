@@ -47,7 +47,8 @@ class EtagVersionDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -57,12 +58,19 @@ class EtagVersionDTO implements DataTransferObjectInterface
             ->setEtag(isset($data['etag']) ? $data['etag'] : null)
             ->setLastChange(isset($data['lastChange']) ? $data['lastChange'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

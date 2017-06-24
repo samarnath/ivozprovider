@@ -79,7 +79,8 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -94,12 +95,19 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
             ->setOldValue(isset($data['oldValue']) ? $data['oldValue'] : null)
             ->setNewValue(isset($data['newValue']) ? $data['newValue'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

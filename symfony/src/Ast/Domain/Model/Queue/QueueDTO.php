@@ -14,64 +14,64 @@ class QueueDTO implements DataTransferObjectInterface
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @column periodic_announce
      * @var string
      */
-    public $periodicAnnounce;
+    private $periodicAnnounce;
 
     /**
      * @column periodic_announce_frequency
      * @var integer
      */
-    public $periodicAnnounceFrequency;
+    private $periodicAnnounceFrequency;
 
     /**
      * @var integer
      */
-    public $timeout;
+    private $timeout;
 
     /**
      * @var string
      */
-    public $autopause = 'no';
+    private $autopause = 'no';
 
     /**
      * @var string
      */
-    public $ringinuse = 'no';
+    private $ringinuse = 'no';
 
     /**
      * @var integer
      */
-    public $wrapuptime;
+    private $wrapuptime;
 
     /**
      * @var integer
      */
-    public $maxlen;
+    private $maxlen;
 
     /**
      * @var string
      */
-    public $strategy;
+    private $strategy;
 
     /**
      * @var integer
      */
-    public $weight;
+    private $weight;
 
     /**
      * @var mixed
      */
-    public $queueId;
+    private $queueId;
 
     /**
      * @var mixed
      */
-    public $queue;
+    private $queue;
 
     /**
      * @return array
@@ -96,7 +96,8 @@ class QueueDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -113,12 +114,19 @@ class QueueDTO implements DataTransferObjectInterface
             ->setWeight(isset($data['weight']) ? $data['weight'] : null)
             ->setQueueId(isset($data['queueId']) ? $data['queueId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->queue = $transformer->transform('Core\\Model\\Queue\\Queue', $this->getQueueId());
+        $this->queue = $transformer->transform('Core\\Domain\\Model\\Queue\\Queue', $this->getQueueId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

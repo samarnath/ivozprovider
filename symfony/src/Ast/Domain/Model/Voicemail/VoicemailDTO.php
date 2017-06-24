@@ -14,184 +14,184 @@ class VoicemailDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $uniqueid;
+    private $uniqueid;
 
     /**
      * @var string
      */
-    public $context;
+    private $context;
 
     /**
      * @var string
      */
-    public $mailbox;
+    private $mailbox;
 
     /**
      * @var string
      */
-    public $password;
+    private $password;
 
     /**
      * @var string
      */
-    public $fullname;
+    private $fullname;
 
     /**
      * @var string
      */
-    public $alias;
+    private $alias;
 
     /**
      * @var string
      */
-    public $email;
+    private $email;
 
     /**
      * @var string
      */
-    public $pager;
+    private $pager;
 
     /**
      * @var string
      */
-    public $attach;
+    private $attach;
 
     /**
      * @var string
      */
-    public $attachfmt;
+    private $attachfmt;
 
     /**
      * @var string
      */
-    public $serveremail;
+    private $serveremail;
 
     /**
      * @var string
      */
-    public $language;
+    private $language;
 
     /**
      * @var string
      */
-    public $tz;
+    private $tz;
 
     /**
      * @column deleteast_voicemail
      * @var string
      */
-    public $deleteVoicemail;
+    private $deleteVoicemail;
 
     /**
      * @var string
      */
-    public $saycid;
+    private $saycid;
 
     /**
      * @column sendast_voicemail
      * @var string
      */
-    public $sendVoicemail;
+    private $sendVoicemail;
 
     /**
      * @var string
      */
-    public $review;
+    private $review;
 
     /**
      * @var string
      */
-    public $tempgreetwarn;
+    private $tempgreetwarn;
 
     /**
      * @var string
      */
-    public $operator;
+    private $operator;
 
     /**
      * @var string
      */
-    public $envelope;
+    private $envelope;
 
     /**
      * @var integer
      */
-    public $sayduration;
+    private $sayduration;
 
     /**
      * @var string
      */
-    public $forcename;
+    private $forcename;
 
     /**
      * @var string
      */
-    public $forcegreetings;
+    private $forcegreetings;
 
     /**
      * @var string
      */
-    public $callback;
+    private $callback;
 
     /**
      * @var string
      */
-    public $dialout;
+    private $dialout;
 
     /**
      * @var string
      */
-    public $exitcontext;
+    private $exitcontext;
 
     /**
      * @var integer
      */
-    public $maxmsg;
+    private $maxmsg;
 
     /**
      * @var string
      */
-    public $volgain;
+    private $volgain;
 
     /**
      * @var string
      */
-    public $imapuser;
+    private $imapuser;
 
     /**
      * @var string
      */
-    public $imappassword;
+    private $imappassword;
 
     /**
      * @var string
      */
-    public $imapserver;
+    private $imapserver;
 
     /**
      * @var string
      */
-    public $imapport;
+    private $imapport;
 
     /**
      * @var string
      */
-    public $imapflags;
+    private $imapflags;
 
     /**
      * @var \DateTime
      */
-    public $stamp;
+    private $stamp;
 
     /**
      * @var mixed
      */
-    public $userId;
+    private $userId;
 
     /**
      * @var mixed
      */
-    public $user;
+    private $user;
 
     /**
      * @return array
@@ -240,7 +240,8 @@ class VoicemailDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -281,12 +282,19 @@ class VoicemailDTO implements DataTransferObjectInterface
             ->setStamp(isset($data['stamp']) ? $data['stamp'] : null)
             ->setUserId(isset($data['userId']) ? $data['userId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->user = $transformer->transform('Core\\Model\\User\\User', $this->getUserId());
+        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getUserId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

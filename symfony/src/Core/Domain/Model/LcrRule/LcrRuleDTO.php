@@ -102,7 +102,8 @@ class LcrRuleDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -119,13 +120,20 @@ class LcrRuleDTO implements DataTransferObjectInterface
             ->setRoutingPatternId(isset($data['routingPatternId']) ? $data['routingPatternId'] : null)
             ->setOutgoingRoutingId(isset($data['outgoingRoutingId']) ? $data['outgoingRoutingId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->routingPattern = $transformer->transform('Core\\Domain\\Model\\RoutingPattern\\RoutingPatternInterface', $this->getRoutingPatternId());
-        $this->outgoingRouting = $transformer->transform('Core\\Domain\\Model\\OutgoingRouting\\OutgoingRoutingInterface', $this->getOutgoingRoutingId());
+        $this->routingPattern = $transformer->transform('Core\\Domain\\Model\\RoutingPattern\\RoutingPattern', $this->getRoutingPatternId());
+        $this->outgoingRouting = $transformer->transform('Core\\Domain\\Model\\OutgoingRouting\\OutgoingRouting', $this->getOutgoingRoutingId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -332,7 +340,7 @@ class LcrRuleDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\RoutingPattern\RoutingPatternInterface
+     * @return \Core\Domain\Model\RoutingPattern\RoutingPattern
      */
     public function getRoutingPattern()
     {
@@ -360,7 +368,7 @@ class LcrRuleDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\OutgoingRouting\OutgoingRoutingInterface
+     * @return \Core\Domain\Model\OutgoingRouting\OutgoingRouting
      */
     public function getOutgoingRouting()
     {

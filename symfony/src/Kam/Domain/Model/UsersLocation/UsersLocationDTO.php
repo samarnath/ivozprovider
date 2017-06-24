@@ -14,122 +14,122 @@ class UsersLocationDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $ruid = '';
+    private $ruid = '';
 
     /**
      * @var string
      */
-    public $username = '';
+    private $username = '';
 
     /**
      * @var string
      */
-    public $domain;
+    private $domain;
 
     /**
      * @var string
      */
-    public $contact = '';
+    private $contact = '';
 
     /**
      * @var string
      */
-    public $received;
+    private $received;
 
     /**
      * @var string
      */
-    public $path;
+    private $path;
 
     /**
      * @var \DateTime
      */
-    public $expires = '2030-05-28 21:32:15';
+    private $expires = '2030-05-28 21:32:15';
 
     /**
      * @var float
      */
-    public $q = '1.00';
+    private $q = '1.00';
 
     /**
      * @var string
      */
-    public $callid = 'Default-Call-ID';
+    private $callid = 'Default-Call-ID';
 
     /**
      * @var integer
      */
-    public $cseq = '1';
+    private $cseq = '1';
 
     /**
      * @column last_modified
      * @var \DateTime
      */
-    public $lastModified = '1900-01-01 00:00:01';
+    private $lastModified = '1900-01-01 00:00:01';
 
     /**
      * @var integer
      */
-    public $flags = '0';
+    private $flags = '0';
 
     /**
      * @var integer
      */
-    public $cflags = '0';
+    private $cflags = '0';
 
     /**
      * @column user_agent
      * @var string
      */
-    public $userAgent = '';
+    private $userAgent = '';
 
     /**
      * @var string
      */
-    public $socket;
+    private $socket;
 
     /**
      * @var integer
      */
-    public $methods;
+    private $methods;
 
     /**
      * @var string
      */
-    public $instance;
+    private $instance;
 
     /**
      * @column reg_id
      * @var integer
      */
-    public $regId = '0';
+    private $regId = '0';
 
     /**
      * @column server_id
      * @var integer
      */
-    public $serverId = '0';
+    private $serverId = '0';
 
     /**
      * @column connection_id
      * @var integer
      */
-    public $connectionId = '0';
+    private $connectionId = '0';
 
     /**
      * @var integer
      */
-    public $keepalive = '0';
+    private $keepalive = '0';
 
     /**
      * @var integer
      */
-    public $partition = '0';
+    private $partition = '0';
 
     /**
      * @return array
@@ -166,7 +166,8 @@ class UsersLocationDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -195,12 +196,19 @@ class UsersLocationDTO implements DataTransferObjectInterface
             ->setKeepalive(isset($data['keepalive']) ? $data['keepalive'] : null)
             ->setPartition(isset($data['partition']) ? $data['partition'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

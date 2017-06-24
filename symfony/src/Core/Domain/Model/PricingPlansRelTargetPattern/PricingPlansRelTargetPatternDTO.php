@@ -80,7 +80,8 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -93,14 +94,21 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
             ->setTargetPatternId(isset($data['targetPatternId']) ? $data['targetPatternId'] : null)
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->pricingPlan = $transformer->transform('Core\\Domain\\Model\\PricingPlan\\PricingPlanInterface', $this->getPricingPlanId());
-        $this->targetPattern = $transformer->transform('Core\\Domain\\Model\\TargetPattern\\TargetPatternInterface', $this->getTargetPatternId());
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->pricingPlan = $transformer->transform('Core\\Domain\\Model\\PricingPlan\\PricingPlan', $this->getPricingPlanId());
+        $this->targetPattern = $transformer->transform('Core\\Domain\\Model\\TargetPattern\\TargetPattern', $this->getTargetPatternId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -207,7 +215,7 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PricingPlan\PricingPlanInterface
+     * @return \Core\Domain\Model\PricingPlan\PricingPlan
      */
     public function getPricingPlan()
     {
@@ -235,7 +243,7 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TargetPattern\TargetPatternInterface
+     * @return \Core\Domain\Model\TargetPattern\TargetPattern
      */
     public function getTargetPattern()
     {
@@ -263,7 +271,7 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {

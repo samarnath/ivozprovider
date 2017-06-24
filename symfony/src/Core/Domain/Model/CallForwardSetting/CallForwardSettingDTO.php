@@ -92,7 +92,8 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -107,14 +108,21 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
             ->setExtensionId(isset($data['extensionId']) ? $data['extensionId'] : null)
             ->setVoiceMailUserId(isset($data['voiceMailUserId']) ? $data['voiceMailUserId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getUserId());
-        $this->extension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getExtensionId());
-        $this->voiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getVoiceMailUserId());
+        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getUserId());
+        $this->extension = $transformer->transform('Core\\Domain\\Model\\Extension\\Extension', $this->getExtensionId());
+        $this->voiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getVoiceMailUserId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -261,7 +269,7 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getUser()
     {
@@ -289,7 +297,7 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\ExtensionInterface
+     * @return \Core\Domain\Model\Extension\Extension
      */
     public function getExtension()
     {
@@ -317,7 +325,7 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getVoiceMailUser()
     {

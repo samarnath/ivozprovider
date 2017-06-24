@@ -121,7 +121,8 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -142,12 +143,19 @@ class LcrGatewayDTO implements DataTransferObjectInterface
             ->setDefunct(isset($data['defunct']) ? $data['defunct'] : null)
             ->setPeerServerId(isset($data['peerServerId']) ? $data['peerServerId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->peerServer = $transformer->transform('Core\\Domain\\Model\\PeerServer\\PeerServerInterface', $this->getPeerServerId());
+        $this->peerServer = $transformer->transform('Core\\Domain\\Model\\PeerServer\\PeerServer', $this->getPeerServerId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -454,7 +462,7 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PeerServer\PeerServerInterface
+     * @return \Core\Domain\Model\PeerServer\PeerServer
      */
     public function getPeerServer()
     {

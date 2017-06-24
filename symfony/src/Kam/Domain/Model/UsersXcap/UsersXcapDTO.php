@@ -14,49 +14,49 @@ class UsersXcapDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $username;
+    private $username;
 
     /**
      * @var string
      */
-    public $domain;
+    private $domain;
 
     /**
      * @var string
      */
-    public $doc;
+    private $doc;
 
     /**
      * @column doc_type
      * @var integer
      */
-    public $docType;
+    private $docType;
 
     /**
      * @var string
      */
-    public $etag;
+    private $etag;
 
     /**
      * @var integer
      */
-    public $source;
+    private $source;
 
     /**
      * @column doc_uri
      * @var string
      */
-    public $docUri;
+    private $docUri;
 
     /**
      * @var integer
      */
-    public $port;
+    private $port;
 
     /**
      * @return array
@@ -79,7 +79,8 @@ class UsersXcapDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -94,12 +95,19 @@ class UsersXcapDTO implements DataTransferObjectInterface
             ->setDocUri(isset($data['docUri']) ? $data['docUri'] : null)
             ->setPort(isset($data['port']) ? $data['port'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

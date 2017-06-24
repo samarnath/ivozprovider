@@ -82,7 +82,8 @@ class TerminalModelDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -97,12 +98,19 @@ class TerminalModelDTO implements DataTransferObjectInterface
             ->setSpecificUrlPattern(isset($data['specificUrlPattern']) ? $data['specificUrlPattern'] : null)
             ->setTerminalManufacturerId(isset($data['TerminalManufacturerId']) ? $data['TerminalManufacturerId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->terminalManufacturer = $transformer->transform('Core\\Domain\\Model\\TerminalManufacturer\\TerminalManufacturerInterface', $this->getTerminalManufacturerId());
+        $this->terminalManufacturer = $transformer->transform('Core\\Domain\\Model\\TerminalManufacturer\\TerminalManufacturer', $this->getTerminalManufacturerId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -289,7 +297,7 @@ class TerminalModelDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TerminalManufacturer\TerminalManufacturerInterface
+     * @return \Core\Domain\Model\TerminalManufacturer\TerminalManufacturer
      */
     public function getTerminalManufacturer()
     {

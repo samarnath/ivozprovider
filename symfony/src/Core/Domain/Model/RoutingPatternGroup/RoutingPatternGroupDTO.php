@@ -58,7 +58,8 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -69,25 +70,32 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
             ->setRelPatterns(isset($data['relPatterns']) ? $data['relPatterns'] : null)
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
         $items = $this->getRelPatterns();
         $this->relPatterns = [];
         foreach ($items as $item) {
-            $this->relPatterns[] = $transformer->tranform(
-                'Core\\Domain\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPatternInterface',
+            $this->relPatterns[] = $transformer->transform(
+                'Core\\Domain\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPattern',
                 $item
             );
         }
 
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\BrandInterface', $this->getBrandId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
         $this->relPatterns = $transformer->transform(
-            'Core\\Domain\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPatternInterface',
+            'Core\\Domain\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPattern',
             $this->relPatterns
         );
     }
@@ -193,7 +201,7 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Core\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {

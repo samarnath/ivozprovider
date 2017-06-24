@@ -2,10 +2,9 @@
 
 namespace EntityGeneratorBundle\Tools;
 
-use EntityGeneratorBundle\Tools\EntityGenerator as ParentGenerator;
+use EntityGeneratorBundle\Tools\SuperClassGenerator as ParentGenerator;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-use Doctrine\Common\Util\Inflector;
 
 /**
  * Description of DTOGenerator
@@ -49,7 +48,7 @@ class InterfaceGenerator extends ParentGenerator
      * @var string
      */
     protected static $getMethodTemplate =
-'/**
+        '/**
  * <description>
  *
  * @return <variableType>
@@ -57,19 +56,15 @@ class InterfaceGenerator extends ParentGenerator
 public function <methodName>(<criteriaArgument>);
 ';
 
-    /**
-     * {@inheritDoc}
-     */
-    public function writeEntityClass(ClassMetadataInfo $metadata, $outputDirectory)
-    {
-        return parent::writeEntityClass($this->transformMetadata($metadata), $outputDirectory);
-    }
-
-    private function transformMetadata(ClassMetadataInfo $metadata)
+    protected function transformMetadata(ClassMetadataInfo $metadata)
     {
         $metadata->name .= 'Interface';
         $metadata->rootEntityName = $metadata->name;
         $metadata->customRepositoryClassName = null;
+
+        foreach ($metadata->associationMappings as $key => $association) {
+            $metadata->associationMappings[$key]['targetEntity'] .= 'Interface';
+        }
 
         return $metadata;
     }

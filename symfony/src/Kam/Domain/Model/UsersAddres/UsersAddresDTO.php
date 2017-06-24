@@ -14,49 +14,49 @@ class UsersAddresDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column source_address
      * @var string
      */
-    public $sourceAddress;
+    private $sourceAddress;
 
     /**
      * @column ip_addr
      * @var string
      */
-    public $ipAddr;
+    private $ipAddr;
 
     /**
      * @var integer
      */
-    public $mask = '32';
+    private $mask = '32';
 
     /**
      * @var integer
      */
-    public $port = '0';
+    private $port = '0';
 
     /**
      * @var string
      */
-    public $tag;
+    private $tag;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @return array
@@ -78,7 +78,8 @@ class UsersAddresDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -92,12 +93,19 @@ class UsersAddresDTO implements DataTransferObjectInterface
             ->setDescription(isset($data['description']) ? $data['description'] : null)
             ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

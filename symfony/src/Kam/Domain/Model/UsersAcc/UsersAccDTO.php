@@ -14,86 +14,86 @@ class UsersAccDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $method = '';
+    private $method = '';
 
     /**
      * @column from_tag
      * @var string
      */
-    public $fromTag = '';
+    private $fromTag = '';
 
     /**
      * @column to_tag
      * @var string
      */
-    public $toTag = '';
+    private $toTag = '';
 
     /**
      * @var string
      */
-    public $callid = '';
+    private $callid = '';
 
     /**
      * @column sip_code
      * @var string
      */
-    public $sipCode = '';
+    private $sipCode = '';
 
     /**
      * @column sip_reason
      * @var string
      */
-    public $sipReason = '';
+    private $sipReason = '';
 
     /**
      * @column src_ip
      * @var string
      */
-    public $srcIp;
+    private $srcIp;
 
     /**
      * @column from_user
      * @var string
      */
-    public $fromUser;
+    private $fromUser;
 
     /**
      * @column from_domain
      * @var string
      */
-    public $fromDomain;
+    private $fromDomain;
 
     /**
      * @column ruri_user
      * @var string
      */
-    public $ruriUser;
+    private $ruriUser;
 
     /**
      * @column ruri_domain
      * @var string
      */
-    public $ruriDomain;
+    private $ruriDomain;
 
     /**
      * @var integer
      */
-    public $cseq;
+    private $cseq;
 
     /**
      * @var \DateTime
      */
-    public $localtime;
+    private $localtime;
 
     /**
      * @var string
      */
-    public $utctime;
+    private $utctime;
 
     /**
      * @return array
@@ -122,7 +122,8 @@ class UsersAccDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -143,12 +144,19 @@ class UsersAccDTO implements DataTransferObjectInterface
             ->setLocaltime(isset($data['localtime']) ? $data['localtime'] : null)
             ->setUtctime(isset($data['utctime']) ? $data['utctime'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

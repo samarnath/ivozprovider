@@ -14,36 +14,36 @@ class TrunksHtableDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column key_name
      * @var string
      */
-    public $keyName = '';
+    private $keyName = '';
 
     /**
      * @column key_type
      * @var integer
      */
-    public $keyType = '0';
+    private $keyType = '0';
 
     /**
      * @column value_type
      * @var integer
      */
-    public $valueType = '0';
+    private $valueType = '0';
 
     /**
      * @column key_value
      * @var string
      */
-    public $keyValue = '';
+    private $keyValue = '';
 
     /**
      * @var integer
      */
-    public $expires = '0';
+    private $expires = '0';
 
     /**
      * @return array
@@ -63,7 +63,8 @@ class TrunksHtableDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -75,12 +76,19 @@ class TrunksHtableDTO implements DataTransferObjectInterface
             ->setKeyValue(isset($data['keyValue']) ? $data['keyValue'] : null)
             ->setExpires(isset($data['expires']) ? $data['expires'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

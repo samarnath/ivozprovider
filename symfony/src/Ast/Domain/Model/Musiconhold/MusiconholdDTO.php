@@ -14,47 +14,47 @@ class MusiconholdDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $mode;
+    private $mode;
 
     /**
      * @var string
      */
-    public $directory;
+    private $directory;
 
     /**
      * @var string
      */
-    public $application;
+    private $application;
 
     /**
      * @var string
      */
-    public $digit;
+    private $digit;
 
     /**
      * @var string
      */
-    public $sort;
+    private $sort;
 
     /**
      * @var string
      */
-    public $format;
+    private $format;
 
     /**
      * @var \DateTime
      */
-    public $stamp;
+    private $stamp;
 
     /**
      * @return array
@@ -77,7 +77,8 @@ class MusiconholdDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -92,12 +93,19 @@ class MusiconholdDTO implements DataTransferObjectInterface
             ->setFormat(isset($data['format']) ? $data['format'] : null)
             ->setStamp(isset($data['stamp']) ? $data['stamp'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

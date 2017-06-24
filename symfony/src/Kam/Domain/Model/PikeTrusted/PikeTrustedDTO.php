@@ -14,40 +14,40 @@ class PikeTrustedDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column src_ip
      * @var string
      */
-    public $srcIp;
+    private $srcIp;
 
     /**
      * @var string
      */
-    public $proto;
+    private $proto;
 
     /**
      * @column from_pattern
      * @var string
      */
-    public $fromPattern;
+    private $fromPattern;
 
     /**
      * @column ruri_pattern
      * @var string
      */
-    public $ruriPattern;
+    private $ruriPattern;
 
     /**
      * @var string
      */
-    public $tag;
+    private $tag;
 
     /**
      * @var integer
      */
-    public $priority = '0';
+    private $priority = '0';
 
     /**
      * @return array
@@ -68,7 +68,8 @@ class PikeTrustedDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -81,12 +82,19 @@ class PikeTrustedDTO implements DataTransferObjectInterface
             ->setTag(isset($data['tag']) ? $data['tag'] : null)
             ->setPriority(isset($data['priority']) ? $data['priority'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

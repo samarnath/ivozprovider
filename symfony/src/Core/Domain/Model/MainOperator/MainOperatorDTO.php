@@ -76,7 +76,8 @@ class MainOperatorDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -90,12 +91,19 @@ class MainOperatorDTO implements DataTransferObjectInterface
             ->setLastname(isset($data['lastname']) ? $data['lastname'] : null)
             ->setTimezoneId(isset($data['timezoneId']) ? $data['timezoneId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\TimezoneInterface', $this->getTimezoneId());
+        $this->timezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\Timezone', $this->getTimezoneId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -186,7 +194,7 @@ class MainOperatorDTO implements DataTransferObjectInterface
      *
      * @return MainOperatorDTO
      */
-    public function setActive($active = null)
+    public function setActive($active)
     {
         $this->active = $active;
 
@@ -262,7 +270,7 @@ class MainOperatorDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Timezone\TimezoneInterface
+     * @return \Core\Domain\Model\Timezone\Timezone
      */
     public function getTimezone()
     {

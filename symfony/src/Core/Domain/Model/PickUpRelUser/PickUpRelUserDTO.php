@@ -51,7 +51,8 @@ class PickUpRelUserDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -60,13 +61,20 @@ class PickUpRelUserDTO implements DataTransferObjectInterface
             ->setPickUpGroupId(isset($data['pickUpGroupId']) ? $data['pickUpGroupId'] : null)
             ->setUserId(isset($data['userId']) ? $data['userId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->pickUpGroup = $transformer->transform('Core\\Domain\\Model\\PickUpGroup\\PickUpGroupInterface', $this->getPickUpGroupId());
-        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getUserId());
+        $this->pickUpGroup = $transformer->transform('Core\\Domain\\Model\\PickUpGroup\\PickUpGroup', $this->getPickUpGroupId());
+        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getUserId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -113,7 +121,7 @@ class PickUpRelUserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PickUpGroup\PickUpGroupInterface
+     * @return \Core\Domain\Model\PickUpGroup\PickUpGroup
      */
     public function getPickUpGroup()
     {
@@ -141,7 +149,7 @@ class PickUpRelUserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getUser()
     {

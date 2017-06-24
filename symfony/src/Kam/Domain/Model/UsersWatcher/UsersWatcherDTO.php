@@ -14,46 +14,46 @@ class UsersWatcherDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column presentity_uri
      * @var string
      */
-    public $presentityUri;
+    private $presentityUri;
 
     /**
      * @column watcher_username
      * @var string
      */
-    public $watcherUsername;
+    private $watcherUsername;
 
     /**
      * @column watcher_domain
      * @var string
      */
-    public $watcherDomain;
+    private $watcherDomain;
 
     /**
      * @var string
      */
-    public $event = 'presence';
+    private $event = 'presence';
 
     /**
      * @var integer
      */
-    public $status;
+    private $status;
 
     /**
      * @var string
      */
-    public $reason;
+    private $reason;
 
     /**
      * @column inserted_time
      * @var integer
      */
-    public $insertedTime;
+    private $insertedTime;
 
     /**
      * @return array
@@ -75,7 +75,8 @@ class UsersWatcherDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -89,12 +90,19 @@ class UsersWatcherDTO implements DataTransferObjectInterface
             ->setReason(isset($data['reason']) ? $data['reason'] : null)
             ->setInsertedTime(isset($data['insertedTime']) ? $data['insertedTime'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

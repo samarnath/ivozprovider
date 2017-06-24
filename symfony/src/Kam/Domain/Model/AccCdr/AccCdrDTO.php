@@ -14,201 +14,201 @@ class AccCdrDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $proxy;
+    private $proxy;
 
     /**
      * @column start_time_utc
      * @var \DateTime
      */
-    public $startTimeUtc = '2000-01-01 00:00:00';
+    private $startTimeUtc = '2000-01-01 00:00:00';
 
     /**
      * @column end_time_utc
      * @var \DateTime
      */
-    public $endTimeUtc = 'CURRENT_TIMESTAMP';
+    private $endTimeUtc = 'CURRENT_TIMESTAMP';
 
     /**
      * @column start_time
      * @var \DateTime
      */
-    public $startTime = '2000-01-01 00:00:00';
+    private $startTime = '2000-01-01 00:00:00';
 
     /**
      * @column end_time
      * @var \DateTime
      */
-    public $endTime = '2000-01-01 00:00:00';
+    private $endTime = '2000-01-01 00:00:00';
 
     /**
      * @var float
      */
-    public $duration = '0.000';
+    private $duration = '0.000';
 
     /**
      * @var string
      */
-    public $caller;
+    private $caller;
 
     /**
      * @var string
      */
-    public $callee;
+    private $callee;
 
     /**
      * @var string
      */
-    public $referee;
+    private $referee;
 
     /**
      * @var string
      */
-    public $referrer;
+    private $referrer;
 
     /**
      * @var string
      */
-    public $asiden;
+    private $asiden;
 
     /**
      * @var string
      */
-    public $asaddress;
+    private $asaddress;
 
     /**
      * @var string
      */
-    public $callid;
+    private $callid;
 
     /**
      * @var string
      */
-    public $callidhash;
+    private $callidhash;
 
     /**
      * @var string
      */
-    public $xcallid;
+    private $xcallid;
 
     /**
      * @var string
      */
-    public $parsed = 'no';
+    private $parsed = 'no';
 
     /**
      * @var string
      */
-    public $diversion;
+    private $diversion;
 
     /**
      * @var string
      */
-    public $peeringcontractid;
+    private $peeringcontractid;
 
     /**
      * @var string
      */
-    public $bounced = 'no';
+    private $bounced = 'no';
 
     /**
      * @var boolean
      */
-    public $externallyrated;
+    private $externallyrated;
 
     /**
      * @var boolean
      */
-    public $metered = '0';
+    private $metered = '0';
 
     /**
      * @var \DateTime
      */
-    public $meteringdate = '0000-00-00 00:00:00';
+    private $meteringdate = '0000-00-00 00:00:00';
 
     /**
      * @var string
      */
-    public $pricingplanname;
+    private $pricingplanname;
 
     /**
      * @var string
      */
-    public $targetpatternname;
+    private $targetpatternname;
 
     /**
      * @var string
      */
-    public $price;
+    private $price;
 
     /**
      * @var string
      */
-    public $pricingplandetails;
+    private $pricingplandetails;
 
     /**
      * @var string
      */
-    public $direction;
+    private $direction;
 
     /**
      * @var \DateTime
      */
-    public $remeteringdate;
+    private $remeteringdate;
 
     /**
      * @var mixed
      */
-    public $pricingPlanId;
+    private $pricingPlanId;
 
     /**
      * @var mixed
      */
-    public $targetPatternId;
+    private $targetPatternId;
 
     /**
      * @var mixed
      */
-    public $invoiceId;
+    private $invoiceId;
 
     /**
      * @var mixed
      */
-    public $brandId;
+    private $brandId;
 
     /**
      * @var mixed
      */
-    public $companyId;
+    private $companyId;
 
     /**
      * @var mixed
      */
-    public $pricingPlan;
+    private $pricingPlan;
 
     /**
      * @var mixed
      */
-    public $targetPattern;
+    private $targetPattern;
 
     /**
      * @var mixed
      */
-    public $invoice;
+    private $invoice;
 
     /**
      * @var mixed
      */
-    public $brand;
+    private $brand;
 
     /**
      * @var mixed
      */
-    public $company;
+    private $company;
 
     /**
      * @return array
@@ -256,7 +256,8 @@ class AccCdrDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -296,16 +297,23 @@ class AccCdrDTO implements DataTransferObjectInterface
             ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
             ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->pricingPlan = $transformer->transform('Core\\Model\\PricingPlan\\PricingPlan', $this->getPricingPlanId());
-        $this->targetPattern = $transformer->transform('Core\\Model\\TargetPattern\\TargetPattern', $this->getTargetPatternId());
-        $this->invoice = $transformer->transform('Core\\Model\\Invoice\\Invoice', $this->getInvoiceId());
-        $this->brand = $transformer->transform('Core\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->company = $transformer->transform('Core\\Model\\Company\\Company', $this->getCompanyId());
+        $this->pricingPlan = $transformer->transform('Core\\Domain\\Model\\PricingPlan\\PricingPlan', $this->getPricingPlanId());
+        $this->targetPattern = $transformer->transform('Core\\Domain\\Model\\TargetPattern\\TargetPattern', $this->getTargetPatternId());
+        $this->invoice = $transformer->transform('Core\\Domain\\Model\\Invoice\\Invoice', $this->getInvoiceId());
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

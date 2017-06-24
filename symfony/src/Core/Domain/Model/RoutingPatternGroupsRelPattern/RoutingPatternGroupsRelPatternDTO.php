@@ -51,7 +51,8 @@ class RoutingPatternGroupsRelPatternDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -60,13 +61,20 @@ class RoutingPatternGroupsRelPatternDTO implements DataTransferObjectInterface
             ->setRoutingPatternId(isset($data['routingPatternId']) ? $data['routingPatternId'] : null)
             ->setRoutingPatternGroupId(isset($data['routingPatternGroupId']) ? $data['routingPatternGroupId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->routingPattern = $transformer->transform('Core\\Domain\\Model\\RoutingPattern\\RoutingPatternInterface', $this->getRoutingPatternId());
-        $this->routingPatternGroup = $transformer->transform('Core\\Domain\\Model\\RoutingPatternGroup\\RoutingPatternGroupInterface', $this->getRoutingPatternGroupId());
+        $this->routingPattern = $transformer->transform('Core\\Domain\\Model\\RoutingPattern\\RoutingPattern', $this->getRoutingPatternId());
+        $this->routingPatternGroup = $transformer->transform('Core\\Domain\\Model\\RoutingPatternGroup\\RoutingPatternGroup', $this->getRoutingPatternGroupId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -113,7 +121,7 @@ class RoutingPatternGroupsRelPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\RoutingPattern\RoutingPatternInterface
+     * @return \Core\Domain\Model\RoutingPattern\RoutingPattern
      */
     public function getRoutingPattern()
     {
@@ -141,7 +149,7 @@ class RoutingPatternGroupsRelPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroupInterface
+     * @return \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
      */
     public function getRoutingPatternGroup()
     {

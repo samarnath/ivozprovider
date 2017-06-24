@@ -41,7 +41,8 @@ class ApplicationServerDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -50,12 +51,19 @@ class ApplicationServerDTO implements DataTransferObjectInterface
             ->setIp(isset($data['ip']) ? $data['ip'] : null)
             ->setName(isset($data['name']) ? $data['name'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

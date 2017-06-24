@@ -106,7 +106,8 @@ class TerminalDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -124,13 +125,20 @@ class TerminalDTO implements DataTransferObjectInterface
             ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
             ->setTerminalModelId(isset($data['TerminalModelId']) ? $data['TerminalModelId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->terminalModel = $transformer->transform('Core\\Domain\\Model\\TerminalModel\\TerminalModelInterface', $this->getTerminalModelId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->terminalModel = $transformer->transform('Core\\Domain\\Model\\TerminalModel\\TerminalModel', $this->getTerminalModelId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -357,7 +365,7 @@ class TerminalDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -385,7 +393,7 @@ class TerminalDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TerminalModel\TerminalModelInterface
+     * @return \Core\Domain\Model\TerminalModel\TerminalModel
      */
     public function getTerminalModel()
     {

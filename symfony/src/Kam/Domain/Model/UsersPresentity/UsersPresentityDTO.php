@@ -14,53 +14,53 @@ class UsersPresentityDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $username;
+    private $username;
 
     /**
      * @var string
      */
-    public $domain;
+    private $domain;
 
     /**
      * @var string
      */
-    public $event;
+    private $event;
 
     /**
      * @var string
      */
-    public $etag;
+    private $etag;
 
     /**
      * @var integer
      */
-    public $expires;
+    private $expires;
 
     /**
      * @column received_time
      * @var integer
      */
-    public $receivedTime;
+    private $receivedTime;
 
     /**
      * @var string
      */
-    public $body;
+    private $body;
 
     /**
      * @var string
      */
-    public $sender;
+    private $sender;
 
     /**
      * @var integer
      */
-    public $priority = '0';
+    private $priority = '0';
 
     /**
      * @return array
@@ -84,7 +84,8 @@ class UsersPresentityDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -100,12 +101,19 @@ class UsersPresentityDTO implements DataTransferObjectInterface
             ->setSender(isset($data['sender']) ? $data['sender'] : null)
             ->setPriority(isset($data['priority']) ? $data['priority'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

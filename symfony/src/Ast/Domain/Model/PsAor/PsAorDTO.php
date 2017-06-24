@@ -14,66 +14,66 @@ class PsAorDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @column sorcery_id
      * @var string
      */
-    public $sorceryId;
+    private $sorceryId;
 
     /**
      * @column default_expiration
      * @var integer
      */
-    public $defaultExpiration;
+    private $defaultExpiration;
 
     /**
      * @column max_contacts
      * @var integer
      */
-    public $maxContacts;
+    private $maxContacts;
 
     /**
      * @column minimum_expiration
      * @var integer
      */
-    public $minimumExpiration;
+    private $minimumExpiration;
 
     /**
      * @column remove_existing
      * @var string
      */
-    public $removeExisting;
+    private $removeExisting;
 
     /**
      * @column authenticate_qualify
      * @var string
      */
-    public $authenticateQualify;
+    private $authenticateQualify;
 
     /**
      * @column maximum_expiration
      * @var integer
      */
-    public $maximumExpiration;
+    private $maximumExpiration;
 
     /**
      * @column support_path
      * @var string
      */
-    public $supportPath;
+    private $supportPath;
 
     /**
      * @var string
      */
-    public $contact;
+    private $contact;
 
     /**
      * @column qualify_frequency
      * @var integer
      */
-    public $qualifyFrequency;
+    private $qualifyFrequency;
 
     /**
      * @return array
@@ -98,7 +98,8 @@ class PsAorDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -115,12 +116,19 @@ class PsAorDTO implements DataTransferObjectInterface
             ->setContact(isset($data['contact']) ? $data['contact'] : null)
             ->setQualifyFrequency(isset($data['qualifyFrequency']) ? $data['qualifyFrequency'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

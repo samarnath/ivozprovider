@@ -115,7 +115,8 @@ class HuntGroupDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -133,15 +134,22 @@ class HuntGroupDTO implements DataTransferObjectInterface
             ->setNoAnswerExtensionId(isset($data['noAnswerExtensionId']) ? $data['noAnswerExtensionId'] : null)
             ->setNoAnswerVoiceMailUserId(isset($data['noAnswerVoiceMailUserId']) ? $data['noAnswerVoiceMailUserId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\CompanyInterface', $this->getCompanyId());
-        $this->noAnswerLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getNoAnswerLocutionId());
-        $this->noAnswerExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\ExtensionInterface', $this->getNoAnswerExtensionId());
-        $this->noAnswerVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getNoAnswerVoiceMailUserId());
+        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->noAnswerLocution = $transformer->transform('Core\\Domain\\Model\\Locution\\Locution', $this->getNoAnswerLocutionId());
+        $this->noAnswerExtension = $transformer->transform('Core\\Domain\\Model\\Extension\\Extension', $this->getNoAnswerExtensionId());
+        $this->noAnswerVoiceMailUser = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getNoAnswerVoiceMailUserId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -328,7 +336,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Core\Domain\Model\Company\Company
      */
     public function getCompany()
     {
@@ -356,7 +364,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\LocutionInterface
+     * @return \Core\Domain\Model\Locution\Locution
      */
     public function getNoAnswerLocution()
     {
@@ -384,7 +392,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Extension\ExtensionInterface
+     * @return \Core\Domain\Model\Extension\Extension
      */
     public function getNoAnswerExtension()
     {
@@ -412,7 +420,7 @@ class HuntGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getNoAnswerVoiceMailUser()
     {

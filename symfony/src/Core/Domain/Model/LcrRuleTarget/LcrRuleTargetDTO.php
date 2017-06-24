@@ -81,7 +81,8 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -94,14 +95,21 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
             ->setGwId(isset($data['gwId']) ? $data['gwId'] : null)
             ->setOutgoingRoutingId(isset($data['outgoingRoutingId']) ? $data['outgoingRoutingId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->rule = $transformer->transform('Core\\Domain\\Model\\LcrRule\\LcrRuleInterface', $this->getRuleId());
-        $this->gw = $transformer->transform('Core\\Domain\\Model\\LcrGateway\\LcrGatewayInterface', $this->getGwId());
-        $this->outgoingRouting = $transformer->transform('Core\\Domain\\Model\\OutgoingRouting\\OutgoingRoutingInterface', $this->getOutgoingRoutingId());
+        $this->rule = $transformer->transform('Core\\Domain\\Model\\LcrRule\\LcrRule', $this->getRuleId());
+        $this->gw = $transformer->transform('Core\\Domain\\Model\\LcrGateway\\LcrGateway', $this->getGwId());
+        $this->outgoingRouting = $transformer->transform('Core\\Domain\\Model\\OutgoingRouting\\OutgoingRouting', $this->getOutgoingRoutingId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -208,7 +216,7 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\LcrRule\LcrRuleInterface
+     * @return \Core\Domain\Model\LcrRule\LcrRule
      */
     public function getRule()
     {
@@ -236,7 +244,7 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\LcrGateway\LcrGatewayInterface
+     * @return \Core\Domain\Model\LcrGateway\LcrGateway
      */
     public function getGw()
     {
@@ -264,7 +272,7 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\OutgoingRouting\OutgoingRoutingInterface
+     * @return \Core\Domain\Model\OutgoingRouting\OutgoingRouting
      */
     public function getOutgoingRouting()
     {

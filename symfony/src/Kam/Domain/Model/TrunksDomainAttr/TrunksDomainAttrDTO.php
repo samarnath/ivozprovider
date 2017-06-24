@@ -14,33 +14,33 @@ class TrunksDomainAttrDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $did;
+    private $did;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var integer
      */
-    public $type;
+    private $type;
 
     /**
      * @var string
      */
-    public $value;
+    private $value;
 
     /**
      * @column last_modified
      * @var \DateTime
      */
-    public $lastModified = '1900-01-01 00:00:01';
+    private $lastModified = '1900-01-01 00:00:01';
 
     /**
      * @return array
@@ -60,7 +60,8 @@ class TrunksDomainAttrDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -72,12 +73,19 @@ class TrunksDomainAttrDTO implements DataTransferObjectInterface
             ->setValue(isset($data['value']) ? $data['value'] : null)
             ->setLastModified(isset($data['lastModified']) ? $data['lastModified'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

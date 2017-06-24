@@ -55,7 +55,8 @@ class LanguageDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -66,12 +67,19 @@ class LanguageDTO implements DataTransferObjectInterface
             ->setNameEn(isset($data['nameEn']) ? $data['nameEn'] : null)
             ->setNameEs(isset($data['nameEs']) ? $data['nameEs'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

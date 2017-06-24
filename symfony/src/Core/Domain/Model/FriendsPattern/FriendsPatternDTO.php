@@ -52,7 +52,8 @@ class FriendsPatternDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -62,12 +63,19 @@ class FriendsPatternDTO implements DataTransferObjectInterface
             ->setRegExp(isset($data['regExp']) ? $data['regExp'] : null)
             ->setFriendId(isset($data['friendId']) ? $data['friendId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->friend = $transformer->transform('Core\\Domain\\Model\\Friend\\FriendInterface', $this->getFriendId());
+        $this->friend = $transformer->transform('Core\\Domain\\Model\\Friend\\Friend', $this->getFriendId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -154,7 +162,7 @@ class FriendsPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Friend\FriendInterface
+     * @return \Core\Domain\Model\Friend\Friend
      */
     public function getFriend()
     {

@@ -4,6 +4,8 @@ namespace EntityGeneratorBundle\Command;
 
 use Doctrine\Bundle\DoctrineBundle\Command\GenerateEntitiesDoctrineCommand as ParentCommand;
 use EntityGeneratorBundle\Tools\EntityGenerator;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Generate entity classes from mapping information
@@ -14,10 +16,28 @@ class GenerateEntitiesDoctrineCommand extends ParentCommand
 {
     protected function configure()
     {
-        parent::configure();
-         $this
+        $this
             ->setName('provider:generate:entities')
-            ->setAliases(array('generate:provider:entities'));
+            ->setAliases(array('generate:provider:entities'))
+            ->setDescription('Generates entity from your mapping information')
+            ->addArgument(
+                'name',
+                InputArgument::REQUIRED,
+                'A bundle name, a namespace, or a class name'
+            )
+            ->addOption(
+                'path',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'The path where to generate entities when it cannot be guessed',
+                'src'
+            )
+            ->addOption(
+                'no-backup',
+                null,
+                InputOption::VALUE_NONE,
+                'Do not backup existing entities files.'
+            );
     }
 
     /**
@@ -29,7 +49,7 @@ class GenerateEntitiesDoctrineCommand extends ParentCommand
     {
         $entityGenerator = new EntityGenerator();
         $entityGenerator->setGenerateAnnotations(false);
-        $entityGenerator->setGenerateStubMethods(true);
+        $entityGenerator->setGenerateStubMethods(false);
         $entityGenerator->setRegenerateEntityIfExists(true);
         $entityGenerator->setUpdateEntityIfExists(true);
         $entityGenerator->setNumSpaces(4);

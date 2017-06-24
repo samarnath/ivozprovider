@@ -2,7 +2,7 @@
 
 namespace EntityGeneratorBundle\Tools;
 
-use EntityGeneratorBundle\Tools\EntityGenerator as ParentGenerator;
+use EntityGeneratorBundle\Tools\SuperClassGenerator as ParentGenerator;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\Common\Util\Inflector;
@@ -31,19 +31,27 @@ public function __toArray()
 /**
  * @param array $data
  * @return self
- */
+ * @deprecated
+ *
 public static function fromArray(array $data)
 {
     $dto = new self();
     return $dto
     <fromArray>;
 }
+ */
 
+/**
+ * {@inheritDoc}
+ */
 public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
 {
 <transformForeignKeys>
 }
 
+/**
+ * {@inheritDoc}
+ */
 public function transformCollections(CollectionTransformerInterface $transformer)
 {
 <transformCollections>
@@ -78,15 +86,7 @@ public function <methodName>()
 <spaces>return $this-><fieldName>;
 }';
 
-    /**
-     * {@inheritDoc}
-     */
-    public function writeEntityClass(ClassMetadataInfo $metadata, $outputDirectory)
-    {
-        return parent::writeEntityClass($this->transformMetadata($metadata), $outputDirectory);
-    }
-
-    private function transformMetadata(ClassMetadataInfo $metadata)
+    protected function transformMetadata(ClassMetadataInfo $metadata)
     {
         $metadata->name .= 'DTO';
         $metadata->rootEntityName = $metadata->name;
@@ -317,7 +317,7 @@ public function <methodName>()
                         $this->spaces
                         . '$this->' . $attribute . '[]'
                         . ' = '
-                        . '$transformer->tranform('
+                        . '$transformer->transform('
                         . "\n" . $fourSpaces
                         . '\'' . $targetEntity . '\','
                         . "\n" . $fourSpaces
@@ -331,7 +331,7 @@ public function <methodName>()
                 $fkTransformers[] =
                     '$this->' . $attribute
                     . ' = '
-                    . '$transformer->tranform(\''. $targetEntity .'\''
+                    . '$transformer->transform(\''. $targetEntity .'\''
                     . ', $this->get'. ucfirst($attribute) .'Id());';
             }
         }

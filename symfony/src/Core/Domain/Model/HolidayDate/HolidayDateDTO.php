@@ -63,7 +63,8 @@ class HolidayDateDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -74,13 +75,20 @@ class HolidayDateDTO implements DataTransferObjectInterface
             ->setCalendarId(isset($data['calendarId']) ? $data['calendarId'] : null)
             ->setLocutionId(isset($data['locutionId']) ? $data['locutionId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->calendar = $transformer->transform('Core\\Domain\\Model\\Calendar\\CalendarInterface', $this->getCalendarId());
-        $this->locution = $transformer->transform('Core\\Domain\\Model\\Locution\\LocutionInterface', $this->getLocutionId());
+        $this->calendar = $transformer->transform('Core\\Domain\\Model\\Calendar\\Calendar', $this->getCalendarId());
+        $this->locution = $transformer->transform('Core\\Domain\\Model\\Locution\\Locution', $this->getLocutionId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -167,7 +175,7 @@ class HolidayDateDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Calendar\CalendarInterface
+     * @return \Core\Domain\Model\Calendar\Calendar
      */
     public function getCalendar()
     {
@@ -195,7 +203,7 @@ class HolidayDateDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Locution\LocutionInterface
+     * @return \Core\Domain\Model\Locution\Locution
      */
     public function getLocution()
     {

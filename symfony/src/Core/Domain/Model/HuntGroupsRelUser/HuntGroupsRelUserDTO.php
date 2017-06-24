@@ -63,7 +63,8 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -74,13 +75,20 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
             ->setHuntGroupId(isset($data['huntGroupId']) ? $data['huntGroupId'] : null)
             ->setUserId(isset($data['userId']) ? $data['userId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->huntGroup = $transformer->transform('Core\\Domain\\Model\\HuntGroup\\HuntGroupInterface', $this->getHuntGroupId());
-        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\UserInterface', $this->getUserId());
+        $this->huntGroup = $transformer->transform('Core\\Domain\\Model\\HuntGroup\\HuntGroup', $this->getHuntGroupId());
+        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getUserId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
@@ -167,7 +175,7 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\HuntGroup\HuntGroupInterface
+     * @return \Core\Domain\Model\HuntGroup\HuntGroup
      */
     public function getHuntGroup()
     {
@@ -195,7 +203,7 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Core\Domain\Model\User\User
      */
     public function getUser()
     {

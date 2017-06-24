@@ -41,7 +41,8 @@ class ProxyTrunkDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -50,12 +51,19 @@ class ProxyTrunkDTO implements DataTransferObjectInterface
             ->setName(isset($data['name']) ? $data['name'] : null)
             ->setIp(isset($data['ip']) ? $data['ip'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

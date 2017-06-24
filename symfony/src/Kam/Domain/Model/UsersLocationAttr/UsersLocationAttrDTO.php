@@ -14,43 +14,43 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $ruid = '';
+    private $ruid = '';
 
     /**
      * @var string
      */
-    public $username = '';
+    private $username = '';
 
     /**
      * @var string
      */
-    public $domain;
+    private $domain;
 
     /**
      * @var string
      */
-    public $aname = '';
+    private $aname = '';
 
     /**
      * @var integer
      */
-    public $atype = '0';
+    private $atype = '0';
 
     /**
      * @var string
      */
-    public $avalue = '';
+    private $avalue = '';
 
     /**
      * @column last_modified
      * @var \DateTime
      */
-    public $lastModified = '1900-01-01 00:00:01';
+    private $lastModified = '1900-01-01 00:00:01';
 
     /**
      * @return array
@@ -72,7 +72,8 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -86,12 +87,19 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
             ->setAvalue(isset($data['avalue']) ? $data['avalue'] : null)
             ->setLastModified(isset($data['lastModified']) ? $data['lastModified'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 

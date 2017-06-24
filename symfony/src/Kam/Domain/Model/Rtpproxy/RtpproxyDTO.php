@@ -14,42 +14,42 @@ class RtpproxyDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $setid = '0';
+    private $setid = '0';
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * @var integer
      */
-    public $flags = '0';
+    private $flags = '0';
 
     /**
      * @var integer
      */
-    public $weight = '1';
+    private $weight = '1';
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var mixed
      */
-    public $mediaRelaySetId;
+    private $mediaRelaySetId;
 
     /**
      * @var mixed
      */
-    public $mediaRelaySet;
+    private $mediaRelaySet;
 
     /**
      * @return array
@@ -70,7 +70,8 @@ class RtpproxyDTO implements DataTransferObjectInterface
     /**
      * @param array $data
      * @return self
-     */
+     * @deprecated
+     *
     public static function fromArray(array $data)
     {
         $dto = new self();
@@ -83,12 +84,19 @@ class RtpproxyDTO implements DataTransferObjectInterface
             ->setDescription(isset($data['description']) ? $data['description'] : null)
             ->setMediaRelaySetId(isset($data['mediaRelaySetId']) ? $data['mediaRelaySetId'] : null);
     }
+     */
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->mediaRelaySet = $transformer->transform('Core\\Model\\MediaRelaySet\\MediaRelaySet', $this->getMediaRelaySetId());
+        $this->mediaRelaySet = $transformer->transform('Core\\Domain\\Model\\MediaRelaySet\\MediaRelaySet', $this->getMediaRelaySetId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
