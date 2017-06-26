@@ -70,7 +70,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        company: ${auth.companyId}
+        company: *forcedCompany
         calendar: "%parent%"
 
   commands: &holidayDates_commandsLink

@@ -155,17 +155,14 @@ production:
     brandOperatorsList_screen:
       <<: *brandOperatorsList_screenLink
       filterField: Brand
-      forcedValues:
       parentOptionCustomizer:
         - recordCount
     brandOperatorsNew_screen:
       <<: *brandOperatorsNew_screenLink
       filterField: Brand
-      forcedValues:
     brandOperatorsEdit_screen:
       <<: *brandOperatorsEdit_screenLink
       filterField: Brand
-      forcedValues:
 
     # Brand URLs
     <<: *brandURLs_screensLink

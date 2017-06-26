@@ -2,24 +2,27 @@
 
 production:
   class: \IvozProvider\Model\Companies
+  entity: Core\Domain\Model\Company\Company
   fields:
     id:
       title: ngettext('Id', 'Ids', 1)
       required: false
       readonly: true
-    brandId:
+    brand:
       title: _('Brand')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Brands
+#          mapperName: \IvozProvider\Mapper\Sql\Brands
+          entity: \Core\Domain\Model\Brand\Brand
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Brand.name: asc
     name:
       title: ngettext('Name', 'Names', 1)
       type: text
@@ -31,7 +34,7 @@ production:
       type: text
       trim: both
       required: true
-    defaultTimezoneId:
+    defaultTimezone:
       title: _('Default timezone')
       type: select
       defaultValue: 145
@@ -39,38 +42,44 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Timezones
+#          mapperName: \IvozProvider\Mapper\Sql\Timezones
+          entity: \Core\Domain\Model\Timezone\Timezone
           fieldName:
             fields:
               - tz
             template: '%tz%'
-          order: tz
-    musicOnHoldId:
+          order:
+            Timezone.tz: asc
+    musicOnHold:
       title: _('Music on hold')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\MusicOnHold
+#          mapperName: \IvozProvider\Mapper\Sql\MusicOnHold
+          entity: \Core\Domain\Model\MusicOnHold\MusicOnHold
           filterClass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            MusicOnHold.name: asc
         'null': _("Unassigned")
-    applicationServerId:
+    applicationServer:
       title: _('Application server id')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\ApplicationServers
+#          mapperName: \IvozProvider\Mapper\Sql\ApplicationServers
+          entity: \Core\Domain\Model\ApplicationServer\ApplicationServer
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            ApplicationServer.name: asc
         'null': _("Dispatch to any AS")
     externalMaxCalls:
       title: _('External max call')
@@ -126,7 +135,7 @@ production:
       title: _('Outbound prefix')
       type: text
       trim: both
-    countryId:
+    country:
       title: _('Country code')
       type: select
       defaultValue: 70
@@ -134,13 +143,15 @@ production:
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Countries
+#          mapperName: \IvozProvider\Mapper\Sql\Countries
+          entity: \Core\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
-              - calling_code
-            template: '%name% (+%calling_code%)'
-          order: code
+              - callingCode
+            template: '%name% (+%callingCode%)'
+          order:
+            Country.code: asc
         'null': _("Unassigned")
     areaCode:
       title: _('Areacode')
@@ -152,19 +163,21 @@ production:
         icon: help
         text: _("Default Area code for accounts in this company")
         label: _("Need help?")
-    outgoingDDIId:
+    outgoingDDI:
       title: _('Outgoing DDI')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\DDIs
+#          mapperName: \IvozProvider\Mapper\Sql\DDIs
+          entity: \Core\Domain\Model\DDI\DDI
           filterClass: IvozProvider_Klear_Filter_OutgoingDDI
           fieldName:
             fields:
-              - DDIE164
-            template: '+%DDIE164%'
-          order: DDIE164
+              - ddie164
+            template: '+%ddie164%'
+          order:
+            DDI.ddie164: asc
         'null': _("Unassigned")
       info:
         type: box
@@ -172,31 +185,35 @@ production:
         icon: help
         text: _("Default outgoing DDI. This can be overriden in accounts's edit screen.")
         label: _("Need help?")
-    languageId:
+    language:
       title: _('Language')
       type: select
       defaultValue: 1
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Languages
+#          mapperName: \IvozProvider\Mapper\Sql\Languages
+          entity: \Core\Domain\Model\Language\Language
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
-    mediaRelaySetsId:
+          order:
+            Language.name: asc
+    mediaRelaySets:
       title: _('Media relay Set')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\MediaRelaySets
+#          mapperName: \IvozProvider\Mapper\Sql\MediaRelaySets
+          entity: \Core\Domain\Model\MediaRelaySet\MediaRelaySet
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            MediaRelaySet.name: asc
     ipFilter:
       title: _('Filter by IP address')
       type: select
@@ -276,17 +293,18 @@ production:
         icon: help
         text: _("Email address that will be notified when 80% of the configured limit has been reached.")
         label: _("Need help?")
-    FeaturesRelCompanies:
+    FeaturesRelCompany:
       title: _('Features')
       type: multiselect
       source:
         data: mapper
         config:
           extraDataAttributes:
-            featureId: id
-          relationMapper: \IvozProvider\Mapper\Sql\FeaturesRelCompanies
-          relatedMapperName: \IvozProvider\Mapper\Sql\Features
-          relationProperty: Feature
+            feature: id
+          relation: \Core\Domain\Model\FeaturesRelCompany\FeaturesRelCompany
+          relationProperty: company
+          relatedProperty: feature
+          related: \Core\Domain\Model\Feature\Feature
           filterClass: IvozProvider_Klear_Filter_RetailFeatures
           relatedFieldName:
             fields:

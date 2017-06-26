@@ -191,8 +191,8 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        company: ${auth.companyId}
-        brand: ${auth.brandId}
+        company: *forcedCompany
+        <<: *forcedBrand
 
   commands:
     importDDIsFreeUpload_command:

@@ -1,14 +1,16 @@
 production:
   class: \IvozProvider\Model\ExternalCallFilters
+  entity: Core\Domain\Model\ExternalCallFilter\ExternalCallFilter
   fields:
-    companyId:
+    company:
       title: _('Company')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: Core\Domain\Model\Company\Company
           fieldName:
             fields:
               - name

@@ -125,7 +125,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        brand: ${auth.brandId}
+        <<: *forcedBrand
       
   commands: &pricingPlansRelTargetPatterns_commandsLink
     importPricingPlansRelPatternsFreeUpload_command:

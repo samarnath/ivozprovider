@@ -151,8 +151,8 @@ production:
       <<: *faxesInOutNew_screenLink
       filterField: Fax
       forcedValues:
-        type: 'Out'
-        status: 'pending'
+        "self::type": 'Out'
+        "self::status": 'pending'
       fields:
         blacklist:
           calldate: true
@@ -166,10 +166,10 @@ production:
       parentOptionCustomizer:
         - IvozProvider_Klear_Options_OptionsCustomizerFilterForFax
       forcedValues:
-        type: 'Out'
+        "self::type": 'Out'
       filterField: Fax
       forcedValues:
-        type: 'Out'
+        "self::type": 'Out'
       fields:
         blacklist:
           calldate: true

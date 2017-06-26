@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Domain\Model\RoutingPattern;
+namespace Core\Domain\Model\RetailAccount;
 
 interface RetailAccountRepository {}
 

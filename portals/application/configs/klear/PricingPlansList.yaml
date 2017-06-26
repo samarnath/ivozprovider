@@ -161,7 +161,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        brand: ${auth.brandId}
+        <<: *forcedBrand
 
   # pricingPlansRelTargetPatterns dialogs: 
     <<: *pricingPlansRelTargetPatterns_dialogsLink

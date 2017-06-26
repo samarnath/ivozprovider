@@ -153,7 +153,7 @@ production:
       enclosure: '"'
       escape: "\\"
       forcedValues:
-        companyId: ${auth.companyId}
+        companyId: *forcedCompany
 
   commands:
     importTerminalsFreeUpload_command:

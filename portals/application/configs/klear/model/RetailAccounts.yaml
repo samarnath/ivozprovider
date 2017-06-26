@@ -3,20 +3,23 @@
 
 production:
   class: \IvozProvider\Model\RetailAccounts
+  entity: Core\Domain\Model\RetailAccount\RetailAccount
   fields:
-    companyId:
+    company:
       title: _('Companyid')
       type: select
       required: true
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Companies
+#          mapperName: \IvozProvider\Mapper\Sql\Companies
+          entity: Core\Domain\Model\Company\Company
           fieldName:
             fields:
               - name
             template: '%name%'
-          order: name
+          order:
+            Company.name: asc
       default: true
     name:
       title: ngettext('Name', 'Names', 1)
@@ -62,7 +65,7 @@ production:
       type: text
       pattern: "^[0-9]+$"
       defaultValue: 5060
-    auth_needed:
+    authNeeded:
       title: _('Auth needed')
       type: select
       defaultValue: 'no'
@@ -93,19 +96,21 @@ production:
       options:
         commands:
           generatePassword_command: true
-    countryId:
+    country:
       title: _('Country code')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Countries
+#          mapperName: \IvozProvider\Mapper\Sql\Countries
+          entity: \Core\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
-              - calling_code
-            template: '%name% (+%calling_code%)'
-          order: name_${lang}
+              - callingCode
+            template: '%name% (+%callingCode%)'
+          order:
+            Country.name_${lang}: asc
         'null': _("Client's default")
       info:
         type: box
@@ -123,19 +128,21 @@ production:
         icon: help
         text: _("Outgoing calls coming from Friend must have this area code format")
         label: _("Need help?")
-    outgoingDDIId:
+    outgoingDDI:
       title: _('Fallback Outgoing DDI')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\DDIs
+#          mapperName: \IvozProvider\Mapper\Sql\DDIs
+          entity: \Core\Domain\Model\DDI\DDI
           filterClass: IvozProvider_Klear_Filter_RetailDDIs
           fieldName:
             fields:
-              - DDIE164
-            template: '+%DDIE164%'
-          order: DDIE164
+              - ddie164
+            template: '+%ddie164%'
+          order:
+            DDI.ddie164: asc
         'null': _("Client's default")
       info:
         type: box
@@ -168,7 +175,7 @@ production:
             'g729': 'g729 - G.729A'
             'ilbc': 'ilbc - iLBC'
             'opus': 'opus - Opus codec'
-    direct_media_method:
+    directMediaMethod:
       title: _('CallerID update method')
       type: select
       defaultValue: update
@@ -178,7 +185,7 @@ production:
           'invite': 'invite'
           'update': 'update'
       <<: *updateMethodHelp
-    callerid_update_header:
+    calleridUpdateHeader:
       title: _('CallerID update header')
       type: select
       defaultValue: pai
@@ -187,7 +194,7 @@ production:
         values:
           'pai': 'P-Asserted-Identity (PAI)'
           'rpid': 'Remote-Party-ID (RPID)'
-    update_callerid:
+    updateCallerid:
       title: _('Update CallerID?')
       type: select
       defaultValue: yes
@@ -204,7 +211,7 @@ production:
             visualFilter:
               hide: ["direct_media_method", "callerid_update_header"]
               show: []
-    from_domain:
+    fromDomain:
       title: _('From domain')
       type: text
       maxLength: 190
@@ -225,13 +232,14 @@ production:
             visualFilter:
               hide: ["ip", "port", "transport", "auth_needed"]
               show: ["password"]
-    languageId:
+    language:
       title: _('Language')
       type: select
       source:
         data: mapper
         config:
-          mapperName: \IvozProvider\Mapper\Sql\Languages
+#          mapperName: \IvozProvider\Mapper\Sql\Languages
+          entity: Core\Domain\Model\Language\Language
           fieldName:
             fields:
               - name

@@ -82,6 +82,6 @@ actions:
 
 forced:
   - &forcedBrand
-    brand: ${auth.brandId}
+    "IDENTITY(self::brand)": ${auth.brandId}
   - &forcedCompany
-    company: ${auth.companyId}
+    "IDENTITY(self::company)": ${auth.companyId}
