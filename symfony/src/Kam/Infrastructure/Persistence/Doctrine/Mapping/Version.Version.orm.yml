@@ -1,0 +1,50 @@
+Kam\Domain\Model\TrunksDomainAttr\TrunksDomainAttr:
+  repositoryClass: Kam\Infrastructure\Persistence\Doctrine\TrunksDomainAttrDoctrineRepository
+  type: entity
+  table: kam_trunks_domain_attrs
+  uniqueConstraints:
+    domain_attrs_idx:
+      columns:
+        - did
+        - name
+        - value
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  fields:
+    did:
+      type: string
+      nullable: false
+      length: 190
+      options:
+        fixed: false
+    name:
+      type: string
+      nullable: false
+      length: 32
+      options:
+        fixed: false
+    type:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+    value:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    lastModified:
+      type: datetime
+      nullable: false
+      options:
+        default: '1900-01-01 00:00:01'
+      column: last_modified
+  lifecycleCallbacks: {  }

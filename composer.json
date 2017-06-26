@@ -79,7 +79,11 @@
         "beberlei/assert": "2.7.*",
 
         "phing/phing": "2.*",
-        "psliwa/php-pdf": "~1.2"
+        "knplabs/knp-snappy": "0.4.3",
+        "h4cc/wkhtmltopdf-amd64": "0.12.3",
+        "h4cc/wkhtmltopdf-i386": "0.12.3",
+        "crada/php-apidoc":"@dev",
+        "xamin/handlebars.php": "^0.10.4"
     },
     "require-dev": {
         "crada/php-apidoc":"@dev",

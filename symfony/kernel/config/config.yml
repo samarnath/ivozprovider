@@ -58,7 +58,7 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #path: '%database_path%'
-        schema_filter: "/^(?!version$|changelog$|kam_trunks_acc$).*/"
+        schema_filter: "/^(?!version$|changelog$|kam_trunks_acc|kam_versions$).*/"
         mapping_types:
             enum: string
     orm:
@@ -82,6 +82,12 @@ doctrine:
                 is_bundle: false
                 dir: '%kernel.root_dir%/../src/Kam/Infrastructure/Persistence/Doctrine/Mapping'
                 prefix: Kam\Domain\Model
+
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
 
 # Swiftmailer Configuration
 #swiftmailer:
