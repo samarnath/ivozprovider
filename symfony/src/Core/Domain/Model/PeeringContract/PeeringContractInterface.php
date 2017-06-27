@@ -7,14 +7,6 @@ namespace Core\Domain\Model\PeeringContract;
 interface PeeringContractInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get description
      *
      * @return string

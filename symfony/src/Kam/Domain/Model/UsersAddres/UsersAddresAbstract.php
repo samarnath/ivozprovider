@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\UsersAddres;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersAddresAbstract
  */
-abstract class UsersAddresAbstract implements EntityInterface
+abstract class UsersAddresAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @column source_address
      * @var string
@@ -60,126 +54,9 @@ abstract class UsersAddresAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($sourceAddress, $mask, $port)
-    {
-        $this->setSourceAddress($sourceAddress);
-        $this->setMask($mask);
-        $this->setPort($port);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return UsersAddresDTO
-     */
-    public static function createDTO()
-    {
-        return new UsersAddresDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UsersAddresDTO
-         */
-        Assertion::isInstanceOf($dto, UsersAddresDTO::class);
-
-        $self = new static(
-            $dto->getSourceAddress(),
-            $dto->getMask(),
-            $dto->getPort()
-        );
-
-        return $self
-            ->setIpAddr($dto->getIpAddr())
-            ->setTag($dto->getTag())
-            ->setDescription($dto->getDescription())
-            ->setCompany($dto->getCompany());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UsersAddresDTO
-         */
-        Assertion::isInstanceOf($dto, UsersAddresDTO::class);
-
-        $this
-            ->setSourceAddress($dto->getSourceAddress())
-            ->setIpAddr($dto->getIpAddr())
-            ->setMask($dto->getMask())
-            ->setPort($dto->getPort())
-            ->setTag($dto->getTag())
-            ->setDescription($dto->getDescription())
-            ->setCompany($dto->getCompany());
-
-
-        return $this;
-    }
-
-    /**
-     * @return UsersAddresDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setSourceAddress($this->getSourceAddress())
-            ->setIpAddr($this->getIpAddr())
-            ->setMask($this->getMask())
-            ->setPort($this->getPort())
-            ->setTag($this->getTag())
-            ->setDescription($this->getDescription())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'sourceAddress' => $this->getSourceAddress(),
-            'ipAddr' => $this->getIpAddr(),
-            'mask' => $this->getMask(),
-            'port' => $this->getPort(),
-            'tag' => $this->getTag(),
-            'description' => $this->getDescription(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set sourceAddress

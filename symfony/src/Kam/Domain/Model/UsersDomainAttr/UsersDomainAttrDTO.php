@@ -32,7 +32,6 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     private $value;
 
     /**
-     * @column last_modified
      * @var \DateTime
      */
     private $lastModified = '1900-01-01 00:00:01';
@@ -61,24 +60,6 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
             'didId' => $this->getDidId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setType(isset($data['type']) ? $data['type'] : null)
-            ->setValue(isset($data['value']) ? $data['value'] : null)
-            ->setLastModified(isset($data['lastModified']) ? $data['lastModified'] : null)
-            ->setDidId(isset($data['didId']) ? $data['didId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

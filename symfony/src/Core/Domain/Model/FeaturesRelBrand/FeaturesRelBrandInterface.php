@@ -7,14 +7,6 @@ namespace Core\Domain\Model\FeaturesRelBrand;
 interface FeaturesRelBrandInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Set brand
      *
      * @param \Core\Domain\Model\Brand\BrandInterface $brand

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class DDIDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $ddi;
@@ -50,6 +45,11 @@ class DDIDTO implements DataTransferObjectInterface
      * @var string
      */
     private $friendValue;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -197,7 +197,6 @@ class DDIDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'ddi' => $this->getDdi(),
             'ddie164' => $this->getDdie164(),
             'recordCalls' => $this->getRecordCalls(),
@@ -205,6 +204,7 @@ class DDIDTO implements DataTransferObjectInterface
             'routeType' => $this->getRouteType(),
             'billInboundCalls' => $this->getBillInboundCalls(),
             'friendValue' => $this->getFriendValue(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'brandId' => $this->getBrandId(),
             'conferenceRoomId' => $this->getConferenceRoomId(),
@@ -221,40 +221,6 @@ class DDIDTO implements DataTransferObjectInterface
             'retailAccountId' => $this->getRetailAccountId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setDdi(isset($data['ddi']) ? $data['ddi'] : null)
-            ->setDdie164(isset($data['ddie164']) ? $data['ddie164'] : null)
-            ->setRecordCalls(isset($data['recordCalls']) ? $data['recordCalls'] : null)
-            ->setDisplayName(isset($data['displayName']) ? $data['displayName'] : null)
-            ->setRouteType(isset($data['routeType']) ? $data['routeType'] : null)
-            ->setBillInboundCalls(isset($data['billInboundCalls']) ? $data['billInboundCalls'] : null)
-            ->setFriendValue(isset($data['friendValue']) ? $data['friendValue'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setConferenceRoomId(isset($data['conferenceRoomId']) ? $data['conferenceRoomId'] : null)
-            ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null)
-            ->setQueueId(isset($data['queueId']) ? $data['queueId'] : null)
-            ->setExternalCallFilterId(isset($data['externalCallFilterId']) ? $data['externalCallFilterId'] : null)
-            ->setUserId(isset($data['userId']) ? $data['userId'] : null)
-            ->setIVRCommonId(isset($data['IVRCommonId']) ? $data['IVRCommonId'] : null)
-            ->setIVRCustomId(isset($data['IVRCustomId']) ? $data['IVRCustomId'] : null)
-            ->setHuntGroupId(isset($data['huntGroupId']) ? $data['huntGroupId'] : null)
-            ->setFaxId(isset($data['faxId']) ? $data['faxId'] : null)
-            ->setPeeringContractId(isset($data['peeringContractId']) ? $data['peeringContractId'] : null)
-            ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null)
-            ->setRetailAccountId(isset($data['retailAccountId']) ? $data['retailAccountId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -283,26 +249,6 @@ class DDIDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return DDIDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -443,6 +389,26 @@ class DDIDTO implements DataTransferObjectInterface
     public function getFriendValue()
     {
         return $this->friendValue;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return DDIDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -7,14 +7,6 @@ namespace Core\Domain\Model\ParsedCDR;
 interface ParsedCDRInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get statId
      *
      * @return integer

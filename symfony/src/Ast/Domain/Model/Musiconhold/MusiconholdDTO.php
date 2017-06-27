@@ -75,27 +75,6 @@ class MusiconholdDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setMode(isset($data['mode']) ? $data['mode'] : null)
-            ->setDirectory(isset($data['directory']) ? $data['directory'] : null)
-            ->setApplication(isset($data['application']) ? $data['application'] : null)
-            ->setDigit(isset($data['digit']) ? $data['digit'] : null)
-            ->setSort(isset($data['sort']) ? $data['sort'] : null)
-            ->setFormat(isset($data['format']) ? $data['format'] : null)
-            ->setStamp(isset($data['stamp']) ? $data['stamp'] : null);
-    }
-     */
-
-    /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)

@@ -7,14 +7,6 @@ namespace Core\Domain\Model\CompanyService;
 interface CompanyServiceInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get code
      *
      * @return string

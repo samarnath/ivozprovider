@@ -42,7 +42,15 @@ class QueryBuilderFactory
 
         if (!is_null($orderBy)) {
             foreach ($orderBy as $field => $order) {
-                $qb->addOrderBy($field, $order);
+
+                preg_match('/\.*case .* as hidden ([^\s]+).*/i', $field, $caseOrder);
+                if (count($caseOrder) !== 2) {
+                    $qb->addOrderBy($field, $order);
+                    continue;
+                }
+
+                $qb->addSelect($field);
+                $qb->addOrderBy($caseOrder[1], $order);
             }
         }
 

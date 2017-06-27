@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class IVRCustomEntryDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $entry;
@@ -30,6 +25,11 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
      * @var string
      */
     private $targetNumberValue;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -77,36 +77,16 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'entry' => $this->getEntry(),
             'targetType' => $this->getTargetType(),
             'targetNumberValue' => $this->getTargetNumberValue(),
+            'id' => $this->getId(),
             'iVRCustomId' => $this->getIVRCustomId(),
             'welcomeLocutionId' => $this->getWelcomeLocutionId(),
             'targetExtensionId' => $this->getTargetExtensionId(),
             'targetVoiceMailUserId' => $this->getTargetVoiceMailUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setEntry(isset($data['entry']) ? $data['entry'] : null)
-            ->setTargetType(isset($data['targetType']) ? $data['targetType'] : null)
-            ->setTargetNumberValue(isset($data['targetNumberValue']) ? $data['targetNumberValue'] : null)
-            ->setIVRCustomId(isset($data['IVRCustomId']) ? $data['IVRCustomId'] : null)
-            ->setWelcomeLocutionId(isset($data['welcomeLocutionId']) ? $data['welcomeLocutionId'] : null)
-            ->setTargetExtensionId(isset($data['targetExtensionId']) ? $data['targetExtensionId'] : null)
-            ->setTargetVoiceMailUserId(isset($data['targetVoiceMailUserId']) ? $data['targetVoiceMailUserId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -125,26 +105,6 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return IVRCustomEntryDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -205,6 +165,26 @@ class IVRCustomEntryDTO implements DataTransferObjectInterface
     public function getTargetNumberValue()
     {
         return $this->targetNumberValue;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return IVRCustomEntryDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

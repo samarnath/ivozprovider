@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\Dispatcher;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * DispatcherAbstract
  */
-abstract class DispatcherAbstract implements EntityInterface
+abstract class DispatcherAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var integer
      */
@@ -58,135 +52,9 @@ abstract class DispatcherAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $setid,
-        $destination,
-        $flags,
-        $priority,
-        $attrs,
-        $description
-    ) {
-        $this->setSetid($setid);
-        $this->setDestination($destination);
-        $this->setFlags($flags);
-        $this->setPriority($priority);
-        $this->setAttrs($attrs);
-        $this->setDescription($description);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return DispatcherDTO
-     */
-    public static function createDTO()
-    {
-        return new DispatcherDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto DispatcherDTO
-         */
-        Assertion::isInstanceOf($dto, DispatcherDTO::class);
-
-        $self = new static(
-            $dto->getSetid(),
-            $dto->getDestination(),
-            $dto->getFlags(),
-            $dto->getPriority(),
-            $dto->getAttrs(),
-            $dto->getDescription()
-        );
-
-        return $self
-            ->setApplicationServer($dto->getApplicationServer());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto DispatcherDTO
-         */
-        Assertion::isInstanceOf($dto, DispatcherDTO::class);
-
-        $this
-            ->setSetid($dto->getSetid())
-            ->setDestination($dto->getDestination())
-            ->setFlags($dto->getFlags())
-            ->setPriority($dto->getPriority())
-            ->setAttrs($dto->getAttrs())
-            ->setDescription($dto->getDescription())
-            ->setApplicationServer($dto->getApplicationServer());
-
-
-        return $this;
-    }
-
-    /**
-     * @return DispatcherDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setSetid($this->getSetid())
-            ->setDestination($this->getDestination())
-            ->setFlags($this->getFlags())
-            ->setPriority($this->getPriority())
-            ->setAttrs($this->getAttrs())
-            ->setDescription($this->getDescription())
-            ->setApplicationServerId($this->getApplicationServer() ? $this->getApplicationServer()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'setid' => $this->getSetid(),
-            'destination' => $this->getDestination(),
-            'flags' => $this->getFlags(),
-            'priority' => $this->getPriority(),
-            'attrs' => $this->getAttrs(),
-            'description' => $this->getDescription(),
-            'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set setid

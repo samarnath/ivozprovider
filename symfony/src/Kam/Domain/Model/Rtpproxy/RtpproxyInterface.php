@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\Rtpproxy;
 interface RtpproxyInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get setid
      *
      * @return string

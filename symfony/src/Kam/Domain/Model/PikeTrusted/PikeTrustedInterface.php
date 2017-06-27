@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\PikeTrusted;
 interface PikeTrustedInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get srcIp
      *
      * @return string

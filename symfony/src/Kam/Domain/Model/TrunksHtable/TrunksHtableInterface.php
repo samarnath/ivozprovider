@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\TrunksHtable;
 interface TrunksHtableInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get keyName
      *
      * @return string

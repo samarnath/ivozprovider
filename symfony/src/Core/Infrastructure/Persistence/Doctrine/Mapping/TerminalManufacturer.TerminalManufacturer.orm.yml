@@ -2,10 +2,6 @@ Core\Domain\Model\TerminalManufacturer\TerminalManufacturer:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TerminalManufacturerDoctrineRepository
   type: entity
   table: TerminalManufacturers
-  uniqueConstraints:
-    iden:
-      columns:
-        - iden
   id:
     id:
       type: integer
@@ -15,25 +11,4 @@ Core\Domain\Model\TerminalManufacturer\TerminalManufacturer:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    iden:
-      type: string
-      nullable: false
-      length: 100
-      options:
-        fixed: false
-    name:
-      type: string
-      nullable: false
-      length: 100
-      options:
-        fixed: false
-        default: ''
-    description:
-      type: string
-      nullable: false
-      length: 500
-      options:
-        fixed: false
-        default: ''
   lifecycleCallbacks: {  }

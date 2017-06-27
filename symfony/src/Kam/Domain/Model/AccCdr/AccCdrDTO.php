@@ -22,25 +22,21 @@ class AccCdrDTO implements DataTransferObjectInterface
     private $proxy;
 
     /**
-     * @column start_time_utc
      * @var \DateTime
      */
     private $startTimeUtc = '2000-01-01 00:00:00';
 
     /**
-     * @column end_time_utc
      * @var \DateTime
      */
     private $endTimeUtc = 'CURRENT_TIMESTAMP';
 
     /**
-     * @column start_time
      * @var \DateTime
      */
     private $startTime = '2000-01-01 00:00:00';
 
     /**
-     * @column end_time
      * @var \DateTime
      */
     private $endTime = '2000-01-01 00:00:00';
@@ -252,52 +248,6 @@ class AccCdrDTO implements DataTransferObjectInterface
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setProxy(isset($data['proxy']) ? $data['proxy'] : null)
-            ->setStartTimeUtc(isset($data['startTimeUtc']) ? $data['startTimeUtc'] : null)
-            ->setEndTimeUtc(isset($data['endTimeUtc']) ? $data['endTimeUtc'] : null)
-            ->setStartTime(isset($data['startTime']) ? $data['startTime'] : null)
-            ->setEndTime(isset($data['endTime']) ? $data['endTime'] : null)
-            ->setDuration(isset($data['duration']) ? $data['duration'] : null)
-            ->setCaller(isset($data['caller']) ? $data['caller'] : null)
-            ->setCallee(isset($data['callee']) ? $data['callee'] : null)
-            ->setReferee(isset($data['referee']) ? $data['referee'] : null)
-            ->setReferrer(isset($data['referrer']) ? $data['referrer'] : null)
-            ->setAsiden(isset($data['asiden']) ? $data['asiden'] : null)
-            ->setAsaddress(isset($data['asaddress']) ? $data['asaddress'] : null)
-            ->setCallid(isset($data['callid']) ? $data['callid'] : null)
-            ->setCallidhash(isset($data['callidhash']) ? $data['callidhash'] : null)
-            ->setXcallid(isset($data['xcallid']) ? $data['xcallid'] : null)
-            ->setParsed(isset($data['parsed']) ? $data['parsed'] : null)
-            ->setDiversion(isset($data['diversion']) ? $data['diversion'] : null)
-            ->setPeeringcontractid(isset($data['peeringcontractid']) ? $data['peeringcontractid'] : null)
-            ->setBounced(isset($data['bounced']) ? $data['bounced'] : null)
-            ->setExternallyrated(isset($data['externallyrated']) ? $data['externallyrated'] : null)
-            ->setMetered(isset($data['metered']) ? $data['metered'] : null)
-            ->setMeteringdate(isset($data['meteringdate']) ? $data['meteringdate'] : null)
-            ->setPricingplanname(isset($data['pricingplanname']) ? $data['pricingplanname'] : null)
-            ->setTargetpatternname(isset($data['targetpatternname']) ? $data['targetpatternname'] : null)
-            ->setPrice(isset($data['price']) ? $data['price'] : null)
-            ->setPricingplandetails(isset($data['pricingplandetails']) ? $data['pricingplandetails'] : null)
-            ->setDirection(isset($data['direction']) ? $data['direction'] : null)
-            ->setRemeteringdate(isset($data['remeteringdate']) ? $data['remeteringdate'] : null)
-            ->setPricingPlanId(isset($data['pricingPlanId']) ? $data['pricingPlanId'] : null)
-            ->setTargetPatternId(isset($data['targetPatternId']) ? $data['targetPatternId'] : null)
-            ->setInvoiceId(isset($data['invoiceId']) ? $data['invoiceId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

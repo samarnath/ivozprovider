@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class ExtensionDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $number;
@@ -35,6 +30,11 @@ class ExtensionDTO implements DataTransferObjectInterface
      * @var string
      */
     private $friendValue;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -112,11 +112,11 @@ class ExtensionDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'number' => $this->getNumber(),
             'routeType' => $this->getRouteType(),
             'numberValue' => $this->getNumberValue(),
             'friendValue' => $this->getFriendValue(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'iVRCommonId' => $this->getIVRCommonId(),
             'iVRCustomId' => $this->getIVRCustomId(),
@@ -126,30 +126,6 @@ class ExtensionDTO implements DataTransferObjectInterface
             'queueId' => $this->getQueueId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setNumber(isset($data['number']) ? $data['number'] : null)
-            ->setRouteType(isset($data['routeType']) ? $data['routeType'] : null)
-            ->setNumberValue(isset($data['numberValue']) ? $data['numberValue'] : null)
-            ->setFriendValue(isset($data['friendValue']) ? $data['friendValue'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setIVRCommonId(isset($data['IVRCommonId']) ? $data['IVRCommonId'] : null)
-            ->setIVRCustomId(isset($data['IVRCustomId']) ? $data['IVRCustomId'] : null)
-            ->setHuntGroupId(isset($data['huntGroupId']) ? $data['huntGroupId'] : null)
-            ->setConferenceRoomId(isset($data['conferenceRoomId']) ? $data['conferenceRoomId'] : null)
-            ->setUserId(isset($data['userId']) ? $data['userId'] : null)
-            ->setQueueId(isset($data['queueId']) ? $data['queueId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -171,26 +147,6 @@ class ExtensionDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ExtensionDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -271,6 +227,26 @@ class ExtensionDTO implements DataTransferObjectInterface
     public function getFriendValue()
     {
         return $this->friendValue;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ExtensionDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

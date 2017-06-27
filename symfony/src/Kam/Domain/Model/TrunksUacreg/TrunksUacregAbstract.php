@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\TrunksUacreg;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TrunksUacregAbstract
  */
-abstract class TrunksUacregAbstract implements EntityInterface
+abstract class TrunksUacregAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @column l_uuid
      * @var string
@@ -107,181 +101,9 @@ abstract class TrunksUacregAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $lUuid,
-        $lUsername,
-        $lDomain,
-        $rUsername,
-        $rDomain,
-        $realm,
-        $authUsername,
-        $authPassword,
-        $authProxy,
-        $expires,
-        $flags,
-        $regDelay,
-        $multiddi
-    ) {
-        $this->setLUuid($lUuid);
-        $this->setLUsername($lUsername);
-        $this->setLDomain($lDomain);
-        $this->setRUsername($rUsername);
-        $this->setRDomain($rDomain);
-        $this->setRealm($realm);
-        $this->setAuthUsername($authUsername);
-        $this->setAuthPassword($authPassword);
-        $this->setAuthProxy($authProxy);
-        $this->setExpires($expires);
-        $this->setFlags($flags);
-        $this->setRegDelay($regDelay);
-        $this->setMultiddi($multiddi);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return TrunksUacregDTO
-     */
-    public static function createDTO()
-    {
-        return new TrunksUacregDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TrunksUacregDTO
-         */
-        Assertion::isInstanceOf($dto, TrunksUacregDTO::class);
-
-        $self = new static(
-            $dto->getLUuid(),
-            $dto->getLUsername(),
-            $dto->getLDomain(),
-            $dto->getRUsername(),
-            $dto->getRDomain(),
-            $dto->getRealm(),
-            $dto->getAuthUsername(),
-            $dto->getAuthPassword(),
-            $dto->getAuthProxy(),
-            $dto->getExpires(),
-            $dto->getFlags(),
-            $dto->getRegDelay(),
-            $dto->getMultiddi()
-        );
-
-        return $self
-            ->setBrand($dto->getBrand())
-            ->setPeeringContract($dto->getPeeringContract());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TrunksUacregDTO
-         */
-        Assertion::isInstanceOf($dto, TrunksUacregDTO::class);
-
-        $this
-            ->setLUuid($dto->getLUuid())
-            ->setLUsername($dto->getLUsername())
-            ->setLDomain($dto->getLDomain())
-            ->setRUsername($dto->getRUsername())
-            ->setRDomain($dto->getRDomain())
-            ->setRealm($dto->getRealm())
-            ->setAuthUsername($dto->getAuthUsername())
-            ->setAuthPassword($dto->getAuthPassword())
-            ->setAuthProxy($dto->getAuthProxy())
-            ->setExpires($dto->getExpires())
-            ->setFlags($dto->getFlags())
-            ->setRegDelay($dto->getRegDelay())
-            ->setMultiddi($dto->getMultiddi())
-            ->setBrand($dto->getBrand())
-            ->setPeeringContract($dto->getPeeringContract());
-
-
-        return $this;
-    }
-
-    /**
-     * @return TrunksUacregDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setLUuid($this->getLUuid())
-            ->setLUsername($this->getLUsername())
-            ->setLDomain($this->getLDomain())
-            ->setRUsername($this->getRUsername())
-            ->setRDomain($this->getRDomain())
-            ->setRealm($this->getRealm())
-            ->setAuthUsername($this->getAuthUsername())
-            ->setAuthPassword($this->getAuthPassword())
-            ->setAuthProxy($this->getAuthProxy())
-            ->setExpires($this->getExpires())
-            ->setFlags($this->getFlags())
-            ->setRegDelay($this->getRegDelay())
-            ->setMultiddi($this->getMultiddi())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setPeeringContractId($this->getPeeringContract() ? $this->getPeeringContract()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'lUuid' => $this->getLUuid(),
-            'lUsername' => $this->getLUsername(),
-            'lDomain' => $this->getLDomain(),
-            'rUsername' => $this->getRUsername(),
-            'rDomain' => $this->getRDomain(),
-            'realm' => $this->getRealm(),
-            'authUsername' => $this->getAuthUsername(),
-            'authPassword' => $this->getAuthPassword(),
-            'authProxy' => $this->getAuthProxy(),
-            'expires' => $this->getExpires(),
-            'flags' => $this->getFlags(),
-            'regDelay' => $this->getRegDelay(),
-            'multiddi' => $this->getMultiddi(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'peeringContractId' => $this->getPeeringContract() ? $this->getPeeringContract()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set lUuid

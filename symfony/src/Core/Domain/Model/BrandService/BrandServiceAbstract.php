@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\BrandService;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * BrandServiceAbstract
  */
-abstract class BrandServiceAbstract implements EntityInterface
+abstract class BrandServiceAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -38,108 +32,9 @@ abstract class BrandServiceAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($code)
-    {
-        $this->setCode($code);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return BrandServiceDTO
-     */
-    public static function createDTO()
-    {
-        return new BrandServiceDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto BrandServiceDTO
-         */
-        Assertion::isInstanceOf($dto, BrandServiceDTO::class);
-
-        $self = new static(
-            $dto->getCode()
-        );
-
-        return $self
-            ->setBrand($dto->getBrand())
-            ->setService($dto->getService());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto BrandServiceDTO
-         */
-        Assertion::isInstanceOf($dto, BrandServiceDTO::class);
-
-        $this
-            ->setCode($dto->getCode())
-            ->setBrand($dto->getBrand())
-            ->setService($dto->getService());
-
-
-        return $this;
-    }
-
-    /**
-     * @return BrandServiceDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setCode($this->getCode())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setServiceId($this->getService() ? $this->getService()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'code' => $this->getCode(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'serviceId' => $this->getService() ? $this->getService()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set code

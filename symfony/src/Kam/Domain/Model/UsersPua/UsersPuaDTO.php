@@ -17,13 +17,11 @@ class UsersPuaDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column pres_uri
      * @var string
      */
     private $presUri;
 
     /**
-     * @column pres_id
      * @var string
      */
     private $presId;
@@ -39,7 +37,6 @@ class UsersPuaDTO implements DataTransferObjectInterface
     private $expires;
 
     /**
-     * @column desired_expires
      * @var integer
      */
     private $desiredExpires;
@@ -55,31 +52,26 @@ class UsersPuaDTO implements DataTransferObjectInterface
     private $etag;
 
     /**
-     * @column tuple_id
      * @var string
      */
     private $tupleId;
 
     /**
-     * @column watcher_uri
      * @var string
      */
     private $watcherUri;
 
     /**
-     * @column call_id
      * @var string
      */
     private $callId;
 
     /**
-     * @column to_tag
      * @var string
      */
     private $toTag;
 
     /**
-     * @column from_tag
      * @var string
      */
     private $fromTag;
@@ -90,7 +82,6 @@ class UsersPuaDTO implements DataTransferObjectInterface
     private $cseq;
 
     /**
-     * @column record_route
      * @var string
      */
     private $recordRoute;
@@ -101,7 +92,6 @@ class UsersPuaDTO implements DataTransferObjectInterface
     private $contact;
 
     /**
-     * @column remote_contact
      * @var string
      */
     private $remoteContact;
@@ -112,7 +102,6 @@ class UsersPuaDTO implements DataTransferObjectInterface
     private $version;
 
     /**
-     * @column extra_headers
      * @var string
      */
     private $extraHeaders;
@@ -144,37 +133,6 @@ class UsersPuaDTO implements DataTransferObjectInterface
             'extraHeaders' => $this->getExtraHeaders()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setPresUri(isset($data['presUri']) ? $data['presUri'] : null)
-            ->setPresId(isset($data['presId']) ? $data['presId'] : null)
-            ->setEvent(isset($data['event']) ? $data['event'] : null)
-            ->setExpires(isset($data['expires']) ? $data['expires'] : null)
-            ->setDesiredExpires(isset($data['desiredExpires']) ? $data['desiredExpires'] : null)
-            ->setFlag(isset($data['flag']) ? $data['flag'] : null)
-            ->setEtag(isset($data['etag']) ? $data['etag'] : null)
-            ->setTupleId(isset($data['tupleId']) ? $data['tupleId'] : null)
-            ->setWatcherUri(isset($data['watcherUri']) ? $data['watcherUri'] : null)
-            ->setCallId(isset($data['callId']) ? $data['callId'] : null)
-            ->setToTag(isset($data['toTag']) ? $data['toTag'] : null)
-            ->setFromTag(isset($data['fromTag']) ? $data['fromTag'] : null)
-            ->setCseq(isset($data['cseq']) ? $data['cseq'] : null)
-            ->setRecordRoute(isset($data['recordRoute']) ? $data['recordRoute'] : null)
-            ->setContact(isset($data['contact']) ? $data['contact'] : null)
-            ->setRemoteContact(isset($data['remoteContact']) ? $data['remoteContact'] : null)
-            ->setVersion(isset($data['version']) ? $data['version'] : null)
-            ->setExtraHeaders(isset($data['extraHeaders']) ? $data['extraHeaders'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

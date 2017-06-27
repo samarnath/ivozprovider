@@ -3,19 +3,13 @@
 namespace Ast\Domain\Model\Queue;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * QueueAbstract
  */
-abstract class QueueAbstract implements EntityInterface
+abstract class QueueAbstract
 {
-    /**
-     * @var string
-     */
-    protected $name;
-
     /**
      * @column periodic_announce
      * @var string
@@ -75,154 +69,9 @@ abstract class QueueAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($autopause, $ringinuse)
-    {
-        $this->setAutopause($autopause);
-        $this->setRinginuse($ringinuse);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return QueueDTO
-     */
-    public static function createDTO()
-    {
-        return new QueueDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto QueueDTO
-         */
-        Assertion::isInstanceOf($dto, QueueDTO::class);
-
-        $self = new static(
-            $dto->getAutopause(),
-            $dto->getRinginuse()
-        );
-
-        return $self
-            ->setPeriodicAnnounce($dto->getPeriodicAnnounce())
-            ->setPeriodicAnnounceFrequency($dto->getPeriodicAnnounceFrequency())
-            ->setTimeout($dto->getTimeout())
-            ->setWrapuptime($dto->getWrapuptime())
-            ->setMaxlen($dto->getMaxlen())
-            ->setStrategy($dto->getStrategy())
-            ->setWeight($dto->getWeight())
-            ->setQueue($dto->getQueue());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto QueueDTO
-         */
-        Assertion::isInstanceOf($dto, QueueDTO::class);
-
-        $this
-            ->setPeriodicAnnounce($dto->getPeriodicAnnounce())
-            ->setPeriodicAnnounceFrequency($dto->getPeriodicAnnounceFrequency())
-            ->setTimeout($dto->getTimeout())
-            ->setAutopause($dto->getAutopause())
-            ->setRinginuse($dto->getRinginuse())
-            ->setWrapuptime($dto->getWrapuptime())
-            ->setMaxlen($dto->getMaxlen())
-            ->setStrategy($dto->getStrategy())
-            ->setWeight($dto->getWeight())
-            ->setQueue($dto->getQueue());
-
-
-        return $this;
-    }
-
-    /**
-     * @return QueueDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setName($this->getName())
-            ->setPeriodicAnnounce($this->getPeriodicAnnounce())
-            ->setPeriodicAnnounceFrequency($this->getPeriodicAnnounceFrequency())
-            ->setTimeout($this->getTimeout())
-            ->setAutopause($this->getAutopause())
-            ->setRinginuse($this->getRinginuse())
-            ->setWrapuptime($this->getWrapuptime())
-            ->setMaxlen($this->getMaxlen())
-            ->setStrategy($this->getStrategy())
-            ->setWeight($this->getWeight())
-            ->setQueueId($this->getQueue() ? $this->getQueue()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'name' => $this->getName(),
-            'periodicAnnounce' => $this->getPeriodicAnnounce(),
-            'periodicAnnounceFrequency' => $this->getPeriodicAnnounceFrequency(),
-            'timeout' => $this->getTimeout(),
-            'autopause' => $this->getAutopause(),
-            'ringinuse' => $this->getRinginuse(),
-            'wrapuptime' => $this->getWrapuptime(),
-            'maxlen' => $this->getMaxlen(),
-            'strategy' => $this->getStrategy(),
-            'weight' => $this->getWeight(),
-            'queueId' => $this->getQueue() ? $this->getQueue()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return self
-     */
-    protected function setName($name)
-    {
-        Assertion::notNull($name);
-        Assertion::maxLength($name, 128);
-
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set periodicAnnounce

@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\ProxyUser;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ProxyUserAbstract
  */
-abstract class ProxyUserAbstract implements EntityInterface
+abstract class ProxyUserAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -33,103 +27,9 @@ abstract class ProxyUserAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return ProxyUserDTO
-     */
-    public static function createDTO()
-    {
-        return new ProxyUserDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ProxyUserDTO
-         */
-        Assertion::isInstanceOf($dto, ProxyUserDTO::class);
-
-        $self = new static();
-
-        return $self
-            ->setName($dto->getName())
-            ->setIp($dto->getIp());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ProxyUserDTO
-         */
-        Assertion::isInstanceOf($dto, ProxyUserDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setIp($dto->getIp());
-
-
-        return $this;
-    }
-
-    /**
-     * @return ProxyUserDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setIp($this->getIp());
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'ip' => $this->getIp()
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

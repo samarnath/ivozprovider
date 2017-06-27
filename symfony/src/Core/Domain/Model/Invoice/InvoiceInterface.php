@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Invoice;
 interface InvoiceInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get number
      *
      * @return string
@@ -71,30 +63,6 @@ interface InvoiceInterface
 
 
     /**
-     * Get pdfFileFileSize
-     *
-     * @return integer
-     */
-    public function getPdfFileFileSize();
-
-
-    /**
-     * Get pdfFileMimeType
-     *
-     * @return string
-     */
-    public function getPdfFileMimeType();
-
-
-    /**
-     * Get pdfFileBaseName
-     *
-     * @return string
-     */
-    public function getPdfFileBaseName();
-
-
-    /**
      * Get invoiceTemplate
      *
      * @return \Core\Domain\Model\InvoiceTemplate\InvoiceTemplateInterface
@@ -118,6 +86,12 @@ interface InvoiceInterface
     public function getCompany();
 
 
+    /**
+     * Get pdf
+     *
+     * @return Pdf
+     */
+    public function getPdf();
 
 }
 

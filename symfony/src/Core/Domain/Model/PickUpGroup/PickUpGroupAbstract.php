@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\PickUpGroup;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PickUpGroupAbstract
  */
-abstract class PickUpGroupAbstract implements EntityInterface
+abstract class PickUpGroupAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -33,104 +27,9 @@ abstract class PickUpGroupAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name)
-    {
-        $this->setName($name);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return PickUpGroupDTO
-     */
-    public static function createDTO()
-    {
-        return new PickUpGroupDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PickUpGroupDTO
-         */
-        Assertion::isInstanceOf($dto, PickUpGroupDTO::class);
-
-        $self = new static(
-            $dto->getName()
-        );
-
-        return $self
-            ->setCompany($dto->getCompany());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PickUpGroupDTO
-         */
-        Assertion::isInstanceOf($dto, PickUpGroupDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setCompany($dto->getCompany());
-
-
-        return $this;
-    }
-
-    /**
-     * @return PickUpGroupDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

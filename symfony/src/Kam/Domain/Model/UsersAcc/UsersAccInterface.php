@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersAcc;
 interface UsersAccInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get method
      *
      * @return string

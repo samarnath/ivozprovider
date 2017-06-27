@@ -2,7 +2,7 @@
 
 namespace EntityGeneratorBundle\Tools;
 
-use EntityGeneratorBundle\Tools\SuperClassGenerator as ParentGenerator;
+use EntityGeneratorBundle\Tools\AbstractEntityGenerator as ParentGenerator;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\Common\Util\Inflector;
@@ -27,19 +27,6 @@ public function __toArray()
 {
     return [<toArray>];
 }
-
-/**
- * @param array $data
- * @return self
- * @deprecated
- *
-public static function fromArray(array $data)
-{
-    $dto = new self();
-    return $dto
-    <fromArray>;
-}
- */
 
 /**
  * {@inheritDoc}
@@ -149,10 +136,13 @@ public function <methodName>()
         $lines = array();
         $lines[] = $this->spaces . '/**';
 
+        $fieldName = $field->fieldName;
+        if (false !== strpos($fieldName, '.')) {
+            $segments = explode('.', $fieldName);
+            $fieldName = $this->getEmbeddedVarName($segments);
+        }
+
         if (isset($field->columnName)) {
-            if (strtolower($field->fieldName) !== strtolower($field->columnName)) {
-                $lines[] = $this->spaces . ' * @column ' . $field->columnName;
-            }
 
             $lines[] = $this->spaces
                 . ' * @var '
@@ -220,6 +210,23 @@ public function <methodName>()
 
         $response = str_replace($this->spaces . '<transformForeignKeys>', $transformForeignKeys, $response);
         return str_replace($this->spaces . '<transformCollections>', $transformCollections, $response);
+    }
+
+    /**
+     * @param $segments
+     * @param $toArray
+     * @return array
+     */
+    protected function embeddedToArrayGetter($segments)
+    {
+        return
+            '\''
+            . $segments[0]
+            . Inflector::classify($segments[1])
+            . '\' => $this->get'
+            . Inflector::classify($segments[0])
+            . Inflector::classify($segments[1])
+            . '()';
     }
 
     /**
@@ -390,21 +397,13 @@ public function <methodName>()
         $mapping = array_merge($metadata->fieldMappings, $metadata->associationMappings);
 
         foreach ($mapping as $fieldMapping) {
-            if ($this->hasProperty($fieldMapping['fieldName'], $metadata) ||
-                $metadata->isInheritedField($fieldMapping['fieldName']) ||
-                (
-                    isset($fieldMapping['declaredField']) &&
-                    isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
-                )
-            ) {
-                continue;
-            }
 
             $field = (object) $fieldMapping;
+            $fieldName = $field->fieldName;
 
             if (isset($field->targetEntity) && $field->type !== ClassMetadataInfo::ONE_TO_MANY) {
                 $lines[] = $this->generateFieldMappingPropertyDocBlock($fieldMapping, $metadata);
-                $lines[] = $this->spaces . $this->fieldVisibility . ' $' . $fieldMapping['fieldName'] . 'Id'
+                $lines[] = $this->spaces . $this->fieldVisibility . ' $' . $fieldName . 'Id'
                     . (isset($fieldMapping['options']['default']) ? ' = ' . var_export($fieldMapping['options']['default'], true) : null) . ";\n";
             }
 
@@ -412,8 +411,13 @@ public function <methodName>()
                 continue;
             }
 
+            if (false !== strpos($fieldName, '.')) {
+                $segments = explode('.', $fieldName);
+                $fieldName = $this->getEmbeddedVarName($segments);
+            }
+
             $lines[] = $this->generateFieldMappingPropertyDocBlock($fieldMapping, $metadata);
-            $lines[] = $this->spaces . $this->fieldVisibility . ' $' . $fieldMapping['fieldName']
+            $lines[] = $this->spaces . $this->fieldVisibility . ' $' . $fieldName
                 . (isset($fieldMapping['options']['default']) ? ' = ' . var_export($fieldMapping['options']['default'], true) : null) . ";\n";
         }
 
@@ -460,11 +464,11 @@ public function <methodName>()
         $fieldMappings = array_merge($metadata->fieldMappings, $metadata->associationMappings);
         foreach ($fieldMappings as $fieldMapping) {
 
-            if (isset($fieldMapping['declaredField']) &&
-                isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
-            ) {
-                continue;
-            }
+//            if (isset($fieldMapping['declaredField']) &&
+//                isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
+//            ) {
+//                continue;
+//            }
 
             $field = (object) $fieldMapping;
             if (isset($field->targetEntity)) {
@@ -493,11 +497,17 @@ public function <methodName>()
                 continue;
             }
 
-            if ($code = $this->generateEntityStubMethod($metadata, 'set', $fieldMapping['fieldName'], $fieldMapping['type'])) {
+            $fieldName = $fieldMapping['fieldName'];
+            if (false !== strpos($fieldName, '.')) {
+                $segments = explode('.', $fieldName);
+                $fieldName = $this->getEmbeddedVarName($segments);
+            }
+
+            if ($code = $this->generateEntityStubMethod($metadata, 'set', $fieldName, $fieldMapping['type'])) {
                 $methods[] = $code;
             }
 
-            if ($code = $this->generateEntityStubMethod($metadata, 'get', $fieldMapping['fieldName'], $fieldMapping['type'])) {
+            if ($code = $this->generateEntityStubMethod($metadata, 'get', $fieldName, $fieldMapping['type'])) {
                 $methods[] = $code;
             }
         }

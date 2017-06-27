@@ -14,12 +14,6 @@ class LcrRuleDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @column lcr_id
-     * @var integer
-     */
     private $lcrId = '1';
 
     /**
@@ -28,13 +22,11 @@ class LcrRuleDTO implements DataTransferObjectInterface
     private $prefix;
 
     /**
-     * @column from_uri
      * @var string
      */
     private $fromUri;
 
     /**
-     * @column request_uri
      * @var string
      */
     private $requestUri;
@@ -58,6 +50,11 @@ class LcrRuleDTO implements DataTransferObjectInterface
      * @var string
      */
     private $description = '';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -85,7 +82,6 @@ class LcrRuleDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'lcrId' => $this->getLcrId(),
             'prefix' => $this->getPrefix(),
             'fromUri' => $this->getFromUri(),
@@ -94,33 +90,11 @@ class LcrRuleDTO implements DataTransferObjectInterface
             'enabled' => $this->getEnabled(),
             'tag' => $this->getTag(),
             'description' => $this->getDescription(),
+            'id' => $this->getId(),
             'routingPatternId' => $this->getRoutingPatternId(),
             'outgoingRoutingId' => $this->getOutgoingRoutingId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setLcrId(isset($data['lcrId']) ? $data['lcrId'] : null)
-            ->setPrefix(isset($data['prefix']) ? $data['prefix'] : null)
-            ->setFromUri(isset($data['fromUri']) ? $data['fromUri'] : null)
-            ->setRequestUri(isset($data['requestUri']) ? $data['requestUri'] : null)
-            ->setStopper(isset($data['stopper']) ? $data['stopper'] : null)
-            ->setEnabled(isset($data['enabled']) ? $data['enabled'] : null)
-            ->setTag(isset($data['tag']) ? $data['tag'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setRoutingPatternId(isset($data['routingPatternId']) ? $data['routingPatternId'] : null)
-            ->setOutgoingRoutingId(isset($data['outgoingRoutingId']) ? $data['outgoingRoutingId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -137,26 +111,6 @@ class LcrRuleDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return LcrRuleDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -317,6 +271,26 @@ class LcrRuleDTO implements DataTransferObjectInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return LcrRuleDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

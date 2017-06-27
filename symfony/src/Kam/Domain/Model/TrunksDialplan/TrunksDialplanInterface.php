@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\TrunksDialplan;
 interface TrunksDialplanInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get dpid
      *
      * @return integer

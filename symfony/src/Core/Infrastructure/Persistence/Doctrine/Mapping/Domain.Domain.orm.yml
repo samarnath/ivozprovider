@@ -2,25 +2,6 @@ Core\Domain\Model\Domain\Domain:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\DomainDoctrineRepository
   type: entity
   table: Domains
-  indexes:
-    brandId:
-      columns:
-        - brandId
-    companyId:
-      columns:
-        - companyId
-  uniqueConstraints:
-    domain:
-      columns:
-        - domain
-    one_domain_per_brand:
-      columns:
-        - pointsTo
-        - brandId
-    one_domain_per_company:
-      columns:
-        - pointsTo
-        - companyId
   id:
     id:
       type: integer
@@ -30,56 +11,4 @@ Core\Domain\Model\Domain\Domain:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    domain:
-      column: domain
-      type: string
-      nullable: false
-      length: 190
-      options:
-        fixed: false
-    scope:
-      column: scope
-      type: string
-      nullable: false
-      length: null
-      options:
-        fixed: false
-        default: global
-    pointsTo:
-      type: string
-      nullable: false
-      length: null
-      options:
-        fixed: false
-        default: proxyusers
-      column: pointsTo
-    description:
-      column: description
-      type: string
-      nullable: true
-      length: 500
-      options:
-        fixed: false
-  manyToOne:
-    company:
-      targetEntity: \Core\Domain\Model\Company\CompanyInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        companyId:
-          referencedColumnName: id
-      orphanRemoval: false
-    brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: domains
-      joinColumns:
-        brandId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

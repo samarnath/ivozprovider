@@ -49,21 +49,6 @@ class ExternalCallFilterRelScheduleDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setFilterId(isset($data['filterId']) ? $data['filterId'] : null)
-            ->setScheduleId(isset($data['scheduleId']) ? $data['scheduleId'] : null);
-    }
-     */
-
-    /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)

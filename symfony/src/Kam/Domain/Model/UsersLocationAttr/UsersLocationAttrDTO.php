@@ -47,7 +47,6 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
     private $avalue = '';
 
     /**
-     * @column last_modified
      * @var \DateTime
      */
     private $lastModified = '1900-01-01 00:00:01';
@@ -68,26 +67,6 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
             'lastModified' => $this->getLastModified()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setRuid(isset($data['ruid']) ? $data['ruid'] : null)
-            ->setUsername(isset($data['username']) ? $data['username'] : null)
-            ->setDomain(isset($data['domain']) ? $data['domain'] : null)
-            ->setAname(isset($data['aname']) ? $data['aname'] : null)
-            ->setAtype(isset($data['atype']) ? $data['atype'] : null)
-            ->setAvalue(isset($data['avalue']) ? $data['avalue'] : null)
-            ->setLastModified(isset($data['lastModified']) ? $data['lastModified'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

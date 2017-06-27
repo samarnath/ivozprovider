@@ -1,0 +1,79 @@
+Core\Domain\Model\Service\ServiceAbstract:
+  type: mappedSuperclass
+  embedded:
+    name:
+      class: Name
+      columnPrefix: false
+    description:
+      class: Description
+      columnPrefix: false
+  fields:
+    iden:
+      type: string
+      nullable: false
+      length: 50
+      options:
+        fixed: false
+        default: ''
+#    name:
+#      type: string
+#      nullable: false
+#      length: 50
+#      options:
+#        fixed: false
+#        comment: '[ml]'
+#        default: ''
+#    nameEn:
+#      type: string
+#      nullable: false
+#      length: 50
+#      options:
+#        fixed: false
+#        default: ''
+#      column: name_en
+#    nameEs:
+#      type: string
+#      nullable: false
+#      length: 50
+#      options:
+#        fixed: false
+#        default: ''
+#      column: name_es
+#    description:
+#      type: string
+#      nullable: false
+#      length: 255
+#      options:
+#        fixed: false
+#        comment: '[ml]'
+#        default: ''
+#    descriptionEn:
+#      type: string
+#      nullable: false
+#      length: 255
+#      options:
+#        fixed: false
+#        default: ''
+#      column: description_en
+#    descriptionEs:
+#      type: string
+#      nullable: false
+#      length: 255
+#      options:
+#        fixed: false
+#        default: ''
+#      column: description_es
+    defaultCode:
+      type: string
+      nullable: false
+      length: 3
+      options:
+        fixed: false
+      column: defaultCode
+    extraArgs:
+      type: boolean
+      nullable: false
+      options:
+        default: '0'
+        unsigned: true
+      column: extraArgs

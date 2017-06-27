@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\UsersXcap;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersXcapAbstract
  */
-abstract class UsersXcapAbstract implements EntityInterface
+abstract class UsersXcapAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -65,143 +59,9 @@ abstract class UsersXcapAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $username,
-        $domain,
-        $doc,
-        $docType,
-        $etag,
-        $source,
-        $docUri,
-        $port
-    ) {
-        $this->setUsername($username);
-        $this->setDomain($domain);
-        $this->setDoc($doc);
-        $this->setDocType($docType);
-        $this->setEtag($etag);
-        $this->setSource($source);
-        $this->setDocUri($docUri);
-        $this->setPort($port);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return UsersXcapDTO
-     */
-    public static function createDTO()
-    {
-        return new UsersXcapDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UsersXcapDTO
-         */
-        Assertion::isInstanceOf($dto, UsersXcapDTO::class);
-
-        $self = new static(
-            $dto->getUsername(),
-            $dto->getDomain(),
-            $dto->getDoc(),
-            $dto->getDocType(),
-            $dto->getEtag(),
-            $dto->getSource(),
-            $dto->getDocUri(),
-            $dto->getPort()
-        );
-
-        return $self;
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UsersXcapDTO
-         */
-        Assertion::isInstanceOf($dto, UsersXcapDTO::class);
-
-        $this
-            ->setUsername($dto->getUsername())
-            ->setDomain($dto->getDomain())
-            ->setDoc($dto->getDoc())
-            ->setDocType($dto->getDocType())
-            ->setEtag($dto->getEtag())
-            ->setSource($dto->getSource())
-            ->setDocUri($dto->getDocUri())
-            ->setPort($dto->getPort());
-
-
-        return $this;
-    }
-
-    /**
-     * @return UsersXcapDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setUsername($this->getUsername())
-            ->setDomain($this->getDomain())
-            ->setDoc($this->getDoc())
-            ->setDocType($this->getDocType())
-            ->setEtag($this->getEtag())
-            ->setSource($this->getSource())
-            ->setDocUri($this->getDocUri())
-            ->setPort($this->getPort());
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'username' => $this->getUsername(),
-            'domain' => $this->getDomain(),
-            'doc' => $this->getDoc(),
-            'docType' => $this->getDocType(),
-            'etag' => $this->getEtag(),
-            'source' => $this->getSource(),
-            'docUri' => $this->getDocUri(),
-            'port' => $this->getPort()
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set username

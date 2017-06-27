@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Queue;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * QueueAbstract
  */
-abstract class QueueAbstract implements EntityInterface
+abstract class QueueAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -125,175 +119,9 @@ abstract class QueueAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return QueueDTO
-     */
-    public static function createDTO()
-    {
-        return new QueueDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto QueueDTO
-         */
-        Assertion::isInstanceOf($dto, QueueDTO::class);
-
-        $self = new static();
-
-        return $self
-            ->setName($dto->getName())
-            ->setMaxWaitTime($dto->getMaxWaitTime())
-            ->setTimeoutTargetType($dto->getTimeoutTargetType())
-            ->setTimeoutNumberValue($dto->getTimeoutNumberValue())
-            ->setMaxlen($dto->getMaxlen())
-            ->setFullTargetType($dto->getFullTargetType())
-            ->setFullNumberValue($dto->getFullNumberValue())
-            ->setPeriodicAnnounceFrequency($dto->getPeriodicAnnounceFrequency())
-            ->setMemberCallRest($dto->getMemberCallRest())
-            ->setMemberCallTimeout($dto->getMemberCallTimeout())
-            ->setStrategy($dto->getStrategy())
-            ->setWeight($dto->getWeight())
-            ->setCompany($dto->getCompany())
-            ->setPeriodicAnnounceLocution($dto->getPeriodicAnnounceLocution())
-            ->setTimeoutLocution($dto->getTimeoutLocution())
-            ->setTimeoutExtension($dto->getTimeoutExtension())
-            ->setTimeoutVoiceMailUser($dto->getTimeoutVoiceMailUser())
-            ->setFullLocution($dto->getFullLocution())
-            ->setFullExtension($dto->getFullExtension())
-            ->setFullVoiceMailUser($dto->getFullVoiceMailUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto QueueDTO
-         */
-        Assertion::isInstanceOf($dto, QueueDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setMaxWaitTime($dto->getMaxWaitTime())
-            ->setTimeoutTargetType($dto->getTimeoutTargetType())
-            ->setTimeoutNumberValue($dto->getTimeoutNumberValue())
-            ->setMaxlen($dto->getMaxlen())
-            ->setFullTargetType($dto->getFullTargetType())
-            ->setFullNumberValue($dto->getFullNumberValue())
-            ->setPeriodicAnnounceFrequency($dto->getPeriodicAnnounceFrequency())
-            ->setMemberCallRest($dto->getMemberCallRest())
-            ->setMemberCallTimeout($dto->getMemberCallTimeout())
-            ->setStrategy($dto->getStrategy())
-            ->setWeight($dto->getWeight())
-            ->setCompany($dto->getCompany())
-            ->setPeriodicAnnounceLocution($dto->getPeriodicAnnounceLocution())
-            ->setTimeoutLocution($dto->getTimeoutLocution())
-            ->setTimeoutExtension($dto->getTimeoutExtension())
-            ->setTimeoutVoiceMailUser($dto->getTimeoutVoiceMailUser())
-            ->setFullLocution($dto->getFullLocution())
-            ->setFullExtension($dto->getFullExtension())
-            ->setFullVoiceMailUser($dto->getFullVoiceMailUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return QueueDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setMaxWaitTime($this->getMaxWaitTime())
-            ->setTimeoutTargetType($this->getTimeoutTargetType())
-            ->setTimeoutNumberValue($this->getTimeoutNumberValue())
-            ->setMaxlen($this->getMaxlen())
-            ->setFullTargetType($this->getFullTargetType())
-            ->setFullNumberValue($this->getFullNumberValue())
-            ->setPeriodicAnnounceFrequency($this->getPeriodicAnnounceFrequency())
-            ->setMemberCallRest($this->getMemberCallRest())
-            ->setMemberCallTimeout($this->getMemberCallTimeout())
-            ->setStrategy($this->getStrategy())
-            ->setWeight($this->getWeight())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setPeriodicAnnounceLocutionId($this->getPeriodicAnnounceLocution() ? $this->getPeriodicAnnounceLocution()->getId() : null)
-            ->setTimeoutLocutionId($this->getTimeoutLocution() ? $this->getTimeoutLocution()->getId() : null)
-            ->setTimeoutExtensionId($this->getTimeoutExtension() ? $this->getTimeoutExtension()->getId() : null)
-            ->setTimeoutVoiceMailUserId($this->getTimeoutVoiceMailUser() ? $this->getTimeoutVoiceMailUser()->getId() : null)
-            ->setFullLocutionId($this->getFullLocution() ? $this->getFullLocution()->getId() : null)
-            ->setFullExtensionId($this->getFullExtension() ? $this->getFullExtension()->getId() : null)
-            ->setFullVoiceMailUserId($this->getFullVoiceMailUser() ? $this->getFullVoiceMailUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'maxWaitTime' => $this->getMaxWaitTime(),
-            'timeoutTargetType' => $this->getTimeoutTargetType(),
-            'timeoutNumberValue' => $this->getTimeoutNumberValue(),
-            'maxlen' => $this->getMaxlen(),
-            'fullTargetType' => $this->getFullTargetType(),
-            'fullNumberValue' => $this->getFullNumberValue(),
-            'periodicAnnounceFrequency' => $this->getPeriodicAnnounceFrequency(),
-            'memberCallRest' => $this->getMemberCallRest(),
-            'memberCallTimeout' => $this->getMemberCallTimeout(),
-            'strategy' => $this->getStrategy(),
-            'weight' => $this->getWeight(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'periodicAnnounceLocutionId' => $this->getPeriodicAnnounceLocution() ? $this->getPeriodicAnnounceLocution()->getId() : null,
-            'timeoutLocutionId' => $this->getTimeoutLocution() ? $this->getTimeoutLocution()->getId() : null,
-            'timeoutExtensionId' => $this->getTimeoutExtension() ? $this->getTimeoutExtension()->getId() : null,
-            'timeoutVoiceMailUserId' => $this->getTimeoutVoiceMailUser() ? $this->getTimeoutVoiceMailUser()->getId() : null,
-            'fullLocutionId' => $this->getFullLocution() ? $this->getFullLocution()->getId() : null,
-            'fullExtensionId' => $this->getFullExtension() ? $this->getFullExtension()->getId() : null,
-            'fullVoiceMailUserId' => $this->getFullVoiceMailUser() ? $this->getFullVoiceMailUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class MediaRelaySetDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name = '0';
@@ -27,31 +22,21 @@ class MediaRelaySetDTO implements DataTransferObjectInterface
     private $description;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
-            'description' => $this->getDescription()
+            'description' => $this->getDescription(),
+            'id' => $this->getId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -67,26 +52,6 @@ class MediaRelaySetDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return MediaRelaySetDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -127,6 +92,26 @@ class MediaRelaySetDTO implements DataTransferObjectInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return MediaRelaySetDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

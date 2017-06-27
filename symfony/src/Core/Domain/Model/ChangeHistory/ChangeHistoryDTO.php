@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class ChangeHistoryDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $user;
@@ -47,16 +42,19 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
     private $field;
 
     /**
-     * @column old_value
      * @var string
      */
     private $oldValue;
 
     /**
-     * @column new_value
      * @var string
      */
     private $newValue;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @return array
@@ -64,7 +62,6 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'user' => $this->getUser(),
             'date' => $this->getDate(),
             'action' => $this->getAction(),
@@ -72,30 +69,10 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
             'objid' => $this->getObjid(),
             'field' => $this->getField(),
             'oldValue' => $this->getOldValue(),
-            'newValue' => $this->getNewValue()
+            'newValue' => $this->getNewValue(),
+            'id' => $this->getId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setUser(isset($data['user']) ? $data['user'] : null)
-            ->setDate(isset($data['date']) ? $data['date'] : null)
-            ->setAction(isset($data['action']) ? $data['action'] : null)
-            ->setTable(isset($data['table']) ? $data['table'] : null)
-            ->setObjid(isset($data['objid']) ? $data['objid'] : null)
-            ->setField(isset($data['field']) ? $data['field'] : null)
-            ->setOldValue(isset($data['oldValue']) ? $data['oldValue'] : null)
-            ->setNewValue(isset($data['newValue']) ? $data['newValue'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -111,26 +88,6 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ChangeHistoryDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -291,6 +248,26 @@ class ChangeHistoryDTO implements DataTransferObjectInterface
     public function getNewValue()
     {
         return $this->newValue;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ChangeHistoryDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

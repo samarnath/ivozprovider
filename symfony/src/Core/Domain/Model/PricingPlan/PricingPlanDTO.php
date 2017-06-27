@@ -12,6 +12,11 @@ use Core\Application\CollectionTransformerInterface;
 class PricingPlanDTO implements DataTransferObjectInterface
 {
     /**
+     * @var \DateTime
+     */
+    private $createdOn = 'CURRENT_TIMESTAMP';
+
+    /**
      * @var integer
      */
     private $id;
@@ -22,13 +27,11 @@ class PricingPlanDTO implements DataTransferObjectInterface
     private $name;
 
     /**
-     * @column name_en
      * @var string
      */
     private $nameEn;
 
     /**
-     * @column name_es
      * @var string
      */
     private $nameEs;
@@ -39,21 +42,14 @@ class PricingPlanDTO implements DataTransferObjectInterface
     private $description;
 
     /**
-     * @column description_en
      * @var string
      */
     private $descriptionEn;
 
     /**
-     * @column description_es
      * @var string
      */
     private $descriptionEs;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdOn = 'CURRENT_TIMESTAMP';
 
     /**
      * @var mixed
@@ -71,38 +67,17 @@ class PricingPlanDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
+            'createdOn' => $this->getCreatedOn(),
             'id' => $this->getId(),
-            'name' => $this->getName(),
+            'nameName' => $this->getNameName(),
             'nameEn' => $this->getNameEn(),
             'nameEs' => $this->getNameEs(),
-            'description' => $this->getDescription(),
+            'descriptionDescription' => $this->getDescriptionDescription(),
             'descriptionEn' => $this->getDescriptionEn(),
             'descriptionEs' => $this->getDescriptionEs(),
-            'createdOn' => $this->getCreatedOn(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setNameEn(isset($data['nameEn']) ? $data['nameEn'] : null)
-            ->setNameEs(isset($data['nameEs']) ? $data['nameEs'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setDescriptionEn(isset($data['descriptionEn']) ? $data['descriptionEn'] : null)
-            ->setDescriptionEs(isset($data['descriptionEs']) ? $data['descriptionEs'] : null)
-            ->setCreatedOn(isset($data['createdOn']) ? $data['createdOn'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -118,6 +93,26 @@ class PricingPlanDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
+    }
+
+    /**
+     * @param \DateTime $createdOn
+     *
+     * @return PricingPlanDTO
+     */
+    public function setCreatedOn($createdOn)
+    {
+        $this->createdOn = $createdOn;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedOn()
+    {
+        return $this->createdOn;
     }
 
     /**
@@ -258,26 +253,6 @@ class PricingPlanDTO implements DataTransferObjectInterface
     public function getDescriptionEs()
     {
         return $this->descriptionEs;
-    }
-
-    /**
-     * @param \DateTime $createdOn
-     *
-     * @return PricingPlanDTO
-     */
-    public function setCreatedOn($createdOn)
-    {
-        $this->createdOn = $createdOn;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedOn()
-    {
-        return $this->createdOn;
     }
 
     /**

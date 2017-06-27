@@ -7,14 +7,6 @@ namespace Core\Domain\Model\QueueMember;
 interface QueueMemberInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get penalty
      *
      * @return integer

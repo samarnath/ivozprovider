@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class XMLRPCLogDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $proxy;
@@ -52,41 +47,26 @@ class XMLRPCLogDTO implements DataTransferObjectInterface
     private $finishDate;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'proxy' => $this->getProxy(),
             'module' => $this->getModule(),
             'method' => $this->getMethod(),
             'mapperName' => $this->getMapperName(),
             'startDate' => $this->getStartDate(),
             'execDate' => $this->getExecDate(),
-            'finishDate' => $this->getFinishDate()
+            'finishDate' => $this->getFinishDate(),
+            'id' => $this->getId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setProxy(isset($data['proxy']) ? $data['proxy'] : null)
-            ->setModule(isset($data['module']) ? $data['module'] : null)
-            ->setMethod(isset($data['method']) ? $data['method'] : null)
-            ->setMapperName(isset($data['mapperName']) ? $data['mapperName'] : null)
-            ->setStartDate(isset($data['startDate']) ? $data['startDate'] : null)
-            ->setExecDate(isset($data['execDate']) ? $data['execDate'] : null)
-            ->setFinishDate(isset($data['finishDate']) ? $data['finishDate'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -102,26 +82,6 @@ class XMLRPCLogDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return XMLRPCLogDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -262,6 +222,26 @@ class XMLRPCLogDTO implements DataTransferObjectInterface
     public function getFinishDate()
     {
         return $this->finishDate;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return XMLRPCLogDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

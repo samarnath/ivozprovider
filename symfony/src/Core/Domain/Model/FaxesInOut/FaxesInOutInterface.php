@@ -7,14 +7,6 @@ namespace Core\Domain\Model\FaxesInOut;
 interface FaxesInOutInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get calldate
      *
      * @return \DateTime
@@ -63,30 +55,6 @@ interface FaxesInOutInterface
 
 
     /**
-     * Get fileFileSize
-     *
-     * @return integer
-     */
-    public function getFileFileSize();
-
-
-    /**
-     * Get fileMimeType
-     *
-     * @return string
-     */
-    public function getFileMimeType();
-
-
-    /**
-     * Get fileBaseName
-     *
-     * @return string
-     */
-    public function getFileBaseName();
-
-
-    /**
      * Get fax
      *
      * @return \Core\Domain\Model\Fax\FaxInterface
@@ -94,6 +62,12 @@ interface FaxesInOutInterface
     public function getFax();
 
 
+    /**
+     * Get file
+     *
+     * @return File
+     */
+    public function getFile();
 
 }
 

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class HolidayDateDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -25,6 +20,11 @@ class HolidayDateDTO implements DataTransferObjectInterface
      * @var \DateTime
      */
     private $eventDate;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -52,30 +52,13 @@ class HolidayDateDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'eventDate' => $this->getEventDate(),
+            'id' => $this->getId(),
             'calendarId' => $this->getCalendarId(),
             'locutionId' => $this->getLocutionId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setEventDate(isset($data['eventDate']) ? $data['eventDate'] : null)
-            ->setCalendarId(isset($data['calendarId']) ? $data['calendarId'] : null)
-            ->setLocutionId(isset($data['locutionId']) ? $data['locutionId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -92,26 +75,6 @@ class HolidayDateDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return HolidayDateDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -152,6 +115,26 @@ class HolidayDateDTO implements DataTransferObjectInterface
     public function getEventDate()
     {
         return $this->eventDate;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return HolidayDateDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

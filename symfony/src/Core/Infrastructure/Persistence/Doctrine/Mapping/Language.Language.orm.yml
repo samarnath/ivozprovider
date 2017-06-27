@@ -2,10 +2,6 @@ Core\Domain\Model\Language\Language:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\LanguageDoctrineRepository
   type: entity
   table: Languages
-  uniqueConstraints:
-    languageIden:
-      columns:
-        - iden
   id:
     id:
       type: integer
@@ -15,35 +11,4 @@ Core\Domain\Model\Language\Language:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    iden:
-      type: string
-      nullable: false
-      length: 100
-      options:
-        fixed: false
-    name:
-      type: string
-      nullable: false
-      length: 100
-      options:
-        fixed: false
-        comment: '[ml]'
-        default: ''
-    nameEn:
-      type: string
-      nullable: false
-      length: 100
-      options:
-        fixed: false
-        default: ''
-      column: name_en
-    nameEs:
-      type: string
-      nullable: false
-      length: 100
-      options:
-        fixed: false
-        default: ''
-      column: name_es
   lifecycleCallbacks: {  }

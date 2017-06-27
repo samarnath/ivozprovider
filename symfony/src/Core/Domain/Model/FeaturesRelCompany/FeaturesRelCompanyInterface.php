@@ -7,14 +7,6 @@ namespace Core\Domain\Model\FeaturesRelCompany;
 interface FeaturesRelCompanyInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get company
      *
      * @return \Core\Domain\Model\Company\CompanyInterface

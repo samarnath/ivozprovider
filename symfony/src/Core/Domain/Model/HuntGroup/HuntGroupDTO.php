@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class HuntGroupDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name = '';
@@ -50,6 +45,11 @@ class HuntGroupDTO implements DataTransferObjectInterface
      * @var string
      */
     private $noAnswerNumberValue;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -97,7 +97,6 @@ class HuntGroupDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'description' => $this->getDescription(),
             'strategy' => $this->getStrategy(),
@@ -105,36 +104,13 @@ class HuntGroupDTO implements DataTransferObjectInterface
             'nextUserPosition' => $this->getNextUserPosition(),
             'noAnswerTargetType' => $this->getNoAnswerTargetType(),
             'noAnswerNumberValue' => $this->getNoAnswerNumberValue(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'noAnswerLocutionId' => $this->getNoAnswerLocutionId(),
             'noAnswerExtensionId' => $this->getNoAnswerExtensionId(),
             'noAnswerVoiceMailUserId' => $this->getNoAnswerVoiceMailUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setStrategy(isset($data['strategy']) ? $data['strategy'] : null)
-            ->setRingAllTimeout(isset($data['ringAllTimeout']) ? $data['ringAllTimeout'] : null)
-            ->setNextUserPosition(isset($data['nextUserPosition']) ? $data['nextUserPosition'] : null)
-            ->setNoAnswerTargetType(isset($data['noAnswerTargetType']) ? $data['noAnswerTargetType'] : null)
-            ->setNoAnswerNumberValue(isset($data['noAnswerNumberValue']) ? $data['noAnswerNumberValue'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setNoAnswerLocutionId(isset($data['noAnswerLocutionId']) ? $data['noAnswerLocutionId'] : null)
-            ->setNoAnswerExtensionId(isset($data['noAnswerExtensionId']) ? $data['noAnswerExtensionId'] : null)
-            ->setNoAnswerVoiceMailUserId(isset($data['noAnswerVoiceMailUserId']) ? $data['noAnswerVoiceMailUserId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -153,26 +129,6 @@ class HuntGroupDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return HuntGroupDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -313,6 +269,26 @@ class HuntGroupDTO implements DataTransferObjectInterface
     public function getNoAnswerNumberValue()
     {
         return $this->noAnswerNumberValue;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return HuntGroupDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\InvoiceTemplate;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * InvoiceTemplateAbstract
  */
-abstract class InvoiceTemplateAbstract implements EntityInterface
+abstract class InvoiceTemplateAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -53,121 +47,9 @@ abstract class InvoiceTemplateAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name, $template)
-    {
-        $this->setName($name);
-        $this->setTemplate($template);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return InvoiceTemplateDTO
-     */
-    public static function createDTO()
-    {
-        return new InvoiceTemplateDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto InvoiceTemplateDTO
-         */
-        Assertion::isInstanceOf($dto, InvoiceTemplateDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getTemplate()
-        );
-
-        return $self
-            ->setDescription($dto->getDescription())
-            ->setTemplateHeader($dto->getTemplateHeader())
-            ->setTemplateFooter($dto->getTemplateFooter())
-            ->setBrand($dto->getBrand());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto InvoiceTemplateDTO
-         */
-        Assertion::isInstanceOf($dto, InvoiceTemplateDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setDescription($dto->getDescription())
-            ->setTemplate($dto->getTemplate())
-            ->setTemplateHeader($dto->getTemplateHeader())
-            ->setTemplateFooter($dto->getTemplateFooter())
-            ->setBrand($dto->getBrand());
-
-
-        return $this;
-    }
-
-    /**
-     * @return InvoiceTemplateDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setDescription($this->getDescription())
-            ->setTemplate($this->getTemplate())
-            ->setTemplateHeader($this->getTemplateHeader())
-            ->setTemplateFooter($this->getTemplateFooter())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'description' => $this->getDescription(),
-            'template' => $this->getTemplate(),
-            'templateHeader' => $this->getTemplateHeader(),
-            'templateFooter' => $this->getTemplateFooter(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

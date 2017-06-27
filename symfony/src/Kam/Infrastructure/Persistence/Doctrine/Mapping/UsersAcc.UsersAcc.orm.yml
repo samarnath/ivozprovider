@@ -2,10 +2,6 @@ Kam\Domain\Model\UsersAcc\UsersAcc:
   repositoryClass: Kam\Infrastructure\Persistence\Doctrine\UsersAccDoctrineRepository
   type: entity
   table: kam_users_acc
-  indexes:
-    callid_idx:
-      columns:
-        - callid
   id:
     id:
       type: integer
@@ -15,100 +11,4 @@ Kam\Domain\Model\UsersAcc\UsersAcc:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    method:
-      type: string
-      nullable: false
-      length: 16
-      options:
-        fixed: false
-        default: ''
-    fromTag:
-      type: string
-      nullable: false
-      length: 64
-      options:
-        fixed: false
-        default: ''
-      column: from_tag
-    toTag:
-      type: string
-      nullable: false
-      length: 64
-      options:
-        fixed: false
-        default: ''
-      column: to_tag
-    callid:
-      type: string
-      nullable: false
-      length: 255
-      options:
-        fixed: false
-        default: ''
-    sipCode:
-      type: string
-      nullable: false
-      length: 3
-      options:
-        fixed: false
-        default: ''
-      column: sip_code
-    sipReason:
-      type: string
-      nullable: false
-      length: 128
-      options:
-        fixed: false
-        default: ''
-      column: sip_reason
-    srcIp:
-      type: string
-      nullable: true
-      length: 64
-      options:
-        fixed: false
-      column: src_ip
-    fromUser:
-      type: string
-      nullable: true
-      length: 64
-      options:
-        fixed: false
-      column: from_user
-    fromDomain:
-      type: string
-      nullable: true
-      length: 190
-      options:
-        fixed: false
-      column: from_domain
-    ruriUser:
-      type: string
-      nullable: true
-      length: 64
-      options:
-        fixed: false
-      column: ruri_user
-    ruriDomain:
-      type: string
-      nullable: true
-      length: 190
-      options:
-        fixed: false
-      column: ruri_domain
-    cseq:
-      type: integer
-      nullable: true
-      options:
-        unsigned: true
-    localtime:
-      type: datetime
-      nullable: false
-    utctime:
-      type: string
-      nullable: true
-      length: 128
-      options:
-        fixed: false
   lifecycleCallbacks: {  }

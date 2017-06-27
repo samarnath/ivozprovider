@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\PickUpRelUser;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PickUpRelUserAbstract
  */
-abstract class PickUpRelUserAbstract implements EntityInterface
+abstract class PickUpRelUserAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var \Core\Domain\Model\PickUpGroup\PickUpGroupInterface
      */
@@ -33,103 +27,9 @@ abstract class PickUpRelUserAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return PickUpRelUserDTO
-     */
-    public static function createDTO()
-    {
-        return new PickUpRelUserDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PickUpRelUserDTO
-         */
-        Assertion::isInstanceOf($dto, PickUpRelUserDTO::class);
-
-        $self = new static();
-
-        return $self
-            ->setPickUpGroup($dto->getPickUpGroup())
-            ->setUser($dto->getUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PickUpRelUserDTO
-         */
-        Assertion::isInstanceOf($dto, PickUpRelUserDTO::class);
-
-        $this
-            ->setPickUpGroup($dto->getPickUpGroup())
-            ->setUser($dto->getUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return PickUpRelUserDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setPickUpGroupId($this->getPickUpGroup() ? $this->getPickUpGroup()->getId() : null)
-            ->setUserId($this->getUser() ? $this->getUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'pickUpGroupId' => $this->getPickUpGroup() ? $this->getPickUpGroup()->getId() : null,
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set pickUpGroup

@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Schedule;
 interface ScheduleInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

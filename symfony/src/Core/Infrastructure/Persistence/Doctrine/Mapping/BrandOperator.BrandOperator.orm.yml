@@ -2,18 +2,6 @@ Core\Domain\Model\BrandOperator\BrandOperator:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\BrandOperatorDoctrineRepository
   type: entity
   table: BrandOperators
-  indexes:
-    brandId:
-      columns:
-        - brandId
-    timezoneId:
-      columns:
-        - timezoneId
-  uniqueConstraints:
-    MainOperatorsUniqueBrandUsername:
-      columns:
-        - brandId
-        - username
   id:
     id:
       type: integer
@@ -23,64 +11,4 @@ Core\Domain\Model\BrandOperator\BrandOperator:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    username:
-      type: string
-      nullable: false
-      length: 65
-      options:
-        fixed: false
-    pass:
-      type: string
-      nullable: false
-      length: 80
-      options:
-        fixed: false
-        comment: '[password]'
-    email:
-      type: string
-      nullable: false
-      length: 100
-      options:
-        fixed: false
-        default: ''
-    active:
-      type: boolean
-      nullable: false
-      options:
-        default: '1'
-    name:
-      type: string
-      nullable: true
-      length: 100
-      options:
-        fixed: false
-    lastname:
-      type: string
-      nullable: true
-      length: 100
-      options:
-        fixed: false
-  manyToOne:
-    brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: operators
-      joinColumns:
-        brandId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    timezone:
-      targetEntity: \Core\Domain\Model\Timezone\TimezoneInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        timezoneId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

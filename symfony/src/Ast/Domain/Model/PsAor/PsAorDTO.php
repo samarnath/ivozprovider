@@ -17,49 +17,41 @@ class PsAorDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column sorcery_id
      * @var string
      */
     private $sorceryId;
 
     /**
-     * @column default_expiration
      * @var integer
      */
     private $defaultExpiration;
 
     /**
-     * @column max_contacts
      * @var integer
      */
     private $maxContacts;
 
     /**
-     * @column minimum_expiration
      * @var integer
      */
     private $minimumExpiration;
 
     /**
-     * @column remove_existing
      * @var string
      */
     private $removeExisting;
 
     /**
-     * @column authenticate_qualify
      * @var string
      */
     private $authenticateQualify;
 
     /**
-     * @column maximum_expiration
      * @var integer
      */
     private $maximumExpiration;
 
     /**
-     * @column support_path
      * @var string
      */
     private $supportPath;
@@ -70,7 +62,6 @@ class PsAorDTO implements DataTransferObjectInterface
     private $contact;
 
     /**
-     * @column qualify_frequency
      * @var integer
      */
     private $qualifyFrequency;
@@ -94,29 +85,6 @@ class PsAorDTO implements DataTransferObjectInterface
             'qualifyFrequency' => $this->getQualifyFrequency()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setSorceryId(isset($data['sorceryId']) ? $data['sorceryId'] : null)
-            ->setDefaultExpiration(isset($data['defaultExpiration']) ? $data['defaultExpiration'] : null)
-            ->setMaxContacts(isset($data['maxContacts']) ? $data['maxContacts'] : null)
-            ->setMinimumExpiration(isset($data['minimumExpiration']) ? $data['minimumExpiration'] : null)
-            ->setRemoveExisting(isset($data['removeExisting']) ? $data['removeExisting'] : null)
-            ->setAuthenticateQualify(isset($data['authenticateQualify']) ? $data['authenticateQualify'] : null)
-            ->setMaximumExpiration(isset($data['maximumExpiration']) ? $data['maximumExpiration'] : null)
-            ->setSupportPath(isset($data['supportPath']) ? $data['supportPath'] : null)
-            ->setContact(isset($data['contact']) ? $data['contact'] : null)
-            ->setQualifyFrequency(isset($data['qualifyFrequency']) ? $data['qualifyFrequency'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

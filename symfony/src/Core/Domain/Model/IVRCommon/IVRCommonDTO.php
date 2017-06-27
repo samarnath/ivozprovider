@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class IVRCommonDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -60,6 +55,11 @@ class IVRCommonDTO implements DataTransferObjectInterface
      * @var string
      */
     private $errorNumberValue;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -157,7 +157,6 @@ class IVRCommonDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'blackListRegExp' => $this->getBlackListRegExp(),
             'timeout' => $this->getTimeout(),
@@ -167,6 +166,7 @@ class IVRCommonDTO implements DataTransferObjectInterface
             'timeoutNumberValue' => $this->getTimeoutNumberValue(),
             'errorTargetType' => $this->getErrorTargetType(),
             'errorNumberValue' => $this->getErrorNumberValue(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'welcomeLocutionId' => $this->getWelcomeLocutionId(),
             'noAnswerLocutionId' => $this->getNoAnswerLocutionId(),
@@ -178,37 +178,6 @@ class IVRCommonDTO implements DataTransferObjectInterface
             'errorVoiceMailUserId' => $this->getErrorVoiceMailUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setBlackListRegExp(isset($data['blackListRegExp']) ? $data['blackListRegExp'] : null)
-            ->setTimeout(isset($data['timeout']) ? $data['timeout'] : null)
-            ->setMaxDigits(isset($data['maxDigits']) ? $data['maxDigits'] : null)
-            ->setNoAnswerTimeout(isset($data['noAnswerTimeout']) ? $data['noAnswerTimeout'] : null)
-            ->setTimeoutTargetType(isset($data['timeoutTargetType']) ? $data['timeoutTargetType'] : null)
-            ->setTimeoutNumberValue(isset($data['timeoutNumberValue']) ? $data['timeoutNumberValue'] : null)
-            ->setErrorTargetType(isset($data['errorTargetType']) ? $data['errorTargetType'] : null)
-            ->setErrorNumberValue(isset($data['errorNumberValue']) ? $data['errorNumberValue'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setWelcomeLocutionId(isset($data['welcomeLocutionId']) ? $data['welcomeLocutionId'] : null)
-            ->setNoAnswerLocutionId(isset($data['noAnswerLocutionId']) ? $data['noAnswerLocutionId'] : null)
-            ->setErrorLocutionId(isset($data['errorLocutionId']) ? $data['errorLocutionId'] : null)
-            ->setSuccessLocutionId(isset($data['successLocutionId']) ? $data['successLocutionId'] : null)
-            ->setTimeoutExtensionId(isset($data['timeoutExtensionId']) ? $data['timeoutExtensionId'] : null)
-            ->setErrorExtensionId(isset($data['errorExtensionId']) ? $data['errorExtensionId'] : null)
-            ->setTimeoutVoiceMailUserId(isset($data['timeoutVoiceMailUserId']) ? $data['timeoutVoiceMailUserId'] : null)
-            ->setErrorVoiceMailUserId(isset($data['errorVoiceMailUserId']) ? $data['errorVoiceMailUserId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -232,26 +201,6 @@ class IVRCommonDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return IVRCommonDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -432,6 +381,26 @@ class IVRCommonDTO implements DataTransferObjectInterface
     public function getErrorNumberValue()
     {
         return $this->errorNumberValue;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return IVRCommonDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

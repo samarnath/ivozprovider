@@ -3,19 +3,13 @@
 namespace Ast\Domain\Model\PsAor;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PsAorAbstract
  */
-abstract class PsAorAbstract implements EntityInterface
+abstract class PsAorAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @column sorcery_id
      * @var string
@@ -82,154 +76,9 @@ abstract class PsAorAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($sorceryId)
-    {
-        $this->setSorceryId($sorceryId);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return PsAorDTO
-     */
-    public static function createDTO()
-    {
-        return new PsAorDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PsAorDTO
-         */
-        Assertion::isInstanceOf($dto, PsAorDTO::class);
-
-        $self = new static(
-            $dto->getSorceryId()
-        );
-
-        return $self
-            ->setDefaultExpiration($dto->getDefaultExpiration())
-            ->setMaxContacts($dto->getMaxContacts())
-            ->setMinimumExpiration($dto->getMinimumExpiration())
-            ->setRemoveExisting($dto->getRemoveExisting())
-            ->setAuthenticateQualify($dto->getAuthenticateQualify())
-            ->setMaximumExpiration($dto->getMaximumExpiration())
-            ->setSupportPath($dto->getSupportPath())
-            ->setContact($dto->getContact())
-            ->setQualifyFrequency($dto->getQualifyFrequency());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PsAorDTO
-         */
-        Assertion::isInstanceOf($dto, PsAorDTO::class);
-
-        $this
-            ->setSorceryId($dto->getSorceryId())
-            ->setDefaultExpiration($dto->getDefaultExpiration())
-            ->setMaxContacts($dto->getMaxContacts())
-            ->setMinimumExpiration($dto->getMinimumExpiration())
-            ->setRemoveExisting($dto->getRemoveExisting())
-            ->setAuthenticateQualify($dto->getAuthenticateQualify())
-            ->setMaximumExpiration($dto->getMaximumExpiration())
-            ->setSupportPath($dto->getSupportPath())
-            ->setContact($dto->getContact())
-            ->setQualifyFrequency($dto->getQualifyFrequency());
-
-
-        return $this;
-    }
-
-    /**
-     * @return PsAorDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setSorceryId($this->getSorceryId())
-            ->setDefaultExpiration($this->getDefaultExpiration())
-            ->setMaxContacts($this->getMaxContacts())
-            ->setMinimumExpiration($this->getMinimumExpiration())
-            ->setRemoveExisting($this->getRemoveExisting())
-            ->setAuthenticateQualify($this->getAuthenticateQualify())
-            ->setMaximumExpiration($this->getMaximumExpiration())
-            ->setSupportPath($this->getSupportPath())
-            ->setContact($this->getContact())
-            ->setQualifyFrequency($this->getQualifyFrequency());
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'sorceryId' => $this->getSorceryId(),
-            'defaultExpiration' => $this->getDefaultExpiration(),
-            'maxContacts' => $this->getMaxContacts(),
-            'minimumExpiration' => $this->getMinimumExpiration(),
-            'removeExisting' => $this->getRemoveExisting(),
-            'authenticateQualify' => $this->getAuthenticateQualify(),
-            'maximumExpiration' => $this->getMaximumExpiration(),
-            'supportPath' => $this->getSupportPath(),
-            'contact' => $this->getContact(),
-            'qualifyFrequency' => $this->getQualifyFrequency()
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Set id
-     *
-     * @param integer $id
-     *
-     * @return self
-     */
-    protected function setId($id)
-    {
-        Assertion::notNull($id);
-        Assertion::integerish($id);
-        Assertion::greaterOrEqualThan($id, 0);
-
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set sorceryId

@@ -2,10 +2,6 @@ Ast\Domain\Model\QueueMember\QueueMember:
   repositoryClass: Ast\Infrastructure\Persistence\Doctrine\QueueMemberDoctrineRepository
   type: entity
   table: ast_queue_members
-  indexes:
-    queueMemberId:
-      columns:
-        - queueMemberId
   id:
     uniqueid:
       type: integer
@@ -15,52 +11,4 @@ Ast\Domain\Model\QueueMember\QueueMember:
       id: true
       generator:
         strategy: NONE
-  fields:
-    queueName:
-      type: string
-      nullable: false
-      length: 80
-      options:
-        fixed: false
-      column: queue_name
-    interface:
-      type: string
-      nullable: false
-      length: 80
-      options:
-        fixed: false
-    membername:
-      type: string
-      nullable: true
-      length: 80
-      options:
-        fixed: false
-    stateInterface:
-      type: string
-      nullable: true
-      length: 80
-      options:
-        fixed: false
-      column: state_interface
-    penalty:
-      type: integer
-      nullable: true
-      options:
-        unsigned: false
-    paused:
-      type: integer
-      nullable: true
-      options:
-        unsigned: false
-  manyToOne:
-    queueMember:
-      targetEntity: \Core\Domain\Model\QueueMember\QueueMemberInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        queueMemberId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

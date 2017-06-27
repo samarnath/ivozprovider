@@ -68,25 +68,6 @@ class RtpproxyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setSetid(isset($data['setid']) ? $data['setid'] : null)
-            ->setUrl(isset($data['url']) ? $data['url'] : null)
-            ->setFlags(isset($data['flags']) ? $data['flags'] : null)
-            ->setWeight(isset($data['weight']) ? $data['weight'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setMediaRelaySetId(isset($data['mediaRelaySetId']) ? $data['mediaRelaySetId'] : null);
-    }
-     */
-
-    /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)

@@ -19,14 +19,24 @@ class Name
      * @column name_en
      * @var string
      */
-    protected $nameEn = '';
+    protected $en = '';
 
     /**
      * @column name_es
      * @var string
      */
-    protected $nameEs = '';
+    protected $es = '';
 
+
+    /**
+     * Constructor
+     */
+    public function __construct($name, $en, $es)
+    {
+        $this->setName($name);
+        $this->setEn($en);
+        $this->setEs($es);
+    }
 
     // @codeCoverageIgnoreStart
 
@@ -58,57 +68,57 @@ class Name
     }
 
     /**
-     * Set nameEn
+     * Set en
      *
-     * @param string $nameEn
+     * @param string $en
      *
      * @return self
      */
-    protected function setNameEn($nameEn)
+    protected function setEn($en)
     {
-        Assertion::notNull($nameEn);
-        Assertion::maxLength($nameEn, 100);
+        Assertion::notNull($en);
+        Assertion::maxLength($en, 100);
 
-        $this->nameEn = $nameEn;
+        $this->en = $en;
 
         return $this;
     }
 
     /**
-     * Get nameEn
+     * Get en
      *
      * @return string
      */
-    public function getNameEn()
+    public function getEn()
     {
-        return $this->nameEn;
+        return $this->en;
     }
 
     /**
-     * Set nameEs
+     * Set es
      *
-     * @param string $nameEs
+     * @param string $es
      *
      * @return self
      */
-    protected function setNameEs($nameEs)
+    protected function setEs($es)
     {
-        Assertion::notNull($nameEs);
-        Assertion::maxLength($nameEs, 100);
+        Assertion::notNull($es);
+        Assertion::maxLength($es, 100);
 
-        $this->nameEs = $nameEs;
+        $this->es = $es;
 
         return $this;
     }
 
     /**
-     * Get nameEs
+     * Get es
      *
      * @return string
      */
-    public function getNameEs()
+    public function getEs()
     {
-        return $this->nameEs;
+        return $this->es;
     }
 
 

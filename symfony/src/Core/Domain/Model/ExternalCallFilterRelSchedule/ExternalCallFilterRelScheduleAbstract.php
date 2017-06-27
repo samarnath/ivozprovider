@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\ExternalCallFilterRelSchedule;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ExternalCallFilterRelScheduleAbstract
  */
-abstract class ExternalCallFilterRelScheduleAbstract implements EntityInterface
+abstract class ExternalCallFilterRelScheduleAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
      */
@@ -33,103 +27,9 @@ abstract class ExternalCallFilterRelScheduleAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return ExternalCallFilterRelScheduleDTO
-     */
-    public static function createDTO()
-    {
-        return new ExternalCallFilterRelScheduleDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ExternalCallFilterRelScheduleDTO
-         */
-        Assertion::isInstanceOf($dto, ExternalCallFilterRelScheduleDTO::class);
-
-        $self = new static();
-
-        return $self
-            ->setFilter($dto->getFilter())
-            ->setSchedule($dto->getSchedule());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ExternalCallFilterRelScheduleDTO
-         */
-        Assertion::isInstanceOf($dto, ExternalCallFilterRelScheduleDTO::class);
-
-        $this
-            ->setFilter($dto->getFilter())
-            ->setSchedule($dto->getSchedule());
-
-
-        return $this;
-    }
-
-    /**
-     * @return ExternalCallFilterRelScheduleDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setFilterId($this->getFilter() ? $this->getFilter()->getId() : null)
-            ->setScheduleId($this->getSchedule() ? $this->getSchedule()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'filterId' => $this->getFilter() ? $this->getFilter()->getId() : null,
-            'scheduleId' => $this->getSchedule() ? $this->getSchedule()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set filter

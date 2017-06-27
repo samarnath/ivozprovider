@@ -7,14 +7,6 @@ namespace Core\Domain\Model\FixedCostsRelInvoice;
 interface FixedCostsRelInvoiceInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get quantity
      *
      * @return integer

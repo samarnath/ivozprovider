@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\DDI;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * DDIAbstract
  */
-abstract class DDIAbstract implements EntityInterface
+abstract class DDIAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -130,182 +124,9 @@ abstract class DDIAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($ddi, $recordCalls, $billInboundCalls)
-    {
-        $this->setDdi($ddi);
-        $this->setRecordCalls($recordCalls);
-        $this->setBillInboundCalls($billInboundCalls);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return DDIDTO
-     */
-    public static function createDTO()
-    {
-        return new DDIDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto DDIDTO
-         */
-        Assertion::isInstanceOf($dto, DDIDTO::class);
-
-        $self = new static(
-            $dto->getDdi(),
-            $dto->getRecordCalls(),
-            $dto->getBillInboundCalls()
-        );
-
-        return $self
-            ->setDdie164($dto->getDdie164())
-            ->setDisplayName($dto->getDisplayName())
-            ->setRouteType($dto->getRouteType())
-            ->setFriendValue($dto->getFriendValue())
-            ->setCompany($dto->getCompany())
-            ->setBrand($dto->getBrand())
-            ->setConferenceRoom($dto->getConferenceRoom())
-            ->setLanguage($dto->getLanguage())
-            ->setQueue($dto->getQueue())
-            ->setExternalCallFilter($dto->getExternalCallFilter())
-            ->setUser($dto->getUser())
-            ->setIVRCommon($dto->getIVRCommon())
-            ->setIVRCustom($dto->getIVRCustom())
-            ->setHuntGroup($dto->getHuntGroup())
-            ->setFax($dto->getFax())
-            ->setPeeringContract($dto->getPeeringContract())
-            ->setCountry($dto->getCountry())
-            ->setRetailAccount($dto->getRetailAccount());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto DDIDTO
-         */
-        Assertion::isInstanceOf($dto, DDIDTO::class);
-
-        $this
-            ->setDdi($dto->getDdi())
-            ->setDdie164($dto->getDdie164())
-            ->setRecordCalls($dto->getRecordCalls())
-            ->setDisplayName($dto->getDisplayName())
-            ->setRouteType($dto->getRouteType())
-            ->setBillInboundCalls($dto->getBillInboundCalls())
-            ->setFriendValue($dto->getFriendValue())
-            ->setCompany($dto->getCompany())
-            ->setBrand($dto->getBrand())
-            ->setConferenceRoom($dto->getConferenceRoom())
-            ->setLanguage($dto->getLanguage())
-            ->setQueue($dto->getQueue())
-            ->setExternalCallFilter($dto->getExternalCallFilter())
-            ->setUser($dto->getUser())
-            ->setIVRCommon($dto->getIVRCommon())
-            ->setIVRCustom($dto->getIVRCustom())
-            ->setHuntGroup($dto->getHuntGroup())
-            ->setFax($dto->getFax())
-            ->setPeeringContract($dto->getPeeringContract())
-            ->setCountry($dto->getCountry())
-            ->setRetailAccount($dto->getRetailAccount());
-
-
-        return $this;
-    }
-
-    /**
-     * @return DDIDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setDdi($this->getDdi())
-            ->setDdie164($this->getDdie164())
-            ->setRecordCalls($this->getRecordCalls())
-            ->setDisplayName($this->getDisplayName())
-            ->setRouteType($this->getRouteType())
-            ->setBillInboundCalls($this->getBillInboundCalls())
-            ->setFriendValue($this->getFriendValue())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setConferenceRoomId($this->getConferenceRoom() ? $this->getConferenceRoom()->getId() : null)
-            ->setLanguageId($this->getLanguage() ? $this->getLanguage()->getId() : null)
-            ->setQueueId($this->getQueue() ? $this->getQueue()->getId() : null)
-            ->setExternalCallFilterId($this->getExternalCallFilter() ? $this->getExternalCallFilter()->getId() : null)
-            ->setUserId($this->getUser() ? $this->getUser()->getId() : null)
-            ->setIVRCommonId($this->getIVRCommon() ? $this->getIVRCommon()->getId() : null)
-            ->setIVRCustomId($this->getIVRCustom() ? $this->getIVRCustom()->getId() : null)
-            ->setHuntGroupId($this->getHuntGroup() ? $this->getHuntGroup()->getId() : null)
-            ->setFaxId($this->getFax() ? $this->getFax()->getId() : null)
-            ->setPeeringContractId($this->getPeeringContract() ? $this->getPeeringContract()->getId() : null)
-            ->setCountryId($this->getCountry() ? $this->getCountry()->getId() : null)
-            ->setRetailAccountId($this->getRetailAccount() ? $this->getRetailAccount()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'ddi' => $this->getDdi(),
-            'ddie164' => $this->getDdie164(),
-            'recordCalls' => $this->getRecordCalls(),
-            'displayName' => $this->getDisplayName(),
-            'routeType' => $this->getRouteType(),
-            'billInboundCalls' => $this->getBillInboundCalls(),
-            'friendValue' => $this->getFriendValue(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'conferenceRoomId' => $this->getConferenceRoom() ? $this->getConferenceRoom()->getId() : null,
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
-            'queueId' => $this->getQueue() ? $this->getQueue()->getId() : null,
-            'externalCallFilterId' => $this->getExternalCallFilter() ? $this->getExternalCallFilter()->getId() : null,
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null,
-            'iVRCommonId' => $this->getIVRCommon() ? $this->getIVRCommon()->getId() : null,
-            'iVRCustomId' => $this->getIVRCustom() ? $this->getIVRCustom()->getId() : null,
-            'huntGroupId' => $this->getHuntGroup() ? $this->getHuntGroup()->getId() : null,
-            'faxId' => $this->getFax() ? $this->getFax()->getId() : null,
-            'peeringContractId' => $this->getPeeringContract() ? $this->getPeeringContract()->getId() : null,
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null,
-            'retailAccountId' => $this->getRetailAccount() ? $this->getRetailAccount()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set ddi

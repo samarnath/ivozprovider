@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\FixedCost;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FixedCostAbstract
  */
-abstract class FixedCostAbstract implements EntityInterface
+abstract class FixedCostAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -43,112 +37,9 @@ abstract class FixedCostAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name)
-    {
-        $this->setName($name);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return FixedCostDTO
-     */
-    public static function createDTO()
-    {
-        return new FixedCostDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FixedCostDTO
-         */
-        Assertion::isInstanceOf($dto, FixedCostDTO::class);
-
-        $self = new static(
-            $dto->getName()
-        );
-
-        return $self
-            ->setDescription($dto->getDescription())
-            ->setCost($dto->getCost())
-            ->setBrand($dto->getBrand());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FixedCostDTO
-         */
-        Assertion::isInstanceOf($dto, FixedCostDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setDescription($dto->getDescription())
-            ->setCost($dto->getCost())
-            ->setBrand($dto->getBrand());
-
-
-        return $this;
-    }
-
-    /**
-     * @return FixedCostDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setDescription($this->getDescription())
-            ->setCost($this->getCost())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'description' => $this->getDescription(),
-            'cost' => $this->getCost(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name
@@ -215,7 +106,7 @@ abstract class FixedCostAbstract implements EntityInterface
     {
         if (!is_null($cost)) {
             if (!is_null($cost)) {
-                //Assertion::float($cost);
+                Assertion::numeric($cost);
             }
         }
 

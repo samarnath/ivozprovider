@@ -7,14 +7,6 @@ namespace Core\Domain\Model\HolidayDate;
 interface HolidayDateInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

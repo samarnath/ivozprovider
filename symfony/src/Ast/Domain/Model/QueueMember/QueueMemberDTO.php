@@ -17,7 +17,6 @@ class QueueMemberDTO implements DataTransferObjectInterface
     private $uniqueid;
 
     /**
-     * @column queue_name
      * @var string
      */
     private $queueName;
@@ -33,7 +32,6 @@ class QueueMemberDTO implements DataTransferObjectInterface
     private $membername;
 
     /**
-     * @column state_interface
      * @var string
      */
     private $stateInterface;
@@ -74,26 +72,6 @@ class QueueMemberDTO implements DataTransferObjectInterface
             'queueMemberId' => $this->getQueueMemberId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setUniqueid(isset($data['uniqueid']) ? $data['uniqueid'] : null)
-            ->setQueueName(isset($data['queueName']) ? $data['queueName'] : null)
-            ->setInterface(isset($data['interface']) ? $data['interface'] : null)
-            ->setMembername(isset($data['membername']) ? $data['membername'] : null)
-            ->setStateInterface(isset($data['stateInterface']) ? $data['stateInterface'] : null)
-            ->setPenalty(isset($data['penalty']) ? $data['penalty'] : null)
-            ->setPaused(isset($data['paused']) ? $data['paused'] : null)
-            ->setQueueMemberId(isset($data['queueMemberId']) ? $data['queueMemberId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

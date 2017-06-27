@@ -12,14 +12,14 @@ use Core\Application\CollectionTransformerInterface;
 class CompanyServiceDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $code;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -47,28 +47,12 @@ class CompanyServiceDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'code' => $this->getCode(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'serviceId' => $this->getServiceId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setCode(isset($data['code']) ? $data['code'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setServiceId(isset($data['serviceId']) ? $data['serviceId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -85,26 +69,6 @@ class CompanyServiceDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return CompanyServiceDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -125,6 +89,26 @@ class CompanyServiceDTO implements DataTransferObjectInterface
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return CompanyServiceDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

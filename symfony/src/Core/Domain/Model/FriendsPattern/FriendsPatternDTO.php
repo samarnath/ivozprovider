@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class FriendsPatternDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -25,6 +20,11 @@ class FriendsPatternDTO implements DataTransferObjectInterface
      * @var string
      */
     private $regExp;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -42,28 +42,12 @@ class FriendsPatternDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'regExp' => $this->getRegExp(),
+            'id' => $this->getId(),
             'friendId' => $this->getFriendId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setRegExp(isset($data['regExp']) ? $data['regExp'] : null)
-            ->setFriendId(isset($data['friendId']) ? $data['friendId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -79,26 +63,6 @@ class FriendsPatternDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return FriendsPatternDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -139,6 +103,26 @@ class FriendsPatternDTO implements DataTransferObjectInterface
     public function getRegExp()
     {
         return $this->regExp;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return FriendsPatternDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

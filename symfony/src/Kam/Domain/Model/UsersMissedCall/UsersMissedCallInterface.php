@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersMissedCall;
 interface UsersMissedCallInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get method
      *
      * @return string

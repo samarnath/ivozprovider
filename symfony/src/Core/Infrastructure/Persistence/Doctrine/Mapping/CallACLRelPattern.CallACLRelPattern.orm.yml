@@ -2,18 +2,6 @@ Core\Domain\Model\CallACLRelPattern\CallACLRelPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CallACLRelPatternDoctrineRepository
   type: entity
   table: CallACLRelPatterns
-  indexes:
-    CallACLId:
-      columns:
-        - CallACLId
-    CallACLPatternId:
-      columns:
-        - CallACLPatternId
-  uniqueConstraints:
-    unique_callACLId_priority:
-      columns:
-        - CallACLId
-        - priority
   id:
     id:
       type: integer
@@ -23,40 +11,4 @@ Core\Domain\Model\CallACLRelPattern\CallACLRelPattern:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    priority:
-      type: smallint
-      nullable: false
-      options:
-        unsigned: false
-    policy:
-      type: string
-      nullable: false
-      length: 25
-      options:
-        fixed: false
-        comment: '[enum:allow|deny]'
-  manyToOne:
-    callACL:
-      targetEntity: \Core\Domain\Model\CallACL\CallACLInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        CallACLId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    callACLPattern:
-      targetEntity: \Core\Domain\Model\CallACLPattern\CallACLPatternInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        CallACLPatternId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
   lifecycleCallbacks: {  }

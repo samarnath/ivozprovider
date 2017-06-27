@@ -12,51 +12,11 @@ use Core\Application\CollectionTransformerInterface;
 class CountryDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $code = '';
 
     /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @column name_en
-     * @var string
-     */
-    private $nameEn;
-
-    /**
-     * @column name_es
-     * @var string
-     */
-    private $nameEs;
-
-    /**
-     * @var string
-     */
-    private $zone;
-
-    /**
-     * @column zone_en
-     * @var string
-     */
-    private $zoneEn = '';
-
-    /**
-     * @column zone_es
-     * @var string
-     */
-    private $zoneEs = '';
-
-    /**
-     * @column calling_code
      * @var integer
      */
     private $callingCode;
@@ -77,49 +37,60 @@ class CountryDTO implements DataTransferObjectInterface
     private $nationalCC = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $nameEn;
+
+    /**
+     * @var string
+     */
+    private $nameEs;
+
+    /**
+     * @var string
+     */
+    private $zone;
+
+    /**
+     * @var string
+     */
+    private $zoneEn = '';
+
+    /**
+     * @var string
+     */
+    private $zoneEs = '';
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'code' => $this->getCode(),
-            'name' => $this->getName(),
-            'nameEn' => $this->getNameEn(),
-            'nameEs' => $this->getNameEs(),
-            'zone' => $this->getZone(),
-            'zoneEn' => $this->getZoneEn(),
-            'zoneEs' => $this->getZoneEs(),
             'callingCode' => $this->getCallingCode(),
             'intCode' => $this->getIntCode(),
             'e164Pattern' => $this->getE164Pattern(),
-            'nationalCC' => $this->getNationalCC()
+            'nationalCC' => $this->getNationalCC(),
+            'id' => $this->getId(),
+            'nameName' => $this->getNameName(),
+            'nameEn' => $this->getNameEn(),
+            'nameEs' => $this->getNameEs(),
+            'zoneZone' => $this->getZoneZone(),
+            'zoneEn' => $this->getZoneEn(),
+            'zoneEs' => $this->getZoneEs()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setCode(isset($data['code']) ? $data['code'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setNameEn(isset($data['nameEn']) ? $data['nameEn'] : null)
-            ->setNameEs(isset($data['nameEs']) ? $data['nameEs'] : null)
-            ->setZone(isset($data['zone']) ? $data['zone'] : null)
-            ->setZoneEn(isset($data['zoneEn']) ? $data['zoneEn'] : null)
-            ->setZoneEs(isset($data['zoneEs']) ? $data['zoneEs'] : null)
-            ->setCallingCode(isset($data['callingCode']) ? $data['callingCode'] : null)
-            ->setIntCode(isset($data['intCode']) ? $data['intCode'] : null)
-            ->setE164Pattern(isset($data['e164Pattern']) ? $data['e164Pattern'] : null)
-            ->setNationalCC(isset($data['nationalCC']) ? $data['nationalCC'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -135,26 +106,6 @@ class CountryDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return CountryDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -175,126 +126,6 @@ class CountryDTO implements DataTransferObjectInterface
     public function getCode()
     {
         return $this->code;
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return CountryDTO
-     */
-    public function setName($name = null)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $nameEn
-     *
-     * @return CountryDTO
-     */
-    public function setNameEn($nameEn = null)
-    {
-        $this->nameEn = $nameEn;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNameEn()
-    {
-        return $this->nameEn;
-    }
-
-    /**
-     * @param string $nameEs
-     *
-     * @return CountryDTO
-     */
-    public function setNameEs($nameEs = null)
-    {
-        $this->nameEs = $nameEs;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNameEs()
-    {
-        return $this->nameEs;
-    }
-
-    /**
-     * @param string $zone
-     *
-     * @return CountryDTO
-     */
-    public function setZone($zone = null)
-    {
-        $this->zone = $zone;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getZone()
-    {
-        return $this->zone;
-    }
-
-    /**
-     * @param string $zoneEn
-     *
-     * @return CountryDTO
-     */
-    public function setZoneEn($zoneEn)
-    {
-        $this->zoneEn = $zoneEn;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getZoneEn()
-    {
-        return $this->zoneEn;
-    }
-
-    /**
-     * @param string $zoneEs
-     *
-     * @return CountryDTO
-     */
-    public function setZoneEs($zoneEs)
-    {
-        $this->zoneEs = $zoneEs;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getZoneEs()
-    {
-        return $this->zoneEs;
     }
 
     /**
@@ -375,6 +206,146 @@ class CountryDTO implements DataTransferObjectInterface
     public function getNationalCC()
     {
         return $this->nationalCC;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return CountryDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return CountryDTO
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $nameEn
+     *
+     * @return CountryDTO
+     */
+    public function setNameEn($nameEn)
+    {
+        $this->nameEn = $nameEn;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameEn()
+    {
+        return $this->nameEn;
+    }
+
+    /**
+     * @param string $nameEs
+     *
+     * @return CountryDTO
+     */
+    public function setNameEs($nameEs)
+    {
+        $this->nameEs = $nameEs;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameEs()
+    {
+        return $this->nameEs;
+    }
+
+    /**
+     * @param string $zone
+     *
+     * @return CountryDTO
+     */
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
+
+    /**
+     * @param string $zoneEn
+     *
+     * @return CountryDTO
+     */
+    public function setZoneEn($zoneEn)
+    {
+        $this->zoneEn = $zoneEn;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZoneEn()
+    {
+        return $this->zoneEn;
+    }
+
+    /**
+     * @param string $zoneEs
+     *
+     * @return CountryDTO
+     */
+    public function setZoneEs($zoneEs)
+    {
+        $this->zoneEs = $zoneEs;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZoneEs()
+    {
+        return $this->zoneEs;
     }
 }
 

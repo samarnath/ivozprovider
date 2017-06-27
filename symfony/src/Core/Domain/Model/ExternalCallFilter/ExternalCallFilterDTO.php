@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class ExternalCallFilterDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -50,6 +45,11 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
      * @var string
      */
     private $whiteListRegExp;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -137,7 +137,6 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'holidayTargetType' => $this->getHolidayTargetType(),
             'holidayNumberValue' => $this->getHolidayNumberValue(),
@@ -145,6 +144,7 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
             'outOfScheduleNumberValue' => $this->getOutOfScheduleNumberValue(),
             'blackListRegExp' => $this->getBlackListRegExp(),
             'whiteListRegExp' => $this->getWhiteListRegExp(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'welcomeLocutionId' => $this->getWelcomeLocutionId(),
             'holidayLocutionId' => $this->getHolidayLocutionId(),
@@ -155,34 +155,6 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
             'outOfScheduleVoiceMailUserId' => $this->getOutOfScheduleVoiceMailUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setHolidayTargetType(isset($data['holidayTargetType']) ? $data['holidayTargetType'] : null)
-            ->setHolidayNumberValue(isset($data['holidayNumberValue']) ? $data['holidayNumberValue'] : null)
-            ->setOutOfScheduleTargetType(isset($data['outOfScheduleTargetType']) ? $data['outOfScheduleTargetType'] : null)
-            ->setOutOfScheduleNumberValue(isset($data['outOfScheduleNumberValue']) ? $data['outOfScheduleNumberValue'] : null)
-            ->setBlackListRegExp(isset($data['blackListRegExp']) ? $data['blackListRegExp'] : null)
-            ->setWhiteListRegExp(isset($data['whiteListRegExp']) ? $data['whiteListRegExp'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setWelcomeLocutionId(isset($data['welcomeLocutionId']) ? $data['welcomeLocutionId'] : null)
-            ->setHolidayLocutionId(isset($data['holidayLocutionId']) ? $data['holidayLocutionId'] : null)
-            ->setOutOfScheduleLocutionId(isset($data['outOfScheduleLocutionId']) ? $data['outOfScheduleLocutionId'] : null)
-            ->setHolidayExtensionId(isset($data['holidayExtensionId']) ? $data['holidayExtensionId'] : null)
-            ->setOutOfScheduleExtensionId(isset($data['outOfScheduleExtensionId']) ? $data['outOfScheduleExtensionId'] : null)
-            ->setHolidayVoiceMailUserId(isset($data['holidayVoiceMailUserId']) ? $data['holidayVoiceMailUserId'] : null)
-            ->setOutOfScheduleVoiceMailUserId(isset($data['outOfScheduleVoiceMailUserId']) ? $data['outOfScheduleVoiceMailUserId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -205,26 +177,6 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ExternalCallFilterDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -365,6 +317,26 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     public function getWhiteListRegExp()
     {
         return $this->whiteListRegExp;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ExternalCallFilterDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

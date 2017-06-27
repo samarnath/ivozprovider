@@ -7,14 +7,6 @@ namespace Core\Domain\Model\OutgoingRouting;
 interface OutgoingRoutingInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get type
      *
      * @return string

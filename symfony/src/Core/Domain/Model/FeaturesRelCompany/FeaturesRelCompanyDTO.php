@@ -49,21 +49,6 @@ class FeaturesRelCompanyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setFeatureId(isset($data['featureId']) ? $data['featureId'] : null);
-    }
-     */
-
-    /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)

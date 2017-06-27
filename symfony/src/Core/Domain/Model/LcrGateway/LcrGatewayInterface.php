@@ -7,14 +7,6 @@ namespace Core\Domain\Model\LcrGateway;
 interface LcrGatewayInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get lcrId
      *
      * @return integer

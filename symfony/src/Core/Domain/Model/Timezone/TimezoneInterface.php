@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Timezone;
 interface TimezoneInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get tz
      *
      * @return string
@@ -36,22 +28,6 @@ interface TimezoneInterface
      * @return string
      */
     public function getTimeZoneLabel();
-
-
-    /**
-     * Get timeZoneLabelEn
-     *
-     * @return string
-     */
-    public function getTimeZoneLabelEn();
-
-
-    /**
-     * Get timeZoneLabelEs
-     *
-     * @return string
-     */
-    public function getTimeZoneLabelEs();
 
 
     /**

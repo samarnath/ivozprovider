@@ -1,0 +1,75 @@
+Core\Domain\Model\RoutingPattern\RoutingPatternAbstract:
+  type: mappedSuperclass
+  indexes:
+    brandId:
+      columns:
+        - brandId
+  embedded:
+    name:
+      class: Name
+      columnPrefix: false
+    description:
+      class: Description
+      columnPrefix: false
+  fields:
+#    name:
+#      type: string
+#      nullable: false
+#      length: 55
+#      options:
+#        fixed: false
+#        comment: '[ml]'
+#    nameEn:
+#      type: string
+#      nullable: false
+#      length: 55
+#      options:
+#        fixed: false
+#      column: name_en
+#    nameEs:
+#      type: string
+#      nullable: false
+#      length: 55
+#      options:
+#        fixed: false
+#      column: name_es
+#    description:
+#      type: string
+#      nullable: true
+#      length: 55
+#      options:
+#        fixed: false
+#        comment: '[ml]'
+#    descriptionEn:
+#      type: string
+#      nullable: true
+#      length: 55
+#      options:
+#        fixed: false
+#      column: description_en
+#    descriptionEs:
+#      type: string
+#      nullable: true
+#      length: 55
+#      options:
+#        fixed: false
+#      column: description_es
+    regExp:
+      type: string
+      nullable: false
+      length: 80
+      options:
+        fixed: false
+      column: regExp
+  manyToOne:
+    brand:
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

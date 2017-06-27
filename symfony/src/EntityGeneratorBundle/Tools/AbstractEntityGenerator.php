@@ -12,9 +12,24 @@ use Doctrine\Common\Util\Inflector;
  *
  * @author Mikel Madariaga <mikel@irontec.com>
  */
-class SuperClassGenerator extends ParentGenerator
+class AbstractEntityGenerator extends ParentGenerator
 {
+    protected $skipEmbeddedMethods = false;
+
     protected $codeCoverageIgnoreBlock = true;
+
+    /**
+     * @var string
+     */
+    protected static $valueObjectConstructorMethodTemplate =
+        '
+/**
+ * Constructor
+ */
+public function __construct(<requiredFields>)<lineBreak>{
+<requiredFieldsSetters><collections>
+}
+';
 
     /**
      * @var string
@@ -27,77 +42,7 @@ class SuperClassGenerator extends ParentGenerator
  */
 protected $_initialValues = [];
 
-/**
- * Constructor
- */
-public function __construct(<requiredFields>)<lineBreak>{
-<requiredFieldsSetters><collections>
-}
-
- public function __wakeup()
- {
-    if ($this->id) {
-        $this->_initialValues = $this->__toArray();
-    }
-    // Do nothing: Doctrines requirement
- }
-
-/**
- * @return <dtoClass>
- */
-public static function createDTO()
-{
-    return new <dtoClass>();
-}
-
-/**
- * Factory method
- * @param DataTransferObjectInterface $dto
- * @return static
- */
-public static function fromDTO(DataTransferObjectInterface $dto)
-{
-    /**
-     * @var $dto <dtoClass>
-     */
-    Assertion::isInstanceOf($dto, <dtoClass>::class);
-
-    $self = new static(<requiredFieldsGetters>);
-
-    return $self<fromDTO>;
-}
-
-/**
- * @param DataTransferObjectInterface $dto
- * @return static
- */
-public function updateFromDTO(DataTransferObjectInterface $dto)
-{
-    /**
-     * @var $dto <dtoClass>
-     */
-    Assertion::isInstanceOf($dto, <dtoClass>::class);
-
-    <updateFromDTO>
-    return $this;
-}
-
-/**
- * @return <dtoClass>
- */
-public function toDTO()
-{
-    return static::createDTO()<toDTO>;
-}
-
-/**
- * @return array
- */
-protected function __toArray()
-{
-    return [<toArray>];
-}
-
+abstract public function __wakeup();
 ';
     /**
      * @var string
@@ -212,11 +157,6 @@ protected function <methodName>(array $<variableName>)
 
     protected function transformMetadata(ClassMetadataInfo $metadata)
     {
-        $metadata->isMappedSuperclass = false;
-        if (!$metadata->isEmbeddedClass) {
-            $metadata->name .= 'Abstract';
-        }
-
         foreach ($metadata->associationMappings as $key => $association) {
             $metadata->associationMappings[$key]['targetEntity'] .= 'Interface';
         }
@@ -271,8 +211,6 @@ protected function <methodName>(array $<variableName>)
             . $className
             . ($this->extendsClass() ? ' extends ' . $this->getClassToExtendName() : null);
 
-        $class .= ' implements EntityInterface';
-
         return $class;
     }
 
@@ -292,8 +230,11 @@ protected function <methodName>(array $<variableName>)
             'use Assert\Assertion;'
         ];
 
-        if (!$metadata->isEmbeddedClass) {
+        if (!$metadata->isEmbeddedClass  && !$metadata->isMappedSuperclass) {
             $response[] = 'use Core\Domain\Model\EntityInterface;';
+        }
+
+        if (!$metadata->isEmbeddedClass) {
             $response[] = 'use Core\Application\DataTransferObjectInterface;';
         }
 
@@ -356,6 +297,8 @@ protected function <methodName>(array $<variableName>)
         }
 
         list(
+            $constructorArguments,
+            $voContructor,
             $requiredSetters,
             $requiredGetters,
             $setters,
@@ -369,7 +312,12 @@ protected function <methodName>(array $<variableName>)
             return '';
         }
 
-        $response = static::$constructorMethodTemplate;
+        if ($metadata->isEmbeddedClass || $this->embeddablesImmutable) {
+            $response = static::$valueObjectConstructorMethodTemplate;
+        } else {
+            $response = static::$constructorMethodTemplate;
+        }
+
         $spaces = str_repeat($this->spaces, 2);
 
         $requiredFields = '';
@@ -383,26 +331,51 @@ protected function <methodName>(array $<variableName>)
 
         if (!empty($requiredSetters)) {
 
-            $requiredFields = '$' . implode(', $', array_keys($requiredSetters)) . '';
-            $requiredFieldSetters = $this->spaces
+            $requiredFields = implode(', ', $constructorArguments);
+            $requiredFieldSetters =
+                $this->spaces
                 . '$this->'
                 . implode("\n". $this->spaces .'$this->', $requiredSetters);
 
-            $requiredFieldGetters = "\n"
+            $requiredFieldGetters .=
+                "\n"
                 . $spaces
-                .'$dto->'
-                . implode(",\n". $spaces.'$dto->', $requiredGetters)
-                . "\n" . $this->spaces;
+                . '$dto->'
+                . implode(",\n" . $spaces.'$dto->', $requiredGetters);
+
+
+            if (!empty($voContructor)) {
+
+                foreach ($voContructor as $key => $value) {
+                    $requiredFieldGetters .=
+                        ",\n" . $spaces
+                        . '$'
+                        . $key;
+                }
+
+                $requiredFieldGetters .= "\n" . $this->spaces;
+            }
 
             if (strlen($requiredFields) > 40) {
-
                 $requiredFields = "\n". $this->spaces . str_replace(', ', ",\n". $this->spaces, $requiredFields) . "\n";
                 $lineBreak = ' ';
             }
         }
 
+        if (is_array($voContructor)) {
+
+            foreach ($voContructor as $key => $value) {
+                $voContructor[$key] = implode(" ", $value);
+            }
+
+            $voContructor = implode("\n", $voContructor);
+            if (!empty($voContructor)) {
+                $voContructor = "\n" . $voContructor;
+            }
+        }
+
         if (!empty($setters)) {
-            $fromDTO = "\n" . $spaces . '->' . implode("\n" . $spaces . '->', $setters);
+            $fromDTO = "\n" . $spaces . '->' . implode("\n" . $spaces . '->', $setters) . "\n" . $this->spaces;
         }
 
         if (!empty($getters)) {
@@ -413,9 +386,9 @@ protected function <methodName>(array $<variableName>)
             $toArrayGetters = "\n" . $spaces . implode(",\n" . $spaces, $toArray) . "\n" . $this->spaces;
         }
 
-        if (!empty($fromArray)) {
-            $fromArraySetters = $this->spaces . implode("\n" . $spaces, $fromArray);
-        }
+//        if (!empty($fromArray)) {
+//            $fromArraySetters = $this->spaces . implode("\n" . $spaces, $fromArray);
+//        }
 
         if (!empty($updateFrom)) {
             $updateFromDTO = '$this' . "\n" . $spaces . '->' . implode("\n" . $spaces . '->', $updateFrom) . ";\n\n";
@@ -429,6 +402,7 @@ protected function <methodName>(array $<variableName>)
         $namespace = end($namespaceSegments) . 'DTO';
         $response = str_replace('<dtoClass>', $namespace, $response);
 
+        $response = str_replace('<voContructor>', $voContructor, $response);
         $response = str_replace('<fromDTO>', $fromDTO, $response);
         $response = str_replace('<updateFromDTO>', $updateFromDTO, $response);
 
@@ -436,7 +410,7 @@ protected function <methodName>(array $<variableName>)
         $response = str_replace('<lineBreak>', $lineBreak, $response);
 
         $response = str_replace('<toArray>', $toArrayGetters, $response);
-        $response = str_replace('<fromArray>', $fromArraySetters, $response);
+//        $response = str_replace('<fromArray>', $fromArraySetters, $response);
 
         if (!empty($collections)) {
 
@@ -462,6 +436,8 @@ protected function <methodName>(array $<variableName>)
 
     protected function getConstructorFields(ClassMetadataInfo $metadata)
     {
+        $constructorArguments = [];
+        $voContructor = [];
         $requiredSetters = [];
         $requiredGetters = [];
         $setters = [];
@@ -482,21 +458,22 @@ protected function <methodName>(array $<variableName>)
             }
             $options  = (object) $fieldMapping['options'];
 
-            if ($metadata->isEmbeddedClass || $this->embeddablesImmutable) {
-                continue;
-            }
-
-            $fromArray[] = $this->getFromArrayMethod($attribute, $fieldName, $field);
+            //$fromArray[] = $this->getFromArrayMethod($attribute, $fieldName, $field);
             if (isset($field->targetEntity)) {
 
                 $isOneToMany = ($field->type == ClassMetadataInfo::ONE_TO_MANY);
-
                 if ($isOneToMany) {
 
-                    $updateFrom[] = 'replace' . Inflector::classify($fieldName)
-                        . '($dto->get' . Inflector::classify($fieldName) . '())';
-                    $setters[$attribute] = 'replace' . Inflector::classify($fieldName)
-                        . '($dto->get' . Inflector::classify($fieldName) . '())';
+                    $updateFrom[] =
+                        'replace'
+                        . Inflector::classify($fieldName)
+                        . '($dto->get' . Inflector::classify($fieldName)
+                        . '())';
+                    $setters[$attribute] = 'replace'
+                        . Inflector::classify($fieldName)
+                        . '($dto->get'
+                        . Inflector::classify($fieldName)
+                        . '())';
 
                 } else {
 
@@ -518,32 +495,108 @@ protected function <methodName>(array $<variableName>)
                 continue;
             }
 
-            $toArray[]  = '\''. $attribute .'\' => $this->get' . Inflector::classify($fieldName) . '()';
+            if (strpos($fieldName, '.')) {
 
-            $getters[$attribute] = 'set' . Inflector::classify($fieldName)
-                . '($this->get' . Inflector::classify($fieldName) . '())';
+                $segments = explode('.', $fieldName);
+                $options = $fieldMapping['options'];
+                $comment = array_key_exists('comment', $options)
+                    ? $options['comment']
+                    : '';
 
-            if ((isset($field->id) && $field->id) || isset($options->defaultValue)) {
-                continue;
-            }
+                $isMl = stripos($comment, '[ml]') !== false;
+                $isFso = stripos($comment, '[fso') !== false;
+                $ignorableFld = $segments[0] === $segments[1];
 
-            $updateFrom[] = 'set' . Inflector::classify($fieldName)
-                . '($dto->get' . Inflector::classify($fieldName) . '())';
+                $addVoContructor = ($isMl && $ignorableFld) || $isFso;
 
-            if (isset($field->nullable) && $field->nullable) {
-                $setters[$attribute] = 'set' . Inflector::classify($fieldName)
+                if ($addVoContructor) {
+
+                    $varName = $segments[0];
+                    if (!array_key_exists($varName, $voContructor)) {
+                        $voContructor[$varName] = [];
+                    }
+                    $voContructor[$varName][] = $this->getVoConstructor($varName, $metadata->fieldMappings);
+                }
+
+                $toArray[] =$this->embeddedToArrayGetter($segments);
+                $setterMethod = 'set' . Inflector::classify($segments[0]);
+                if ($segments[0] !== $segments[1]) {
+                    $setterMethod .= Inflector::classify($segments[1]);
+                }
+
+                $getters[$segments[1]] =
+                    $setterMethod
+                    . '($this->get'
+                    . Inflector::classify($segments[0])
+                    . '()->get'
+                    . Inflector::classify($segments[1])
+                    . '()'
+                    . ')';
+
+                if ((isset($field->id) && $field->id) || isset($options->defaultValue)) {
+                    continue;
+                }
+
+                $updateFrom[$segments[0]] =
+                    'set'
+                    . Inflector::classify($segments[0])
+                    . '($' . $segments[0] . ')';
+
+            } else {
+
+                $toArray[]  = '\''. $attribute .'\' => $this->get' . Inflector::classify($fieldName) . '()';
+                $getters[$attribute] = 'set' . Inflector::classify($fieldName)
+                    . '($this->get' . Inflector::classify($fieldName) . '())';
+
+                if ((isset($field->id) && $field->id) || isset($options->defaultValue)) {
+                    continue;
+                }
+
+                $updateFrom[] = 'set' . Inflector::classify($fieldName)
                     . '($dto->get' . Inflector::classify($fieldName) . '())';
+
+                if (isset($field->nullable) && $field->nullable && !$metadata->isEmbeddedClass) {
+                    $setters[$attribute] = 'set' . Inflector::classify($fieldName)
+                        . '($dto->get' . Inflector::classify($fieldName) . '())';
+                    continue;
+                }
+            }
+
+            if (array_key_exists('originalClass', $fieldMapping)) {
+                $class = substr($fieldMapping['originalClass'], strrpos($fieldMapping['originalClass'], '\\') + 1);
+
+                $declaredField = $fieldMapping['declaredField'];
+                $attribute = $class . ' $' . $declaredField;
+
+                $setter = 'set' . Inflector::classify($declaredField) . '($'. $declaredField .');';
+                if (end($requiredSetters) !== $setter) {
+                    $requiredSetters[$attribute] = $setter;
+                }
+            } else {
+
+                $setter = 'set' . Inflector::classify($fieldName) . '($'. $attribute .');';
+                $getter = 'get' . Inflector::classify($fieldName) . '()';
+                $requiredSetters[$attribute] = $setter;
+                $requiredGetters[$attribute] = $getter;
+
+                if ($field->type[0] === '\\') {
+                    $class = substr($field->type, strrpos($field->type, '\\') + 1);
+                    $attribute = $class. ' $' . $attribute;
+                } else {
+                    $attribute = '$' . $attribute;
+                }
+            }
+
+            if (end($constructorArguments) === $attribute) {
                 continue;
             }
 
-            $setter = 'set' . Inflector::classify($fieldName) . '($'. $attribute .');';
-            $getter = 'get' . Inflector::classify($fieldName) . '()';
-
-            $requiredSetters[$attribute] = $setter;
-            $requiredGetters[$attribute] = $getter;
+            $constructorArguments[] = $attribute;
         }
 
-        return [
+        return array(
+            $constructorArguments,
+            $voContructor,
             $requiredSetters,
             $requiredGetters,
             $setters,
@@ -551,7 +604,68 @@ protected function <methodName>(array $<variableName>)
             $toArray,
             $updateFrom,
             $fromArray
-        ];
+        );
+    }
+
+    /**
+     * @param $segments
+     * @param $toArray
+     * @return array
+     */
+    protected function embeddedToArrayGetter($segments)
+    {
+        return
+            '\''
+            . $segments[1]
+            . '\' => $this->get'
+            . Inflector::classify($segments[0])
+            . '()->get' . Inflector::classify($segments[1])
+            . '()';
+    }
+
+    protected function getVoConstructor($voName, array $fieldMappings)
+    {
+        $arguments = [];
+        $class = [];
+
+        foreach ($fieldMappings as $fieldMapping) {
+
+            if (false === strpos($fieldMapping['fieldName'], '.')) {
+                continue;
+            }
+            $segments = explode('.', $fieldMapping['fieldName']);
+            if ($segments[0] !== $voName) {
+                continue;
+            }
+
+            $class = explode("\\", $fieldMapping['originalClass']);
+            $arguments[] =
+                str_repeat($this->spaces, 1)
+                . '$dto->get'
+                . end($class)
+                . Inflector::classify($segments[1])
+                . '()';
+        }
+        $response = '$' . $voName . ' = new ' . end($class) . "(%s);\n";
+
+        if (!empty($arguments)) {
+
+            $value =
+                "\n"
+                . $this->spaces
+                . implode(",\n" . str_repeat($this->spaces, 1), $arguments)
+                . "\n"
+                . $this->spaces;
+
+            $response =
+                $this->spaces
+                . sprintf($response,$value);
+
+        } else {
+            $response = sprintf($response,'');
+        }
+
+        return $response;
     }
 
     /**
@@ -559,7 +673,8 @@ protected function <methodName>(array $<variableName>)
      * @param string $fieldName
      * @param stdClass $field
      * @return string
-     */
+     * @deprecated
+     *
     protected function getFromArrayMethod($attribute, $fieldName, \stdClass $field)
     {
         if (isset($field->mappedBy)) {
@@ -581,7 +696,6 @@ protected function <methodName>(array $<variableName>)
     protected function getConstructorAssociationFields($attribute, $fieldName, $isOneToMany)
     {
         $response = [];
-
 
         if ($isOneToMany) {
 
@@ -619,13 +733,20 @@ protected function <methodName>(array $<variableName>)
     {
         $fieldMappings = $metadata->fieldMappings;
         $associationMapping = $metadata->associationMappings;
+        $embeddedClasses = $metadata->embeddedClasses;
+
         $metadata->fieldMappings = [];
         $metadata->associationMappings = [];
+
+        if ($this->skipEmbeddedMethods) {
+            $metadata->embeddedClasses = [];
+        }
 
         $parentMethodsStr = parent::generateEntityStubMethods($metadata);
         $parentMethods = explode("\n\n", $parentMethodsStr);
 
         $metadata->fieldMappings = $fieldMappings;
+        $metadata->embeddedClasses = $embeddedClasses;
         $methods = array();
 
         foreach ($metadata->fieldMappings as $fieldMapping) {
@@ -633,6 +754,10 @@ protected function <methodName>(array $<variableName>)
             if (isset($fieldMapping['declaredField']) &&
                 isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
             ) {
+                continue;
+            }
+
+            if (isset($fieldMapping['declared']) && $fieldMapping['declared'] !== $metadata->name) {
                 continue;
             }
 
@@ -688,6 +813,16 @@ protected function <methodName>(array $<variableName>)
         return implode("\n\n", $response);
     }
 
+    /**
+     * @param array $segments
+     * @return string
+     */
+    protected function getEmbeddedVarName(array $segments)
+    {
+        return $segments[0] !== $segments[1]
+            ? $segments[0] . ucfirst($segments[1])
+            : $segments[0];
+    }
 
     /**
      * {@inheritDoc}
@@ -708,7 +843,9 @@ protected function <methodName>(array $<variableName>)
     {
         $currentField = null;
         $isNullable = false;
-        $defaultVisibility = 'protected';
+        $visibility = $metadata->isEmbeddedClass
+            ? 'protected'
+            : 'protected';
 
         if (array_key_exists($fieldName, $metadata->fieldMappings)) {
             $currentField = (object) $metadata->fieldMappings[$fieldName];
@@ -719,8 +856,12 @@ protected function <methodName>(array $<variableName>)
             $defaultValue = 'null';
         }
 
-        $isCollection = strpos($typeHint, 'Doctrine\\Common\\Collections\\Collection') !== false;
+        if ($typeHint[0] === '\\') {
+            // typehints are always prefixed in parent::generateEntityStubMethod
+            $typeHint = substr($typeHint, 1);
+        }
 
+        $isCollection = strpos($typeHint, 'Doctrine\\Common\\Collections\\Collection') !== false;
         if ($isCollection) {
             $typeHint = 'array';
         }
@@ -810,7 +951,7 @@ protected function <methodName>(array $<variableName>)
 
         $replacements = array(
             $this->spaces . '<assertions>' => $assertions,
-            '<visibility>' => $defaultVisibility
+            '<visibility>' => $visibility
         );
 
         if ($type == 'replace') {

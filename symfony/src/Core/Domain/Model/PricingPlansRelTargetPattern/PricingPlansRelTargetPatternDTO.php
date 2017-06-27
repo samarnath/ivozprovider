@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $connectionCharge;
@@ -30,6 +25,11 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
      * @var string
      */
     private $perPeriodCharge;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -67,34 +67,15 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'connectionCharge' => $this->getConnectionCharge(),
             'periodTime' => $this->getPeriodTime(),
             'perPeriodCharge' => $this->getPerPeriodCharge(),
+            'id' => $this->getId(),
             'pricingPlanId' => $this->getPricingPlanId(),
             'targetPatternId' => $this->getTargetPatternId(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setConnectionCharge(isset($data['connectionCharge']) ? $data['connectionCharge'] : null)
-            ->setPeriodTime(isset($data['periodTime']) ? $data['periodTime'] : null)
-            ->setPerPeriodCharge(isset($data['perPeriodCharge']) ? $data['perPeriodCharge'] : null)
-            ->setPricingPlanId(isset($data['pricingPlanId']) ? $data['pricingPlanId'] : null)
-            ->setTargetPatternId(isset($data['targetPatternId']) ? $data['targetPatternId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -112,26 +93,6 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return PricingPlansRelTargetPatternDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -192,6 +153,26 @@ class PricingPlansRelTargetPatternDTO implements DataTransferObjectInterface
     public function getPerPeriodCharge()
     {
         return $this->perPeriodCharge;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return PricingPlansRelTargetPatternDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -14,17 +14,17 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @var integer
-     */
     private $priority;
 
     /**
      * @var string
      */
     private $policy;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -52,30 +52,13 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'priority' => $this->getPriority(),
             'policy' => $this->getPolicy(),
+            'id' => $this->getId(),
             'callACLId' => $this->getCallACLId(),
             'callACLPatternId' => $this->getCallACLPatternId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null)
-            ->setPolicy(isset($data['policy']) ? $data['policy'] : null)
-            ->setCallACLId(isset($data['callACLId']) ? $data['callACLId'] : null)
-            ->setCallACLPatternId(isset($data['callACLPatternId']) ? $data['callACLPatternId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -92,26 +75,6 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return CallACLRelPatternDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -152,6 +115,26 @@ class CallACLRelPatternDTO implements DataTransferObjectInterface
     public function getPolicy()
     {
         return $this->policy;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return CallACLRelPatternDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

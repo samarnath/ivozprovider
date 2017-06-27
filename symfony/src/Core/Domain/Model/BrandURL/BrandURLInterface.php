@@ -7,14 +7,6 @@ namespace Core\Domain\Model\BrandURL;
 interface BrandURLInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get url
      *
      * @return string
@@ -47,30 +39,6 @@ interface BrandURLInterface
 
 
     /**
-     * Get logoFileSize
-     *
-     * @return integer
-     */
-    public function getLogoFileSize();
-
-
-    /**
-     * Get logoMimeType
-     *
-     * @return string
-     */
-    public function getLogoMimeType();
-
-
-    /**
-     * Get logoBaseName
-     *
-     * @return string
-     */
-    public function getLogoBaseName();
-
-
-    /**
      * Get userTheme
      *
      * @return string
@@ -96,6 +64,12 @@ interface BrandURLInterface
     public function getBrand();
 
 
+    /**
+     * Get logo
+     *
+     * @return Logo
+     */
+    public function getLogo();
 
 }
 

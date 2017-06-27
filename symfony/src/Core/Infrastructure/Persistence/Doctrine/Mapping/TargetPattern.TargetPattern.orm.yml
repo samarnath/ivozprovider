@@ -2,15 +2,6 @@ Core\Domain\Model\TargetPattern\TargetPattern:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\TargetPatternDoctrineRepository
   type: entity
   table: TargetPatterns
-  indexes:
-    brandId:
-      columns:
-        - brandId
-  uniqueConstraints:
-    regExpBrand:
-      columns:
-        - regExp
-        - brandId
   id:
     id:
       type: integer
@@ -20,56 +11,6 @@ Core\Domain\Model\TargetPattern\TargetPattern:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    name:
-      type: string
-      nullable: false
-      length: 55
-      options:
-        fixed: false
-        comment: '[ml]'
-    nameEn:
-      type: string
-      nullable: false
-      length: 55
-      options:
-        fixed: false
-      column: name_en
-    nameEs:
-      type: string
-      nullable: false
-      length: 55
-      options:
-        fixed: false
-      column: name_es
-    description:
-      type: string
-      nullable: false
-      length: 55
-      options:
-        fixed: false
-        comment: '[ml]'
-    descriptionEn:
-      type: string
-      nullable: false
-      length: 55
-      options:
-        fixed: false
-      column: description_en
-    descriptionEs:
-      type: string
-      nullable: false
-      length: 55
-      options:
-        fixed: false
-      column: description_es
-    regExp:
-      type: string
-      nullable: false
-      length: 80
-      options:
-        fixed: false
-      column: regExp
   manyToOne:
     brand:
       targetEntity: \Core\Domain\Model\Brand\BrandInterface

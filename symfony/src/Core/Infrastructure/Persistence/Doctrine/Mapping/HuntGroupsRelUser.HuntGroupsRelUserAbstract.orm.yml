@@ -1,0 +1,53 @@
+Core\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUserAbstract:
+  type: mappedSuperclass
+  indexes:
+    huntGroupId:
+      columns:
+        - huntGroupId
+    userId:
+      columns:
+        - userId
+  uniqueConstraints:
+    userHuntgroup:
+      columns:
+        - userId
+        - huntGroupId
+    prioHuntgroup:
+      columns:
+        - priority
+        - huntGroupId
+  fields:
+    timeoutTime:
+      type: smallint
+      nullable: true
+      options:
+        unsigned: false
+      column: timeoutTime
+    priority:
+      type: smallint
+      nullable: true
+      options:
+        unsigned: false
+  manyToOne:
+    huntGroup:
+      targetEntity: \Core\Domain\Model\HuntGroup\HuntGroupInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        huntGroupId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    user:
+      targetEntity: \Core\Domain\Model\User\UserInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        userId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\HuntGroupsRelUser;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * HuntGroupsRelUserAbstract
  */
-abstract class HuntGroupsRelUserAbstract implements EntityInterface
+abstract class HuntGroupsRelUserAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var integer
      */
@@ -43,111 +37,9 @@ abstract class HuntGroupsRelUserAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return HuntGroupsRelUserDTO
-     */
-    public static function createDTO()
-    {
-        return new HuntGroupsRelUserDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto HuntGroupsRelUserDTO
-         */
-        Assertion::isInstanceOf($dto, HuntGroupsRelUserDTO::class);
-
-        $self = new static();
-
-        return $self
-            ->setTimeoutTime($dto->getTimeoutTime())
-            ->setPriority($dto->getPriority())
-            ->setHuntGroup($dto->getHuntGroup())
-            ->setUser($dto->getUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto HuntGroupsRelUserDTO
-         */
-        Assertion::isInstanceOf($dto, HuntGroupsRelUserDTO::class);
-
-        $this
-            ->setTimeoutTime($dto->getTimeoutTime())
-            ->setPriority($dto->getPriority())
-            ->setHuntGroup($dto->getHuntGroup())
-            ->setUser($dto->getUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return HuntGroupsRelUserDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setTimeoutTime($this->getTimeoutTime())
-            ->setPriority($this->getPriority())
-            ->setHuntGroupId($this->getHuntGroup() ? $this->getHuntGroup()->getId() : null)
-            ->setUserId($this->getUser() ? $this->getUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'timeoutTime' => $this->getTimeoutTime(),
-            'priority' => $this->getPriority(),
-            'huntGroupId' => $this->getHuntGroup() ? $this->getHuntGroup()->getId() : null,
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set timeoutTime

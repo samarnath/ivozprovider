@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class ScheduleDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -67,6 +62,11 @@ class ScheduleDTO implements DataTransferObjectInterface
     private $sunday = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $companyId;
@@ -82,7 +82,6 @@ class ScheduleDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'timeIn' => $this->getTimeIn(),
             'timeout' => $this->getTimeout(),
@@ -93,33 +92,10 @@ class ScheduleDTO implements DataTransferObjectInterface
             'friday' => $this->getFriday(),
             'saturday' => $this->getSaturday(),
             'sunday' => $this->getSunday(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setTimeIn(isset($data['timeIn']) ? $data['timeIn'] : null)
-            ->setTimeout(isset($data['timeout']) ? $data['timeout'] : null)
-            ->setMonday(isset($data['monday']) ? $data['monday'] : null)
-            ->setTuesday(isset($data['tuesday']) ? $data['tuesday'] : null)
-            ->setWednesday(isset($data['wednesday']) ? $data['wednesday'] : null)
-            ->setThursday(isset($data['thursday']) ? $data['thursday'] : null)
-            ->setFriday(isset($data['friday']) ? $data['friday'] : null)
-            ->setSaturday(isset($data['saturday']) ? $data['saturday'] : null)
-            ->setSunday(isset($data['sunday']) ? $data['sunday'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -135,26 +111,6 @@ class ScheduleDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ScheduleDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -355,6 +311,26 @@ class ScheduleDTO implements DataTransferObjectInterface
     public function getSunday()
     {
         return $this->sunday;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ScheduleDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -7,14 +7,6 @@ namespace Core\Domain\Model\MainOperator;
 interface MainOperatorInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get username
      *
      * @return string

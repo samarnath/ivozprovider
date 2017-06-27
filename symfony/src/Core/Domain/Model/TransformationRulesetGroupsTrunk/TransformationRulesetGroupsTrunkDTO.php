@@ -12,35 +12,26 @@ use Core\Application\CollectionTransformerInterface;
 class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
 
     /**
-     * @column caller_in
      * @var integer
      */
     private $callerIn;
 
     /**
-     * @column callee_in
      * @var integer
      */
     private $calleeIn;
 
     /**
-     * @column caller_out
      * @var integer
      */
     private $callerOut;
 
     /**
-     * @column callee_out
      * @var integer
      */
     private $calleeOut;
@@ -64,6 +55,11 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
      * @var integer
      */
     private $nationalNumLength;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -91,7 +87,6 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'callerIn' => $this->getCallerIn(),
             'calleeIn' => $this->getCalleeIn(),
@@ -101,34 +96,11 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
             'automatic' => $this->getAutomatic(),
             'internationalCode' => $this->getInternationalCode(),
             'nationalNumLength' => $this->getNationalNumLength(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId(),
             'countryId' => $this->getCountryId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setCallerIn(isset($data['callerIn']) ? $data['callerIn'] : null)
-            ->setCalleeIn(isset($data['calleeIn']) ? $data['calleeIn'] : null)
-            ->setCallerOut(isset($data['callerOut']) ? $data['callerOut'] : null)
-            ->setCalleeOut(isset($data['calleeOut']) ? $data['calleeOut'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setAutomatic(isset($data['automatic']) ? $data['automatic'] : null)
-            ->setInternationalCode(isset($data['internationalCode']) ? $data['internationalCode'] : null)
-            ->setNationalNumLength(isset($data['nationalNumLength']) ? $data['nationalNumLength'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -145,26 +117,6 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TransformationRulesetGroupsTrunkDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -345,6 +297,26 @@ class TransformationRulesetGroupsTrunkDTO implements DataTransferObjectInterface
     public function getNationalNumLength()
     {
         return $this->nationalNumLength;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return TransformationRulesetGroupsTrunkDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

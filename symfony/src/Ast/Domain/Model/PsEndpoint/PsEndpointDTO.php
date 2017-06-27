@@ -17,13 +17,11 @@ class PsEndpointDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column sorcery_id
      * @var string
      */
     private $sorceryId;
 
     /**
-     * @column from_domain
      * @var string
      */
     private $fromDomain;
@@ -54,13 +52,11 @@ class PsEndpointDTO implements DataTransferObjectInterface
     private $allow = 'all';
 
     /**
-     * @column direct_media
      * @var string
      */
     private $directMedia = 'yes';
 
     /**
-     * @column direct_media_method
      * @var string
      */
     private $directMediaMethod = 'update';
@@ -71,19 +67,16 @@ class PsEndpointDTO implements DataTransferObjectInterface
     private $mailboxes;
 
     /**
-     * @column pickup_group
      * @var string
      */
     private $pickupGroup;
 
     /**
-     * @column send_diversion
      * @var string
      */
     private $sendDiversion = 'yes';
 
     /**
-     * @column send_pai
      * @var string
      */
     private $sendPai = 'yes';
@@ -94,19 +87,16 @@ class PsEndpointDTO implements DataTransferObjectInterface
     private $subscribecontext = 'default';
 
     /**
-     * @column 100rel
      * @var string
      */
     private $oneHundredRel = 'no';
 
     /**
-     * @column outbound_proxy
      * @var string
      */
     private $outboundProxy;
 
     /**
-     * @column trust_id_inbound
      * @var string
      */
     private $trustIdInbound;
@@ -170,39 +160,6 @@ class PsEndpointDTO implements DataTransferObjectInterface
             'retailAccountId' => $this->getRetailAccountId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setSorceryId(isset($data['sorceryId']) ? $data['sorceryId'] : null)
-            ->setFromDomain(isset($data['fromDomain']) ? $data['fromDomain'] : null)
-            ->setAors(isset($data['aors']) ? $data['aors'] : null)
-            ->setCallerid(isset($data['callerid']) ? $data['callerid'] : null)
-            ->setContext(isset($data['context']) ? $data['context'] : null)
-            ->setDisallow(isset($data['disallow']) ? $data['disallow'] : null)
-            ->setAllow(isset($data['allow']) ? $data['allow'] : null)
-            ->setDirectMedia(isset($data['directMedia']) ? $data['directMedia'] : null)
-            ->setDirectMediaMethod(isset($data['directMediaMethod']) ? $data['directMediaMethod'] : null)
-            ->setMailboxes(isset($data['mailboxes']) ? $data['mailboxes'] : null)
-            ->setPickupGroup(isset($data['pickupGroup']) ? $data['pickupGroup'] : null)
-            ->setSendDiversion(isset($data['sendDiversion']) ? $data['sendDiversion'] : null)
-            ->setSendPai(isset($data['sendPai']) ? $data['sendPai'] : null)
-            ->setSubscribecontext(isset($data['subscribecontext']) ? $data['subscribecontext'] : null)
-            ->setOneHundredRel(isset($data['oneHundredRel']) ? $data['oneHundredRel'] : null)
-            ->setOutboundProxy(isset($data['outboundProxy']) ? $data['outboundProxy'] : null)
-            ->setTrustIdInbound(isset($data['trustIdInbound']) ? $data['trustIdInbound'] : null)
-            ->setTerminalId(isset($data['terminalId']) ? $data['terminalId'] : null)
-            ->setFriendId(isset($data['friendId']) ? $data['friendId'] : null)
-            ->setRetailAccountId(isset($data['retailAccountId']) ? $data['retailAccountId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

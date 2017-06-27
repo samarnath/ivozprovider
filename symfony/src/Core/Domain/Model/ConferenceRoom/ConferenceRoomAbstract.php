@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\ConferenceRoom;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ConferenceRoomAbstract
  */
-abstract class ConferenceRoomAbstract implements EntityInterface
+abstract class ConferenceRoomAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -48,118 +42,9 @@ abstract class ConferenceRoomAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name, $pinProtected, $maxMembers)
-    {
-        $this->setName($name);
-        $this->setPinProtected($pinProtected);
-        $this->setMaxMembers($maxMembers);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return ConferenceRoomDTO
-     */
-    public static function createDTO()
-    {
-        return new ConferenceRoomDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ConferenceRoomDTO
-         */
-        Assertion::isInstanceOf($dto, ConferenceRoomDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getPinProtected(),
-            $dto->getMaxMembers()
-        );
-
-        return $self
-            ->setPinCode($dto->getPinCode())
-            ->setCompany($dto->getCompany());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ConferenceRoomDTO
-         */
-        Assertion::isInstanceOf($dto, ConferenceRoomDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setPinProtected($dto->getPinProtected())
-            ->setPinCode($dto->getPinCode())
-            ->setMaxMembers($dto->getMaxMembers())
-            ->setCompany($dto->getCompany());
-
-
-        return $this;
-    }
-
-    /**
-     * @return ConferenceRoomDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setPinProtected($this->getPinProtected())
-            ->setPinCode($this->getPinCode())
-            ->setMaxMembers($this->getMaxMembers())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'pinProtected' => $this->getPinProtected(),
-            'pinCode' => $this->getPinCode(),
-            'maxMembers' => $this->getMaxMembers(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

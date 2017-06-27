@@ -7,67 +7,11 @@ namespace Core\Domain\Model\Country;
 interface CountryInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get code
      *
      * @return string
      */
     public function getCode();
-
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName();
-
-
-    /**
-     * Get nameEn
-     *
-     * @return string
-     */
-    public function getNameEn();
-
-
-    /**
-     * Get nameEs
-     *
-     * @return string
-     */
-    public function getNameEs();
-
-
-    /**
-     * Get zone
-     *
-     * @return string
-     */
-    public function getZone();
-
-
-    /**
-     * Get zoneEn
-     *
-     * @return string
-     */
-    public function getZoneEn();
-
-
-    /**
-     * Get zoneEs
-     *
-     * @return string
-     */
-    public function getZoneEs();
 
 
     /**
@@ -102,6 +46,20 @@ interface CountryInterface
     public function getNationalCC();
 
 
+    /**
+     * Get name
+     *
+     * @return Name
+     */
+    public function getName();
+
+
+    /**
+     * Get zone
+     *
+     * @return Zone
+     */
+    public function getZone();
 
 }
 

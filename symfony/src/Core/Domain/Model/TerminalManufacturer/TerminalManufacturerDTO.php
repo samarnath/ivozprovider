@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class TerminalManufacturerDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $iden;
@@ -32,33 +27,22 @@ class TerminalManufacturerDTO implements DataTransferObjectInterface
     private $description = '';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'iden' => $this->getIden(),
             'name' => $this->getName(),
-            'description' => $this->getDescription()
+            'description' => $this->getDescription(),
+            'id' => $this->getId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setIden(isset($data['iden']) ? $data['iden'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -74,26 +58,6 @@ class TerminalManufacturerDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TerminalManufacturerDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -154,6 +118,26 @@ class TerminalManufacturerDTO implements DataTransferObjectInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return TerminalManufacturerDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

@@ -14,16 +14,9 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @column lcr_id
-     * @var integer
-     */
     private $lcrId = '1';
 
     /**
-     * @column gw_name
      * @var string
      */
     private $gwName;
@@ -49,7 +42,6 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     private $params;
 
     /**
-     * @column uri_scheme
      * @var boolean
      */
     private $uriScheme;
@@ -85,6 +77,11 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     private $defunct;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $peerServerId;
@@ -100,7 +97,6 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'lcrId' => $this->getLcrId(),
             'gwName' => $this->getGwName(),
             'ip' => $this->getIp(),
@@ -114,36 +110,10 @@ class LcrGatewayDTO implements DataTransferObjectInterface
             'tag' => $this->getTag(),
             'flags' => $this->getFlags(),
             'defunct' => $this->getDefunct(),
+            'id' => $this->getId(),
             'peerServerId' => $this->getPeerServerId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setLcrId(isset($data['lcrId']) ? $data['lcrId'] : null)
-            ->setGwName(isset($data['gwName']) ? $data['gwName'] : null)
-            ->setIp(isset($data['ip']) ? $data['ip'] : null)
-            ->setHostname(isset($data['hostname']) ? $data['hostname'] : null)
-            ->setPort(isset($data['port']) ? $data['port'] : null)
-            ->setParams(isset($data['params']) ? $data['params'] : null)
-            ->setUriScheme(isset($data['uriScheme']) ? $data['uriScheme'] : null)
-            ->setTransport(isset($data['transport']) ? $data['transport'] : null)
-            ->setStrip(isset($data['strip']) ? $data['strip'] : null)
-            ->setPrefix(isset($data['prefix']) ? $data['prefix'] : null)
-            ->setTag(isset($data['tag']) ? $data['tag'] : null)
-            ->setFlags(isset($data['flags']) ? $data['flags'] : null)
-            ->setDefunct(isset($data['defunct']) ? $data['defunct'] : null)
-            ->setPeerServerId(isset($data['peerServerId']) ? $data['peerServerId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -159,26 +129,6 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return LcrGatewayDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -439,6 +389,26 @@ class LcrGatewayDTO implements DataTransferObjectInterface
     public function getDefunct()
     {
         return $this->defunct;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return LcrGatewayDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

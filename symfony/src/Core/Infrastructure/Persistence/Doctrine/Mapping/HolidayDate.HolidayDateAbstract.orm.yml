@@ -1,0 +1,48 @@
+Core\Domain\Model\HolidayDate\HolidayDateAbstract:
+  type: mappedSuperclass
+  indexes:
+    calendarId:
+      columns:
+        - calendarId
+    locutionId:
+      columns:
+        - locutionId
+  uniqueConstraints:
+    dateCalendar:
+      columns:
+        - eventDate
+        - calendarId
+  fields:
+    name:
+      column: name
+      type: string
+      nullable: false
+      length: 50
+      options:
+        fixed: false
+    eventDate:
+      type: date
+      nullable: false
+      column: eventDate
+  manyToOne:
+    calendar:
+      targetEntity: \Core\Domain\Model\Calendar\CalendarInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        calendarId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    locution:
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        locutionId:
+          referencedColumnName: id
+      orphanRemoval: false

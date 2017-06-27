@@ -7,14 +7,6 @@ namespace Core\Domain\Model\CompanyAdmin;
 interface CompanyAdminInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get username
      *
      * @return string

@@ -17,25 +17,21 @@ class UsersHtableDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column key_name
      * @var string
      */
     private $keyName = '';
 
     /**
-     * @column key_type
      * @var integer
      */
     private $keyType = '0';
 
     /**
-     * @column value_type
      * @var integer
      */
     private $valueType = '0';
 
     /**
-     * @column key_value
      * @var string
      */
     private $keyValue = '';
@@ -59,24 +55,6 @@ class UsersHtableDTO implements DataTransferObjectInterface
             'expires' => $this->getExpires()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setKeyName(isset($data['keyName']) ? $data['keyName'] : null)
-            ->setKeyType(isset($data['keyType']) ? $data['keyType'] : null)
-            ->setValueType(isset($data['valueType']) ? $data['valueType'] : null)
-            ->setKeyValue(isset($data['keyValue']) ? $data['keyValue'] : null)
-            ->setExpires(isset($data['expires']) ? $data['expires'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

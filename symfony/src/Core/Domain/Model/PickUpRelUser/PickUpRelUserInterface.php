@@ -7,14 +7,6 @@ namespace Core\Domain\Model\PickUpRelUser;
 interface PickUpRelUserInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get pickUpGroup
      *
      * @return \Core\Domain\Model\PickUpGroup\PickUpGroupInterface

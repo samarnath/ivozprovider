@@ -17,31 +17,26 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column presentity_uri
      * @var string
      */
     private $presentityUri;
 
     /**
-     * @column watcher_username
      * @var string
      */
     private $watcherUsername;
 
     /**
-     * @column watcher_domain
      * @var string
      */
     private $watcherDomain;
 
     /**
-     * @column to_user
      * @var string
      */
     private $toUser;
 
     /**
-     * @column to_domain
      * @var string
      */
     private $toDomain;
@@ -52,19 +47,16 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $event = 'presence';
 
     /**
-     * @column event_id
      * @var string
      */
     private $eventId;
 
     /**
-     * @column to_tag
      * @var string
      */
     private $toTag;
 
     /**
-     * @column from_tag
      * @var string
      */
     private $fromTag;
@@ -75,13 +67,11 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $callid;
 
     /**
-     * @column local_cseq
      * @var integer
      */
     private $localCseq;
 
     /**
-     * @column remote_cseq
      * @var integer
      */
     private $remoteCseq;
@@ -92,7 +82,6 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $contact;
 
     /**
-     * @column record_route
      * @var string
      */
     private $recordRoute;
@@ -118,25 +107,21 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $version = '0';
 
     /**
-     * @column socket_info
      * @var string
      */
     private $socketInfo;
 
     /**
-     * @column local_contact
      * @var string
      */
     private $localContact;
 
     /**
-     * @column from_user
      * @var string
      */
     private $fromUser;
 
     /**
-     * @column from_domain
      * @var string
      */
     private $fromDomain;
@@ -147,7 +132,6 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $updated;
 
     /**
-     * @column updated_winfo
      * @var integer
      */
     private $updatedWinfo;
@@ -158,7 +142,6 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $flags = '0';
 
     /**
-     * @column user_agent
      * @var string
      */
     private $userAgent = '';
@@ -198,45 +181,6 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
             'userAgent' => $this->getUserAgent()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setPresentityUri(isset($data['presentityUri']) ? $data['presentityUri'] : null)
-            ->setWatcherUsername(isset($data['watcherUsername']) ? $data['watcherUsername'] : null)
-            ->setWatcherDomain(isset($data['watcherDomain']) ? $data['watcherDomain'] : null)
-            ->setToUser(isset($data['toUser']) ? $data['toUser'] : null)
-            ->setToDomain(isset($data['toDomain']) ? $data['toDomain'] : null)
-            ->setEvent(isset($data['event']) ? $data['event'] : null)
-            ->setEventId(isset($data['eventId']) ? $data['eventId'] : null)
-            ->setToTag(isset($data['toTag']) ? $data['toTag'] : null)
-            ->setFromTag(isset($data['fromTag']) ? $data['fromTag'] : null)
-            ->setCallid(isset($data['callid']) ? $data['callid'] : null)
-            ->setLocalCseq(isset($data['localCseq']) ? $data['localCseq'] : null)
-            ->setRemoteCseq(isset($data['remoteCseq']) ? $data['remoteCseq'] : null)
-            ->setContact(isset($data['contact']) ? $data['contact'] : null)
-            ->setRecordRoute(isset($data['recordRoute']) ? $data['recordRoute'] : null)
-            ->setExpires(isset($data['expires']) ? $data['expires'] : null)
-            ->setStatus(isset($data['status']) ? $data['status'] : null)
-            ->setReason(isset($data['reason']) ? $data['reason'] : null)
-            ->setVersion(isset($data['version']) ? $data['version'] : null)
-            ->setSocketInfo(isset($data['socketInfo']) ? $data['socketInfo'] : null)
-            ->setLocalContact(isset($data['localContact']) ? $data['localContact'] : null)
-            ->setFromUser(isset($data['fromUser']) ? $data['fromUser'] : null)
-            ->setFromDomain(isset($data['fromDomain']) ? $data['fromDomain'] : null)
-            ->setUpdated(isset($data['updated']) ? $data['updated'] : null)
-            ->setUpdatedWinfo(isset($data['updatedWinfo']) ? $data['updatedWinfo'] : null)
-            ->setFlags(isset($data['flags']) ? $data['flags'] : null)
-            ->setUserAgent(isset($data['userAgent']) ? $data['userAgent'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

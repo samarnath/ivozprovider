@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\TrunksAddres;
 interface TrunksAddresInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get grp
      *
      * @return integer

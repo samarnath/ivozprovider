@@ -31,4 +31,9 @@ interface EntityInterface
      * @refactor rename this to __toDTO
      */
     public function toDTO();
+
+    /**
+     * @return DataTransferObjectInterface
+     */
+    public static function createDTO();
 }

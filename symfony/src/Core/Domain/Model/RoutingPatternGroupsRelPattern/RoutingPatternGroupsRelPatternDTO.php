@@ -49,21 +49,6 @@ class RoutingPatternGroupsRelPatternDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setRoutingPatternId(isset($data['routingPatternId']) ? $data['routingPatternId'] : null)
-            ->setRoutingPatternGroupId(isset($data['routingPatternGroupId']) ? $data['routingPatternGroupId'] : null);
-    }
-     */
-
-    /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)

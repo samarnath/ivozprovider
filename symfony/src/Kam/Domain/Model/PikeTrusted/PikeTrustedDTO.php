@@ -17,7 +17,6 @@ class PikeTrustedDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column src_ip
      * @var string
      */
     private $srcIp;
@@ -28,13 +27,11 @@ class PikeTrustedDTO implements DataTransferObjectInterface
     private $proto;
 
     /**
-     * @column from_pattern
      * @var string
      */
     private $fromPattern;
 
     /**
-     * @column ruri_pattern
      * @var string
      */
     private $ruriPattern;
@@ -64,25 +61,6 @@ class PikeTrustedDTO implements DataTransferObjectInterface
             'priority' => $this->getPriority()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setSrcIp(isset($data['srcIp']) ? $data['srcIp'] : null)
-            ->setProto(isset($data['proto']) ? $data['proto'] : null)
-            ->setFromPattern(isset($data['fromPattern']) ? $data['fromPattern'] : null)
-            ->setRuriPattern(isset($data['ruriPattern']) ? $data['ruriPattern'] : null)
-            ->setTag(isset($data['tag']) ? $data['tag'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

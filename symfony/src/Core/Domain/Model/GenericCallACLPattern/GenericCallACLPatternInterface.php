@@ -7,14 +7,6 @@ namespace Core\Domain\Model\GenericCallACLPattern;
 interface GenericCallACLPatternInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

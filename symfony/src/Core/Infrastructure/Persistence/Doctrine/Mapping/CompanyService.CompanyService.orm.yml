@@ -2,13 +2,6 @@ Core\Domain\Model\CompanyService\CompanyService:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CompanyServiceDoctrineRepository
   type: entity
   table: CompanyServices
-  indexes:
-    companyId:
-      columns:
-        - companyId
-    serviceId:
-      columns:
-        - serviceId
   id:
     id:
       type: integer
@@ -18,34 +11,4 @@ Core\Domain\Model\CompanyService\CompanyService:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    code:
-      type: string
-      nullable: false
-      length: 3
-      options:
-        fixed: false
-  manyToOne:
-    company:
-      targetEntity: \Core\Domain\Model\Company\CompanyInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        companyId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    service:
-      targetEntity: \Core\Domain\Model\Service\ServiceInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        serviceId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
   lifecycleCallbacks: {  }

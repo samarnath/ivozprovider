@@ -17,19 +17,16 @@ class UsersWatcherDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column presentity_uri
      * @var string
      */
     private $presentityUri;
 
     /**
-     * @column watcher_username
      * @var string
      */
     private $watcherUsername;
 
     /**
-     * @column watcher_domain
      * @var string
      */
     private $watcherDomain;
@@ -50,7 +47,6 @@ class UsersWatcherDTO implements DataTransferObjectInterface
     private $reason;
 
     /**
-     * @column inserted_time
      * @var integer
      */
     private $insertedTime;
@@ -71,26 +67,6 @@ class UsersWatcherDTO implements DataTransferObjectInterface
             'insertedTime' => $this->getInsertedTime()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setPresentityUri(isset($data['presentityUri']) ? $data['presentityUri'] : null)
-            ->setWatcherUsername(isset($data['watcherUsername']) ? $data['watcherUsername'] : null)
-            ->setWatcherDomain(isset($data['watcherDomain']) ? $data['watcherDomain'] : null)
-            ->setEvent(isset($data['event']) ? $data['event'] : null)
-            ->setStatus(isset($data['status']) ? $data['status'] : null)
-            ->setReason(isset($data['reason']) ? $data['reason'] : null)
-            ->setInsertedTime(isset($data['insertedTime']) ? $data['insertedTime'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

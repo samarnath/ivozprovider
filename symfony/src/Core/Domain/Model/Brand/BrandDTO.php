@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class BrandDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -27,25 +22,9 @@ class BrandDTO implements DataTransferObjectInterface
     private $nif;
 
     /**
-     * @column domain_users
      * @var string
      */
     private $domainUsers;
-
-    /**
-     * @var integer
-     */
-    private $logoFileSize;
-
-    /**
-     * @var string
-     */
-    private $logoMimeType;
-
-    /**
-     * @var string
-     */
-    private $logoBaseName;
 
     /**
      * @var string
@@ -98,6 +77,26 @@ class BrandDTO implements DataTransferObjectInterface
     private $recordingslimitemail;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $logoFileSize;
+
+    /**
+     * @var string
+     */
+    private $logoMimeType;
+
+    /**
+     * @var string
+     */
+    private $logoBaseName;
+
+    /**
      * @var mixed
      */
     private $languageId;
@@ -106,6 +105,16 @@ class BrandDTO implements DataTransferObjectInterface
      * @var mixed
      */
     private $defaultTimezoneId;
+
+    /**
+     * @var mixed
+     */
+    private $language;
+
+    /**
+     * @var mixed
+     */
+    private $defaultTimezone;
 
     /**
      * @var array|null
@@ -133,28 +142,14 @@ class BrandDTO implements DataTransferObjectInterface
     private $domains = null;
 
     /**
-     * @var mixed
-     */
-    private $language;
-
-    /**
-     * @var mixed
-     */
-    private $defaultTimezone;
-
-    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'nif' => $this->getNif(),
             'domainUsers' => $this->getDomainUsers(),
-            'logoFileSize' => $this->getLogoFileSize(),
-            'logoMimeType' => $this->getLogoMimeType(),
-            'logoBaseName' => $this->getLogoBaseName(),
             'postalAddress' => $this->getPostalAddress(),
             'postalCode' => $this->getPostalCode(),
             'town' => $this->getTown(),
@@ -165,57 +160,27 @@ class BrandDTO implements DataTransferObjectInterface
             'fromAddress' => $this->getFromAddress(),
             'recordingsLimitMB' => $this->getRecordingsLimitMB(),
             'recordingslimitemail' => $this->getRecordingslimitemail(),
+            'id' => $this->getId(),
+            'logoFileSize' => $this->getLogoFileSize(),
+            'logoMimeType' => $this->getLogoMimeType(),
+            'logoBaseName' => $this->getLogoBaseName(),
+            'languageId' => $this->getLanguageId(),
+            'defaultTimezoneId' => $this->getDefaultTimezoneId(),
             'operatorsId' => $this->getOperatorsId(),
             'servicesId' => $this->getServicesId(),
             'urlsId' => $this->getUrlsId(),
             'relFeaturesId' => $this->getRelFeaturesId(),
-            'domainsId' => $this->getDomainsId(),
-            'languageId' => $this->getLanguageId(),
-            'defaultTimezoneId' => $this->getDefaultTimezoneId()
+            'domainsId' => $this->getDomainsId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setNif(isset($data['nif']) ? $data['nif'] : null)
-            ->setDomainUsers(isset($data['domainUsers']) ? $data['domainUsers'] : null)
-            ->setLogoFileSize(isset($data['logoFileSize']) ? $data['logoFileSize'] : null)
-            ->setLogoMimeType(isset($data['logoMimeType']) ? $data['logoMimeType'] : null)
-            ->setLogoBaseName(isset($data['logoBaseName']) ? $data['logoBaseName'] : null)
-            ->setPostalAddress(isset($data['postalAddress']) ? $data['postalAddress'] : null)
-            ->setPostalCode(isset($data['postalCode']) ? $data['postalCode'] : null)
-            ->setTown(isset($data['town']) ? $data['town'] : null)
-            ->setProvince(isset($data['province']) ? $data['province'] : null)
-            ->setCountry(isset($data['country']) ? $data['country'] : null)
-            ->setRegistryData(isset($data['registryData']) ? $data['registryData'] : null)
-            ->setFromName(isset($data['fromName']) ? $data['fromName'] : null)
-            ->setFromAddress(isset($data['fromAddress']) ? $data['fromAddress'] : null)
-            ->setRecordingsLimitMB(isset($data['recordingsLimitMB']) ? $data['recordingsLimitMB'] : null)
-            ->setRecordingslimitemail(isset($data['recordingslimitemail']) ? $data['recordingslimitemail'] : null)
-            ->setOperators(isset($data['operators']) ? $data['operators'] : null)
-            ->setServices(isset($data['services']) ? $data['services'] : null)
-            ->setUrls(isset($data['urls']) ? $data['urls'] : null)
-            ->setRelFeatures(isset($data['relFeatures']) ? $data['relFeatures'] : null)
-            ->setDomains(isset($data['domains']) ? $data['domains'] : null)
-            ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null)
-            ->setDefaultTimezoneId(isset($data['defaultTimezoneId']) ? $data['defaultTimezoneId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
+        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\Language', $this->getLanguageId());
+        $this->defaultTimezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\Timezone', $this->getDefaultTimezoneId());
         $items = $this->getOperators();
         $this->operators = [];
         foreach ($items as $item) {
@@ -261,8 +226,6 @@ class BrandDTO implements DataTransferObjectInterface
             );
         }
 
-        $this->language = $transformer->transform('Core\\Domain\\Model\\Language\\Language', $this->getLanguageId());
-        $this->defaultTimezone = $transformer->transform('Core\\Domain\\Model\\Timezone\\Timezone', $this->getDefaultTimezoneId());
     }
 
     /**
@@ -290,26 +253,6 @@ class BrandDTO implements DataTransferObjectInterface
             'Core\\Domain\\Model\\Domain\\Domain',
             $this->domains
         );
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return BrandDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -370,66 +313,6 @@ class BrandDTO implements DataTransferObjectInterface
     public function getDomainUsers()
     {
         return $this->domainUsers;
-    }
-
-    /**
-     * @param integer $logoFileSize
-     *
-     * @return BrandDTO
-     */
-    public function setLogoFileSize($logoFileSize = null)
-    {
-        $this->logoFileSize = $logoFileSize;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getLogoFileSize()
-    {
-        return $this->logoFileSize;
-    }
-
-    /**
-     * @param string $logoMimeType
-     *
-     * @return BrandDTO
-     */
-    public function setLogoMimeType($logoMimeType = null)
-    {
-        $this->logoMimeType = $logoMimeType;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLogoMimeType()
-    {
-        return $this->logoMimeType;
-    }
-
-    /**
-     * @param string $logoBaseName
-     *
-     * @return BrandDTO
-     */
-    public function setLogoBaseName($logoBaseName = null)
-    {
-        $this->logoBaseName = $logoBaseName;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLogoBaseName()
-    {
-        return $this->logoBaseName;
     }
 
     /**
@@ -633,6 +516,142 @@ class BrandDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return BrandDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param integer $logoFileSize
+     *
+     * @return BrandDTO
+     */
+    public function setLogoFileSize($logoFileSize)
+    {
+        $this->logoFileSize = $logoFileSize;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getLogoFileSize()
+    {
+        return $this->logoFileSize;
+    }
+
+    /**
+     * @param string $logoMimeType
+     *
+     * @return BrandDTO
+     */
+    public function setLogoMimeType($logoMimeType)
+    {
+        $this->logoMimeType = $logoMimeType;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogoMimeType()
+    {
+        return $this->logoMimeType;
+    }
+
+    /**
+     * @param string $logoBaseName
+     *
+     * @return BrandDTO
+     */
+    public function setLogoBaseName($logoBaseName)
+    {
+        $this->logoBaseName = $logoBaseName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogoBaseName()
+    {
+        return $this->logoBaseName;
+    }
+
+    /**
+     * @param integer $languageId
+     *
+     * @return BrandDTO
+     */
+    public function setLanguageId($languageId)
+    {
+        $this->languageId = $languageId;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getLanguageId()
+    {
+        return $this->languageId;
+    }
+
+    /**
+     * @return \Core\Domain\Model\Language\Language
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * @param integer $defaultTimezoneId
+     *
+     * @return BrandDTO
+     */
+    public function setDefaultTimezoneId($defaultTimezoneId)
+    {
+        $this->defaultTimezoneId = $defaultTimezoneId;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getDefaultTimezoneId()
+    {
+        return $this->defaultTimezoneId;
+    }
+
+    /**
+     * @return \Core\Domain\Model\Timezone\Timezone
+     */
+    public function getDefaultTimezone()
+    {
+        return $this->defaultTimezone;
+    }
+
+    /**
      * @param array $operators
      *
      * @return BrandDTO
@@ -730,62 +749,6 @@ class BrandDTO implements DataTransferObjectInterface
     public function getDomains()
     {
         return $this->domains;
-    }
-
-    /**
-     * @param integer $languageId
-     *
-     * @return BrandDTO
-     */
-    public function setLanguageId($languageId)
-    {
-        $this->languageId = $languageId;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getLanguageId()
-    {
-        return $this->languageId;
-    }
-
-    /**
-     * @return \Core\Domain\Model\Language\Language
-     */
-    public function getLanguage()
-    {
-        return $this->language;
-    }
-
-    /**
-     * @param integer $defaultTimezoneId
-     *
-     * @return BrandDTO
-     */
-    public function setDefaultTimezoneId($defaultTimezoneId)
-    {
-        $this->defaultTimezoneId = $defaultTimezoneId;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getDefaultTimezoneId()
-    {
-        return $this->defaultTimezoneId;
-    }
-
-    /**
-     * @return \Core\Domain\Model\Timezone\Timezone
-     */
-    public function getDefaultTimezone()
-    {
-        return $this->defaultTimezone;
     }
 }
 

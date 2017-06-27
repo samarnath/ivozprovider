@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class CallACLDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -25,6 +20,11 @@ class CallACLDTO implements DataTransferObjectInterface
      * @var string
      */
     private $defaultPolicy;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -42,28 +42,12 @@ class CallACLDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'defaultPolicy' => $this->getDefaultPolicy(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDefaultPolicy(isset($data['defaultPolicy']) ? $data['defaultPolicy'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -79,26 +63,6 @@ class CallACLDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return CallACLDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -139,6 +103,26 @@ class CallACLDTO implements DataTransferObjectInterface
     public function getDefaultPolicy()
     {
         return $this->defaultPolicy;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return CallACLDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

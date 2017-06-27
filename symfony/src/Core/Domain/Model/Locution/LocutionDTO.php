@@ -12,29 +12,19 @@ use Core\Application\CollectionTransformerInterface;
 class LocutionDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
 
     /**
+     * @var string
+     */
+    private $status;
+
+    /**
      * @var integer
      */
-    private $originalFileFileSize;
-
-    /**
-     * @var string
-     */
-    private $originalFileMimeType;
-
-    /**
-     * @var string
-     */
-    private $originalFileBaseName;
+    private $id;
 
     /**
      * @var integer
@@ -52,9 +42,19 @@ class LocutionDTO implements DataTransferObjectInterface
     private $encodedFileBaseName;
 
     /**
+     * @var integer
+     */
+    private $originalFileFileSize;
+
+    /**
      * @var string
      */
-    private $status;
+    private $originalFileMimeType;
+
+    /**
+     * @var string
+     */
+    private $originalFileBaseName;
 
     /**
      * @var mixed
@@ -72,40 +72,18 @@ class LocutionDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
-            'originalFileFileSize' => $this->getOriginalFileFileSize(),
-            'originalFileMimeType' => $this->getOriginalFileMimeType(),
-            'originalFileBaseName' => $this->getOriginalFileBaseName(),
+            'status' => $this->getStatus(),
+            'id' => $this->getId(),
             'encodedFileFileSize' => $this->getEncodedFileFileSize(),
             'encodedFileMimeType' => $this->getEncodedFileMimeType(),
             'encodedFileBaseName' => $this->getEncodedFileBaseName(),
-            'status' => $this->getStatus(),
+            'originalFileFileSize' => $this->getOriginalFileFileSize(),
+            'originalFileMimeType' => $this->getOriginalFileMimeType(),
+            'originalFileBaseName' => $this->getOriginalFileBaseName(),
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setOriginalFileFileSize(isset($data['originalFileFileSize']) ? $data['originalFileFileSize'] : null)
-            ->setOriginalFileMimeType(isset($data['originalFileMimeType']) ? $data['originalFileMimeType'] : null)
-            ->setOriginalFileBaseName(isset($data['originalFileBaseName']) ? $data['originalFileBaseName'] : null)
-            ->setEncodedFileFileSize(isset($data['encodedFileFileSize']) ? $data['encodedFileFileSize'] : null)
-            ->setEncodedFileMimeType(isset($data['encodedFileMimeType']) ? $data['encodedFileMimeType'] : null)
-            ->setEncodedFileBaseName(isset($data['encodedFileBaseName']) ? $data['encodedFileBaseName'] : null)
-            ->setStatus(isset($data['status']) ? $data['status'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -121,26 +99,6 @@ class LocutionDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return LocutionDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -164,13 +122,33 @@ class LocutionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param integer $originalFileFileSize
+     * @param string $status
      *
      * @return LocutionDTO
      */
-    public function setOriginalFileFileSize($originalFileFileSize = null)
+    public function setStatus($status = null)
     {
-        $this->originalFileFileSize = $originalFileFileSize;
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return LocutionDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }
@@ -178,49 +156,9 @@ class LocutionDTO implements DataTransferObjectInterface
     /**
      * @return integer
      */
-    public function getOriginalFileFileSize()
+    public function getId()
     {
-        return $this->originalFileFileSize;
-    }
-
-    /**
-     * @param string $originalFileMimeType
-     *
-     * @return LocutionDTO
-     */
-    public function setOriginalFileMimeType($originalFileMimeType = null)
-    {
-        $this->originalFileMimeType = $originalFileMimeType;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOriginalFileMimeType()
-    {
-        return $this->originalFileMimeType;
-    }
-
-    /**
-     * @param string $originalFileBaseName
-     *
-     * @return LocutionDTO
-     */
-    public function setOriginalFileBaseName($originalFileBaseName = null)
-    {
-        $this->originalFileBaseName = $originalFileBaseName;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOriginalFileBaseName()
-    {
-        return $this->originalFileBaseName;
+        return $this->id;
     }
 
     /**
@@ -228,7 +166,7 @@ class LocutionDTO implements DataTransferObjectInterface
      *
      * @return LocutionDTO
      */
-    public function setEncodedFileFileSize($encodedFileFileSize = null)
+    public function setEncodedFileFileSize($encodedFileFileSize)
     {
         $this->encodedFileFileSize = $encodedFileFileSize;
 
@@ -248,7 +186,7 @@ class LocutionDTO implements DataTransferObjectInterface
      *
      * @return LocutionDTO
      */
-    public function setEncodedFileMimeType($encodedFileMimeType = null)
+    public function setEncodedFileMimeType($encodedFileMimeType)
     {
         $this->encodedFileMimeType = $encodedFileMimeType;
 
@@ -268,7 +206,7 @@ class LocutionDTO implements DataTransferObjectInterface
      *
      * @return LocutionDTO
      */
-    public function setEncodedFileBaseName($encodedFileBaseName = null)
+    public function setEncodedFileBaseName($encodedFileBaseName)
     {
         $this->encodedFileBaseName = $encodedFileBaseName;
 
@@ -284,13 +222,33 @@ class LocutionDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param string $status
+     * @param integer $originalFileFileSize
      *
      * @return LocutionDTO
      */
-    public function setStatus($status = null)
+    public function setOriginalFileFileSize($originalFileFileSize)
     {
-        $this->status = $status;
+        $this->originalFileFileSize = $originalFileFileSize;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getOriginalFileFileSize()
+    {
+        return $this->originalFileFileSize;
+    }
+
+    /**
+     * @param string $originalFileMimeType
+     *
+     * @return LocutionDTO
+     */
+    public function setOriginalFileMimeType($originalFileMimeType)
+    {
+        $this->originalFileMimeType = $originalFileMimeType;
 
         return $this;
     }
@@ -298,9 +256,29 @@ class LocutionDTO implements DataTransferObjectInterface
     /**
      * @return string
      */
-    public function getStatus()
+    public function getOriginalFileMimeType()
     {
-        return $this->status;
+        return $this->originalFileMimeType;
+    }
+
+    /**
+     * @param string $originalFileBaseName
+     *
+     * @return LocutionDTO
+     */
+    public function setOriginalFileBaseName($originalFileBaseName)
+    {
+        $this->originalFileBaseName = $originalFileBaseName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOriginalFileBaseName()
+    {
+        return $this->originalFileBaseName;
     }
 
     /**

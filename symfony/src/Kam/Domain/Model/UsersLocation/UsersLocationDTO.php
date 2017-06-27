@@ -67,7 +67,6 @@ class UsersLocationDTO implements DataTransferObjectInterface
     private $cseq = '1';
 
     /**
-     * @column last_modified
      * @var \DateTime
      */
     private $lastModified = '1900-01-01 00:00:01';
@@ -83,7 +82,6 @@ class UsersLocationDTO implements DataTransferObjectInterface
     private $cflags = '0';
 
     /**
-     * @column user_agent
      * @var string
      */
     private $userAgent = '';
@@ -104,19 +102,16 @@ class UsersLocationDTO implements DataTransferObjectInterface
     private $instance;
 
     /**
-     * @column reg_id
      * @var integer
      */
     private $regId = '0';
 
     /**
-     * @column server_id
      * @var integer
      */
     private $serverId = '0';
 
     /**
-     * @column connection_id
      * @var integer
      */
     private $connectionId = '0';
@@ -162,41 +157,6 @@ class UsersLocationDTO implements DataTransferObjectInterface
             'partition' => $this->getPartition()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setRuid(isset($data['ruid']) ? $data['ruid'] : null)
-            ->setUsername(isset($data['username']) ? $data['username'] : null)
-            ->setDomain(isset($data['domain']) ? $data['domain'] : null)
-            ->setContact(isset($data['contact']) ? $data['contact'] : null)
-            ->setReceived(isset($data['received']) ? $data['received'] : null)
-            ->setPath(isset($data['path']) ? $data['path'] : null)
-            ->setExpires(isset($data['expires']) ? $data['expires'] : null)
-            ->setQ(isset($data['q']) ? $data['q'] : null)
-            ->setCallid(isset($data['callid']) ? $data['callid'] : null)
-            ->setCseq(isset($data['cseq']) ? $data['cseq'] : null)
-            ->setLastModified(isset($data['lastModified']) ? $data['lastModified'] : null)
-            ->setFlags(isset($data['flags']) ? $data['flags'] : null)
-            ->setCflags(isset($data['cflags']) ? $data['cflags'] : null)
-            ->setUserAgent(isset($data['userAgent']) ? $data['userAgent'] : null)
-            ->setSocket(isset($data['socket']) ? $data['socket'] : null)
-            ->setMethods(isset($data['methods']) ? $data['methods'] : null)
-            ->setInstance(isset($data['instance']) ? $data['instance'] : null)
-            ->setRegId(isset($data['regId']) ? $data['regId'] : null)
-            ->setServerId(isset($data['serverId']) ? $data['serverId'] : null)
-            ->setConnectionId(isset($data['connectionId']) ? $data['connectionId'] : null)
-            ->setKeepalive(isset($data['keepalive']) ? $data['keepalive'] : null)
-            ->setPartition(isset($data['partition']) ? $data['partition'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

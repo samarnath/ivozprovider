@@ -49,21 +49,6 @@ class PickUpRelUserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setPickUpGroupId(isset($data['pickUpGroupId']) ? $data['pickUpGroupId'] : null)
-            ->setUserId(isset($data['userId']) ? $data['userId'] : null);
-    }
-     */
-
-    /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)

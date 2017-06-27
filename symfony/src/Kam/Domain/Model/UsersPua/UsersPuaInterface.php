@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersPua;
 interface UsersPuaInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get presUri
      *
      * @return string

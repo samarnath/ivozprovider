@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Recording;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * RecordingAbstract
  */
-abstract class RecordingAbstract implements EntityInterface
+abstract class RecordingAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -53,20 +47,9 @@ abstract class RecordingAbstract implements EntityInterface
     protected $recorder;
 
     /**
-     * @comment FSO:keepExtension
-     * @var integer
+     * @var \Core\Domain\Model\Recording\RecordedFile
      */
-    protected $recordedFileFileSize;
-
-    /**
-     * @var string
-     */
-    protected $recordedFileMimeType;
-
-    /**
-     * @var string
-     */
-    protected $recordedFileBaseName;
+    protected $recordedFile;
 
     /**
      * @var \Core\Domain\Model\Company\CompanyInterface
@@ -80,142 +63,9 @@ abstract class RecordingAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($calldate, $type, $duration)
-    {
-        $this->setCalldate($calldate);
-        $this->setType($type);
-        $this->setDuration($duration);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return RecordingDTO
-     */
-    public static function createDTO()
-    {
-        return new RecordingDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto RecordingDTO
-         */
-        Assertion::isInstanceOf($dto, RecordingDTO::class);
-
-        $self = new static(
-            $dto->getCalldate(),
-            $dto->getType(),
-            $dto->getDuration()
-        );
-
-        return $self
-            ->setCallid($dto->getCallid())
-            ->setCaller($dto->getCaller())
-            ->setCallee($dto->getCallee())
-            ->setRecorder($dto->getRecorder())
-            ->setRecordedFileFileSize($dto->getRecordedFileFileSize())
-            ->setRecordedFileMimeType($dto->getRecordedFileMimeType())
-            ->setRecordedFileBaseName($dto->getRecordedFileBaseName())
-            ->setCompany($dto->getCompany());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto RecordingDTO
-         */
-        Assertion::isInstanceOf($dto, RecordingDTO::class);
-
-        $this
-            ->setCallid($dto->getCallid())
-            ->setCalldate($dto->getCalldate())
-            ->setType($dto->getType())
-            ->setDuration($dto->getDuration())
-            ->setCaller($dto->getCaller())
-            ->setCallee($dto->getCallee())
-            ->setRecorder($dto->getRecorder())
-            ->setRecordedFileFileSize($dto->getRecordedFileFileSize())
-            ->setRecordedFileMimeType($dto->getRecordedFileMimeType())
-            ->setRecordedFileBaseName($dto->getRecordedFileBaseName())
-            ->setCompany($dto->getCompany());
-
-
-        return $this;
-    }
-
-    /**
-     * @return RecordingDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setCallid($this->getCallid())
-            ->setCalldate($this->getCalldate())
-            ->setType($this->getType())
-            ->setDuration($this->getDuration())
-            ->setCaller($this->getCaller())
-            ->setCallee($this->getCallee())
-            ->setRecorder($this->getRecorder())
-            ->setRecordedFileFileSize($this->getRecordedFileFileSize())
-            ->setRecordedFileMimeType($this->getRecordedFileMimeType())
-            ->setRecordedFileBaseName($this->getRecordedFileBaseName())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'callid' => $this->getCallid(),
-            'calldate' => $this->getCalldate(),
-            'type' => $this->getType(),
-            'duration' => $this->getDuration(),
-            'caller' => $this->getCaller(),
-            'callee' => $this->getCallee(),
-            'recorder' => $this->getRecorder(),
-            'recordedFileFileSize' => $this->getRecordedFileFileSize(),
-            'recordedFileMimeType' => $this->getRecordedFileMimeType(),
-            'recordedFileBaseName' => $this->getRecordedFileBaseName(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set callid
@@ -311,7 +161,7 @@ abstract class RecordingAbstract implements EntityInterface
     protected function setDuration($duration)
     {
         Assertion::notNull($duration);
-        //Assertion::float($duration);
+        Assertion::numeric($duration);
 
         $this->duration = $duration;
 
@@ -413,93 +263,6 @@ abstract class RecordingAbstract implements EntityInterface
     }
 
     /**
-     * Set recordedFileFileSize
-     *
-     * @param integer $recordedFileFileSize
-     *
-     * @return self
-     */
-    protected function setRecordedFileFileSize($recordedFileFileSize = null)
-    {
-        if (!is_null($recordedFileFileSize)) {
-            if (!is_null($recordedFileFileSize)) {
-                Assertion::integerish($recordedFileFileSize);
-                Assertion::greaterOrEqualThan($recordedFileFileSize, 0);
-            }
-        }
-
-        $this->recordedFileFileSize = $recordedFileFileSize;
-
-        return $this;
-    }
-
-    /**
-     * Get recordedFileFileSize
-     *
-     * @return integer
-     */
-    public function getRecordedFileFileSize()
-    {
-        return $this->recordedFileFileSize;
-    }
-
-    /**
-     * Set recordedFileMimeType
-     *
-     * @param string $recordedFileMimeType
-     *
-     * @return self
-     */
-    protected function setRecordedFileMimeType($recordedFileMimeType = null)
-    {
-        if (!is_null($recordedFileMimeType)) {
-            Assertion::maxLength($recordedFileMimeType, 80);
-        }
-
-        $this->recordedFileMimeType = $recordedFileMimeType;
-
-        return $this;
-    }
-
-    /**
-     * Get recordedFileMimeType
-     *
-     * @return string
-     */
-    public function getRecordedFileMimeType()
-    {
-        return $this->recordedFileMimeType;
-    }
-
-    /**
-     * Set recordedFileBaseName
-     *
-     * @param string $recordedFileBaseName
-     *
-     * @return self
-     */
-    protected function setRecordedFileBaseName($recordedFileBaseName = null)
-    {
-        if (!is_null($recordedFileBaseName)) {
-            Assertion::maxLength($recordedFileBaseName, 255);
-        }
-
-        $this->recordedFileBaseName = $recordedFileBaseName;
-
-        return $this;
-    }
-
-    /**
-     * Get recordedFileBaseName
-     *
-     * @return string
-     */
-    public function getRecordedFileBaseName()
-    {
-        return $this->recordedFileBaseName;
-    }
-
-    /**
      * Set company
      *
      * @param \Core\Domain\Model\Company\CompanyInterface $company
@@ -523,7 +286,29 @@ abstract class RecordingAbstract implements EntityInterface
         return $this->company;
     }
 
+    /**
+     * Set recordedFile
+     *
+     * @param RecordedFile $recordedFile
+     *
+     * @return self
+     */
+    protected function setRecordedFile(RecordedFile $recordedFile)
+    {
+        $this->recordedFile = $recordedFile;
 
+        return $this;
+    }
+
+    /**
+     * Get recordedFile
+     *
+     * @return RecordedFile
+     */
+    public function getRecordedFile()
+    {
+        return $this->recordedFile;
+    }
 
     // @codeCoverageIgnoreEnd
 }

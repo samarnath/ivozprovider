@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\Dispatcher;
 interface DispatcherInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get setid
      *
      * @return integer

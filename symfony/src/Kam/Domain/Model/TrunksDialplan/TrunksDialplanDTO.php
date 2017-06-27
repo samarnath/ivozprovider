@@ -27,31 +27,26 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     private $pr;
 
     /**
-     * @column match_op
      * @var integer
      */
     private $matchOp;
 
     /**
-     * @column match_exp
      * @var string
      */
     private $matchExp;
 
     /**
-     * @column match_len
      * @var integer
      */
     private $matchLen;
 
     /**
-     * @column subst_exp
      * @var string
      */
     private $substExp;
 
     /**
-     * @column repl_exp
      * @var string
      */
     private $replExp;
@@ -89,28 +84,6 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
             'transformationRulesetGroupsTrunkId' => $this->getTransformationRulesetGroupsTrunkId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setDpid(isset($data['dpid']) ? $data['dpid'] : null)
-            ->setPr(isset($data['pr']) ? $data['pr'] : null)
-            ->setMatchOp(isset($data['matchOp']) ? $data['matchOp'] : null)
-            ->setMatchExp(isset($data['matchExp']) ? $data['matchExp'] : null)
-            ->setMatchLen(isset($data['matchLen']) ? $data['matchLen'] : null)
-            ->setSubstExp(isset($data['substExp']) ? $data['substExp'] : null)
-            ->setReplExp(isset($data['replExp']) ? $data['replExp'] : null)
-            ->setAttrs(isset($data['attrs']) ? $data['attrs'] : null)
-            ->setTransformationRulesetGroupsTrunkId(isset($data['transformationRulesetGroupsTrunkId']) ? $data['transformationRulesetGroupsTrunkId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

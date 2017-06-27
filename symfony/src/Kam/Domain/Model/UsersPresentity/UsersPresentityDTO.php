@@ -42,7 +42,6 @@ class UsersPresentityDTO implements DataTransferObjectInterface
     private $expires;
 
     /**
-     * @column received_time
      * @var integer
      */
     private $receivedTime;
@@ -80,28 +79,6 @@ class UsersPresentityDTO implements DataTransferObjectInterface
             'priority' => $this->getPriority()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setUsername(isset($data['username']) ? $data['username'] : null)
-            ->setDomain(isset($data['domain']) ? $data['domain'] : null)
-            ->setEvent(isset($data['event']) ? $data['event'] : null)
-            ->setEtag(isset($data['etag']) ? $data['etag'] : null)
-            ->setExpires(isset($data['expires']) ? $data['expires'] : null)
-            ->setReceivedTime(isset($data['receivedTime']) ? $data['receivedTime'] : null)
-            ->setBody(isset($data['body']) ? $data['body'] : null)
-            ->setSender(isset($data['sender']) ? $data['sender'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\LcrRuleTarget;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * LcrRuleTargetAbstract
  */
-abstract class LcrRuleTargetAbstract implements EntityInterface
+abstract class LcrRuleTargetAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @column lcr_id
      * @var integer
@@ -54,122 +48,9 @@ abstract class LcrRuleTargetAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($lcrId, $priority, $weight)
-    {
-        $this->setLcrId($lcrId);
-        $this->setPriority($priority);
-        $this->setWeight($weight);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return LcrRuleTargetDTO
-     */
-    public static function createDTO()
-    {
-        return new LcrRuleTargetDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto LcrRuleTargetDTO
-         */
-        Assertion::isInstanceOf($dto, LcrRuleTargetDTO::class);
-
-        $self = new static(
-            $dto->getLcrId(),
-            $dto->getPriority(),
-            $dto->getWeight()
-        );
-
-        return $self
-            ->setRule($dto->getRule())
-            ->setGw($dto->getGw())
-            ->setOutgoingRouting($dto->getOutgoingRouting());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto LcrRuleTargetDTO
-         */
-        Assertion::isInstanceOf($dto, LcrRuleTargetDTO::class);
-
-        $this
-            ->setLcrId($dto->getLcrId())
-            ->setPriority($dto->getPriority())
-            ->setWeight($dto->getWeight())
-            ->setRule($dto->getRule())
-            ->setGw($dto->getGw())
-            ->setOutgoingRouting($dto->getOutgoingRouting());
-
-
-        return $this;
-    }
-
-    /**
-     * @return LcrRuleTargetDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setLcrId($this->getLcrId())
-            ->setPriority($this->getPriority())
-            ->setWeight($this->getWeight())
-            ->setRuleId($this->getRule() ? $this->getRule()->getId() : null)
-            ->setGwId($this->getGw() ? $this->getGw()->getId() : null)
-            ->setOutgoingRoutingId($this->getOutgoingRouting() ? $this->getOutgoingRouting()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'lcrId' => $this->getLcrId(),
-            'priority' => $this->getPriority(),
-            'weight' => $this->getWeight(),
-            'ruleId' => $this->getRule() ? $this->getRule()->getId() : null,
-            'gwId' => $this->getGw() ? $this->getGw()->getId() : null,
-            'outgoingRoutingId' => $this->getOutgoingRouting() ? $this->getOutgoingRouting()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set lcrId

@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\UsersPresentity;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersPresentityAbstract
  */
-abstract class UsersPresentityAbstract implements EntityInterface
+abstract class UsersPresentityAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -69,149 +63,9 @@ abstract class UsersPresentityAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $username,
-        $domain,
-        $event,
-        $etag,
-        $expires,
-        $receivedTime,
-        $body,
-        $sender,
-        $priority
-    ) {
-        $this->setUsername($username);
-        $this->setDomain($domain);
-        $this->setEvent($event);
-        $this->setEtag($etag);
-        $this->setExpires($expires);
-        $this->setReceivedTime($receivedTime);
-        $this->setBody($body);
-        $this->setSender($sender);
-        $this->setPriority($priority);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return UsersPresentityDTO
-     */
-    public static function createDTO()
-    {
-        return new UsersPresentityDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UsersPresentityDTO
-         */
-        Assertion::isInstanceOf($dto, UsersPresentityDTO::class);
-
-        $self = new static(
-            $dto->getUsername(),
-            $dto->getDomain(),
-            $dto->getEvent(),
-            $dto->getEtag(),
-            $dto->getExpires(),
-            $dto->getReceivedTime(),
-            $dto->getBody(),
-            $dto->getSender(),
-            $dto->getPriority()
-        );
-
-        return $self;
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UsersPresentityDTO
-         */
-        Assertion::isInstanceOf($dto, UsersPresentityDTO::class);
-
-        $this
-            ->setUsername($dto->getUsername())
-            ->setDomain($dto->getDomain())
-            ->setEvent($dto->getEvent())
-            ->setEtag($dto->getEtag())
-            ->setExpires($dto->getExpires())
-            ->setReceivedTime($dto->getReceivedTime())
-            ->setBody($dto->getBody())
-            ->setSender($dto->getSender())
-            ->setPriority($dto->getPriority());
-
-
-        return $this;
-    }
-
-    /**
-     * @return UsersPresentityDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setUsername($this->getUsername())
-            ->setDomain($this->getDomain())
-            ->setEvent($this->getEvent())
-            ->setEtag($this->getEtag())
-            ->setExpires($this->getExpires())
-            ->setReceivedTime($this->getReceivedTime())
-            ->setBody($this->getBody())
-            ->setSender($this->getSender())
-            ->setPriority($this->getPriority());
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'username' => $this->getUsername(),
-            'domain' => $this->getDomain(),
-            'event' => $this->getEvent(),
-            'etag' => $this->getEtag(),
-            'expires' => $this->getExpires(),
-            'receivedTime' => $this->getReceivedTime(),
-            'body' => $this->getBody(),
-            'sender' => $this->getSender(),
-            'priority' => $this->getPriority()
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set username

@@ -12,40 +12,129 @@ use Doctrine\Common\Util\Inflector;
  *
  * @author Mikel Madariaga <mikel@irontec.com>
  */
-class EntityGenerator extends ParentGenerator
+class EntityGenerator extends AbstractEntityGenerator
 {
+    protected $skipEmbeddedMethods = true;
+    protected $codeCoverageIgnoreBlock = false;
+
+    /**
+     * @var string
+     */
+    protected static $constructorMethodTemplate =
+        '
+/**
+ * Changelog tracking purpose
+ * @var array
+ */
+protected $_initialValues = [];
+
+/**
+ * Constructor
+ */
+public function __construct(<requiredFields>)<lineBreak>{
+<requiredFieldsSetters><collections>
+}
+
+public function __wakeup()
+{
+    if ($this->id) {
+        $this->_initialValues = $this->__toArray();
+    }
+    // Do nothing: Doctrines requirement
+}
+
+/**
+ * @return <dtoClass>
+ */
+public static function createDTO()
+{
+    return new <dtoClass>();
+}
+
+/**
+ * Factory method
+ * @param DataTransferObjectInterface $dto
+ * @return self
+ */
+public static function fromDTO(DataTransferObjectInterface $dto)
+{
+    /**
+     * @var $dto <dtoClass>
+     */
+    Assertion::isInstanceOf($dto, <dtoClass>::class);
+<voContructor>
+    $self = new self(<requiredFieldsGetters>);
+
+    return $self<fromDTO>;
+}
+
+/**
+ * @param DataTransferObjectInterface $dto
+ * @return self
+ */
+public function updateFromDTO(DataTransferObjectInterface $dto)
+{
+    /**
+     * @var $dto <dtoClass>
+     */
+    Assertion::isInstanceOf($dto, <dtoClass>::class);
+<voContructor>
+    <updateFromDTO>
+    return $this;
+}
+
+/**
+ * @return <dtoClass>
+ */
+public function toDTO()
+{
+    return self::createDTO()<toDTO>;
+}
+
+/**
+ * @return array
+ */
+protected function __toArray()
+{
+    return [<toArray>];
+}
+
+';
+
     /**
      * {@inheritDoc}
      */
-    public function generateEntityClass(ClassMetadataInfo $metadata)
+    protected function generateEntityFieldMappingProperties(ClassMetadataInfo $metadata)
     {
-        $placeHolders = array(
-            '<namespace>',
-            '<useStatement>',
-            '<entityAnnotation>',
-            '<entityClassName>',
-            '<entityBody>'
-        );
+        $lines = array();
 
-        $this->setFieldVisibility(self::FIELD_VISIBLE_PROTECTED);
+        foreach ($metadata->fieldMappings as $fieldMapping) {
 
-        $replacements = array(
-            $this->generateEntityNamespace($metadata),
-            '',
-            $this->generateEntityDocBlock($metadata),
-            $this->generateEntityClassName($metadata),
-            ''
-        );
+            if (isset($fieldMapping['declared'])) {
+                continue;
+            }
 
-        $code = str_replace($placeHolders, $replacements, static::$classTemplate) . "\n";
-        return str_replace('<spaces>', $this->spaces, $code);
+            if ($this->hasProperty($fieldMapping['fieldName'], $metadata) ||
+                $metadata->isInheritedField($fieldMapping['fieldName']) ||
+                (
+                    isset($fieldMapping['declaredField']) &&
+                    isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
+                )
+            ) {
+                continue;
+            }
+
+            $lines[] = $this->generateFieldMappingPropertyDocBlock($fieldMapping, $metadata);
+            $lines[] = $this->spaces . $this->fieldVisibility . ' $' . $fieldMapping['fieldName']
+                . (isset($fieldMapping['options']['default']) ? ' = ' . var_export($fieldMapping['options']['default'], true) : null) . ";\n";
+        }
+
+        return implode("\n", $lines);
     }
 
 
     /**
-     * @param ClassMetadataInfo $metadata
-     *
-     * @return string
+     * {@inheritDoc}
      */
     protected function generateEntityClassName(ClassMetadataInfo $metadata)
     {
@@ -54,7 +143,7 @@ class EntityGenerator extends ParentGenerator
             . $className
             . ' extends '
             . $className . 'Abstract'
-            . ' implements ' . $className . 'Interface';
+            . ' implements ' . $className . 'Interface, EntityInterface';
 
         return $class;
     }

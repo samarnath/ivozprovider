@@ -1,0 +1,32 @@
+Core\Domain\Model\PickUpRelUser\PickUpRelUserAbstract:
+  type: mappedSuperclass
+  indexes:
+    pickUpGroupId:
+      columns:
+        - pickUpGroupId
+    userId:
+      columns:
+        - userId
+  manyToOne:
+    pickUpGroup:
+      targetEntity: \Core\Domain\Model\PickUpGroup\PickUpGroupInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        pickUpGroupId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    user:
+      targetEntity: \Core\Domain\Model\User\UserInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        userId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

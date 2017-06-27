@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class OutgoingRoutingDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $type = 'group';
@@ -30,6 +25,11 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
      * @var integer
      */
     private $weight = '1';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -87,10 +87,10 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'type' => $this->getType(),
             'priority' => $this->getPriority(),
             'weight' => $this->getWeight(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId(),
             'companyId' => $this->getCompanyId(),
             'peeringContractId' => $this->getPeeringContractId(),
@@ -98,27 +98,6 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
             'routingPatternGroupId' => $this->getRoutingPatternGroupId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setType(isset($data['type']) ? $data['type'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null)
-            ->setWeight(isset($data['weight']) ? $data['weight'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setPeeringContractId(isset($data['peeringContractId']) ? $data['peeringContractId'] : null)
-            ->setRoutingPatternId(isset($data['routingPatternId']) ? $data['routingPatternId'] : null)
-            ->setRoutingPatternGroupId(isset($data['routingPatternGroupId']) ? $data['routingPatternGroupId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -138,26 +117,6 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return OutgoingRoutingDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -218,6 +177,26 @@ class OutgoingRoutingDTO implements DataTransferObjectInterface
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return OutgoingRoutingDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

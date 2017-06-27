@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\CompanyService;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CompanyServiceAbstract
  */
-abstract class CompanyServiceAbstract implements EntityInterface
+abstract class CompanyServiceAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -38,108 +32,9 @@ abstract class CompanyServiceAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($code)
-    {
-        $this->setCode($code);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return CompanyServiceDTO
-     */
-    public static function createDTO()
-    {
-        return new CompanyServiceDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CompanyServiceDTO
-         */
-        Assertion::isInstanceOf($dto, CompanyServiceDTO::class);
-
-        $self = new static(
-            $dto->getCode()
-        );
-
-        return $self
-            ->setCompany($dto->getCompany())
-            ->setService($dto->getService());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CompanyServiceDTO
-         */
-        Assertion::isInstanceOf($dto, CompanyServiceDTO::class);
-
-        $this
-            ->setCode($dto->getCode())
-            ->setCompany($dto->getCompany())
-            ->setService($dto->getService());
-
-
-        return $this;
-    }
-
-    /**
-     * @return CompanyServiceDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setCode($this->getCode())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setServiceId($this->getService() ? $this->getService()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'code' => $this->getCode(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'serviceId' => $this->getService() ? $this->getService()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set code

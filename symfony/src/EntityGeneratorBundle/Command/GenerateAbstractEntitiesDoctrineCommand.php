@@ -3,7 +3,7 @@
 namespace EntityGeneratorBundle\Command;
 
 use Doctrine\Bundle\DoctrineBundle\Command\GenerateEntitiesDoctrineCommand as ParentCommand;
-use EntityGeneratorBundle\Tools\SuperClassGenerator;
+use EntityGeneratorBundle\Tools\AbstractEntityGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -12,17 +12,27 @@ use Symfony\Component\Console\Input\InputOption;
  *
  * @author Mikel Madariaga <mikel@irontec.com>
  */
-class GenerateSuperclassDoctrineCommand extends ParentCommand
+class GenerateAbstractEntitiesDoctrineCommand extends ParentCommand
 {
+    use ExecuteGeneratorTrait;
+
+    public function __construct($name = null)
+    {
+        $this->injectEmbeddedClasses = true;
+        $this->skipEntities = true;
+
+        return parent::__construct($name = null);
+    }
+
     /**
      * {@inheritDoc}
      */
     protected function configure()
     {
         $this
-            ->setName('provider:generate:superclasses')
-            ->setAliases(array('generate:provider:superclasses'))
-            ->setDescription('Generates entity abstract superclasses and method stubs from your mapping information')
+            ->setName('provider:generate:entities:abstract')
+            ->setAliases(array('generate:provider:entities:abstract'))
+            ->setDescription('Generates entity abstract classes and method stubs from your mapping information')
             ->addArgument(
                 'name',
                 InputArgument::REQUIRED,
@@ -51,7 +61,7 @@ class GenerateSuperclassDoctrineCommand extends ParentCommand
      */
     protected function getEntityGenerator()
     {
-        $entityGenerator = new SuperClassGenerator();
+        $entityGenerator = new AbstractEntityGenerator();
         $entityGenerator->setGenerateAnnotations(false);
         $entityGenerator->setGenerateStubMethods(true);
         $entityGenerator->setRegenerateEntityIfExists(true);

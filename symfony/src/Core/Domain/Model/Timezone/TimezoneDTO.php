@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class TimezoneDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $tz;
@@ -29,19 +24,12 @@ class TimezoneDTO implements DataTransferObjectInterface
     /**
      * @var string
      */
-    private $timeZoneLabel = '';
+    private $timeZoneLabel;
 
     /**
-     * @column timeZoneLabel_en
-     * @var string
+     * @var integer
      */
-    private $timeZoneLabelEn = '';
-
-    /**
-     * @column timeZoneLabel_es
-     * @var string
-     */
-    private $timeZoneLabelEs = '';
+    private $id;
 
     /**
      * @var mixed
@@ -59,34 +47,13 @@ class TimezoneDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'tz' => $this->getTz(),
             'comment' => $this->getComment(),
             'timeZoneLabel' => $this->getTimeZoneLabel(),
-            'timeZoneLabelEn' => $this->getTimeZoneLabelEn(),
-            'timeZoneLabelEs' => $this->getTimeZoneLabelEs(),
+            'id' => $this->getId(),
             'countryId' => $this->getCountryId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setTz(isset($data['tz']) ? $data['tz'] : null)
-            ->setComment(isset($data['comment']) ? $data['comment'] : null)
-            ->setTimeZoneLabel(isset($data['timeZoneLabel']) ? $data['timeZoneLabel'] : null)
-            ->setTimeZoneLabelEn(isset($data['timeZoneLabelEn']) ? $data['timeZoneLabelEn'] : null)
-            ->setTimeZoneLabelEs(isset($data['timeZoneLabelEs']) ? $data['timeZoneLabelEs'] : null)
-            ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -102,26 +69,6 @@ class TimezoneDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TimezoneDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -185,43 +132,23 @@ class TimezoneDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param string $timeZoneLabelEn
+     * @param integer $id
      *
      * @return TimezoneDTO
      */
-    public function setTimeZoneLabelEn($timeZoneLabelEn)
+    public function setId($id)
     {
-        $this->timeZoneLabelEn = $timeZoneLabelEn;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return integer
      */
-    public function getTimeZoneLabelEn()
+    public function getId()
     {
-        return $this->timeZoneLabelEn;
-    }
-
-    /**
-     * @param string $timeZoneLabelEs
-     *
-     * @return TimezoneDTO
-     */
-    public function setTimeZoneLabelEs($timeZoneLabelEs)
-    {
-        $this->timeZoneLabelEs = $timeZoneLabelEs;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTimeZoneLabelEs()
-    {
-        return $this->timeZoneLabelEs;
+        return $this->id;
     }
 
     /**

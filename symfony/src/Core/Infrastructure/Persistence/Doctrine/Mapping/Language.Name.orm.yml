@@ -9,7 +9,7 @@ Core\Domain\Model\Language\Name:
         fixed: false
         comment: '[ml]'
         default: ''
-    nameEn:
+    en:
       type: string
       nullable: false
       length: 100
@@ -17,7 +17,7 @@ Core\Domain\Model\Language\Name:
         fixed: false
         default: ''
       column: name_en
-    nameEs:
+    es:
       type: string
       nullable: false
       length: 100

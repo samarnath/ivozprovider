@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\ExternalCallFilter;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ExternalCallFilterAbstract
  */
-abstract class ExternalCallFilterAbstract implements EntityInterface
+abstract class ExternalCallFilterAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -100,156 +94,9 @@ abstract class ExternalCallFilterAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name)
-    {
-        $this->setName($name);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return ExternalCallFilterDTO
-     */
-    public static function createDTO()
-    {
-        return new ExternalCallFilterDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ExternalCallFilterDTO
-         */
-        Assertion::isInstanceOf($dto, ExternalCallFilterDTO::class);
-
-        $self = new static(
-            $dto->getName()
-        );
-
-        return $self
-            ->setHolidayTargetType($dto->getHolidayTargetType())
-            ->setHolidayNumberValue($dto->getHolidayNumberValue())
-            ->setOutOfScheduleTargetType($dto->getOutOfScheduleTargetType())
-            ->setOutOfScheduleNumberValue($dto->getOutOfScheduleNumberValue())
-            ->setBlackListRegExp($dto->getBlackListRegExp())
-            ->setWhiteListRegExp($dto->getWhiteListRegExp())
-            ->setCompany($dto->getCompany())
-            ->setWelcomeLocution($dto->getWelcomeLocution())
-            ->setHolidayLocution($dto->getHolidayLocution())
-            ->setOutOfScheduleLocution($dto->getOutOfScheduleLocution())
-            ->setHolidayExtension($dto->getHolidayExtension())
-            ->setOutOfScheduleExtension($dto->getOutOfScheduleExtension())
-            ->setHolidayVoiceMailUser($dto->getHolidayVoiceMailUser())
-            ->setOutOfScheduleVoiceMailUser($dto->getOutOfScheduleVoiceMailUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ExternalCallFilterDTO
-         */
-        Assertion::isInstanceOf($dto, ExternalCallFilterDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setHolidayTargetType($dto->getHolidayTargetType())
-            ->setHolidayNumberValue($dto->getHolidayNumberValue())
-            ->setOutOfScheduleTargetType($dto->getOutOfScheduleTargetType())
-            ->setOutOfScheduleNumberValue($dto->getOutOfScheduleNumberValue())
-            ->setBlackListRegExp($dto->getBlackListRegExp())
-            ->setWhiteListRegExp($dto->getWhiteListRegExp())
-            ->setCompany($dto->getCompany())
-            ->setWelcomeLocution($dto->getWelcomeLocution())
-            ->setHolidayLocution($dto->getHolidayLocution())
-            ->setOutOfScheduleLocution($dto->getOutOfScheduleLocution())
-            ->setHolidayExtension($dto->getHolidayExtension())
-            ->setOutOfScheduleExtension($dto->getOutOfScheduleExtension())
-            ->setHolidayVoiceMailUser($dto->getHolidayVoiceMailUser())
-            ->setOutOfScheduleVoiceMailUser($dto->getOutOfScheduleVoiceMailUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return ExternalCallFilterDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setHolidayTargetType($this->getHolidayTargetType())
-            ->setHolidayNumberValue($this->getHolidayNumberValue())
-            ->setOutOfScheduleTargetType($this->getOutOfScheduleTargetType())
-            ->setOutOfScheduleNumberValue($this->getOutOfScheduleNumberValue())
-            ->setBlackListRegExp($this->getBlackListRegExp())
-            ->setWhiteListRegExp($this->getWhiteListRegExp())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setWelcomeLocutionId($this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null)
-            ->setHolidayLocutionId($this->getHolidayLocution() ? $this->getHolidayLocution()->getId() : null)
-            ->setOutOfScheduleLocutionId($this->getOutOfScheduleLocution() ? $this->getOutOfScheduleLocution()->getId() : null)
-            ->setHolidayExtensionId($this->getHolidayExtension() ? $this->getHolidayExtension()->getId() : null)
-            ->setOutOfScheduleExtensionId($this->getOutOfScheduleExtension() ? $this->getOutOfScheduleExtension()->getId() : null)
-            ->setHolidayVoiceMailUserId($this->getHolidayVoiceMailUser() ? $this->getHolidayVoiceMailUser()->getId() : null)
-            ->setOutOfScheduleVoiceMailUserId($this->getOutOfScheduleVoiceMailUser() ? $this->getOutOfScheduleVoiceMailUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'holidayTargetType' => $this->getHolidayTargetType(),
-            'holidayNumberValue' => $this->getHolidayNumberValue(),
-            'outOfScheduleTargetType' => $this->getOutOfScheduleTargetType(),
-            'outOfScheduleNumberValue' => $this->getOutOfScheduleNumberValue(),
-            'blackListRegExp' => $this->getBlackListRegExp(),
-            'whiteListRegExp' => $this->getWhiteListRegExp(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'welcomeLocutionId' => $this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null,
-            'holidayLocutionId' => $this->getHolidayLocution() ? $this->getHolidayLocution()->getId() : null,
-            'outOfScheduleLocutionId' => $this->getOutOfScheduleLocution() ? $this->getOutOfScheduleLocution()->getId() : null,
-            'holidayExtensionId' => $this->getHolidayExtension() ? $this->getHolidayExtension()->getId() : null,
-            'outOfScheduleExtensionId' => $this->getOutOfScheduleExtension() ? $this->getOutOfScheduleExtension()->getId() : null,
-            'holidayVoiceMailUserId' => $this->getHolidayVoiceMailUser() ? $this->getHolidayVoiceMailUser()->getId() : null,
-            'outOfScheduleVoiceMailUserId' => $this->getOutOfScheduleVoiceMailUser() ? $this->getOutOfScheduleVoiceMailUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

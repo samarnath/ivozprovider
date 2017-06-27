@@ -17,31 +17,26 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column l_uuid
      * @var string
      */
     private $lUuid = '';
 
     /**
-     * @column l_username
      * @var string
      */
     private $lUsername = 'unused';
 
     /**
-     * @column l_domain
      * @var string
      */
     private $lDomain = 'unused';
 
     /**
-     * @column r_username
      * @var string
      */
     private $rUsername = '';
 
     /**
-     * @column r_domain
      * @var string
      */
     private $rDomain = '';
@@ -52,19 +47,16 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     private $realm = '';
 
     /**
-     * @column auth_username
      * @var string
      */
     private $authUsername = '';
 
     /**
-     * @column auth_password
      * @var string
      */
     private $authPassword = '';
 
     /**
-     * @column auth_proxy
      * @var string
      */
     private $authProxy = '';
@@ -80,7 +72,6 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     private $flags = '0';
 
     /**
-     * @column reg_delay
      * @var integer
      */
     private $regDelay = '0';
@@ -134,34 +125,6 @@ class TrunksUacregDTO implements DataTransferObjectInterface
             'peeringContractId' => $this->getPeeringContractId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setLUuid(isset($data['lUuid']) ? $data['lUuid'] : null)
-            ->setLUsername(isset($data['lUsername']) ? $data['lUsername'] : null)
-            ->setLDomain(isset($data['lDomain']) ? $data['lDomain'] : null)
-            ->setRUsername(isset($data['rUsername']) ? $data['rUsername'] : null)
-            ->setRDomain(isset($data['rDomain']) ? $data['rDomain'] : null)
-            ->setRealm(isset($data['realm']) ? $data['realm'] : null)
-            ->setAuthUsername(isset($data['authUsername']) ? $data['authUsername'] : null)
-            ->setAuthPassword(isset($data['authPassword']) ? $data['authPassword'] : null)
-            ->setAuthProxy(isset($data['authProxy']) ? $data['authProxy'] : null)
-            ->setExpires(isset($data['expires']) ? $data['expires'] : null)
-            ->setFlags(isset($data['flags']) ? $data['flags'] : null)
-            ->setRegDelay(isset($data['regDelay']) ? $data['regDelay'] : null)
-            ->setMultiddi(isset($data['multiddi']) ? $data['multiddi'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setPeeringContractId(isset($data['peeringContractId']) ? $data['peeringContractId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

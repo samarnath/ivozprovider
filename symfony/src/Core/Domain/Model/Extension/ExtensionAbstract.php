@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Extension;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ExtensionAbstract
  */
-abstract class ExtensionAbstract implements EntityInterface
+abstract class ExtensionAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -79,140 +73,9 @@ abstract class ExtensionAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($number)
-    {
-        $this->setNumber($number);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return ExtensionDTO
-     */
-    public static function createDTO()
-    {
-        return new ExtensionDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ExtensionDTO
-         */
-        Assertion::isInstanceOf($dto, ExtensionDTO::class);
-
-        $self = new static(
-            $dto->getNumber()
-        );
-
-        return $self
-            ->setRouteType($dto->getRouteType())
-            ->setNumberValue($dto->getNumberValue())
-            ->setFriendValue($dto->getFriendValue())
-            ->setCompany($dto->getCompany())
-            ->setIVRCommon($dto->getIVRCommon())
-            ->setIVRCustom($dto->getIVRCustom())
-            ->setHuntGroup($dto->getHuntGroup())
-            ->setConferenceRoom($dto->getConferenceRoom())
-            ->setUser($dto->getUser())
-            ->setQueue($dto->getQueue());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto ExtensionDTO
-         */
-        Assertion::isInstanceOf($dto, ExtensionDTO::class);
-
-        $this
-            ->setNumber($dto->getNumber())
-            ->setRouteType($dto->getRouteType())
-            ->setNumberValue($dto->getNumberValue())
-            ->setFriendValue($dto->getFriendValue())
-            ->setCompany($dto->getCompany())
-            ->setIVRCommon($dto->getIVRCommon())
-            ->setIVRCustom($dto->getIVRCustom())
-            ->setHuntGroup($dto->getHuntGroup())
-            ->setConferenceRoom($dto->getConferenceRoom())
-            ->setUser($dto->getUser())
-            ->setQueue($dto->getQueue());
-
-
-        return $this;
-    }
-
-    /**
-     * @return ExtensionDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setNumber($this->getNumber())
-            ->setRouteType($this->getRouteType())
-            ->setNumberValue($this->getNumberValue())
-            ->setFriendValue($this->getFriendValue())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setIVRCommonId($this->getIVRCommon() ? $this->getIVRCommon()->getId() : null)
-            ->setIVRCustomId($this->getIVRCustom() ? $this->getIVRCustom()->getId() : null)
-            ->setHuntGroupId($this->getHuntGroup() ? $this->getHuntGroup()->getId() : null)
-            ->setConferenceRoomId($this->getConferenceRoom() ? $this->getConferenceRoom()->getId() : null)
-            ->setUserId($this->getUser() ? $this->getUser()->getId() : null)
-            ->setQueueId($this->getQueue() ? $this->getQueue()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'number' => $this->getNumber(),
-            'routeType' => $this->getRouteType(),
-            'numberValue' => $this->getNumberValue(),
-            'friendValue' => $this->getFriendValue(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'iVRCommonId' => $this->getIVRCommon() ? $this->getIVRCommon()->getId() : null,
-            'iVRCustomId' => $this->getIVRCustom() ? $this->getIVRCustom()->getId() : null,
-            'huntGroupId' => $this->getHuntGroup() ? $this->getHuntGroup()->getId() : null,
-            'conferenceRoomId' => $this->getConferenceRoom() ? $this->getConferenceRoom()->getId() : null,
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null,
-            'queueId' => $this->getQueue() ? $this->getQueue()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set number

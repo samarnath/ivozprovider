@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\HolidayDate;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * HolidayDateAbstract
  */
-abstract class HolidayDateAbstract implements EntityInterface
+abstract class HolidayDateAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -43,113 +37,9 @@ abstract class HolidayDateAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name, $eventDate)
-    {
-        $this->setName($name);
-        $this->setEventDate($eventDate);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return HolidayDateDTO
-     */
-    public static function createDTO()
-    {
-        return new HolidayDateDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto HolidayDateDTO
-         */
-        Assertion::isInstanceOf($dto, HolidayDateDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getEventDate()
-        );
-
-        return $self
-            ->setCalendar($dto->getCalendar())
-            ->setLocution($dto->getLocution());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto HolidayDateDTO
-         */
-        Assertion::isInstanceOf($dto, HolidayDateDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setEventDate($dto->getEventDate())
-            ->setCalendar($dto->getCalendar())
-            ->setLocution($dto->getLocution());
-
-
-        return $this;
-    }
-
-    /**
-     * @return HolidayDateDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setEventDate($this->getEventDate())
-            ->setCalendarId($this->getCalendar() ? $this->getCalendar()->getId() : null)
-            ->setLocutionId($this->getLocution() ? $this->getLocution()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'eventDate' => $this->getEventDate(),
-            'calendarId' => $this->getCalendar() ? $this->getCalendar()->getId() : null,
-            'locutionId' => $this->getLocution() ? $this->getLocution()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

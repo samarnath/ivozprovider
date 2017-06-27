@@ -1,0 +1,58 @@
+Core\Domain\Model\Timezone\TimezoneAbstract:
+  type: mappedSuperclass
+  indexes:
+    countryId:
+      columns:
+        - countryId
+  fields:
+    tz:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+    comment:
+      type: string
+      nullable: true
+      length: 150
+      options:
+        fixed: false
+        default: ''
+    timeZoneLabel:
+      class: \Core\Domain\Model\Timezone\Label
+#    timeZoneLabel:
+#      type: string
+#      nullable: false
+#      length: 20
+#      options:
+#        fixed: false
+#        comment: '[ml]'
+#        default: ''
+#      column: timeZoneLabel
+#    timeZoneLabelEn:
+#      type: string
+#      nullable: false
+#      length: 20
+#      options:
+#        fixed: false
+#        default: ''
+#      column: timeZoneLabel_en
+#    timeZoneLabelEs:
+#      type: string
+#      nullable: false
+#      length: 20
+#      options:
+#        fixed: false
+#        default: ''
+#      column: timeZoneLabel_es
+  manyToOne:
+    country:
+      targetEntity: \Core\Domain\Model\Country\CountryInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        countryId:
+          referencedColumnName: id
+      orphanRemoval: false

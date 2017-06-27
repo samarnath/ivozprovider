@@ -22,13 +22,11 @@ class UsersAccDTO implements DataTransferObjectInterface
     private $method = '';
 
     /**
-     * @column from_tag
      * @var string
      */
     private $fromTag = '';
 
     /**
-     * @column to_tag
      * @var string
      */
     private $toTag = '';
@@ -39,43 +37,36 @@ class UsersAccDTO implements DataTransferObjectInterface
     private $callid = '';
 
     /**
-     * @column sip_code
      * @var string
      */
     private $sipCode = '';
 
     /**
-     * @column sip_reason
      * @var string
      */
     private $sipReason = '';
 
     /**
-     * @column src_ip
      * @var string
      */
     private $srcIp;
 
     /**
-     * @column from_user
      * @var string
      */
     private $fromUser;
 
     /**
-     * @column from_domain
      * @var string
      */
     private $fromDomain;
 
     /**
-     * @column ruri_user
      * @var string
      */
     private $ruriUser;
 
     /**
-     * @column ruri_domain
      * @var string
      */
     private $ruriDomain;
@@ -118,33 +109,6 @@ class UsersAccDTO implements DataTransferObjectInterface
             'utctime' => $this->getUtctime()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setMethod(isset($data['method']) ? $data['method'] : null)
-            ->setFromTag(isset($data['fromTag']) ? $data['fromTag'] : null)
-            ->setToTag(isset($data['toTag']) ? $data['toTag'] : null)
-            ->setCallid(isset($data['callid']) ? $data['callid'] : null)
-            ->setSipCode(isset($data['sipCode']) ? $data['sipCode'] : null)
-            ->setSipReason(isset($data['sipReason']) ? $data['sipReason'] : null)
-            ->setSrcIp(isset($data['srcIp']) ? $data['srcIp'] : null)
-            ->setFromUser(isset($data['fromUser']) ? $data['fromUser'] : null)
-            ->setFromDomain(isset($data['fromDomain']) ? $data['fromDomain'] : null)
-            ->setRuriUser(isset($data['ruriUser']) ? $data['ruriUser'] : null)
-            ->setRuriDomain(isset($data['ruriDomain']) ? $data['ruriDomain'] : null)
-            ->setCseq(isset($data['cseq']) ? $data['cseq'] : null)
-            ->setLocaltime(isset($data['localtime']) ? $data['localtime'] : null)
-            ->setUtctime(isset($data['utctime']) ? $data['utctime'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

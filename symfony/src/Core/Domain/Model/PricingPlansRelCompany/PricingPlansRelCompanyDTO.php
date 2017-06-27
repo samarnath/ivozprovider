@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var \DateTime
      */
     private $validFrom;
@@ -30,6 +25,11 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
      * @var integer
      */
     private $metric = '10';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -67,34 +67,15 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'validFrom' => $this->getValidFrom(),
             'validTo' => $this->getValidTo(),
             'metric' => $this->getMetric(),
+            'id' => $this->getId(),
             'pricingPlanId' => $this->getPricingPlanId(),
             'companyId' => $this->getCompanyId(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setValidFrom(isset($data['validFrom']) ? $data['validFrom'] : null)
-            ->setValidTo(isset($data['validTo']) ? $data['validTo'] : null)
-            ->setMetric(isset($data['metric']) ? $data['metric'] : null)
-            ->setPricingPlanId(isset($data['pricingPlanId']) ? $data['pricingPlanId'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -112,26 +93,6 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return PricingPlansRelCompanyDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -192,6 +153,26 @@ class PricingPlansRelCompanyDTO implements DataTransferObjectInterface
     public function getMetric()
     {
         return $this->metric;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return PricingPlansRelCompanyDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

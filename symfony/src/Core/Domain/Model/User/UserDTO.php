@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UserDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -90,6 +85,11 @@ class UserDTO implements DataTransferObjectInterface
      * @var string
      */
     private $areaCode;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -187,7 +187,6 @@ class UserDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'lastname' => $this->getLastname(),
             'email' => $this->getEmail(),
@@ -203,6 +202,7 @@ class UserDTO implements DataTransferObjectInterface
             'voicemailAttachSound' => $this->getVoicemailAttachSound(),
             'tokenKey' => $this->getTokenKey(),
             'areaCode' => $this->getAreaCode(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'callACLId' => $this->getCallACLId(),
             'bossAssistantId' => $this->getBossAssistantId(),
@@ -214,43 +214,6 @@ class UserDTO implements DataTransferObjectInterface
             'outgoingDDIId' => $this->getOutgoingDDIId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setLastname(isset($data['lastname']) ? $data['lastname'] : null)
-            ->setEmail(isset($data['email']) ? $data['email'] : null)
-            ->setPass(isset($data['pass']) ? $data['pass'] : null)
-            ->setDoNotDisturb(isset($data['doNotDisturb']) ? $data['doNotDisturb'] : null)
-            ->setIsBoss(isset($data['isBoss']) ? $data['isBoss'] : null)
-            ->setExceptionBoosAssistantRegExp(isset($data['exceptionBoosAssistantRegExp']) ? $data['exceptionBoosAssistantRegExp'] : null)
-            ->setActive(isset($data['active']) ? $data['active'] : null)
-            ->setMaxCalls(isset($data['maxCalls']) ? $data['maxCalls'] : null)
-            ->setExternalIpCalls(isset($data['externalIpCalls']) ? $data['externalIpCalls'] : null)
-            ->setVoicemailEnabled(isset($data['voicemailEnabled']) ? $data['voicemailEnabled'] : null)
-            ->setVoicemailSendMail(isset($data['voicemailSendMail']) ? $data['voicemailSendMail'] : null)
-            ->setVoicemailAttachSound(isset($data['voicemailAttachSound']) ? $data['voicemailAttachSound'] : null)
-            ->setTokenKey(isset($data['tokenKey']) ? $data['tokenKey'] : null)
-            ->setAreaCode(isset($data['areaCode']) ? $data['areaCode'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setCallACLId(isset($data['callACLId']) ? $data['callACLId'] : null)
-            ->setBossAssistantId(isset($data['bossAssistantId']) ? $data['bossAssistantId'] : null)
-            ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null)
-            ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null)
-            ->setTerminalId(isset($data['terminalId']) ? $data['terminalId'] : null)
-            ->setExtensionId(isset($data['extensionId']) ? $data['extensionId'] : null)
-            ->setTimezoneId(isset($data['timezoneId']) ? $data['timezoneId'] : null)
-            ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -274,26 +237,6 @@ class UserDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UserDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -597,6 +540,26 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return UserDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $companyId
      *
      * @return UserDTO
@@ -673,7 +636,7 @@ class UserDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return User
      */
     public function getBossAssistant()
     {

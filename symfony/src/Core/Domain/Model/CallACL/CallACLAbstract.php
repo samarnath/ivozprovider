@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\CallACL;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallACLAbstract
  */
-abstract class CallACLAbstract implements EntityInterface
+abstract class CallACLAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -39,109 +33,9 @@ abstract class CallACLAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name, $defaultPolicy)
-    {
-        $this->setName($name);
-        $this->setDefaultPolicy($defaultPolicy);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return CallACLDTO
-     */
-    public static function createDTO()
-    {
-        return new CallACLDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CallACLDTO
-         */
-        Assertion::isInstanceOf($dto, CallACLDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getDefaultPolicy()
-        );
-
-        return $self
-            ->setCompany($dto->getCompany());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CallACLDTO
-         */
-        Assertion::isInstanceOf($dto, CallACLDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setDefaultPolicy($dto->getDefaultPolicy())
-            ->setCompany($dto->getCompany());
-
-
-        return $this;
-    }
-
-    /**
-     * @return CallACLDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setDefaultPolicy($this->getDefaultPolicy())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'defaultPolicy' => $this->getDefaultPolicy(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

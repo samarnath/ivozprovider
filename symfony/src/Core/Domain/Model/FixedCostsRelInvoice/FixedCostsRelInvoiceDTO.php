@@ -14,12 +14,12 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
+    private $quantity;
 
     /**
      * @var integer
      */
-    private $quantity;
+    private $id;
 
     /**
      * @var mixed
@@ -57,30 +57,13 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'quantity' => $this->getQuantity(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId(),
             'fixedCostId' => $this->getFixedCostId(),
             'invoiceId' => $this->getInvoiceId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setQuantity(isset($data['quantity']) ? $data['quantity'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setFixedCostId(isset($data['fixedCostId']) ? $data['fixedCostId'] : null)
-            ->setInvoiceId(isset($data['invoiceId']) ? $data['invoiceId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -101,26 +84,6 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param integer $id
-     *
-     * @return FixedCostsRelInvoiceDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * @param integer $quantity
      *
      * @return FixedCostsRelInvoiceDTO
@@ -138,6 +101,26 @@ class FixedCostsRelInvoiceDTO implements DataTransferObjectInterface
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return FixedCostsRelInvoiceDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

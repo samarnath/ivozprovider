@@ -7,67 +7,11 @@ namespace Core\Domain\Model\Service;
 interface ServiceInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get iden
      *
      * @return string
      */
     public function getIden();
-
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName();
-
-
-    /**
-     * Get nameEn
-     *
-     * @return string
-     */
-    public function getNameEn();
-
-
-    /**
-     * Get nameEs
-     *
-     * @return string
-     */
-    public function getNameEs();
-
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription();
-
-
-    /**
-     * Get descriptionEn
-     *
-     * @return string
-     */
-    public function getDescriptionEn();
-
-
-    /**
-     * Get descriptionEs
-     *
-     * @return string
-     */
-    public function getDescriptionEs();
 
 
     /**
@@ -86,6 +30,20 @@ interface ServiceInterface
     public function getExtraArgs();
 
 
+    /**
+     * Get name
+     *
+     * @return Name
+     */
+    public function getName();
+
+
+    /**
+     * Get description
+     *
+     * @return Description
+     */
+    public function getDescription();
 
 }
 

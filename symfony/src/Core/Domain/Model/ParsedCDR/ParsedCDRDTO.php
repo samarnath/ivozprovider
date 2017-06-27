@@ -14,11 +14,6 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @var integer
-     */
     private $statId;
 
     /**
@@ -137,6 +132,11 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     private $lastForwarder;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $brandId;
@@ -172,7 +172,6 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'statId' => $this->getStatId(),
             'xstatId' => $this->getXstatId(),
             'statType' => $this->getStatType(),
@@ -197,51 +196,12 @@ class ParsedCDRDTO implements DataTransferObjectInterface
             'referrer' => $this->getReferrer(),
             'referee' => $this->getReferee(),
             'lastForwarder' => $this->getLastForwarder(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId(),
             'companyId' => $this->getCompanyId(),
             'peeringContractId' => $this->getPeeringContractId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setStatId(isset($data['statId']) ? $data['statId'] : null)
-            ->setXstatId(isset($data['xstatId']) ? $data['xstatId'] : null)
-            ->setStatType(isset($data['statType']) ? $data['statType'] : null)
-            ->setInitialLeg(isset($data['initialLeg']) ? $data['initialLeg'] : null)
-            ->setInitialLegHash(isset($data['initialLegHash']) ? $data['initialLegHash'] : null)
-            ->setCid(isset($data['cid']) ? $data['cid'] : null)
-            ->setCidHash(isset($data['cidHash']) ? $data['cidHash'] : null)
-            ->setXcid(isset($data['xcid']) ? $data['xcid'] : null)
-            ->setXcidHash(isset($data['xcidHash']) ? $data['xcidHash'] : null)
-            ->setProxies(isset($data['proxies']) ? $data['proxies'] : null)
-            ->setType(isset($data['type']) ? $data['type'] : null)
-            ->setSubtype(isset($data['subtype']) ? $data['subtype'] : null)
-            ->setCalldate(isset($data['calldate']) ? $data['calldate'] : null)
-            ->setDuration(isset($data['duration']) ? $data['duration'] : null)
-            ->setAParty(isset($data['aParty']) ? $data['aParty'] : null)
-            ->setBParty(isset($data['bParty']) ? $data['bParty'] : null)
-            ->setCaller(isset($data['caller']) ? $data['caller'] : null)
-            ->setCallee(isset($data['callee']) ? $data['callee'] : null)
-            ->setXCaller(isset($data['xCaller']) ? $data['xCaller'] : null)
-            ->setXCallee(isset($data['xCallee']) ? $data['xCallee'] : null)
-            ->setInitialReferrer(isset($data['initialReferrer']) ? $data['initialReferrer'] : null)
-            ->setReferrer(isset($data['referrer']) ? $data['referrer'] : null)
-            ->setReferee(isset($data['referee']) ? $data['referee'] : null)
-            ->setLastForwarder(isset($data['lastForwarder']) ? $data['lastForwarder'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setPeeringContractId(isset($data['peeringContractId']) ? $data['peeringContractId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -259,26 +219,6 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ParsedCDRDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -759,6 +699,26 @@ class ParsedCDRDTO implements DataTransferObjectInterface
     public function getLastForwarder()
     {
         return $this->lastForwarder;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ParsedCDRDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

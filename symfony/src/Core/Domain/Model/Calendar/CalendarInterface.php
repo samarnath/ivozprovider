@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Calendar;
 interface CalendarInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

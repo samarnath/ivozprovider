@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class TerminalModelDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $iden;
@@ -52,6 +47,11 @@ class TerminalModelDTO implements DataTransferObjectInterface
     private $specificUrlPattern;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $TerminalManufacturerId;
@@ -67,7 +67,6 @@ class TerminalModelDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'iden' => $this->getIden(),
             'name' => $this->getName(),
             'description' => $this->getDescription(),
@@ -75,30 +74,10 @@ class TerminalModelDTO implements DataTransferObjectInterface
             'specificTemplate' => $this->getSpecificTemplate(),
             'genericUrlPattern' => $this->getGenericUrlPattern(),
             'specificUrlPattern' => $this->getSpecificUrlPattern(),
+            'id' => $this->getId(),
             'terminalManufacturerId' => $this->getTerminalManufacturerId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setIden(isset($data['iden']) ? $data['iden'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setGenericTemplate(isset($data['genericTemplate']) ? $data['genericTemplate'] : null)
-            ->setSpecificTemplate(isset($data['specificTemplate']) ? $data['specificTemplate'] : null)
-            ->setGenericUrlPattern(isset($data['genericUrlPattern']) ? $data['genericUrlPattern'] : null)
-            ->setSpecificUrlPattern(isset($data['specificUrlPattern']) ? $data['specificUrlPattern'] : null)
-            ->setTerminalManufacturerId(isset($data['TerminalManufacturerId']) ? $data['TerminalManufacturerId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -114,26 +93,6 @@ class TerminalModelDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TerminalModelDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -274,6 +233,26 @@ class TerminalModelDTO implements DataTransferObjectInterface
     public function getSpecificUrlPattern()
     {
         return $this->specificUrlPattern;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return TerminalModelDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class FixedCostDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -30,6 +25,11 @@ class FixedCostDTO implements DataTransferObjectInterface
      * @var string
      */
     private $cost;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -47,30 +47,13 @@ class FixedCostDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'description' => $this->getDescription(),
             'cost' => $this->getCost(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setCost(isset($data['cost']) ? $data['cost'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -86,26 +69,6 @@ class FixedCostDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return FixedCostDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -166,6 +129,26 @@ class FixedCostDTO implements DataTransferObjectInterface
     public function getCost()
     {
         return $this->cost;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return FixedCostDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

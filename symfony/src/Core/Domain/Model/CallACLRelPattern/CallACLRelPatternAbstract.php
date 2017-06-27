@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\CallACLRelPattern;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallACLRelPatternAbstract
  */
-abstract class CallACLRelPatternAbstract implements EntityInterface
+abstract class CallACLRelPatternAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var integer
      */
@@ -44,113 +38,9 @@ abstract class CallACLRelPatternAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($priority, $policy)
-    {
-        $this->setPriority($priority);
-        $this->setPolicy($policy);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return CallACLRelPatternDTO
-     */
-    public static function createDTO()
-    {
-        return new CallACLRelPatternDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CallACLRelPatternDTO
-         */
-        Assertion::isInstanceOf($dto, CallACLRelPatternDTO::class);
-
-        $self = new static(
-            $dto->getPriority(),
-            $dto->getPolicy()
-        );
-
-        return $self
-            ->setCallACL($dto->getCallACL())
-            ->setCallACLPattern($dto->getCallACLPattern());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CallACLRelPatternDTO
-         */
-        Assertion::isInstanceOf($dto, CallACLRelPatternDTO::class);
-
-        $this
-            ->setPriority($dto->getPriority())
-            ->setPolicy($dto->getPolicy())
-            ->setCallACL($dto->getCallACL())
-            ->setCallACLPattern($dto->getCallACLPattern());
-
-
-        return $this;
-    }
-
-    /**
-     * @return CallACLRelPatternDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setPriority($this->getPriority())
-            ->setPolicy($this->getPolicy())
-            ->setCallACLId($this->getCallACL() ? $this->getCallACL()->getId() : null)
-            ->setCallACLPatternId($this->getCallACLPattern() ? $this->getCallACLPattern()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'priority' => $this->getPriority(),
-            'policy' => $this->getPolicy(),
-            'callACLId' => $this->getCallACL() ? $this->getCallACL()->getId() : null,
-            'callACLPatternId' => $this->getCallACLPattern() ? $this->getCallACLPattern()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set priority

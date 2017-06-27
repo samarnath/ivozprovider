@@ -32,7 +32,6 @@ class UsersXcapDTO implements DataTransferObjectInterface
     private $doc;
 
     /**
-     * @column doc_type
      * @var integer
      */
     private $docType;
@@ -48,7 +47,6 @@ class UsersXcapDTO implements DataTransferObjectInterface
     private $source;
 
     /**
-     * @column doc_uri
      * @var string
      */
     private $docUri;
@@ -75,27 +73,6 @@ class UsersXcapDTO implements DataTransferObjectInterface
             'port' => $this->getPort()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setUsername(isset($data['username']) ? $data['username'] : null)
-            ->setDomain(isset($data['domain']) ? $data['domain'] : null)
-            ->setDoc(isset($data['doc']) ? $data['doc'] : null)
-            ->setDocType(isset($data['docType']) ? $data['docType'] : null)
-            ->setEtag(isset($data['etag']) ? $data['etag'] : null)
-            ->setSource(isset($data['source']) ? $data['source'] : null)
-            ->setDocUri(isset($data['docUri']) ? $data['docUri'] : null)
-            ->setPort(isset($data['port']) ? $data['port'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

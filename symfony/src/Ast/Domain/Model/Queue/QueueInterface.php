@@ -7,14 +7,6 @@ namespace Ast\Domain\Model\Queue;
 interface QueueInterface
 {
     /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName();
-
-
-    /**
      * Get periodicAnnounce
      *
      * @return string

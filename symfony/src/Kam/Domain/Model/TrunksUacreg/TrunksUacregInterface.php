@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\TrunksUacreg;
 interface TrunksUacregInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get lUuid
      *
      * @return string

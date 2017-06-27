@@ -1,0 +1,32 @@
+Core\Domain\Model\FeaturesRelBrand\FeaturesRelBrandAbstract:
+  type: mappedSuperclass
+  indexes:
+    brandId:
+      columns:
+        - brandId
+    featureId:
+      columns:
+        - featureId
+  manyToOne:
+    brand:
+      targetEntity: \Core\Domain\Model\Brand\BrandInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: featuresRels
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    feature:
+      targetEntity: \Core\Domain\Model\Feature\FeatureInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        featureId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

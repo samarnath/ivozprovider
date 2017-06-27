@@ -15,6 +15,16 @@ use EntityGeneratorBundle\Tools\InterfaceGenerator;
  */
 class GenerateInterfacesCommand extends ParentCommand
 {
+    use ExecuteGeneratorTrait;
+
+    public function __construct($name = null)
+    {
+        $this->skipEmbedded = true;
+        $this->skipEntities = true;
+
+        return parent::__construct($name = null);
+    }
+
     /**
      * {@inheritDoc}
      */

@@ -3,19 +3,13 @@
 namespace Ast\Domain\Model\PsEndpoint;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PsEndpointAbstract
  */
-abstract class PsEndpointAbstract implements EntityInterface
+abstract class PsEndpointAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @column sorcery_id
      * @var string
@@ -134,187 +128,9 @@ abstract class PsEndpointAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $sorceryId,
-        $context,
-        $disallow,
-        $allow,
-        $subscribecontext,
-        $oneHundredRel
-    ) {
-        $this->setSorceryId($sorceryId);
-        $this->setContext($context);
-        $this->setDisallow($disallow);
-        $this->setAllow($allow);
-        $this->setSubscribecontext($subscribecontext);
-        $this->setOneHundredRel($oneHundredRel);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return PsEndpointDTO
-     */
-    public static function createDTO()
-    {
-        return new PsEndpointDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PsEndpointDTO
-         */
-        Assertion::isInstanceOf($dto, PsEndpointDTO::class);
-
-        $self = new static(
-            $dto->getSorceryId(),
-            $dto->getContext(),
-            $dto->getDisallow(),
-            $dto->getAllow(),
-            $dto->getSubscribecontext(),
-            $dto->getOneHundredRel()
-        );
-
-        return $self
-            ->setFromDomain($dto->getFromDomain())
-            ->setAors($dto->getAors())
-            ->setCallerid($dto->getCallerid())
-            ->setDirectMedia($dto->getDirectMedia())
-            ->setDirectMediaMethod($dto->getDirectMediaMethod())
-            ->setMailboxes($dto->getMailboxes())
-            ->setPickupGroup($dto->getPickupGroup())
-            ->setSendDiversion($dto->getSendDiversion())
-            ->setSendPai($dto->getSendPai())
-            ->setOutboundProxy($dto->getOutboundProxy())
-            ->setTrustIdInbound($dto->getTrustIdInbound())
-            ->setTerminal($dto->getTerminal())
-            ->setFriend($dto->getFriend())
-            ->setRetailAccount($dto->getRetailAccount());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PsEndpointDTO
-         */
-        Assertion::isInstanceOf($dto, PsEndpointDTO::class);
-
-        $this
-            ->setSorceryId($dto->getSorceryId())
-            ->setFromDomain($dto->getFromDomain())
-            ->setAors($dto->getAors())
-            ->setCallerid($dto->getCallerid())
-            ->setContext($dto->getContext())
-            ->setDisallow($dto->getDisallow())
-            ->setAllow($dto->getAllow())
-            ->setDirectMedia($dto->getDirectMedia())
-            ->setDirectMediaMethod($dto->getDirectMediaMethod())
-            ->setMailboxes($dto->getMailboxes())
-            ->setPickupGroup($dto->getPickupGroup())
-            ->setSendDiversion($dto->getSendDiversion())
-            ->setSendPai($dto->getSendPai())
-            ->setSubscribecontext($dto->getSubscribecontext())
-            ->setOneHundredRel($dto->getOneHundredRel())
-            ->setOutboundProxy($dto->getOutboundProxy())
-            ->setTrustIdInbound($dto->getTrustIdInbound())
-            ->setTerminal($dto->getTerminal())
-            ->setFriend($dto->getFriend())
-            ->setRetailAccount($dto->getRetailAccount());
-
-
-        return $this;
-    }
-
-    /**
-     * @return PsEndpointDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setSorceryId($this->getSorceryId())
-            ->setFromDomain($this->getFromDomain())
-            ->setAors($this->getAors())
-            ->setCallerid($this->getCallerid())
-            ->setContext($this->getContext())
-            ->setDisallow($this->getDisallow())
-            ->setAllow($this->getAllow())
-            ->setDirectMedia($this->getDirectMedia())
-            ->setDirectMediaMethod($this->getDirectMediaMethod())
-            ->setMailboxes($this->getMailboxes())
-            ->setPickupGroup($this->getPickupGroup())
-            ->setSendDiversion($this->getSendDiversion())
-            ->setSendPai($this->getSendPai())
-            ->setSubscribecontext($this->getSubscribecontext())
-            ->setOneHundredRel($this->getOneHundredRel())
-            ->setOutboundProxy($this->getOutboundProxy())
-            ->setTrustIdInbound($this->getTrustIdInbound())
-            ->setTerminalId($this->getTerminal() ? $this->getTerminal()->getId() : null)
-            ->setFriendId($this->getFriend() ? $this->getFriend()->getId() : null)
-            ->setRetailAccountId($this->getRetailAccount() ? $this->getRetailAccount()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'sorceryId' => $this->getSorceryId(),
-            'fromDomain' => $this->getFromDomain(),
-            'aors' => $this->getAors(),
-            'callerid' => $this->getCallerid(),
-            'context' => $this->getContext(),
-            'disallow' => $this->getDisallow(),
-            'allow' => $this->getAllow(),
-            'directMedia' => $this->getDirectMedia(),
-            'directMediaMethod' => $this->getDirectMediaMethod(),
-            'mailboxes' => $this->getMailboxes(),
-            'pickupGroup' => $this->getPickupGroup(),
-            'sendDiversion' => $this->getSendDiversion(),
-            'sendPai' => $this->getSendPai(),
-            'subscribecontext' => $this->getSubscribecontext(),
-            'oneHundredRel' => $this->getOneHundredRel(),
-            'outboundProxy' => $this->getOutboundProxy(),
-            'trustIdInbound' => $this->getTrustIdInbound(),
-            'terminalId' => $this->getTerminal() ? $this->getTerminal()->getId() : null,
-            'friendId' => $this->getFriend() ? $this->getFriend()->getId() : null,
-            'retailAccountId' => $this->getRetailAccount() ? $this->getRetailAccount()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set sorceryId

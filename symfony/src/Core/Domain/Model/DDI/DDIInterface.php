@@ -7,14 +7,6 @@ namespace Core\Domain\Model\DDI;
 interface DDIInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get ddi
      *
      * @return string

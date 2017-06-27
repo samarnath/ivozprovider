@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\FriendsPattern;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FriendsPatternAbstract
  */
-abstract class FriendsPatternAbstract implements EntityInterface
+abstract class FriendsPatternAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -38,109 +32,9 @@ abstract class FriendsPatternAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name, $regExp)
-    {
-        $this->setName($name);
-        $this->setRegExp($regExp);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return FriendsPatternDTO
-     */
-    public static function createDTO()
-    {
-        return new FriendsPatternDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FriendsPatternDTO
-         */
-        Assertion::isInstanceOf($dto, FriendsPatternDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getRegExp()
-        );
-
-        return $self
-            ->setFriend($dto->getFriend());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FriendsPatternDTO
-         */
-        Assertion::isInstanceOf($dto, FriendsPatternDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setRegExp($dto->getRegExp())
-            ->setFriend($dto->getFriend());
-
-
-        return $this;
-    }
-
-    /**
-     * @return FriendsPatternDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setRegExp($this->getRegExp())
-            ->setFriendId($this->getFriend() ? $this->getFriend()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'regExp' => $this->getRegExp(),
-            'friendId' => $this->getFriend() ? $this->getFriend()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

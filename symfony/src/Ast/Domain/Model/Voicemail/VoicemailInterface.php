@@ -7,14 +7,6 @@ namespace Ast\Domain\Model\Voicemail;
 interface VoicemailInterface
 {
     /**
-     * Get uniqueid
-     *
-     * @return integer
-     */
-    public function getUniqueid();
-
-
-    /**
      * Get context
      *
      * @return string

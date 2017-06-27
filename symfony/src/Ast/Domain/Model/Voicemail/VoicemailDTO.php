@@ -77,7 +77,6 @@ class VoicemailDTO implements DataTransferObjectInterface
     private $tz;
 
     /**
-     * @column deleteast_voicemail
      * @var string
      */
     private $deleteVoicemail;
@@ -88,7 +87,6 @@ class VoicemailDTO implements DataTransferObjectInterface
     private $saycid;
 
     /**
-     * @column sendast_voicemail
      * @var string
      */
     private $sendVoicemail;
@@ -236,53 +234,6 @@ class VoicemailDTO implements DataTransferObjectInterface
             'userId' => $this->getUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setUniqueid(isset($data['uniqueid']) ? $data['uniqueid'] : null)
-            ->setContext(isset($data['context']) ? $data['context'] : null)
-            ->setMailbox(isset($data['mailbox']) ? $data['mailbox'] : null)
-            ->setPassword(isset($data['password']) ? $data['password'] : null)
-            ->setFullname(isset($data['fullname']) ? $data['fullname'] : null)
-            ->setAlias(isset($data['alias']) ? $data['alias'] : null)
-            ->setEmail(isset($data['email']) ? $data['email'] : null)
-            ->setPager(isset($data['pager']) ? $data['pager'] : null)
-            ->setAttach(isset($data['attach']) ? $data['attach'] : null)
-            ->setAttachfmt(isset($data['attachfmt']) ? $data['attachfmt'] : null)
-            ->setServeremail(isset($data['serveremail']) ? $data['serveremail'] : null)
-            ->setLanguage(isset($data['language']) ? $data['language'] : null)
-            ->setTz(isset($data['tz']) ? $data['tz'] : null)
-            ->setDeleteVoicemail(isset($data['deleteVoicemail']) ? $data['deleteVoicemail'] : null)
-            ->setSaycid(isset($data['saycid']) ? $data['saycid'] : null)
-            ->setSendVoicemail(isset($data['sendVoicemail']) ? $data['sendVoicemail'] : null)
-            ->setReview(isset($data['review']) ? $data['review'] : null)
-            ->setTempgreetwarn(isset($data['tempgreetwarn']) ? $data['tempgreetwarn'] : null)
-            ->setOperator(isset($data['operator']) ? $data['operator'] : null)
-            ->setEnvelope(isset($data['envelope']) ? $data['envelope'] : null)
-            ->setSayduration(isset($data['sayduration']) ? $data['sayduration'] : null)
-            ->setForcename(isset($data['forcename']) ? $data['forcename'] : null)
-            ->setForcegreetings(isset($data['forcegreetings']) ? $data['forcegreetings'] : null)
-            ->setCallback(isset($data['callback']) ? $data['callback'] : null)
-            ->setDialout(isset($data['dialout']) ? $data['dialout'] : null)
-            ->setExitcontext(isset($data['exitcontext']) ? $data['exitcontext'] : null)
-            ->setMaxmsg(isset($data['maxmsg']) ? $data['maxmsg'] : null)
-            ->setVolgain(isset($data['volgain']) ? $data['volgain'] : null)
-            ->setImapuser(isset($data['imapuser']) ? $data['imapuser'] : null)
-            ->setImappassword(isset($data['imappassword']) ? $data['imappassword'] : null)
-            ->setImapserver(isset($data['imapserver']) ? $data['imapserver'] : null)
-            ->setImapport(isset($data['imapport']) ? $data['imapport'] : null)
-            ->setImapflags(isset($data['imapflags']) ? $data['imapflags'] : null)
-            ->setStamp(isset($data['stamp']) ? $data['stamp'] : null)
-            ->setUserId(isset($data['userId']) ? $data['userId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

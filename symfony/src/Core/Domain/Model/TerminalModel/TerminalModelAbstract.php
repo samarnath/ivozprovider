@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\TerminalModel;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TerminalModelAbstract
  */
-abstract class TerminalModelAbstract implements EntityInterface
+abstract class TerminalModelAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -63,130 +57,9 @@ abstract class TerminalModelAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($iden, $name, $description)
-    {
-        $this->setIden($iden);
-        $this->setName($name);
-        $this->setDescription($description);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return TerminalModelDTO
-     */
-    public static function createDTO()
-    {
-        return new TerminalModelDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TerminalModelDTO
-         */
-        Assertion::isInstanceOf($dto, TerminalModelDTO::class);
-
-        $self = new static(
-            $dto->getIden(),
-            $dto->getName(),
-            $dto->getDescription()
-        );
-
-        return $self
-            ->setGenericTemplate($dto->getGenericTemplate())
-            ->setSpecificTemplate($dto->getSpecificTemplate())
-            ->setGenericUrlPattern($dto->getGenericUrlPattern())
-            ->setSpecificUrlPattern($dto->getSpecificUrlPattern())
-            ->setTerminalManufacturer($dto->getTerminalManufacturer());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TerminalModelDTO
-         */
-        Assertion::isInstanceOf($dto, TerminalModelDTO::class);
-
-        $this
-            ->setIden($dto->getIden())
-            ->setName($dto->getName())
-            ->setDescription($dto->getDescription())
-            ->setGenericTemplate($dto->getGenericTemplate())
-            ->setSpecificTemplate($dto->getSpecificTemplate())
-            ->setGenericUrlPattern($dto->getGenericUrlPattern())
-            ->setSpecificUrlPattern($dto->getSpecificUrlPattern())
-            ->setTerminalManufacturer($dto->getTerminalManufacturer());
-
-
-        return $this;
-    }
-
-    /**
-     * @return TerminalModelDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setIden($this->getIden())
-            ->setName($this->getName())
-            ->setDescription($this->getDescription())
-            ->setGenericTemplate($this->getGenericTemplate())
-            ->setSpecificTemplate($this->getSpecificTemplate())
-            ->setGenericUrlPattern($this->getGenericUrlPattern())
-            ->setSpecificUrlPattern($this->getSpecificUrlPattern())
-            ->setTerminalManufacturerId($this->getTerminalManufacturer() ? $this->getTerminalManufacturer()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'iden' => $this->getIden(),
-            'name' => $this->getName(),
-            'description' => $this->getDescription(),
-            'genericTemplate' => $this->getGenericTemplate(),
-            'specificTemplate' => $this->getSpecificTemplate(),
-            'genericUrlPattern' => $this->getGenericUrlPattern(),
-            'specificUrlPattern' => $this->getSpecificUrlPattern(),
-            'terminalManufacturerId' => $this->getTerminalManufacturer() ? $this->getTerminalManufacturer()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set iden

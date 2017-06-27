@@ -17,13 +17,11 @@ class QueueDTO implements DataTransferObjectInterface
     private $name;
 
     /**
-     * @column periodic_announce
      * @var string
      */
     private $periodicAnnounce;
 
     /**
-     * @column periodic_announce_frequency
      * @var integer
      */
     private $periodicAnnounceFrequency;
@@ -92,29 +90,6 @@ class QueueDTO implements DataTransferObjectInterface
             'queueId' => $this->getQueueId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setPeriodicAnnounce(isset($data['periodicAnnounce']) ? $data['periodicAnnounce'] : null)
-            ->setPeriodicAnnounceFrequency(isset($data['periodicAnnounceFrequency']) ? $data['periodicAnnounceFrequency'] : null)
-            ->setTimeout(isset($data['timeout']) ? $data['timeout'] : null)
-            ->setAutopause(isset($data['autopause']) ? $data['autopause'] : null)
-            ->setRinginuse(isset($data['ringinuse']) ? $data['ringinuse'] : null)
-            ->setWrapuptime(isset($data['wrapuptime']) ? $data['wrapuptime'] : null)
-            ->setMaxlen(isset($data['maxlen']) ? $data['maxlen'] : null)
-            ->setStrategy(isset($data['strategy']) ? $data['strategy'] : null)
-            ->setWeight(isset($data['weight']) ? $data['weight'] : null)
-            ->setQueueId(isset($data['queueId']) ? $data['queueId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

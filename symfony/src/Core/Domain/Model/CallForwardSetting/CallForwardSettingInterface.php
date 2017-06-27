@@ -7,14 +7,6 @@ namespace Core\Domain\Model\CallForwardSetting;
 interface CallForwardSettingInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get callTypeFilter
      *
      * @return string

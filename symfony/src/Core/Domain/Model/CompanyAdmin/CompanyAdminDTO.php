@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class CompanyAdminDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $username;
@@ -47,6 +42,11 @@ class CompanyAdminDTO implements DataTransferObjectInterface
     private $lastname;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $companyId;
@@ -72,38 +72,17 @@ class CompanyAdminDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'username' => $this->getUsername(),
             'pass' => $this->getPass(),
             'email' => $this->getEmail(),
             'active' => $this->getActive(),
             'name' => $this->getName(),
             'lastname' => $this->getLastname(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'timezoneId' => $this->getTimezoneId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setUsername(isset($data['username']) ? $data['username'] : null)
-            ->setPass(isset($data['pass']) ? $data['pass'] : null)
-            ->setEmail(isset($data['email']) ? $data['email'] : null)
-            ->setActive(isset($data['active']) ? $data['active'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setLastname(isset($data['lastname']) ? $data['lastname'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setTimezoneId(isset($data['timezoneId']) ? $data['timezoneId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -120,26 +99,6 @@ class CompanyAdminDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return CompanyAdminDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -260,6 +219,26 @@ class CompanyAdminDTO implements DataTransferObjectInterface
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return CompanyAdminDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

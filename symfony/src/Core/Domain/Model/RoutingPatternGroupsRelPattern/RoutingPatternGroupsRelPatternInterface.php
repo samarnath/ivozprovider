@@ -7,14 +7,6 @@ namespace Core\Domain\Model\RoutingPatternGroupsRelPattern;
 interface RoutingPatternGroupsRelPatternInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get routingPattern
      *
      * @return \Core\Domain\Model\RoutingPattern\RoutingPatternInterface

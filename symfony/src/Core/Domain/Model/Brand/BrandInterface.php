@@ -2,18 +2,10 @@
 
 namespace Core\Domain\Model\Brand;
 
-use Doctrine\Common\Collections\Criteria;
+
 
 interface BrandInterface
 {
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
     /**
      * Get name
      *
@@ -36,30 +28,6 @@ interface BrandInterface
      * @return string
      */
     public function getDomainUsers();
-
-
-    /**
-     * Get logoFileSize
-     *
-     * @return integer
-     */
-    public function getLogoFileSize();
-
-
-    /**
-     * Get logoMimeType
-     *
-     * @return string
-     */
-    public function getLogoMimeType();
-
-
-    /**
-     * Get logoBaseName
-     *
-     * @return string
-     */
-    public function getLogoBaseName();
 
 
     /**
@@ -143,46 +111,6 @@ interface BrandInterface
 
 
     /**
-     * Get operators
-     *
-     * @return ArrayCollection
-     */
-    public function getOperators(Criteria $criteria = null);
-
-
-    /**
-     * Get services
-     *
-     * @return ArrayCollection
-     */
-    public function getServices(Criteria $criteria = null);
-
-
-    /**
-     * Get urls
-     *
-     * @return ArrayCollection
-     */
-    public function getUrls(Criteria $criteria = null);
-
-
-    /**
-     * Get relFeatures
-     *
-     * @return ArrayCollection
-     */
-    public function getRelFeatures(Criteria $criteria = null);
-
-
-    /**
-     * Get domains
-     *
-     * @return ArrayCollection
-     */
-    public function getDomains(Criteria $criteria = null);
-
-
-    /**
      * Get language
      *
      * @return \Core\Domain\Model\Language\LanguageInterface
@@ -198,6 +126,12 @@ interface BrandInterface
     public function getDefaultTimezone();
 
 
+    /**
+     * Get logo
+     *
+     * @return Logo
+     */
+    public function getLogo();
 
 }
 

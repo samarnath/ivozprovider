@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Friend;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FriendAbstract
  */
-abstract class FriendAbstract implements EntityInterface
+abstract class FriendAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -143,205 +137,9 @@ abstract class FriendAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $name,
-        $description,
-        $transport,
-        $authNeeded,
-        $priority,
-        $disallow,
-        $allow,
-        $directMediaMethod,
-        $calleridUpdateHeader,
-        $updateCallerid,
-        $directConnectivity
-    ) {
-        $this->setName($name);
-        $this->setDescription($description);
-        $this->setTransport($transport);
-        $this->setAuthNeeded($authNeeded);
-        $this->setPriority($priority);
-        $this->setDisallow($disallow);
-        $this->setAllow($allow);
-        $this->setDirectMediaMethod($directMediaMethod);
-        $this->setCalleridUpdateHeader($calleridUpdateHeader);
-        $this->setUpdateCallerid($updateCallerid);
-        $this->setDirectConnectivity($directConnectivity);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return FriendDTO
-     */
-    public static function createDTO()
-    {
-        return new FriendDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FriendDTO
-         */
-        Assertion::isInstanceOf($dto, FriendDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getDescription(),
-            $dto->getTransport(),
-            $dto->getAuthNeeded(),
-            $dto->getPriority(),
-            $dto->getDisallow(),
-            $dto->getAllow(),
-            $dto->getDirectMediaMethod(),
-            $dto->getCalleridUpdateHeader(),
-            $dto->getUpdateCallerid(),
-            $dto->getDirectConnectivity()
-        );
-
-        return $self
-            ->setDomain($dto->getDomain())
-            ->setIp($dto->getIp())
-            ->setPort($dto->getPort())
-            ->setPassword($dto->getPassword())
-            ->setAreaCode($dto->getAreaCode())
-            ->setFromDomain($dto->getFromDomain())
-            ->setCompany($dto->getCompany())
-            ->setCountry($dto->getCountry())
-            ->setCallACL($dto->getCallACL())
-            ->setOutgoingDDI($dto->getOutgoingDDI())
-            ->setLanguage($dto->getLanguage());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FriendDTO
-         */
-        Assertion::isInstanceOf($dto, FriendDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setDomain($dto->getDomain())
-            ->setDescription($dto->getDescription())
-            ->setTransport($dto->getTransport())
-            ->setIp($dto->getIp())
-            ->setPort($dto->getPort())
-            ->setAuthNeeded($dto->getAuthNeeded())
-            ->setPassword($dto->getPassword())
-            ->setAreaCode($dto->getAreaCode())
-            ->setPriority($dto->getPriority())
-            ->setDisallow($dto->getDisallow())
-            ->setAllow($dto->getAllow())
-            ->setDirectMediaMethod($dto->getDirectMediaMethod())
-            ->setCalleridUpdateHeader($dto->getCalleridUpdateHeader())
-            ->setUpdateCallerid($dto->getUpdateCallerid())
-            ->setFromDomain($dto->getFromDomain())
-            ->setDirectConnectivity($dto->getDirectConnectivity())
-            ->setCompany($dto->getCompany())
-            ->setCountry($dto->getCountry())
-            ->setCallACL($dto->getCallACL())
-            ->setOutgoingDDI($dto->getOutgoingDDI())
-            ->setLanguage($dto->getLanguage());
-
-
-        return $this;
-    }
-
-    /**
-     * @return FriendDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setDomain($this->getDomain())
-            ->setDescription($this->getDescription())
-            ->setTransport($this->getTransport())
-            ->setIp($this->getIp())
-            ->setPort($this->getPort())
-            ->setAuthNeeded($this->getAuthNeeded())
-            ->setPassword($this->getPassword())
-            ->setAreaCode($this->getAreaCode())
-            ->setPriority($this->getPriority())
-            ->setDisallow($this->getDisallow())
-            ->setAllow($this->getAllow())
-            ->setDirectMediaMethod($this->getDirectMediaMethod())
-            ->setCalleridUpdateHeader($this->getCalleridUpdateHeader())
-            ->setUpdateCallerid($this->getUpdateCallerid())
-            ->setFromDomain($this->getFromDomain())
-            ->setDirectConnectivity($this->getDirectConnectivity())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setCountryId($this->getCountry() ? $this->getCountry()->getId() : null)
-            ->setCallACLId($this->getCallACL() ? $this->getCallACL()->getId() : null)
-            ->setOutgoingDDIId($this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null)
-            ->setLanguageId($this->getLanguage() ? $this->getLanguage()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'domain' => $this->getDomain(),
-            'description' => $this->getDescription(),
-            'transport' => $this->getTransport(),
-            'ip' => $this->getIp(),
-            'port' => $this->getPort(),
-            'authNeeded' => $this->getAuthNeeded(),
-            'password' => $this->getPassword(),
-            'areaCode' => $this->getAreaCode(),
-            'priority' => $this->getPriority(),
-            'disallow' => $this->getDisallow(),
-            'allow' => $this->getAllow(),
-            'directMediaMethod' => $this->getDirectMediaMethod(),
-            'calleridUpdateHeader' => $this->getCalleridUpdateHeader(),
-            'updateCallerid' => $this->getUpdateCallerid(),
-            'fromDomain' => $this->getFromDomain(),
-            'directConnectivity' => $this->getDirectConnectivity(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null,
-            'callACLId' => $this->getCallACL() ? $this->getCallACL()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null,
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

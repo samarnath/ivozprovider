@@ -15,6 +15,17 @@ use EntityGeneratorBundle\Tools\DTOGenerator;
  */
 class GenerateDTOCommand extends ParentCommand
 {
+    use ExecuteGeneratorTrait;
+
+    public function __construct($name = null)
+    {
+        $this->injectEmbeddedClasses = false;
+        $this->mergeEmbeddedClasses = false;
+        $this->skipEmbedded = true;
+        $this->skipMappedSuperClass = true;
+
+        return parent::__construct($name = null);
+    }
 
     protected function configure()
     {

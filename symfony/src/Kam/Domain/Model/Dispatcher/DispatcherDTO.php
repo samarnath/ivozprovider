@@ -74,26 +74,6 @@ class DispatcherDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setSetid(isset($data['setid']) ? $data['setid'] : null)
-            ->setDestination(isset($data['destination']) ? $data['destination'] : null)
-            ->setFlags(isset($data['flags']) ? $data['flags'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null)
-            ->setAttrs(isset($data['attrs']) ? $data['attrs'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setApplicationServerId(isset($data['applicationServerId']) ? $data['applicationServerId'] : null);
-    }
-     */
-
-    /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)

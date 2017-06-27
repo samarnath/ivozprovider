@@ -31,7 +31,7 @@ class AssertionGenerator
 
     public static function float($fieldName)
     {
-        return '//Assertion::float($'. $fieldName .');';
+        return 'Assertion::numeric($'. $fieldName .');';
     }
 
     public static function greaterOrEqualThan($fieldName, $limit)

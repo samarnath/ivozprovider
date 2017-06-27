@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\BrandOperator;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * BrandOperatorAbstract
  */
-abstract class BrandOperatorAbstract implements EntityInterface
+abstract class BrandOperatorAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -64,131 +58,9 @@ abstract class BrandOperatorAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($username, $pass, $email, $active)
-    {
-        $this->setUsername($username);
-        $this->setPass($pass);
-        $this->setEmail($email);
-        $this->setActive($active);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return BrandOperatorDTO
-     */
-    public static function createDTO()
-    {
-        return new BrandOperatorDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto BrandOperatorDTO
-         */
-        Assertion::isInstanceOf($dto, BrandOperatorDTO::class);
-
-        $self = new static(
-            $dto->getUsername(),
-            $dto->getPass(),
-            $dto->getEmail(),
-            $dto->getActive()
-        );
-
-        return $self
-            ->setName($dto->getName())
-            ->setLastname($dto->getLastname())
-            ->setBrand($dto->getBrand())
-            ->setTimezone($dto->getTimezone());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto BrandOperatorDTO
-         */
-        Assertion::isInstanceOf($dto, BrandOperatorDTO::class);
-
-        $this
-            ->setUsername($dto->getUsername())
-            ->setPass($dto->getPass())
-            ->setEmail($dto->getEmail())
-            ->setActive($dto->getActive())
-            ->setName($dto->getName())
-            ->setLastname($dto->getLastname())
-            ->setBrand($dto->getBrand())
-            ->setTimezone($dto->getTimezone());
-
-
-        return $this;
-    }
-
-    /**
-     * @return BrandOperatorDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setUsername($this->getUsername())
-            ->setPass($this->getPass())
-            ->setEmail($this->getEmail())
-            ->setActive($this->getActive())
-            ->setName($this->getName())
-            ->setLastname($this->getLastname())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setTimezoneId($this->getTimezone() ? $this->getTimezone()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'username' => $this->getUsername(),
-            'pass' => $this->getPass(),
-            'email' => $this->getEmail(),
-            'active' => $this->getActive(),
-            'name' => $this->getName(),
-            'lastname' => $this->getLastname(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'timezoneId' => $this->getTimezone() ? $this->getTimezone()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set username

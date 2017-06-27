@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Language;
 interface LanguageInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get iden
      *
      * @return string
@@ -25,27 +17,9 @@ interface LanguageInterface
     /**
      * Get name
      *
-     * @return string
+     * @return Name
      */
     public function getName();
-
-
-    /**
-     * Get nameEn
-     *
-     * @return string
-     */
-    public function getNameEn();
-
-
-    /**
-     * Get nameEs
-     *
-     * @return string
-     */
-    public function getNameEs();
-
-
 
 }
 

@@ -22,7 +22,6 @@ class TrunksAddresDTO implements DataTransferObjectInterface
     private $grp = '1';
 
     /**
-     * @column ip_addr
      * @var string
      */
     private $ipAddr;
@@ -56,24 +55,6 @@ class TrunksAddresDTO implements DataTransferObjectInterface
             'tag' => $this->getTag()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setGrp(isset($data['grp']) ? $data['grp'] : null)
-            ->setIpAddr(isset($data['ipAddr']) ? $data['ipAddr'] : null)
-            ->setMask(isset($data['mask']) ? $data['mask'] : null)
-            ->setPort(isset($data['port']) ? $data['port'] : null)
-            ->setTag(isset($data['tag']) ? $data['tag'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

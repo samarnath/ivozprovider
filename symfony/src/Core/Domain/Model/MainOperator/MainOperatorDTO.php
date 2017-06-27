@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class MainOperatorDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $username;
@@ -47,6 +42,11 @@ class MainOperatorDTO implements DataTransferObjectInterface
     private $lastname;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $timezoneId;
@@ -62,36 +62,16 @@ class MainOperatorDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'username' => $this->getUsername(),
             'pass' => $this->getPass(),
             'email' => $this->getEmail(),
             'active' => $this->getActive(),
             'name' => $this->getName(),
             'lastname' => $this->getLastname(),
+            'id' => $this->getId(),
             'timezoneId' => $this->getTimezoneId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setUsername(isset($data['username']) ? $data['username'] : null)
-            ->setPass(isset($data['pass']) ? $data['pass'] : null)
-            ->setEmail(isset($data['email']) ? $data['email'] : null)
-            ->setActive(isset($data['active']) ? $data['active'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setLastname(isset($data['lastname']) ? $data['lastname'] : null)
-            ->setTimezoneId(isset($data['timezoneId']) ? $data['timezoneId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -107,26 +87,6 @@ class MainOperatorDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return MainOperatorDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -247,6 +207,26 @@ class MainOperatorDTO implements DataTransferObjectInterface
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return MainOperatorDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

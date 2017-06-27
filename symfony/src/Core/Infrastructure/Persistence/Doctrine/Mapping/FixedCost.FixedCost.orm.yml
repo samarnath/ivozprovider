@@ -2,15 +2,6 @@ Core\Domain\Model\FixedCost\FixedCost:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FixedCostDoctrineRepository
   type: entity
   table: FixedCosts
-  indexes:
-    brandId:
-      columns:
-        - brandId
-  uniqueConstraints:
-    descBrand:
-      columns:
-        - brandId
-        - name
   id:
     id:
       type: integer
@@ -20,33 +11,4 @@ Core\Domain\Model\FixedCost\FixedCost:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    name:
-      type: string
-      nullable: false
-      length: 255
-      options:
-        fixed: false
-    description:
-      column: description
-      type: text
-      nullable: true
-    cost:
-      column: cost
-      type: decimal
-      nullable: true
-      precision: 10
-      scale: 4
-  manyToOne:
-    brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        brandId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
   lifecycleCallbacks: {  }

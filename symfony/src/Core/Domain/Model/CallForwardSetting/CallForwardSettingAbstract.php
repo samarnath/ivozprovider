@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\CallForwardSetting;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallForwardSettingAbstract
  */
-abstract class CallForwardSettingAbstract implements EntityInterface
+abstract class CallForwardSettingAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @comment enum:internal|external|both
      * @var string
@@ -66,135 +60,9 @@ abstract class CallForwardSettingAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $callTypeFilter,
-        $callForwardType,
-        $targetType,
-        $noAnswerTimeout
-    ) {
-        $this->setCallTypeFilter($callTypeFilter);
-        $this->setCallForwardType($callForwardType);
-        $this->setTargetType($targetType);
-        $this->setNoAnswerTimeout($noAnswerTimeout);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return CallForwardSettingDTO
-     */
-    public static function createDTO()
-    {
-        return new CallForwardSettingDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CallForwardSettingDTO
-         */
-        Assertion::isInstanceOf($dto, CallForwardSettingDTO::class);
-
-        $self = new static(
-            $dto->getCallTypeFilter(),
-            $dto->getCallForwardType(),
-            $dto->getTargetType(),
-            $dto->getNoAnswerTimeout()
-        );
-
-        return $self
-            ->setNumberValue($dto->getNumberValue())
-            ->setUser($dto->getUser())
-            ->setExtension($dto->getExtension())
-            ->setVoiceMailUser($dto->getVoiceMailUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CallForwardSettingDTO
-         */
-        Assertion::isInstanceOf($dto, CallForwardSettingDTO::class);
-
-        $this
-            ->setCallTypeFilter($dto->getCallTypeFilter())
-            ->setCallForwardType($dto->getCallForwardType())
-            ->setTargetType($dto->getTargetType())
-            ->setNumberValue($dto->getNumberValue())
-            ->setNoAnswerTimeout($dto->getNoAnswerTimeout())
-            ->setUser($dto->getUser())
-            ->setExtension($dto->getExtension())
-            ->setVoiceMailUser($dto->getVoiceMailUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return CallForwardSettingDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setCallTypeFilter($this->getCallTypeFilter())
-            ->setCallForwardType($this->getCallForwardType())
-            ->setTargetType($this->getTargetType())
-            ->setNumberValue($this->getNumberValue())
-            ->setNoAnswerTimeout($this->getNoAnswerTimeout())
-            ->setUserId($this->getUser() ? $this->getUser()->getId() : null)
-            ->setExtensionId($this->getExtension() ? $this->getExtension()->getId() : null)
-            ->setVoiceMailUserId($this->getVoiceMailUser() ? $this->getVoiceMailUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'callTypeFilter' => $this->getCallTypeFilter(),
-            'callForwardType' => $this->getCallForwardType(),
-            'targetType' => $this->getTargetType(),
-            'numberValue' => $this->getNumberValue(),
-            'noAnswerTimeout' => $this->getNoAnswerTimeout(),
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null,
-            'extensionId' => $this->getExtension() ? $this->getExtension()->getId() : null,
-            'voiceMailUserId' => $this->getVoiceMailUser() ? $this->getVoiceMailUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set callTypeFilter

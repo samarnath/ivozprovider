@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\MainOperator;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MainOperatorAbstract
  */
-abstract class MainOperatorAbstract implements EntityInterface
+abstract class MainOperatorAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -59,127 +53,9 @@ abstract class MainOperatorAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($username, $pass, $email, $active)
-    {
-        $this->setUsername($username);
-        $this->setPass($pass);
-        $this->setEmail($email);
-        $this->setActive($active);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return MainOperatorDTO
-     */
-    public static function createDTO()
-    {
-        return new MainOperatorDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto MainOperatorDTO
-         */
-        Assertion::isInstanceOf($dto, MainOperatorDTO::class);
-
-        $self = new static(
-            $dto->getUsername(),
-            $dto->getPass(),
-            $dto->getEmail(),
-            $dto->getActive()
-        );
-
-        return $self
-            ->setName($dto->getName())
-            ->setLastname($dto->getLastname())
-            ->setTimezone($dto->getTimezone());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto MainOperatorDTO
-         */
-        Assertion::isInstanceOf($dto, MainOperatorDTO::class);
-
-        $this
-            ->setUsername($dto->getUsername())
-            ->setPass($dto->getPass())
-            ->setEmail($dto->getEmail())
-            ->setActive($dto->getActive())
-            ->setName($dto->getName())
-            ->setLastname($dto->getLastname())
-            ->setTimezone($dto->getTimezone());
-
-
-        return $this;
-    }
-
-    /**
-     * @return MainOperatorDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setUsername($this->getUsername())
-            ->setPass($this->getPass())
-            ->setEmail($this->getEmail())
-            ->setActive($this->getActive())
-            ->setName($this->getName())
-            ->setLastname($this->getLastname())
-            ->setTimezoneId($this->getTimezone() ? $this->getTimezone()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'username' => $this->getUsername(),
-            'pass' => $this->getPass(),
-            'email' => $this->getEmail(),
-            'active' => $this->getActive(),
-            'name' => $this->getName(),
-            'lastname' => $this->getLastname(),
-            'timezoneId' => $this->getTimezone() ? $this->getTimezone()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set username

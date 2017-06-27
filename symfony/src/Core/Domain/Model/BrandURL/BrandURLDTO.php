@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class BrandURLDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $url;
@@ -37,6 +32,16 @@ class BrandURLDTO implements DataTransferObjectInterface
     private $name = '';
 
     /**
+     * @var string
+     */
+    private $userTheme = '';
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var integer
      */
     private $logoFileSize;
@@ -50,11 +55,6 @@ class BrandURLDTO implements DataTransferObjectInterface
      * @var string
      */
     private $logoBaseName;
-
-    /**
-     * @var string
-     */
-    private $userTheme = '';
 
     /**
      * @var mixed
@@ -72,40 +72,18 @@ class BrandURLDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'url' => $this->getUrl(),
             'klearTheme' => $this->getKlearTheme(),
             'urlType' => $this->getUrlType(),
             'name' => $this->getName(),
+            'userTheme' => $this->getUserTheme(),
+            'id' => $this->getId(),
             'logoFileSize' => $this->getLogoFileSize(),
             'logoMimeType' => $this->getLogoMimeType(),
             'logoBaseName' => $this->getLogoBaseName(),
-            'userTheme' => $this->getUserTheme(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setUrl(isset($data['url']) ? $data['url'] : null)
-            ->setKlearTheme(isset($data['klearTheme']) ? $data['klearTheme'] : null)
-            ->setUrlType(isset($data['urlType']) ? $data['urlType'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setLogoFileSize(isset($data['logoFileSize']) ? $data['logoFileSize'] : null)
-            ->setLogoMimeType(isset($data['logoMimeType']) ? $data['logoMimeType'] : null)
-            ->setLogoBaseName(isset($data['logoBaseName']) ? $data['logoBaseName'] : null)
-            ->setUserTheme(isset($data['userTheme']) ? $data['userTheme'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -121,26 +99,6 @@ class BrandURLDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return BrandURLDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -224,11 +182,51 @@ class BrandURLDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param string $userTheme
+     *
+     * @return BrandURLDTO
+     */
+    public function setUserTheme($userTheme = null)
+    {
+        $this->userTheme = $userTheme;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserTheme()
+    {
+        return $this->userTheme;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return BrandURLDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $logoFileSize
      *
      * @return BrandURLDTO
      */
-    public function setLogoFileSize($logoFileSize = null)
+    public function setLogoFileSize($logoFileSize)
     {
         $this->logoFileSize = $logoFileSize;
 
@@ -248,7 +246,7 @@ class BrandURLDTO implements DataTransferObjectInterface
      *
      * @return BrandURLDTO
      */
-    public function setLogoMimeType($logoMimeType = null)
+    public function setLogoMimeType($logoMimeType)
     {
         $this->logoMimeType = $logoMimeType;
 
@@ -268,7 +266,7 @@ class BrandURLDTO implements DataTransferObjectInterface
      *
      * @return BrandURLDTO
      */
-    public function setLogoBaseName($logoBaseName = null)
+    public function setLogoBaseName($logoBaseName)
     {
         $this->logoBaseName = $logoBaseName;
 
@@ -281,26 +279,6 @@ class BrandURLDTO implements DataTransferObjectInterface
     public function getLogoBaseName()
     {
         return $this->logoBaseName;
-    }
-
-    /**
-     * @param string $userTheme
-     *
-     * @return BrandURLDTO
-     */
-    public function setUserTheme($userTheme = null)
-    {
-        $this->userTheme = $userTheme;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserTheme()
-    {
-        return $this->userTheme;
     }
 
     /**

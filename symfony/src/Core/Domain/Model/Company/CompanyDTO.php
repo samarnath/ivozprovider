@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class CompanyDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $type = 'vpbx';
@@ -27,7 +22,6 @@ class CompanyDTO implements DataTransferObjectInterface
     private $name;
 
     /**
-     * @column domain_users
      * @var string
      */
     private $domainUsers;
@@ -68,7 +62,6 @@ class CompanyDTO implements DataTransferObjectInterface
     private $country;
 
     /**
-     * @column outbound_prefix
      * @var string
      */
     private $outboundPrefix;
@@ -107,6 +100,11 @@ class CompanyDTO implements DataTransferObjectInterface
      * @var string
      */
     private $recordingsLimitEmail;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -184,7 +182,6 @@ class CompanyDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'type' => $this->getType(),
             'name' => $this->getName(),
             'domainUsers' => $this->getDomainUsers(),
@@ -203,6 +200,7 @@ class CompanyDTO implements DataTransferObjectInterface
             'externallyextraopts' => $this->getExternallyextraopts(),
             'recordingsLimitMB' => $this->getRecordingsLimitMB(),
             'recordingsLimitEmail' => $this->getRecordingsLimitEmail(),
+            'id' => $this->getId(),
             'languageId' => $this->getLanguageId(),
             'mediaRelaySetsId' => $this->getMediaRelaySetsId(),
             'defaultTimezoneId' => $this->getDefaultTimezoneId(),
@@ -212,44 +210,6 @@ class CompanyDTO implements DataTransferObjectInterface
             'outgoingDDIId' => $this->getOutgoingDDIId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setType(isset($data['type']) ? $data['type'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDomainUsers(isset($data['domainUsers']) ? $data['domainUsers'] : null)
-            ->setNif(isset($data['nif']) ? $data['nif'] : null)
-            ->setExternalMaxCalls(isset($data['externalMaxCalls']) ? $data['externalMaxCalls'] : null)
-            ->setPostalAddress(isset($data['postalAddress']) ? $data['postalAddress'] : null)
-            ->setPostalCode(isset($data['postalCode']) ? $data['postalCode'] : null)
-            ->setTown(isset($data['town']) ? $data['town'] : null)
-            ->setProvince(isset($data['province']) ? $data['province'] : null)
-            ->setCountry(isset($data['country']) ? $data['country'] : null)
-            ->setOutboundPrefix(isset($data['outboundPrefix']) ? $data['outboundPrefix'] : null)
-            ->setIpfilter(isset($data['ipfilter']) ? $data['ipfilter'] : null)
-            ->setOnDemandRecord(isset($data['onDemandRecord']) ? $data['onDemandRecord'] : null)
-            ->setOnDemandRecordCode(isset($data['onDemandRecordCode']) ? $data['onDemandRecordCode'] : null)
-            ->setAreaCode(isset($data['areaCode']) ? $data['areaCode'] : null)
-            ->setExternallyextraopts(isset($data['externallyextraopts']) ? $data['externallyextraopts'] : null)
-            ->setRecordingsLimitMB(isset($data['recordingsLimitMB']) ? $data['recordingsLimitMB'] : null)
-            ->setRecordingsLimitEmail(isset($data['recordingsLimitEmail']) ? $data['recordingsLimitEmail'] : null)
-            ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null)
-            ->setMediaRelaySetsId(isset($data['mediaRelaySetsId']) ? $data['mediaRelaySetsId'] : null)
-            ->setDefaultTimezoneId(isset($data['defaultTimezoneId']) ? $data['defaultTimezoneId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setApplicationServerId(isset($data['applicationServerId']) ? $data['applicationServerId'] : null)
-            ->setCountryCodeId(isset($data['countryCodeId']) ? $data['countryCodeId'] : null)
-            ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -271,26 +231,6 @@ class CompanyDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return CompanyDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -651,6 +591,26 @@ class CompanyDTO implements DataTransferObjectInterface
     public function getRecordingsLimitEmail()
     {
         return $this->recordingsLimitEmail;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return CompanyDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

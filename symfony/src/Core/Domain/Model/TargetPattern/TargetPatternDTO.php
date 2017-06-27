@@ -12,6 +12,11 @@ use Core\Application\CollectionTransformerInterface;
 class TargetPatternDTO implements DataTransferObjectInterface
 {
     /**
+     * @var string
+     */
+    private $regExp;
+
+    /**
      * @var integer
      */
     private $id;
@@ -22,13 +27,11 @@ class TargetPatternDTO implements DataTransferObjectInterface
     private $name;
 
     /**
-     * @column name_en
      * @var string
      */
     private $nameEn;
 
     /**
-     * @column name_es
      * @var string
      */
     private $nameEs;
@@ -39,21 +42,14 @@ class TargetPatternDTO implements DataTransferObjectInterface
     private $description;
 
     /**
-     * @column description_en
      * @var string
      */
     private $descriptionEn;
 
     /**
-     * @column description_es
      * @var string
      */
     private $descriptionEs;
-
-    /**
-     * @var string
-     */
-    private $regExp;
 
     /**
      * @var mixed
@@ -71,38 +67,17 @@ class TargetPatternDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
+            'regExp' => $this->getRegExp(),
             'id' => $this->getId(),
-            'name' => $this->getName(),
+            'nameName' => $this->getNameName(),
             'nameEn' => $this->getNameEn(),
             'nameEs' => $this->getNameEs(),
-            'description' => $this->getDescription(),
+            'descriptionDescription' => $this->getDescriptionDescription(),
             'descriptionEn' => $this->getDescriptionEn(),
             'descriptionEs' => $this->getDescriptionEs(),
-            'regExp' => $this->getRegExp(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setNameEn(isset($data['nameEn']) ? $data['nameEn'] : null)
-            ->setNameEs(isset($data['nameEs']) ? $data['nameEs'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setDescriptionEn(isset($data['descriptionEn']) ? $data['descriptionEn'] : null)
-            ->setDescriptionEs(isset($data['descriptionEs']) ? $data['descriptionEs'] : null)
-            ->setRegExp(isset($data['regExp']) ? $data['regExp'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -118,6 +93,26 @@ class TargetPatternDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
+    }
+
+    /**
+     * @param string $regExp
+     *
+     * @return TargetPatternDTO
+     */
+    public function setRegExp($regExp)
+    {
+        $this->regExp = $regExp;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegExp()
+    {
+        return $this->regExp;
     }
 
     /**
@@ -258,26 +253,6 @@ class TargetPatternDTO implements DataTransferObjectInterface
     public function getDescriptionEs()
     {
         return $this->descriptionEs;
-    }
-
-    /**
-     * @param string $regExp
-     *
-     * @return TargetPatternDTO
-     */
-    public function setRegExp($regExp)
-    {
-        $this->regExp = $regExp;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegExp()
-    {
-        return $this->regExp;
     }
 
     /**

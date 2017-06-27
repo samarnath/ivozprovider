@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class RecordingDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $callid;
@@ -54,6 +49,11 @@ class RecordingDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
+    private $id;
+
+    /**
+     * @var integer
+     */
     private $recordedFileFileSize;
 
     /**
@@ -82,7 +82,6 @@ class RecordingDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'callid' => $this->getCallid(),
             'calldate' => $this->getCalldate(),
             'type' => $this->getType(),
@@ -90,36 +89,13 @@ class RecordingDTO implements DataTransferObjectInterface
             'caller' => $this->getCaller(),
             'callee' => $this->getCallee(),
             'recorder' => $this->getRecorder(),
+            'id' => $this->getId(),
             'recordedFileFileSize' => $this->getRecordedFileFileSize(),
             'recordedFileMimeType' => $this->getRecordedFileMimeType(),
             'recordedFileBaseName' => $this->getRecordedFileBaseName(),
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setCallid(isset($data['callid']) ? $data['callid'] : null)
-            ->setCalldate(isset($data['calldate']) ? $data['calldate'] : null)
-            ->setType(isset($data['type']) ? $data['type'] : null)
-            ->setDuration(isset($data['duration']) ? $data['duration'] : null)
-            ->setCaller(isset($data['caller']) ? $data['caller'] : null)
-            ->setCallee(isset($data['callee']) ? $data['callee'] : null)
-            ->setRecorder(isset($data['recorder']) ? $data['recorder'] : null)
-            ->setRecordedFileFileSize(isset($data['recordedFileFileSize']) ? $data['recordedFileFileSize'] : null)
-            ->setRecordedFileMimeType(isset($data['recordedFileMimeType']) ? $data['recordedFileMimeType'] : null)
-            ->setRecordedFileBaseName(isset($data['recordedFileBaseName']) ? $data['recordedFileBaseName'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -135,26 +111,6 @@ class RecordingDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return RecordingDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -298,11 +254,31 @@ class RecordingDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return RecordingDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $recordedFileFileSize
      *
      * @return RecordingDTO
      */
-    public function setRecordedFileFileSize($recordedFileFileSize = null)
+    public function setRecordedFileFileSize($recordedFileFileSize)
     {
         $this->recordedFileFileSize = $recordedFileFileSize;
 
@@ -322,7 +298,7 @@ class RecordingDTO implements DataTransferObjectInterface
      *
      * @return RecordingDTO
      */
-    public function setRecordedFileMimeType($recordedFileMimeType = null)
+    public function setRecordedFileMimeType($recordedFileMimeType)
     {
         $this->recordedFileMimeType = $recordedFileMimeType;
 
@@ -342,7 +318,7 @@ class RecordingDTO implements DataTransferObjectInterface
      *
      * @return RecordingDTO
      */
-    public function setRecordedFileBaseName($recordedFileBaseName = null)
+    public function setRecordedFileBaseName($recordedFileBaseName)
     {
         $this->recordedFileBaseName = $recordedFileBaseName;
 

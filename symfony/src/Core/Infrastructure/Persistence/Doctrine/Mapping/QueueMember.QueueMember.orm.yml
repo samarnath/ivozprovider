@@ -2,13 +2,6 @@ Core\Domain\Model\QueueMember\QueueMember:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\QueueMemberDoctrineRepository
   type: entity
   table: QueueMembers
-  indexes:
-    queueId:
-      columns:
-        - queueId
-    userId:
-      columns:
-        - userId
   id:
     id:
       type: integer
@@ -18,31 +11,4 @@ Core\Domain\Model\QueueMember\QueueMember:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    penalty:
-      type: integer
-      nullable: true
-      options:
-        unsigned: false
-  manyToOne:
-    queue:
-      targetEntity: \Core\Domain\Model\Queue\QueueInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        queueId:
-          referencedColumnName: id
-      orphanRemoval: false
-    user:
-      targetEntity: \Core\Domain\Model\User\UserInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        userId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

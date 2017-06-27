@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Feature;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FeatureAbstract
  */
-abstract class FeatureAbstract implements EntityInterface
+abstract class FeatureAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -46,115 +40,9 @@ abstract class FeatureAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($iden, $name, $nameEn, $nameEs)
-    {
-        $this->setIden($iden);
-        $this->setName($name);
-        $this->setNameEn($nameEn);
-        $this->setNameEs($nameEs);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return FeatureDTO
-     */
-    public static function createDTO()
-    {
-        return new FeatureDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FeatureDTO
-         */
-        Assertion::isInstanceOf($dto, FeatureDTO::class);
-
-        $self = new static(
-            $dto->getIden(),
-            $dto->getName(),
-            $dto->getNameEn(),
-            $dto->getNameEs()
-        );
-
-        return $self;
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FeatureDTO
-         */
-        Assertion::isInstanceOf($dto, FeatureDTO::class);
-
-        $this
-            ->setIden($dto->getIden())
-            ->setName($dto->getName())
-            ->setNameEn($dto->getNameEn())
-            ->setNameEs($dto->getNameEs());
-
-
-        return $this;
-    }
-
-    /**
-     * @return FeatureDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setIden($this->getIden())
-            ->setName($this->getName())
-            ->setNameEn($this->getNameEn())
-            ->setNameEs($this->getNameEs());
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'iden' => $this->getIden(),
-            'name' => $this->getName(),
-            'nameEn' => $this->getNameEn(),
-            'nameEs' => $this->getNameEs()
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set iden

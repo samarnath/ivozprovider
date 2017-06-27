@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class ConferenceRoomDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -37,6 +32,11 @@ class ConferenceRoomDTO implements DataTransferObjectInterface
     private $maxMembers = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $companyId;
@@ -52,32 +52,14 @@ class ConferenceRoomDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'pinProtected' => $this->getPinProtected(),
             'pinCode' => $this->getPinCode(),
             'maxMembers' => $this->getMaxMembers(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setPinProtected(isset($data['pinProtected']) ? $data['pinProtected'] : null)
-            ->setPinCode(isset($data['pinCode']) ? $data['pinCode'] : null)
-            ->setMaxMembers(isset($data['maxMembers']) ? $data['maxMembers'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -93,26 +75,6 @@ class ConferenceRoomDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ConferenceRoomDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -193,6 +155,26 @@ class ConferenceRoomDTO implements DataTransferObjectInterface
     public function getMaxMembers()
     {
         return $this->maxMembers;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ConferenceRoomDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -1,0 +1,182 @@
+Core\Domain\Model\IVRCustom\IVRCustomAbstract:
+  type: mappedSuperclass
+  indexes:
+    companyId:
+      columns:
+        - companyId
+    welcomeLocutionId:
+      columns:
+        - welcomeLocutionId
+    noAnswerLocutionId:
+      columns:
+        - noAnswerLocutionId
+    errorLocutionId:
+      columns:
+        - errorLocutionId
+    successLocutionId:
+      columns:
+        - successLocutionId
+    noAnswerExtensionId:
+      columns:
+        - timeoutExtensionId
+    errorExtensionId:
+      columns:
+        - errorExtensionId
+    noAnswerVoiceMailUserId:
+      columns:
+        - timeoutVoiceMailUserId
+    errorVoiceMailUserId:
+      columns:
+        - errorVoiceMailUserId
+  uniqueConstraints:
+    nameCompany:
+      columns:
+        - name
+        - companyId
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 50
+      options:
+        fixed: false
+    timeout:
+      type: smallint
+      nullable: false
+      options:
+        unsigned: true
+    maxDigits:
+      type: smallint
+      nullable: false
+      options:
+        unsigned: true
+      column: maxDigits
+    noAnswerTimeout:
+      type: integer
+      nullable: true
+      options:
+        unsigned: false
+        default: '10'
+      column: noAnswerTimeout
+    timeoutTargetType:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:number|extension|voicemail]'
+      column: timeoutTargetType
+    timeoutNumberValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: timeoutNumberValue
+    errorTargetType:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+        comment: '[enum:number|extension|voicemail]'
+      column: errorTargetType
+    errorNumberValue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+        fixed: false
+      column: errorNumberValue
+  manyToOne:
+    company:
+      targetEntity: \Core\Domain\Model\Company\CompanyInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        companyId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    welcomeLocution:
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        welcomeLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    noAnswerLocution:
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        noAnswerLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    errorLocution:
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        errorLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    successLocution:
+      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        successLocutionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    timeoutExtension:
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        timeoutExtensionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    errorExtension:
+      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        errorExtensionId:
+          referencedColumnName: id
+      orphanRemoval: false
+    timeoutVoiceMailUser:
+      targetEntity: \Core\Domain\Model\User\UserInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        timeoutVoiceMailUserId:
+          referencedColumnName: id
+      orphanRemoval: false
+    errorVoiceMailUser:
+      targetEntity: \Core\Domain\Model\User\UserInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        errorVoiceMailUserId:
+          referencedColumnName: id
+      orphanRemoval: false

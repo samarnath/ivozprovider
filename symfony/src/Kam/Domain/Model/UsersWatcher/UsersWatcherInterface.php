@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersWatcher;
 interface UsersWatcherInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get presentityUri
      *
      * @return string

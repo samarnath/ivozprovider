@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\LcrRule;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * LcrRuleAbstract
  */
-abstract class LcrRuleAbstract implements EntityInterface
+abstract class LcrRuleAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @column lcr_id
      * @var integer
@@ -76,145 +70,9 @@ abstract class LcrRuleAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $lcrId,
-        $stopper,
-        $enabled,
-        $tag,
-        $description
-    ) {
-        $this->setLcrId($lcrId);
-        $this->setStopper($stopper);
-        $this->setEnabled($enabled);
-        $this->setTag($tag);
-        $this->setDescription($description);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return LcrRuleDTO
-     */
-    public static function createDTO()
-    {
-        return new LcrRuleDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto LcrRuleDTO
-         */
-        Assertion::isInstanceOf($dto, LcrRuleDTO::class);
-
-        $self = new static(
-            $dto->getLcrId(),
-            $dto->getStopper(),
-            $dto->getEnabled(),
-            $dto->getTag(),
-            $dto->getDescription()
-        );
-
-        return $self
-            ->setPrefix($dto->getPrefix())
-            ->setFromUri($dto->getFromUri())
-            ->setRequestUri($dto->getRequestUri())
-            ->setRoutingPattern($dto->getRoutingPattern())
-            ->setOutgoingRouting($dto->getOutgoingRouting());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto LcrRuleDTO
-         */
-        Assertion::isInstanceOf($dto, LcrRuleDTO::class);
-
-        $this
-            ->setLcrId($dto->getLcrId())
-            ->setPrefix($dto->getPrefix())
-            ->setFromUri($dto->getFromUri())
-            ->setRequestUri($dto->getRequestUri())
-            ->setStopper($dto->getStopper())
-            ->setEnabled($dto->getEnabled())
-            ->setTag($dto->getTag())
-            ->setDescription($dto->getDescription())
-            ->setRoutingPattern($dto->getRoutingPattern())
-            ->setOutgoingRouting($dto->getOutgoingRouting());
-
-
-        return $this;
-    }
-
-    /**
-     * @return LcrRuleDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setLcrId($this->getLcrId())
-            ->setPrefix($this->getPrefix())
-            ->setFromUri($this->getFromUri())
-            ->setRequestUri($this->getRequestUri())
-            ->setStopper($this->getStopper())
-            ->setEnabled($this->getEnabled())
-            ->setTag($this->getTag())
-            ->setDescription($this->getDescription())
-            ->setRoutingPatternId($this->getRoutingPattern() ? $this->getRoutingPattern()->getId() : null)
-            ->setOutgoingRoutingId($this->getOutgoingRouting() ? $this->getOutgoingRouting()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'lcrId' => $this->getLcrId(),
-            'prefix' => $this->getPrefix(),
-            'fromUri' => $this->getFromUri(),
-            'requestUri' => $this->getRequestUri(),
-            'stopper' => $this->getStopper(),
-            'enabled' => $this->getEnabled(),
-            'tag' => $this->getTag(),
-            'description' => $this->getDescription(),
-            'routingPatternId' => $this->getRoutingPattern() ? $this->getRoutingPattern()->getId() : null,
-            'outgoingRoutingId' => $this->getOutgoingRouting() ? $this->getOutgoingRouting()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set lcrId

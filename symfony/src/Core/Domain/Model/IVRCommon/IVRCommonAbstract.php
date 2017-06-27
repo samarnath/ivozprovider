@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\IVRCommon;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * IVRCommonAbstract
  */
-abstract class IVRCommonAbstract implements EntityInterface
+abstract class IVRCommonAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -115,170 +109,9 @@ abstract class IVRCommonAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name, $timeout, $maxDigits)
-    {
-        $this->setName($name);
-        $this->setTimeout($timeout);
-        $this->setMaxDigits($maxDigits);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return IVRCommonDTO
-     */
-    public static function createDTO()
-    {
-        return new IVRCommonDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto IVRCommonDTO
-         */
-        Assertion::isInstanceOf($dto, IVRCommonDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getTimeout(),
-            $dto->getMaxDigits()
-        );
-
-        return $self
-            ->setBlackListRegExp($dto->getBlackListRegExp())
-            ->setNoAnswerTimeout($dto->getNoAnswerTimeout())
-            ->setTimeoutTargetType($dto->getTimeoutTargetType())
-            ->setTimeoutNumberValue($dto->getTimeoutNumberValue())
-            ->setErrorTargetType($dto->getErrorTargetType())
-            ->setErrorNumberValue($dto->getErrorNumberValue())
-            ->setCompany($dto->getCompany())
-            ->setWelcomeLocution($dto->getWelcomeLocution())
-            ->setNoAnswerLocution($dto->getNoAnswerLocution())
-            ->setErrorLocution($dto->getErrorLocution())
-            ->setSuccessLocution($dto->getSuccessLocution())
-            ->setTimeoutExtension($dto->getTimeoutExtension())
-            ->setErrorExtension($dto->getErrorExtension())
-            ->setTimeoutVoiceMailUser($dto->getTimeoutVoiceMailUser())
-            ->setErrorVoiceMailUser($dto->getErrorVoiceMailUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto IVRCommonDTO
-         */
-        Assertion::isInstanceOf($dto, IVRCommonDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setBlackListRegExp($dto->getBlackListRegExp())
-            ->setTimeout($dto->getTimeout())
-            ->setMaxDigits($dto->getMaxDigits())
-            ->setNoAnswerTimeout($dto->getNoAnswerTimeout())
-            ->setTimeoutTargetType($dto->getTimeoutTargetType())
-            ->setTimeoutNumberValue($dto->getTimeoutNumberValue())
-            ->setErrorTargetType($dto->getErrorTargetType())
-            ->setErrorNumberValue($dto->getErrorNumberValue())
-            ->setCompany($dto->getCompany())
-            ->setWelcomeLocution($dto->getWelcomeLocution())
-            ->setNoAnswerLocution($dto->getNoAnswerLocution())
-            ->setErrorLocution($dto->getErrorLocution())
-            ->setSuccessLocution($dto->getSuccessLocution())
-            ->setTimeoutExtension($dto->getTimeoutExtension())
-            ->setErrorExtension($dto->getErrorExtension())
-            ->setTimeoutVoiceMailUser($dto->getTimeoutVoiceMailUser())
-            ->setErrorVoiceMailUser($dto->getErrorVoiceMailUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return IVRCommonDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setBlackListRegExp($this->getBlackListRegExp())
-            ->setTimeout($this->getTimeout())
-            ->setMaxDigits($this->getMaxDigits())
-            ->setNoAnswerTimeout($this->getNoAnswerTimeout())
-            ->setTimeoutTargetType($this->getTimeoutTargetType())
-            ->setTimeoutNumberValue($this->getTimeoutNumberValue())
-            ->setErrorTargetType($this->getErrorTargetType())
-            ->setErrorNumberValue($this->getErrorNumberValue())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setWelcomeLocutionId($this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null)
-            ->setNoAnswerLocutionId($this->getNoAnswerLocution() ? $this->getNoAnswerLocution()->getId() : null)
-            ->setErrorLocutionId($this->getErrorLocution() ? $this->getErrorLocution()->getId() : null)
-            ->setSuccessLocutionId($this->getSuccessLocution() ? $this->getSuccessLocution()->getId() : null)
-            ->setTimeoutExtensionId($this->getTimeoutExtension() ? $this->getTimeoutExtension()->getId() : null)
-            ->setErrorExtensionId($this->getErrorExtension() ? $this->getErrorExtension()->getId() : null)
-            ->setTimeoutVoiceMailUserId($this->getTimeoutVoiceMailUser() ? $this->getTimeoutVoiceMailUser()->getId() : null)
-            ->setErrorVoiceMailUserId($this->getErrorVoiceMailUser() ? $this->getErrorVoiceMailUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'blackListRegExp' => $this->getBlackListRegExp(),
-            'timeout' => $this->getTimeout(),
-            'maxDigits' => $this->getMaxDigits(),
-            'noAnswerTimeout' => $this->getNoAnswerTimeout(),
-            'timeoutTargetType' => $this->getTimeoutTargetType(),
-            'timeoutNumberValue' => $this->getTimeoutNumberValue(),
-            'errorTargetType' => $this->getErrorTargetType(),
-            'errorNumberValue' => $this->getErrorNumberValue(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'welcomeLocutionId' => $this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null,
-            'noAnswerLocutionId' => $this->getNoAnswerLocution() ? $this->getNoAnswerLocution()->getId() : null,
-            'errorLocutionId' => $this->getErrorLocution() ? $this->getErrorLocution()->getId() : null,
-            'successLocutionId' => $this->getSuccessLocution() ? $this->getSuccessLocution()->getId() : null,
-            'timeoutExtensionId' => $this->getTimeoutExtension() ? $this->getTimeoutExtension()->getId() : null,
-            'errorExtensionId' => $this->getErrorExtension() ? $this->getErrorExtension()->getId() : null,
-            'timeoutVoiceMailUserId' => $this->getTimeoutVoiceMailUser() ? $this->getTimeoutVoiceMailUser()->getId() : null,
-            'errorVoiceMailUserId' => $this->getErrorVoiceMailUser() ? $this->getErrorVoiceMailUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

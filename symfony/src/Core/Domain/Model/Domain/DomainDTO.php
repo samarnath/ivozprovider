@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class DomainDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $domain;
@@ -35,6 +30,11 @@ class DomainDTO implements DataTransferObjectInterface
      * @var string
      */
     private $description;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -62,34 +62,15 @@ class DomainDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'domain' => $this->getDomain(),
             'scope' => $this->getScope(),
             'pointsTo' => $this->getPointsTo(),
             'description' => $this->getDescription(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setDomain(isset($data['domain']) ? $data['domain'] : null)
-            ->setScope(isset($data['scope']) ? $data['scope'] : null)
-            ->setPointsTo(isset($data['pointsTo']) ? $data['pointsTo'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -106,26 +87,6 @@ class DomainDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return DomainDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -206,6 +167,26 @@ class DomainDTO implements DataTransferObjectInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return DomainDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

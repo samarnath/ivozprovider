@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class TerminalDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -42,7 +37,6 @@ class TerminalDTO implements DataTransferObjectInterface
     private $allow_video;
 
     /**
-     * @column direct_media_method
      * @var string
      */
     private $directMediaMethod = 'update';
@@ -61,6 +55,11 @@ class TerminalDTO implements DataTransferObjectInterface
      * @var \DateTime
      */
     private $lastProvisionDate;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -88,7 +87,6 @@ class TerminalDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'domain' => $this->getDomain(),
             'disallow' => $this->getDisallow(),
@@ -98,34 +96,11 @@ class TerminalDTO implements DataTransferObjectInterface
             'password' => $this->getPassword(),
             'mac' => $this->getMac(),
             'lastProvisionDate' => $this->getLastProvisionDate(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'terminalModelId' => $this->getTerminalModelId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDomain(isset($data['domain']) ? $data['domain'] : null)
-            ->setDisallow(isset($data['disallow']) ? $data['disallow'] : null)
-            ->setAllowAudio(isset($data['allow_audio']) ? $data['allow_audio'] : null)
-            ->setAllowVideo(isset($data['allow_video']) ? $data['allow_video'] : null)
-            ->setDirectMediaMethod(isset($data['directMediaMethod']) ? $data['directMediaMethod'] : null)
-            ->setPassword(isset($data['password']) ? $data['password'] : null)
-            ->setMac(isset($data['mac']) ? $data['mac'] : null)
-            ->setLastProvisionDate(isset($data['lastProvisionDate']) ? $data['lastProvisionDate'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setTerminalModelId(isset($data['TerminalModelId']) ? $data['TerminalModelId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -142,26 +117,6 @@ class TerminalDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TerminalDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -342,6 +297,26 @@ class TerminalDTO implements DataTransferObjectInterface
     public function getLastProvisionDate()
     {
         return $this->lastProvisionDate;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return TerminalDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

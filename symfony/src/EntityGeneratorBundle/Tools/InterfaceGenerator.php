@@ -2,7 +2,7 @@
 
 namespace EntityGeneratorBundle\Tools;
 
-use EntityGeneratorBundle\Tools\SuperClassGenerator as ParentGenerator;
+use EntityGeneratorBundle\Tools\AbstractEntityGenerator as ParentGenerator;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 
@@ -58,6 +58,7 @@ public function <methodName>(<criteriaArgument>);
 
     protected function transformMetadata(ClassMetadataInfo $metadata)
     {
+        $metadata->name = str_replace('Abstract', '', $metadata->name);
         $metadata->name .= 'Interface';
         $metadata->rootEntityName = $metadata->name;
         $metadata->customRepositoryClassName = null;

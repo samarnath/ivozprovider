@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersAddres;
 interface UsersAddresInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get sourceAddress
      *
      * @return string

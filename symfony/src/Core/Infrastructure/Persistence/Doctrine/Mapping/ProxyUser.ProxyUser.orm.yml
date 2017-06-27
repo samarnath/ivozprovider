@@ -2,10 +2,6 @@ Core\Domain\Model\ProxyUser\ProxyUser:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ProxyUserDoctrineRepository
   type: entity
   table: ProxyUsers
-  uniqueConstraints:
-    ip:
-      columns:
-        - ip
   id:
     id:
       type: integer
@@ -15,17 +11,4 @@ Core\Domain\Model\ProxyUser\ProxyUser:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    name:
-      type: string
-      nullable: true
-      length: 100
-      options:
-        fixed: false
-    ip:
-      type: string
-      nullable: true
-      length: 50
-      options:
-        fixed: false
   lifecycleCallbacks: {  }

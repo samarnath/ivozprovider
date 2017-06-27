@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\PricingPlansRelCompany;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PricingPlansRelCompanyAbstract
  */
-abstract class PricingPlansRelCompanyAbstract implements EntityInterface
+abstract class PricingPlansRelCompanyAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var \DateTime
      */
@@ -53,122 +47,9 @@ abstract class PricingPlansRelCompanyAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($validFrom, $validTo, $metric)
-    {
-        $this->setValidFrom($validFrom);
-        $this->setValidTo($validTo);
-        $this->setMetric($metric);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return PricingPlansRelCompanyDTO
-     */
-    public static function createDTO()
-    {
-        return new PricingPlansRelCompanyDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PricingPlansRelCompanyDTO
-         */
-        Assertion::isInstanceOf($dto, PricingPlansRelCompanyDTO::class);
-
-        $self = new static(
-            $dto->getValidFrom(),
-            $dto->getValidTo(),
-            $dto->getMetric()
-        );
-
-        return $self
-            ->setPricingPlan($dto->getPricingPlan())
-            ->setCompany($dto->getCompany())
-            ->setBrand($dto->getBrand());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PricingPlansRelCompanyDTO
-         */
-        Assertion::isInstanceOf($dto, PricingPlansRelCompanyDTO::class);
-
-        $this
-            ->setValidFrom($dto->getValidFrom())
-            ->setValidTo($dto->getValidTo())
-            ->setMetric($dto->getMetric())
-            ->setPricingPlan($dto->getPricingPlan())
-            ->setCompany($dto->getCompany())
-            ->setBrand($dto->getBrand());
-
-
-        return $this;
-    }
-
-    /**
-     * @return PricingPlansRelCompanyDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setValidFrom($this->getValidFrom())
-            ->setValidTo($this->getValidTo())
-            ->setMetric($this->getMetric())
-            ->setPricingPlanId($this->getPricingPlan() ? $this->getPricingPlan()->getId() : null)
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'validFrom' => $this->getValidFrom(),
-            'validTo' => $this->getValidTo(),
-            'metric' => $this->getMetric(),
-            'pricingPlanId' => $this->getPricingPlan() ? $this->getPricingPlan()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set validFrom

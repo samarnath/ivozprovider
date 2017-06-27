@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class RoutingPatternGroupDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -27,14 +22,14 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     private $description;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $brandId;
-
-    /**
-     * @var array|null
-     */
-    private $relPatterns = null;
 
     /**
      * @var mixed
@@ -42,41 +37,30 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     private $brand;
 
     /**
+     * @var array|null
+     */
+    private $relPatterns = null;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'description' => $this->getDescription(),
-            'relPatternsId' => $this->getRelPatternsId(),
-            'brandId' => $this->getBrandId()
+            'id' => $this->getId(),
+            'brandId' => $this->getBrandId(),
+            'relPatternsId' => $this->getRelPatternsId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setRelPatterns(isset($data['relPatterns']) ? $data['relPatterns'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
+        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
         $items = $this->getRelPatterns();
         $this->relPatterns = [];
         foreach ($items as $item) {
@@ -86,7 +70,6 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
             );
         }
 
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
     }
 
     /**
@@ -98,26 +81,6 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
             'Core\\Domain\\Model\\RoutingPatternGroupsRelPattern\\RoutingPatternGroupsRelPattern',
             $this->relPatterns
         );
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return RoutingPatternGroupDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -161,23 +124,23 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param array $relPatterns
+     * @param integer $id
      *
      * @return RoutingPatternGroupDTO
      */
-    public function setRelPatterns($relPatterns)
+    public function setId($id)
     {
-        $this->relPatterns = $relPatterns;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * @return array
+     * @return integer
      */
-    public function getRelPatterns()
+    public function getId()
     {
-        return $this->relPatterns;
+        return $this->id;
     }
 
     /**
@@ -206,6 +169,26 @@ class RoutingPatternGroupDTO implements DataTransferObjectInterface
     public function getBrand()
     {
         return $this->brand;
+    }
+
+    /**
+     * @param array $relPatterns
+     *
+     * @return RoutingPatternGroupDTO
+     */
+    public function setRelPatterns($relPatterns)
+    {
+        $this->relPatterns = $relPatterns;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRelPatterns()
+    {
+        return $this->relPatterns;
     }
 }
 

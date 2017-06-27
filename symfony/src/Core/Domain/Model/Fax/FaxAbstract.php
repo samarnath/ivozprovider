@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Fax;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FaxAbstract
  */
-abstract class FaxAbstract implements EntityInterface
+abstract class FaxAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -48,117 +42,9 @@ abstract class FaxAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($name, $sendByEmail)
-    {
-        $this->setName($name);
-        $this->setSendByEmail($sendByEmail);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return FaxDTO
-     */
-    public static function createDTO()
-    {
-        return new FaxDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FaxDTO
-         */
-        Assertion::isInstanceOf($dto, FaxDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getSendByEmail()
-        );
-
-        return $self
-            ->setEmail($dto->getEmail())
-            ->setCompany($dto->getCompany())
-            ->setOutgoingDDI($dto->getOutgoingDDI());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FaxDTO
-         */
-        Assertion::isInstanceOf($dto, FaxDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setEmail($dto->getEmail())
-            ->setSendByEmail($dto->getSendByEmail())
-            ->setCompany($dto->getCompany())
-            ->setOutgoingDDI($dto->getOutgoingDDI());
-
-
-        return $this;
-    }
-
-    /**
-     * @return FaxDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setEmail($this->getEmail())
-            ->setSendByEmail($this->getSendByEmail())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setOutgoingDDIId($this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'email' => $this->getEmail(),
-            'sendByEmail' => $this->getSendByEmail(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

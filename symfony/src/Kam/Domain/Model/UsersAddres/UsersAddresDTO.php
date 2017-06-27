@@ -17,13 +17,11 @@ class UsersAddresDTO implements DataTransferObjectInterface
     private $id;
 
     /**
-     * @column source_address
      * @var string
      */
     private $sourceAddress;
 
     /**
-     * @column ip_addr
      * @var string
      */
     private $ipAddr;
@@ -74,26 +72,6 @@ class UsersAddresDTO implements DataTransferObjectInterface
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setSourceAddress(isset($data['sourceAddress']) ? $data['sourceAddress'] : null)
-            ->setIpAddr(isset($data['ipAddr']) ? $data['ipAddr'] : null)
-            ->setMask(isset($data['mask']) ? $data['mask'] : null)
-            ->setPort(isset($data['port']) ? $data['port'] : null)
-            ->setTag(isset($data['tag']) ? $data['tag'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}

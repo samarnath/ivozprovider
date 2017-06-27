@@ -2,13 +2,6 @@ Core\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\ExternalCallFilterRelCalendarDoctrineRepository
   type: entity
   table: ExternalCallFilterRelCalendars
-  indexes:
-    filterId:
-      columns:
-        - filterId
-    calendarId:
-      columns:
-        - calendarId
   id:
     id:
       type: integer
@@ -18,27 +11,4 @@ Core\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar:
       id: true
       generator:
         strategy: IDENTITY
-  manyToOne:
-    filter:
-      targetEntity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        filterId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    calendar:
-      targetEntity: \Core\Domain\Model\Calendar\CalendarInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        calendarId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
   lifecycleCallbacks: {  }

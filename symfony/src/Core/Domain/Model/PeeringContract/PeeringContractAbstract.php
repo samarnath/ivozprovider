@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\PeeringContract;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PeeringContractAbstract
  */
-abstract class PeeringContractAbstract implements EntityInterface
+abstract class PeeringContractAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -48,117 +42,9 @@ abstract class PeeringContractAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($description, $name)
-    {
-        $this->setDescription($description);
-        $this->setName($name);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return PeeringContractDTO
-     */
-    public static function createDTO()
-    {
-        return new PeeringContractDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PeeringContractDTO
-         */
-        Assertion::isInstanceOf($dto, PeeringContractDTO::class);
-
-        $self = new static(
-            $dto->getDescription(),
-            $dto->getName()
-        );
-
-        return $self
-            ->setExternallyRated($dto->getExternallyRated())
-            ->setBrand($dto->getBrand())
-            ->setTransformationRulesetGroupsTrunk($dto->getTransformationRulesetGroupsTrunk());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PeeringContractDTO
-         */
-        Assertion::isInstanceOf($dto, PeeringContractDTO::class);
-
-        $this
-            ->setDescription($dto->getDescription())
-            ->setName($dto->getName())
-            ->setExternallyRated($dto->getExternallyRated())
-            ->setBrand($dto->getBrand())
-            ->setTransformationRulesetGroupsTrunk($dto->getTransformationRulesetGroupsTrunk());
-
-
-        return $this;
-    }
-
-    /**
-     * @return PeeringContractDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setDescription($this->getDescription())
-            ->setName($this->getName())
-            ->setExternallyRated($this->getExternallyRated())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setTransformationRulesetGroupsTrunkId($this->getTransformationRulesetGroupsTrunk() ? $this->getTransformationRulesetGroupsTrunk()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'description' => $this->getDescription(),
-            'name' => $this->getName(),
-            'externallyRated' => $this->getExternallyRated(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'transformationRulesetGroupsTrunkId' => $this->getTransformationRulesetGroupsTrunk() ? $this->getTransformationRulesetGroupsTrunk()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set description

@@ -7,14 +7,6 @@ namespace Core\Domain\Model\CallACL;
 interface CallACLInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

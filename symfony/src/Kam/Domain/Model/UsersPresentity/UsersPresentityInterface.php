@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersPresentity;
 interface UsersPresentityInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get username
      *
      * @return string

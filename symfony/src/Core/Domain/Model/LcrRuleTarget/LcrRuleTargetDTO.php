@@ -14,12 +14,6 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @column lcr_id
-     * @var integer
-     */
     private $lcrId = '1';
 
     /**
@@ -31,6 +25,11 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
      * @var integer
      */
     private $weight = '1';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -68,34 +67,15 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'lcrId' => $this->getLcrId(),
             'priority' => $this->getPriority(),
             'weight' => $this->getWeight(),
+            'id' => $this->getId(),
             'ruleId' => $this->getRuleId(),
             'gwId' => $this->getGwId(),
             'outgoingRoutingId' => $this->getOutgoingRoutingId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setLcrId(isset($data['lcrId']) ? $data['lcrId'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null)
-            ->setWeight(isset($data['weight']) ? $data['weight'] : null)
-            ->setRuleId(isset($data['ruleId']) ? $data['ruleId'] : null)
-            ->setGwId(isset($data['gwId']) ? $data['gwId'] : null)
-            ->setOutgoingRoutingId(isset($data['outgoingRoutingId']) ? $data['outgoingRoutingId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -113,26 +93,6 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return LcrRuleTargetDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -193,6 +153,26 @@ class LcrRuleTargetDTO implements DataTransferObjectInterface
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return LcrRuleTargetDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -7,14 +7,6 @@ namespace Core\Domain\Model\XMLRPCLog;
 interface XMLRPCLogInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get proxy
      *
      * @return string

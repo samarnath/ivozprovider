@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\CompanyAdmin;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CompanyAdminAbstract
  */
-abstract class CompanyAdminAbstract implements EntityInterface
+abstract class CompanyAdminAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -64,131 +58,9 @@ abstract class CompanyAdminAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($username, $pass, $email, $active)
-    {
-        $this->setUsername($username);
-        $this->setPass($pass);
-        $this->setEmail($email);
-        $this->setActive($active);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return CompanyAdminDTO
-     */
-    public static function createDTO()
-    {
-        return new CompanyAdminDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CompanyAdminDTO
-         */
-        Assertion::isInstanceOf($dto, CompanyAdminDTO::class);
-
-        $self = new static(
-            $dto->getUsername(),
-            $dto->getPass(),
-            $dto->getEmail(),
-            $dto->getActive()
-        );
-
-        return $self
-            ->setName($dto->getName())
-            ->setLastname($dto->getLastname())
-            ->setCompany($dto->getCompany())
-            ->setTimezone($dto->getTimezone());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CompanyAdminDTO
-         */
-        Assertion::isInstanceOf($dto, CompanyAdminDTO::class);
-
-        $this
-            ->setUsername($dto->getUsername())
-            ->setPass($dto->getPass())
-            ->setEmail($dto->getEmail())
-            ->setActive($dto->getActive())
-            ->setName($dto->getName())
-            ->setLastname($dto->getLastname())
-            ->setCompany($dto->getCompany())
-            ->setTimezone($dto->getTimezone());
-
-
-        return $this;
-    }
-
-    /**
-     * @return CompanyAdminDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setUsername($this->getUsername())
-            ->setPass($this->getPass())
-            ->setEmail($this->getEmail())
-            ->setActive($this->getActive())
-            ->setName($this->getName())
-            ->setLastname($this->getLastname())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setTimezoneId($this->getTimezone() ? $this->getTimezone()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'username' => $this->getUsername(),
-            'pass' => $this->getPass(),
-            'email' => $this->getEmail(),
-            'active' => $this->getActive(),
-            'name' => $this->getName(),
-            'lastname' => $this->getLastname(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'timezoneId' => $this->getTimezone() ? $this->getTimezone()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set username

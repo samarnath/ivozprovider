@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Domain;
 interface DomainInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get domain
      *
      * @return string

@@ -2,16 +2,6 @@ Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\FixedCostsRelInvoiceDoctrineRepository
   type: entity
   table: FixedCostsRelInvoices
-  indexes:
-    brandId:
-      columns:
-        - brandId
-    fixedCostId:
-      columns:
-        - fixedCostId
-    invoiceId:
-      columns:
-        - invoiceId
   id:
     id:
       type: integer
@@ -21,45 +11,4 @@ Core\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoice:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    quantity:
-      column: quantity
-      type: integer
-      nullable: true
-      options:
-        unsigned: false
-  manyToOne:
-    brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        brandId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    fixedCost:
-      targetEntity: \Core\Domain\Model\FixedCost\FixedCostInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        fixedCostId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    invoice:
-      targetEntity: \Core\Domain\Model\Invoice\InvoiceInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        invoiceId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
   lifecycleCallbacks: {  }

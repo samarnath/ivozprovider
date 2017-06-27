@@ -7,14 +7,6 @@ namespace Core\Domain\Model\CallACLRelPattern;
 interface CallACLRelPatternInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get priority
      *
      * @return integer

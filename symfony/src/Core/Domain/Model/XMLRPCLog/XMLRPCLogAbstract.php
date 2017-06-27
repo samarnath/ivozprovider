@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\XMLRPCLog;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * XMLRPCLogAbstract
  */
-abstract class XMLRPCLogAbstract implements EntityInterface
+abstract class XMLRPCLogAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -58,133 +52,9 @@ abstract class XMLRPCLogAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $proxy,
-        $module,
-        $method,
-        $mapperName,
-        $startDate
-    ) {
-        $this->setProxy($proxy);
-        $this->setModule($module);
-        $this->setMethod($method);
-        $this->setMapperName($mapperName);
-        $this->setStartDate($startDate);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return XMLRPCLogDTO
-     */
-    public static function createDTO()
-    {
-        return new XMLRPCLogDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto XMLRPCLogDTO
-         */
-        Assertion::isInstanceOf($dto, XMLRPCLogDTO::class);
-
-        $self = new static(
-            $dto->getProxy(),
-            $dto->getModule(),
-            $dto->getMethod(),
-            $dto->getMapperName(),
-            $dto->getStartDate()
-        );
-
-        return $self
-            ->setExecDate($dto->getExecDate())
-            ->setFinishDate($dto->getFinishDate());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto XMLRPCLogDTO
-         */
-        Assertion::isInstanceOf($dto, XMLRPCLogDTO::class);
-
-        $this
-            ->setProxy($dto->getProxy())
-            ->setModule($dto->getModule())
-            ->setMethod($dto->getMethod())
-            ->setMapperName($dto->getMapperName())
-            ->setStartDate($dto->getStartDate())
-            ->setExecDate($dto->getExecDate())
-            ->setFinishDate($dto->getFinishDate());
-
-
-        return $this;
-    }
-
-    /**
-     * @return XMLRPCLogDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setProxy($this->getProxy())
-            ->setModule($this->getModule())
-            ->setMethod($this->getMethod())
-            ->setMapperName($this->getMapperName())
-            ->setStartDate($this->getStartDate())
-            ->setExecDate($this->getExecDate())
-            ->setFinishDate($this->getFinishDate());
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'proxy' => $this->getProxy(),
-            'module' => $this->getModule(),
-            'method' => $this->getMethod(),
-            'mapperName' => $this->getMapperName(),
-            'startDate' => $this->getStartDate(),
-            'execDate' => $this->getExecDate(),
-            'finishDate' => $this->getFinishDate()
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set proxy

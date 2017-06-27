@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\TrunksDomainAttr;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TrunksDomainAttrAbstract
  */
-abstract class TrunksDomainAttrAbstract implements EntityInterface
+abstract class TrunksDomainAttrAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -49,125 +43,9 @@ abstract class TrunksDomainAttrAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $did,
-        $name,
-        $type,
-        $value,
-        $lastModified
-    ) {
-        $this->setDid($did);
-        $this->setName($name);
-        $this->setType($type);
-        $this->setValue($value);
-        $this->setLastModified($lastModified);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return TrunksDomainAttrDTO
-     */
-    public static function createDTO()
-    {
-        return new TrunksDomainAttrDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TrunksDomainAttrDTO
-         */
-        Assertion::isInstanceOf($dto, TrunksDomainAttrDTO::class);
-
-        $self = new static(
-            $dto->getDid(),
-            $dto->getName(),
-            $dto->getType(),
-            $dto->getValue(),
-            $dto->getLastModified()
-        );
-
-        return $self;
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TrunksDomainAttrDTO
-         */
-        Assertion::isInstanceOf($dto, TrunksDomainAttrDTO::class);
-
-        $this
-            ->setDid($dto->getDid())
-            ->setName($dto->getName())
-            ->setType($dto->getType())
-            ->setValue($dto->getValue())
-            ->setLastModified($dto->getLastModified());
-
-
-        return $this;
-    }
-
-    /**
-     * @return TrunksDomainAttrDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setDid($this->getDid())
-            ->setName($this->getName())
-            ->setType($this->getType())
-            ->setValue($this->getValue())
-            ->setLastModified($this->getLastModified());
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'did' => $this->getDid(),
-            'name' => $this->getName(),
-            'type' => $this->getType(),
-            'value' => $this->getValue(),
-            'lastModified' => $this->getLastModified()
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set did

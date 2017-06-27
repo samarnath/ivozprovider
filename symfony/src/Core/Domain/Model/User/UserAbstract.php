@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\User;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UserAbstract
  */
-abstract class UserAbstract implements EntityInterface
+abstract class UserAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -145,211 +139,9 @@ abstract class UserAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $name,
-        $lastname,
-        $doNotDisturb,
-        $isBoss,
-        $active,
-        $maxCalls,
-        $externalIpCalls,
-        $voicemailEnabled,
-        $voicemailSendMail,
-        $voicemailAttachSound
-    ) {
-        $this->setName($name);
-        $this->setLastname($lastname);
-        $this->setDoNotDisturb($doNotDisturb);
-        $this->setIsBoss($isBoss);
-        $this->setActive($active);
-        $this->setMaxCalls($maxCalls);
-        $this->setExternalIpCalls($externalIpCalls);
-        $this->setVoicemailEnabled($voicemailEnabled);
-        $this->setVoicemailSendMail($voicemailSendMail);
-        $this->setVoicemailAttachSound($voicemailAttachSound);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return UserDTO
-     */
-    public static function createDTO()
-    {
-        return new UserDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UserDTO
-         */
-        Assertion::isInstanceOf($dto, UserDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getLastname(),
-            $dto->getDoNotDisturb(),
-            $dto->getIsBoss(),
-            $dto->getActive(),
-            $dto->getMaxCalls(),
-            $dto->getExternalIpCalls(),
-            $dto->getVoicemailEnabled(),
-            $dto->getVoicemailSendMail(),
-            $dto->getVoicemailAttachSound()
-        );
-
-        return $self
-            ->setEmail($dto->getEmail())
-            ->setPass($dto->getPass())
-            ->setExceptionBoosAssistantRegExp($dto->getExceptionBoosAssistantRegExp())
-            ->setTokenKey($dto->getTokenKey())
-            ->setAreaCode($dto->getAreaCode())
-            ->setCompany($dto->getCompany())
-            ->setCallACL($dto->getCallACL())
-            ->setBossAssistant($dto->getBossAssistant())
-            ->setCountry($dto->getCountry())
-            ->setLanguage($dto->getLanguage())
-            ->setTerminal($dto->getTerminal())
-            ->setExtension($dto->getExtension())
-            ->setTimezone($dto->getTimezone())
-            ->setOutgoingDDI($dto->getOutgoingDDI());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto UserDTO
-         */
-        Assertion::isInstanceOf($dto, UserDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setLastname($dto->getLastname())
-            ->setEmail($dto->getEmail())
-            ->setPass($dto->getPass())
-            ->setDoNotDisturb($dto->getDoNotDisturb())
-            ->setIsBoss($dto->getIsBoss())
-            ->setExceptionBoosAssistantRegExp($dto->getExceptionBoosAssistantRegExp())
-            ->setActive($dto->getActive())
-            ->setMaxCalls($dto->getMaxCalls())
-            ->setExternalIpCalls($dto->getExternalIpCalls())
-            ->setVoicemailEnabled($dto->getVoicemailEnabled())
-            ->setVoicemailSendMail($dto->getVoicemailSendMail())
-            ->setVoicemailAttachSound($dto->getVoicemailAttachSound())
-            ->setTokenKey($dto->getTokenKey())
-            ->setAreaCode($dto->getAreaCode())
-            ->setCompany($dto->getCompany())
-            ->setCallACL($dto->getCallACL())
-            ->setBossAssistant($dto->getBossAssistant())
-            ->setCountry($dto->getCountry())
-            ->setLanguage($dto->getLanguage())
-            ->setTerminal($dto->getTerminal())
-            ->setExtension($dto->getExtension())
-            ->setTimezone($dto->getTimezone())
-            ->setOutgoingDDI($dto->getOutgoingDDI());
-
-
-        return $this;
-    }
-
-    /**
-     * @return UserDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setLastname($this->getLastname())
-            ->setEmail($this->getEmail())
-            ->setPass($this->getPass())
-            ->setDoNotDisturb($this->getDoNotDisturb())
-            ->setIsBoss($this->getIsBoss())
-            ->setExceptionBoosAssistantRegExp($this->getExceptionBoosAssistantRegExp())
-            ->setActive($this->getActive())
-            ->setMaxCalls($this->getMaxCalls())
-            ->setExternalIpCalls($this->getExternalIpCalls())
-            ->setVoicemailEnabled($this->getVoicemailEnabled())
-            ->setVoicemailSendMail($this->getVoicemailSendMail())
-            ->setVoicemailAttachSound($this->getVoicemailAttachSound())
-            ->setTokenKey($this->getTokenKey())
-            ->setAreaCode($this->getAreaCode())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setCallACLId($this->getCallACL() ? $this->getCallACL()->getId() : null)
-            ->setBossAssistantId($this->getBossAssistant() ? $this->getBossAssistant()->getId() : null)
-            ->setCountryId($this->getCountry() ? $this->getCountry()->getId() : null)
-            ->setLanguageId($this->getLanguage() ? $this->getLanguage()->getId() : null)
-            ->setTerminalId($this->getTerminal() ? $this->getTerminal()->getId() : null)
-            ->setExtensionId($this->getExtension() ? $this->getExtension()->getId() : null)
-            ->setTimezoneId($this->getTimezone() ? $this->getTimezone()->getId() : null)
-            ->setOutgoingDDIId($this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'lastname' => $this->getLastname(),
-            'email' => $this->getEmail(),
-            'pass' => $this->getPass(),
-            'doNotDisturb' => $this->getDoNotDisturb(),
-            'isBoss' => $this->getIsBoss(),
-            'exceptionBoosAssistantRegExp' => $this->getExceptionBoosAssistantRegExp(),
-            'active' => $this->getActive(),
-            'maxCalls' => $this->getMaxCalls(),
-            'externalIpCalls' => $this->getExternalIpCalls(),
-            'voicemailEnabled' => $this->getVoicemailEnabled(),
-            'voicemailSendMail' => $this->getVoicemailSendMail(),
-            'voicemailAttachSound' => $this->getVoicemailAttachSound(),
-            'tokenKey' => $this->getTokenKey(),
-            'areaCode' => $this->getAreaCode(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'callACLId' => $this->getCallACL() ? $this->getCallACL()->getId() : null,
-            'bossAssistantId' => $this->getBossAssistant() ? $this->getBossAssistant()->getId() : null,
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null,
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
-            'terminalId' => $this->getTerminal() ? $this->getTerminal()->getId() : null,
-            'extensionId' => $this->getExtension() ? $this->getExtension()->getId() : null,
-            'timezoneId' => $this->getTimezone() ? $this->getTimezone()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name
@@ -819,11 +611,11 @@ abstract class UserAbstract implements EntityInterface
     /**
      * Set bossAssistant
      *
-     * @param \Core\Domain\Model\User\UserInterface $bossAssistant
+     * @param UserInterface $bossAssistant
      *
      * @return self
      */
-    protected function setBossAssistant(\Core\Domain\Model\User\UserInterface $bossAssistant = null)
+    protected function setBossAssistant(UserInterface $bossAssistant = null)
     {
         $this->bossAssistant = $bossAssistant;
 
@@ -833,7 +625,7 @@ abstract class UserAbstract implements EntityInterface
     /**
      * Get bossAssistant
      *
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return UserInterface
      */
     public function getBossAssistant()
     {

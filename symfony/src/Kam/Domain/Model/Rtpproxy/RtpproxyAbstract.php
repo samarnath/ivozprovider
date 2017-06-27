@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\Rtpproxy;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * RtpproxyAbstract
  */
-abstract class RtpproxyAbstract implements EntityInterface
+abstract class RtpproxyAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -53,123 +47,9 @@ abstract class RtpproxyAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($setid, $url, $flags, $weight)
-    {
-        $this->setSetid($setid);
-        $this->setUrl($url);
-        $this->setFlags($flags);
-        $this->setWeight($weight);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return RtpproxyDTO
-     */
-    public static function createDTO()
-    {
-        return new RtpproxyDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto RtpproxyDTO
-         */
-        Assertion::isInstanceOf($dto, RtpproxyDTO::class);
-
-        $self = new static(
-            $dto->getSetid(),
-            $dto->getUrl(),
-            $dto->getFlags(),
-            $dto->getWeight()
-        );
-
-        return $self
-            ->setDescription($dto->getDescription())
-            ->setMediaRelaySet($dto->getMediaRelaySet());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto RtpproxyDTO
-         */
-        Assertion::isInstanceOf($dto, RtpproxyDTO::class);
-
-        $this
-            ->setSetid($dto->getSetid())
-            ->setUrl($dto->getUrl())
-            ->setFlags($dto->getFlags())
-            ->setWeight($dto->getWeight())
-            ->setDescription($dto->getDescription())
-            ->setMediaRelaySet($dto->getMediaRelaySet());
-
-
-        return $this;
-    }
-
-    /**
-     * @return RtpproxyDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setSetid($this->getSetid())
-            ->setUrl($this->getUrl())
-            ->setFlags($this->getFlags())
-            ->setWeight($this->getWeight())
-            ->setDescription($this->getDescription())
-            ->setMediaRelaySetId($this->getMediaRelaySet() ? $this->getMediaRelaySet()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'setid' => $this->getSetid(),
-            'url' => $this->getUrl(),
-            'flags' => $this->getFlags(),
-            'weight' => $this->getWeight(),
-            'description' => $this->getDescription(),
-            'mediaRelaySetId' => $this->getMediaRelaySet() ? $this->getMediaRelaySet()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set setid

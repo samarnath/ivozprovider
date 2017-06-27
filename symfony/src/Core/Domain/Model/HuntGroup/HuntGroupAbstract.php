@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\HuntGroup;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * HuntGroupAbstract
  */
-abstract class HuntGroupAbstract implements EntityInterface
+abstract class HuntGroupAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -80,147 +74,9 @@ abstract class HuntGroupAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $name,
-        $description,
-        $strategy,
-        $ringAllTimeout
-    ) {
-        $this->setName($name);
-        $this->setDescription($description);
-        $this->setStrategy($strategy);
-        $this->setRingAllTimeout($ringAllTimeout);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return HuntGroupDTO
-     */
-    public static function createDTO()
-    {
-        return new HuntGroupDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto HuntGroupDTO
-         */
-        Assertion::isInstanceOf($dto, HuntGroupDTO::class);
-
-        $self = new static(
-            $dto->getName(),
-            $dto->getDescription(),
-            $dto->getStrategy(),
-            $dto->getRingAllTimeout()
-        );
-
-        return $self
-            ->setNextUserPosition($dto->getNextUserPosition())
-            ->setNoAnswerTargetType($dto->getNoAnswerTargetType())
-            ->setNoAnswerNumberValue($dto->getNoAnswerNumberValue())
-            ->setCompany($dto->getCompany())
-            ->setNoAnswerLocution($dto->getNoAnswerLocution())
-            ->setNoAnswerExtension($dto->getNoAnswerExtension())
-            ->setNoAnswerVoiceMailUser($dto->getNoAnswerVoiceMailUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto HuntGroupDTO
-         */
-        Assertion::isInstanceOf($dto, HuntGroupDTO::class);
-
-        $this
-            ->setName($dto->getName())
-            ->setDescription($dto->getDescription())
-            ->setStrategy($dto->getStrategy())
-            ->setRingAllTimeout($dto->getRingAllTimeout())
-            ->setNextUserPosition($dto->getNextUserPosition())
-            ->setNoAnswerTargetType($dto->getNoAnswerTargetType())
-            ->setNoAnswerNumberValue($dto->getNoAnswerNumberValue())
-            ->setCompany($dto->getCompany())
-            ->setNoAnswerLocution($dto->getNoAnswerLocution())
-            ->setNoAnswerExtension($dto->getNoAnswerExtension())
-            ->setNoAnswerVoiceMailUser($dto->getNoAnswerVoiceMailUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return HuntGroupDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setName($this->getName())
-            ->setDescription($this->getDescription())
-            ->setStrategy($this->getStrategy())
-            ->setRingAllTimeout($this->getRingAllTimeout())
-            ->setNextUserPosition($this->getNextUserPosition())
-            ->setNoAnswerTargetType($this->getNoAnswerTargetType())
-            ->setNoAnswerNumberValue($this->getNoAnswerNumberValue())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setNoAnswerLocutionId($this->getNoAnswerLocution() ? $this->getNoAnswerLocution()->getId() : null)
-            ->setNoAnswerExtensionId($this->getNoAnswerExtension() ? $this->getNoAnswerExtension()->getId() : null)
-            ->setNoAnswerVoiceMailUserId($this->getNoAnswerVoiceMailUser() ? $this->getNoAnswerVoiceMailUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'description' => $this->getDescription(),
-            'strategy' => $this->getStrategy(),
-            'ringAllTimeout' => $this->getRingAllTimeout(),
-            'nextUserPosition' => $this->getNextUserPosition(),
-            'noAnswerTargetType' => $this->getNoAnswerTargetType(),
-            'noAnswerNumberValue' => $this->getNoAnswerNumberValue(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'noAnswerLocutionId' => $this->getNoAnswerLocution() ? $this->getNoAnswerLocution()->getId() : null,
-            'noAnswerExtensionId' => $this->getNoAnswerExtension() ? $this->getNoAnswerExtension()->getId() : null,
-            'noAnswerVoiceMailUserId' => $this->getNoAnswerVoiceMailUser() ? $this->getNoAnswerVoiceMailUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name

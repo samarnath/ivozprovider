@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class FaxDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -30,6 +25,11 @@ class FaxDTO implements DataTransferObjectInterface
      * @var boolean
      */
     private $sendByEmail = '1';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -57,32 +57,14 @@ class FaxDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'email' => $this->getEmail(),
             'sendByEmail' => $this->getSendByEmail(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'outgoingDDIId' => $this->getOutgoingDDIId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setEmail(isset($data['email']) ? $data['email'] : null)
-            ->setSendByEmail(isset($data['sendByEmail']) ? $data['sendByEmail'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -99,26 +81,6 @@ class FaxDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return FaxDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -179,6 +141,26 @@ class FaxDTO implements DataTransferObjectInterface
     public function getSendByEmail()
     {
         return $this->sendByEmail;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return FaxDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -3,19 +3,13 @@
 namespace Ast\Domain\Model\QueueMember;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * QueueMemberAbstract
  */
-abstract class QueueMemberAbstract implements EntityInterface
+abstract class QueueMemberAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $uniqueid;
-
     /**
      * @column queue_name
      * @var string
@@ -60,143 +54,9 @@ abstract class QueueMemberAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($queueName, $interface)
-    {
-        $this->setQueueName($queueName);
-        $this->setInterface($interface);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return QueueMemberDTO
-     */
-    public static function createDTO()
-    {
-        return new QueueMemberDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto QueueMemberDTO
-         */
-        Assertion::isInstanceOf($dto, QueueMemberDTO::class);
-
-        $self = new static(
-            $dto->getQueueName(),
-            $dto->getInterface()
-        );
-
-        return $self
-            ->setMembername($dto->getMembername())
-            ->setStateInterface($dto->getStateInterface())
-            ->setPenalty($dto->getPenalty())
-            ->setPaused($dto->getPaused())
-            ->setQueueMember($dto->getQueueMember());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto QueueMemberDTO
-         */
-        Assertion::isInstanceOf($dto, QueueMemberDTO::class);
-
-        $this
-            ->setQueueName($dto->getQueueName())
-            ->setInterface($dto->getInterface())
-            ->setMembername($dto->getMembername())
-            ->setStateInterface($dto->getStateInterface())
-            ->setPenalty($dto->getPenalty())
-            ->setPaused($dto->getPaused())
-            ->setQueueMember($dto->getQueueMember());
-
-
-        return $this;
-    }
-
-    /**
-     * @return QueueMemberDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setUniqueid($this->getUniqueid())
-            ->setQueueName($this->getQueueName())
-            ->setInterface($this->getInterface())
-            ->setMembername($this->getMembername())
-            ->setStateInterface($this->getStateInterface())
-            ->setPenalty($this->getPenalty())
-            ->setPaused($this->getPaused())
-            ->setQueueMemberId($this->getQueueMember() ? $this->getQueueMember()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'uniqueid' => $this->getUniqueid(),
-            'queueName' => $this->getQueueName(),
-            'interface' => $this->getInterface(),
-            'membername' => $this->getMembername(),
-            'stateInterface' => $this->getStateInterface(),
-            'penalty' => $this->getPenalty(),
-            'paused' => $this->getPaused(),
-            'queueMemberId' => $this->getQueueMember() ? $this->getQueueMember()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Set uniqueid
-     *
-     * @param integer $uniqueid
-     *
-     * @return self
-     */
-    protected function setUniqueid($uniqueid)
-    {
-        Assertion::notNull($uniqueid);
-        Assertion::integerish($uniqueid);
-        Assertion::greaterOrEqualThan($uniqueid, 0);
-
-        $this->uniqueid = $uniqueid;
-
-        return $this;
-    }
-
-    /**
-     * Get uniqueid
-     *
-     * @return integer
-     */
-    public function getUniqueid()
-    {
-        return $this->uniqueid;
-    }
 
     /**
      * Set queueName

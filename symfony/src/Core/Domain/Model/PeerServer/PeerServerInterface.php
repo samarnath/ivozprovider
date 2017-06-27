@@ -7,14 +7,6 @@ namespace Core\Domain\Model\PeerServer;
 interface PeerServerInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get ip
      *
      * @return string

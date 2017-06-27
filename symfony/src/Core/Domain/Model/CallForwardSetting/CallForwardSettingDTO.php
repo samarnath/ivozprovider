@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class CallForwardSettingDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $callTypeFilter;
@@ -40,6 +35,11 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
      * @var integer
      */
     private $noAnswerTimeout = '10';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -77,38 +77,17 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'callTypeFilter' => $this->getCallTypeFilter(),
             'callForwardType' => $this->getCallForwardType(),
             'targetType' => $this->getTargetType(),
             'numberValue' => $this->getNumberValue(),
             'noAnswerTimeout' => $this->getNoAnswerTimeout(),
+            'id' => $this->getId(),
             'userId' => $this->getUserId(),
             'extensionId' => $this->getExtensionId(),
             'voiceMailUserId' => $this->getVoiceMailUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setCallTypeFilter(isset($data['callTypeFilter']) ? $data['callTypeFilter'] : null)
-            ->setCallForwardType(isset($data['callForwardType']) ? $data['callForwardType'] : null)
-            ->setTargetType(isset($data['targetType']) ? $data['targetType'] : null)
-            ->setNumberValue(isset($data['numberValue']) ? $data['numberValue'] : null)
-            ->setNoAnswerTimeout(isset($data['noAnswerTimeout']) ? $data['noAnswerTimeout'] : null)
-            ->setUserId(isset($data['userId']) ? $data['userId'] : null)
-            ->setExtensionId(isset($data['extensionId']) ? $data['extensionId'] : null)
-            ->setVoiceMailUserId(isset($data['voiceMailUserId']) ? $data['voiceMailUserId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -126,26 +105,6 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return CallForwardSettingDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -246,6 +205,26 @@ class CallForwardSettingDTO implements DataTransferObjectInterface
     public function getNoAnswerTimeout()
     {
         return $this->noAnswerTimeout;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return CallForwardSettingDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -7,14 +7,6 @@ namespace Core\Domain\Model\TerminalModel;
 interface TerminalModelInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get iden
      *
      * @return string

@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\FixedCostsRelInvoice;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FixedCostsRelInvoiceAbstract
  */
-abstract class FixedCostsRelInvoiceAbstract implements EntityInterface
+abstract class FixedCostsRelInvoiceAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var integer
      */
@@ -43,111 +37,9 @@ abstract class FixedCostsRelInvoiceAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return FixedCostsRelInvoiceDTO
-     */
-    public static function createDTO()
-    {
-        return new FixedCostsRelInvoiceDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FixedCostsRelInvoiceDTO
-         */
-        Assertion::isInstanceOf($dto, FixedCostsRelInvoiceDTO::class);
-
-        $self = new static();
-
-        return $self
-            ->setQuantity($dto->getQuantity())
-            ->setBrand($dto->getBrand())
-            ->setFixedCost($dto->getFixedCost())
-            ->setInvoice($dto->getInvoice());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto FixedCostsRelInvoiceDTO
-         */
-        Assertion::isInstanceOf($dto, FixedCostsRelInvoiceDTO::class);
-
-        $this
-            ->setQuantity($dto->getQuantity())
-            ->setBrand($dto->getBrand())
-            ->setFixedCost($dto->getFixedCost())
-            ->setInvoice($dto->getInvoice());
-
-
-        return $this;
-    }
-
-    /**
-     * @return FixedCostsRelInvoiceDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setQuantity($this->getQuantity())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setFixedCostId($this->getFixedCost() ? $this->getFixedCost()->getId() : null)
-            ->setInvoiceId($this->getInvoice() ? $this->getInvoice()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'quantity' => $this->getQuantity(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'fixedCostId' => $this->getFixedCost() ? $this->getFixedCost()->getId() : null,
-            'invoiceId' => $this->getInvoice() ? $this->getInvoice()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set quantity

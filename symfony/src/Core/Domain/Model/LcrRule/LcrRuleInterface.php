@@ -7,14 +7,6 @@ namespace Core\Domain\Model\LcrRule;
 interface LcrRuleInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get lcrId
      *
      * @return integer

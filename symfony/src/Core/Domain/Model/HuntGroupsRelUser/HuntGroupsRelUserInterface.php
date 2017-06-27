@@ -7,14 +7,6 @@ namespace Core\Domain\Model\HuntGroupsRelUser;
 interface HuntGroupsRelUserInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get timeoutTime
      *
      * @return integer

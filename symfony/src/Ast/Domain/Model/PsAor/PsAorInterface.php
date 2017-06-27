@@ -7,14 +7,6 @@ namespace Ast\Domain\Model\PsAor;
 interface PsAorInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get sorceryId
      *
      * @return string

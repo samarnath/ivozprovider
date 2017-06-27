@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\TrunksDomainAttr;
 interface TrunksDomainAttrInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get did
      *
      * @return string

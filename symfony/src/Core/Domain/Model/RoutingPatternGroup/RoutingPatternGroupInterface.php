@@ -2,18 +2,10 @@
 
 namespace Core\Domain\Model\RoutingPatternGroup;
 
-use Doctrine\Common\Collections\Criteria;
+
 
 interface RoutingPatternGroupInterface
 {
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
     /**
      * Get name
      *
@@ -28,14 +20,6 @@ interface RoutingPatternGroupInterface
      * @return string
      */
     public function getDescription();
-
-
-    /**
-     * Get relPatterns
-     *
-     * @return ArrayCollection
-     */
-    public function getRelPatterns(Criteria $criteria = null);
 
 
     /**

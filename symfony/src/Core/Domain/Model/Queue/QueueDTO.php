@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class QueueDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -75,6 +70,11 @@ class QueueDTO implements DataTransferObjectInterface
      * @var integer
      */
     private $weight;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -162,7 +162,6 @@ class QueueDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'maxWaitTime' => $this->getMaxWaitTime(),
             'timeoutTargetType' => $this->getTimeoutTargetType(),
@@ -175,6 +174,7 @@ class QueueDTO implements DataTransferObjectInterface
             'memberCallTimeout' => $this->getMemberCallTimeout(),
             'strategy' => $this->getStrategy(),
             'weight' => $this->getWeight(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'periodicAnnounceLocutionId' => $this->getPeriodicAnnounceLocutionId(),
             'timeoutLocutionId' => $this->getTimeoutLocutionId(),
@@ -185,39 +185,6 @@ class QueueDTO implements DataTransferObjectInterface
             'fullVoiceMailUserId' => $this->getFullVoiceMailUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setMaxWaitTime(isset($data['maxWaitTime']) ? $data['maxWaitTime'] : null)
-            ->setTimeoutTargetType(isset($data['timeoutTargetType']) ? $data['timeoutTargetType'] : null)
-            ->setTimeoutNumberValue(isset($data['timeoutNumberValue']) ? $data['timeoutNumberValue'] : null)
-            ->setMaxlen(isset($data['maxlen']) ? $data['maxlen'] : null)
-            ->setFullTargetType(isset($data['fullTargetType']) ? $data['fullTargetType'] : null)
-            ->setFullNumberValue(isset($data['fullNumberValue']) ? $data['fullNumberValue'] : null)
-            ->setPeriodicAnnounceFrequency(isset($data['periodicAnnounceFrequency']) ? $data['periodicAnnounceFrequency'] : null)
-            ->setMemberCallRest(isset($data['memberCallRest']) ? $data['memberCallRest'] : null)
-            ->setMemberCallTimeout(isset($data['memberCallTimeout']) ? $data['memberCallTimeout'] : null)
-            ->setStrategy(isset($data['strategy']) ? $data['strategy'] : null)
-            ->setWeight(isset($data['weight']) ? $data['weight'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setPeriodicAnnounceLocutionId(isset($data['periodicAnnounceLocutionId']) ? $data['periodicAnnounceLocutionId'] : null)
-            ->setTimeoutLocutionId(isset($data['timeoutLocutionId']) ? $data['timeoutLocutionId'] : null)
-            ->setTimeoutExtensionId(isset($data['timeoutExtensionId']) ? $data['timeoutExtensionId'] : null)
-            ->setTimeoutVoiceMailUserId(isset($data['timeoutVoiceMailUserId']) ? $data['timeoutVoiceMailUserId'] : null)
-            ->setFullLocutionId(isset($data['fullLocutionId']) ? $data['fullLocutionId'] : null)
-            ->setFullExtensionId(isset($data['fullExtensionId']) ? $data['fullExtensionId'] : null)
-            ->setFullVoiceMailUserId(isset($data['fullVoiceMailUserId']) ? $data['fullVoiceMailUserId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -240,26 +207,6 @@ class QueueDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return QueueDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -500,6 +447,26 @@ class QueueDTO implements DataTransferObjectInterface
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return QueueDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -11,23 +11,4 @@ Core\Domain\Model\EtagVersion\EtagVersion:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    table:
-      column: table
-      type: string
-      nullable: true
-      length: 55
-      options:
-        fixed: false
-    etag:
-      column: etag
-      type: string
-      nullable: true
-      length: 255
-      options:
-        fixed: false
-    lastChange:
-      type: datetime
-      nullable: true
-      column: lastChange
   lifecycleCallbacks: {  }

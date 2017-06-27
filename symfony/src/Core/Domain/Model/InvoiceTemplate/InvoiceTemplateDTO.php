@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class InvoiceTemplateDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -42,6 +37,11 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     private $templateFooter;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $brandId;
@@ -57,34 +57,15 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'description' => $this->getDescription(),
             'template' => $this->getTemplate(),
             'templateHeader' => $this->getTemplateHeader(),
             'templateFooter' => $this->getTemplateFooter(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setTemplate(isset($data['template']) ? $data['template'] : null)
-            ->setTemplateHeader(isset($data['templateHeader']) ? $data['templateHeader'] : null)
-            ->setTemplateFooter(isset($data['templateFooter']) ? $data['templateFooter'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -100,26 +81,6 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return InvoiceTemplateDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -220,6 +181,26 @@ class InvoiceTemplateDTO implements DataTransferObjectInterface
     public function getTemplateFooter()
     {
         return $this->templateFooter;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return InvoiceTemplateDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

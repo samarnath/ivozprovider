@@ -1,0 +1,32 @@
+Core\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendarAbstract:
+  type: mappedSuperclass
+  indexes:
+    filterId:
+      columns:
+        - filterId
+    calendarId:
+      columns:
+        - calendarId
+  manyToOne:
+    filter:
+      targetEntity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        filterId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    calendar:
+      targetEntity: \Core\Domain\Model\Calendar\CalendarInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        calendarId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

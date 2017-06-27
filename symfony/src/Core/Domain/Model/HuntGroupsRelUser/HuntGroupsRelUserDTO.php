@@ -14,17 +14,17 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @var integer
-     */
     private $timeoutTime;
 
     /**
      * @var integer
      */
     private $priority;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -52,30 +52,13 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'timeoutTime' => $this->getTimeoutTime(),
             'priority' => $this->getPriority(),
+            'id' => $this->getId(),
             'huntGroupId' => $this->getHuntGroupId(),
             'userId' => $this->getUserId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setTimeoutTime(isset($data['timeoutTime']) ? $data['timeoutTime'] : null)
-            ->setPriority(isset($data['priority']) ? $data['priority'] : null)
-            ->setHuntGroupId(isset($data['huntGroupId']) ? $data['huntGroupId'] : null)
-            ->setUserId(isset($data['userId']) ? $data['userId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -92,26 +75,6 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return HuntGroupsRelUserDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -152,6 +115,26 @@ class HuntGroupsRelUserDTO implements DataTransferObjectInterface
     public function getPriority()
     {
         return $this->priority;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return HuntGroupsRelUserDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

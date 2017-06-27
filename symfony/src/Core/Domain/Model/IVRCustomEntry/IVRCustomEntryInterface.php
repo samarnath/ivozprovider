@@ -7,14 +7,6 @@ namespace Core\Domain\Model\IVRCustomEntry;
 interface IVRCustomEntryInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get entry
      *
      * @return string

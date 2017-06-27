@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersLocationAttr;
 interface UsersLocationAttrInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get ruid
      *
      * @return string

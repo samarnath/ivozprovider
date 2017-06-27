@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\IVRCustomEntry;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * IVRCustomEntryAbstract
  */
-abstract class IVRCustomEntryAbstract implements EntityInterface
+abstract class IVRCustomEntryAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -59,125 +53,9 @@ abstract class IVRCustomEntryAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($entry, $targetType)
-    {
-        $this->setEntry($entry);
-        $this->setTargetType($targetType);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return IVRCustomEntryDTO
-     */
-    public static function createDTO()
-    {
-        return new IVRCustomEntryDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto IVRCustomEntryDTO
-         */
-        Assertion::isInstanceOf($dto, IVRCustomEntryDTO::class);
-
-        $self = new static(
-            $dto->getEntry(),
-            $dto->getTargetType()
-        );
-
-        return $self
-            ->setTargetNumberValue($dto->getTargetNumberValue())
-            ->setIVRCustom($dto->getIVRCustom())
-            ->setWelcomeLocution($dto->getWelcomeLocution())
-            ->setTargetExtension($dto->getTargetExtension())
-            ->setTargetVoiceMailUser($dto->getTargetVoiceMailUser());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto IVRCustomEntryDTO
-         */
-        Assertion::isInstanceOf($dto, IVRCustomEntryDTO::class);
-
-        $this
-            ->setEntry($dto->getEntry())
-            ->setTargetType($dto->getTargetType())
-            ->setTargetNumberValue($dto->getTargetNumberValue())
-            ->setIVRCustom($dto->getIVRCustom())
-            ->setWelcomeLocution($dto->getWelcomeLocution())
-            ->setTargetExtension($dto->getTargetExtension())
-            ->setTargetVoiceMailUser($dto->getTargetVoiceMailUser());
-
-
-        return $this;
-    }
-
-    /**
-     * @return IVRCustomEntryDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setEntry($this->getEntry())
-            ->setTargetType($this->getTargetType())
-            ->setTargetNumberValue($this->getTargetNumberValue())
-            ->setIVRCustomId($this->getIVRCustom() ? $this->getIVRCustom()->getId() : null)
-            ->setWelcomeLocutionId($this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null)
-            ->setTargetExtensionId($this->getTargetExtension() ? $this->getTargetExtension()->getId() : null)
-            ->setTargetVoiceMailUserId($this->getTargetVoiceMailUser() ? $this->getTargetVoiceMailUser()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'entry' => $this->getEntry(),
-            'targetType' => $this->getTargetType(),
-            'targetNumberValue' => $this->getTargetNumberValue(),
-            'iVRCustomId' => $this->getIVRCustom() ? $this->getIVRCustom()->getId() : null,
-            'welcomeLocutionId' => $this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null,
-            'targetExtensionId' => $this->getTargetExtension() ? $this->getTargetExtension()->getId() : null,
-            'targetVoiceMailUserId' => $this->getTargetVoiceMailUser() ? $this->getTargetVoiceMailUser()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set entry

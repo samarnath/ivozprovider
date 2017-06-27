@@ -12,48 +12,9 @@ use Core\Application\CollectionTransformerInterface;
 class ServiceDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $iden = '';
-
-    /**
-     * @var string
-     */
-    private $name = '';
-
-    /**
-     * @column name_en
-     * @var string
-     */
-    private $nameEn = '';
-
-    /**
-     * @column name_es
-     * @var string
-     */
-    private $nameEs = '';
-
-    /**
-     * @var string
-     */
-    private $description = '';
-
-    /**
-     * @column description_en
-     * @var string
-     */
-    private $descriptionEn = '';
-
-    /**
-     * @column description_es
-     * @var string
-     */
-    private $descriptionEs = '';
 
     /**
      * @var string
@@ -66,45 +27,58 @@ class ServiceDTO implements DataTransferObjectInterface
     private $extraArgs = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name = '';
+
+    /**
+     * @var string
+     */
+    private $nameEn = '';
+
+    /**
+     * @var string
+     */
+    private $nameEs = '';
+
+    /**
+     * @var string
+     */
+    private $description = '';
+
+    /**
+     * @var string
+     */
+    private $descriptionEn = '';
+
+    /**
+     * @var string
+     */
+    private $descriptionEs = '';
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'iden' => $this->getIden(),
-            'name' => $this->getName(),
+            'defaultCode' => $this->getDefaultCode(),
+            'extraArgs' => $this->getExtraArgs(),
+            'id' => $this->getId(),
+            'nameName' => $this->getNameName(),
             'nameEn' => $this->getNameEn(),
             'nameEs' => $this->getNameEs(),
-            'description' => $this->getDescription(),
+            'descriptionDescription' => $this->getDescriptionDescription(),
             'descriptionEn' => $this->getDescriptionEn(),
-            'descriptionEs' => $this->getDescriptionEs(),
-            'defaultCode' => $this->getDefaultCode(),
-            'extraArgs' => $this->getExtraArgs()
+            'descriptionEs' => $this->getDescriptionEs()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setIden(isset($data['iden']) ? $data['iden'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setNameEn(isset($data['nameEn']) ? $data['nameEn'] : null)
-            ->setNameEs(isset($data['nameEs']) ? $data['nameEs'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setDescriptionEn(isset($data['descriptionEn']) ? $data['descriptionEn'] : null)
-            ->setDescriptionEs(isset($data['descriptionEs']) ? $data['descriptionEs'] : null)
-            ->setDefaultCode(isset($data['defaultCode']) ? $data['defaultCode'] : null)
-            ->setExtraArgs(isset($data['extraArgs']) ? $data['extraArgs'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -120,26 +94,6 @@ class ServiceDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ServiceDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -160,6 +114,66 @@ class ServiceDTO implements DataTransferObjectInterface
     public function getIden()
     {
         return $this->iden;
+    }
+
+    /**
+     * @param string $defaultCode
+     *
+     * @return ServiceDTO
+     */
+    public function setDefaultCode($defaultCode)
+    {
+        $this->defaultCode = $defaultCode;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultCode()
+    {
+        return $this->defaultCode;
+    }
+
+    /**
+     * @param boolean $extraArgs
+     *
+     * @return ServiceDTO
+     */
+    public function setExtraArgs($extraArgs)
+    {
+        $this->extraArgs = $extraArgs;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getExtraArgs()
+    {
+        return $this->extraArgs;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ServiceDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -280,46 +294,6 @@ class ServiceDTO implements DataTransferObjectInterface
     public function getDescriptionEs()
     {
         return $this->descriptionEs;
-    }
-
-    /**
-     * @param string $defaultCode
-     *
-     * @return ServiceDTO
-     */
-    public function setDefaultCode($defaultCode)
-    {
-        $this->defaultCode = $defaultCode;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDefaultCode()
-    {
-        return $this->defaultCode;
-    }
-
-    /**
-     * @param boolean $extraArgs
-     *
-     * @return ServiceDTO
-     */
-    public function setExtraArgs($extraArgs)
-    {
-        $this->extraArgs = $extraArgs;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getExtraArgs()
-    {
-        return $this->extraArgs;
     }
 }
 

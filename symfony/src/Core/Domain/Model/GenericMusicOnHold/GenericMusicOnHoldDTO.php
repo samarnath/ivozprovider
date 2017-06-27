@@ -12,14 +12,19 @@ use Core\Application\CollectionTransformerInterface;
 class GenericMusicOnHoldDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
+     * @var string
      */
-    private $id;
+    private $name;
 
     /**
      * @var string
      */
-    private $name;
+    private $status;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var integer
@@ -52,11 +57,6 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
     private $encodedFileBaseName;
 
     /**
-     * @var string
-     */
-    private $status;
-
-    /**
      * @var mixed
      */
     private $brandId;
@@ -72,40 +72,18 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
+            'status' => $this->getStatus(),
+            'id' => $this->getId(),
             'originalFileFileSize' => $this->getOriginalFileFileSize(),
             'originalFileMimeType' => $this->getOriginalFileMimeType(),
             'originalFileBaseName' => $this->getOriginalFileBaseName(),
             'encodedFileFileSize' => $this->getEncodedFileFileSize(),
             'encodedFileMimeType' => $this->getEncodedFileMimeType(),
             'encodedFileBaseName' => $this->getEncodedFileBaseName(),
-            'status' => $this->getStatus(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setOriginalFileFileSize(isset($data['originalFileFileSize']) ? $data['originalFileFileSize'] : null)
-            ->setOriginalFileMimeType(isset($data['originalFileMimeType']) ? $data['originalFileMimeType'] : null)
-            ->setOriginalFileBaseName(isset($data['originalFileBaseName']) ? $data['originalFileBaseName'] : null)
-            ->setEncodedFileFileSize(isset($data['encodedFileFileSize']) ? $data['encodedFileFileSize'] : null)
-            ->setEncodedFileMimeType(isset($data['encodedFileMimeType']) ? $data['encodedFileMimeType'] : null)
-            ->setEncodedFileBaseName(isset($data['encodedFileBaseName']) ? $data['encodedFileBaseName'] : null)
-            ->setStatus(isset($data['status']) ? $data['status'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -121,26 +99,6 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return GenericMusicOnHoldDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -164,11 +122,51 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param string $status
+     *
+     * @return GenericMusicOnHoldDTO
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return GenericMusicOnHoldDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $originalFileFileSize
      *
      * @return GenericMusicOnHoldDTO
      */
-    public function setOriginalFileFileSize($originalFileFileSize = null)
+    public function setOriginalFileFileSize($originalFileFileSize)
     {
         $this->originalFileFileSize = $originalFileFileSize;
 
@@ -188,7 +186,7 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
      *
      * @return GenericMusicOnHoldDTO
      */
-    public function setOriginalFileMimeType($originalFileMimeType = null)
+    public function setOriginalFileMimeType($originalFileMimeType)
     {
         $this->originalFileMimeType = $originalFileMimeType;
 
@@ -208,7 +206,7 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
      *
      * @return GenericMusicOnHoldDTO
      */
-    public function setOriginalFileBaseName($originalFileBaseName = null)
+    public function setOriginalFileBaseName($originalFileBaseName)
     {
         $this->originalFileBaseName = $originalFileBaseName;
 
@@ -228,7 +226,7 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
      *
      * @return GenericMusicOnHoldDTO
      */
-    public function setEncodedFileFileSize($encodedFileFileSize = null)
+    public function setEncodedFileFileSize($encodedFileFileSize)
     {
         $this->encodedFileFileSize = $encodedFileFileSize;
 
@@ -248,7 +246,7 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
      *
      * @return GenericMusicOnHoldDTO
      */
-    public function setEncodedFileMimeType($encodedFileMimeType = null)
+    public function setEncodedFileMimeType($encodedFileMimeType)
     {
         $this->encodedFileMimeType = $encodedFileMimeType;
 
@@ -268,7 +266,7 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
      *
      * @return GenericMusicOnHoldDTO
      */
-    public function setEncodedFileBaseName($encodedFileBaseName = null)
+    public function setEncodedFileBaseName($encodedFileBaseName)
     {
         $this->encodedFileBaseName = $encodedFileBaseName;
 
@@ -281,26 +279,6 @@ class GenericMusicOnHoldDTO implements DataTransferObjectInterface
     public function getEncodedFileBaseName()
     {
         return $this->encodedFileBaseName;
-    }
-
-    /**
-     * @param string $status
-     *
-     * @return GenericMusicOnHoldDTO
-     */
-    public function setStatus($status = null)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**

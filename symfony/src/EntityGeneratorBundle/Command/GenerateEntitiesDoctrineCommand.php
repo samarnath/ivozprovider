@@ -14,6 +14,16 @@ use Symfony\Component\Console\Input\InputOption;
  */
 class GenerateEntitiesDoctrineCommand extends ParentCommand
 {
+    use ExecuteGeneratorTrait;
+
+    public function __construct($name = null)
+    {
+        $this->skipEmbedded = true;
+        $this->skipMappedSuperClass = true;
+
+        return parent::__construct($name = null);
+    }
+
     protected function configure()
     {
         $this
@@ -49,7 +59,7 @@ class GenerateEntitiesDoctrineCommand extends ParentCommand
     {
         $entityGenerator = new EntityGenerator();
         $entityGenerator->setGenerateAnnotations(false);
-        $entityGenerator->setGenerateStubMethods(false);
+        $entityGenerator->setGenerateStubMethods(true);
         $entityGenerator->setRegenerateEntityIfExists(true);
         $entityGenerator->setUpdateEntityIfExists(true);
         $entityGenerator->setNumSpaces(4);

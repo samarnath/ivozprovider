@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Recording;
 interface RecordingInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get callid
      *
      * @return string
@@ -71,30 +63,6 @@ interface RecordingInterface
 
 
     /**
-     * Get recordedFileFileSize
-     *
-     * @return integer
-     */
-    public function getRecordedFileFileSize();
-
-
-    /**
-     * Get recordedFileMimeType
-     *
-     * @return string
-     */
-    public function getRecordedFileMimeType();
-
-
-    /**
-     * Get recordedFileBaseName
-     *
-     * @return string
-     */
-    public function getRecordedFileBaseName();
-
-
-    /**
      * Get company
      *
      * @return \Core\Domain\Model\Company\CompanyInterface
@@ -102,6 +70,12 @@ interface RecordingInterface
     public function getCompany();
 
 
+    /**
+     * Get recordedFile
+     *
+     * @return RecordedFile
+     */
+    public function getRecordedFile();
 
 }
 

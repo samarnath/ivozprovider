@@ -3,19 +3,13 @@
 namespace Kam\Domain\Model\AccCdr;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * AccCdrAbstract
  */
-abstract class AccCdrAbstract implements EntityInterface
+abstract class AccCdrAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -192,239 +186,9 @@ abstract class AccCdrAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $startTimeUtc,
-        $endTimeUtc,
-        $startTime,
-        $endTime,
-        $duration,
-        $bounced
-    ) {
-        $this->setStartTimeUtc($startTimeUtc);
-        $this->setEndTimeUtc($endTimeUtc);
-        $this->setStartTime($startTime);
-        $this->setEndTime($endTime);
-        $this->setDuration($duration);
-        $this->setBounced($bounced);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return AccCdrDTO
-     */
-    public static function createDTO()
-    {
-        return new AccCdrDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto AccCdrDTO
-         */
-        Assertion::isInstanceOf($dto, AccCdrDTO::class);
-
-        $self = new static(
-            $dto->getStartTimeUtc(),
-            $dto->getEndTimeUtc(),
-            $dto->getStartTime(),
-            $dto->getEndTime(),
-            $dto->getDuration(),
-            $dto->getBounced()
-        );
-
-        return $self
-            ->setProxy($dto->getProxy())
-            ->setCaller($dto->getCaller())
-            ->setCallee($dto->getCallee())
-            ->setReferee($dto->getReferee())
-            ->setReferrer($dto->getReferrer())
-            ->setAsiden($dto->getAsiden())
-            ->setAsaddress($dto->getAsaddress())
-            ->setCallid($dto->getCallid())
-            ->setCallidhash($dto->getCallidhash())
-            ->setXcallid($dto->getXcallid())
-            ->setParsed($dto->getParsed())
-            ->setDiversion($dto->getDiversion())
-            ->setPeeringcontractid($dto->getPeeringcontractid())
-            ->setExternallyrated($dto->getExternallyrated())
-            ->setMetered($dto->getMetered())
-            ->setMeteringdate($dto->getMeteringdate())
-            ->setPricingplanname($dto->getPricingplanname())
-            ->setTargetpatternname($dto->getTargetpatternname())
-            ->setPrice($dto->getPrice())
-            ->setPricingplandetails($dto->getPricingplandetails())
-            ->setDirection($dto->getDirection())
-            ->setRemeteringdate($dto->getRemeteringdate())
-            ->setPricingPlan($dto->getPricingPlan())
-            ->setTargetPattern($dto->getTargetPattern())
-            ->setInvoice($dto->getInvoice())
-            ->setBrand($dto->getBrand())
-            ->setCompany($dto->getCompany());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto AccCdrDTO
-         */
-        Assertion::isInstanceOf($dto, AccCdrDTO::class);
-
-        $this
-            ->setProxy($dto->getProxy())
-            ->setStartTimeUtc($dto->getStartTimeUtc())
-            ->setEndTimeUtc($dto->getEndTimeUtc())
-            ->setStartTime($dto->getStartTime())
-            ->setEndTime($dto->getEndTime())
-            ->setDuration($dto->getDuration())
-            ->setCaller($dto->getCaller())
-            ->setCallee($dto->getCallee())
-            ->setReferee($dto->getReferee())
-            ->setReferrer($dto->getReferrer())
-            ->setAsiden($dto->getAsiden())
-            ->setAsaddress($dto->getAsaddress())
-            ->setCallid($dto->getCallid())
-            ->setCallidhash($dto->getCallidhash())
-            ->setXcallid($dto->getXcallid())
-            ->setParsed($dto->getParsed())
-            ->setDiversion($dto->getDiversion())
-            ->setPeeringcontractid($dto->getPeeringcontractid())
-            ->setBounced($dto->getBounced())
-            ->setExternallyrated($dto->getExternallyrated())
-            ->setMetered($dto->getMetered())
-            ->setMeteringdate($dto->getMeteringdate())
-            ->setPricingplanname($dto->getPricingplanname())
-            ->setTargetpatternname($dto->getTargetpatternname())
-            ->setPrice($dto->getPrice())
-            ->setPricingplandetails($dto->getPricingplandetails())
-            ->setDirection($dto->getDirection())
-            ->setRemeteringdate($dto->getRemeteringdate())
-            ->setPricingPlan($dto->getPricingPlan())
-            ->setTargetPattern($dto->getTargetPattern())
-            ->setInvoice($dto->getInvoice())
-            ->setBrand($dto->getBrand())
-            ->setCompany($dto->getCompany());
-
-
-        return $this;
-    }
-
-    /**
-     * @return AccCdrDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setProxy($this->getProxy())
-            ->setStartTimeUtc($this->getStartTimeUtc())
-            ->setEndTimeUtc($this->getEndTimeUtc())
-            ->setStartTime($this->getStartTime())
-            ->setEndTime($this->getEndTime())
-            ->setDuration($this->getDuration())
-            ->setCaller($this->getCaller())
-            ->setCallee($this->getCallee())
-            ->setReferee($this->getReferee())
-            ->setReferrer($this->getReferrer())
-            ->setAsiden($this->getAsiden())
-            ->setAsaddress($this->getAsaddress())
-            ->setCallid($this->getCallid())
-            ->setCallidhash($this->getCallidhash())
-            ->setXcallid($this->getXcallid())
-            ->setParsed($this->getParsed())
-            ->setDiversion($this->getDiversion())
-            ->setPeeringcontractid($this->getPeeringcontractid())
-            ->setBounced($this->getBounced())
-            ->setExternallyrated($this->getExternallyrated())
-            ->setMetered($this->getMetered())
-            ->setMeteringdate($this->getMeteringdate())
-            ->setPricingplanname($this->getPricingplanname())
-            ->setTargetpatternname($this->getTargetpatternname())
-            ->setPrice($this->getPrice())
-            ->setPricingplandetails($this->getPricingplandetails())
-            ->setDirection($this->getDirection())
-            ->setRemeteringdate($this->getRemeteringdate())
-            ->setPricingPlanId($this->getPricingPlan() ? $this->getPricingPlan()->getId() : null)
-            ->setTargetPatternId($this->getTargetPattern() ? $this->getTargetPattern()->getId() : null)
-            ->setInvoiceId($this->getInvoice() ? $this->getInvoice()->getId() : null)
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'proxy' => $this->getProxy(),
-            'startTimeUtc' => $this->getStartTimeUtc(),
-            'endTimeUtc' => $this->getEndTimeUtc(),
-            'startTime' => $this->getStartTime(),
-            'endTime' => $this->getEndTime(),
-            'duration' => $this->getDuration(),
-            'caller' => $this->getCaller(),
-            'callee' => $this->getCallee(),
-            'referee' => $this->getReferee(),
-            'referrer' => $this->getReferrer(),
-            'asiden' => $this->getAsiden(),
-            'asaddress' => $this->getAsaddress(),
-            'callid' => $this->getCallid(),
-            'callidhash' => $this->getCallidhash(),
-            'xcallid' => $this->getXcallid(),
-            'parsed' => $this->getParsed(),
-            'diversion' => $this->getDiversion(),
-            'peeringcontractid' => $this->getPeeringcontractid(),
-            'bounced' => $this->getBounced(),
-            'externallyrated' => $this->getExternallyrated(),
-            'metered' => $this->getMetered(),
-            'meteringdate' => $this->getMeteringdate(),
-            'pricingplanname' => $this->getPricingplanname(),
-            'targetpatternname' => $this->getTargetpatternname(),
-            'price' => $this->getPrice(),
-            'pricingplandetails' => $this->getPricingplandetails(),
-            'direction' => $this->getDirection(),
-            'remeteringdate' => $this->getRemeteringdate(),
-            'pricingPlanId' => $this->getPricingPlan() ? $this->getPricingPlan()->getId() : null,
-            'targetPatternId' => $this->getTargetPattern() ? $this->getTargetPattern()->getId() : null,
-            'invoiceId' => $this->getInvoice() ? $this->getInvoice()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set proxy
@@ -568,7 +332,7 @@ abstract class AccCdrAbstract implements EntityInterface
     protected function setDuration($duration)
     {
         Assertion::notNull($duration);
-        //Assertion::float($duration);
+        Assertion::numeric($duration);
 
         $this->duration = $duration;
 
@@ -1096,7 +860,7 @@ abstract class AccCdrAbstract implements EntityInterface
     {
         if (!is_null($price)) {
             if (!is_null($price)) {
-                //Assertion::float($price);
+                Assertion::numeric($price);
             }
         }
 

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class PeeringContractDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $description = '';
@@ -30,6 +25,11 @@ class PeeringContractDTO implements DataTransferObjectInterface
      * @var boolean
      */
     private $externallyRated = '0';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -57,32 +57,14 @@ class PeeringContractDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'description' => $this->getDescription(),
             'name' => $this->getName(),
             'externallyRated' => $this->getExternallyRated(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId(),
             'transformationRulesetGroupsTrunkId' => $this->getTransformationRulesetGroupsTrunkId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setExternallyRated(isset($data['externallyRated']) ? $data['externallyRated'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setTransformationRulesetGroupsTrunkId(isset($data['transformationRulesetGroupsTrunkId']) ? $data['transformationRulesetGroupsTrunkId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -99,26 +81,6 @@ class PeeringContractDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return PeeringContractDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -179,6 +141,26 @@ class PeeringContractDTO implements DataTransferObjectInterface
     public function getExternallyRated()
     {
         return $this->externallyRated;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return PeeringContractDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

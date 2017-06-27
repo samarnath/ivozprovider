@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Feature;
 interface FeatureInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get iden
      *
      * @return string

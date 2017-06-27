@@ -7,14 +7,6 @@ namespace Core\Domain\Model\ChangeHistory;
 interface ChangeHistoryInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get user
      *
      * @return string

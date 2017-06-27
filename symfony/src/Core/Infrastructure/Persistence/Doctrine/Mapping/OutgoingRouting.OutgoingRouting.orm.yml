@@ -2,22 +2,6 @@ Core\Domain\Model\OutgoingRouting\OutgoingRouting:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\OutgoingRoutingDoctrineRepository
   type: entity
   table: OutgoingRouting
-  indexes:
-    companyId:
-      columns:
-        - companyId
-    brandId:
-      columns:
-        - brandId
-    peeringContractId:
-      columns:
-        - peeringContractId
-    routingPatternId:
-      columns:
-        - routingPatternId
-    routingPatternGroupId:
-      columns:
-        - routingPatternGroupId
   id:
     id:
       type: integer
@@ -27,76 +11,4 @@ Core\Domain\Model\OutgoingRouting\OutgoingRouting:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    type:
-      type: string
-      nullable: true
-      length: null
-      options:
-        fixed: false
-        default: group
-    priority:
-      type: boolean
-      nullable: false
-      options:
-        unsigned: true
-    weight:
-      type: integer
-      nullable: false
-      options:
-        unsigned: true
-        default: '1'
-  manyToOne:
-    brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        brandId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    company:
-      targetEntity: \Core\Domain\Model\Company\CompanyInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        companyId:
-          referencedColumnName: id
-      orphanRemoval: false
-    peeringContract:
-      targetEntity: \Core\Domain\Model\PeeringContract\PeeringContractInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        peeringContractId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    routingPattern:
-      targetEntity: \Core\Domain\Model\RoutingPattern\RoutingPatternInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        routingPatternId:
-          referencedColumnName: id
-      orphanRemoval: false
-    routingPatternGroup:
-      targetEntity: \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroupInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        routingPatternGroupId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Company;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CompanyAbstract
  */
-abstract class CompanyAbstract implements EntityInterface
+abstract class CompanyAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @comment enum:vpbx|retail
      * @var string
@@ -151,213 +145,9 @@ abstract class CompanyAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $type,
-        $name,
-        $nif,
-        $externalMaxCalls,
-        $postalAddress,
-        $postalCode,
-        $town,
-        $province,
-        $country
-    ) {
-        $this->setType($type);
-        $this->setName($name);
-        $this->setNif($nif);
-        $this->setExternalMaxCalls($externalMaxCalls);
-        $this->setPostalAddress($postalAddress);
-        $this->setPostalCode($postalCode);
-        $this->setTown($town);
-        $this->setProvince($province);
-        $this->setCountry($country);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return CompanyDTO
-     */
-    public static function createDTO()
-    {
-        return new CompanyDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CompanyDTO
-         */
-        Assertion::isInstanceOf($dto, CompanyDTO::class);
-
-        $self = new static(
-            $dto->getType(),
-            $dto->getName(),
-            $dto->getNif(),
-            $dto->getExternalMaxCalls(),
-            $dto->getPostalAddress(),
-            $dto->getPostalCode(),
-            $dto->getTown(),
-            $dto->getProvince(),
-            $dto->getCountry()
-        );
-
-        return $self
-            ->setDomainUsers($dto->getDomainUsers())
-            ->setOutboundPrefix($dto->getOutboundPrefix())
-            ->setIpfilter($dto->getIpfilter())
-            ->setOnDemandRecord($dto->getOnDemandRecord())
-            ->setOnDemandRecordCode($dto->getOnDemandRecordCode())
-            ->setAreaCode($dto->getAreaCode())
-            ->setExternallyextraopts($dto->getExternallyextraopts())
-            ->setRecordingsLimitMB($dto->getRecordingsLimitMB())
-            ->setRecordingsLimitEmail($dto->getRecordingsLimitEmail())
-            ->setLanguage($dto->getLanguage())
-            ->setMediaRelaySets($dto->getMediaRelaySets())
-            ->setDefaultTimezone($dto->getDefaultTimezone())
-            ->setBrand($dto->getBrand())
-            ->setApplicationServer($dto->getApplicationServer())
-            ->setCountryCode($dto->getCountryCode())
-            ->setOutgoingDDI($dto->getOutgoingDDI());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto CompanyDTO
-         */
-        Assertion::isInstanceOf($dto, CompanyDTO::class);
-
-        $this
-            ->setType($dto->getType())
-            ->setName($dto->getName())
-            ->setDomainUsers($dto->getDomainUsers())
-            ->setNif($dto->getNif())
-            ->setExternalMaxCalls($dto->getExternalMaxCalls())
-            ->setPostalAddress($dto->getPostalAddress())
-            ->setPostalCode($dto->getPostalCode())
-            ->setTown($dto->getTown())
-            ->setProvince($dto->getProvince())
-            ->setCountry($dto->getCountry())
-            ->setOutboundPrefix($dto->getOutboundPrefix())
-            ->setIpfilter($dto->getIpfilter())
-            ->setOnDemandRecord($dto->getOnDemandRecord())
-            ->setOnDemandRecordCode($dto->getOnDemandRecordCode())
-            ->setAreaCode($dto->getAreaCode())
-            ->setExternallyextraopts($dto->getExternallyextraopts())
-            ->setRecordingsLimitMB($dto->getRecordingsLimitMB())
-            ->setRecordingsLimitEmail($dto->getRecordingsLimitEmail())
-            ->setLanguage($dto->getLanguage())
-            ->setMediaRelaySets($dto->getMediaRelaySets())
-            ->setDefaultTimezone($dto->getDefaultTimezone())
-            ->setBrand($dto->getBrand())
-            ->setApplicationServer($dto->getApplicationServer())
-            ->setCountryCode($dto->getCountryCode())
-            ->setOutgoingDDI($dto->getOutgoingDDI());
-
-
-        return $this;
-    }
-
-    /**
-     * @return CompanyDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setType($this->getType())
-            ->setName($this->getName())
-            ->setDomainUsers($this->getDomainUsers())
-            ->setNif($this->getNif())
-            ->setExternalMaxCalls($this->getExternalMaxCalls())
-            ->setPostalAddress($this->getPostalAddress())
-            ->setPostalCode($this->getPostalCode())
-            ->setTown($this->getTown())
-            ->setProvince($this->getProvince())
-            ->setCountry($this->getCountry())
-            ->setOutboundPrefix($this->getOutboundPrefix())
-            ->setIpfilter($this->getIpfilter())
-            ->setOnDemandRecord($this->getOnDemandRecord())
-            ->setOnDemandRecordCode($this->getOnDemandRecordCode())
-            ->setAreaCode($this->getAreaCode())
-            ->setExternallyextraopts($this->getExternallyextraopts())
-            ->setRecordingsLimitMB($this->getRecordingsLimitMB())
-            ->setRecordingsLimitEmail($this->getRecordingsLimitEmail())
-            ->setLanguageId($this->getLanguage() ? $this->getLanguage()->getId() : null)
-            ->setMediaRelaySetsId($this->getMediaRelaySets() ? $this->getMediaRelaySets()->getId() : null)
-            ->setDefaultTimezoneId($this->getDefaultTimezone() ? $this->getDefaultTimezone()->getId() : null)
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setApplicationServerId($this->getApplicationServer() ? $this->getApplicationServer()->getId() : null)
-            ->setCountryCodeId($this->getCountryCode() ? $this->getCountryCode()->getId() : null)
-            ->setOutgoingDDIId($this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'type' => $this->getType(),
-            'name' => $this->getName(),
-            'domainUsers' => $this->getDomainUsers(),
-            'nif' => $this->getNif(),
-            'externalMaxCalls' => $this->getExternalMaxCalls(),
-            'postalAddress' => $this->getPostalAddress(),
-            'postalCode' => $this->getPostalCode(),
-            'town' => $this->getTown(),
-            'province' => $this->getProvince(),
-            'country' => $this->getCountry(),
-            'outboundPrefix' => $this->getOutboundPrefix(),
-            'ipfilter' => $this->getIpfilter(),
-            'onDemandRecord' => $this->getOnDemandRecord(),
-            'onDemandRecordCode' => $this->getOnDemandRecordCode(),
-            'areaCode' => $this->getAreaCode(),
-            'externallyextraopts' => $this->getExternallyextraopts(),
-            'recordingsLimitMB' => $this->getRecordingsLimitMB(),
-            'recordingsLimitEmail' => $this->getRecordingsLimitEmail(),
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
-            'mediaRelaySetsId' => $this->getMediaRelaySets() ? $this->getMediaRelaySets()->getId() : null,
-            'defaultTimezoneId' => $this->getDefaultTimezone() ? $this->getDefaultTimezone()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null,
-            'countryCodeId' => $this->getCountryCode() ? $this->getCountryCode()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set type

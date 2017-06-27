@@ -7,14 +7,6 @@ namespace Core\Domain\Model\User;
 interface UserInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string
@@ -153,7 +145,7 @@ interface UserInterface
     /**
      * Get bossAssistant
      *
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return UserInterface
      */
     public function getBossAssistant();
 

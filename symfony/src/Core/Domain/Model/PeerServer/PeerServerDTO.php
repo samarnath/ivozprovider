@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class PeerServerDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $ip;
@@ -37,7 +32,6 @@ class PeerServerDTO implements DataTransferObjectInterface
     private $params;
 
     /**
-     * @column uri_scheme
      * @var boolean
      */
     private $uriScheme;
@@ -68,46 +62,44 @@ class PeerServerDTO implements DataTransferObjectInterface
     private $sendRPID = '0';
 
     /**
-     * @column auth_needed
      * @var string
      */
     private $authNeeded = 'no';
 
     /**
-     * @column auth_user
      * @var string
      */
     private $authUser;
 
     /**
-     * @column auth_password
      * @var string
      */
     private $authPassword;
 
     /**
-     * @column sip_proxy
      * @var string
      */
     private $sipProxy;
 
     /**
-     * @column outbound_proxy
      * @var string
      */
     private $outboundProxy;
 
     /**
-     * @column from_user
      * @var string
      */
     private $fromUser;
 
     /**
-     * @column from_domain
      * @var string
      */
     private $fromDomain;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -135,7 +127,6 @@ class PeerServerDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'ip' => $this->getIp(),
             'hostname' => $this->getHostname(),
             'port' => $this->getPort(),
@@ -153,42 +144,11 @@ class PeerServerDTO implements DataTransferObjectInterface
             'outboundProxy' => $this->getOutboundProxy(),
             'fromUser' => $this->getFromUser(),
             'fromDomain' => $this->getFromDomain(),
+            'id' => $this->getId(),
             'peeringContractId' => $this->getPeeringContractId(),
             'brandId' => $this->getBrandId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setIp(isset($data['ip']) ? $data['ip'] : null)
-            ->setHostname(isset($data['hostname']) ? $data['hostname'] : null)
-            ->setPort(isset($data['port']) ? $data['port'] : null)
-            ->setParams(isset($data['params']) ? $data['params'] : null)
-            ->setUriScheme(isset($data['uriScheme']) ? $data['uriScheme'] : null)
-            ->setTransport(isset($data['transport']) ? $data['transport'] : null)
-            ->setStrip(isset($data['strip']) ? $data['strip'] : null)
-            ->setPrefix(isset($data['prefix']) ? $data['prefix'] : null)
-            ->setSendPAI(isset($data['sendPAI']) ? $data['sendPAI'] : null)
-            ->setSendRPID(isset($data['sendRPID']) ? $data['sendRPID'] : null)
-            ->setAuthNeeded(isset($data['authNeeded']) ? $data['authNeeded'] : null)
-            ->setAuthUser(isset($data['authUser']) ? $data['authUser'] : null)
-            ->setAuthPassword(isset($data['authPassword']) ? $data['authPassword'] : null)
-            ->setSipProxy(isset($data['sipProxy']) ? $data['sipProxy'] : null)
-            ->setOutboundProxy(isset($data['outboundProxy']) ? $data['outboundProxy'] : null)
-            ->setFromUser(isset($data['fromUser']) ? $data['fromUser'] : null)
-            ->setFromDomain(isset($data['fromDomain']) ? $data['fromDomain'] : null)
-            ->setPeeringContractId(isset($data['peeringContractId']) ? $data['peeringContractId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -205,26 +165,6 @@ class PeerServerDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return PeerServerDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -565,6 +505,26 @@ class PeerServerDTO implements DataTransferObjectInterface
     public function getFromDomain()
     {
         return $this->fromDomain;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return PeerServerDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

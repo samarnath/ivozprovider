@@ -2,22 +2,6 @@ Core\Domain\Model\CallForwardSetting\CallForwardSetting:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\CallForwardSettingDoctrineRepository
   type: entity
   table: CallForwardSettings
-  indexes:
-    userId:
-      columns:
-        - userId
-    extensionId:
-      columns:
-        - extensionId
-    voiceMailUserId:
-      columns:
-        - voiceMailUserId
-  uniqueConstraints:
-    callFwTypeUser:
-      columns:
-        - callForwardType
-        - userId
-        - callTypeFilter
   id:
     id:
       type: integer
@@ -27,75 +11,4 @@ Core\Domain\Model\CallForwardSetting\CallForwardSetting:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    callTypeFilter:
-      type: string
-      nullable: false
-      length: 25
-      options:
-        fixed: false
-        comment: '[enum:internal|external|both]'
-      column: callTypeFilter
-    callForwardType:
-      type: string
-      nullable: false
-      length: 25
-      options:
-        fixed: false
-        comment: '[enum:inconditional|noAnswer|busy|userNotRegistered]'
-      column: callForwardType
-    targetType:
-      type: string
-      nullable: false
-      length: 25
-      options:
-        fixed: false
-        comment: '[enum:number|extension|voicemail]'
-      column: targetType
-    numberValue:
-      type: string
-      nullable: true
-      length: 25
-      options:
-        fixed: false
-      column: numberValue
-    noAnswerTimeout:
-      type: smallint
-      nullable: false
-      options:
-        unsigned: false
-        default: '10'
-      column: noAnswerTimeout
-  manyToOne:
-    user:
-      targetEntity: \Core\Domain\Model\User\UserInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        userId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    extension:
-      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        extensionId:
-          referencedColumnName: id
-      orphanRemoval: false
-    voiceMailUser:
-      targetEntity: \Core\Domain\Model\User\UserInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        voiceMailUserId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

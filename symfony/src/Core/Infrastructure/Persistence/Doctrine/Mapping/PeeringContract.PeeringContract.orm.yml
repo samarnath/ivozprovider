@@ -2,18 +2,6 @@ Core\Domain\Model\PeeringContract\PeeringContract:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\PeeringContractDoctrineRepository
   type: entity
   table: PeeringContracts
-  indexes:
-    brandId:
-      columns:
-        - brandId
-    PeeringContracts_ibfk_2:
-      columns:
-        - transformationRulesetGroupsTrunksId
-  uniqueConstraints:
-    name_per_brand:
-      columns:
-        - name
-        - brandId
   id:
     id:
       type: integer
@@ -23,46 +11,4 @@ Core\Domain\Model\PeeringContract\PeeringContract:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    description:
-      type: string
-      nullable: false
-      length: 500
-      options:
-        fixed: false
-        default: ''
-    name:
-      type: string
-      nullable: false
-      length: 200
-      options:
-        fixed: false
-    externallyRated:
-      type: boolean
-      nullable: true
-      options:
-        default: '0'
-      column: externallyRated
-  manyToOne:
-    brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        brandId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    transformationRulesetGroupsTrunk:
-      targetEntity: \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        transformationRulesetGroupsTrunksId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

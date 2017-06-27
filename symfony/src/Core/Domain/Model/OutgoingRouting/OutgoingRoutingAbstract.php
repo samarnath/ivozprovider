@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\OutgoingRouting;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * OutgoingRoutingAbstract
  */
-abstract class OutgoingRoutingAbstract implements EntityInterface
+abstract class OutgoingRoutingAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -63,129 +57,9 @@ abstract class OutgoingRoutingAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($priority, $weight)
-    {
-        $this->setPriority($priority);
-        $this->setWeight($weight);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return OutgoingRoutingDTO
-     */
-    public static function createDTO()
-    {
-        return new OutgoingRoutingDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto OutgoingRoutingDTO
-         */
-        Assertion::isInstanceOf($dto, OutgoingRoutingDTO::class);
-
-        $self = new static(
-            $dto->getPriority(),
-            $dto->getWeight()
-        );
-
-        return $self
-            ->setType($dto->getType())
-            ->setBrand($dto->getBrand())
-            ->setCompany($dto->getCompany())
-            ->setPeeringContract($dto->getPeeringContract())
-            ->setRoutingPattern($dto->getRoutingPattern())
-            ->setRoutingPatternGroup($dto->getRoutingPatternGroup());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto OutgoingRoutingDTO
-         */
-        Assertion::isInstanceOf($dto, OutgoingRoutingDTO::class);
-
-        $this
-            ->setType($dto->getType())
-            ->setPriority($dto->getPriority())
-            ->setWeight($dto->getWeight())
-            ->setBrand($dto->getBrand())
-            ->setCompany($dto->getCompany())
-            ->setPeeringContract($dto->getPeeringContract())
-            ->setRoutingPattern($dto->getRoutingPattern())
-            ->setRoutingPatternGroup($dto->getRoutingPatternGroup());
-
-
-        return $this;
-    }
-
-    /**
-     * @return OutgoingRoutingDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setType($this->getType())
-            ->setPriority($this->getPriority())
-            ->setWeight($this->getWeight())
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null)
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setPeeringContractId($this->getPeeringContract() ? $this->getPeeringContract()->getId() : null)
-            ->setRoutingPatternId($this->getRoutingPattern() ? $this->getRoutingPattern()->getId() : null)
-            ->setRoutingPatternGroupId($this->getRoutingPatternGroup() ? $this->getRoutingPatternGroup()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'type' => $this->getType(),
-            'priority' => $this->getPriority(),
-            'weight' => $this->getWeight(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'peeringContractId' => $this->getPeeringContract() ? $this->getPeeringContract()->getId() : null,
-            'routingPatternId' => $this->getRoutingPattern() ? $this->getRoutingPattern()->getId() : null,
-            'routingPatternGroupId' => $this->getRoutingPatternGroup() ? $this->getRoutingPatternGroup()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set type

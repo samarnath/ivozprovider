@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Timezone;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TimezoneAbstract
  */
-abstract class TimezoneAbstract implements EntityInterface
+abstract class TimezoneAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -27,22 +21,10 @@ abstract class TimezoneAbstract implements EntityInterface
     protected $comment = '';
 
     /**
-     * @comment ml
+     * @column time_zone_label
      * @var string
      */
-    protected $timeZoneLabel = '';
-
-    /**
-     * @column timeZoneLabel_en
-     * @var string
-     */
-    protected $timeZoneLabelEn = '';
-
-    /**
-     * @column timeZoneLabel_es
-     * @var string
-     */
-    protected $timeZoneLabelEs = '';
+    protected $timeZoneLabel;
 
     /**
      * @var \Core\Domain\Model\Country\CountryInterface
@@ -56,127 +38,9 @@ abstract class TimezoneAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $tz,
-        $timeZoneLabel,
-        $timeZoneLabelEn,
-        $timeZoneLabelEs
-    ) {
-        $this->setTz($tz);
-        $this->setTimeZoneLabel($timeZoneLabel);
-        $this->setTimeZoneLabelEn($timeZoneLabelEn);
-        $this->setTimeZoneLabelEs($timeZoneLabelEs);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return TimezoneDTO
-     */
-    public static function createDTO()
-    {
-        return new TimezoneDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TimezoneDTO
-         */
-        Assertion::isInstanceOf($dto, TimezoneDTO::class);
-
-        $self = new static(
-            $dto->getTz(),
-            $dto->getTimeZoneLabel(),
-            $dto->getTimeZoneLabelEn(),
-            $dto->getTimeZoneLabelEs()
-        );
-
-        return $self
-            ->setComment($dto->getComment())
-            ->setCountry($dto->getCountry());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto TimezoneDTO
-         */
-        Assertion::isInstanceOf($dto, TimezoneDTO::class);
-
-        $this
-            ->setTz($dto->getTz())
-            ->setComment($dto->getComment())
-            ->setTimeZoneLabel($dto->getTimeZoneLabel())
-            ->setTimeZoneLabelEn($dto->getTimeZoneLabelEn())
-            ->setTimeZoneLabelEs($dto->getTimeZoneLabelEs())
-            ->setCountry($dto->getCountry());
-
-
-        return $this;
-    }
-
-    /**
-     * @return TimezoneDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setTz($this->getTz())
-            ->setComment($this->getComment())
-            ->setTimeZoneLabel($this->getTimeZoneLabel())
-            ->setTimeZoneLabelEn($this->getTimeZoneLabelEn())
-            ->setTimeZoneLabelEs($this->getTimeZoneLabelEs())
-            ->setCountryId($this->getCountry() ? $this->getCountry()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'tz' => $this->getTz(),
-            'comment' => $this->getComment(),
-            'timeZoneLabel' => $this->getTimeZoneLabel(),
-            'timeZoneLabelEn' => $this->getTimeZoneLabelEn(),
-            'timeZoneLabelEs' => $this->getTimeZoneLabelEs(),
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set tz
@@ -243,7 +107,6 @@ abstract class TimezoneAbstract implements EntityInterface
     protected function setTimeZoneLabel($timeZoneLabel)
     {
         Assertion::notNull($timeZoneLabel);
-        Assertion::maxLength($timeZoneLabel, 20);
 
         $this->timeZoneLabel = $timeZoneLabel;
 
@@ -258,60 +121,6 @@ abstract class TimezoneAbstract implements EntityInterface
     public function getTimeZoneLabel()
     {
         return $this->timeZoneLabel;
-    }
-
-    /**
-     * Set timeZoneLabelEn
-     *
-     * @param string $timeZoneLabelEn
-     *
-     * @return self
-     */
-    protected function setTimeZoneLabelEn($timeZoneLabelEn)
-    {
-        Assertion::notNull($timeZoneLabelEn);
-        Assertion::maxLength($timeZoneLabelEn, 20);
-
-        $this->timeZoneLabelEn = $timeZoneLabelEn;
-
-        return $this;
-    }
-
-    /**
-     * Get timeZoneLabelEn
-     *
-     * @return string
-     */
-    public function getTimeZoneLabelEn()
-    {
-        return $this->timeZoneLabelEn;
-    }
-
-    /**
-     * Set timeZoneLabelEs
-     *
-     * @param string $timeZoneLabelEs
-     *
-     * @return self
-     */
-    protected function setTimeZoneLabelEs($timeZoneLabelEs)
-    {
-        Assertion::notNull($timeZoneLabelEs);
-        Assertion::maxLength($timeZoneLabelEs, 20);
-
-        $this->timeZoneLabelEs = $timeZoneLabelEs;
-
-        return $this;
-    }
-
-    /**
-     * Get timeZoneLabelEs
-     *
-     * @return string
-     */
-    public function getTimeZoneLabelEs()
-    {
-        return $this->timeZoneLabelEs;
     }
 
     /**

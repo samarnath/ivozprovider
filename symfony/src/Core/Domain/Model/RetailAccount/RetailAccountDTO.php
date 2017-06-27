@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class RetailAccountDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -47,7 +42,6 @@ class RetailAccountDTO implements DataTransferObjectInterface
     private $port;
 
     /**
-     * @column auth_needed
      * @var string
      */
     private $authNeeded = 'yes';
@@ -73,25 +67,21 @@ class RetailAccountDTO implements DataTransferObjectInterface
     private $allow = 'alaw';
 
     /**
-     * @column direct_media_method
      * @var string
      */
     private $directMediaMethod = 'update';
 
     /**
-     * @column callerid_update_header
      * @var string
      */
     private $calleridUpdateHeader = 'pai';
 
     /**
-     * @column update_callerid
      * @var string
      */
     private $updateCallerid = 'yes';
 
     /**
-     * @column from_domain
      * @var string
      */
     private $fromDomain;
@@ -100,6 +90,11 @@ class RetailAccountDTO implements DataTransferObjectInterface
      * @var string
      */
     private $directConnectivity = 'yes';
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var mixed
@@ -157,7 +152,6 @@ class RetailAccountDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'domain' => $this->getDomain(),
             'description' => $this->getDescription(),
@@ -174,6 +168,7 @@ class RetailAccountDTO implements DataTransferObjectInterface
             'updateCallerid' => $this->getUpdateCallerid(),
             'fromDomain' => $this->getFromDomain(),
             'directConnectivity' => $this->getDirectConnectivity(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId(),
             'companyId' => $this->getCompanyId(),
             'countryId' => $this->getCountryId(),
@@ -181,40 +176,6 @@ class RetailAccountDTO implements DataTransferObjectInterface
             'languageId' => $this->getLanguageId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setDomain(isset($data['domain']) ? $data['domain'] : null)
-            ->setDescription(isset($data['description']) ? $data['description'] : null)
-            ->setTransport(isset($data['transport']) ? $data['transport'] : null)
-            ->setIp(isset($data['ip']) ? $data['ip'] : null)
-            ->setPort(isset($data['port']) ? $data['port'] : null)
-            ->setAuthNeeded(isset($data['authNeeded']) ? $data['authNeeded'] : null)
-            ->setPassword(isset($data['password']) ? $data['password'] : null)
-            ->setAreaCode(isset($data['areaCode']) ? $data['areaCode'] : null)
-            ->setDisallow(isset($data['disallow']) ? $data['disallow'] : null)
-            ->setAllow(isset($data['allow']) ? $data['allow'] : null)
-            ->setDirectMediaMethod(isset($data['directMediaMethod']) ? $data['directMediaMethod'] : null)
-            ->setCalleridUpdateHeader(isset($data['calleridUpdateHeader']) ? $data['calleridUpdateHeader'] : null)
-            ->setUpdateCallerid(isset($data['updateCallerid']) ? $data['updateCallerid'] : null)
-            ->setFromDomain(isset($data['fromDomain']) ? $data['fromDomain'] : null)
-            ->setDirectConnectivity(isset($data['directConnectivity']) ? $data['directConnectivity'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null)
-            ->setCountryId(isset($data['countryId']) ? $data['countryId'] : null)
-            ->setOutgoingDDIId(isset($data['outgoingDDIId']) ? $data['outgoingDDIId'] : null)
-            ->setLanguageId(isset($data['languageId']) ? $data['languageId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -234,26 +195,6 @@ class RetailAccountDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return RetailAccountDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -574,6 +515,26 @@ class RetailAccountDTO implements DataTransferObjectInterface
     public function getDirectConnectivity()
     {
         return $this->directConnectivity;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return RetailAccountDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

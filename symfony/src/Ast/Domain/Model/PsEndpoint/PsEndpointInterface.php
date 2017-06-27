@@ -7,14 +7,6 @@ namespace Ast\Domain\Model\PsEndpoint;
 interface PsEndpointInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get sorceryId
      *
      * @return string

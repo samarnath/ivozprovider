@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\AccCdr;
 interface AccCdrInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get proxy
      *
      * @return string

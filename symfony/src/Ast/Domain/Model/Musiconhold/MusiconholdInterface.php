@@ -7,14 +7,6 @@ namespace Ast\Domain\Model\Musiconhold;
 interface MusiconholdInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

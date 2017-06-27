@@ -7,14 +7,6 @@ namespace Ast\Domain\Model\QueueMember;
 interface QueueMemberInterface
 {
     /**
-     * Get uniqueid
-     *
-     * @return integer
-     */
-    public function getUniqueid();
-
-
-    /**
      * Get queueName
      *
      * @return string

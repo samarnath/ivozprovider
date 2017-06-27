@@ -2,24 +2,6 @@ Core\Domain\Model\IVRCustomEntry\IVRCustomEntry:
   repositoryClass: Core\Infrastructure\Persistence\Doctrine\IVRCustomEntryDoctrineRepository
   type: entity
   table: IVRCustomEntries
-  indexes:
-    IVRCustomId:
-      columns:
-        - IVRCustomId
-    welcomeLocutionId:
-      columns:
-        - welcomeLocutionId
-    targetExtensionId:
-      columns:
-        - targetExtensionId
-    targetVoiceMailUserId:
-      columns:
-        - targetVoiceMailUserId
-  uniqueConstraints:
-    UniqueIVRCutomIdAndEntry:
-      columns:
-        - IVRCustomId
-        - entry
   id:
     id:
       type: integer
@@ -29,68 +11,4 @@ Core\Domain\Model\IVRCustomEntry\IVRCustomEntry:
       id: true
       generator:
         strategy: IDENTITY
-  fields:
-    entry:
-      type: string
-      nullable: false
-      length: 40
-      options:
-        fixed: false
-    targetType:
-      type: string
-      nullable: false
-      length: 25
-      options:
-        fixed: false
-        comment: '[enum:number|extension|voicemail]'
-      column: targetType
-    targetNumberValue:
-      type: string
-      nullable: true
-      length: 25
-      options:
-        fixed: false
-      column: targetNumberValue
-  manyToOne:
-    IVRCustom:
-      targetEntity: \Core\Domain\Model\IVRCustom\IVRCustomInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        IVRCustomId:
-          referencedColumnName: id
-          nullable: false
-      orphanRemoval: false
-    welcomeLocution:
-      targetEntity: \Core\Domain\Model\Locution\LocutionInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        welcomeLocutionId:
-          referencedColumnName: id
-      orphanRemoval: false
-    targetExtension:
-      targetEntity: \Core\Domain\Model\Extension\ExtensionInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        targetExtensionId:
-          referencedColumnName: id
-      orphanRemoval: false
-    targetVoiceMailUser:
-      targetEntity: \Core\Domain\Model\User\UserInterface
-      cascade: {  }
-      fetch: LAZY
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        targetVoiceMailUserId:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }

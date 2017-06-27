@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class InvoiceDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $number;
@@ -54,17 +49,22 @@ class InvoiceDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $pdfFileFileSize;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $pdfFileSize;
 
     /**
      * @var string
      */
-    private $pdfFileMimeType;
+    private $pdfMimeType;
 
     /**
      * @var string
      */
-    private $pdfFileBaseName;
+    private $pdfBaseName;
 
     /**
      * @var mixed
@@ -102,7 +102,6 @@ class InvoiceDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'number' => $this->getNumber(),
             'inDate' => $this->getInDate(),
             'outDate' => $this->getOutDate(),
@@ -110,40 +109,15 @@ class InvoiceDTO implements DataTransferObjectInterface
             'taxRate' => $this->getTaxRate(),
             'totalWithTax' => $this->getTotalWithTax(),
             'status' => $this->getStatus(),
-            'pdfFileFileSize' => $this->getPdfFileFileSize(),
-            'pdfFileMimeType' => $this->getPdfFileMimeType(),
-            'pdfFileBaseName' => $this->getPdfFileBaseName(),
+            'id' => $this->getId(),
+            'pdfFileSize' => $this->getPdfFileSize(),
+            'pdfMimeType' => $this->getPdfMimeType(),
+            'pdfBaseName' => $this->getPdfBaseName(),
             'invoiceTemplateId' => $this->getInvoiceTemplateId(),
             'brandId' => $this->getBrandId(),
             'companyId' => $this->getCompanyId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setNumber(isset($data['number']) ? $data['number'] : null)
-            ->setInDate(isset($data['inDate']) ? $data['inDate'] : null)
-            ->setOutDate(isset($data['outDate']) ? $data['outDate'] : null)
-            ->setTotal(isset($data['total']) ? $data['total'] : null)
-            ->setTaxRate(isset($data['taxRate']) ? $data['taxRate'] : null)
-            ->setTotalWithTax(isset($data['totalWithTax']) ? $data['totalWithTax'] : null)
-            ->setStatus(isset($data['status']) ? $data['status'] : null)
-            ->setPdfFileFileSize(isset($data['pdfFileFileSize']) ? $data['pdfFileFileSize'] : null)
-            ->setPdfFileMimeType(isset($data['pdfFileMimeType']) ? $data['pdfFileMimeType'] : null)
-            ->setPdfFileBaseName(isset($data['pdfFileBaseName']) ? $data['pdfFileBaseName'] : null)
-            ->setInvoiceTemplateId(isset($data['invoiceTemplateId']) ? $data['invoiceTemplateId'] : null)
-            ->setBrandId(isset($data['brandId']) ? $data['brandId'] : null)
-            ->setCompanyId(isset($data['companyId']) ? $data['companyId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -161,26 +135,6 @@ class InvoiceDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return InvoiceDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -324,13 +278,13 @@ class InvoiceDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @param integer $pdfFileFileSize
+     * @param integer $id
      *
      * @return InvoiceDTO
      */
-    public function setPdfFileFileSize($pdfFileFileSize = null)
+    public function setId($id)
     {
-        $this->pdfFileFileSize = $pdfFileFileSize;
+        $this->id = $id;
 
         return $this;
     }
@@ -338,19 +292,39 @@ class InvoiceDTO implements DataTransferObjectInterface
     /**
      * @return integer
      */
-    public function getPdfFileFileSize()
+    public function getId()
     {
-        return $this->pdfFileFileSize;
+        return $this->id;
     }
 
     /**
-     * @param string $pdfFileMimeType
+     * @param integer $pdfFileSize
      *
      * @return InvoiceDTO
      */
-    public function setPdfFileMimeType($pdfFileMimeType = null)
+    public function setPdfFileSize($pdfFileSize)
     {
-        $this->pdfFileMimeType = $pdfFileMimeType;
+        $this->pdfFileSize = $pdfFileSize;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getPdfFileSize()
+    {
+        return $this->pdfFileSize;
+    }
+
+    /**
+     * @param string $pdfMimeType
+     *
+     * @return InvoiceDTO
+     */
+    public function setPdfMimeType($pdfMimeType)
+    {
+        $this->pdfMimeType = $pdfMimeType;
 
         return $this;
     }
@@ -358,19 +332,19 @@ class InvoiceDTO implements DataTransferObjectInterface
     /**
      * @return string
      */
-    public function getPdfFileMimeType()
+    public function getPdfMimeType()
     {
-        return $this->pdfFileMimeType;
+        return $this->pdfMimeType;
     }
 
     /**
-     * @param string $pdfFileBaseName
+     * @param string $pdfBaseName
      *
      * @return InvoiceDTO
      */
-    public function setPdfFileBaseName($pdfFileBaseName = null)
+    public function setPdfBaseName($pdfBaseName)
     {
-        $this->pdfFileBaseName = $pdfFileBaseName;
+        $this->pdfBaseName = $pdfBaseName;
 
         return $this;
     }
@@ -378,9 +352,9 @@ class InvoiceDTO implements DataTransferObjectInterface
     /**
      * @return string
      */
-    public function getPdfFileBaseName()
+    public function getPdfBaseName()
     {
-        return $this->pdfFileBaseName;
+        return $this->pdfBaseName;
     }
 
     /**

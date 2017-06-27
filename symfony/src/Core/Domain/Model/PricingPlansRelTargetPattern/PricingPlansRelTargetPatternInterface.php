@@ -7,14 +7,6 @@ namespace Core\Domain\Model\PricingPlansRelTargetPattern;
 interface PricingPlansRelTargetPatternInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get connectionCharge
      *
      * @return string

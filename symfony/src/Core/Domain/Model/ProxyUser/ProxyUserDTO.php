@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class ProxyUserDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -27,31 +22,21 @@ class ProxyUserDTO implements DataTransferObjectInterface
     private $ip;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
-            'ip' => $this->getIp()
+            'ip' => $this->getIp(),
+            'id' => $this->getId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setName(isset($data['name']) ? $data['name'] : null)
-            ->setIp(isset($data['ip']) ? $data['ip'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -67,26 +52,6 @@ class ProxyUserDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return ProxyUserDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -127,6 +92,26 @@ class ProxyUserDTO implements DataTransferObjectInterface
     public function getIp()
     {
         return $this->ip;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return ProxyUserDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

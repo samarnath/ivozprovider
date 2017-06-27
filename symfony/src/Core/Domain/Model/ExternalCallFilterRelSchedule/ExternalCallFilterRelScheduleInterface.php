@@ -7,14 +7,6 @@ namespace Core\Domain\Model\ExternalCallFilterRelSchedule;
 interface ExternalCallFilterRelScheduleInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get filter
      *
      * @return \Core\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface

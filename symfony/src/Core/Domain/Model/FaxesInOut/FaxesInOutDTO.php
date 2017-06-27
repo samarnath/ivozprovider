@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class FaxesInOutDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var \DateTime
      */
     private $calldate = '0000-00-00 00:00:00';
@@ -49,6 +44,11 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
+    private $id;
+
+    /**
+     * @var integer
+     */
     private $fileFileSize;
 
     /**
@@ -77,42 +77,19 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'calldate' => $this->getCalldate(),
             'src' => $this->getSrc(),
             'dst' => $this->getDst(),
             'type' => $this->getType(),
             'pages' => $this->getPages(),
             'status' => $this->getStatus(),
+            'id' => $this->getId(),
             'fileFileSize' => $this->getFileFileSize(),
             'fileMimeType' => $this->getFileMimeType(),
             'fileBaseName' => $this->getFileBaseName(),
             'faxId' => $this->getFaxId()
         ];
     }
-
-    /**
-     * @param array $data
-     * @return self
-     * @deprecated
-     *
-    public static function fromArray(array $data)
-    {
-        $dto = new self();
-        return $dto
-            ->setId(isset($data['id']) ? $data['id'] : null)
-            ->setCalldate(isset($data['calldate']) ? $data['calldate'] : null)
-            ->setSrc(isset($data['src']) ? $data['src'] : null)
-            ->setDst(isset($data['dst']) ? $data['dst'] : null)
-            ->setType(isset($data['type']) ? $data['type'] : null)
-            ->setPages(isset($data['pages']) ? $data['pages'] : null)
-            ->setStatus(isset($data['status']) ? $data['status'] : null)
-            ->setFileFileSize(isset($data['fileFileSize']) ? $data['fileFileSize'] : null)
-            ->setFileMimeType(isset($data['fileMimeType']) ? $data['fileMimeType'] : null)
-            ->setFileBaseName(isset($data['fileBaseName']) ? $data['fileBaseName'] : null)
-            ->setFaxId(isset($data['faxId']) ? $data['faxId'] : null);
-    }
-     */
 
     /**
      * {@inheritDoc}
@@ -128,26 +105,6 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return FaxesInOutDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -271,11 +228,31 @@ class FaxesInOutDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return FaxesInOutDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $fileFileSize
      *
      * @return FaxesInOutDTO
      */
-    public function setFileFileSize($fileFileSize = null)
+    public function setFileFileSize($fileFileSize)
     {
         $this->fileFileSize = $fileFileSize;
 
@@ -295,7 +272,7 @@ class FaxesInOutDTO implements DataTransferObjectInterface
      *
      * @return FaxesInOutDTO
      */
-    public function setFileMimeType($fileMimeType = null)
+    public function setFileMimeType($fileMimeType)
     {
         $this->fileMimeType = $fileMimeType;
 
@@ -315,7 +292,7 @@ class FaxesInOutDTO implements DataTransferObjectInterface
      *
      * @return FaxesInOutDTO
      */
-    public function setFileBaseName($fileBaseName = null)
+    public function setFileBaseName($fileBaseName)
     {
         $this->fileBaseName = $fileBaseName;
 

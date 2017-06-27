@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\Domain;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * DomainAbstract
  */
-abstract class DomainAbstract implements EntityInterface
+abstract class DomainAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -53,122 +47,9 @@ abstract class DomainAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct($domain, $scope, $pointsTo)
-    {
-        $this->setDomain($domain);
-        $this->setScope($scope);
-        $this->setPointsTo($pointsTo);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return DomainDTO
-     */
-    public static function createDTO()
-    {
-        return new DomainDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto DomainDTO
-         */
-        Assertion::isInstanceOf($dto, DomainDTO::class);
-
-        $self = new static(
-            $dto->getDomain(),
-            $dto->getScope(),
-            $dto->getPointsTo()
-        );
-
-        return $self
-            ->setDescription($dto->getDescription())
-            ->setCompany($dto->getCompany())
-            ->setBrand($dto->getBrand());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto DomainDTO
-         */
-        Assertion::isInstanceOf($dto, DomainDTO::class);
-
-        $this
-            ->setDomain($dto->getDomain())
-            ->setScope($dto->getScope())
-            ->setPointsTo($dto->getPointsTo())
-            ->setDescription($dto->getDescription())
-            ->setCompany($dto->getCompany())
-            ->setBrand($dto->getBrand());
-
-
-        return $this;
-    }
-
-    /**
-     * @return DomainDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setDomain($this->getDomain())
-            ->setScope($this->getScope())
-            ->setPointsTo($this->getPointsTo())
-            ->setDescription($this->getDescription())
-            ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'domain' => $this->getDomain(),
-            'scope' => $this->getScope(),
-            'pointsTo' => $this->getPointsTo(),
-            'description' => $this->getDescription(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set domain

@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersHtable;
 interface UsersHtableInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get keyName
      *
      * @return string

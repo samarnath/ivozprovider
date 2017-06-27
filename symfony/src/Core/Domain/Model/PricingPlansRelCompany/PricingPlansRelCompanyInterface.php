@@ -7,14 +7,6 @@ namespace Core\Domain\Model\PricingPlansRelCompany;
 interface PricingPlansRelCompanyInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get validFrom
      *
      * @return \DateTime

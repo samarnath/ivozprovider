@@ -7,14 +7,6 @@ namespace Core\Domain\Model\TransformationRulesetGroupsTrunk;
 interface TransformationRulesetGroupsTrunkInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

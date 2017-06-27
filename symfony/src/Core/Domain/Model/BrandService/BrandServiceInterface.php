@@ -7,14 +7,6 @@ namespace Core\Domain\Model\BrandService;
 interface BrandServiceInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get code
      *
      * @return string

@@ -7,14 +7,6 @@ namespace Kam\Domain\Model\UsersDomainAttr;
 interface UsersDomainAttrInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get name
      *
      * @return string

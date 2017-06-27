@@ -7,14 +7,6 @@ namespace Core\Domain\Model\Extension;
 interface ExtensionInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get number
      *
      * @return string

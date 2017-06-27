@@ -3,19 +3,13 @@
 namespace Core\Domain\Model\PricingPlansRelTargetPattern;
 
 use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PricingPlansRelTargetPatternAbstract
  */
-abstract class PricingPlansRelTargetPatternAbstract implements EntityInterface
+abstract class PricingPlansRelTargetPatternAbstract
 {
-    /**
-     * @var integer
-     */
-    protected $id;
-
     /**
      * @var string
      */
@@ -53,125 +47,9 @@ abstract class PricingPlansRelTargetPatternAbstract implements EntityInterface
      */
     protected $_initialValues = [];
 
-    /**
-     * Constructor
-     */
-    public function __construct(
-        $connectionCharge,
-        $periodTime,
-        $perPeriodCharge
-    ) {
-        $this->setConnectionCharge($connectionCharge);
-        $this->setPeriodTime($periodTime);
-        $this->setPerPeriodCharge($perPeriodCharge);
-    }
-
-     public function __wakeup()
-     {
-        if ($this->id) {
-            $this->_initialValues = $this->__toArray();
-        }
-        // Do nothing: Doctrines requirement
-     }
-
-    /**
-     * @return PricingPlansRelTargetPatternDTO
-     */
-    public static function createDTO()
-    {
-        return new PricingPlansRelTargetPatternDTO();
-    }
-
-    /**
-     * Factory method
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public static function fromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PricingPlansRelTargetPatternDTO
-         */
-        Assertion::isInstanceOf($dto, PricingPlansRelTargetPatternDTO::class);
-
-        $self = new static(
-            $dto->getConnectionCharge(),
-            $dto->getPeriodTime(),
-            $dto->getPerPeriodCharge()
-        );
-
-        return $self
-            ->setPricingPlan($dto->getPricingPlan())
-            ->setTargetPattern($dto->getTargetPattern())
-            ->setBrand($dto->getBrand());
-    }
-
-    /**
-     * @param DataTransferObjectInterface $dto
-     * @return static
-     */
-    public function updateFromDTO(DataTransferObjectInterface $dto)
-    {
-        /**
-         * @var $dto PricingPlansRelTargetPatternDTO
-         */
-        Assertion::isInstanceOf($dto, PricingPlansRelTargetPatternDTO::class);
-
-        $this
-            ->setConnectionCharge($dto->getConnectionCharge())
-            ->setPeriodTime($dto->getPeriodTime())
-            ->setPerPeriodCharge($dto->getPerPeriodCharge())
-            ->setPricingPlan($dto->getPricingPlan())
-            ->setTargetPattern($dto->getTargetPattern())
-            ->setBrand($dto->getBrand());
-
-
-        return $this;
-    }
-
-    /**
-     * @return PricingPlansRelTargetPatternDTO
-     */
-    public function toDTO()
-    {
-        return static::createDTO()
-            ->setId($this->getId())
-            ->setConnectionCharge($this->getConnectionCharge())
-            ->setPeriodTime($this->getPeriodTime())
-            ->setPerPeriodCharge($this->getPerPeriodCharge())
-            ->setPricingPlanId($this->getPricingPlan() ? $this->getPricingPlan()->getId() : null)
-            ->setTargetPatternId($this->getTargetPattern() ? $this->getTargetPattern()->getId() : null)
-            ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null);
-    }
-
-    /**
-     * @return array
-     */
-    protected function __toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'connectionCharge' => $this->getConnectionCharge(),
-            'periodTime' => $this->getPeriodTime(),
-            'perPeriodCharge' => $this->getPerPeriodCharge(),
-            'pricingPlanId' => $this->getPricingPlan() ? $this->getPricingPlan()->getId() : null,
-            'targetPatternId' => $this->getTargetPattern() ? $this->getTargetPattern()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
-        ];
-    }
-
+    abstract public function __wakeup();
 
     // @codeCoverageIgnoreStart
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set connectionCharge
@@ -183,7 +61,7 @@ abstract class PricingPlansRelTargetPatternAbstract implements EntityInterface
     protected function setConnectionCharge($connectionCharge)
     {
         Assertion::notNull($connectionCharge);
-        //Assertion::float($connectionCharge);
+        Assertion::numeric($connectionCharge);
 
         $this->connectionCharge = $connectionCharge;
 
@@ -237,7 +115,7 @@ abstract class PricingPlansRelTargetPatternAbstract implements EntityInterface
     protected function setPerPeriodCharge($perPeriodCharge)
     {
         Assertion::notNull($perPeriodCharge);
-        //Assertion::float($perPeriodCharge);
+        Assertion::numeric($perPeriodCharge);
 
         $this->perPeriodCharge = $perPeriodCharge;
 

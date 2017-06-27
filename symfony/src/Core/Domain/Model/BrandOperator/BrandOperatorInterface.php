@@ -7,14 +7,6 @@ namespace Core\Domain\Model\BrandOperator;
 interface BrandOperatorInterface
 {
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId();
-
-
-    /**
      * Get username
      *
      * @return string
