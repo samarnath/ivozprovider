@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\ConferenceRoom\ConferenceRoom:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ConferenceRoomDoctrineRepository
+  type: entity
+  table: ConferenceRooms
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

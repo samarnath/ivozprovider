@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\ParsedCDR\ParsedCDR:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ParsedCDRDoctrineRepository
+  type: entity
+  table: ParsedCDRs
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

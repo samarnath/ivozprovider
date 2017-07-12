@@ -26,20 +26,10 @@ class UsersLocationAttr extends UsersLocationAttrAbstract implements UsersLocati
     /**
      * Constructor
      */
-    public function __construct(
-        $ruid,
-        $username,
-        $aname,
-        $atype,
-        $avalue,
-        $lastModified
-    ) {
-        $this->setRuid($ruid);
-        $this->setUsername($username);
-        $this->setAname($aname);
-        $this->setAtype($atype);
-        $this->setAvalue($avalue);
-        $this->setLastModified($lastModified);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -68,19 +58,9 @@ class UsersLocationAttr extends UsersLocationAttrAbstract implements UsersLocati
         /**
          * @var $dto UsersLocationAttrDTO
          */
-        Assertion::isInstanceOf($dto, UsersLocationAttrDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getRuid(),
-            $dto->getUsername(),
-            $dto->getAname(),
-            $dto->getAtype(),
-            $dto->getAvalue(),
-            $dto->getLastModified());
-
-        return $self
-            ->setDomain($dto->getDomain())
-        ;
+        return $self;
     }
 
     /**
@@ -92,18 +72,9 @@ class UsersLocationAttr extends UsersLocationAttrAbstract implements UsersLocati
         /**
          * @var $dto UsersLocationAttrDTO
          */
-        Assertion::isInstanceOf($dto, UsersLocationAttrDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setRuid($dto->getRuid())
-            ->setUsername($dto->getUsername())
-            ->setDomain($dto->getDomain())
-            ->setAname($dto->getAname())
-            ->setAtype($dto->getAtype())
-            ->setAvalue($dto->getAvalue())
-            ->setLastModified($dto->getLastModified());
-
-
+        
         return $this;
     }
 
@@ -112,14 +83,8 @@ class UsersLocationAttr extends UsersLocationAttrAbstract implements UsersLocati
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setRuid($this->getRuid())
-            ->setUsername($this->getUsername())
-            ->setDomain($this->getDomain())
-            ->setAname($this->getAname())
-            ->setAtype($this->getAtype())
-            ->setAvalue($this->getAvalue())
-            ->setLastModified($this->getLastModified())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -128,14 +93,7 @@ class UsersLocationAttr extends UsersLocationAttrAbstract implements UsersLocati
      */
     protected function __toArray()
     {
-        return [
-            'ruid' => $this->getRuid(),
-            'username' => $this->getUsername(),
-            'domain' => $this->getDomain(),
-            'aname' => $this->getAname(),
-            'atype' => $this->getAtype(),
-            'avalue' => $this->getAvalue(),
-            'lastModified' => $this->getLastModified(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersLocationAttrDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $ruid = '';
@@ -52,19 +47,24 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
     private $lastModified = '1900-01-01 00:00:01';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'ruid' => $this->getRuid(),
             'username' => $this->getUsername(),
             'domain' => $this->getDomain(),
             'aname' => $this->getAname(),
             'atype' => $this->getAtype(),
             'avalue' => $this->getAvalue(),
-            'lastModified' => $this->getLastModified()
+            'lastModified' => $this->getLastModified(),
+            'id' => $this->getId()
         ];
     }
 
@@ -82,26 +82,6 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersLocationAttrDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -242,6 +222,26 @@ class UsersLocationAttrDTO implements DataTransferObjectInterface
     public function getLastModified()
     {
         return $this->lastModified;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersLocationAttrDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

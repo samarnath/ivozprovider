@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPattern:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\CallACLRelPatternDoctrineRepository
+  type: entity
+  table: CallACLRelPatterns
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

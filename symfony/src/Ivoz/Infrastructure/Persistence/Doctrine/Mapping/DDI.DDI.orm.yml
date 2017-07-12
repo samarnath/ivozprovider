@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\DDI\DDI:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\DDIDoctrineRepository
+  type: entity
+  table: DDIs
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

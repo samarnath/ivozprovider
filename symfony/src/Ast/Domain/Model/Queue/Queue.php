@@ -26,10 +26,10 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
     /**
      * Constructor
      */
-    public function __construct($autopause, $ringinuse)
+    public function __construct()
     {
-        $this->setAutopause($autopause);
-        $this->setRinginuse($ringinuse);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -58,22 +58,9 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
         /**
          * @var $dto QueueDTO
          */
-        Assertion::isInstanceOf($dto, QueueDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getAutopause(),
-            $dto->getRinginuse());
-
-        return $self
-            ->setPeriodicAnnounce($dto->getPeriodicAnnounce())
-            ->setPeriodicAnnounceFrequency($dto->getPeriodicAnnounceFrequency())
-            ->setTimeout($dto->getTimeout())
-            ->setWrapuptime($dto->getWrapuptime())
-            ->setMaxlen($dto->getMaxlen())
-            ->setStrategy($dto->getStrategy())
-            ->setWeight($dto->getWeight())
-            ->setQueue($dto->getQueue())
-        ;
+        return $self;
     }
 
     /**
@@ -85,21 +72,9 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
         /**
          * @var $dto QueueDTO
          */
-        Assertion::isInstanceOf($dto, QueueDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setPeriodicAnnounce($dto->getPeriodicAnnounce())
-            ->setPeriodicAnnounceFrequency($dto->getPeriodicAnnounceFrequency())
-            ->setTimeout($dto->getTimeout())
-            ->setAutopause($dto->getAutopause())
-            ->setRinginuse($dto->getRinginuse())
-            ->setWrapuptime($dto->getWrapuptime())
-            ->setMaxlen($dto->getMaxlen())
-            ->setStrategy($dto->getStrategy())
-            ->setWeight($dto->getWeight())
-            ->setQueue($dto->getQueue());
-
-
+        
         return $this;
     }
 
@@ -108,18 +83,9 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setPeriodicAnnounce($this->getPeriodicAnnounce())
-            ->setPeriodicAnnounceFrequency($this->getPeriodicAnnounceFrequency())
-            ->setTimeout($this->getTimeout())
-            ->setAutopause($this->getAutopause())
-            ->setRinginuse($this->getRinginuse())
-            ->setWrapuptime($this->getWrapuptime())
-            ->setMaxlen($this->getMaxlen())
-            ->setStrategy($this->getStrategy())
-            ->setWeight($this->getWeight())
-            ->setName($this->getName())
-            ->setQueueId($this->getQueue() ? $this->getQueue()->getId() : null);
+        $dto = parent::toDTO();
+        return $dto
+            ->setName($this->getName());
     }
 
     /**
@@ -127,16 +93,7 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
      */
     protected function __toArray()
     {
-        return [
-            'periodicAnnounce' => $this->getPeriodicAnnounce(),
-            'periodicAnnounceFrequency' => $this->getPeriodicAnnounceFrequency(),
-            'timeout' => $this->getTimeout(),
-            'autopause' => $this->getAutopause(),
-            'ringinuse' => $this->getRinginuse(),
-            'wrapuptime' => $this->getWrapuptime(),
-            'maxlen' => $this->getMaxlen(),
-            'strategy' => $this->getStrategy(),
-            'weight' => $this->getWeight(),
+        return parent::__toArray() + [
             'name' => $this->getName(),
             'queueId' => $this->getQueue() ? $this->getQueue()->getId() : null
         ];
@@ -168,30 +125,6 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set queue
-     *
-     * @param \Core\Domain\Model\Queue\QueueInterface $queue
-     *
-     * @return self
-     */
-    protected function setQueue(\Core\Domain\Model\Queue\QueueInterface $queue)
-    {
-        $this->queue = $queue;
-
-        return $this;
-    }
-
-    /**
-     * Get queue
-     *
-     * @return \Core\Domain\Model\Queue\QueueInterface
-     */
-    public function getQueue()
-    {
-        return $this->queue;
     }
 
 

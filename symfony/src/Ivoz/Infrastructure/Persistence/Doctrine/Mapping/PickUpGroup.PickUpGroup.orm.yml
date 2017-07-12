@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\PickUpGroup\PickUpGroup:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\PickUpGroupDoctrineRepository
+  type: entity
+  table: PickUpGroups
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

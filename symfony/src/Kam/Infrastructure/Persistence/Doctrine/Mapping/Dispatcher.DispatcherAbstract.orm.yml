@@ -46,7 +46,7 @@ Kam\Domain\Model\Dispatcher\DispatcherAbstract:
         default: ''
   manyToOne:
     applicationServer:
-      targetEntity: \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
+      targetEntity: \Ivoz\Domain\Model\ApplicationServer\ApplicationServerInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

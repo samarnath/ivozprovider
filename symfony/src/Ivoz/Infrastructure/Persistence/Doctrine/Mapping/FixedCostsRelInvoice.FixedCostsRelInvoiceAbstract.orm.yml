@@ -1,0 +1,53 @@
+Ivoz\Domain\Model\FixedCostsRelInvoice\FixedCostsRelInvoiceAbstract:
+  type: mappedSuperclass
+  indexes:
+    brandId:
+      columns:
+        - brandId
+    fixedCostId:
+      columns:
+        - fixedCostId
+    invoiceId:
+      columns:
+        - invoiceId
+  fields:
+    quantity:
+      column: quantity
+      type: integer
+      nullable: true
+      options:
+        unsigned: false
+  manyToOne:
+    brand:
+      targetEntity: \Ivoz\Domain\Model\Brand\BrandInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    fixedCost:
+      targetEntity: \Ivoz\Domain\Model\FixedCost\FixedCostInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        fixedCostId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    invoice:
+      targetEntity: \Ivoz\Domain\Model\Invoice\InvoiceInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        invoiceId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

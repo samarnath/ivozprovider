@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\MediaRelaySet\MediaRelaySet:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\MediaRelaySetDoctrineRepository
+  type: entity
+  table: MediaRelaySets
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class PikeTrustedDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $srcIp;
@@ -47,18 +42,23 @@ class PikeTrustedDTO implements DataTransferObjectInterface
     private $priority = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'srcIp' => $this->getSrcIp(),
             'proto' => $this->getProto(),
             'fromPattern' => $this->getFromPattern(),
             'ruriPattern' => $this->getRuriPattern(),
             'tag' => $this->getTag(),
-            'priority' => $this->getPriority()
+            'priority' => $this->getPriority(),
+            'id' => $this->getId()
         ];
     }
 
@@ -76,26 +76,6 @@ class PikeTrustedDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return PikeTrustedDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -216,6 +196,26 @@ class PikeTrustedDTO implements DataTransferObjectInterface
     public function getPriority()
     {
         return $this->priority;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return PikeTrustedDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

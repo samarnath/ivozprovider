@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersPuaDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $presUri;
@@ -107,12 +102,16 @@ class UsersPuaDTO implements DataTransferObjectInterface
     private $extraHeaders;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'presUri' => $this->getPresUri(),
             'presId' => $this->getPresId(),
             'event' => $this->getEvent(),
@@ -130,7 +129,8 @@ class UsersPuaDTO implements DataTransferObjectInterface
             'contact' => $this->getContact(),
             'remoteContact' => $this->getRemoteContact(),
             'version' => $this->getVersion(),
-            'extraHeaders' => $this->getExtraHeaders()
+            'extraHeaders' => $this->getExtraHeaders(),
+            'id' => $this->getId()
         ];
     }
 
@@ -148,26 +148,6 @@ class UsersPuaDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersPuaDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -528,6 +508,26 @@ class UsersPuaDTO implements DataTransferObjectInterface
     public function getExtraHeaders()
     {
         return $this->extraHeaders;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersPuaDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

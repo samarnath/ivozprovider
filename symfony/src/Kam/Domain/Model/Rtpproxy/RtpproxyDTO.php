@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class RtpproxyDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $setid = '0';
@@ -42,6 +37,11 @@ class RtpproxyDTO implements DataTransferObjectInterface
     private $description;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $mediaRelaySetId;
@@ -57,12 +57,12 @@ class RtpproxyDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'setid' => $this->getSetid(),
             'url' => $this->getUrl(),
             'flags' => $this->getFlags(),
             'weight' => $this->getWeight(),
             'description' => $this->getDescription(),
+            'id' => $this->getId(),
             'mediaRelaySetId' => $this->getMediaRelaySetId()
         ];
     }
@@ -72,7 +72,7 @@ class RtpproxyDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->mediaRelaySet = $transformer->transform('Core\\Domain\\Model\\MediaRelaySet\\MediaRelaySet', $this->getMediaRelaySetId());
+        $this->mediaRelaySet = $transformer->transform('Ivoz\\Domain\\Model\\MediaRelaySet\\MediaRelaySet', $this->getMediaRelaySetId());
     }
 
     /**
@@ -81,26 +81,6 @@ class RtpproxyDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return RtpproxyDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -204,6 +184,26 @@ class RtpproxyDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return RtpproxyDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $mediaRelaySetId
      *
      * @return RtpproxyDTO
@@ -224,7 +224,7 @@ class RtpproxyDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySet
+     * @return \Ivoz\Domain\Model\MediaRelaySet\MediaRelaySet
      */
     public function getMediaRelaySet()
     {

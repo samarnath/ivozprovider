@@ -41,7 +41,7 @@ abstract class DispatcherAbstract
     protected $description = '';
 
     /**
-     * @var \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
+     * @var \Ivoz\Domain\Model\ApplicationServer\ApplicationServerInterface
      */
     protected $applicationServer;
 
@@ -52,7 +52,115 @@ abstract class DispatcherAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct(
+        $setid,
+        $destination,
+        $flags,
+        $priority,
+        $attrs,
+        $description
+    ) {
+        $this->setSetid($setid);
+        $this->setDestination($destination);
+        $this->setFlags($flags);
+        $this->setPriority($priority);
+        $this->setAttrs($attrs);
+        $this->setDescription($description);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return DispatcherDTO
+     */
+    public static function createDTO()
+    {
+        return new DispatcherDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto DispatcherDTO
+         */
+        Assertion::isInstanceOf($dto, DispatcherDTO::class);
+
+        $self = new static(
+            $dto->getSetid(),
+            $dto->getDestination(),
+            $dto->getFlags(),
+            $dto->getPriority(),
+            $dto->getAttrs(),
+            $dto->getDescription());
+
+        return $self
+            ->setApplicationServer($dto->getApplicationServer())
+        ;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto DispatcherDTO
+         */
+        Assertion::isInstanceOf($dto, DispatcherDTO::class);
+
+        $this
+            ->setSetid($dto->getSetid())
+            ->setDestination($dto->getDestination())
+            ->setFlags($dto->getFlags())
+            ->setPriority($dto->getPriority())
+            ->setAttrs($dto->getAttrs())
+            ->setDescription($dto->getDescription())
+            ->setApplicationServer($dto->getApplicationServer());
+
+
+        return $this;
+    }
+
+    /**
+     * @return DispatcherDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setSetid($this->getSetid())
+            ->setDestination($this->getDestination())
+            ->setFlags($this->getFlags())
+            ->setPriority($this->getPriority())
+            ->setAttrs($this->getAttrs())
+            ->setDescription($this->getDescription())
+            ->setApplicationServerId($this->getApplicationServer() ? $this->getApplicationServer()->getId() : null);
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'setid' => $this->getSetid(),
+            'destination' => $this->getDestination(),
+            'flags' => $this->getFlags(),
+            'priority' => $this->getPriority(),
+            'attrs' => $this->getAttrs(),
+            'description' => $this->getDescription(),
+            'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 
@@ -221,11 +329,11 @@ abstract class DispatcherAbstract
     /**
      * Set applicationServer
      *
-     * @param \Core\Domain\Model\ApplicationServer\ApplicationServerInterface $applicationServer
+     * @param \Ivoz\Domain\Model\ApplicationServer\ApplicationServerInterface $applicationServer
      *
      * @return self
      */
-    protected function setApplicationServer(\Core\Domain\Model\ApplicationServer\ApplicationServerInterface $applicationServer)
+    protected function setApplicationServer(\Ivoz\Domain\Model\ApplicationServer\ApplicationServerInterface $applicationServer)
     {
         $this->applicationServer = $applicationServer;
 
@@ -235,7 +343,7 @@ abstract class DispatcherAbstract
     /**
      * Get applicationServer
      *
-     * @return \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
+     * @return \Ivoz\Domain\Model\ApplicationServer\ApplicationServerInterface
      */
     public function getApplicationServer()
     {

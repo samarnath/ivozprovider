@@ -1,0 +1,37 @@
+Ivoz\Domain\Model\RoutingPatternGroup\RoutingPatternGroupAbstract:
+  type: mappedSuperclass
+  indexes:
+    brandId:
+      columns:
+        - brandId
+  uniqueConstraints:
+    name:
+      columns:
+        - name
+        - brandId
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 55
+      options:
+        fixed: false
+    description:
+      type: string
+      nullable: true
+      length: 55
+      options:
+        fixed: false
+  manyToOne:
+    brand:
+      targetEntity: \Ivoz\Domain\Model\Brand\BrandInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+

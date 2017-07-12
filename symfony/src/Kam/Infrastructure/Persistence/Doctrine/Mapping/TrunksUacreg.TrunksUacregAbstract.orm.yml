@@ -111,7 +111,7 @@ Kam\Domain\Model\TrunksUacreg\TrunksUacregAbstract:
       column: multiDDI
   manyToOne:
     brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
+      targetEntity: \Ivoz\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -122,7 +122,7 @@ Kam\Domain\Model\TrunksUacreg\TrunksUacregAbstract:
           nullable: false
       orphanRemoval: false
     peeringContract:
-      targetEntity: \Core\Domain\Model\PeeringContract\PeeringContractInterface
+      targetEntity: \Ivoz\Domain\Model\PeeringContract\PeeringContractInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,0 +1,121 @@
+<?php
+
+namespace Ivoz\Domain\Model\Company;
+
+use Assert\Assertion;
+use Core\Domain\Model\EntityInterface;
+use Core\Application\DataTransferObjectInterface;
+
+/**
+ * Company
+ */
+class Company extends CompanyAbstract implements CompanyInterface, EntityInterface
+{
+    /**
+     * @var integer
+     */
+    protected $id;
+
+
+    /**
+     * Changelog tracking purpose
+     * @var array
+     */
+    protected $_initialValues = [];
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
+    }
+
+    public function __wakeup()
+    {
+        if ($this->id) {
+            $this->_initialValues = $this->__toArray();
+        }
+        // Do nothing: Doctrines requirement
+    }
+
+    /**
+     * @return CompanyDTO
+     */
+    public static function createDTO()
+    {
+        return new CompanyDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto CompanyDTO
+         */
+        $self = parent::fromDTO($dto);
+
+        return $self;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto CompanyDTO
+         */
+        parent::updateFromDTO($dto);
+
+        
+        return $this;
+    }
+
+    /**
+     * @return CompanyDTO
+     */
+    public function toDTO()
+    {
+        $dto = parent::toDTO();
+        return $dto
+            ->setId($this->getId());
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return parent::__toArray() + [
+            'id' => $this->getId(),
+            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
+            'mediaRelaySetsId' => $this->getMediaRelaySets() ? $this->getMediaRelaySets()->getId() : null,
+            'defaultTimezoneId' => $this->getDefaultTimezone() ? $this->getDefaultTimezone()->getId() : null,
+            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
+            'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null,
+            'countryCodeId' => $this->getCountryCode() ? $this->getCountryCode()->getId() : null,
+            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
+        ];
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+}
+

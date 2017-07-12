@@ -1,0 +1,39 @@
+Ivoz\Domain\Model\BrandService\BrandServiceAbstract:
+  type: mappedSuperclass
+  indexes:
+    brandId:
+      columns:
+        - brandId
+    serviceId:
+      columns:
+        - serviceId
+  fields:
+    code:
+      type: string
+      nullable: false
+      length: 3
+      options:
+        fixed: false
+  manyToOne:
+    brand:
+      targetEntity: \Ivoz\Domain\Model\Brand\BrandInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: services
+      joinColumns:
+        brandId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    service:
+      targetEntity: \Ivoz\Domain\Model\Service\ServiceInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        serviceId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

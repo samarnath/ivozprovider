@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\PickUpRelUsers
-  entity: Core\Domain\Model\PickUpRelUser\PickUpRelUser
+  entity: Ivoz\Domain\Model\PickUpRelUser\PickUpRelUser
   fields: 
     pickUpGroup:
       title: _('Pick up group id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\PickUpGroups
-          entity: \Core\Domain\Model\PickUpGroup\PickUpGroup
+          entity: \Ivoz\Domain\Model\PickUpGroup\PickUpGroup
           fieldName: 
             fields: 
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Domain\Model\User\User
+          entity: \Ivoz\Domain\Model\User\User
           fieldName: 
             fields: 
               - name

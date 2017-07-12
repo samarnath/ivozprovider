@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\CallACLRelPatterns
-  entity: Core\Domain\Model\CallACLRelPattern\CallACLRelPattern
+  entity: Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPattern
   fields:
     CallACL:
       title: _('Call ACL')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\CallACL
-          entity: \Core\Domain\Model\CallACL\CallACL
+          entity: \Ivoz\Domain\Model\CallACL\CallACL
           fieldName:
             fields:
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\CallACLPatterns
-          entity: \Core\Domain\Model\CallACLPattern\CallACLPattern
+          entity: \Ivoz\Domain\Model\CallACLPattern\CallACLPattern
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:

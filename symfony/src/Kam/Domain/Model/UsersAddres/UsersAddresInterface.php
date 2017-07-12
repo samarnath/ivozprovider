@@ -57,7 +57,7 @@ interface UsersAddresInterface
     /**
      * Get company
      *
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Ivoz\Domain\Model\Company\CompanyInterface
      */
     public function getCompany();
 

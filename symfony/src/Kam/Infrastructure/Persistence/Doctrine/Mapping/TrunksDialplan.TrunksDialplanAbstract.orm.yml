@@ -56,7 +56,7 @@ Kam\Domain\Model\TrunksDialplan\TrunksDialplanAbstract:
         fixed: false
   manyToOne:
     transformationRulesetGroupsTrunk:
-      targetEntity: \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
+      targetEntity: \Ivoz\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\LcrRuleTargets
-  entity: Core\Domain\Model\LcrRuleTarget\LcrRuleTarget
+  entity: Ivoz\Domain\Model\LcrRuleTarget\LcrRuleTarget
   fields: 
     company:
       title: _('Company id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config: 
           mapperName: \IvozProvider\Mapper\Sql\LcrRules
-          entity: \Core\Domain\Model\LcrRule\LcrRule
+          entity: \Ivoz\Domain\Model\LcrRule\LcrRule
           fieldName: 
             fields: 
               - prefix
@@ -41,7 +41,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\LcrGateways
-          entity: \Core\Domain\Model\LcrGateway\LcrGateway
+          entity: \Ivoz\Domain\Model\LcrGateway\LcrGateway
           fieldName: 
             fields: 
               - gw_name
@@ -68,7 +68,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\OutgoingRouting
-          entity: \Core\Domain\Model\OutgoingRouting\OutgoingRouting
+          entity: \Ivoz\Domain\Model\OutgoingRouting\OutgoingRouting
           fieldName: 
             fields: 
               - id

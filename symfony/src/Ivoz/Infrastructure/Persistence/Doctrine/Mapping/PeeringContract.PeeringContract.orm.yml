@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\PeeringContract\PeeringContract:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\PeeringContractDoctrineRepository
+  type: entity
+  table: PeeringContracts
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class VoicemailDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $uniqueid;
-
-    /**
      * @var string
      */
     private $context;
@@ -182,6 +177,11 @@ class VoicemailDTO implements DataTransferObjectInterface
     private $stamp;
 
     /**
+     * @var integer
+     */
+    private $uniqueid;
+
+    /**
      * @var mixed
      */
     private $userId;
@@ -197,7 +197,6 @@ class VoicemailDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'uniqueid' => $this->getUniqueid(),
             'context' => $this->getContext(),
             'mailbox' => $this->getMailbox(),
             'password' => $this->getPassword(),
@@ -231,6 +230,7 @@ class VoicemailDTO implements DataTransferObjectInterface
             'imapport' => $this->getImapport(),
             'imapflags' => $this->getImapflags(),
             'stamp' => $this->getStamp(),
+            'uniqueid' => $this->getUniqueid(),
             'userId' => $this->getUserId()
         ];
     }
@@ -240,7 +240,7 @@ class VoicemailDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->user = $transformer->transform('Core\\Domain\\Model\\User\\User', $this->getUserId());
+        $this->user = $transformer->transform('Ivoz\\Domain\\Model\\User\\User', $this->getUserId());
     }
 
     /**
@@ -249,26 +249,6 @@ class VoicemailDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $uniqueid
-     *
-     * @return VoicemailDTO
-     */
-    public function setUniqueid($uniqueid)
-    {
-        $this->uniqueid = $uniqueid;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getUniqueid()
-    {
-        return $this->uniqueid;
     }
 
     /**
@@ -932,6 +912,26 @@ class VoicemailDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $uniqueid
+     *
+     * @return VoicemailDTO
+     */
+    public function setUniqueid($uniqueid)
+    {
+        $this->uniqueid = $uniqueid;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getUniqueid()
+    {
+        return $this->uniqueid;
+    }
+
+    /**
      * @param integer $userId
      *
      * @return VoicemailDTO
@@ -952,7 +952,7 @@ class VoicemailDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\User\User
+     * @return \Ivoz\Domain\Model\User\User
      */
     public function getUser()
     {

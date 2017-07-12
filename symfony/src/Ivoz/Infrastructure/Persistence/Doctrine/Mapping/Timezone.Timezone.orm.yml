@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\Timezone\Timezone:
+  repositoryClass: \Ivoz\Infrastructure\Persistence\Doctrine\TimezoneDoctrineRepository
+  type: entity
+  table: Timezones
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

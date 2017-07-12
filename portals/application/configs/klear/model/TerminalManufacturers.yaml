@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\TerminalManufacturers
-  entity: Core\Domain\Model\TerminalManufacturer\TerminalManufacturer
+  entity: Ivoz\Domain\Model\TerminalManufacturer\TerminalManufacturer
   fields: 
     iden:
       title: ngettext('Iden', 'Idens', 1)

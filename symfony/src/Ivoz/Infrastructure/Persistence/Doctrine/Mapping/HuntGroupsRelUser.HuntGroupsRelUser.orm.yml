@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUser:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\HuntGroupsRelUserDoctrineRepository
+  type: entity
+  table: HuntGroupsRelUsers
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

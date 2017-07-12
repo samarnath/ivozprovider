@@ -1,0 +1,39 @@
+Ivoz\Domain\Model\CompanyService\CompanyServiceAbstract:
+  type: mappedSuperclass
+  indexes:
+    companyId:
+      columns:
+        - companyId
+    serviceId:
+      columns:
+        - serviceId
+  fields:
+    code:
+      type: string
+      nullable: false
+      length: 3
+      options:
+        fixed: false
+  manyToOne:
+    company:
+      targetEntity: \Ivoz\Domain\Model\Company\CompanyInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        companyId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    service:
+      targetEntity: \Ivoz\Domain\Model\Service\ServiceInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        serviceId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

@@ -49,7 +49,7 @@ interface RtpproxyInterface
     /**
      * Get mediaRelaySet
      *
-     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
+     * @return \Ivoz\Domain\Model\MediaRelaySet\MediaRelaySetInterface
      */
     public function getMediaRelaySet();
 

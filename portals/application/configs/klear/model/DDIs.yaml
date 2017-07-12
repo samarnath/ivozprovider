@@ -2,7 +2,7 @@
 
 production:
   class: \IvozProvider\Model\DDIs
-  entity: Core\Domain\Model\DDI\DDI
+  entity: Ivoz\Domain\Model\DDI\DDI
   fields:
     companyId:
       title: _('Company id')
@@ -12,7 +12,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
@@ -34,7 +34,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\ExternalCallFilters
-          entity: \Core\Domain\Model\ExternalCallFilter\ExternalCallFilter
+          entity: \Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilter
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -183,7 +183,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Domain\Model\User\User
+          entity: \Ivoz\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -201,7 +201,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\IVRCommon
-          entity: \Core\Domain\Model\IVRCommon\IVRCommon
+          entity: \Ivoz\Domain\Model\IVRCommon\IVRCommon
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -218,7 +218,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\IVRCustom
-          entity: \Core\Domain\Model\IVRCustom\IVRCustom
+          entity: \Ivoz\Domain\Model\IVRCustom\IVRCustom
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -235,7 +235,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\HuntGroups
-          entity: \Core\Domain\Model\HuntGroup\HuntGroup
+          entity: \Ivoz\Domain\Model\HuntGroup\HuntGroup
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -252,7 +252,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Faxes
-          entity: \Core\Domain\Model\Fax\Fax
+          entity: \Ivoz\Domain\Model\Fax\Fax
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -269,7 +269,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\ConferenceRooms
-          entity: \Core\Domain\Model\ConferenceRoom\ConferenceRoom
+          entity: \Ivoz\Domain\Model\ConferenceRoom\ConferenceRoom
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -312,7 +312,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
-          entity: \Core\Domain\Model\PeeringContract\PeeringContract
+          entity: \Ivoz\Domain\Model\PeeringContract\PeeringContract
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
@@ -328,7 +328,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Countries
-          entity: \Core\Domain\Model\Country\Country
+          entity: \Ivoz\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
@@ -343,7 +343,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Languages
-          entity: \Core\Domain\Model\Language\Language
+          entity: \Ivoz\Domain\Model\Language\Language
           fieldName:
             fields:
               - name
@@ -359,7 +359,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Queues
-          entity: \Core\Domain\Model\Queue\Queue
+          entity: \Ivoz\Domain\Model\Queue\Queue
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:

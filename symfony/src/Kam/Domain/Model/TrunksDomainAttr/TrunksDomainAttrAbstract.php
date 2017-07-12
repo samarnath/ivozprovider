@@ -43,7 +43,104 @@ abstract class TrunksDomainAttrAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct(
+        $did,
+        $name,
+        $type,
+        $value,
+        $lastModified
+    ) {
+        $this->setDid($did);
+        $this->setName($name);
+        $this->setType($type);
+        $this->setValue($value);
+        $this->setLastModified($lastModified);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return TrunksDomainAttrDTO
+     */
+    public static function createDTO()
+    {
+        return new TrunksDomainAttrDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto TrunksDomainAttrDTO
+         */
+        Assertion::isInstanceOf($dto, TrunksDomainAttrDTO::class);
+
+        $self = new static(
+            $dto->getDid(),
+            $dto->getName(),
+            $dto->getType(),
+            $dto->getValue(),
+            $dto->getLastModified());
+
+        return $self;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto TrunksDomainAttrDTO
+         */
+        Assertion::isInstanceOf($dto, TrunksDomainAttrDTO::class);
+
+        $this
+            ->setDid($dto->getDid())
+            ->setName($dto->getName())
+            ->setType($dto->getType())
+            ->setValue($dto->getValue())
+            ->setLastModified($dto->getLastModified());
+
+
+        return $this;
+    }
+
+    /**
+     * @return TrunksDomainAttrDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setDid($this->getDid())
+            ->setName($this->getName())
+            ->setType($this->getType())
+            ->setValue($this->getValue())
+            ->setLastModified($this->getLastModified());
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'did' => $this->getDid(),
+            'name' => $this->getName(),
+            'type' => $this->getType(),
+            'value' => $this->getValue(),
+            'lastModified' => $this->getLastModified()
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 

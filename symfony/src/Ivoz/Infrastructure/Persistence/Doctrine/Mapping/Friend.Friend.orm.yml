@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\Friend\Friend:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\FriendDoctrineRepository
+  type: entity
+  table: Friends
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\Brands
-  entity: Core\Domain\Model\Brand\Brand
+  entity: Ivoz\Domain\Model\Brand\Brand
   fields:
     name:
       title: ngettext('Name', 'Names', 1)
@@ -28,7 +28,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          entity: \Core\Domain\Model\Timezone\Timezone
+          entity: \Ivoz\Domain\Model\Timezone\Timezone
           fieldName:
             fields:
               - tz
@@ -131,13 +131,13 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Languages
-          entity: \Core\Domain\Model\Language\Language
+          entity: \Ivoz\Domain\Model\Language\Language
           fieldName:
             fields:
               - name
             template: '%name%'
           order:
-            Language.name: asc
+            Language.name.name: asc
     FromName:
       title: _('From name')
       trim: both
@@ -195,10 +195,10 @@ production:
         config:
           extraDataAttributes:
             feature: id
-          relation: \Core\Domain\Model\FeaturesRelBrand\FeaturesRelBrand
+          relation: \Ivoz\Domain\Model\FeaturesRelBrand\FeaturesRelBrand
           relationProperty: brand
           relatedProperty: feature
-          related: \Core\Domain\Model\Feature\Feature
+          related: \Ivoz\Domain\Model\Feature\Feature
           relatedFieldName:
             fields:
               - name

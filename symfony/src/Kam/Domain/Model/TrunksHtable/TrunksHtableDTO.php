@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class TrunksHtableDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $keyName = '';
@@ -42,17 +37,22 @@ class TrunksHtableDTO implements DataTransferObjectInterface
     private $expires = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'keyName' => $this->getKeyName(),
             'keyType' => $this->getKeyType(),
             'valueType' => $this->getValueType(),
             'keyValue' => $this->getKeyValue(),
-            'expires' => $this->getExpires()
+            'expires' => $this->getExpires(),
+            'id' => $this->getId()
         ];
     }
 
@@ -70,26 +70,6 @@ class TrunksHtableDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TrunksHtableDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -190,6 +170,26 @@ class TrunksHtableDTO implements DataTransferObjectInterface
     public function getExpires()
     {
         return $this->expires;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return TrunksHtableDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

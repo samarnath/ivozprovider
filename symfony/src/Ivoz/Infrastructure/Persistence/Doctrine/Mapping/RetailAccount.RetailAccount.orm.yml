@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\RetailAccount\RetailAccount:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\RetailAccountDoctrineRepository
+  type: entity
+  table: RetailAccounts
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

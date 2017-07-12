@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\LcrRule\LcrRule:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\LcrRuleDoctrineRepository
+  type: entity
+  table: LcrRules
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

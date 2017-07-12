@@ -26,18 +26,10 @@ class UsersHtable extends UsersHtableAbstract implements UsersHtableInterface, E
     /**
      * Constructor
      */
-    public function __construct(
-        $keyName,
-        $keyType,
-        $valueType,
-        $keyValue,
-        $expires
-    ) {
-        $this->setKeyName($keyName);
-        $this->setKeyType($keyType);
-        $this->setValueType($valueType);
-        $this->setKeyValue($keyValue);
-        $this->setExpires($expires);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -66,14 +58,7 @@ class UsersHtable extends UsersHtableAbstract implements UsersHtableInterface, E
         /**
          * @var $dto UsersHtableDTO
          */
-        Assertion::isInstanceOf($dto, UsersHtableDTO::class);
-
-        $self = new self(
-            $dto->getKeyName(),
-            $dto->getKeyType(),
-            $dto->getValueType(),
-            $dto->getKeyValue(),
-            $dto->getExpires());
+        $self = parent::fromDTO($dto);
 
         return $self;
     }
@@ -87,16 +72,9 @@ class UsersHtable extends UsersHtableAbstract implements UsersHtableInterface, E
         /**
          * @var $dto UsersHtableDTO
          */
-        Assertion::isInstanceOf($dto, UsersHtableDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setKeyName($dto->getKeyName())
-            ->setKeyType($dto->getKeyType())
-            ->setValueType($dto->getValueType())
-            ->setKeyValue($dto->getKeyValue())
-            ->setExpires($dto->getExpires());
-
-
+        
         return $this;
     }
 
@@ -105,12 +83,8 @@ class UsersHtable extends UsersHtableAbstract implements UsersHtableInterface, E
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setKeyName($this->getKeyName())
-            ->setKeyType($this->getKeyType())
-            ->setValueType($this->getValueType())
-            ->setKeyValue($this->getKeyValue())
-            ->setExpires($this->getExpires())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -119,12 +93,7 @@ class UsersHtable extends UsersHtableAbstract implements UsersHtableInterface, E
      */
     protected function __toArray()
     {
-        return [
-            'keyName' => $this->getKeyName(),
-            'keyType' => $this->getKeyType(),
-            'valueType' => $this->getValueType(),
-            'keyValue' => $this->getKeyValue(),
-            'expires' => $this->getExpires(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

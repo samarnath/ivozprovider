@@ -43,7 +43,98 @@ abstract class TrunksAddresAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct($grp, $mask, $port)
+    {
+        $this->setGrp($grp);
+        $this->setMask($mask);
+        $this->setPort($port);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return TrunksAddresDTO
+     */
+    public static function createDTO()
+    {
+        return new TrunksAddresDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto TrunksAddresDTO
+         */
+        Assertion::isInstanceOf($dto, TrunksAddresDTO::class);
+
+        $self = new static(
+            $dto->getGrp(),
+            $dto->getMask(),
+            $dto->getPort());
+
+        return $self
+            ->setIpAddr($dto->getIpAddr())
+            ->setTag($dto->getTag())
+        ;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto TrunksAddresDTO
+         */
+        Assertion::isInstanceOf($dto, TrunksAddresDTO::class);
+
+        $this
+            ->setGrp($dto->getGrp())
+            ->setIpAddr($dto->getIpAddr())
+            ->setMask($dto->getMask())
+            ->setPort($dto->getPort())
+            ->setTag($dto->getTag());
+
+
+        return $this;
+    }
+
+    /**
+     * @return TrunksAddresDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setGrp($this->getGrp())
+            ->setIpAddr($this->getIpAddr())
+            ->setMask($this->getMask())
+            ->setPort($this->getPort())
+            ->setTag($this->getTag());
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'grp' => $this->getGrp(),
+            'ipAddr' => $this->getIpAddr(),
+            'mask' => $this->getMask(),
+            'port' => $this->getPort(),
+            'tag' => $this->getTag()
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 

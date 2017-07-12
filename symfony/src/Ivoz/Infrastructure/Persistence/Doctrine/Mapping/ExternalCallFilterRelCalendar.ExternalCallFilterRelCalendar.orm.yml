@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ExternalCallFilterRelCalendarDoctrineRepository
+  type: entity
+  table: ExternalCallFilterRelCalendars
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

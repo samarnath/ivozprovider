@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\FaxesInOut\FaxesInOut:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\FaxesInOutDoctrineRepository
+  type: entity
+  table: FaxesInOut
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

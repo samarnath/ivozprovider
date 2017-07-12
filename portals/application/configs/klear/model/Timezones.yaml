@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Timezones
-  entity: Core\Domain\Model\Timezone\Timezone
+  entity: Ivoz\Domain\Model\Timezone\Timezone
   fields: 
     country:
       title: _('Country id')
@@ -9,7 +9,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Countries
-          entity: \Core\Domain\Model\Country\Country
+          entity: \Ivoz\Domain\Model\Country\Country
           fieldName: 
             fields: 
               - code

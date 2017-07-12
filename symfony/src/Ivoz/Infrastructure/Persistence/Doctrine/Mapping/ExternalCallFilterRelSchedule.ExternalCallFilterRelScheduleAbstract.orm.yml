@@ -1,0 +1,32 @@
+Ivoz\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelScheduleAbstract:
+  type: mappedSuperclass
+  indexes:
+    filterId:
+      columns:
+        - filterId
+    scheduleId:
+      columns:
+        - scheduleId
+  manyToOne:
+    filter:
+      targetEntity: \Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        filterId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    schedule:
+      targetEntity: \Ivoz\Domain\Model\Schedule\ScheduleInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        scheduleId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

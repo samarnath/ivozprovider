@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\Terminal\Terminal:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\TerminalDoctrineRepository
+  type: entity
+  table: Terminals
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

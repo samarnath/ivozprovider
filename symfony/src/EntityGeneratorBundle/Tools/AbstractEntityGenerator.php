@@ -42,7 +42,71 @@ public function __construct(<requiredFields>)<lineBreak>{
  */
 protected $_initialValues = [];
 
+/**
+ * Constructor
+ */
+public function __construct(<requiredFields>)<lineBreak>{
+<requiredFieldsSetters><collections>
+}
+
 abstract public function __wakeup();
+
+/**
+ * @return <dtoClass>
+ */
+public static function createDTO()
+{
+    return new <dtoClass>();
+}
+
+/**
+ * Factory method
+ * @param DataTransferObjectInterface $dto
+ * @return self
+ */
+public static function fromDTO(DataTransferObjectInterface $dto)
+{
+    /**
+     * @var $dto <dtoClass>
+     */
+    Assertion::isInstanceOf($dto, <dtoClass>::class);
+<voContructor>
+    $self = new static(<requiredFieldsGetters>);
+
+    return $self<fromDTO>;
+}
+
+/**
+ * @param DataTransferObjectInterface $dto
+ * @return self
+ */
+public function updateFromDTO(DataTransferObjectInterface $dto)
+{
+    /**
+     * @var $dto <dtoClass>
+     */
+    Assertion::isInstanceOf($dto, <dtoClass>::class);
+<voContructor>
+    <updateFromDTO>
+    return $this;
+}
+
+/**
+ * @return <dtoClass>
+ */
+public function toDTO()
+{
+    return self::createDTO()<toDTO>;
+}
+
+/**
+ * @return array
+ */
+protected function __toArray()
+{
+    return [<toArray>];
+}
+
 ';
     /**
      * @var string
@@ -449,6 +513,7 @@ protected function <methodName>(array $<variableName>)
         $mappings = array_merge($metadata->fieldMappings, $metadata->associationMappings);
 
         foreach ($mappings as $fieldMapping) {
+
             $field = (object) $fieldMapping;
             $fieldName = $field->fieldName;
             $attribute = Inflector::camelize($fieldName);
@@ -477,10 +542,13 @@ protected function <methodName>(array $<variableName>)
 
                 } else {
 
-                    $updateFrom[] = 'set' . Inflector::classify($fieldName)
-                        . '($dto->get' . Inflector::classify($fieldName) . '())';
-                    $setters[$attribute] = 'set' . Inflector::classify($fieldName)
-                        . '($dto->get' . Inflector::classify($fieldName) . '())';
+                    if (!isset($field->declared)) {
+                        $updateFrom[] = 'set' . Inflector::classify($fieldName)
+                            . '($dto->get' . Inflector::classify($fieldName) . '())';
+
+                        $setters[$attribute] = 'set' . Inflector::classify($fieldName)
+                            . '($dto->get' . Inflector::classify($fieldName) . '())';
+                    }
                 }
 
                 list($associationToArray, $associationGetterAs) = $this
@@ -490,12 +558,14 @@ protected function <methodName>(array $<variableName>)
                     $toArray[] = $associationToArray;
                 }
 
-                $getters[$attribute] = $associationGetterAs;
+                if (!isset($field->declared)) {
+                    $getters[$attribute] = $associationGetterAs;
+                }
 
                 continue;
             }
 
-            if (strpos($fieldName, '.')) {
+            if (strpos($fieldName, '.') && $metadata->isMappedSuperclass) {
 
                 $segments = explode('.', $fieldName);
                 $options = $fieldMapping['options'];
@@ -542,49 +612,56 @@ protected function <methodName>(array $<variableName>)
                     . Inflector::classify($segments[0])
                     . '($' . $segments[0] . ')';
 
-            } else {
+            } else if (!strpos($fieldName, '.') || $metadata->isMappedSuperclass) {
 
-                $toArray[]  = '\''. $attribute .'\' => $this->get' . Inflector::classify($fieldName) . '()';
-                $getters[$attribute] = 'set' . Inflector::classify($fieldName)
-                    . '($this->get' . Inflector::classify($fieldName) . '())';
+                if (!isset($field->declared)) {
+                    $toArray[]  = '\''. $attribute .'\' => $this->get' . Inflector::classify($fieldName) . '()';
+                    $getters[$attribute] = 'set' . Inflector::classify($fieldName)
+                        . '($this->get' . Inflector::classify($fieldName) . '())';
+                }
 
                 if ((isset($field->id) && $field->id) || isset($options->defaultValue)) {
                     continue;
                 }
 
-                $updateFrom[] = 'set' . Inflector::classify($fieldName)
-                    . '($dto->get' . Inflector::classify($fieldName) . '())';
+                if (!isset($field->declared)) {
+                    $updateFrom[] = 'set' . Inflector::classify($fieldName)
+                        . '($dto->get' . Inflector::classify($fieldName) . '())';
+                }
 
-                if (isset($field->nullable) && $field->nullable && !$metadata->isEmbeddedClass) {
+                if (isset($field->nullable) && $field->nullable && !$metadata->isEmbeddedClass && !isset($field->declared)) {
                     $setters[$attribute] = 'set' . Inflector::classify($fieldName)
                         . '($dto->get' . Inflector::classify($fieldName) . '())';
                     continue;
                 }
             }
 
-            if (array_key_exists('originalClass', $fieldMapping)) {
+            if (array_key_exists('originalClass', $fieldMapping) && !isset($field->declared)) {
                 $class = substr($fieldMapping['originalClass'], strrpos($fieldMapping['originalClass'], '\\') + 1);
 
                 $declaredField = $fieldMapping['declaredField'];
                 $attribute = $class . ' $' . $declaredField;
 
                 $setter = 'set' . Inflector::classify($declaredField) . '($'. $declaredField .');';
-                if (end($requiredSetters) !== $setter) {
+                if (end($requiredSetters) !== $setter && $metadata->isMappedSuperclass) {
                     $requiredSetters[$attribute] = $setter;
                 }
-            } else {
+            } else if (!isset($field->declared)) {
 
                 $setter = 'set' . Inflector::classify($fieldName) . '($'. $attribute .');';
                 $getter = 'get' . Inflector::classify($fieldName) . '()';
-                $requiredSetters[$attribute] = $setter;
-                $requiredGetters[$attribute] = $getter;
 
-                if ($field->type[0] === '\\') {
-                    $class = substr($field->type, strrpos($field->type, '\\') + 1);
-                    $attribute = $class. ' $' . $attribute;
-                } else {
-                    $attribute = '$' . $attribute;
+                if (!isset($fieldMapping['declared'])) {
+                    $requiredSetters[$attribute] = $setter;
+                    $requiredGetters[$attribute] = $getter;
                 }
+            }
+
+            if ($field->type[0] === '\\') {
+                $class = substr($field->type, strrpos($field->type, '\\') + 1);
+                $attribute = $class. ' $' . $attribute;
+            } else if (strpos($attribute, ' ') === false) {
+                $attribute = '$' . $attribute;
             }
 
             if (end($constructorArguments) === $attribute) {
@@ -778,6 +855,11 @@ protected function <methodName>(array $<variableName>)
 
         $metadata->associationMappings = $associationMapping;
         foreach ($metadata->associationMappings as $associationMapping) {
+
+            if (isset($associationMapping['declared'])) {
+                continue;
+            }
+
             if ($associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
                 $nullable = $this->isAssociationIsNullable($associationMapping) ? 'null' : null;
 
@@ -811,6 +893,64 @@ protected function <methodName>(array $<variableName>)
         }
 
         return implode("\n\n", $response);
+    }
+
+    /**
+     * @param ClassMetadataInfo $metadata
+     *
+     * @return string
+     */
+    protected function generateEntityAssociationMappingProperties(ClassMetadataInfo $metadata)
+    {
+        $lines = array();
+
+        foreach ($metadata->associationMappings as $associationMapping) {
+            if ($this->hasProperty($associationMapping['fieldName'], $metadata)) {
+                continue;
+            }
+
+            if (isset($associationMapping['declared'])) {
+                continue;
+            }
+
+            $lines[] = $this->generateAssociationMappingPropertyDocBlock($associationMapping, $metadata);
+            $lines[] = $this->spaces . $this->fieldVisibility . ' $' . $associationMapping['fieldName']
+                . ($associationMapping['type'] == 'manyToMany' ? ' = array()' : null) . ";\n";
+        }
+
+        return implode("\n", $lines);
+    }
+
+    /**
+     * @param ClassMetadataInfo $metadata
+     *
+     * @return string
+     */
+    protected function generateEntityEmbeddedProperties(ClassMetadataInfo $metadata)
+    {
+        $lines = array();
+
+        foreach ($metadata->embeddedClasses as $fieldName => $embeddedClass) {
+            if (
+                isset($embeddedClass['declaredField'])
+                || isset($embeddedClass['declared'])
+                || $this->hasProperty($fieldName, $metadata)
+            ) {
+                continue;
+            }
+
+            $class = $embeddedClass['class'];
+            $classSegments = explode('\\', $embeddedClass['class']);
+            $embeddedClass['class'] = end($classSegments);
+
+            $embeddedProperties = $this->generateEmbeddedPropertyDocBlock($embeddedClass);
+            $embeddedProperties = str_replace('\\' . $embeddedClass['class'] , $embeddedClass['class'] , $embeddedProperties);
+
+            $lines[] = $embeddedProperties;
+            $lines[] = $this->spaces . $this->fieldVisibility . ' $' . $fieldName . ";\n";
+        }
+
+        return implode("\n", $lines);
     }
 
     /**
@@ -867,6 +1007,8 @@ protected function <methodName>(array $<variableName>)
         }
 
         $parentResponse = parent::generateEntityStubMethod($metadata, $type, $fieldName, $typeHint,  $defaultValue);
+        $parentResponse = str_replace('\\' . $metadata->namespace . '\\', '', $parentResponse);
+
         $assertions = [];
 
         if ($currentField) {

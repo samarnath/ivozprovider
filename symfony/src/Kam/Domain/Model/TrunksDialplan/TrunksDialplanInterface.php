@@ -73,7 +73,7 @@ interface TrunksDialplanInterface
     /**
      * Get transformationRulesetGroupsTrunk
      *
-     * @return \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
+     * @return \Ivoz\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
      */
     public function getTransformationRulesetGroupsTrunk();
 

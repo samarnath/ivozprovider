@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\Domain\Domain:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\DomainDoctrineRepository
+  type: entity
+  table: Domains
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

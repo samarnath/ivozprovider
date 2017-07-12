@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersDomainAttrDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -37,6 +32,11 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     private $lastModified = '1900-01-01 00:00:01';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $didId;
@@ -52,11 +52,11 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'type' => $this->getType(),
             'value' => $this->getValue(),
             'lastModified' => $this->getLastModified(),
+            'id' => $this->getId(),
             'didId' => $this->getDidId()
         ];
     }
@@ -66,7 +66,7 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->did = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getDidId());
+        $this->did = $transformer->transform('Ivoz\\Domain\\Model\\Company\\Company', $this->getDidId());
     }
 
     /**
@@ -75,26 +75,6 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersDomainAttrDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -178,6 +158,26 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return UsersDomainAttrDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $didId
      *
      * @return UsersDomainAttrDTO
@@ -198,7 +198,7 @@ class UsersDomainAttrDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Ivoz\Domain\Model\Company\Company
      */
     public function getDid()
     {

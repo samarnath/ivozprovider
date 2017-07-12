@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\Services
-  entity: Core\Domain\Model\Service\Service
+  entity: Ivoz\Domain\Model\Service\Service
   fields:
     iden:
       title: ngettext('Iden', 'Idens', 1)

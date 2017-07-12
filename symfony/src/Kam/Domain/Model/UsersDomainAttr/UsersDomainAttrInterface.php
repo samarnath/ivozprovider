@@ -41,7 +41,7 @@ interface UsersDomainAttrInterface
     /**
      * Get did
      *
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Ivoz\Domain\Model\Company\CompanyInterface
      */
     public function getDid();
 

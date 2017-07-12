@@ -26,12 +26,10 @@ class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttr
     /**
      * Constructor
      */
-    public function __construct($name, $type, $value, $lastModified)
+    public function __construct()
     {
-        $this->setName($name);
-        $this->setType($type);
-        $this->setValue($value);
-        $this->setLastModified($lastModified);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -60,17 +58,9 @@ class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttr
         /**
          * @var $dto UsersDomainAttrDTO
          */
-        Assertion::isInstanceOf($dto, UsersDomainAttrDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getName(),
-            $dto->getType(),
-            $dto->getValue(),
-            $dto->getLastModified());
-
-        return $self
-            ->setDid($dto->getDid())
-        ;
+        return $self;
     }
 
     /**
@@ -82,16 +72,9 @@ class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttr
         /**
          * @var $dto UsersDomainAttrDTO
          */
-        Assertion::isInstanceOf($dto, UsersDomainAttrDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setName($dto->getName())
-            ->setType($dto->getType())
-            ->setValue($dto->getValue())
-            ->setLastModified($dto->getLastModified())
-            ->setDid($dto->getDid());
-
-
+        
         return $this;
     }
 
@@ -100,13 +83,9 @@ class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttr
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setName($this->getName())
-            ->setType($this->getType())
-            ->setValue($this->getValue())
-            ->setLastModified($this->getLastModified())
-            ->setId($this->getId())
-            ->setDidId($this->getDid() ? $this->getDid()->getId() : null);
+        $dto = parent::toDTO();
+        return $dto
+            ->setId($this->getId());
     }
 
     /**
@@ -114,11 +93,7 @@ class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttr
      */
     protected function __toArray()
     {
-        return [
-            'name' => $this->getName(),
-            'type' => $this->getType(),
-            'value' => $this->getValue(),
-            'lastModified' => $this->getLastModified(),
+        return parent::__toArray() + [
             'id' => $this->getId(),
             'didId' => $this->getDid() ? $this->getDid()->getId() : null
         ];
@@ -133,30 +108,6 @@ class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttr
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set did
-     *
-     * @param \Core\Domain\Model\Company\CompanyInterface $did
-     *
-     * @return self
-     */
-    protected function setDid(\Core\Domain\Model\Company\CompanyInterface $did)
-    {
-        $this->did = $did;
-
-        return $this;
-    }
-
-    /**
-     * Get did
-     *
-     * @return \Core\Domain\Model\Company\CompanyInterface
-     */
-    public function getDid()
-    {
-        return $this->did;
     }
 
 

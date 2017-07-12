@@ -43,7 +43,7 @@ abstract class QueueMemberAbstract
     protected $paused;
 
     /**
-     * @var \Core\Domain\Model\QueueMember\QueueMemberInterface
+     * @var \Ivoz\Domain\Model\QueueMember\QueueMemberInterface
      */
     protected $queueMember;
 
@@ -54,7 +54,105 @@ abstract class QueueMemberAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct($queueName, $interface)
+    {
+        $this->setQueueName($queueName);
+        $this->setInterface($interface);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return QueueMemberDTO
+     */
+    public static function createDTO()
+    {
+        return new QueueMemberDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto QueueMemberDTO
+         */
+        Assertion::isInstanceOf($dto, QueueMemberDTO::class);
+
+        $self = new static(
+            $dto->getQueueName(),
+            $dto->getInterface());
+
+        return $self
+            ->setMembername($dto->getMembername())
+            ->setStateInterface($dto->getStateInterface())
+            ->setPenalty($dto->getPenalty())
+            ->setPaused($dto->getPaused())
+            ->setQueueMember($dto->getQueueMember())
+        ;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto QueueMemberDTO
+         */
+        Assertion::isInstanceOf($dto, QueueMemberDTO::class);
+
+        $this
+            ->setQueueName($dto->getQueueName())
+            ->setInterface($dto->getInterface())
+            ->setMembername($dto->getMembername())
+            ->setStateInterface($dto->getStateInterface())
+            ->setPenalty($dto->getPenalty())
+            ->setPaused($dto->getPaused())
+            ->setQueueMember($dto->getQueueMember());
+
+
+        return $this;
+    }
+
+    /**
+     * @return QueueMemberDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setQueueName($this->getQueueName())
+            ->setInterface($this->getInterface())
+            ->setMembername($this->getMembername())
+            ->setStateInterface($this->getStateInterface())
+            ->setPenalty($this->getPenalty())
+            ->setPaused($this->getPaused())
+            ->setQueueMemberId($this->getQueueMember() ? $this->getQueueMember()->getId() : null);
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'queueName' => $this->getQueueName(),
+            'interface' => $this->getInterface(),
+            'membername' => $this->getMembername(),
+            'stateInterface' => $this->getStateInterface(),
+            'penalty' => $this->getPenalty(),
+            'paused' => $this->getPaused(),
+            'queueMemberId' => $this->getQueueMember() ? $this->getQueueMember()->getId() : null
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 
@@ -231,11 +329,11 @@ abstract class QueueMemberAbstract
     /**
      * Set queueMember
      *
-     * @param \Core\Domain\Model\QueueMember\QueueMemberInterface $queueMember
+     * @param \Ivoz\Domain\Model\QueueMember\QueueMemberInterface $queueMember
      *
      * @return self
      */
-    protected function setQueueMember(\Core\Domain\Model\QueueMember\QueueMemberInterface $queueMember = null)
+    protected function setQueueMember(\Ivoz\Domain\Model\QueueMember\QueueMemberInterface $queueMember = null)
     {
         $this->queueMember = $queueMember;
 
@@ -245,7 +343,7 @@ abstract class QueueMemberAbstract
     /**
      * Get queueMember
      *
-     * @return \Core\Domain\Model\QueueMember\QueueMemberInterface
+     * @return \Ivoz\Domain\Model\QueueMember\QueueMemberInterface
      */
     public function getQueueMember()
     {

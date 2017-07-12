@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\FeaturesRelCompany\FeaturesRelCompany:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\FeaturesRelCompanyDoctrineRepository
+  type: entity
+  table: FeaturesRelCompanies
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

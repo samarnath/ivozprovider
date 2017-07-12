@@ -14,11 +14,6 @@ class DispatcherDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @var integer
-     */
     private $setid = '0';
 
     /**
@@ -47,6 +42,11 @@ class DispatcherDTO implements DataTransferObjectInterface
     private $description = '';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $applicationServerId;
@@ -62,13 +62,13 @@ class DispatcherDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'setid' => $this->getSetid(),
             'destination' => $this->getDestination(),
             'flags' => $this->getFlags(),
             'priority' => $this->getPriority(),
             'attrs' => $this->getAttrs(),
             'description' => $this->getDescription(),
+            'id' => $this->getId(),
             'applicationServerId' => $this->getApplicationServerId()
         ];
     }
@@ -78,7 +78,7 @@ class DispatcherDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->applicationServer = $transformer->transform('Core\\Domain\\Model\\ApplicationServer\\ApplicationServer', $this->getApplicationServerId());
+        $this->applicationServer = $transformer->transform('Ivoz\\Domain\\Model\\ApplicationServer\\ApplicationServer', $this->getApplicationServerId());
     }
 
     /**
@@ -87,26 +87,6 @@ class DispatcherDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return DispatcherDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -230,6 +210,26 @@ class DispatcherDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return DispatcherDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $applicationServerId
      *
      * @return DispatcherDTO
@@ -250,7 +250,7 @@ class DispatcherDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\ApplicationServer\ApplicationServer
+     * @return \Ivoz\Domain\Model\ApplicationServer\ApplicationServer
      */
     public function getApplicationServer()
     {

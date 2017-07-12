@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class MusiconholdDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $name;
@@ -57,12 +52,16 @@ class MusiconholdDTO implements DataTransferObjectInterface
     private $stamp;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'mode' => $this->getMode(),
             'directory' => $this->getDirectory(),
@@ -70,7 +69,8 @@ class MusiconholdDTO implements DataTransferObjectInterface
             'digit' => $this->getDigit(),
             'sort' => $this->getSort(),
             'format' => $this->getFormat(),
-            'stamp' => $this->getStamp()
+            'stamp' => $this->getStamp(),
+            'id' => $this->getId()
         ];
     }
 
@@ -88,26 +88,6 @@ class MusiconholdDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return MusiconholdDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -268,6 +248,26 @@ class MusiconholdDTO implements DataTransferObjectInterface
     public function getStamp()
     {
         return $this->stamp;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return MusiconholdDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

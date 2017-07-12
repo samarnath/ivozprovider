@@ -46,7 +46,104 @@ abstract class UsersHtableAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct(
+        $keyName,
+        $keyType,
+        $valueType,
+        $keyValue,
+        $expires
+    ) {
+        $this->setKeyName($keyName);
+        $this->setKeyType($keyType);
+        $this->setValueType($valueType);
+        $this->setKeyValue($keyValue);
+        $this->setExpires($expires);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return UsersHtableDTO
+     */
+    public static function createDTO()
+    {
+        return new UsersHtableDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto UsersHtableDTO
+         */
+        Assertion::isInstanceOf($dto, UsersHtableDTO::class);
+
+        $self = new static(
+            $dto->getKeyName(),
+            $dto->getKeyType(),
+            $dto->getValueType(),
+            $dto->getKeyValue(),
+            $dto->getExpires());
+
+        return $self;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto UsersHtableDTO
+         */
+        Assertion::isInstanceOf($dto, UsersHtableDTO::class);
+
+        $this
+            ->setKeyName($dto->getKeyName())
+            ->setKeyType($dto->getKeyType())
+            ->setValueType($dto->getValueType())
+            ->setKeyValue($dto->getKeyValue())
+            ->setExpires($dto->getExpires());
+
+
+        return $this;
+    }
+
+    /**
+     * @return UsersHtableDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setKeyName($this->getKeyName())
+            ->setKeyType($this->getKeyType())
+            ->setValueType($this->getValueType())
+            ->setKeyValue($this->getKeyValue())
+            ->setExpires($this->getExpires());
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'keyName' => $this->getKeyName(),
+            'keyType' => $this->getKeyType(),
+            'valueType' => $this->getValueType(),
+            'keyValue' => $this->getKeyValue(),
+            'expires' => $this->getExpires()
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 

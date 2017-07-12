@@ -15,11 +15,18 @@ trait ExecuteGeneratorTrait
     protected $injectEmbeddedClasses;
 
     /**
+     * @var MetadataFactory;
+     */
+    protected $manager;
+    protected $input;
+
+    /**
      * {@inheritDoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $manager = new MetadataFactory($this->getContainer()->get('doctrine'));
+        $this->manager = $manager = new MetadataFactory($this->getContainer()->get('doctrine'));
+        $this->input = $input;
 
         try {
             $bundle = $this->getApplication()->getKernel()->getBundle($input->getArgument('name'));
@@ -57,14 +64,14 @@ trait ExecuteGeneratorTrait
             $skip = $skip || ($this->skipMappedSuperClass && $m->isMappedSuperclass);
             $skip = $skip || ($this->skipEntities && !$m->isMappedSuperclass && !$m->isEmbeddedClass);
 
+            if ($skip) {
+                continue;
+            }
+
             if ($this->mergeEmbeddedClasses) {
                 $m = $this->meldEmbedded($metadata, $m);
             } else if ($this->injectEmbeddedClasses) {
                 $m = $this->injectEmbeddedClasses($metadata, $m);
-            }
-
-            if ($skip) {
-                continue;
             }
 
             if ($backupExisting) {
@@ -93,6 +100,15 @@ trait ExecuteGeneratorTrait
         foreach ($entity->fieldMappings as $key => $field) {
             if (strpos($field['type'], '\\') !== false) {
                 $entity->fieldMappings[$key]['embeddedClass'] = $this->retrieveEntity($metadata, $field['type']);
+            }
+        }
+
+        if (isset($entity->embeddedClasses)) {
+            foreach ($entity->embeddedClasses as $property => $embeddableClass) {
+
+                $embeddableMetadata = $this->manager->getClassMetadata($embeddableClass['class'], $this->input->getOption('path'));
+                $classEmbeddableMetadata = $embeddableMetadata->getMetadata();
+                $entity->inlineEmbeddable($property, current($classEmbeddableMetadata));
             }
         }
 
@@ -131,7 +147,7 @@ trait ExecuteGeneratorTrait
                 $name = '\\' . $name;
             }
 
-            if ($name=== $needle) {
+            if ($name === $needle) {
                 return $entity;
             }
         }

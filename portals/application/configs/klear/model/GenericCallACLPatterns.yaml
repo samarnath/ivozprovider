@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\GenericCallACLPatterns
-  entity: Core\Domain\Model\GenericCallACLPattern\GenericCallACLPattern
+  entity: Ivoz\Domain\Model\GenericCallACLPattern\GenericCallACLPattern
   fields: 
     brand:
       title: _('Brand')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Domain\Model\Brand\Brand
+          entity: \Ivoz\Domain\Model\Brand\Brand
           fieldName:
             fields: 
               - name

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersXcapDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $username;
@@ -57,12 +52,16 @@ class UsersXcapDTO implements DataTransferObjectInterface
     private $port;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'username' => $this->getUsername(),
             'domain' => $this->getDomain(),
             'doc' => $this->getDoc(),
@@ -70,7 +69,8 @@ class UsersXcapDTO implements DataTransferObjectInterface
             'etag' => $this->getEtag(),
             'source' => $this->getSource(),
             'docUri' => $this->getDocUri(),
-            'port' => $this->getPort()
+            'port' => $this->getPort(),
+            'id' => $this->getId()
         ];
     }
 
@@ -88,26 +88,6 @@ class UsersXcapDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersXcapDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -268,6 +248,26 @@ class UsersXcapDTO implements DataTransferObjectInterface
     public function getPort()
     {
         return $this->port;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersXcapDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

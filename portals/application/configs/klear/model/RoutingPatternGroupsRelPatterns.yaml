@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\RoutingPatternGroupsRelPatterns
-  entity: Core\Domain\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern
+  entity: Ivoz\Domain\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern
   fields: 
     routingPatternId:
       title: _('Routing pattern id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\RoutingPatterns
-          entity: \Core\Domain\Model\RoutingPattern\RoutingPattern
+          entity: \Ivoz\Domain\Model\RoutingPattern\RoutingPattern
           fieldName: 
             fields: 
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\RoutingPatternGroups
-          entity: \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
+          entity: \Ivoz\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
           fieldName: 
             fields: 
               - name

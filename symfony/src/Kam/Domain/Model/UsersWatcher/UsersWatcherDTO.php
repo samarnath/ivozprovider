@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersWatcherDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $presentityUri;
@@ -52,19 +47,24 @@ class UsersWatcherDTO implements DataTransferObjectInterface
     private $insertedTime;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'presentityUri' => $this->getPresentityUri(),
             'watcherUsername' => $this->getWatcherUsername(),
             'watcherDomain' => $this->getWatcherDomain(),
             'event' => $this->getEvent(),
             'status' => $this->getStatus(),
             'reason' => $this->getReason(),
-            'insertedTime' => $this->getInsertedTime()
+            'insertedTime' => $this->getInsertedTime(),
+            'id' => $this->getId()
         ];
     }
 
@@ -82,26 +82,6 @@ class UsersWatcherDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersWatcherDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -242,6 +222,26 @@ class UsersWatcherDTO implements DataTransferObjectInterface
     public function getInsertedTime()
     {
         return $this->insertedTime;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersWatcherDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

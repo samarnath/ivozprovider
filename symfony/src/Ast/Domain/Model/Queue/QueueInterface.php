@@ -81,7 +81,7 @@ interface QueueInterface
     /**
      * Get queue
      *
-     * @return \Core\Domain\Model\Queue\QueueInterface
+     * @return \Ivoz\Domain\Model\Queue\QueueInterface
      */
     public function getQueue();
 

@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilter:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ExternalCallFilterDoctrineRepository
+  type: entity
+  table: ExternalCallFilters
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

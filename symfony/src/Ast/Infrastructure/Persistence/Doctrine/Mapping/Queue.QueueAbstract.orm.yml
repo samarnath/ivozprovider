@@ -60,7 +60,7 @@ Ast\Domain\Model\Queue\QueueAbstract:
         unsigned: false
   manyToOne:
     queue:
-      targetEntity: \Core\Domain\Model\Queue\QueueInterface
+      targetEntity: \Ivoz\Domain\Model\Queue\QueueInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

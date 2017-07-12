@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersPresentityDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $username;
@@ -62,12 +57,16 @@ class UsersPresentityDTO implements DataTransferObjectInterface
     private $priority = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'username' => $this->getUsername(),
             'domain' => $this->getDomain(),
             'event' => $this->getEvent(),
@@ -76,7 +75,8 @@ class UsersPresentityDTO implements DataTransferObjectInterface
             'receivedTime' => $this->getReceivedTime(),
             'body' => $this->getBody(),
             'sender' => $this->getSender(),
-            'priority' => $this->getPriority()
+            'priority' => $this->getPriority(),
+            'id' => $this->getId()
         ];
     }
 
@@ -94,26 +94,6 @@ class UsersPresentityDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersPresentityDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -294,6 +274,26 @@ class UsersPresentityDTO implements DataTransferObjectInterface
     public function getPriority()
     {
         return $this->priority;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersPresentityDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

@@ -32,6 +32,7 @@ protected $_initialValues = [];
  * Constructor
  */
 public function __construct(<requiredFields>)<lineBreak>{
+<spaces>parent::__construct(...func_get_args());
 <requiredFieldsSetters><collections>
 }
 
@@ -61,9 +62,7 @@ public static function fromDTO(DataTransferObjectInterface $dto)
     /**
      * @var $dto <dtoClass>
      */
-    Assertion::isInstanceOf($dto, <dtoClass>::class);
-<voContructor>
-    $self = new self(<requiredFieldsGetters>);
+    $self = parent::fromDTO($dto);
 
     return $self<fromDTO>;
 }
@@ -77,7 +76,7 @@ public function updateFromDTO(DataTransferObjectInterface $dto)
     /**
      * @var $dto <dtoClass>
      */
-    Assertion::isInstanceOf($dto, <dtoClass>::class);
+    parent::updateFromDTO($dto);
 <voContructor>
     <updateFromDTO>
     return $this;
@@ -88,7 +87,8 @@ public function updateFromDTO(DataTransferObjectInterface $dto)
  */
 public function toDTO()
 {
-    return self::createDTO()<toDTO>;
+    $dto = parent::toDTO();
+    return $dto<toDTO>;
 }
 
 /**
@@ -96,7 +96,7 @@ public function toDTO()
  */
 protected function __toArray()
 {
-    return [<toArray>];
+    return parent::__toArray() + [<toArray>];
 }
 
 ';

@@ -74,7 +74,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name
@@ -89,7 +89,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Domain\Model\Brand\Brand
+          entity: \Ivoz\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
@@ -134,7 +134,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
-          entity: \Core\Domain\Model\PeeringContract\PeeringContract
+          entity: \Ivoz\Domain\Model\PeeringContract\PeeringContract
           fieldName: 
             fields: 
               - name
@@ -186,7 +186,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\PricingPlans
-          entity: \Core\Domain\Model\PricingPlan\PricingPlan
+          entity: \Ivoz\Domain\Model\PricingPlan\PricingPlan
           fieldName: 
             fields: 
               - name
@@ -201,7 +201,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\TargetPatterns
-          entity: \Core\Domain\Model\TargetPattern\TargetPattern
+          entity: \Ivoz\Domain\Model\TargetPattern\TargetPattern
           fieldName: 
             fields: 
               - name
@@ -227,7 +227,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Invoices
-          entity: \Core\Domain\Model\Invoice\Invoice
+          entity: \Ivoz\Domain\Model\Invoice\Invoice
           fieldName: 
             fields: 
               - number

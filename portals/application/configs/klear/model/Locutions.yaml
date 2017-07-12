@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Locutions
-  entity: Core\Domain\Model\Locution\Locution
+  entity: Ivoz\Domain\Model\Locution\Locution
   fields: 
     company:
       title: _('Company')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name

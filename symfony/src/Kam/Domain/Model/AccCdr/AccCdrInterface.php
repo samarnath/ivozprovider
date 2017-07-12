@@ -233,7 +233,7 @@ interface AccCdrInterface
     /**
      * Get pricingPlan
      *
-     * @return \Core\Domain\Model\PricingPlan\PricingPlanInterface
+     * @return \Ivoz\Domain\Model\PricingPlan\PricingPlanInterface
      */
     public function getPricingPlan();
 
@@ -241,7 +241,7 @@ interface AccCdrInterface
     /**
      * Get targetPattern
      *
-     * @return \Core\Domain\Model\TargetPattern\TargetPatternInterface
+     * @return \Ivoz\Domain\Model\TargetPattern\TargetPatternInterface
      */
     public function getTargetPattern();
 
@@ -249,7 +249,7 @@ interface AccCdrInterface
     /**
      * Get invoice
      *
-     * @return \Core\Domain\Model\Invoice\InvoiceInterface
+     * @return \Ivoz\Domain\Model\Invoice\InvoiceInterface
      */
     public function getInvoice();
 
@@ -257,7 +257,7 @@ interface AccCdrInterface
     /**
      * Get brand
      *
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Ivoz\Domain\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -265,7 +265,7 @@ interface AccCdrInterface
     /**
      * Get company
      *
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Ivoz\Domain\Model\Company\CompanyInterface
      */
     public function getCompany();
 

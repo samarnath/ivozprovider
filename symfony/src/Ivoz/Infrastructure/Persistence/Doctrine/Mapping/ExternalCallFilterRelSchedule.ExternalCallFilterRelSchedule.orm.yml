@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ExternalCallFilterRelScheduleDoctrineRepository
+  type: entity
+  table: ExternalCallFilterRelSchedules
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

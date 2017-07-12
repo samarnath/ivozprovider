@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class AccCdrDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $proxy;
@@ -157,6 +152,11 @@ class AccCdrDTO implements DataTransferObjectInterface
     private $remeteringdate;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $pricingPlanId;
@@ -212,7 +212,6 @@ class AccCdrDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'proxy' => $this->getProxy(),
             'startTimeUtc' => $this->getStartTimeUtc(),
             'endTimeUtc' => $this->getEndTimeUtc(),
@@ -241,6 +240,7 @@ class AccCdrDTO implements DataTransferObjectInterface
             'pricingplandetails' => $this->getPricingplandetails(),
             'direction' => $this->getDirection(),
             'remeteringdate' => $this->getRemeteringdate(),
+            'id' => $this->getId(),
             'pricingPlanId' => $this->getPricingPlanId(),
             'targetPatternId' => $this->getTargetPatternId(),
             'invoiceId' => $this->getInvoiceId(),
@@ -254,11 +254,11 @@ class AccCdrDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->pricingPlan = $transformer->transform('Core\\Domain\\Model\\PricingPlan\\PricingPlan', $this->getPricingPlanId());
-        $this->targetPattern = $transformer->transform('Core\\Domain\\Model\\TargetPattern\\TargetPattern', $this->getTargetPatternId());
-        $this->invoice = $transformer->transform('Core\\Domain\\Model\\Invoice\\Invoice', $this->getInvoiceId());
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->pricingPlan = $transformer->transform('Ivoz\\Domain\\Model\\PricingPlan\\PricingPlan', $this->getPricingPlanId());
+        $this->targetPattern = $transformer->transform('Ivoz\\Domain\\Model\\TargetPattern\\TargetPattern', $this->getTargetPatternId());
+        $this->invoice = $transformer->transform('Ivoz\\Domain\\Model\\Invoice\\Invoice', $this->getInvoiceId());
+        $this->brand = $transformer->transform('Ivoz\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->company = $transformer->transform('Ivoz\\Domain\\Model\\Company\\Company', $this->getCompanyId());
     }
 
     /**
@@ -267,26 +267,6 @@ class AccCdrDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return AccCdrDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -850,6 +830,26 @@ class AccCdrDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return AccCdrDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $pricingPlanId
      *
      * @return AccCdrDTO
@@ -870,7 +870,7 @@ class AccCdrDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PricingPlan\PricingPlan
+     * @return \Ivoz\Domain\Model\PricingPlan\PricingPlan
      */
     public function getPricingPlan()
     {
@@ -898,7 +898,7 @@ class AccCdrDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TargetPattern\TargetPattern
+     * @return \Ivoz\Domain\Model\TargetPattern\TargetPattern
      */
     public function getTargetPattern()
     {
@@ -926,7 +926,7 @@ class AccCdrDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Invoice\Invoice
+     * @return \Ivoz\Domain\Model\Invoice\Invoice
      */
     public function getInvoice()
     {
@@ -954,7 +954,7 @@ class AccCdrDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Ivoz\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -982,7 +982,7 @@ class AccCdrDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Ivoz\Domain\Model\Company\Company
      */
     public function getCompany()
     {

@@ -26,20 +26,10 @@ class Dispatcher extends DispatcherAbstract implements DispatcherInterface, Enti
     /**
      * Constructor
      */
-    public function __construct(
-        $setid,
-        $destination,
-        $flags,
-        $priority,
-        $attrs,
-        $description
-    ) {
-        $this->setSetid($setid);
-        $this->setDestination($destination);
-        $this->setFlags($flags);
-        $this->setPriority($priority);
-        $this->setAttrs($attrs);
-        $this->setDescription($description);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -68,19 +58,9 @@ class Dispatcher extends DispatcherAbstract implements DispatcherInterface, Enti
         /**
          * @var $dto DispatcherDTO
          */
-        Assertion::isInstanceOf($dto, DispatcherDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getSetid(),
-            $dto->getDestination(),
-            $dto->getFlags(),
-            $dto->getPriority(),
-            $dto->getAttrs(),
-            $dto->getDescription());
-
-        return $self
-            ->setApplicationServer($dto->getApplicationServer())
-        ;
+        return $self;
     }
 
     /**
@@ -92,18 +72,9 @@ class Dispatcher extends DispatcherAbstract implements DispatcherInterface, Enti
         /**
          * @var $dto DispatcherDTO
          */
-        Assertion::isInstanceOf($dto, DispatcherDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setSetid($dto->getSetid())
-            ->setDestination($dto->getDestination())
-            ->setFlags($dto->getFlags())
-            ->setPriority($dto->getPriority())
-            ->setAttrs($dto->getAttrs())
-            ->setDescription($dto->getDescription())
-            ->setApplicationServer($dto->getApplicationServer());
-
-
+        
         return $this;
     }
 
@@ -112,15 +83,9 @@ class Dispatcher extends DispatcherAbstract implements DispatcherInterface, Enti
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setSetid($this->getSetid())
-            ->setDestination($this->getDestination())
-            ->setFlags($this->getFlags())
-            ->setPriority($this->getPriority())
-            ->setAttrs($this->getAttrs())
-            ->setDescription($this->getDescription())
-            ->setId($this->getId())
-            ->setApplicationServerId($this->getApplicationServer() ? $this->getApplicationServer()->getId() : null);
+        $dto = parent::toDTO();
+        return $dto
+            ->setId($this->getId());
     }
 
     /**
@@ -128,13 +93,7 @@ class Dispatcher extends DispatcherAbstract implements DispatcherInterface, Enti
      */
     protected function __toArray()
     {
-        return [
-            'setid' => $this->getSetid(),
-            'destination' => $this->getDestination(),
-            'flags' => $this->getFlags(),
-            'priority' => $this->getPriority(),
-            'attrs' => $this->getAttrs(),
-            'description' => $this->getDescription(),
+        return parent::__toArray() + [
             'id' => $this->getId(),
             'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null
         ];
@@ -149,30 +108,6 @@ class Dispatcher extends DispatcherAbstract implements DispatcherInterface, Enti
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set applicationServer
-     *
-     * @param \Core\Domain\Model\ApplicationServer\ApplicationServerInterface $applicationServer
-     *
-     * @return self
-     */
-    protected function setApplicationServer(\Core\Domain\Model\ApplicationServer\ApplicationServerInterface $applicationServer)
-    {
-        $this->applicationServer = $applicationServer;
-
-        return $this;
-    }
-
-    /**
-     * Get applicationServer
-     *
-     * @return \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
-     */
-    public function getApplicationServer()
-    {
-        return $this->applicationServer;
     }
 
 

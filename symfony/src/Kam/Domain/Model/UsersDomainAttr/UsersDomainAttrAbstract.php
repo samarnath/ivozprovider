@@ -32,7 +32,7 @@ abstract class UsersDomainAttrAbstract
     protected $lastModified = '1900-01-01 00:00:01';
 
     /**
-     * @var \Core\Domain\Model\Company\CompanyInterface
+     * @var \Ivoz\Domain\Model\Company\CompanyInterface
      */
     protected $did;
 
@@ -43,7 +43,99 @@ abstract class UsersDomainAttrAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct($name, $type, $value, $lastModified)
+    {
+        $this->setName($name);
+        $this->setType($type);
+        $this->setValue($value);
+        $this->setLastModified($lastModified);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return UsersDomainAttrDTO
+     */
+    public static function createDTO()
+    {
+        return new UsersDomainAttrDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto UsersDomainAttrDTO
+         */
+        Assertion::isInstanceOf($dto, UsersDomainAttrDTO::class);
+
+        $self = new static(
+            $dto->getName(),
+            $dto->getType(),
+            $dto->getValue(),
+            $dto->getLastModified());
+
+        return $self
+            ->setDid($dto->getDid())
+        ;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto UsersDomainAttrDTO
+         */
+        Assertion::isInstanceOf($dto, UsersDomainAttrDTO::class);
+
+        $this
+            ->setName($dto->getName())
+            ->setType($dto->getType())
+            ->setValue($dto->getValue())
+            ->setLastModified($dto->getLastModified())
+            ->setDid($dto->getDid());
+
+
+        return $this;
+    }
+
+    /**
+     * @return UsersDomainAttrDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setName($this->getName())
+            ->setType($this->getType())
+            ->setValue($this->getValue())
+            ->setLastModified($this->getLastModified())
+            ->setDidId($this->getDid() ? $this->getDid()->getId() : null);
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'name' => $this->getName(),
+            'type' => $this->getType(),
+            'value' => $this->getValue(),
+            'lastModified' => $this->getLastModified(),
+            'didId' => $this->getDid() ? $this->getDid()->getId() : null
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 
@@ -158,11 +250,11 @@ abstract class UsersDomainAttrAbstract
     /**
      * Set did
      *
-     * @param \Core\Domain\Model\Company\CompanyInterface $did
+     * @param \Ivoz\Domain\Model\Company\CompanyInterface $did
      *
      * @return self
      */
-    protected function setDid(\Core\Domain\Model\Company\CompanyInterface $did)
+    protected function setDid(\Ivoz\Domain\Model\Company\CompanyInterface $did)
     {
         $this->did = $did;
 
@@ -172,7 +264,7 @@ abstract class UsersDomainAttrAbstract
     /**
      * Get did
      *
-     * @return \Core\Domain\Model\Company\CompanyInterface
+     * @return \Ivoz\Domain\Model\Company\CompanyInterface
      */
     public function getDid()
     {

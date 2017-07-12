@@ -26,20 +26,10 @@ class UsersWatcher extends UsersWatcherAbstract implements UsersWatcherInterface
     /**
      * Constructor
      */
-    public function __construct(
-        $presentityUri,
-        $watcherUsername,
-        $watcherDomain,
-        $event,
-        $status,
-        $insertedTime
-    ) {
-        $this->setPresentityUri($presentityUri);
-        $this->setWatcherUsername($watcherUsername);
-        $this->setWatcherDomain($watcherDomain);
-        $this->setEvent($event);
-        $this->setStatus($status);
-        $this->setInsertedTime($insertedTime);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -68,19 +58,9 @@ class UsersWatcher extends UsersWatcherAbstract implements UsersWatcherInterface
         /**
          * @var $dto UsersWatcherDTO
          */
-        Assertion::isInstanceOf($dto, UsersWatcherDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getPresentityUri(),
-            $dto->getWatcherUsername(),
-            $dto->getWatcherDomain(),
-            $dto->getEvent(),
-            $dto->getStatus(),
-            $dto->getInsertedTime());
-
-        return $self
-            ->setReason($dto->getReason())
-        ;
+        return $self;
     }
 
     /**
@@ -92,18 +72,9 @@ class UsersWatcher extends UsersWatcherAbstract implements UsersWatcherInterface
         /**
          * @var $dto UsersWatcherDTO
          */
-        Assertion::isInstanceOf($dto, UsersWatcherDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setPresentityUri($dto->getPresentityUri())
-            ->setWatcherUsername($dto->getWatcherUsername())
-            ->setWatcherDomain($dto->getWatcherDomain())
-            ->setEvent($dto->getEvent())
-            ->setStatus($dto->getStatus())
-            ->setReason($dto->getReason())
-            ->setInsertedTime($dto->getInsertedTime());
-
-
+        
         return $this;
     }
 
@@ -112,14 +83,8 @@ class UsersWatcher extends UsersWatcherAbstract implements UsersWatcherInterface
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setPresentityUri($this->getPresentityUri())
-            ->setWatcherUsername($this->getWatcherUsername())
-            ->setWatcherDomain($this->getWatcherDomain())
-            ->setEvent($this->getEvent())
-            ->setStatus($this->getStatus())
-            ->setReason($this->getReason())
-            ->setInsertedTime($this->getInsertedTime())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -128,14 +93,7 @@ class UsersWatcher extends UsersWatcherAbstract implements UsersWatcherInterface
      */
     protected function __toArray()
     {
-        return [
-            'presentityUri' => $this->getPresentityUri(),
-            'watcherUsername' => $this->getWatcherUsername(),
-            'watcherDomain' => $this->getWatcherDomain(),
-            'event' => $this->getEvent(),
-            'status' => $this->getStatus(),
-            'reason' => $this->getReason(),
-            'insertedTime' => $this->getInsertedTime(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

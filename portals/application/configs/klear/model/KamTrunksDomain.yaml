@@ -21,7 +21,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Domains
-          entity: \Core\Domain\Model\Domain\Domain
+          entity: \Ivoz\Domain\Model\Domain\Domain
           fieldName: 
             fields: 
               - domain

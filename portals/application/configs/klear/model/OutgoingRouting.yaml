@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\OutgoingRouting
-  entity: Core\Domain\Model\OutgoingRouting\OutgoingRouting
+  entity: Ivoz\Domain\Model\OutgoingRouting\OutgoingRouting
   fields:
     type:
       title: ngettext('Type', 'Types', 1)
@@ -31,7 +31,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\RoutingPatterns
-          entity: \Core\Domain\Model\RoutingPattern\RoutingPattern
+          entity: \Ivoz\Domain\Model\RoutingPattern\RoutingPattern
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
@@ -48,7 +48,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\RoutingPatternGroups
-          entity: \Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
+          entity: \Ivoz\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
@@ -64,7 +64,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\PeeringContracts
-          entity: \Core\Domain\Model\PeeringContract\PeeringContract
+          entity: \Ivoz\Domain\Model\PeeringContract\PeeringContract
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:
@@ -97,7 +97,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:

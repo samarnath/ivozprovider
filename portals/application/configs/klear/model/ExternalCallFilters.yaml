@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\ExternalCallFilters
-  entity: Core\Domain\Model\ExternalCallFilter\ExternalCallFilter
+  entity: Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilter
   fields:
     companyId:
       title: _('Company')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName:
             fields:
               - name
@@ -30,8 +30,8 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          entity: \Core\Domain\Model\Locution\Locution
-          filterClass: IvozProvider_Klear_Filter_Company
+          entity: \Ivoz\Domain\Model\Locution\Locution
+          filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
               - name
@@ -48,7 +48,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          entity: \Core\Domain\Model\Locution\Locution
+          entity: \Ivoz\Domain\Model\Locution\Locution
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -67,7 +67,7 @@ production:
         config:
           mapperName: \IvozProvider\Mapper\Sql\Locutions
 #          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          entity: \Core\Domain\Model\Locution\Locution
+          entity: \Ivoz\Domain\Model\Locution\Locution
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -116,7 +116,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          entity: \Core\Domain\Model\Extension\Extension
+          entity: \Ivoz\Domain\Model\Extension\Extension
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -135,7 +135,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Domain\Model\User\User
+          entity: \Ivoz\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
@@ -183,7 +183,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          entity: \Core\Domain\Model\Extension\Extension
+          entity: \Ivoz\Domain\Model\Extension\Extension
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -202,7 +202,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Domain\Model\User\User
+          entity: \Ivoz\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:
@@ -218,10 +218,10 @@ production:
       source:
         data: mapper
         config:
-          relation: \Core\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule
+          relation: \Ivoz\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule
           relationProperty: Schedule
           relatedProperty: schedule
-          related: \Core\Domain\Model\Schedule\Schedule
+          related: \Ivoz\Domain\Model\Schedule\Schedule
           filterclass: IvozProvider_Klear_Filter_Company
           relatedFieldName: name
     ExternalCallFilterRelCalendarId:
@@ -230,10 +230,10 @@ production:
       source:
         data: mapper
         config:
-          relation: \Core\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar
+          relation: \Ivoz\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar
           relationProperty: filter
           relatedProperty: calendar
-          related: \Core\Domain\Model\Calendar\Calendar
+          related: \Ivoz\Domain\Model\Calendar\Calendar
           relatedFieldName: name
           filterclass: IvozProvider_Klear_Filter_Company
     holidayTarget:

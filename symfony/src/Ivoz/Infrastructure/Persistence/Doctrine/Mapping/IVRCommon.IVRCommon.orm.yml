@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\IVRCommon\IVRCommon:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\IVRCommonDoctrineRepository
+  type: entity
+  table: IVRCommon
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

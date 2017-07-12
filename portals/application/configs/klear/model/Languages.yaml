@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Languages
-  entity: Core\Domain\Model\Language\Language
+  entity: Ivoz\Domain\Model\Language\Language
   fields: 
     iden:
       title: ngettext('Iden', 'Idens', 1)

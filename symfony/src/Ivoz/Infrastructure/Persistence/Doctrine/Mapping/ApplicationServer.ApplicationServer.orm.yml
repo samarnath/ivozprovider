@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\ApplicationServer\ApplicationServer:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ApplicationServerDoctrineRepository
+  type: entity
+  table: ApplicationServers
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

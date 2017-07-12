@@ -273,7 +273,7 @@ interface VoicemailInterface
     /**
      * Get user
      *
-     * @return \Core\Domain\Model\User\UserInterface
+     * @return \Ivoz\Domain\Model\User\UserInterface
      */
     public function getUser();
 

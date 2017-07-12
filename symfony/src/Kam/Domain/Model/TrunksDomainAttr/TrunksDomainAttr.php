@@ -26,18 +26,10 @@ class TrunksDomainAttr extends TrunksDomainAttrAbstract implements TrunksDomainA
     /**
      * Constructor
      */
-    public function __construct(
-        $did,
-        $name,
-        $type,
-        $value,
-        $lastModified
-    ) {
-        $this->setDid($did);
-        $this->setName($name);
-        $this->setType($type);
-        $this->setValue($value);
-        $this->setLastModified($lastModified);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -66,14 +58,7 @@ class TrunksDomainAttr extends TrunksDomainAttrAbstract implements TrunksDomainA
         /**
          * @var $dto TrunksDomainAttrDTO
          */
-        Assertion::isInstanceOf($dto, TrunksDomainAttrDTO::class);
-
-        $self = new self(
-            $dto->getDid(),
-            $dto->getName(),
-            $dto->getType(),
-            $dto->getValue(),
-            $dto->getLastModified());
+        $self = parent::fromDTO($dto);
 
         return $self;
     }
@@ -87,16 +72,9 @@ class TrunksDomainAttr extends TrunksDomainAttrAbstract implements TrunksDomainA
         /**
          * @var $dto TrunksDomainAttrDTO
          */
-        Assertion::isInstanceOf($dto, TrunksDomainAttrDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setDid($dto->getDid())
-            ->setName($dto->getName())
-            ->setType($dto->getType())
-            ->setValue($dto->getValue())
-            ->setLastModified($dto->getLastModified());
-
-
+        
         return $this;
     }
 
@@ -105,12 +83,8 @@ class TrunksDomainAttr extends TrunksDomainAttrAbstract implements TrunksDomainA
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setDid($this->getDid())
-            ->setName($this->getName())
-            ->setType($this->getType())
-            ->setValue($this->getValue())
-            ->setLastModified($this->getLastModified())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -119,12 +93,7 @@ class TrunksDomainAttr extends TrunksDomainAttrAbstract implements TrunksDomainA
      */
     protected function __toArray()
     {
-        return [
-            'did' => $this->getDid(),
-            'name' => $this->getName(),
-            'type' => $this->getType(),
-            'value' => $this->getValue(),
-            'lastModified' => $this->getLastModified(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\PeerServer\PeerServer:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\PeerServerDoctrineRepository
+  type: entity
+  table: PeerServers
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

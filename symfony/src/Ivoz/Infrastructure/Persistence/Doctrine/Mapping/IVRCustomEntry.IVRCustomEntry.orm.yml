@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\IVRCustomEntry\IVRCustomEntry:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\IVRCustomEntryDoctrineRepository
+  type: entity
+  table: IVRCustomEntries
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

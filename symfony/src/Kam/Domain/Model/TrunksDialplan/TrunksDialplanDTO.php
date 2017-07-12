@@ -14,11 +14,6 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @var integer
-     */
     private $dpid;
 
     /**
@@ -57,6 +52,11 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     private $attrs;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $transformationRulesetGroupsTrunkId;
@@ -72,7 +72,6 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'dpid' => $this->getDpid(),
             'pr' => $this->getPr(),
             'matchOp' => $this->getMatchOp(),
@@ -81,6 +80,7 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
             'substExp' => $this->getSubstExp(),
             'replExp' => $this->getReplExp(),
             'attrs' => $this->getAttrs(),
+            'id' => $this->getId(),
             'transformationRulesetGroupsTrunkId' => $this->getTransformationRulesetGroupsTrunkId()
         ];
     }
@@ -90,7 +90,7 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->transformationRulesetGroupsTrunk = $transformer->transform('Core\\Domain\\Model\\TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunk', $this->getTransformationRulesetGroupsTrunkId());
+        $this->transformationRulesetGroupsTrunk = $transformer->transform('Ivoz\\Domain\\Model\\TransformationRulesetGroupsTrunk\\TransformationRulesetGroupsTrunk', $this->getTransformationRulesetGroupsTrunkId());
     }
 
     /**
@@ -99,26 +99,6 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TrunksDialplanDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -282,6 +262,26 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return TrunksDialplanDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $transformationRulesetGroupsTrunkId
      *
      * @return TrunksDialplanDTO
@@ -302,7 +302,7 @@ class TrunksDialplanDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+     * @return \Ivoz\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
      */
     public function getTransformationRulesetGroupsTrunk()
     {

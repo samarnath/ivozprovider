@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\Extension\Extension:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ExtensionDoctrineRepository
+  type: entity
+  table: Extensions
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -1,0 +1,33 @@
+Ivoz\Domain\Model\FriendsPattern\FriendsPatternAbstract:
+  type: mappedSuperclass
+  indexes:
+    friendId:
+      columns:
+        - friendId
+  fields:
+    name:
+      column: name
+      type: string
+      nullable: false
+      length: 50
+      options:
+        fixed: false
+    regExp:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        fixed: false
+      column: regExp
+  manyToOne:
+    friend:
+      targetEntity: \Ivoz\Domain\Model\Friend\FriendInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        friendId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

@@ -38,7 +38,7 @@ Kam\Domain\Model\Rtpproxy\RtpproxyAbstract:
         fixed: false
   manyToOne:
     mediaRelaySet:
-      targetEntity: \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
+      targetEntity: \Ivoz\Domain\Model\MediaRelaySet\MediaRelaySetInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

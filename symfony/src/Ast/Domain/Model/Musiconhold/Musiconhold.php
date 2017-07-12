@@ -26,9 +26,10 @@ class Musiconhold extends MusiconholdAbstract implements MusiconholdInterface, E
     /**
      * Constructor
      */
-    public function __construct($name)
+    public function __construct()
     {
-        $this->setName($name);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -57,20 +58,9 @@ class Musiconhold extends MusiconholdAbstract implements MusiconholdInterface, E
         /**
          * @var $dto MusiconholdDTO
          */
-        Assertion::isInstanceOf($dto, MusiconholdDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getName());
-
-        return $self
-            ->setMode($dto->getMode())
-            ->setDirectory($dto->getDirectory())
-            ->setApplication($dto->getApplication())
-            ->setDigit($dto->getDigit())
-            ->setSort($dto->getSort())
-            ->setFormat($dto->getFormat())
-            ->setStamp($dto->getStamp())
-        ;
+        return $self;
     }
 
     /**
@@ -82,19 +72,9 @@ class Musiconhold extends MusiconholdAbstract implements MusiconholdInterface, E
         /**
          * @var $dto MusiconholdDTO
          */
-        Assertion::isInstanceOf($dto, MusiconholdDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setName($dto->getName())
-            ->setMode($dto->getMode())
-            ->setDirectory($dto->getDirectory())
-            ->setApplication($dto->getApplication())
-            ->setDigit($dto->getDigit())
-            ->setSort($dto->getSort())
-            ->setFormat($dto->getFormat())
-            ->setStamp($dto->getStamp());
-
-
+        
         return $this;
     }
 
@@ -103,15 +83,8 @@ class Musiconhold extends MusiconholdAbstract implements MusiconholdInterface, E
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setName($this->getName())
-            ->setMode($this->getMode())
-            ->setDirectory($this->getDirectory())
-            ->setApplication($this->getApplication())
-            ->setDigit($this->getDigit())
-            ->setSort($this->getSort())
-            ->setFormat($this->getFormat())
-            ->setStamp($this->getStamp())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -120,15 +93,7 @@ class Musiconhold extends MusiconholdAbstract implements MusiconholdInterface, E
      */
     protected function __toArray()
     {
-        return [
-            'name' => $this->getName(),
-            'mode' => $this->getMode(),
-            'directory' => $this->getDirectory(),
-            'application' => $this->getApplication(),
-            'digit' => $this->getDigit(),
-            'sort' => $this->getSort(),
-            'format' => $this->getFormat(),
-            'stamp' => $this->getStamp(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\Faxes
-  entity: Core\Domain\Model\Fax\Fax
+  entity: Ivoz\Domain\Model\Fax\Fax
   fields: 
     company:
       title: _('Company id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name
@@ -53,7 +53,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\DDIs
-          entity: \Core\Domain\Model\DDI\DDI
+          entity: \Ivoz\Domain\Model\DDI\DDI
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName: 
             fields: 

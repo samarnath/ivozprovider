@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\FeaturesRelCompanies
-  entity: Core\Domain\Model\FeaturesRelCompany\FeaturesRelCompany
+  entity: Ivoz\Domain\Model\FeaturesRelCompany\FeaturesRelCompany
   fields: 
     company:
       title: _('Companyid')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name
@@ -26,7 +26,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Features
-          entity: \Core\Domain\Model\Terminal\Feature\Feature
+          entity: \Ivoz\Domain\Model\Terminal\Feature\Feature
           fieldName: 
             fields: 
               - name

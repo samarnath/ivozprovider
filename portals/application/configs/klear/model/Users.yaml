@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\Users
-  entity: Core\Domain\Model\User\User
+  entity: Ivoz\Domain\Model\User\User
   fields:
     company:
       title: _('Company')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName:
             fields:
               - name
@@ -68,7 +68,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          entity: \Core\Domain\Model\Timezone\Timezone
+          entity: \Ivoz\Domain\Model\Timezone\Timezone
           fieldName:
             fields:
               - tz
@@ -82,7 +82,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Terminals
-          entity: \Core\Domain\Model\Terminal\Terminal
+          entity: \Ivoz\Domain\Model\Terminal\Terminal
           filterclass: IvozProvider_Klear_Filter_Terminals
           fieldName:
             fields:
@@ -98,7 +98,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          entity: \Core\Domain\Model\Extension\Extension
+          entity: \Ivoz\Domain\Model\Extension\Extension
           filterclass: IvozProvider_Klear_Filter_Extensions
           fieldName:
             fields:
@@ -114,7 +114,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\DDIs
-          entity: \Core\Domain\Model\DDI\DDI
+          entity: \Ivoz\Domain\Model\DDI\DDI
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -130,7 +130,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\CallACL
-          entity: \Core\Domain\Model\CallACL\CallACL
+          entity: \Ivoz\Domain\Model\CallACL\CallACL
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -174,7 +174,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Domain\Model\User\User
+          entity: \Ivoz\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Bossassistant
           fieldName:
             fields:
@@ -261,10 +261,10 @@ production:
         config:
           extraDataAttributes:
             company: companyId
-          relation: \Core\Domain\Model\PickUpRelUser\PickUpRelUser
+          relation: \Ivoz\Domain\Model\PickUpRelUser\PickUpRelUser
           relationProperty: user
           relatedProperty: pickUpGroup
-          related: \Core\Domain\Model\PickUpGroup\PickUpGroup
+          related: \Ivoz\Domain\Model\PickUpGroup\PickUpGroup
           relatedFieldName: name
           filterclass: IvozProvider_Klear_Filter_Company
     country:
@@ -274,7 +274,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Countries
-          entity: \Core\Domain\Model\Country\Country
+          entity: \Ivoz\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
@@ -302,7 +302,7 @@ production:
       data: mapper
       config:
 #        mapperName: \IvozProvider\Mapper\Sql\HuntGroupsRelUsers
-        entity: \Core\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUser
+        entity: \Ivoz\Domain\Model\HuntGroupsRelUser\HuntGroupsRelUser
         filterField: HuntGroupsRelUser.User
         showAsTable: true
         fieldName:
@@ -310,7 +310,7 @@ production:
             huntGroup:
               title: _("Hunt group")
 #              mapperName: \IvozProvider\Mapper\Sql\HuntGroups
-              entity: \Core\Domain\Model\HuntGroup\HuntGroup
+              entity: \Ivoz\Domain\Model\HuntGroup\HuntGroup
               field:
                 - name
               pattern: "%name%"
@@ -335,7 +335,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Languages
-          entity: \Core\Domain\Model\Language\Language
+          entity: \Ivoz\Domain\Model\Language\Language
           fieldName:
             fields:
               - name

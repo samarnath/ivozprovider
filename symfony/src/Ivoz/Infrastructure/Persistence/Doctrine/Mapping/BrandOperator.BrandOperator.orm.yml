@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\BrandOperator\BrandOperator:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\BrandOperatorDoctrineRepository
+  type: entity
+  table: BrandOperators
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\IVRCustomEntries
-  entity: Core\Domain\Model\IVRCustomEntry\IVRCustomEntry
+  entity: Ivoz\Domain\Model\IVRCustomEntry\IVRCustomEntry
   fields:
     IVRCustom:
       title: _('I v r custom id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\IVRCustom
-          entity: \Core\Domain\Model\IVRCustom\IVRCustom
+          entity: \Ivoz\Domain\Model\IVRCustom\IVRCustom
           fieldName:
             fields:
               - name
@@ -36,7 +36,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Locutions
-          entity: \Core\Domain\Model\Locution\Locution
+          entity: \Ivoz\Domain\Model\Locution\Locution
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -80,7 +80,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Extensions
-          entity: \Core\Domain\Model\Extension\Extension
+          entity: \Ivoz\Domain\Model\Extension\Extension
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -97,7 +97,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Users
-          entity: \Core\Domain\Model\User\User
+          entity: \Ivoz\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Voicemail
           fieldName:
             fields:

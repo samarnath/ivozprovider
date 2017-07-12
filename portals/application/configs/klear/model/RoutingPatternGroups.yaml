@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\RoutingPatternGroups
-  entity: Core\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
+  entity: Ivoz\Domain\Model\RoutingPatternGroup\RoutingPatternGroup
   fields: 
     name:
       title: ngettext('Name', 'Names', 1)
@@ -20,7 +20,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Domain\Model\Brand\Brand
+          entity: \Ivoz\Domain\Model\Brand\Brand
           fieldName: 
             fields: 
               - name
@@ -35,10 +35,10 @@ production:
         config:
           extraDataAttributes:
             brand: brandId
-          relation:  \Core\Domain\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern
+          relation:  \Ivoz\Domain\Model\RoutingPatternGroupsRelPattern\RoutingPatternGroupsRelPattern
           relationProperty: routingPatternGroup
           relatedProperty: routingPattern
-          related: \Core\Domain\Model\RoutingPattern\RoutingPattern
+          related: \Ivoz\Domain\Model\RoutingPattern\RoutingPattern
           relatedFieldName:
             fields:
               - name

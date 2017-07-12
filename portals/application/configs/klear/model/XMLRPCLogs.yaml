@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\XMLRPCLogs
-  entity: Core\Domain\Model\XMLRPCLog\XMLRPCLog
+  entity: Ivoz\Domain\Model\XMLRPCLog\XMLRPCLog
   fields: 
     proxy:
       title: _('Proxy')

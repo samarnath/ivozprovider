@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class PsAorDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $sorceryId;
@@ -67,12 +62,16 @@ class PsAorDTO implements DataTransferObjectInterface
     private $qualifyFrequency;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'sorceryId' => $this->getSorceryId(),
             'defaultExpiration' => $this->getDefaultExpiration(),
             'maxContacts' => $this->getMaxContacts(),
@@ -82,7 +81,8 @@ class PsAorDTO implements DataTransferObjectInterface
             'maximumExpiration' => $this->getMaximumExpiration(),
             'supportPath' => $this->getSupportPath(),
             'contact' => $this->getContact(),
-            'qualifyFrequency' => $this->getQualifyFrequency()
+            'qualifyFrequency' => $this->getQualifyFrequency(),
+            'id' => $this->getId()
         ];
     }
 
@@ -100,26 +100,6 @@ class PsAorDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return PsAorDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -320,6 +300,26 @@ class PsAorDTO implements DataTransferObjectInterface
     public function getQualifyFrequency()
     {
         return $this->qualifyFrequency;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return PsAorDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

@@ -14,11 +14,6 @@ class QueueDTO implements DataTransferObjectInterface
     /**
      * @var string
      */
-    private $name;
-
-    /**
-     * @var string
-     */
     private $periodicAnnounce;
 
     /**
@@ -62,6 +57,11 @@ class QueueDTO implements DataTransferObjectInterface
     private $weight;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
      * @var mixed
      */
     private $queueId;
@@ -77,7 +77,6 @@ class QueueDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'name' => $this->getName(),
             'periodicAnnounce' => $this->getPeriodicAnnounce(),
             'periodicAnnounceFrequency' => $this->getPeriodicAnnounceFrequency(),
             'timeout' => $this->getTimeout(),
@@ -87,6 +86,7 @@ class QueueDTO implements DataTransferObjectInterface
             'maxlen' => $this->getMaxlen(),
             'strategy' => $this->getStrategy(),
             'weight' => $this->getWeight(),
+            'name' => $this->getName(),
             'queueId' => $this->getQueueId()
         ];
     }
@@ -96,7 +96,7 @@ class QueueDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->queue = $transformer->transform('Core\\Domain\\Model\\Queue\\Queue', $this->getQueueId());
+        $this->queue = $transformer->transform('Ivoz\\Domain\\Model\\Queue\\Queue', $this->getQueueId());
     }
 
     /**
@@ -105,26 +105,6 @@ class QueueDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return QueueDTO
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -308,6 +288,26 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param string $name
+     *
+     * @return QueueDTO
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * @param integer $queueId
      *
      * @return QueueDTO
@@ -328,7 +328,7 @@ class QueueDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Queue\Queue
+     * @return \Ivoz\Domain\Model\Queue\Queue
      */
     public function getQueue()
     {

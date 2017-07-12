@@ -26,10 +26,10 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
     /**
      * Constructor
      */
-    public function __construct($context, $mailbox)
+    public function __construct()
     {
-        $this->setContext($context);
-        $this->setMailbox($mailbox);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -58,46 +58,9 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
         /**
          * @var $dto VoicemailDTO
          */
-        Assertion::isInstanceOf($dto, VoicemailDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getContext(),
-            $dto->getMailbox());
-
-        return $self
-            ->setPassword($dto->getPassword())
-            ->setFullname($dto->getFullname())
-            ->setAlias($dto->getAlias())
-            ->setEmail($dto->getEmail())
-            ->setPager($dto->getPager())
-            ->setAttach($dto->getAttach())
-            ->setAttachfmt($dto->getAttachfmt())
-            ->setServeremail($dto->getServeremail())
-            ->setLanguage($dto->getLanguage())
-            ->setTz($dto->getTz())
-            ->setDeleteVoicemail($dto->getDeleteVoicemail())
-            ->setSaycid($dto->getSaycid())
-            ->setSendVoicemail($dto->getSendVoicemail())
-            ->setReview($dto->getReview())
-            ->setTempgreetwarn($dto->getTempgreetwarn())
-            ->setOperator($dto->getOperator())
-            ->setEnvelope($dto->getEnvelope())
-            ->setSayduration($dto->getSayduration())
-            ->setForcename($dto->getForcename())
-            ->setForcegreetings($dto->getForcegreetings())
-            ->setCallback($dto->getCallback())
-            ->setDialout($dto->getDialout())
-            ->setExitcontext($dto->getExitcontext())
-            ->setMaxmsg($dto->getMaxmsg())
-            ->setVolgain($dto->getVolgain())
-            ->setImapuser($dto->getImapuser())
-            ->setImappassword($dto->getImappassword())
-            ->setImapserver($dto->getImapserver())
-            ->setImapport($dto->getImapport())
-            ->setImapflags($dto->getImapflags())
-            ->setStamp($dto->getStamp())
-            ->setUser($dto->getUser())
-        ;
+        return $self;
     }
 
     /**
@@ -109,45 +72,9 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
         /**
          * @var $dto VoicemailDTO
          */
-        Assertion::isInstanceOf($dto, VoicemailDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setContext($dto->getContext())
-            ->setMailbox($dto->getMailbox())
-            ->setPassword($dto->getPassword())
-            ->setFullname($dto->getFullname())
-            ->setAlias($dto->getAlias())
-            ->setEmail($dto->getEmail())
-            ->setPager($dto->getPager())
-            ->setAttach($dto->getAttach())
-            ->setAttachfmt($dto->getAttachfmt())
-            ->setServeremail($dto->getServeremail())
-            ->setLanguage($dto->getLanguage())
-            ->setTz($dto->getTz())
-            ->setDeleteVoicemail($dto->getDeleteVoicemail())
-            ->setSaycid($dto->getSaycid())
-            ->setSendVoicemail($dto->getSendVoicemail())
-            ->setReview($dto->getReview())
-            ->setTempgreetwarn($dto->getTempgreetwarn())
-            ->setOperator($dto->getOperator())
-            ->setEnvelope($dto->getEnvelope())
-            ->setSayduration($dto->getSayduration())
-            ->setForcename($dto->getForcename())
-            ->setForcegreetings($dto->getForcegreetings())
-            ->setCallback($dto->getCallback())
-            ->setDialout($dto->getDialout())
-            ->setExitcontext($dto->getExitcontext())
-            ->setMaxmsg($dto->getMaxmsg())
-            ->setVolgain($dto->getVolgain())
-            ->setImapuser($dto->getImapuser())
-            ->setImappassword($dto->getImappassword())
-            ->setImapserver($dto->getImapserver())
-            ->setImapport($dto->getImapport())
-            ->setImapflags($dto->getImapflags())
-            ->setStamp($dto->getStamp())
-            ->setUser($dto->getUser());
-
-
+        
         return $this;
     }
 
@@ -156,42 +83,9 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setContext($this->getContext())
-            ->setMailbox($this->getMailbox())
-            ->setPassword($this->getPassword())
-            ->setFullname($this->getFullname())
-            ->setAlias($this->getAlias())
-            ->setEmail($this->getEmail())
-            ->setPager($this->getPager())
-            ->setAttach($this->getAttach())
-            ->setAttachfmt($this->getAttachfmt())
-            ->setServeremail($this->getServeremail())
-            ->setLanguage($this->getLanguage())
-            ->setTz($this->getTz())
-            ->setDeleteVoicemail($this->getDeleteVoicemail())
-            ->setSaycid($this->getSaycid())
-            ->setSendVoicemail($this->getSendVoicemail())
-            ->setReview($this->getReview())
-            ->setTempgreetwarn($this->getTempgreetwarn())
-            ->setOperator($this->getOperator())
-            ->setEnvelope($this->getEnvelope())
-            ->setSayduration($this->getSayduration())
-            ->setForcename($this->getForcename())
-            ->setForcegreetings($this->getForcegreetings())
-            ->setCallback($this->getCallback())
-            ->setDialout($this->getDialout())
-            ->setExitcontext($this->getExitcontext())
-            ->setMaxmsg($this->getMaxmsg())
-            ->setVolgain($this->getVolgain())
-            ->setImapuser($this->getImapuser())
-            ->setImappassword($this->getImappassword())
-            ->setImapserver($this->getImapserver())
-            ->setImapport($this->getImapport())
-            ->setImapflags($this->getImapflags())
-            ->setStamp($this->getStamp())
-            ->setUniqueid($this->getUniqueid())
-            ->setUserId($this->getUser() ? $this->getUser()->getId() : null);
+        $dto = parent::toDTO();
+        return $dto
+            ->setUniqueid($this->getUniqueid());
     }
 
     /**
@@ -199,40 +93,7 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
      */
     protected function __toArray()
     {
-        return [
-            'context' => $this->getContext(),
-            'mailbox' => $this->getMailbox(),
-            'password' => $this->getPassword(),
-            'fullname' => $this->getFullname(),
-            'alias' => $this->getAlias(),
-            'email' => $this->getEmail(),
-            'pager' => $this->getPager(),
-            'attach' => $this->getAttach(),
-            'attachfmt' => $this->getAttachfmt(),
-            'serveremail' => $this->getServeremail(),
-            'language' => $this->getLanguage(),
-            'tz' => $this->getTz(),
-            'deleteVoicemail' => $this->getDeleteVoicemail(),
-            'saycid' => $this->getSaycid(),
-            'sendVoicemail' => $this->getSendVoicemail(),
-            'review' => $this->getReview(),
-            'tempgreetwarn' => $this->getTempgreetwarn(),
-            'operator' => $this->getOperator(),
-            'envelope' => $this->getEnvelope(),
-            'sayduration' => $this->getSayduration(),
-            'forcename' => $this->getForcename(),
-            'forcegreetings' => $this->getForcegreetings(),
-            'callback' => $this->getCallback(),
-            'dialout' => $this->getDialout(),
-            'exitcontext' => $this->getExitcontext(),
-            'maxmsg' => $this->getMaxmsg(),
-            'volgain' => $this->getVolgain(),
-            'imapuser' => $this->getImapuser(),
-            'imappassword' => $this->getImappassword(),
-            'imapserver' => $this->getImapserver(),
-            'imapport' => $this->getImapport(),
-            'imapflags' => $this->getImapflags(),
-            'stamp' => $this->getStamp(),
+        return parent::__toArray() + [
             'uniqueid' => $this->getUniqueid(),
             'userId' => $this->getUser() ? $this->getUser()->getId() : null
         ];
@@ -247,30 +108,6 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
     public function getUniqueid()
     {
         return $this->uniqueid;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \Core\Domain\Model\User\UserInterface $user
-     *
-     * @return self
-     */
-    protected function setUser(\Core\Domain\Model\User\UserInterface $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Core\Domain\Model\User\UserInterface
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
 

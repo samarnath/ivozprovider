@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\TerminalManufacturer\TerminalManufacturer:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\TerminalManufacturerDoctrineRepository
+  type: entity
+  table: TerminalManufacturers
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

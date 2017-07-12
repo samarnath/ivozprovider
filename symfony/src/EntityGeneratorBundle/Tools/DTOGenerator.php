@@ -212,6 +212,181 @@ public function <methodName>()
         return str_replace($this->spaces . '<transformCollections>', $transformCollections, $response);
     }
 
+
+    protected function getConstructorFields(ClassMetadataInfo $metadata)
+    {
+        $constructorArguments = [];
+        $voContructor = [];
+        $requiredSetters = [];
+        $requiredGetters = [];
+        $setters = [];
+        $getters = [];
+        $toArray = [];
+        $updateFrom = [];
+        $fromArray = [];
+
+        $mappings = array_merge($metadata->fieldMappings, $metadata->associationMappings);
+
+        foreach ($mappings as $fieldMapping) {
+            $field = (object) $fieldMapping;
+            $fieldName = $field->fieldName;
+            $attribute = Inflector::camelize($fieldName);
+
+            if (!array_key_exists('options', $fieldMapping)) {
+                $fieldMapping['options'] = null;
+            }
+            $options  = (object) $fieldMapping['options'];
+
+            //$fromArray[] = $this->getFromArrayMethod($attribute, $fieldName, $field);
+            if (isset($field->targetEntity)) {
+
+                $isOneToMany = ($field->type == ClassMetadataInfo::ONE_TO_MANY);
+                if ($isOneToMany) {
+
+                    $updateFrom[] =
+                        'replace'
+                        . Inflector::classify($fieldName)
+                        . '($dto->get' . Inflector::classify($fieldName)
+                        . '())';
+                    $setters[$attribute] = 'replace'
+                        . Inflector::classify($fieldName)
+                        . '($dto->get'
+                        . Inflector::classify($fieldName)
+                        . '())';
+
+                } else {
+
+                    $updateFrom[] = 'set' . Inflector::classify($fieldName)
+                        . '($dto->get' . Inflector::classify($fieldName) . '())';
+                    $setters[$attribute] = 'set' . Inflector::classify($fieldName)
+                        . '($dto->get' . Inflector::classify($fieldName) . '())';
+                }
+
+                list($associationToArray, $associationGetterAs) = $this
+                    ->getConstructorAssociationFields($attribute, $fieldName, $isOneToMany);
+
+                if (!is_null($associationToArray)) {
+                    $toArray[] = $associationToArray;
+                }
+
+                $getters[$attribute] = $associationGetterAs;
+
+                continue;
+            }
+
+            if (strpos($fieldName, '.')) {
+
+                $segments = explode('.', $fieldName);
+                $options = $fieldMapping['options'];
+                $comment = array_key_exists('comment', $options)
+                    ? $options['comment']
+                    : '';
+
+                $isMl = stripos($comment, '[ml]') !== false;
+                $isFso = stripos($comment, '[fso') !== false;
+                $ignorableFld = $segments[0] === $segments[1];
+
+                $addVoContructor = ($isMl && $ignorableFld) || $isFso;
+
+                if ($addVoContructor) {
+
+                    $varName = $segments[0];
+                    if (!array_key_exists($varName, $voContructor)) {
+                        $voContructor[$varName] = [];
+                    }
+                    $voContructor[$varName][] = $this->getVoConstructor($varName, $metadata->fieldMappings);
+                }
+
+                $toArray[] =$this->embeddedToArrayGetter($segments);
+                $setterMethod = 'set' . Inflector::classify($segments[0]);
+                if ($segments[0] !== $segments[1]) {
+                    $setterMethod .= Inflector::classify($segments[1]);
+                }
+
+                $getters[$segments[1]] =
+                    $setterMethod
+                    . '($this->get'
+                    . Inflector::classify($segments[0])
+                    . '()->get'
+                    . Inflector::classify($segments[1])
+                    . '()'
+                    . ')';
+
+                if ((isset($field->id) && $field->id) || isset($options->defaultValue)) {
+                    continue;
+                }
+
+                $updateFrom[$segments[0]] =
+                    'set'
+                    . Inflector::classify($segments[0])
+                    . '($' . $segments[0] . ')';
+
+            } else {
+
+                $toArray[]  = '\''. $attribute .'\' => $this->get' . Inflector::classify($fieldName) . '()';
+                $getters[$attribute] = 'set' . Inflector::classify($fieldName)
+                    . '($this->get' . Inflector::classify($fieldName) . '())';
+
+                if ((isset($field->id) && $field->id) || isset($options->defaultValue)) {
+                    continue;
+                }
+
+                $updateFrom[] = 'set' . Inflector::classify($fieldName)
+                    . '($dto->get' . Inflector::classify($fieldName) . '())';
+
+                if (isset($field->nullable) && $field->nullable && !$metadata->isEmbeddedClass) {
+                    $setters[$attribute] = 'set' . Inflector::classify($fieldName)
+                        . '($dto->get' . Inflector::classify($fieldName) . '())';
+                    continue;
+                }
+            }
+
+            if (array_key_exists('originalClass', $fieldMapping)) {
+                $class = substr($fieldMapping['originalClass'], strrpos($fieldMapping['originalClass'], '\\') + 1);
+
+                $declaredField = $fieldMapping['declaredField'];
+                $attribute = $class . ' $' . $declaredField;
+
+                $setter = 'set' . Inflector::classify($declaredField) . '($'. $declaredField .');';
+                if (end($requiredSetters) !== $setter) {
+                    $requiredSetters[$attribute] = $setter;
+                }
+            } else {
+
+                $setter = 'set' . Inflector::classify($fieldName) . '($'. $attribute .');';
+                $getter = 'get' . Inflector::classify($fieldName) . '()';
+                $requiredSetters[$attribute] = $setter;
+                $requiredGetters[$attribute] = $getter;
+
+                if ($field->type[0] === '\\') {
+                    $class = substr($field->type, strrpos($field->type, '\\') + 1);
+                    $attribute = $class. ' $' . $attribute;
+                } else {
+                    $attribute = '$' . $attribute;
+                }
+            }
+
+            if (end($constructorArguments) === $attribute) {
+                continue;
+            }
+
+            $constructorArguments[] = $attribute;
+        }
+
+        return array(
+            $constructorArguments,
+            $voContructor,
+            $requiredSetters,
+            $requiredGetters,
+            $setters,
+            $getters,
+            $toArray,
+            $updateFrom,
+            $fromArray
+        );
+    }
+
+
     /**
      * @param $segments
      * @param $toArray

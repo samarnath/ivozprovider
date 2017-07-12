@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersLocationDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $ruid = '';
@@ -127,12 +122,16 @@ class UsersLocationDTO implements DataTransferObjectInterface
     private $partition = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'ruid' => $this->getRuid(),
             'username' => $this->getUsername(),
             'domain' => $this->getDomain(),
@@ -154,7 +153,8 @@ class UsersLocationDTO implements DataTransferObjectInterface
             'serverId' => $this->getServerId(),
             'connectionId' => $this->getConnectionId(),
             'keepalive' => $this->getKeepalive(),
-            'partition' => $this->getPartition()
+            'partition' => $this->getPartition(),
+            'id' => $this->getId()
         ];
     }
 
@@ -172,26 +172,6 @@ class UsersLocationDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersLocationDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -632,6 +612,26 @@ class UsersLocationDTO implements DataTransferObjectInterface
     public function getPartition()
     {
         return $this->partition;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersLocationDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

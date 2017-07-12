@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class PsEndpointDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $sorceryId;
@@ -102,6 +97,11 @@ class PsEndpointDTO implements DataTransferObjectInterface
     private $trustIdInbound;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $terminalId;
@@ -137,7 +137,6 @@ class PsEndpointDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'sorceryId' => $this->getSorceryId(),
             'fromDomain' => $this->getFromDomain(),
             'aors' => $this->getAors(),
@@ -155,6 +154,7 @@ class PsEndpointDTO implements DataTransferObjectInterface
             'oneHundredRel' => $this->getOneHundredRel(),
             'outboundProxy' => $this->getOutboundProxy(),
             'trustIdInbound' => $this->getTrustIdInbound(),
+            'id' => $this->getId(),
             'terminalId' => $this->getTerminalId(),
             'friendId' => $this->getFriendId(),
             'retailAccountId' => $this->getRetailAccountId()
@@ -166,9 +166,9 @@ class PsEndpointDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->terminal = $transformer->transform('Core\\Domain\\Model\\Terminal\\Terminal', $this->getTerminalId());
-        $this->friend = $transformer->transform('Core\\Domain\\Model\\Friend\\Friend', $this->getFriendId());
-        $this->retailAccount = $transformer->transform('Core\\Domain\\Model\\RetailAccount\\RetailAccount', $this->getRetailAccountId());
+        $this->terminal = $transformer->transform('Ivoz\\Domain\\Model\\Terminal\\Terminal', $this->getTerminalId());
+        $this->friend = $transformer->transform('Ivoz\\Domain\\Model\\Friend\\Friend', $this->getFriendId());
+        $this->retailAccount = $transformer->transform('Ivoz\\Domain\\Model\\RetailAccount\\RetailAccount', $this->getRetailAccountId());
     }
 
     /**
@@ -177,26 +177,6 @@ class PsEndpointDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return PsEndpointDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -540,6 +520,26 @@ class PsEndpointDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return PsEndpointDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $terminalId
      *
      * @return PsEndpointDTO
@@ -560,7 +560,7 @@ class PsEndpointDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Terminal\Terminal
+     * @return \Ivoz\Domain\Model\Terminal\Terminal
      */
     public function getTerminal()
     {
@@ -588,7 +588,7 @@ class PsEndpointDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Friend\Friend
+     * @return \Ivoz\Domain\Model\Friend\Friend
      */
     public function getFriend()
     {
@@ -616,7 +616,7 @@ class PsEndpointDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\RetailAccount\RetailAccount
+     * @return \Ivoz\Domain\Model\RetailAccount\RetailAccount
      */
     public function getRetailAccount()
     {

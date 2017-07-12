@@ -26,26 +26,10 @@ class UsersPresentity extends UsersPresentityAbstract implements UsersPresentity
     /**
      * Constructor
      */
-    public function __construct(
-        $username,
-        $domain,
-        $event,
-        $etag,
-        $expires,
-        $receivedTime,
-        $body,
-        $sender,
-        $priority
-    ) {
-        $this->setUsername($username);
-        $this->setDomain($domain);
-        $this->setEvent($event);
-        $this->setEtag($etag);
-        $this->setExpires($expires);
-        $this->setReceivedTime($receivedTime);
-        $this->setBody($body);
-        $this->setSender($sender);
-        $this->setPriority($priority);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -74,18 +58,7 @@ class UsersPresentity extends UsersPresentityAbstract implements UsersPresentity
         /**
          * @var $dto UsersPresentityDTO
          */
-        Assertion::isInstanceOf($dto, UsersPresentityDTO::class);
-
-        $self = new self(
-            $dto->getUsername(),
-            $dto->getDomain(),
-            $dto->getEvent(),
-            $dto->getEtag(),
-            $dto->getExpires(),
-            $dto->getReceivedTime(),
-            $dto->getBody(),
-            $dto->getSender(),
-            $dto->getPriority());
+        $self = parent::fromDTO($dto);
 
         return $self;
     }
@@ -99,20 +72,9 @@ class UsersPresentity extends UsersPresentityAbstract implements UsersPresentity
         /**
          * @var $dto UsersPresentityDTO
          */
-        Assertion::isInstanceOf($dto, UsersPresentityDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setUsername($dto->getUsername())
-            ->setDomain($dto->getDomain())
-            ->setEvent($dto->getEvent())
-            ->setEtag($dto->getEtag())
-            ->setExpires($dto->getExpires())
-            ->setReceivedTime($dto->getReceivedTime())
-            ->setBody($dto->getBody())
-            ->setSender($dto->getSender())
-            ->setPriority($dto->getPriority());
-
-
+        
         return $this;
     }
 
@@ -121,16 +83,8 @@ class UsersPresentity extends UsersPresentityAbstract implements UsersPresentity
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setUsername($this->getUsername())
-            ->setDomain($this->getDomain())
-            ->setEvent($this->getEvent())
-            ->setEtag($this->getEtag())
-            ->setExpires($this->getExpires())
-            ->setReceivedTime($this->getReceivedTime())
-            ->setBody($this->getBody())
-            ->setSender($this->getSender())
-            ->setPriority($this->getPriority())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -139,16 +93,7 @@ class UsersPresentity extends UsersPresentityAbstract implements UsersPresentity
      */
     protected function __toArray()
     {
-        return [
-            'username' => $this->getUsername(),
-            'domain' => $this->getDomain(),
-            'event' => $this->getEvent(),
-            'etag' => $this->getEtag(),
-            'expires' => $this->getExpires(),
-            'receivedTime' => $this->getReceivedTime(),
-            'body' => $this->getBody(),
-            'sender' => $this->getSender(),
-            'priority' => $this->getPriority(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

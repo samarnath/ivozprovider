@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\FriendsPatterns
-  entity: Core\Domain\Model\FriendsPattern\FriendsPattern
+  entity: Ivoz\Domain\Model\FriendsPattern\FriendsPattern
   fields: 
     friend:
       title: _('Friendid')

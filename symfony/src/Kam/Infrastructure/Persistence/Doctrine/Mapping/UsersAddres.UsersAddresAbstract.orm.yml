@@ -45,7 +45,7 @@ Kam\Domain\Model\UsersAddres\UsersAddresAbstract:
         fixed: false
   manyToOne:
     company:
-      targetEntity: \Core\Domain\Model\Company\CompanyInterface
+      targetEntity: \Ivoz\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

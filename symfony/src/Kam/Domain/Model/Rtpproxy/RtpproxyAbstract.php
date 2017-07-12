@@ -36,7 +36,7 @@ abstract class RtpproxyAbstract
     protected $description;
 
     /**
-     * @var \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
+     * @var \Ivoz\Domain\Model\MediaRelaySet\MediaRelaySetInterface
      */
     protected $mediaRelaySet;
 
@@ -47,7 +47,103 @@ abstract class RtpproxyAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct($setid, $url, $flags, $weight)
+    {
+        $this->setSetid($setid);
+        $this->setUrl($url);
+        $this->setFlags($flags);
+        $this->setWeight($weight);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return RtpproxyDTO
+     */
+    public static function createDTO()
+    {
+        return new RtpproxyDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto RtpproxyDTO
+         */
+        Assertion::isInstanceOf($dto, RtpproxyDTO::class);
+
+        $self = new static(
+            $dto->getSetid(),
+            $dto->getUrl(),
+            $dto->getFlags(),
+            $dto->getWeight());
+
+        return $self
+            ->setDescription($dto->getDescription())
+            ->setMediaRelaySet($dto->getMediaRelaySet())
+        ;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto RtpproxyDTO
+         */
+        Assertion::isInstanceOf($dto, RtpproxyDTO::class);
+
+        $this
+            ->setSetid($dto->getSetid())
+            ->setUrl($dto->getUrl())
+            ->setFlags($dto->getFlags())
+            ->setWeight($dto->getWeight())
+            ->setDescription($dto->getDescription())
+            ->setMediaRelaySet($dto->getMediaRelaySet());
+
+
+        return $this;
+    }
+
+    /**
+     * @return RtpproxyDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setSetid($this->getSetid())
+            ->setUrl($this->getUrl())
+            ->setFlags($this->getFlags())
+            ->setWeight($this->getWeight())
+            ->setDescription($this->getDescription())
+            ->setMediaRelaySetId($this->getMediaRelaySet() ? $this->getMediaRelaySet()->getId() : null);
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'setid' => $this->getSetid(),
+            'url' => $this->getUrl(),
+            'flags' => $this->getFlags(),
+            'weight' => $this->getWeight(),
+            'description' => $this->getDescription(),
+            'mediaRelaySetId' => $this->getMediaRelaySet() ? $this->getMediaRelaySet()->getId() : null
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 
@@ -192,11 +288,11 @@ abstract class RtpproxyAbstract
     /**
      * Set mediaRelaySet
      *
-     * @param \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet
+     * @param \Ivoz\Domain\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet
      *
      * @return self
      */
-    protected function setMediaRelaySet(\Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet = null)
+    protected function setMediaRelaySet(\Ivoz\Domain\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet = null)
     {
         $this->mediaRelaySet = $mediaRelaySet;
 
@@ -206,7 +302,7 @@ abstract class RtpproxyAbstract
     /**
      * Get mediaRelaySet
      *
-     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
+     * @return \Ivoz\Domain\Model\MediaRelaySet\MediaRelaySetInterface
      */
     public function getMediaRelaySet()
     {

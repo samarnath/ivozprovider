@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\QueueMember\QueueMember:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\QueueMemberDoctrineRepository
+  type: entity
+  table: QueueMembers
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

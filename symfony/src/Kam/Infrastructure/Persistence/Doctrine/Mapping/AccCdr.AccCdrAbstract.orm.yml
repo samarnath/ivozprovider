@@ -206,7 +206,7 @@ Kam\Domain\Model\AccCdr\AccCdrAbstract:
       column: reMeteringDate
   manyToOne:
     pricingPlan:
-      targetEntity: \Core\Domain\Model\PricingPlan\PricingPlanInterface
+      targetEntity: \Ivoz\Domain\Model\PricingPlan\PricingPlanInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -216,7 +216,7 @@ Kam\Domain\Model\AccCdr\AccCdrAbstract:
           referencedColumnName: id
       orphanRemoval: false
     targetPattern:
-      targetEntity: \Core\Domain\Model\TargetPattern\TargetPatternInterface
+      targetEntity: \Ivoz\Domain\Model\TargetPattern\TargetPatternInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -226,7 +226,7 @@ Kam\Domain\Model\AccCdr\AccCdrAbstract:
           referencedColumnName: id
       orphanRemoval: false
     invoice:
-      targetEntity: \Core\Domain\Model\Invoice\InvoiceInterface
+      targetEntity: \Ivoz\Domain\Model\Invoice\InvoiceInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -236,7 +236,7 @@ Kam\Domain\Model\AccCdr\AccCdrAbstract:
           referencedColumnName: id
       orphanRemoval: false
     brand:
-      targetEntity: \Core\Domain\Model\Brand\BrandInterface
+      targetEntity: \Ivoz\Domain\Model\Brand\BrandInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -246,7 +246,7 @@ Kam\Domain\Model\AccCdr\AccCdrAbstract:
           referencedColumnName: id
       orphanRemoval: false
     company:
-      targetEntity: \Core\Domain\Model\Company\CompanyInterface
+      targetEntity: \Ivoz\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

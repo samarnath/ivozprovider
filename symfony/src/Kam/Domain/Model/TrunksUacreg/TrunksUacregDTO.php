@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class TrunksUacregDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $lUuid = '';
@@ -82,6 +77,11 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     private $multiddi = '0';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $brandId;
@@ -107,7 +107,6 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'lUuid' => $this->getLUuid(),
             'lUsername' => $this->getLUsername(),
             'lDomain' => $this->getLDomain(),
@@ -121,6 +120,7 @@ class TrunksUacregDTO implements DataTransferObjectInterface
             'flags' => $this->getFlags(),
             'regDelay' => $this->getRegDelay(),
             'multiddi' => $this->getMultiddi(),
+            'id' => $this->getId(),
             'brandId' => $this->getBrandId(),
             'peeringContractId' => $this->getPeeringContractId()
         ];
@@ -131,8 +131,8 @@ class TrunksUacregDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->brand = $transformer->transform('Core\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
-        $this->peeringContract = $transformer->transform('Core\\Domain\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
+        $this->brand = $transformer->transform('Ivoz\\Domain\\Model\\Brand\\Brand', $this->getBrandId());
+        $this->peeringContract = $transformer->transform('Ivoz\\Domain\\Model\\PeeringContract\\PeeringContract', $this->getPeeringContractId());
     }
 
     /**
@@ -141,26 +141,6 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TrunksUacregDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -424,6 +404,26 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return TrunksUacregDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $brandId
      *
      * @return TrunksUacregDTO
@@ -444,7 +444,7 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Brand\Brand
+     * @return \Ivoz\Domain\Model\Brand\Brand
      */
     public function getBrand()
     {
@@ -472,7 +472,7 @@ class TrunksUacregDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\PeeringContract\PeeringContract
+     * @return \Ivoz\Domain\Model\PeeringContract\PeeringContract
      */
     public function getPeeringContract()
     {

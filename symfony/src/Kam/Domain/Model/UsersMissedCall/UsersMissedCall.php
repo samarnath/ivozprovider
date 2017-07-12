@@ -26,22 +26,10 @@ class UsersMissedCall extends UsersMissedCallAbstract implements UsersMissedCall
     /**
      * Constructor
      */
-    public function __construct(
-        $method,
-        $fromTag,
-        $toTag,
-        $callid,
-        $sipCode,
-        $sipReason,
-        $localtime
-    ) {
-        $this->setMethod($method);
-        $this->setFromTag($fromTag);
-        $this->setToTag($toTag);
-        $this->setCallid($callid);
-        $this->setSipCode($sipCode);
-        $this->setSipReason($sipReason);
-        $this->setLocaltime($localtime);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -70,26 +58,9 @@ class UsersMissedCall extends UsersMissedCallAbstract implements UsersMissedCall
         /**
          * @var $dto UsersMissedCallDTO
          */
-        Assertion::isInstanceOf($dto, UsersMissedCallDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getMethod(),
-            $dto->getFromTag(),
-            $dto->getToTag(),
-            $dto->getCallid(),
-            $dto->getSipCode(),
-            $dto->getSipReason(),
-            $dto->getLocaltime());
-
-        return $self
-            ->setSrcIp($dto->getSrcIp())
-            ->setFromUser($dto->getFromUser())
-            ->setFromDomain($dto->getFromDomain())
-            ->setRuriUser($dto->getRuriUser())
-            ->setRuriDomain($dto->getRuriDomain())
-            ->setCseq($dto->getCseq())
-            ->setUtctime($dto->getUtctime())
-        ;
+        return $self;
     }
 
     /**
@@ -101,25 +72,9 @@ class UsersMissedCall extends UsersMissedCallAbstract implements UsersMissedCall
         /**
          * @var $dto UsersMissedCallDTO
          */
-        Assertion::isInstanceOf($dto, UsersMissedCallDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setMethod($dto->getMethod())
-            ->setFromTag($dto->getFromTag())
-            ->setToTag($dto->getToTag())
-            ->setCallid($dto->getCallid())
-            ->setSipCode($dto->getSipCode())
-            ->setSipReason($dto->getSipReason())
-            ->setSrcIp($dto->getSrcIp())
-            ->setFromUser($dto->getFromUser())
-            ->setFromDomain($dto->getFromDomain())
-            ->setRuriUser($dto->getRuriUser())
-            ->setRuriDomain($dto->getRuriDomain())
-            ->setCseq($dto->getCseq())
-            ->setLocaltime($dto->getLocaltime())
-            ->setUtctime($dto->getUtctime());
-
-
+        
         return $this;
     }
 
@@ -128,21 +83,8 @@ class UsersMissedCall extends UsersMissedCallAbstract implements UsersMissedCall
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setMethod($this->getMethod())
-            ->setFromTag($this->getFromTag())
-            ->setToTag($this->getToTag())
-            ->setCallid($this->getCallid())
-            ->setSipCode($this->getSipCode())
-            ->setSipReason($this->getSipReason())
-            ->setSrcIp($this->getSrcIp())
-            ->setFromUser($this->getFromUser())
-            ->setFromDomain($this->getFromDomain())
-            ->setRuriUser($this->getRuriUser())
-            ->setRuriDomain($this->getRuriDomain())
-            ->setCseq($this->getCseq())
-            ->setLocaltime($this->getLocaltime())
-            ->setUtctime($this->getUtctime())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -151,21 +93,7 @@ class UsersMissedCall extends UsersMissedCallAbstract implements UsersMissedCall
      */
     protected function __toArray()
     {
-        return [
-            'method' => $this->getMethod(),
-            'fromTag' => $this->getFromTag(),
-            'toTag' => $this->getToTag(),
-            'callid' => $this->getCallid(),
-            'sipCode' => $this->getSipCode(),
-            'sipReason' => $this->getSipReason(),
-            'srcIp' => $this->getSrcIp(),
-            'fromUser' => $this->getFromUser(),
-            'fromDomain' => $this->getFromDomain(),
-            'ruriUser' => $this->getRuriUser(),
-            'ruriDomain' => $this->getRuriDomain(),
-            'cseq' => $this->getCseq(),
-            'localtime' => $this->getLocaltime(),
-            'utctime' => $this->getUtctime(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

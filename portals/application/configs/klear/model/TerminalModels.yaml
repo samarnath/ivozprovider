@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\TerminalModels
-  entity: Core\Domain\Model\TerminalModel\TerminalModel
+  entity: Ivoz\Domain\Model\TerminalModel\TerminalModel
   fields:
     iden:
       title: ngettext('Iden', 'Idens', 1)
@@ -27,7 +27,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\TerminalManufacturers
-          entity: \Core\Domain\Model\TerminalManufacturer\TerminalManufacturer
+          entity: \Ivoz\Domain\Model\TerminalManufacturer\TerminalManufacturer
           fieldName:
             fields:
               - iden

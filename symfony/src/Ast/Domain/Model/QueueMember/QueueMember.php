@@ -26,10 +26,10 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
     /**
      * Constructor
      */
-    public function __construct($queueName, $interface)
+    public function __construct()
     {
-        $this->setQueueName($queueName);
-        $this->setInterface($interface);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -58,19 +58,9 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
         /**
          * @var $dto QueueMemberDTO
          */
-        Assertion::isInstanceOf($dto, QueueMemberDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getQueueName(),
-            $dto->getInterface());
-
-        return $self
-            ->setMembername($dto->getMembername())
-            ->setStateInterface($dto->getStateInterface())
-            ->setPenalty($dto->getPenalty())
-            ->setPaused($dto->getPaused())
-            ->setQueueMember($dto->getQueueMember())
-        ;
+        return $self;
     }
 
     /**
@@ -82,18 +72,9 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
         /**
          * @var $dto QueueMemberDTO
          */
-        Assertion::isInstanceOf($dto, QueueMemberDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setQueueName($dto->getQueueName())
-            ->setInterface($dto->getInterface())
-            ->setMembername($dto->getMembername())
-            ->setStateInterface($dto->getStateInterface())
-            ->setPenalty($dto->getPenalty())
-            ->setPaused($dto->getPaused())
-            ->setQueueMember($dto->getQueueMember());
-
-
+        
         return $this;
     }
 
@@ -102,15 +83,9 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setQueueName($this->getQueueName())
-            ->setInterface($this->getInterface())
-            ->setMembername($this->getMembername())
-            ->setStateInterface($this->getStateInterface())
-            ->setPenalty($this->getPenalty())
-            ->setPaused($this->getPaused())
-            ->setUniqueid($this->getUniqueid())
-            ->setQueueMemberId($this->getQueueMember() ? $this->getQueueMember()->getId() : null);
+        $dto = parent::toDTO();
+        return $dto
+            ->setUniqueid($this->getUniqueid());
     }
 
     /**
@@ -118,13 +93,7 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
      */
     protected function __toArray()
     {
-        return [
-            'queueName' => $this->getQueueName(),
-            'interface' => $this->getInterface(),
-            'membername' => $this->getMembername(),
-            'stateInterface' => $this->getStateInterface(),
-            'penalty' => $this->getPenalty(),
-            'paused' => $this->getPaused(),
+        return parent::__toArray() + [
             'uniqueid' => $this->getUniqueid(),
             'queueMemberId' => $this->getQueueMember() ? $this->getQueueMember()->getId() : null
         ];
@@ -157,30 +126,6 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
     public function getUniqueid()
     {
         return $this->uniqueid;
-    }
-
-    /**
-     * Set queueMember
-     *
-     * @param \Core\Domain\Model\QueueMember\QueueMemberInterface $queueMember
-     *
-     * @return self
-     */
-    protected function setQueueMember(\Core\Domain\Model\QueueMember\QueueMemberInterface $queueMember = null)
-    {
-        $this->queueMember = $queueMember;
-
-        return $this;
-    }
-
-    /**
-     * Get queueMember
-     *
-     * @return \Core\Domain\Model\QueueMember\QueueMemberInterface
-     */
-    public function getQueueMember()
-    {
-        return $this->queueMember;
     }
 
 

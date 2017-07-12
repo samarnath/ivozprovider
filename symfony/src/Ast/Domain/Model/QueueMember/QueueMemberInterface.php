@@ -57,7 +57,7 @@ interface QueueMemberInterface
     /**
      * Get queueMember
      *
-     * @return \Core\Domain\Model\QueueMember\QueueMemberInterface
+     * @return \Ivoz\Domain\Model\QueueMember\QueueMemberInterface
      */
     public function getQueueMember();
 

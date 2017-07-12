@@ -36,7 +36,7 @@ Kam\Domain\Model\UsersDomainAttr\UsersDomainAttrAbstract:
       column: last_modified
   manyToOne:
     did:
-      targetEntity: \Core\Domain\Model\Company\CompanyInterface
+      targetEntity: \Ivoz\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

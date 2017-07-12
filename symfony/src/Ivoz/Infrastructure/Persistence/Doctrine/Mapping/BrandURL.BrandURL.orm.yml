@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\BrandURL\BrandURL:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\BrandURLDoctrineRepository
+  type: entity
+  table: BrandURLs
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

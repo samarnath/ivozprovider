@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class TrunksDomainAttrDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $did;
@@ -42,17 +37,22 @@ class TrunksDomainAttrDTO implements DataTransferObjectInterface
     private $lastModified = '1900-01-01 00:00:01';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'did' => $this->getDid(),
             'name' => $this->getName(),
             'type' => $this->getType(),
             'value' => $this->getValue(),
-            'lastModified' => $this->getLastModified()
+            'lastModified' => $this->getLastModified(),
+            'id' => $this->getId()
         ];
     }
 
@@ -70,26 +70,6 @@ class TrunksDomainAttrDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TrunksDomainAttrDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -190,6 +170,26 @@ class TrunksDomainAttrDTO implements DataTransferObjectInterface
     public function getLastModified()
     {
         return $this->lastModified;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return TrunksDomainAttrDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

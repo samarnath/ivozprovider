@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\Language\Language:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\LanguageDoctrineRepository
+  type: entity
+  table: Languages
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

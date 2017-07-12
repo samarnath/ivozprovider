@@ -1,0 +1,30 @@
+Ivoz\Domain\Model\Brand\Brand:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\BrandDoctrineRepository
+  type: entity
+  table: Brands
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  oneToMany:
+    operators:
+      targetEntity: Ivoz\Domain\Model\BrandOperator\BrandOperatorInterface
+      mappedBy: brand
+    services:
+      targetEntity: Ivoz\Domain\Model\BrandService\BrandServiceInterface
+      mappedBy: brand
+    urls:
+      targetEntity: Ivoz\Domain\Model\BrandURL\BrandURLInterface
+      mappedBy: brand
+    relFeatures:
+      targetEntity: Ivoz\Domain\Model\FeaturesRelBrand\FeaturesRelBrandInterface
+      mappedBy: brand
+    domains:
+      targetEntity: Ivoz\Domain\Model\Domain\DomainInterface
+      mappedBy: brand
+  lifecycleCallbacks: {  }

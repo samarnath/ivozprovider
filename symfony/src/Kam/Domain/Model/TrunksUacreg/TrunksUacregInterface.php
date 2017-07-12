@@ -113,7 +113,7 @@ interface TrunksUacregInterface
     /**
      * Get brand
      *
-     * @return \Core\Domain\Model\Brand\BrandInterface
+     * @return \Ivoz\Domain\Model\Brand\BrandInterface
      */
     public function getBrand();
 
@@ -121,7 +121,7 @@ interface TrunksUacregInterface
     /**
      * Get peeringContract
      *
-     * @return \Core\Domain\Model\PeeringContract\PeeringContractInterface
+     * @return \Ivoz\Domain\Model\PeeringContract\PeeringContractInterface
      */
     public function getPeeringContract();
 

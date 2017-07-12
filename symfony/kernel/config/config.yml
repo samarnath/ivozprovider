@@ -67,11 +67,11 @@ doctrine:
         auto_mapping: yes
         #quote_strategy: doctrine.orm.quote_strategy.ansi
         mappings:
-            Core:
+            Ivoz:
                 type: yml
                 is_bundle: false
-                dir: '%kernel.root_dir%/../src/Core/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: Core\Domain\Model
+                dir: '%kernel.root_dir%/../src/Ivoz/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: Ivoz\Domain\Model
             Ast:
                 type: yml
                 is_bundle: false

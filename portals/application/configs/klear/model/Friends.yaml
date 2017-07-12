@@ -3,7 +3,7 @@
 
 production:
   class: \IvozProvider\Model\Friends
-  entity: Core\Domain\Model\Friend\Friend
+  entity: Ivoz\Domain\Model\Friend\Friend
   fields:
     company:
       title: _('Companyid')
@@ -13,7 +13,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName:
             fields:
               - name
@@ -103,7 +103,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\CallACL
-          entity: \Core\Domain\Model\CallACL\CallACL
+          entity: \Ivoz\Domain\Model\CallACL\CallACL
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -119,7 +119,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Countries
-          entity: \Core\Domain\Model\Country\Country
+          entity: \Ivoz\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
@@ -151,7 +151,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\DDIs
-          entity: \Core\Domain\Model\DDI\DDI
+          entity: \Ivoz\Domain\Model\DDI\DDI
           filterclass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -261,7 +261,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Languages
-          entity: \Core\Domain\Model\Language\Language
+          entity: \Ivoz\Domain\Model\Language\Language
           fieldName:
             fields:
               - name

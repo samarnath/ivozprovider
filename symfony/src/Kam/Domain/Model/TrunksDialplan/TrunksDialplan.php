@@ -26,24 +26,10 @@ class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInt
     /**
      * Constructor
      */
-    public function __construct(
-        $dpid,
-        $pr,
-        $matchOp,
-        $matchExp,
-        $matchLen,
-        $substExp,
-        $replExp,
-        $attrs
-    ) {
-        $this->setDpid($dpid);
-        $this->setPr($pr);
-        $this->setMatchOp($matchOp);
-        $this->setMatchExp($matchExp);
-        $this->setMatchLen($matchLen);
-        $this->setSubstExp($substExp);
-        $this->setReplExp($replExp);
-        $this->setAttrs($attrs);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -72,21 +58,9 @@ class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInt
         /**
          * @var $dto TrunksDialplanDTO
          */
-        Assertion::isInstanceOf($dto, TrunksDialplanDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getDpid(),
-            $dto->getPr(),
-            $dto->getMatchOp(),
-            $dto->getMatchExp(),
-            $dto->getMatchLen(),
-            $dto->getSubstExp(),
-            $dto->getReplExp(),
-            $dto->getAttrs());
-
-        return $self
-            ->setTransformationRulesetGroupsTrunk($dto->getTransformationRulesetGroupsTrunk())
-        ;
+        return $self;
     }
 
     /**
@@ -98,20 +72,9 @@ class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInt
         /**
          * @var $dto TrunksDialplanDTO
          */
-        Assertion::isInstanceOf($dto, TrunksDialplanDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setDpid($dto->getDpid())
-            ->setPr($dto->getPr())
-            ->setMatchOp($dto->getMatchOp())
-            ->setMatchExp($dto->getMatchExp())
-            ->setMatchLen($dto->getMatchLen())
-            ->setSubstExp($dto->getSubstExp())
-            ->setReplExp($dto->getReplExp())
-            ->setAttrs($dto->getAttrs())
-            ->setTransformationRulesetGroupsTrunk($dto->getTransformationRulesetGroupsTrunk());
-
-
+        
         return $this;
     }
 
@@ -120,17 +83,9 @@ class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInt
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setDpid($this->getDpid())
-            ->setPr($this->getPr())
-            ->setMatchOp($this->getMatchOp())
-            ->setMatchExp($this->getMatchExp())
-            ->setMatchLen($this->getMatchLen())
-            ->setSubstExp($this->getSubstExp())
-            ->setReplExp($this->getReplExp())
-            ->setAttrs($this->getAttrs())
-            ->setId($this->getId())
-            ->setTransformationRulesetGroupsTrunkId($this->getTransformationRulesetGroupsTrunk() ? $this->getTransformationRulesetGroupsTrunk()->getId() : null);
+        $dto = parent::toDTO();
+        return $dto
+            ->setId($this->getId());
     }
 
     /**
@@ -138,15 +93,7 @@ class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInt
      */
     protected function __toArray()
     {
-        return [
-            'dpid' => $this->getDpid(),
-            'pr' => $this->getPr(),
-            'matchOp' => $this->getMatchOp(),
-            'matchExp' => $this->getMatchExp(),
-            'matchLen' => $this->getMatchLen(),
-            'substExp' => $this->getSubstExp(),
-            'replExp' => $this->getReplExp(),
-            'attrs' => $this->getAttrs(),
+        return parent::__toArray() + [
             'id' => $this->getId(),
             'transformationRulesetGroupsTrunkId' => $this->getTransformationRulesetGroupsTrunk() ? $this->getTransformationRulesetGroupsTrunk()->getId() : null
         ];
@@ -161,30 +108,6 @@ class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInt
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set transformationRulesetGroupsTrunk
-     *
-     * @param \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface $transformationRulesetGroupsTrunk
-     *
-     * @return self
-     */
-    protected function setTransformationRulesetGroupsTrunk(\Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface $transformationRulesetGroupsTrunk)
-    {
-        $this->transformationRulesetGroupsTrunk = $transformationRulesetGroupsTrunk;
-
-        return $this;
-    }
-
-    /**
-     * Get transformationRulesetGroupsTrunk
-     *
-     * @return \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunkInterface
-     */
-    public function getTransformationRulesetGroupsTrunk()
-    {
-        return $this->transformationRulesetGroupsTrunk;
     }
 
 

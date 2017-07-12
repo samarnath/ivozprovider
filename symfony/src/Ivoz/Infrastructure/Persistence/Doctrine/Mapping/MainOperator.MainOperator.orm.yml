@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\MainOperator\MainOperator:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\MainOperatorDoctrineRepository
+  type: entity
+  table: MainOperators
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

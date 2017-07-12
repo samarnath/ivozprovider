@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\MusicOnHold\MusicOnHold:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\MusicOnHoldDoctrineRepository
+  type: entity
+  table: MusicOnHold
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\LcrRules
-  entity: Core\Domain\Model\LcrRule\LcrRule
+  entity: Ivoz\Domain\Model\LcrRule\LcrRule
   fields:
     brandId:
       title: _('Brand id')
@@ -10,7 +10,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Domain\Model\Brand\Brand
+          entity: \Ivoz\Domain\Model\Brand\Brand
           fieldName:
             fields:
               - name

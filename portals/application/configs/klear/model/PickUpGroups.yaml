@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\PickUpGroups
-  entity: Core\Domain\Model\PickUpGroup\PickUpGroup
+  entity: Ivoz\Domain\Model\PickUpGroup\PickUpGroup
   fields: 
     name:
       title: ngettext('Name', 'Names', 1)
@@ -16,7 +16,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: \Core\Domain\Model\Company\Company
+          entity: \Ivoz\Domain\Model\Company\Company
           fieldName: 
             fields: 
               - name
@@ -31,10 +31,10 @@ production:
         config:
           extraDataAttributes:
             pickUpGroup: id
-          relation: \Core\Domain\Model\PickUpRelUser\PickUpRelUser
+          relation: \Ivoz\Domain\Model\PickUpRelUser\PickUpRelUser
           relationProperty: pickUpGroup
           relatedProperty: user
-          related: \Core\Domain\Model\User\User
+          related: \Ivoz\Domain\Model\User\User
           filterclass: IvozProvider_Klear_Filter_Users
           relatedFieldName:
             fields: 

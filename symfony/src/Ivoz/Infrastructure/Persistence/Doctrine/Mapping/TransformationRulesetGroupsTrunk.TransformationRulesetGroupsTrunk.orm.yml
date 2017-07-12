@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\TransformationRulesetGroupsTrunkDoctrineRepository
+  type: entity
+  table: TransformationRulesetGroupsTrunks
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -57,7 +57,7 @@ interface DispatcherInterface
     /**
      * Get applicationServer
      *
-     * @return \Core\Domain\Model\ApplicationServer\ApplicationServerInterface
+     * @return \Ivoz\Domain\Model\ApplicationServer\ApplicationServerInterface
      */
     public function getApplicationServer();
 

@@ -43,7 +43,7 @@ Ast\Domain\Model\QueueMember\QueueMemberAbstract:
         unsigned: false
   manyToOne:
     queueMember:
-      targetEntity: \Core\Domain\Model\QueueMember\QueueMemberInterface
+      targetEntity: \Ivoz\Domain\Model\QueueMember\QueueMemberInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

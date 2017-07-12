@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\CompanyService\CompanyService:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\CompanyServiceDoctrineRepository
+  type: entity
+  table: CompanyServices
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersAddresDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $sourceAddress;
@@ -47,6 +42,11 @@ class UsersAddresDTO implements DataTransferObjectInterface
     private $description;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $companyId;
@@ -62,13 +62,13 @@ class UsersAddresDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'sourceAddress' => $this->getSourceAddress(),
             'ipAddr' => $this->getIpAddr(),
             'mask' => $this->getMask(),
             'port' => $this->getPort(),
             'tag' => $this->getTag(),
             'description' => $this->getDescription(),
+            'id' => $this->getId(),
             'companyId' => $this->getCompanyId()
         ];
     }
@@ -78,7 +78,7 @@ class UsersAddresDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->company = $transformer->transform('Core\\Domain\\Model\\Company\\Company', $this->getCompanyId());
+        $this->company = $transformer->transform('Ivoz\\Domain\\Model\\Company\\Company', $this->getCompanyId());
     }
 
     /**
@@ -87,26 +87,6 @@ class UsersAddresDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersAddresDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -230,6 +210,26 @@ class UsersAddresDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $id
+     *
+     * @return UsersAddresDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param integer $companyId
      *
      * @return UsersAddresDTO
@@ -250,7 +250,7 @@ class UsersAddresDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\Company\Company
+     * @return \Ivoz\Domain\Model\Company\Company
      */
     public function getCompany()
     {

@@ -26,9 +26,10 @@ class PsAor extends PsAorAbstract implements PsAorInterface, EntityInterface
     /**
      * Constructor
      */
-    public function __construct($sorceryId)
+    public function __construct()
     {
-        $this->setSorceryId($sorceryId);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -57,22 +58,9 @@ class PsAor extends PsAorAbstract implements PsAorInterface, EntityInterface
         /**
          * @var $dto PsAorDTO
          */
-        Assertion::isInstanceOf($dto, PsAorDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getSorceryId());
-
-        return $self
-            ->setDefaultExpiration($dto->getDefaultExpiration())
-            ->setMaxContacts($dto->getMaxContacts())
-            ->setMinimumExpiration($dto->getMinimumExpiration())
-            ->setRemoveExisting($dto->getRemoveExisting())
-            ->setAuthenticateQualify($dto->getAuthenticateQualify())
-            ->setMaximumExpiration($dto->getMaximumExpiration())
-            ->setSupportPath($dto->getSupportPath())
-            ->setContact($dto->getContact())
-            ->setQualifyFrequency($dto->getQualifyFrequency())
-        ;
+        return $self;
     }
 
     /**
@@ -84,21 +72,9 @@ class PsAor extends PsAorAbstract implements PsAorInterface, EntityInterface
         /**
          * @var $dto PsAorDTO
          */
-        Assertion::isInstanceOf($dto, PsAorDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setSorceryId($dto->getSorceryId())
-            ->setDefaultExpiration($dto->getDefaultExpiration())
-            ->setMaxContacts($dto->getMaxContacts())
-            ->setMinimumExpiration($dto->getMinimumExpiration())
-            ->setRemoveExisting($dto->getRemoveExisting())
-            ->setAuthenticateQualify($dto->getAuthenticateQualify())
-            ->setMaximumExpiration($dto->getMaximumExpiration())
-            ->setSupportPath($dto->getSupportPath())
-            ->setContact($dto->getContact())
-            ->setQualifyFrequency($dto->getQualifyFrequency());
-
-
+        
         return $this;
     }
 
@@ -107,17 +83,8 @@ class PsAor extends PsAorAbstract implements PsAorInterface, EntityInterface
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setSorceryId($this->getSorceryId())
-            ->setDefaultExpiration($this->getDefaultExpiration())
-            ->setMaxContacts($this->getMaxContacts())
-            ->setMinimumExpiration($this->getMinimumExpiration())
-            ->setRemoveExisting($this->getRemoveExisting())
-            ->setAuthenticateQualify($this->getAuthenticateQualify())
-            ->setMaximumExpiration($this->getMaximumExpiration())
-            ->setSupportPath($this->getSupportPath())
-            ->setContact($this->getContact())
-            ->setQualifyFrequency($this->getQualifyFrequency())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -126,17 +93,7 @@ class PsAor extends PsAorAbstract implements PsAorInterface, EntityInterface
      */
     protected function __toArray()
     {
-        return [
-            'sorceryId' => $this->getSorceryId(),
-            'defaultExpiration' => $this->getDefaultExpiration(),
-            'maxContacts' => $this->getMaxContacts(),
-            'minimumExpiration' => $this->getMinimumExpiration(),
-            'removeExisting' => $this->getRemoveExisting(),
-            'authenticateQualify' => $this->getAuthenticateQualify(),
-            'maximumExpiration' => $this->getMaximumExpiration(),
-            'supportPath' => $this->getSupportPath(),
-            'contact' => $this->getContact(),
-            'qualifyFrequency' => $this->getQualifyFrequency(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

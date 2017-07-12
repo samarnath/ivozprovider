@@ -3,7 +3,7 @@
 
 production:
   class: \IvozProvider\Model\RetailAccounts
-  entity: Core\Domain\Model\RetailAccount\RetailAccount
+  entity: Ivoz\Domain\Model\RetailAccount\RetailAccount
   fields:
     company:
       title: _('Companyid')
@@ -13,7 +13,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Companies
-          entity: Core\Domain\Model\Company\Company
+          entity: Ivoz\Domain\Model\Company\Company
           fieldName:
             fields:
               - name
@@ -103,7 +103,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Countries
-          entity: \Core\Domain\Model\Country\Country
+          entity: \Ivoz\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
@@ -135,7 +135,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\DDIs
-          entity: \Core\Domain\Model\DDI\DDI
+          entity: \Ivoz\Domain\Model\DDI\DDI
           filterClass: IvozProvider_Klear_Filter_RetailDDIs
           fieldName:
             fields:
@@ -239,7 +239,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Languages
-          entity: Core\Domain\Model\Language\Language
+          entity: Ivoz\Domain\Model\Language\Language
           fieldName:
             fields:
               - name

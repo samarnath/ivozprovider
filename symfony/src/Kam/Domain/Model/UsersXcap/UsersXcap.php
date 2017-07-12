@@ -26,24 +26,10 @@ class UsersXcap extends UsersXcapAbstract implements UsersXcapInterface, EntityI
     /**
      * Constructor
      */
-    public function __construct(
-        $username,
-        $domain,
-        $doc,
-        $docType,
-        $etag,
-        $source,
-        $docUri,
-        $port
-    ) {
-        $this->setUsername($username);
-        $this->setDomain($domain);
-        $this->setDoc($doc);
-        $this->setDocType($docType);
-        $this->setEtag($etag);
-        $this->setSource($source);
-        $this->setDocUri($docUri);
-        $this->setPort($port);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -72,17 +58,7 @@ class UsersXcap extends UsersXcapAbstract implements UsersXcapInterface, EntityI
         /**
          * @var $dto UsersXcapDTO
          */
-        Assertion::isInstanceOf($dto, UsersXcapDTO::class);
-
-        $self = new self(
-            $dto->getUsername(),
-            $dto->getDomain(),
-            $dto->getDoc(),
-            $dto->getDocType(),
-            $dto->getEtag(),
-            $dto->getSource(),
-            $dto->getDocUri(),
-            $dto->getPort());
+        $self = parent::fromDTO($dto);
 
         return $self;
     }
@@ -96,19 +72,9 @@ class UsersXcap extends UsersXcapAbstract implements UsersXcapInterface, EntityI
         /**
          * @var $dto UsersXcapDTO
          */
-        Assertion::isInstanceOf($dto, UsersXcapDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setUsername($dto->getUsername())
-            ->setDomain($dto->getDomain())
-            ->setDoc($dto->getDoc())
-            ->setDocType($dto->getDocType())
-            ->setEtag($dto->getEtag())
-            ->setSource($dto->getSource())
-            ->setDocUri($dto->getDocUri())
-            ->setPort($dto->getPort());
-
-
+        
         return $this;
     }
 
@@ -117,15 +83,8 @@ class UsersXcap extends UsersXcapAbstract implements UsersXcapInterface, EntityI
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setUsername($this->getUsername())
-            ->setDomain($this->getDomain())
-            ->setDoc($this->getDoc())
-            ->setDocType($this->getDocType())
-            ->setEtag($this->getEtag())
-            ->setSource($this->getSource())
-            ->setDocUri($this->getDocUri())
-            ->setPort($this->getPort())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -134,15 +93,7 @@ class UsersXcap extends UsersXcapAbstract implements UsersXcapInterface, EntityI
      */
     protected function __toArray()
     {
-        return [
-            'username' => $this->getUsername(),
-            'domain' => $this->getDomain(),
-            'doc' => $this->getDoc(),
-            'docType' => $this->getDocType(),
-            'etag' => $this->getEtag(),
-            'source' => $this->getSource(),
-            'docUri' => $this->getDocUri(),
-            'port' => $this->getPort(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

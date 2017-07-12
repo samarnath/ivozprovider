@@ -14,11 +14,6 @@ class TrunksAddresDTO implements DataTransferObjectInterface
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @var integer
-     */
     private $grp = '1';
 
     /**
@@ -42,17 +37,22 @@ class TrunksAddresDTO implements DataTransferObjectInterface
     private $tag;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'grp' => $this->getGrp(),
             'ipAddr' => $this->getIpAddr(),
             'mask' => $this->getMask(),
             'port' => $this->getPort(),
-            'tag' => $this->getTag()
+            'tag' => $this->getTag(),
+            'id' => $this->getId()
         ];
     }
 
@@ -70,26 +70,6 @@ class TrunksAddresDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return TrunksAddresDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -190,6 +170,26 @@ class TrunksAddresDTO implements DataTransferObjectInterface
     public function getTag()
     {
         return $this->tag;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return TrunksAddresDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

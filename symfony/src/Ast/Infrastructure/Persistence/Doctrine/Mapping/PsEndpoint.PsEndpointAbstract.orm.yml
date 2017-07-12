@@ -139,7 +139,7 @@ Ast\Domain\Model\PsEndpoint\PsEndpointAbstract:
       column: trust_id_inbound
   manyToOne:
     terminal:
-      targetEntity: \Core\Domain\Model\Terminal\TerminalInterface
+      targetEntity: \Ivoz\Domain\Model\Terminal\TerminalInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -149,7 +149,7 @@ Ast\Domain\Model\PsEndpoint\PsEndpointAbstract:
           referencedColumnName: id
       orphanRemoval: false
     friend:
-      targetEntity: \Core\Domain\Model\Friend\FriendInterface
+      targetEntity: \Ivoz\Domain\Model\Friend\FriendInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null
@@ -159,7 +159,7 @@ Ast\Domain\Model\PsEndpoint\PsEndpointAbstract:
           referencedColumnName: id
       orphanRemoval: false
     retailAccount:
-      targetEntity: \Core\Domain\Model\RetailAccount\RetailAccountInterface
+      targetEntity: \Ivoz\Domain\Model\RetailAccount\RetailAccountInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

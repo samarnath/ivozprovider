@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\CallForwardSetting\CallForwardSetting:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\CallForwardSettingDoctrineRepository
+  type: entity
+  table: CallForwardSettings
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

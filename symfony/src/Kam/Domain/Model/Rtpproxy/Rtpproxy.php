@@ -26,12 +26,10 @@ class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInte
     /**
      * Constructor
      */
-    public function __construct($setid, $url, $flags, $weight)
+    public function __construct()
     {
-        $this->setSetid($setid);
-        $this->setUrl($url);
-        $this->setFlags($flags);
-        $this->setWeight($weight);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -60,18 +58,9 @@ class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInte
         /**
          * @var $dto RtpproxyDTO
          */
-        Assertion::isInstanceOf($dto, RtpproxyDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getSetid(),
-            $dto->getUrl(),
-            $dto->getFlags(),
-            $dto->getWeight());
-
-        return $self
-            ->setDescription($dto->getDescription())
-            ->setMediaRelaySet($dto->getMediaRelaySet())
-        ;
+        return $self;
     }
 
     /**
@@ -83,17 +72,9 @@ class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInte
         /**
          * @var $dto RtpproxyDTO
          */
-        Assertion::isInstanceOf($dto, RtpproxyDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setSetid($dto->getSetid())
-            ->setUrl($dto->getUrl())
-            ->setFlags($dto->getFlags())
-            ->setWeight($dto->getWeight())
-            ->setDescription($dto->getDescription())
-            ->setMediaRelaySet($dto->getMediaRelaySet());
-
-
+        
         return $this;
     }
 
@@ -102,14 +83,9 @@ class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInte
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setSetid($this->getSetid())
-            ->setUrl($this->getUrl())
-            ->setFlags($this->getFlags())
-            ->setWeight($this->getWeight())
-            ->setDescription($this->getDescription())
-            ->setId($this->getId())
-            ->setMediaRelaySetId($this->getMediaRelaySet() ? $this->getMediaRelaySet()->getId() : null);
+        $dto = parent::toDTO();
+        return $dto
+            ->setId($this->getId());
     }
 
     /**
@@ -117,12 +93,7 @@ class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInte
      */
     protected function __toArray()
     {
-        return [
-            'setid' => $this->getSetid(),
-            'url' => $this->getUrl(),
-            'flags' => $this->getFlags(),
-            'weight' => $this->getWeight(),
-            'description' => $this->getDescription(),
+        return parent::__toArray() + [
             'id' => $this->getId(),
             'mediaRelaySetId' => $this->getMediaRelaySet() ? $this->getMediaRelaySet()->getId() : null
         ];
@@ -137,30 +108,6 @@ class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInte
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set mediaRelaySet
-     *
-     * @param \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet
-     *
-     * @return self
-     */
-    protected function setMediaRelaySet(\Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface $mediaRelaySet = null)
-    {
-        $this->mediaRelaySet = $mediaRelaySet;
-
-        return $this;
-    }
-
-    /**
-     * Get mediaRelaySet
-     *
-     * @return \Core\Domain\Model\MediaRelaySet\MediaRelaySetInterface
-     */
-    public function getMediaRelaySet()
-    {
-        return $this->mediaRelaySet;
     }
 
 

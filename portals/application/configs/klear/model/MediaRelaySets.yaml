@@ -1,6 +1,6 @@
 production: 
   class: \IvozProvider\Model\MediaRelaySets
-  entity: Core\Domain\Model\MediaRelaySet\MediaRelaySet
+  entity: Ivoz\Domain\Model\MediaRelaySet\MediaRelaySet
   fields: 
     name:
       title: ngettext('Name', 'Names', 1)

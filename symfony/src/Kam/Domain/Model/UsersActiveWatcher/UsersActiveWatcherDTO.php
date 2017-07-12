@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersActiveWatcherDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $presentityUri;
@@ -147,12 +142,16 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     private $userAgent = '';
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'presentityUri' => $this->getPresentityUri(),
             'watcherUsername' => $this->getWatcherUsername(),
             'watcherDomain' => $this->getWatcherDomain(),
@@ -178,7 +177,8 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
             'updated' => $this->getUpdated(),
             'updatedWinfo' => $this->getUpdatedWinfo(),
             'flags' => $this->getFlags(),
-            'userAgent' => $this->getUserAgent()
+            'userAgent' => $this->getUserAgent(),
+            'id' => $this->getId()
         ];
     }
 
@@ -196,26 +196,6 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersActiveWatcherDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -736,6 +716,26 @@ class UsersActiveWatcherDTO implements DataTransferObjectInterface
     public function getUserAgent()
     {
         return $this->userAgent;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersActiveWatcherDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

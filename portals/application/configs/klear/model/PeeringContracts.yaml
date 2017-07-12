@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\PeeringContracts
-  entity: Core\Domain\Model\PeeringContract\PeeringContract
+  entity: Ivoz\Domain\Model\PeeringContract\PeeringContract
   fields:
     name:
       title: ngettext('Name', 'Names', 1)
@@ -21,7 +21,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Domain\Model\Brand\Brand
+          entity: \Ivoz\Domain\Model\Brand\Brand
           fieldName:
             fields:
               - name
@@ -36,7 +36,7 @@ production:
         'null': 'E.164'
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\TransformationRulesetGroupsTrunks
-          entity: \Core\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
+          entity: \Ivoz\Domain\Model\TransformationRulesetGroupsTrunk\TransformationRulesetGroupsTrunk
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName:
             fields:

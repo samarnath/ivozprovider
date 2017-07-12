@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\Schedule\Schedule:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ScheduleDoctrineRepository
+  type: entity
+  table: Schedules
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

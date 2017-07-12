@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\CompanyAdmin\CompanyAdmin:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\CompanyAdminDoctrineRepository
+  type: entity
+  table: CompanyAdmins
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

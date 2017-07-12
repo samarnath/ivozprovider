@@ -145,7 +145,7 @@ interface PsEndpointInterface
     /**
      * Get terminal
      *
-     * @return \Core\Domain\Model\Terminal\TerminalInterface
+     * @return \Ivoz\Domain\Model\Terminal\TerminalInterface
      */
     public function getTerminal();
 
@@ -153,7 +153,7 @@ interface PsEndpointInterface
     /**
      * Get friend
      *
-     * @return \Core\Domain\Model\Friend\FriendInterface
+     * @return \Ivoz\Domain\Model\Friend\FriendInterface
      */
     public function getFriend();
 
@@ -161,7 +161,7 @@ interface PsEndpointInterface
     /**
      * Get retailAccount
      *
-     * @return \Core\Domain\Model\RetailAccount\RetailAccountInterface
+     * @return \Ivoz\Domain\Model\RetailAccount\RetailAccountInterface
      */
     public function getRetailAccount();
 

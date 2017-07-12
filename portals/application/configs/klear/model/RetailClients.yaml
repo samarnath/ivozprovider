@@ -2,7 +2,7 @@
 
 production:
   class: \IvozProvider\Model\Companies
-  entity: Core\Domain\Model\Company\Company
+  entity: Ivoz\Domain\Model\Company\Company
   fields:
     id:
       title: ngettext('Id', 'Ids', 1)
@@ -16,7 +16,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Brands
-          entity: \Core\Domain\Model\Brand\Brand
+          entity: \Ivoz\Domain\Model\Brand\Brand
           fieldName:
             fields:
               - name
@@ -43,7 +43,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Timezones
-          entity: \Core\Domain\Model\Timezone\Timezone
+          entity: \Ivoz\Domain\Model\Timezone\Timezone
           fieldName:
             fields:
               - tz
@@ -57,7 +57,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\MusicOnHold
-          entity: \Core\Domain\Model\MusicOnHold\MusicOnHold
+          entity: \Ivoz\Domain\Model\MusicOnHold\MusicOnHold
           filterClass: IvozProvider_Klear_Filter_Company
           fieldName:
             fields:
@@ -73,7 +73,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\ApplicationServers
-          entity: \Core\Domain\Model\ApplicationServer\ApplicationServer
+          entity: \Ivoz\Domain\Model\ApplicationServer\ApplicationServer
           fieldName:
             fields:
               - name
@@ -144,7 +144,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Countries
-          entity: \Core\Domain\Model\Country\Country
+          entity: \Ivoz\Domain\Model\Country\Country
           fieldName:
             fields:
               - name
@@ -170,7 +170,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\DDIs
-          entity: \Core\Domain\Model\DDI\DDI
+          entity: \Ivoz\Domain\Model\DDI\DDI
           filterClass: IvozProvider_Klear_Filter_OutgoingDDI
           fieldName:
             fields:
@@ -193,7 +193,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\Languages
-          entity: \Core\Domain\Model\Language\Language
+          entity: \Ivoz\Domain\Model\Language\Language
           fieldName:
             fields:
               - name
@@ -207,7 +207,7 @@ production:
         data: mapper
         config:
 #          mapperName: \IvozProvider\Mapper\Sql\MediaRelaySets
-          entity: \Core\Domain\Model\MediaRelaySet\MediaRelaySet
+          entity: \Ivoz\Domain\Model\MediaRelaySet\MediaRelaySet
           fieldName:
             fields:
               - name
@@ -301,10 +301,10 @@ production:
         config:
           extraDataAttributes:
             feature: id
-          relation: \Core\Domain\Model\FeaturesRelCompany\FeaturesRelCompany
+          relation: \Ivoz\Domain\Model\FeaturesRelCompany\FeaturesRelCompany
           relationProperty: company
           relatedProperty: feature
-          related: \Core\Domain\Model\Feature\Feature
+          related: \Ivoz\Domain\Model\Feature\Feature
           filterClass: IvozProvider_Klear_Filter_RetailFeatures
           relatedFieldName:
             fields:

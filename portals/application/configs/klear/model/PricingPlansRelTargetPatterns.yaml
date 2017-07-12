@@ -1,6 +1,6 @@
 production:
   class: \IvozProvider\Model\PricingPlansRelTargetPatterns
-  entity: Core\Domain\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern
+  entity: Ivoz\Domain\Model\PricingPlansRelTargetPattern\PricingPlansRelTargetPattern
   fields:  
     id:
       title: ngettext('Id', 'Ids', 1)
@@ -62,7 +62,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\PricingPlans
-          entity: \Core\Domain\Model\PricingPlan\PricingPlan
+          entity: \Ivoz\Domain\Model\PricingPlan\PricingPlan
           fieldName: 
             fields: 
               - name
@@ -77,7 +77,7 @@ production:
         data: mapper
         config: 
 #          mapperName: \IvozProvider\Mapper\Sql\TargetPatterns
-          entity: \Core\Domain\Model\TargetPattern\TargetPattern
+          entity: \Ivoz\Domain\Model\TargetPattern\TargetPattern
           filterclass: IvozProvider_Klear_Filter_Brand
           fieldName: 
             fields:

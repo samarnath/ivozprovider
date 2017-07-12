@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class UsersMissedCallDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $method = '';
@@ -87,12 +82,16 @@ class UsersMissedCallDTO implements DataTransferObjectInterface
     private $utctime;
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @return array
      */
     public function __toArray()
     {
         return [
-            'id' => $this->getId(),
             'method' => $this->getMethod(),
             'fromTag' => $this->getFromTag(),
             'toTag' => $this->getToTag(),
@@ -106,7 +105,8 @@ class UsersMissedCallDTO implements DataTransferObjectInterface
             'ruriDomain' => $this->getRuriDomain(),
             'cseq' => $this->getCseq(),
             'localtime' => $this->getLocaltime(),
-            'utctime' => $this->getUtctime()
+            'utctime' => $this->getUtctime(),
+            'id' => $this->getId()
         ];
     }
 
@@ -124,26 +124,6 @@ class UsersMissedCallDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $id
-     *
-     * @return UsersMissedCallDTO
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -424,6 +404,26 @@ class UsersMissedCallDTO implements DataTransferObjectInterface
     public function getUtctime()
     {
         return $this->utctime;
+    }
+
+    /**
+     * @param integer $id
+     *
+     * @return UsersMissedCallDTO
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
 

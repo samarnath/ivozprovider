@@ -1,0 +1,14 @@
+Ivoz\Domain\Model\ChangeHistory\ChangeHistory:
+  repositoryClass: Ivoz\Infrastructure\Persistence\Doctrine\ChangeHistoryDoctrineRepository
+  type: entity
+  table: ChangeHistory
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+  lifecycleCallbacks: {  }

@@ -76,7 +76,116 @@ abstract class PsAorAbstract
      */
     protected $_initialValues = [];
 
+    /**
+     * Constructor
+     */
+    public function __construct($sorceryId)
+    {
+        $this->setSorceryId($sorceryId);
+    }
+
     abstract public function __wakeup();
+
+    /**
+     * @return PsAorDTO
+     */
+    public static function createDTO()
+    {
+        return new PsAorDTO();
+    }
+
+    /**
+     * Factory method
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public static function fromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto PsAorDTO
+         */
+        Assertion::isInstanceOf($dto, PsAorDTO::class);
+
+        $self = new static(
+            $dto->getSorceryId());
+
+        return $self
+            ->setDefaultExpiration($dto->getDefaultExpiration())
+            ->setMaxContacts($dto->getMaxContacts())
+            ->setMinimumExpiration($dto->getMinimumExpiration())
+            ->setRemoveExisting($dto->getRemoveExisting())
+            ->setAuthenticateQualify($dto->getAuthenticateQualify())
+            ->setMaximumExpiration($dto->getMaximumExpiration())
+            ->setSupportPath($dto->getSupportPath())
+            ->setContact($dto->getContact())
+            ->setQualifyFrequency($dto->getQualifyFrequency())
+        ;
+    }
+
+    /**
+     * @param DataTransferObjectInterface $dto
+     * @return self
+     */
+    public function updateFromDTO(DataTransferObjectInterface $dto)
+    {
+        /**
+         * @var $dto PsAorDTO
+         */
+        Assertion::isInstanceOf($dto, PsAorDTO::class);
+
+        $this
+            ->setSorceryId($dto->getSorceryId())
+            ->setDefaultExpiration($dto->getDefaultExpiration())
+            ->setMaxContacts($dto->getMaxContacts())
+            ->setMinimumExpiration($dto->getMinimumExpiration())
+            ->setRemoveExisting($dto->getRemoveExisting())
+            ->setAuthenticateQualify($dto->getAuthenticateQualify())
+            ->setMaximumExpiration($dto->getMaximumExpiration())
+            ->setSupportPath($dto->getSupportPath())
+            ->setContact($dto->getContact())
+            ->setQualifyFrequency($dto->getQualifyFrequency());
+
+
+        return $this;
+    }
+
+    /**
+     * @return PsAorDTO
+     */
+    public function toDTO()
+    {
+        return self::createDTO()
+            ->setSorceryId($this->getSorceryId())
+            ->setDefaultExpiration($this->getDefaultExpiration())
+            ->setMaxContacts($this->getMaxContacts())
+            ->setMinimumExpiration($this->getMinimumExpiration())
+            ->setRemoveExisting($this->getRemoveExisting())
+            ->setAuthenticateQualify($this->getAuthenticateQualify())
+            ->setMaximumExpiration($this->getMaximumExpiration())
+            ->setSupportPath($this->getSupportPath())
+            ->setContact($this->getContact())
+            ->setQualifyFrequency($this->getQualifyFrequency());
+    }
+
+    /**
+     * @return array
+     */
+    protected function __toArray()
+    {
+        return [
+            'sorceryId' => $this->getSorceryId(),
+            'defaultExpiration' => $this->getDefaultExpiration(),
+            'maxContacts' => $this->getMaxContacts(),
+            'minimumExpiration' => $this->getMinimumExpiration(),
+            'removeExisting' => $this->getRemoveExisting(),
+            'authenticateQualify' => $this->getAuthenticateQualify(),
+            'maximumExpiration' => $this->getMaximumExpiration(),
+            'supportPath' => $this->getSupportPath(),
+            'contact' => $this->getContact(),
+            'qualifyFrequency' => $this->getQualifyFrequency()
+        ];
+    }
+
 
     // @codeCoverageIgnoreStart
 

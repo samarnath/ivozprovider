@@ -26,11 +26,10 @@ class TrunksAddres extends TrunksAddresAbstract implements TrunksAddresInterface
     /**
      * Constructor
      */
-    public function __construct($grp, $mask, $port)
+    public function __construct()
     {
-        $this->setGrp($grp);
-        $this->setMask($mask);
-        $this->setPort($port);
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -59,17 +58,9 @@ class TrunksAddres extends TrunksAddresAbstract implements TrunksAddresInterface
         /**
          * @var $dto TrunksAddresDTO
          */
-        Assertion::isInstanceOf($dto, TrunksAddresDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getGrp(),
-            $dto->getMask(),
-            $dto->getPort());
-
-        return $self
-            ->setIpAddr($dto->getIpAddr())
-            ->setTag($dto->getTag())
-        ;
+        return $self;
     }
 
     /**
@@ -81,16 +72,9 @@ class TrunksAddres extends TrunksAddresAbstract implements TrunksAddresInterface
         /**
          * @var $dto TrunksAddresDTO
          */
-        Assertion::isInstanceOf($dto, TrunksAddresDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setGrp($dto->getGrp())
-            ->setIpAddr($dto->getIpAddr())
-            ->setMask($dto->getMask())
-            ->setPort($dto->getPort())
-            ->setTag($dto->getTag());
-
-
+        
         return $this;
     }
 
@@ -99,12 +83,8 @@ class TrunksAddres extends TrunksAddresAbstract implements TrunksAddresInterface
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setGrp($this->getGrp())
-            ->setIpAddr($this->getIpAddr())
-            ->setMask($this->getMask())
-            ->setPort($this->getPort())
-            ->setTag($this->getTag())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -113,12 +93,7 @@ class TrunksAddres extends TrunksAddresAbstract implements TrunksAddresInterface
      */
     protected function __toArray()
     {
-        return [
-            'grp' => $this->getGrp(),
-            'ipAddr' => $this->getIpAddr(),
-            'mask' => $this->getMask(),
-            'port' => $this->getPort(),
-            'tag' => $this->getTag(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

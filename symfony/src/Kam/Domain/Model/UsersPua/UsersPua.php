@@ -26,40 +26,10 @@ class UsersPua extends UsersPuaAbstract implements UsersPuaInterface, EntityInte
     /**
      * Constructor
      */
-    public function __construct(
-        $presUri,
-        $presId,
-        $event,
-        $expires,
-        $desiredExpires,
-        $flag,
-        $etag,
-        $watcherUri,
-        $callId,
-        $toTag,
-        $fromTag,
-        $cseq,
-        $contact,
-        $remoteContact,
-        $version,
-        $extraHeaders
-    ) {
-        $this->setPresUri($presUri);
-        $this->setPresId($presId);
-        $this->setEvent($event);
-        $this->setExpires($expires);
-        $this->setDesiredExpires($desiredExpires);
-        $this->setFlag($flag);
-        $this->setEtag($etag);
-        $this->setWatcherUri($watcherUri);
-        $this->setCallId($callId);
-        $this->setToTag($toTag);
-        $this->setFromTag($fromTag);
-        $this->setCseq($cseq);
-        $this->setContact($contact);
-        $this->setRemoteContact($remoteContact);
-        $this->setVersion($version);
-        $this->setExtraHeaders($extraHeaders);
+    public function __construct()
+    {
+        parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -88,30 +58,9 @@ class UsersPua extends UsersPuaAbstract implements UsersPuaInterface, EntityInte
         /**
          * @var $dto UsersPuaDTO
          */
-        Assertion::isInstanceOf($dto, UsersPuaDTO::class);
+        $self = parent::fromDTO($dto);
 
-        $self = new self(
-            $dto->getPresUri(),
-            $dto->getPresId(),
-            $dto->getEvent(),
-            $dto->getExpires(),
-            $dto->getDesiredExpires(),
-            $dto->getFlag(),
-            $dto->getEtag(),
-            $dto->getWatcherUri(),
-            $dto->getCallId(),
-            $dto->getToTag(),
-            $dto->getFromTag(),
-            $dto->getCseq(),
-            $dto->getContact(),
-            $dto->getRemoteContact(),
-            $dto->getVersion(),
-            $dto->getExtraHeaders());
-
-        return $self
-            ->setTupleId($dto->getTupleId())
-            ->setRecordRoute($dto->getRecordRoute())
-        ;
+        return $self;
     }
 
     /**
@@ -123,29 +72,9 @@ class UsersPua extends UsersPuaAbstract implements UsersPuaInterface, EntityInte
         /**
          * @var $dto UsersPuaDTO
          */
-        Assertion::isInstanceOf($dto, UsersPuaDTO::class);
+        parent::updateFromDTO($dto);
 
-        $this
-            ->setPresUri($dto->getPresUri())
-            ->setPresId($dto->getPresId())
-            ->setEvent($dto->getEvent())
-            ->setExpires($dto->getExpires())
-            ->setDesiredExpires($dto->getDesiredExpires())
-            ->setFlag($dto->getFlag())
-            ->setEtag($dto->getEtag())
-            ->setTupleId($dto->getTupleId())
-            ->setWatcherUri($dto->getWatcherUri())
-            ->setCallId($dto->getCallId())
-            ->setToTag($dto->getToTag())
-            ->setFromTag($dto->getFromTag())
-            ->setCseq($dto->getCseq())
-            ->setRecordRoute($dto->getRecordRoute())
-            ->setContact($dto->getContact())
-            ->setRemoteContact($dto->getRemoteContact())
-            ->setVersion($dto->getVersion())
-            ->setExtraHeaders($dto->getExtraHeaders());
-
-
+        
         return $this;
     }
 
@@ -154,25 +83,8 @@ class UsersPua extends UsersPuaAbstract implements UsersPuaInterface, EntityInte
      */
     public function toDTO()
     {
-        return self::createDTO()
-            ->setPresUri($this->getPresUri())
-            ->setPresId($this->getPresId())
-            ->setEvent($this->getEvent())
-            ->setExpires($this->getExpires())
-            ->setDesiredExpires($this->getDesiredExpires())
-            ->setFlag($this->getFlag())
-            ->setEtag($this->getEtag())
-            ->setTupleId($this->getTupleId())
-            ->setWatcherUri($this->getWatcherUri())
-            ->setCallId($this->getCallId())
-            ->setToTag($this->getToTag())
-            ->setFromTag($this->getFromTag())
-            ->setCseq($this->getCseq())
-            ->setRecordRoute($this->getRecordRoute())
-            ->setContact($this->getContact())
-            ->setRemoteContact($this->getRemoteContact())
-            ->setVersion($this->getVersion())
-            ->setExtraHeaders($this->getExtraHeaders())
+        $dto = parent::toDTO();
+        return $dto
             ->setId($this->getId());
     }
 
@@ -181,25 +93,7 @@ class UsersPua extends UsersPuaAbstract implements UsersPuaInterface, EntityInte
      */
     protected function __toArray()
     {
-        return [
-            'presUri' => $this->getPresUri(),
-            'presId' => $this->getPresId(),
-            'event' => $this->getEvent(),
-            'expires' => $this->getExpires(),
-            'desiredExpires' => $this->getDesiredExpires(),
-            'flag' => $this->getFlag(),
-            'etag' => $this->getEtag(),
-            'tupleId' => $this->getTupleId(),
-            'watcherUri' => $this->getWatcherUri(),
-            'callId' => $this->getCallId(),
-            'toTag' => $this->getToTag(),
-            'fromTag' => $this->getFromTag(),
-            'cseq' => $this->getCseq(),
-            'recordRoute' => $this->getRecordRoute(),
-            'contact' => $this->getContact(),
-            'remoteContact' => $this->getRemoteContact(),
-            'version' => $this->getVersion(),
-            'extraHeaders' => $this->getExtraHeaders(),
+        return parent::__toArray() + [
             'id' => $this->getId()
         ];
     }

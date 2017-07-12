@@ -214,7 +214,7 @@ Ast\Domain\Model\Voicemail\VoicemailAbstract:
       nullable: true
   manyToOne:
     user:
-      targetEntity: \Core\Domain\Model\User\UserInterface
+      targetEntity: \Ivoz\Domain\Model\User\UserInterface
       cascade: {  }
       fetch: LAZY
       mappedBy: null

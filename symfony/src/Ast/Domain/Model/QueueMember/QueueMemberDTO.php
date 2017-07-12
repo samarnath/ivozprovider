@@ -12,11 +12,6 @@ use Core\Application\CollectionTransformerInterface;
 class QueueMemberDTO implements DataTransferObjectInterface
 {
     /**
-     * @var integer
-     */
-    private $uniqueid;
-
-    /**
      * @var string
      */
     private $queueName;
@@ -47,6 +42,11 @@ class QueueMemberDTO implements DataTransferObjectInterface
     private $paused;
 
     /**
+     * @var integer
+     */
+    private $uniqueid;
+
+    /**
      * @var mixed
      */
     private $queueMemberId;
@@ -62,13 +62,13 @@ class QueueMemberDTO implements DataTransferObjectInterface
     public function __toArray()
     {
         return [
-            'uniqueid' => $this->getUniqueid(),
             'queueName' => $this->getQueueName(),
             'interface' => $this->getInterface(),
             'membername' => $this->getMembername(),
             'stateInterface' => $this->getStateInterface(),
             'penalty' => $this->getPenalty(),
             'paused' => $this->getPaused(),
+            'uniqueid' => $this->getUniqueid(),
             'queueMemberId' => $this->getQueueMemberId()
         ];
     }
@@ -78,7 +78,7 @@ class QueueMemberDTO implements DataTransferObjectInterface
      */
     public function transformForeignKeys(ForeignKeyTransformerInterface $transformer)
     {
-        $this->queueMember = $transformer->transform('Core\\Domain\\Model\\QueueMember\\QueueMember', $this->getQueueMemberId());
+        $this->queueMember = $transformer->transform('Ivoz\\Domain\\Model\\QueueMember\\QueueMember', $this->getQueueMemberId());
     }
 
     /**
@@ -87,26 +87,6 @@ class QueueMemberDTO implements DataTransferObjectInterface
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
 
-    }
-
-    /**
-     * @param integer $uniqueid
-     *
-     * @return QueueMemberDTO
-     */
-    public function setUniqueid($uniqueid)
-    {
-        $this->uniqueid = $uniqueid;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getUniqueid()
-    {
-        return $this->uniqueid;
     }
 
     /**
@@ -230,6 +210,26 @@ class QueueMemberDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param integer $uniqueid
+     *
+     * @return QueueMemberDTO
+     */
+    public function setUniqueid($uniqueid)
+    {
+        $this->uniqueid = $uniqueid;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getUniqueid()
+    {
+        return $this->uniqueid;
+    }
+
+    /**
      * @param integer $queueMemberId
      *
      * @return QueueMemberDTO
@@ -250,7 +250,7 @@ class QueueMemberDTO implements DataTransferObjectInterface
     }
 
     /**
-     * @return \Core\Domain\Model\QueueMember\QueueMember
+     * @return \Ivoz\Domain\Model\QueueMember\QueueMember
      */
     public function getQueueMember()
     {
