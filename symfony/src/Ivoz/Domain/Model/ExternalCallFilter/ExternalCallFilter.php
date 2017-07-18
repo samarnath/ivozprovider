@@ -94,15 +94,7 @@ class ExternalCallFilter extends ExternalCallFilterAbstract implements ExternalC
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'welcomeLocutionId' => $this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null,
-            'holidayLocutionId' => $this->getHolidayLocution() ? $this->getHolidayLocution()->getId() : null,
-            'outOfScheduleLocutionId' => $this->getOutOfScheduleLocution() ? $this->getOutOfScheduleLocution()->getId() : null,
-            'holidayExtensionId' => $this->getHolidayExtension() ? $this->getHolidayExtension()->getId() : null,
-            'outOfScheduleExtensionId' => $this->getOutOfScheduleExtension() ? $this->getOutOfScheduleExtension()->getId() : null,
-            'holidayVoiceMailUserId' => $this->getHolidayVoiceMailUser() ? $this->getHolidayVoiceMailUser()->getId() : null,
-            'outOfScheduleVoiceMailUserId' => $this->getOutOfScheduleVoiceMailUser() ? $this->getOutOfScheduleVoiceMailUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

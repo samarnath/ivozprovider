@@ -143,9 +143,7 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
-            'defaultTimezoneId' => $this->getDefaultTimezone() ? $this->getDefaultTimezone()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

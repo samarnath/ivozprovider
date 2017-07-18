@@ -94,14 +94,7 @@ class Company extends CompanyAbstract implements CompanyInterface, EntityInterfa
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
-            'mediaRelaySetsId' => $this->getMediaRelaySets() ? $this->getMediaRelaySets()->getId() : null,
-            'defaultTimezoneId' => $this->getDefaultTimezone() ? $this->getDefaultTimezone()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null,
-            'countryCodeId' => $this->getCountryCode() ? $this->getCountryCode()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -94,14 +94,7 @@ class Extension extends ExtensionAbstract implements ExtensionInterface, EntityI
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'iVRCommonId' => $this->getIVRCommon() ? $this->getIVRCommon()->getId() : null,
-            'iVRCustomId' => $this->getIVRCustom() ? $this->getIVRCustom()->getId() : null,
-            'huntGroupId' => $this->getHuntGroup() ? $this->getHuntGroup()->getId() : null,
-            'conferenceRoomId' => $this->getConferenceRoom() ? $this->getConferenceRoom()->getId() : null,
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null,
-            'queueId' => $this->getQueue() ? $this->getQueue()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -1,0 +1,9 @@
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  gearmand_jobs_xmlrpc:
+    class: IvozProvider\Gearmand\Jobs\Xmlrpc

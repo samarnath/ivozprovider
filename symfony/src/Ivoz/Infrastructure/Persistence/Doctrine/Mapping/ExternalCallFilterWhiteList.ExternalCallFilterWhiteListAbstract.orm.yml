@@ -1,0 +1,32 @@
+Ivoz\Domain\Model\ExternalCallFilterWhiteList\ExternalCallFilterWhiteListAbstract:
+  type: mappedSuperclass
+  indexes:
+    filterId:
+      columns:
+        - filterId
+    matchListId:
+      columns:
+        - matchListId
+  manyToOne:
+    filter:
+      targetEntity: \Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        filterId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    matchlist:
+      targetEntity: \Ivoz\Domain\Model\MatchList\MatchListInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        matchListId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false

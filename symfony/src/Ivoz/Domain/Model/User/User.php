@@ -94,16 +94,7 @@ class User extends UserAbstract implements UserInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'callACLId' => $this->getCallACL() ? $this->getCallACL()->getId() : null,
-            'bossAssistantId' => $this->getBossAssistant() ? $this->getBossAssistant()->getId() : null,
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null,
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null,
-            'terminalId' => $this->getTerminal() ? $this->getTerminal()->getId() : null,
-            'extensionId' => $this->getExtension() ? $this->getExtension()->getId() : null,
-            'timezoneId' => $this->getTimezone() ? $this->getTimezone()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

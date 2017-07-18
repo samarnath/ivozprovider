@@ -94,9 +94,7 @@ class Fax extends FaxAbstract implements FaxInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

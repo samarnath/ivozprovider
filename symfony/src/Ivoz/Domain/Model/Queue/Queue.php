@@ -94,15 +94,7 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'periodicAnnounceLocutionId' => $this->getPeriodicAnnounceLocution() ? $this->getPeriodicAnnounceLocution()->getId() : null,
-            'timeoutLocutionId' => $this->getTimeoutLocution() ? $this->getTimeoutLocution()->getId() : null,
-            'timeoutExtensionId' => $this->getTimeoutExtension() ? $this->getTimeoutExtension()->getId() : null,
-            'timeoutVoiceMailUserId' => $this->getTimeoutVoiceMailUser() ? $this->getTimeoutVoiceMailUser()->getId() : null,
-            'fullLocutionId' => $this->getFullLocution() ? $this->getFullLocution()->getId() : null,
-            'fullExtensionId' => $this->getFullExtension() ? $this->getFullExtension()->getId() : null,
-            'fullVoiceMailUserId' => $this->getFullVoiceMailUser() ? $this->getFullVoiceMailUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

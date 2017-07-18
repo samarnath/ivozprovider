@@ -1,0 +1,13 @@
+Ivoz\Domain\Model\MatchList\MatchList:
+  type: entity
+  table: MatchLists
+  id:
+    id:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+      id: true
+      generator:
+        strategy: IDENTITY
+lifecycleCallbacks: {  }

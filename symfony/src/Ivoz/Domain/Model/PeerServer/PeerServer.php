@@ -94,9 +94,7 @@ class PeerServer extends PeerServerAbstract implements PeerServerInterface, Enti
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'peeringContractId' => $this->getPeeringContract() ? $this->getPeeringContract()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

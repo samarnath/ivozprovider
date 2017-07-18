@@ -94,9 +94,7 @@ class BrandService extends BrandServiceAbstract implements BrandServiceInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'serviceId' => $this->getService() ? $this->getService()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

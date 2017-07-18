@@ -94,9 +94,7 @@ class HolidayDate extends HolidayDateAbstract implements HolidayDateInterface, E
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'calendarId' => $this->getCalendar() ? $this->getCalendar()->getId() : null,
-            'locutionId' => $this->getLocution() ? $this->getLocution()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

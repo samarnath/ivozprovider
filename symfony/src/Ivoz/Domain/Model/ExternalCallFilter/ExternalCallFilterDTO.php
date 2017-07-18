@@ -37,16 +37,6 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     private $outOfScheduleNumberValue;
 
     /**
-     * @var string
-     */
-    private $blackListRegExp;
-
-    /**
-     * @var string
-     */
-    private $whiteListRegExp;
-
-    /**
      * @var integer
      */
     private $id;
@@ -142,8 +132,6 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
             'holidayNumberValue' => $this->getHolidayNumberValue(),
             'outOfScheduleTargetType' => $this->getOutOfScheduleTargetType(),
             'outOfScheduleNumberValue' => $this->getOutOfScheduleNumberValue(),
-            'blackListRegExp' => $this->getBlackListRegExp(),
-            'whiteListRegExp' => $this->getWhiteListRegExp(),
             'id' => $this->getId(),
             'companyId' => $this->getCompanyId(),
             'welcomeLocutionId' => $this->getWelcomeLocutionId(),
@@ -277,46 +265,6 @@ class ExternalCallFilterDTO implements DataTransferObjectInterface
     public function getOutOfScheduleNumberValue()
     {
         return $this->outOfScheduleNumberValue;
-    }
-
-    /**
-     * @param string $blackListRegExp
-     *
-     * @return ExternalCallFilterDTO
-     */
-    public function setBlackListRegExp($blackListRegExp = null)
-    {
-        $this->blackListRegExp = $blackListRegExp;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBlackListRegExp()
-    {
-        return $this->blackListRegExp;
-    }
-
-    /**
-     * @param string $whiteListRegExp
-     *
-     * @return ExternalCallFilterDTO
-     */
-    public function setWhiteListRegExp($whiteListRegExp = null)
-    {
-        $this->whiteListRegExp = $whiteListRegExp;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getWhiteListRegExp()
-    {
-        return $this->whiteListRegExp;
     }
 
     /**

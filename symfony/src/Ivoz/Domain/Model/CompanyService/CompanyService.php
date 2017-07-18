@@ -94,9 +94,7 @@ class CompanyService extends CompanyServiceAbstract implements CompanyServiceInt
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'serviceId' => $this->getService() ? $this->getService()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

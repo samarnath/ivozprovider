@@ -94,11 +94,7 @@ class HuntGroup extends HuntGroupAbstract implements HuntGroupInterface, EntityI
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'noAnswerLocutionId' => $this->getNoAnswerLocution() ? $this->getNoAnswerLocution()->getId() : null,
-            'noAnswerExtensionId' => $this->getNoAnswerExtension() ? $this->getNoAnswerExtension()->getId() : null,
-            'noAnswerVoiceMailUserId' => $this->getNoAnswerVoiceMailUser() ? $this->getNoAnswerVoiceMailUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -94,9 +94,7 @@ class LcrRule extends LcrRuleAbstract implements LcrRuleInterface, EntityInterfa
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'routingPatternId' => $this->getRoutingPattern() ? $this->getRoutingPattern()->getId() : null,
-            'outgoingRoutingId' => $this->getOutgoingRouting() ? $this->getOutgoingRouting()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

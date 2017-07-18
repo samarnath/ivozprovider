@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  # By convention service names must be formed as described below
+  # - Fisrt segment of the namespace
+  # - lifecycle
+  # - entity name in snake_case
+  # - event name: Check out handled event list from fromCore/Infrastructure/Model/Lifecycle
+  # beside of that it must be lower case
+
+  ivoz.lifecycle.application_server.post_persist:
+    class: Ivoz\Domain\Model\ApplicationServer\PostPersistApplicationServer
+    arguments:
+      $dispatcherRepository: '@=service("doctrine.orm.entity_manager").getRepository("Kam\\Domain\\Model\\Dispatcher\\Dispatcher")'
+      $xmlrpc: '@gearmand_jobs_xmlrpc'

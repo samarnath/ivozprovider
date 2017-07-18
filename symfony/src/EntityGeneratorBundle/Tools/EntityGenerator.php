@@ -2,10 +2,7 @@
 
 namespace EntityGeneratorBundle\Tools;
 
-use Doctrine\ORM\Mapping\ClassMetadata;
-use Doctrine\ORM\Tools\EntityGenerator as ParentGenerator;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-use Doctrine\Common\Util\Inflector;
 
 /**
  * Description of EntityGenerator

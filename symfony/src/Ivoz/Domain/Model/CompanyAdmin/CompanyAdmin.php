@@ -94,9 +94,7 @@ class CompanyAdmin extends CompanyAdminAbstract implements CompanyAdminInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'timezoneId' => $this->getTimezone() ? $this->getTimezone()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

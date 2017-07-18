@@ -1,22 +1,53 @@
+imports:
+  - { resource: "@CoreBundle/Resources/config/gearmand.yml" }
+  - { resource: "@CoreBundle/Resources/config/lifecycle.yml" }
+
 services:
-    core.doctrine_foreign_key_transformer:
-      class: Core\Infrastructure\Application\DoctrineForeignKeyTransformer
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  core.doctrine_foreign_key_transformer:
+    class: Core\Infrastructure\Application\DoctrineForeignKeyTransformer
+    arguments:
+      - "@doctrine.orm.entity_manager"
+
+  core.doctrine_collection_transformer:
+    class: Core\Infrastructure\Application\DoctrineCollectionTransformer
+    arguments:
+      - "@doctrine.orm.entity_manager"
+
+  core.create_entity_from_dto:
+      class: Core\Application\Command\CreateEntityFromDTO
       arguments:
-        - "@doctrine.orm.entity_manager"
+        - "@core.doctrine_foreign_key_transformer"
+        - "@core.doctrine_collection_transformer"
 
-    core.doctrine_collection_transformer:
-      class: Core\Infrastructure\Application\DoctrineCollectionTransformer
+  core.update_entity_from_dto:
+      class: Core\Application\Command\UpdateEntityFromDTO
       arguments:
-        - "@doctrine.orm.entity_manager"
+        - "@core.doctrine_foreign_key_transformer"
+        - "@core.doctrine_collection_transformer"
 
-    core.create_entity_from_dto:
-        class: Core\Application\Command\CreateEntityFromDTO
-        arguments:
-          - "@core.doctrine_foreign_key_transformer"
-          - "@core.doctrine_collection_transformer"
+  core.lifecycle.persist_subscriber:
+      class: Core\Infrastructure\Model\Lifecycle\PersistSubscriber
+      arguments:
+        - "@service_container"
+      tags:
+          - { name: doctrine.event_subscriber }
 
-    core.update_entity_from_dto:
-        class: Core\Application\Command\UpdateEntityFromDTO
-        arguments:
-          - "@core.doctrine_foreign_key_transformer"
-          - "@core.doctrine_collection_transformer"
+#    core.lifecycle.load_subscriber:
+#        class: Core\Infrastructure\Model\Lifecycle\LoadSubscriber
+#        arguments:
+#          - "@service_container"
+#        tags:
+#            - { name: doctrine.event_subscriber, connection: default }
+
+#    core.lifecycle.remove_subscriber:
+#        class: Core\Infrastructure\Model\Lifecycle\RemoveSubscriber
+#        arguments:
+#          - "@service_container"
+#        tags:
+#            - { name: doctrine.event_subscriber, connection: default }

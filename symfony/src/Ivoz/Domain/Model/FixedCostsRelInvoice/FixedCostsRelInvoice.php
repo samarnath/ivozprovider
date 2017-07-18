@@ -94,10 +94,7 @@ class FixedCostsRelInvoice extends FixedCostsRelInvoiceAbstract implements Fixed
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'fixedCostId' => $this->getFixedCost() ? $this->getFixedCost()->getId() : null,
-            'invoiceId' => $this->getInvoice() ? $this->getInvoice()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -11,7 +11,6 @@ use Core\Application\DataTransferObjectInterface;
 abstract class MusicOnHoldAbstract
 {
     /**
-     * @column encodedFileBaseName
      * @var string
      */
     protected $name;

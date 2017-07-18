@@ -1,5 +1,6 @@
 production:
   class: \IvozProvider\Model\MatchLists
+  entity: Ivoz\Domain\Model\MatchList\MatchList
   fields:
     companyId:
       title: _('Companyid')

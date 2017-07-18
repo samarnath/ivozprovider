@@ -94,9 +94,7 @@ class Domain extends DomainAbstract implements DomainInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

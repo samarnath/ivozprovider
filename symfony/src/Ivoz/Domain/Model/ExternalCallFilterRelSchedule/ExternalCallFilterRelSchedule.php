@@ -94,9 +94,7 @@ class ExternalCallFilterRelSchedule extends ExternalCallFilterRelScheduleAbstrac
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'filterId' => $this->getFilter() ? $this->getFilter()->getId() : null,
-            'scheduleId' => $this->getSchedule() ? $this->getSchedule()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -94,9 +94,7 @@ class PickUpRelUser extends PickUpRelUserAbstract implements PickUpRelUserInterf
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'pickUpGroupId' => $this->getPickUpGroup() ? $this->getPickUpGroup()->getId() : null,
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

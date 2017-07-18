@@ -94,16 +94,7 @@ class IVRCommon extends IVRCommonAbstract implements IVRCommonInterface, EntityI
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'welcomeLocutionId' => $this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null,
-            'noAnswerLocutionId' => $this->getNoAnswerLocution() ? $this->getNoAnswerLocution()->getId() : null,
-            'errorLocutionId' => $this->getErrorLocution() ? $this->getErrorLocution()->getId() : null,
-            'successLocutionId' => $this->getSuccessLocution() ? $this->getSuccessLocution()->getId() : null,
-            'timeoutExtensionId' => $this->getTimeoutExtension() ? $this->getTimeoutExtension()->getId() : null,
-            'errorExtensionId' => $this->getErrorExtension() ? $this->getErrorExtension()->getId() : null,
-            'timeoutVoiceMailUserId' => $this->getTimeoutVoiceMailUser() ? $this->getTimeoutVoiceMailUser()->getId() : null,
-            'errorVoiceMailUserId' => $this->getErrorVoiceMailUser() ? $this->getErrorVoiceMailUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -94,10 +94,7 @@ class Invoice extends InvoiceAbstract implements InvoiceInterface, EntityInterfa
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'invoiceTemplateId' => $this->getInvoiceTemplate() ? $this->getInvoiceTemplate()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

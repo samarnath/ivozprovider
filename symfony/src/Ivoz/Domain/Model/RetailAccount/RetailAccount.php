@@ -94,12 +94,7 @@ class RetailAccount extends RetailAccountAbstract implements RetailAccountInterf
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null,
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

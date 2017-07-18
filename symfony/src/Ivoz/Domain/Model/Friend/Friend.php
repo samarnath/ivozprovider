@@ -94,12 +94,7 @@ class Friend extends FriendAbstract implements FriendInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'countryId' => $this->getCountry() ? $this->getCountry()->getId() : null,
-            'callACLId' => $this->getCallACL() ? $this->getCallACL()->getId() : null,
-            'outgoingDDIId' => $this->getOutgoingDDI() ? $this->getOutgoingDDI()->getId() : null,
-            'languageId' => $this->getLanguage() ? $this->getLanguage()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

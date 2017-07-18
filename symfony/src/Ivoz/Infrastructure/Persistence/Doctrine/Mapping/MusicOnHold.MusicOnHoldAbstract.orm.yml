@@ -64,7 +64,7 @@ Ivoz\Domain\Model\MusicOnHold\MusicOnHoldAbstract:
 #      length: 255
 #      options:
 #        fixed: false
-      column: encodedFileBaseName
+#      column: encodedFileBaseName
     status:
       type: string
       nullable: true

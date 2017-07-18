@@ -1,0 +1,13 @@
+Ivoz\Domain\Model\ExternalCallFilterWhiteList\ExternalCallFilterWhiteList:
+    type: entity
+    table: ExternalCallFilterWhiteLists
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

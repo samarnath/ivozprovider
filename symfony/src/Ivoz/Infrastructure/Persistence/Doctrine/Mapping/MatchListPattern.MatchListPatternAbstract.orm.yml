@@ -1,0 +1,59 @@
+Ivoz\Domain\Model\MatchListPattern\MatchListPatternAbstract:
+  type: mappedSuperclass
+  indexes:
+    matchListId:
+      columns:
+        - matchListId
+    MatchListPatternId:
+      columns:
+        - numberCountryId
+  fields:
+    description:
+      type: string
+      nullable: true
+      length: 55
+      options:
+        fixed: false
+    type:
+      type: string
+      nullable: false
+      length: 10
+      options:
+        fixed: false
+        comment: '[enum:number|regexp]'
+    regexp:
+      type: string
+      nullable: true
+      length: 255
+      options:
+          fixed: false
+      column: regExp
+    numbervalue:
+      type: string
+      nullable: true
+      length: 25
+      options:
+          fixed: false
+      column: numberValue
+  manyToOne:
+    matchList:
+      targetEntity: \Ivoz\Domain\Model\MatchList\MatchListInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        matchListId:
+          referencedColumnName: id
+          nullable: false
+      orphanRemoval: false
+    MatchListPattern:
+      targetEntity: \Ivoz\Domain\Model\Country\CountryInterface
+      cascade: {  }
+      fetch: LAZY
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        numberCountryId:
+          referencedColumnName: id
+      orphanRemoval: false

@@ -94,9 +94,7 @@ class FeaturesRelBrand extends FeaturesRelBrandAbstract implements FeaturesRelBr
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'featureId' => $this->getFeature() ? $this->getFeature()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

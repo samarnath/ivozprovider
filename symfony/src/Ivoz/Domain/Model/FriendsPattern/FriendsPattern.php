@@ -94,8 +94,7 @@ class FriendsPattern extends FriendsPatternAbstract implements FriendsPatternInt
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'friendId' => $this->getFriend() ? $this->getFriend()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

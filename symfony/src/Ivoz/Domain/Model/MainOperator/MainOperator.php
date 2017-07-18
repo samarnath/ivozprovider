@@ -94,8 +94,7 @@ class MainOperator extends MainOperatorAbstract implements MainOperatorInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'timezoneId' => $this->getTimezone() ? $this->getTimezone()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

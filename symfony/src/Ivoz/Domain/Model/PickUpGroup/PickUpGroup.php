@@ -94,8 +94,7 @@ class PickUpGroup extends PickUpGroupAbstract implements PickUpGroupInterface, E
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

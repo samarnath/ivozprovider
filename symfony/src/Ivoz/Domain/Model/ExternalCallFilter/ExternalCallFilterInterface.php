@@ -47,22 +47,6 @@ interface ExternalCallFilterInterface
 
 
     /**
-     * Get blackListRegExp
-     *
-     * @return string
-     */
-    public function getBlackListRegExp();
-
-
-    /**
-     * Get whiteListRegExp
-     *
-     * @return string
-     */
-    public function getWhiteListRegExp();
-
-
-    /**
      * Get company
      *
      * @return \Ivoz\Domain\Model\Company\CompanyInterface

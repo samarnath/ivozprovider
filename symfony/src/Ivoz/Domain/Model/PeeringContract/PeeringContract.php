@@ -94,9 +94,7 @@ class PeeringContract extends PeeringContractAbstract implements PeeringContract
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'transformationRulesetGroupsTrunkId' => $this->getTransformationRulesetGroupsTrunk() ? $this->getTransformationRulesetGroupsTrunk()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

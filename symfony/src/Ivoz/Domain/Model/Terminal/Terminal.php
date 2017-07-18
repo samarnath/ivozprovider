@@ -94,9 +94,7 @@ class Terminal extends TerminalAbstract implements TerminalInterface, EntityInte
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'terminalModelId' => $this->getTerminalModel() ? $this->getTerminalModel()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

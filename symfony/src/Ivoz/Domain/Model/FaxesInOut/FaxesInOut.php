@@ -94,8 +94,7 @@ class FaxesInOut extends FaxesInOutAbstract implements FaxesInOutInterface, Enti
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'faxId' => $this->getFax() ? $this->getFax()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

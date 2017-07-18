@@ -94,8 +94,7 @@ class BrandURL extends BrandURLAbstract implements BrandURLInterface, EntityInte
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

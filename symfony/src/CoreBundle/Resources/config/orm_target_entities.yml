@@ -30,8 +30,10 @@ doctrine:
       Ivoz\Domain\Model\EtagVersion\EtagVersionInterface: Ivoz\Domain\Model\EtagVersion\EtagVersion
       Ivoz\Domain\Model\Extension\ExtensionInterface: Ivoz\Domain\Model\Extension\Extension
       Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilterInterface: Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilter
+      Ivoz\Domain\Model\ExternalCallFilterBlackList\ExternalCallFilterBlackListInterface: Ivoz\Domain\Model\ExternalCallFilterBlackList\ExternalCallFilterBlackList
       Ivoz\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendarInterface: Ivoz\Domain\Model\ExternalCallFilterRelCalendar\ExternalCallFilterRelCalendar
       Ivoz\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelScheduleInterface: Ivoz\Domain\Model\ExternalCallFilterRelSchedule\ExternalCallFilterRelSchedule
+      Ivoz\Domain\Model\ExternalCallFilterWhiteList\ExternalCallFilterWhiteListInterface: Ivoz\Domain\Model\ExternalCallFilterWhiteList\ExternalCallFilterWhiteList
       Ivoz\Domain\Model\FaxesInOut\FaxesInOutInterface: Ivoz\Domain\Model\FaxesInOut\FaxesInOut
       Ivoz\Domain\Model\Fax\FaxInterface: Ivoz\Domain\Model\Fax\Fax
       Ivoz\Domain\Model\Feature\FeatureInterface: Ivoz\Domain\Model\Feature\Feature
@@ -57,6 +59,8 @@ doctrine:
       Ivoz\Domain\Model\LcrRuleTarget\LcrRuleTargetInterface: Ivoz\Domain\Model\LcrRuleTarget\LcrRuleTarget
       Ivoz\Domain\Model\Locution\LocutionInterface: Ivoz\Domain\Model\Locution\Locution
       Ivoz\Domain\Model\MainOperator\MainOperatorInterface: Ivoz\Domain\Model\MainOperator\MainOperator
+      Ivoz\Domain\Model\MatchList\MatchListInterface: Ivoz\Domain\Model\MatchList\MatchList
+      Ivoz\Domain\Model\MatchListPattern\MatchListPatternInterface: Ivoz\Domain\Model\MatchListPattern\MatchListPattern
       Ivoz\Domain\Model\MediaRelaySet\MediaRelaySetInterface: Ivoz\Domain\Model\MediaRelaySet\MediaRelaySet
       Ivoz\Domain\Model\Musiconhold\MusiconholdInterface: Ivoz\Domain\Model\Musiconhold\Musiconhold
       Ivoz\Domain\Model\MusicOnHold\MusicOnHoldInterface: Ivoz\Domain\Model\MusicOnHold\MusicOnHold

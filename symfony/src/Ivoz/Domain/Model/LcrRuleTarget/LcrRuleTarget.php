@@ -94,10 +94,7 @@ class LcrRuleTarget extends LcrRuleTargetAbstract implements LcrRuleTargetInterf
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'ruleId' => $this->getRule() ? $this->getRule()->getId() : null,
-            'gwId' => $this->getGw() ? $this->getGw()->getId() : null,
-            'outgoingRoutingId' => $this->getOutgoingRouting() ? $this->getOutgoingRouting()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -6,7 +6,6 @@ use Doctrine\ORM\EntityManager;
 use Core\Application\DataTransferObjectInterface;
 use Core\Application\Command\CreateEntityFromDTO;
 use Core\Application\Command\UpdateEntityFromDTO;
-use ZfBundle\Services\QueryBuilderFactory;
 
 /**
  * persistence data gateway for zend framework applications

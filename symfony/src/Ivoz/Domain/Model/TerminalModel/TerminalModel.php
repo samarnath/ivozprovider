@@ -94,8 +94,7 @@ class TerminalModel extends TerminalModelAbstract implements TerminalModelInterf
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'terminalManufacturerId' => $this->getTerminalManufacturer() ? $this->getTerminalManufacturer()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

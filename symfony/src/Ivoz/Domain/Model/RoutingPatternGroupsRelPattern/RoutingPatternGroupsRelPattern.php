@@ -94,9 +94,7 @@ class RoutingPatternGroupsRelPattern extends RoutingPatternGroupsRelPatternAbstr
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'routingPatternId' => $this->getRoutingPattern() ? $this->getRoutingPattern()->getId() : null,
-            'routingPatternGroupId' => $this->getRoutingPatternGroup() ? $this->getRoutingPatternGroup()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

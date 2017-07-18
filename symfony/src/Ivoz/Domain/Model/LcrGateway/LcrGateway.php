@@ -94,8 +94,7 @@ class LcrGateway extends LcrGatewayAbstract implements LcrGatewayInterface, Enti
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'peerServerId' => $this->getPeerServer() ? $this->getPeerServer()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

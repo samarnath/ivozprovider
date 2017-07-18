@@ -94,9 +94,7 @@ class CallACLRelPattern extends CallACLRelPatternAbstract implements CallACLRelP
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'callACLId' => $this->getCallACL() ? $this->getCallACL()->getId() : null,
-            'callACLPatternId' => $this->getCallACLPattern() ? $this->getCallACLPattern()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

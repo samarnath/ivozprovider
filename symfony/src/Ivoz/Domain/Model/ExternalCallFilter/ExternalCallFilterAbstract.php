@@ -38,16 +38,6 @@ abstract class ExternalCallFilterAbstract
     protected $outOfScheduleNumberValue;
 
     /**
-     * @var string
-     */
-    protected $blackListRegExp;
-
-    /**
-     * @var string
-     */
-    protected $whiteListRegExp;
-
-    /**
      * @var \Ivoz\Domain\Model\Company\CompanyInterface
      */
     protected $company;
@@ -132,8 +122,6 @@ abstract class ExternalCallFilterAbstract
             ->setHolidayNumberValue($dto->getHolidayNumberValue())
             ->setOutOfScheduleTargetType($dto->getOutOfScheduleTargetType())
             ->setOutOfScheduleNumberValue($dto->getOutOfScheduleNumberValue())
-            ->setBlackListRegExp($dto->getBlackListRegExp())
-            ->setWhiteListRegExp($dto->getWhiteListRegExp())
             ->setCompany($dto->getCompany())
             ->setWelcomeLocution($dto->getWelcomeLocution())
             ->setHolidayLocution($dto->getHolidayLocution())
@@ -162,8 +150,6 @@ abstract class ExternalCallFilterAbstract
             ->setHolidayNumberValue($dto->getHolidayNumberValue())
             ->setOutOfScheduleTargetType($dto->getOutOfScheduleTargetType())
             ->setOutOfScheduleNumberValue($dto->getOutOfScheduleNumberValue())
-            ->setBlackListRegExp($dto->getBlackListRegExp())
-            ->setWhiteListRegExp($dto->getWhiteListRegExp())
             ->setCompany($dto->getCompany())
             ->setWelcomeLocution($dto->getWelcomeLocution())
             ->setHolidayLocution($dto->getHolidayLocution())
@@ -188,8 +174,6 @@ abstract class ExternalCallFilterAbstract
             ->setHolidayNumberValue($this->getHolidayNumberValue())
             ->setOutOfScheduleTargetType($this->getOutOfScheduleTargetType())
             ->setOutOfScheduleNumberValue($this->getOutOfScheduleNumberValue())
-            ->setBlackListRegExp($this->getBlackListRegExp())
-            ->setWhiteListRegExp($this->getWhiteListRegExp())
             ->setCompanyId($this->getCompany() ? $this->getCompany()->getId() : null)
             ->setWelcomeLocutionId($this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null)
             ->setHolidayLocutionId($this->getHolidayLocution() ? $this->getHolidayLocution()->getId() : null)
@@ -211,8 +195,6 @@ abstract class ExternalCallFilterAbstract
             'holidayNumberValue' => $this->getHolidayNumberValue(),
             'outOfScheduleTargetType' => $this->getOutOfScheduleTargetType(),
             'outOfScheduleNumberValue' => $this->getOutOfScheduleNumberValue(),
-            'blackListRegExp' => $this->getBlackListRegExp(),
-            'whiteListRegExp' => $this->getWhiteListRegExp(),
             'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
             'welcomeLocutionId' => $this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null,
             'holidayLocutionId' => $this->getHolidayLocution() ? $this->getHolidayLocution()->getId() : null,
@@ -374,62 +356,6 @@ abstract class ExternalCallFilterAbstract
     public function getOutOfScheduleNumberValue()
     {
         return $this->outOfScheduleNumberValue;
-    }
-
-    /**
-     * Set blackListRegExp
-     *
-     * @param string $blackListRegExp
-     *
-     * @return self
-     */
-    protected function setBlackListRegExp($blackListRegExp = null)
-    {
-        if (!is_null($blackListRegExp)) {
-            Assertion::maxLength($blackListRegExp, 255);
-        }
-
-        $this->blackListRegExp = $blackListRegExp;
-
-        return $this;
-    }
-
-    /**
-     * Get blackListRegExp
-     *
-     * @return string
-     */
-    public function getBlackListRegExp()
-    {
-        return $this->blackListRegExp;
-    }
-
-    /**
-     * Set whiteListRegExp
-     *
-     * @param string $whiteListRegExp
-     *
-     * @return self
-     */
-    protected function setWhiteListRegExp($whiteListRegExp = null)
-    {
-        if (!is_null($whiteListRegExp)) {
-            Assertion::maxLength($whiteListRegExp, 255);
-        }
-
-        $this->whiteListRegExp = $whiteListRegExp;
-
-        return $this;
-    }
-
-    /**
-     * Get whiteListRegExp
-     *
-     * @return string
-     */
-    public function getWhiteListRegExp()
-    {
-        return $this->whiteListRegExp;
     }
 
     /**

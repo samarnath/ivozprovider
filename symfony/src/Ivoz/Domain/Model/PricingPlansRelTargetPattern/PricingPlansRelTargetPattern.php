@@ -94,10 +94,7 @@ class PricingPlansRelTargetPattern extends PricingPlansRelTargetPatternAbstract 
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'pricingPlanId' => $this->getPricingPlan() ? $this->getPricingPlan()->getId() : null,
-            'targetPatternId' => $this->getTargetPattern() ? $this->getTargetPattern()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

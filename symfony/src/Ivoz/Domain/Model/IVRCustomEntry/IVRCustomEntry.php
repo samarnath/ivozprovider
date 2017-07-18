@@ -94,11 +94,7 @@ class IVRCustomEntry extends IVRCustomEntryAbstract implements IVRCustomEntryInt
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'iVRCustomId' => $this->getIVRCustom() ? $this->getIVRCustom()->getId() : null,
-            'welcomeLocutionId' => $this->getWelcomeLocution() ? $this->getWelcomeLocution()->getId() : null,
-            'targetExtensionId' => $this->getTargetExtension() ? $this->getTargetExtension()->getId() : null,
-            'targetVoiceMailUserId' => $this->getTargetVoiceMailUser() ? $this->getTargetVoiceMailUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

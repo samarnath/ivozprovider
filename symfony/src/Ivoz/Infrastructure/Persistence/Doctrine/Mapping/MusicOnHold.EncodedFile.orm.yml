@@ -21,3 +21,4 @@ Ivoz\Domain\Model\MusicOnHold\EncodedFile:
       length: 255
       options:
         fixed: false
+      column: encodedFileBaseName

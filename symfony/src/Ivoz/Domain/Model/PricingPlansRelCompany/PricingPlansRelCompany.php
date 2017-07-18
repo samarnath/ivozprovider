@@ -94,10 +94,7 @@ class PricingPlansRelCompany extends PricingPlansRelCompanyAbstract implements P
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'pricingPlanId' => $this->getPricingPlan() ? $this->getPricingPlan()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

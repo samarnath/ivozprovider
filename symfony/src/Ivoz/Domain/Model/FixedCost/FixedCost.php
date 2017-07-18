@@ -94,8 +94,7 @@ class FixedCost extends FixedCostAbstract implements FixedCostInterface, EntityI
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -23,7 +23,7 @@ class EncodedFile
     protected $mimeType;
 
     /**
-     * @column base_name
+     * @column encodedFileBaseName
      * @var string
      */
     protected $baseName;

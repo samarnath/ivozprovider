@@ -94,12 +94,7 @@ class OutgoingRouting extends OutgoingRoutingAbstract implements OutgoingRouting
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'peeringContractId' => $this->getPeeringContract() ? $this->getPeeringContract()->getId() : null,
-            'routingPatternId' => $this->getRoutingPattern() ? $this->getRoutingPattern()->getId() : null,
-            'routingPatternGroupId' => $this->getRoutingPatternGroup() ? $this->getRoutingPatternGroup()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

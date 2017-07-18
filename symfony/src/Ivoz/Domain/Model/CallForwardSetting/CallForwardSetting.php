@@ -94,10 +94,7 @@ class CallForwardSetting extends CallForwardSettingAbstract implements CallForwa
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null,
-            'extensionId' => $this->getExtension() ? $this->getExtension()->getId() : null,
-            'voiceMailUserId' => $this->getVoiceMailUser() ? $this->getVoiceMailUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

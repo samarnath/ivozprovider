@@ -94,9 +94,7 @@ class FeaturesRelCompany extends FeaturesRelCompanyAbstract implements FeaturesR
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null,
-            'featureId' => $this->getFeature() ? $this->getFeature()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

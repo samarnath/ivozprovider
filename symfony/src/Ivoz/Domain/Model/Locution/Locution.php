@@ -94,8 +94,7 @@ class Locution extends LocutionAbstract implements LocutionInterface, EntityInte
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

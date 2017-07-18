@@ -68,20 +68,6 @@ Ivoz\Domain\Model\ExternalCallFilter\ExternalCallFilterAbstract:
       options:
         fixed: false
       column: outOfScheduleNumberValue
-    blackListRegExp:
-      type: string
-      nullable: true
-      length: 255
-      options:
-        fixed: false
-      column: blackListRegExp
-    whiteListRegExp:
-      type: string
-      nullable: true
-      length: 255
-      options:
-        fixed: false
-      column: whiteListRegExp
   manyToOne:
     company:
       targetEntity: \Ivoz\Domain\Model\Company\CompanyInterface
