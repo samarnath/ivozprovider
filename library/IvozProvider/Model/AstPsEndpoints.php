@@ -28,6 +28,9 @@ class AstPsEndpoints extends Raw\AstPsEndpoints
     {
     }
 
+    /**
+     * @deprecated
+     */
     public function getAstPsAor()
     {
         $aorMapper = new \IvozProvider\Mapper\Sql\AstPsAors();
