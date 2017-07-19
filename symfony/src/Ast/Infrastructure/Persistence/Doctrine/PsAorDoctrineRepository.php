@@ -4,6 +4,7 @@ namespace Ast\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\ORM\EntityRepository;
 use Ast\Domain\Model\PsAor\PsAorRepository;
+use Ast\Domain\Model\PsAor\PsAor;
 
 /**
  * PsAorDoctrineRepository
@@ -13,4 +14,19 @@ use Ast\Domain\Model\PsAor\PsAorRepository;
  */
 class PsAorDoctrineRepository extends EntityRepository implements PsAorRepository
 {
+    public function getSorceryByContact($contact)
+    {
+        /**
+         * @var PsAor $aor
+         */
+        $aor = $this->findOneBy([
+            'contact' => $contact
+        ]);
+
+        if ($aor) {
+            return $aor->getSorceryId();
+        }
+
+        return '';
+    }
 }
