@@ -111,4 +111,3 @@ class BrandOperator extends BrandOperatorAbstract implements BrandOperatorInterf
 
 
 }
-

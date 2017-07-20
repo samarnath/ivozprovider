@@ -111,4 +111,3 @@ class EtagVersion extends EtagVersionAbstract implements EtagVersionInterface, E
 
 
 }
-

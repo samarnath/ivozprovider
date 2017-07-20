@@ -16,7 +16,6 @@ class ApplicationServer extends ApplicationServerAbstract implements Application
      */
     protected $id;
 
-
     /**
      * Changelog tracking purpose
      * @var array
@@ -29,7 +28,6 @@ class ApplicationServer extends ApplicationServerAbstract implements Application
     public function __construct()
     {
         parent::__construct(...func_get_args());
-
     }
 
     public function __wakeup()
@@ -74,7 +72,6 @@ class ApplicationServer extends ApplicationServerAbstract implements Application
          */
         parent::updateFromDTO($dto);
 
-        
         return $this;
     }
 
@@ -111,4 +108,3 @@ class ApplicationServer extends ApplicationServerAbstract implements Application
 
 
 }
-

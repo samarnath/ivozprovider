@@ -111,4 +111,3 @@ class RoutingPattern extends RoutingPatternAbstract implements RoutingPatternInt
 
 
 }
-

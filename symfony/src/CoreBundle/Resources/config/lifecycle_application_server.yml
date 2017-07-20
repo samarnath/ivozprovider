@@ -1,0 +1,28 @@
+services:
+  _defaults:
+    autowire: true
+    public: false
+
+  ##################################
+  ## lifecycle.application_server
+  ##################################
+  Kam\Domain\Service\Dispatcher\UpdateByApplicationServer:
+    tags:
+      - { name: ivoz.lifecycle.application_server.post_persist, priority: 10}
+    arguments:
+      $dispatcherRepository:
+        '@=service("doctrine.orm.entity_manager").getRepository("Kam\\Domain\\Model\\Dispatcher\\Dispatcher")'
+
+  Ivoz\Domain\Service\RequestProxyTrunksDispatcherReload:
+    tags:
+      - { name: ivoz.lifecycle.application_server.post_persist, priority: 20 }
+    arguments:
+      $xmlrpc:
+        '@IvozProvider\Gearmand\Jobs\Xmlrpc'
+
+  Ivoz\Domain\Service\RequestProxyUsersDispatcherReload:
+    tags:
+      - { name: ivoz.lifecycle.application_server.post_persist, priority: 21 }
+    arguments:
+      $xmlrpc:
+        '@IvozProvider\Gearmand\Jobs\Xmlrpc'

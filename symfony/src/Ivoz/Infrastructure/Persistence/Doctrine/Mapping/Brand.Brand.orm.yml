@@ -12,6 +12,9 @@ Ivoz\Domain\Model\Brand\Brand:
       generator:
         strategy: IDENTITY
   oneToMany:
+    companies:
+      targetEntity: Ivoz\Domain\Model\Company\CompanyInterface
+      mappedBy: brand
     operators:
       targetEntity: Ivoz\Domain\Model\BrandOperator\BrandOperatorInterface
       mappedBy: brand
@@ -26,5 +29,8 @@ Ivoz\Domain\Model\Brand\Brand:
       mappedBy: brand
     domains:
       targetEntity: Ivoz\Domain\Model\Domain\DomainInterface
+      mappedBy: brand
+    retailAccounts:
+      targetEntity: Ivoz\Domain\Model\RetailAccount\RetailAccountInterface
       mappedBy: brand
   lifecycleCallbacks: {  }

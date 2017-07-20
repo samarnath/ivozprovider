@@ -56,6 +56,7 @@ class Brands extends Raw\Brands
         if (!$language) {
             return "en";
         }
+
         return $language->getIden();
     }
 

@@ -111,4 +111,3 @@ class RetailAccount extends RetailAccountAbstract implements RetailAccountInterf
 
 
 }
-

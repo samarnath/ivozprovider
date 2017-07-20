@@ -186,7 +186,7 @@ Ivoz\Domain\Model\Company\CompanyAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: companies
       joinColumns:
         brandId:
           referencedColumnName: id

@@ -111,4 +111,3 @@ class HuntGroup extends HuntGroupAbstract implements HuntGroupInterface, EntityI
 
 
 }
-

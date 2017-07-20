@@ -111,4 +111,3 @@ class PickUpGroup extends PickUpGroupAbstract implements PickUpGroupInterface, E
 
 
 }
-

@@ -111,4 +111,3 @@ class Company extends CompanyAbstract implements CompanyInterface, EntityInterfa
 
 
 }
-

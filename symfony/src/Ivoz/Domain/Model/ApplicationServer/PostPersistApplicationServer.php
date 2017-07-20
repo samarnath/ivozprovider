@@ -25,6 +25,16 @@ class PostPersistApplicationServer
      */
     protected $em;
 
+    /**
+     * @var CreateEntityFromDTO
+     */
+    protected $createEntityFromDTO;
+
+    /**
+     * @var UpdateEntityFromDTO
+     */
+    protected $entityUpdater;
+
     public function __construct(
         KamDispatcherRepository $dispatcherRepository,
         Xmlrpc $xmlrpc,

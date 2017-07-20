@@ -111,4 +111,3 @@ class Fax extends FaxAbstract implements FaxInterface, EntityInterface
 
 
 }
-

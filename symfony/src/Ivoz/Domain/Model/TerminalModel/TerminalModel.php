@@ -111,4 +111,3 @@ class TerminalModel extends TerminalModelAbstract implements TerminalModelInterf
 
 
 }
-

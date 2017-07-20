@@ -175,6 +175,16 @@ interface CompanyInterface
 
 
     /**
+     * Set brand
+     *
+     * @param \Ivoz\Domain\Model\Brand\BrandInterface $brand
+     *
+     * @return CompanyInterface
+     */
+    public function setBrand(\Ivoz\Domain\Model\Brand\BrandInterface $brand = null);
+
+
+    /**
      * Get brand
      *
      * @return \Ivoz\Domain\Model\Brand\BrandInterface

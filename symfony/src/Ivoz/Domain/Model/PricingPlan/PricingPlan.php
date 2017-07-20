@@ -111,4 +111,3 @@ class PricingPlan extends PricingPlanAbstract implements PricingPlanInterface, E
 
 
 }
-

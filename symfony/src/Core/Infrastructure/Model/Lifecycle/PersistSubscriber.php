@@ -1,7 +1,7 @@
 <?php
 namespace Core\Infrastructure\Model\Lifecycle;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
@@ -20,7 +20,7 @@ class PersistSubscriber implements EventSubscriber
     {
         return array(
             'prePersist',
-            'PostPersistApplicationServer',
+            'PostPersist',
             'preUpdate',
             'postUpdate'
         );

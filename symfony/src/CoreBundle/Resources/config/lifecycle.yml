@@ -1,8 +1,29 @@
+
+
 services:
   _defaults:
     autowire: true
-    autoconfigure: true
-    public: true
+    public: false
+
+  Core\Infrastructure\Model\Lifecycle\PersistSubscriber:
+      arguments:
+        - "@service_container"
+      tags:
+          - { name: doctrine.event_subscriber }
+
+#    core.lifecycle.load_subscriber:
+#        class: Core\Infrastructure\Model\Lifecycle\LoadSubscriber
+#        arguments:
+#          - "@service_container"
+#        tags:
+#            - { name: doctrine.event_subscriber, connection: default }
+
+#    core.lifecycle.remove_subscriber:
+#        class: Core\Infrastructure\Model\Lifecycle\RemoveSubscriber
+#        arguments:
+#          - "@service_container"
+#        tags:
+#            - { name: doctrine.event_subscriber, connection: default }
 
   # By convention service names must be formed as described below
   # - Fisrt segment of the namespace
@@ -11,8 +32,5 @@ services:
   # - event name: Check out handled event list from fromCore/Infrastructure/Model/Lifecycle
   # beside of that it must be lower case
 
-  ivoz.lifecycle.application_server.post_persist:
-    class: Ivoz\Domain\Model\ApplicationServer\PostPersistApplicationServer
-    arguments:
-      $dispatcherRepository: '@=service("doctrine.orm.entity_manager").getRepository("Kam\\Domain\\Model\\Dispatcher\\Dispatcher")'
-      $xmlrpc: '@gearmand_jobs_xmlrpc'
+  Core\Infrastructure\Model\Lifecycle\HandlerChain:
+    public: true

@@ -106,7 +106,7 @@ class MetadataFactory extends DisconnectedMetadataFactory
     {
         $metadata = array();
 
-        try {
+//        try {
 
             $cmf = new ClassMetadataFactory();
             foreach ($this->registry->getManagers() as $em) {
@@ -115,16 +115,16 @@ class MetadataFactory extends DisconnectedMetadataFactory
                     $metadata[] = $m;
                 }
             }
-        } catch (\Exception $e) {
-
-            $disconnectedCmf = new DisconnectedClassMetadataFactory();
-            foreach ($this->registry->getManagers() as $em) {
-                $disconnectedCmf->setEntityManager($em);
-                foreach ($disconnectedCmf->getAllMetadata() as $m) {
-                    $metadata[] = $m;
-                }
-            }
-        }
+//        } catch (\Exception $e) {
+//
+//            $disconnectedCmf = new DisconnectedClassMetadataFactory();
+//            foreach ($this->registry->getManagers() as $em) {
+//                $disconnectedCmf->setEntityManager($em);
+//                foreach ($disconnectedCmf->getAllMetadata() as $m) {
+//                    $metadata[] = $m;
+//                }
+//            }
+//        }
 
         return $metadata;
     }

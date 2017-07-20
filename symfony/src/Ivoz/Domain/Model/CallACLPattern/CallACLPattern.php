@@ -111,4 +111,3 @@ class CallACLPattern extends CallACLPatternAbstract implements CallACLPatternInt
 
 
 }
-

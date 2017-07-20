@@ -111,4 +111,3 @@ class XMLRPCLog extends XMLRPCLogAbstract implements XMLRPCLogInterface, EntityI
 
 
 }
-

@@ -11,6 +11,8 @@ use Core\Application\DataTransferObjectInterface;
  */
 class PsEndpoint extends PsEndpointAbstract implements PsEndpointInterface, EntityInterface
 {
+    use PsEndpointTrait;
+
     /**
      * @var integer
      */
@@ -39,23 +41,6 @@ class PsEndpoint extends PsEndpointAbstract implements PsEndpointInterface, Enti
         }
         // Do nothing: Doctrines requirement
     }
-
-    ///////////////////////////////
-    //
-    ///////////////////////////////
-
-    /**
-     * @deprecated
-     * @throws \Exception
-     */
-    public function getAstPsAor()
-    {
-        Throw new \Exception('To be re-thinked');
-    }
-
-    ///////////////////////////////
-    //
-    ///////////////////////////////
 
     /**
      * @return PsEndpointDTO

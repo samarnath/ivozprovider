@@ -111,4 +111,3 @@ class PickUpRelUser extends PickUpRelUserAbstract implements PickUpRelUserInterf
 
 
 }
-

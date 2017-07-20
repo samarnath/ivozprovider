@@ -111,4 +111,3 @@ class FixedCost extends FixedCostAbstract implements FixedCostInterface, EntityI
 
 
 }
-

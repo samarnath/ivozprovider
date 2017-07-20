@@ -1,0 +1,50 @@
+imports:
+  - { resource: "@CoreBundle/Resources/config/lifecycle_application_server.yml" }
+  - { resource: "@CoreBundle/Resources/config/lifecycle_brand.yml" }
+
+services:
+  _defaults:
+    autowire: true
+    public: false
+
+  ##################################
+  ## lifecycle.brand
+  ##################################
+  Ivoz\Domain\Service\Brand\SanitizeEmptyValues:
+    tags:
+      - { name: ivoz.lifecycle.brand.pre_persist, priority: 10 }
+
+  Ivoz\Domain\Service\Domain\UpdateByBrand:
+    tags:
+      - { name: ivoz.lifecycle.brand.post_persist, priority: 20 }
+    arguments:
+      $domainRepository:
+        '@=service("doctrine.orm.entity_manager").getRepository("Ivoz\\Domain\\Model\\Domain\\Domain")'
+
+  Kam\Domain\Service\UsersDomainAttr\UpdateByBrand:
+    tags:
+      - { name: ivoz.lifecycle.brand.post_persist, priority: 30 }
+    arguments:
+      $usersDomainAttrRepository:
+        '@=service("doctrine.orm.entity_manager").getRepository("Kam\\Domain\\Model\\UsersDomainAttr\\UsersDomainAttr")'
+
+  Ivoz\Domain\Service\RoutingPatternGroup\UpdateByBrand:
+    tags:
+      - { name: ivoz.lifecycle.brand.post_persist, priority: 40 }
+    arguments:
+      $countryRepository:
+        '@=service("doctrine.orm.entity_manager").getRepository("Ivoz\\Domain\\Model\\Country\\Country")'
+
+  Ivoz\Domain\Service\RequestProxyTrunksLcrReload:
+    tags:
+      - { name: ivoz.lifecycle.brand.post_persist, priority: 50 }
+    arguments:
+      $xmlrpc:
+        '@IvozProvider\Gearmand\Jobs\Xmlrpc'
+
+  Ivoz\Domain\Service\RequestProxyUsersDomainReload:
+    tags:
+      - { name: ivoz.lifecycle.brand.post_persist, priority: 51 }
+    arguments:
+      $xmlrpc:
+        '@IvozProvider\Gearmand\Jobs\Xmlrpc'

@@ -111,4 +111,3 @@ class FriendsPattern extends FriendsPatternAbstract implements FriendsPatternInt
 
 
 }
-

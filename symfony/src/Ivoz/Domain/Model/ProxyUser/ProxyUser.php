@@ -111,4 +111,3 @@ class ProxyUser extends ProxyUserAbstract implements ProxyUserInterface, EntityI
 
 
 }
-

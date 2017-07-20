@@ -916,7 +916,7 @@ abstract class CompanyAbstract
      *
      * @return self
      */
-    protected function setBrand(\Ivoz\Domain\Model\Brand\BrandInterface $brand)
+    public function setBrand(\Ivoz\Domain\Model\Brand\BrandInterface $brand = null)
     {
         $this->brand = $brand;
 

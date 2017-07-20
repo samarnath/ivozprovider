@@ -111,4 +111,3 @@ class BrandService extends BrandServiceAbstract implements BrandServiceInterface
 
 
 }
-

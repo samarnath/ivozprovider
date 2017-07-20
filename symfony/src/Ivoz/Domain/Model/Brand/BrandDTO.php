@@ -119,6 +119,11 @@ class BrandDTO implements DataTransferObjectInterface
     /**
      * @var array|null
      */
+    private $companies = null;
+
+    /**
+     * @var array|null
+     */
     private $operators = null;
 
     /**
@@ -140,6 +145,11 @@ class BrandDTO implements DataTransferObjectInterface
      * @var array|null
      */
     private $domains = null;
+
+    /**
+     * @var array|null
+     */
+    private $retailAccounts = null;
 
     /**
      * @return array
@@ -166,11 +176,13 @@ class BrandDTO implements DataTransferObjectInterface
             'logoBaseName' => $this->getLogoBaseName(),
             'languageId' => $this->getLanguageId(),
             'defaultTimezoneId' => $this->getDefaultTimezoneId(),
+            'companiesId' => $this->getCompaniesId(),
             'operatorsId' => $this->getOperatorsId(),
             'servicesId' => $this->getServicesId(),
             'urlsId' => $this->getUrlsId(),
             'relFeaturesId' => $this->getRelFeaturesId(),
-            'domainsId' => $this->getDomainsId()
+            'domainsId' => $this->getDomainsId(),
+            'retailAccountsId' => $this->getRetailAccountsId()
         ];
     }
 
@@ -181,6 +193,15 @@ class BrandDTO implements DataTransferObjectInterface
     {
         $this->language = $transformer->transform('Ivoz\\Domain\\Model\\Language\\Language', $this->getLanguageId());
         $this->defaultTimezone = $transformer->transform('Ivoz\\Domain\\Model\\Timezone\\Timezone', $this->getDefaultTimezoneId());
+        $items = $this->getCompanies();
+        $this->companies = [];
+        foreach ($items as $item) {
+            $this->companies[] = $transformer->transform(
+                'Ivoz\\Domain\\Model\\Company\\Company',
+                $item
+            );
+        }
+
         $items = $this->getOperators();
         $this->operators = [];
         foreach ($items as $item) {
@@ -226,6 +247,15 @@ class BrandDTO implements DataTransferObjectInterface
             );
         }
 
+        $items = $this->getRetailAccounts();
+        $this->retailAccounts = [];
+        foreach ($items as $item) {
+            $this->retailAccounts[] = $transformer->transform(
+                'Ivoz\\Domain\\Model\\RetailAccount\\RetailAccount',
+                $item
+            );
+        }
+
     }
 
     /**
@@ -233,6 +263,10 @@ class BrandDTO implements DataTransferObjectInterface
      */
     public function transformCollections(CollectionTransformerInterface $transformer)
     {
+        $this->companies = $transformer->transform(
+            'Ivoz\\Domain\\Model\\Company\\Company',
+            $this->companies
+        );
         $this->operators = $transformer->transform(
             'Ivoz\\Domain\\Model\\BrandOperator\\BrandOperator',
             $this->operators
@@ -252,6 +286,10 @@ class BrandDTO implements DataTransferObjectInterface
         $this->domains = $transformer->transform(
             'Ivoz\\Domain\\Model\\Domain\\Domain',
             $this->domains
+        );
+        $this->retailAccounts = $transformer->transform(
+            'Ivoz\\Domain\\Model\\RetailAccount\\RetailAccount',
+            $this->retailAccounts
         );
     }
 
@@ -652,6 +690,26 @@ class BrandDTO implements DataTransferObjectInterface
     }
 
     /**
+     * @param array $companies
+     *
+     * @return BrandDTO
+     */
+    public function setCompanies($companies)
+    {
+        $this->companies = $companies;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
+
+    /**
      * @param array $operators
      *
      * @return BrandDTO
@@ -749,6 +807,26 @@ class BrandDTO implements DataTransferObjectInterface
     public function getDomains()
     {
         return $this->domains;
+    }
+
+    /**
+     * @param array $retailAccounts
+     *
+     * @return BrandDTO
+     */
+    public function setRetailAccounts($retailAccounts)
+    {
+        $this->retailAccounts = $retailAccounts;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRetailAccounts()
+    {
+        return $this->retailAccounts;
     }
 }
 

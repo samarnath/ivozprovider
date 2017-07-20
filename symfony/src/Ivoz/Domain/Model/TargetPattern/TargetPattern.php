@@ -147,4 +147,3 @@ class TargetPattern extends TargetPatternAbstract implements TargetPatternInterf
 
 
 }
-

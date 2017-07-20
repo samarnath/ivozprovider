@@ -111,4 +111,3 @@ class TerminalManufacturer extends TerminalManufacturerAbstract implements Termi
 
 
 }
-

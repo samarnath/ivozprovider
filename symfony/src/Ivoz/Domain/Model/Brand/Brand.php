@@ -2,7 +2,6 @@
 
 namespace Ivoz\Domain\Model\Brand;
 
-use Assert\Assertion;
 use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -13,10 +12,17 @@ use Doctrine\Common\Collections\Criteria;
  */
 class Brand extends BrandAbstract implements BrandInterface, EntityInterface
 {
+    use BrandTrait;
+
     /**
      * @var integer
      */
     protected $id;
+
+    /**
+     * @var ArrayCollection
+     */
+    protected $companies;
 
     /**
      * @var ArrayCollection
@@ -43,6 +49,11 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
      */
     protected $domains;
 
+    /**
+     * @var ArrayCollection
+     */
+    protected $retailAccounts;
+
 
     /**
      * Changelog tracking purpose
@@ -56,7 +67,8 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
     public function __construct()
     {
         parent::__construct(...func_get_args());
-    $this->operators = new ArrayCollection();
+        $this->companies = new ArrayCollection();
+        $this->operators = new ArrayCollection();
         $this->services = new ArrayCollection();
         $this->urls = new ArrayCollection();
         $this->relFeatures = new ArrayCollection();
@@ -92,6 +104,7 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
         $self = parent::fromDTO($dto);
 
         return $self
+            ->replaceCompanies($dto->getCompanies())
             ->replaceOperators($dto->getOperators())
             ->replaceServices($dto->getServices())
             ->replaceUrls($dto->getUrls())
@@ -112,6 +125,7 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
         parent::updateFromDTO($dto);
 
         $this
+            ->replaceCompanies($dto->getCompanies())
             ->replaceOperators($dto->getOperators())
             ->replaceServices($dto->getServices())
             ->replaceUrls($dto->getUrls())
@@ -130,6 +144,7 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
         $dto = parent::toDTO();
         return $dto
             ->setId($this->getId())
+            ->setCompanies($this->getCompanies())
             ->setOperators($this->getOperators())
             ->setServices($this->getServices())
             ->setUrls($this->getUrls())
@@ -156,6 +171,78 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add company
+     *
+     * @param \Ivoz\Domain\Model\Company\CompanyInterface $company
+     *
+     * @return Brand
+     */
+    protected function addCompany(\Ivoz\Domain\Model\Company\CompanyInterface $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param \Ivoz\Domain\Model\Company\CompanyInterface $company
+     */
+    protected function removeCompany(\Ivoz\Domain\Model\Company\CompanyInterface $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Replace companies
+     *
+     * @param \Ivoz\Domain\Model\Company\CompanyInterface[] $companies
+     * @return self
+     */
+    protected function replaceCompanies(array $companies)
+    {
+        $updatedEntities = [];
+        $fallBackId = -1;
+        foreach ($companies as $entity) {
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
+            $entity->setBrand($this);
+        }
+        $updatedEntityKeys = array_keys($updatedEntities);
+
+        foreach ($this->companies as $key => $entity) {
+            $identity = $entity->getId();
+            if (in_array($identity, $updatedEntityKeys)) {
+                $this->companies[$key] = $updatedEntities[$identity];
+            } else {
+                $this->removeCompany($key);
+            }
+            unset($updatedEntities[$identity]);
+        }
+
+        foreach ($updatedEntities as $entity) {
+            $this->addCompany($entity);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get companies
+     *
+     * @return array
+     */
+    public function getCompanies(Criteria $criteria = null)
+    {
+        if (!is_null($criteria)) {
+            return $this->companies->matching($criteria)->toArray();
+        }
+
+        return $this->companies->toArray();
     }
 
     /**
@@ -519,5 +606,78 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
     }
 
 
-}
 
+    /**
+     * Add retailAccount
+     *
+     * @param \Ivoz\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount
+     *
+     * @return Brand
+     */
+    protected function addRetailAccount(\Ivoz\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount)
+    {
+        $this->retailAccounts[] = $retailAccount;
+
+        return $this;
+    }
+
+    /**
+     * Remove retailAccount
+     *
+     * @param \Ivoz\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount
+     */
+    protected function removeRetailAccount(\Ivoz\Domain\Model\RetailAccount\RetailAccountInterface $retailAccount)
+    {
+        $this->retailAccounts->removeElement($retailAccount);
+    }
+
+    /**
+     * Replace retailAccounts
+     *
+     * @param \Ivoz\Domain\Model\RetailAccount\RetailAccountInterface[] $retailAccounts
+     * @return self
+     */
+    protected function replaceRetailAccounts(array $retailAccounts)
+    {
+        $updatedEntities = [];
+        $fallBackId = -1;
+        foreach ($retailAccounts as $entity) {
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
+            $entity->setBrand($this);
+        }
+        $updatedEntityKeys = array_keys($updatedEntities);
+
+        foreach ($this->retailAccounts as $key => $entity) {
+            $identity = $entity->getId();
+            if (in_array($identity, $updatedEntityKeys)) {
+                $this->retailAccounts[$key] = $updatedEntities[$identity];
+            } else {
+                $this->removeRetailAccount($key);
+            }
+            unset($updatedEntities[$identity]);
+        }
+
+        foreach ($updatedEntities as $entity) {
+            $this->addRetailAccount($entity);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get retailAccounts
+     *
+     * @return array
+     */
+    public function getRetailAccounts(Criteria $criteria = null)
+    {
+        if (!is_null($criteria)) {
+            return $this->retailAccounts->matching($criteria)->toArray();
+        }
+
+        return $this->retailAccounts->toArray();
+    }
+
+
+}

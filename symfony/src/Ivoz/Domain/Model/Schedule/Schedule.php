@@ -111,4 +111,3 @@ class Schedule extends ScheduleAbstract implements ScheduleInterface, EntityInte
 
 
 }
-

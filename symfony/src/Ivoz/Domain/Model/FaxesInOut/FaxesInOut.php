@@ -111,4 +111,3 @@ class FaxesInOut extends FaxesInOutAbstract implements FaxesInOutInterface, Enti
 
 
 }
-
