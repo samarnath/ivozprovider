@@ -58,7 +58,7 @@ class HandlerChain
          */
         $entityPersister =
             function (DataTransferObjectInterface $dto, EntityInterface $entity = null) {
-                if ($dto->getId()) {
+                if (!$dto->getId()) {
                     $entityClass = substr(get_class($dto), 0, -3);
                     $entity = $this
                         ->createEntityFromDTO
@@ -67,6 +67,7 @@ class HandlerChain
                     $this->entityUpdater->execute($entity, $dto);
                 }
                 $this->em->persist($entity);
+//                $this->em->flush();
 
                 return $entity;
             };

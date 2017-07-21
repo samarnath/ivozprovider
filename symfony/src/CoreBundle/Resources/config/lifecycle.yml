@@ -1,36 +1,19 @@
-
+imports:
+  - { resource: "@CoreBundle/Resources/config/lifecycle_application_server.yml" }
+  - { resource: "@CoreBundle/Resources/config/lifecycle_brand.yml" }
+  - { resource: "@CoreBundle/Resources/config/lifecycle_brand_service.yml" }
 
 services:
   _defaults:
     autowire: true
     public: false
 
-  Core\Infrastructure\Model\Lifecycle\PersistSubscriber:
+  Core\Infrastructure\Model\Lifecycle\DoctrineSubscriber:
       arguments:
         - "@service_container"
       tags:
           - { name: doctrine.event_subscriber }
 
-#    core.lifecycle.load_subscriber:
-#        class: Core\Infrastructure\Model\Lifecycle\LoadSubscriber
-#        arguments:
-#          - "@service_container"
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-
-#    core.lifecycle.remove_subscriber:
-#        class: Core\Infrastructure\Model\Lifecycle\RemoveSubscriber
-#        arguments:
-#          - "@service_container"
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-
-  # By convention service names must be formed as described below
-  # - Fisrt segment of the namespace
-  # - lifecycle
-  # - entity name in snake_case
-  # - event name: Check out handled event list from fromCore/Infrastructure/Model/Lifecycle
-  # beside of that it must be lower case
-
   Core\Infrastructure\Model\Lifecycle\HandlerChain:
     public: true
+

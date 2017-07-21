@@ -5,7 +5,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
-class PersistSubscriber implements EventSubscriber
+class DoctrineSubscriber implements EventSubscriber
 {
     use EntityClassToServiceNameTrait;
 
@@ -20,9 +20,12 @@ class PersistSubscriber implements EventSubscriber
     {
         return array(
             'prePersist',
-            'PostPersist',
+            'postPersist',
             'preUpdate',
-            'postUpdate'
+            'postUpdate',
+
+            'preRemove',
+            'postRemove',
         );
     }
 
@@ -44,6 +47,16 @@ class PersistSubscriber implements EventSubscriber
     public function postUpdate(LifecycleEventArgs $args)
     {
         $this->run('post_persist', $args);
+    }
+
+    public function preRemove(LifecycleEventArgs $args)
+    {
+        $this->run('pre_remove', $args);
+    }
+
+    public function postRemove(LifecycleEventArgs $args)
+    {
+        $this->run('post_remove', $args);
     }
 
     protected function run($eventName, LifecycleEventArgs $args)

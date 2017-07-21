@@ -17,7 +17,7 @@ production:
               - name
             template: '%name%'
           order:
-            Service.name: asc
+            Service.name.${lang}: asc
       default: true
     brand:
       title: _('Brand id')

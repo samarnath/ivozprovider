@@ -1,5 +1,5 @@
 <?php
-namespace Kam\Domain\Service\UsersDomainAttr as KamUsersDomainAttr;
+namespace Kam\Domain\Service\UsersDomainAttr;
 
 use Core\Domain\Model\EntityInterface;
 use Core\Domain\Service\LifecycleEventHandlerInterface;

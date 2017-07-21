@@ -5,7 +5,7 @@ use Core\Domain\Model\EntityInterface;
 use Core\Domain\Service\LifecycleEventHandlerInterface;
 use IvozProvider\Gearmand\Jobs\Xmlrpc;
 
-class RequestProxyUsersDispatcherReload implements LifecycleEventHandlerInterface
+class RequestProxyUsersDomainReload implements LifecycleEventHandlerInterface
 {
     /**
      * @var KamDispatcherRepository

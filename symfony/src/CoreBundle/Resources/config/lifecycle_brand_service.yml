@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire: true
+    public: false
+
+  ##################################
+  ## post
+  ##################################
+  Ivoz\Domain\Service\CompanyService\RemoveByBrandService:
+    tags:
+      - { name: ivoz.lifecycle.brand_service.post_remove, priority: 10 }
+    arguments:
+      $companyRepository:
+        '@=service("doctrine.orm.entity_manager").getRepository("Ivoz\\Domain\\Model\\Company\\Company")'
+      $companyServiceRepository:
+        '@=service("doctrine.orm.entity_manager").getRepository("Ivoz\\Domain\\Model\\CompanyService\\CompanyService")'
+
