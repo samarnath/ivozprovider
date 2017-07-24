@@ -3,10 +3,8 @@
 namespace Ivoz\Domain\Model\CallACL;
 
 use Doctrine\Common\Collections\Criteria;
+use Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPattern;
 
-/**
- * CallACL
- */
 trait CallACLTrait
 {
     public function dstIsCallable($dst)
@@ -18,10 +16,13 @@ trait CallACLTrait
 
         $criteria = Criteria
             ::create()
-            ->orderBy(["priority" => 'ASC']);
+            ->orderBy(['priority' => Criteria::ASC]);
 
         $aclRelPatterns = $this->getRelPatterns($criteria);
 
+        /**
+         * @var CallACLRelPattern $aclRelPattern
+         */
         foreach($aclRelPatterns as $aclRelPattern) {
             $aclPattern = $aclRelPattern->getCallACLPattern();
             $policy = $aclRelPattern->getPolicy();
@@ -29,11 +30,11 @@ trait CallACLTrait
             $match = preg_match('/'.$pattern.'/', $dst);
 
             if($match) {
-                return "allow" == $policy;
+                return 'allow' === $policy;
             }
         }
 
-        return "allow" == $defaultPolicy;
+        return 'allow' === $defaultPolicy;
     }
 }
 

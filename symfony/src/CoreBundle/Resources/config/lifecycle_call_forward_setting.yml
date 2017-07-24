@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    public: false
+
+  ##################################
+  ## pre_persist
+  ##################################
+  Ivoz\Domain\Service\CallForwardSetting\CheckValidity:
+    tags:
+      - { name: ivoz.lifecycle.brand.pre_persist, priority: 10 }
+    arguments:
+      $companyServiceRepository:
+        '@=service("doctrine.orm.entity_manager").getRepository("Ivoz\\Domain\\Model\\CallForwardSetting\\CallForwardSetting")'

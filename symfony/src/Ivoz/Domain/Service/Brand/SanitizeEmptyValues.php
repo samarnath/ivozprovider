@@ -3,8 +3,6 @@ namespace Ivoz\Domain\Service\Brand;
 
 use Core\Domain\Service\LifecycleEventHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Core\Application\Command\CreateEntityFromDTO;
-use Core\Application\Command\UpdateEntityFromDTO;
 use Ivoz\Domain\Model\Brand\BrandDTO;
 use Core\Domain\Model\EntityInterface;
 

@@ -9,6 +9,8 @@ use Core\Application\DataTransferObjectInterface;
  */
 class CallForwardSetting extends CallForwardSettingAbstract implements CallForwardSettingInterface
 {
+    use CallForwardSettingTrait;
+
     /**
      * @var integer
      */
