@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: IvozProvider 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-11 13:18+0200\n"
+"POT-Creation-Date: 2017-07-24 18:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1080,8 +1080,8 @@ msgid ""
 "immediately."
 msgstr ""
 "Los origenes externos serán comprobados contra las :ref:`match_lists` "
-"asociadas, si se encuentra una coincidencia, la llamada será directamente "
-"rechazada."
+"asociadas, si se encuentra una coincidencia, la llamada será directamente"
+" rechazada."
 
 #: ../../pbx_features/external_filters.rst:86
 msgid "White list"
@@ -1095,9 +1095,10 @@ msgid ""
 "account that black listed are checked before white lists."
 msgstr ""
 "Los origenes externos serán comprobados contra las :ref:`match_lists` "
-"asociadas, si se encuentra una coincidencia, la llamada será directamente "
-"enrutada al destino del DDI, ignorando el proceso del filtro. Tenga en cuenta "
-"que las listas negras son comprobadas antes que las listas blancas."
+"asociadas, si se encuentra una coincidencia, la llamada será directamente"
+" enrutada al destino del DDI, ignorando el proceso del filtro. Tenga en "
+"cuenta que las listas negras son comprobadas antes que las listas "
+"blancas."
 
 #: ../../pbx_features/external_filters.rst:92
 msgid "Holiday locution"
@@ -1573,7 +1574,7 @@ msgstr ""
 msgid "There are multiple types:"
 msgstr "Existen de varios tipos:"
 
-#: ../../pbx_features/huntgroups.rst:13
+#: ../../pbx_features/huntgroups.rst:13 ../../pbx_features/queues.rst:74
 msgid "Ring all"
 msgstr "A todos"
 
@@ -1584,8 +1585,8 @@ msgid ""
 msgstr "La llamada suena en varios terminales a la vez durante el tiempo definido."
 
 #: ../../pbx_features/huntgroups.rst:17
-msgid "Secuential (once)"
-msgstr "Secuencialmente (una vez)"
+msgid "Sequential"
+msgstr "Secuencialmente"
 
 #: ../../pbx_features/huntgroups.rst:19
 msgid ""
@@ -1598,7 +1599,7 @@ msgstr ""
 "cuelga."
 
 #: ../../pbx_features/huntgroups.rst:22
-msgid "Secuential (infinite)"
+msgid "Sequential (infinite)"
 msgstr "Secuencialmente (infito)"
 
 #: ../../pbx_features/huntgroups.rst:24
@@ -1611,7 +1612,7 @@ msgstr ""
 "Suenan los usuarios definidos, en el orden definido y durante el tiempo "
 "definido. Al acabar la secuencia, se vuelve a iniciar la secuencia."
 
-#: ../../pbx_features/huntgroups.rst:28
+#: ../../pbx_features/huntgroups.rst:28 ../../pbx_features/queues.rst:88
 msgid "Random"
 msgstr "Aleatoriamente"
 
@@ -1644,12 +1645,12 @@ msgstr ""
 "grupo de salto:"
 
 #: ../../pbx_features/huntgroups.rst:46
-msgid "Example 2: *Secuential* hunt group"
+msgid "Example 2: *Sequential* hunt group"
 msgstr "Ejemplo 2: Grupo de salto secuencial"
 
 #: ../../pbx_features/huntgroups.rst:47
 msgid ""
-"We will edit the hunt group to convert it into secuential: the call will "
+"We will edit the hunt group to convert it into sequential: the call will "
 "ring Alice during 10 seconds, then it will ring Bob 15 seconds, repeting "
 "this process until one of them answers."
 msgstr ""
@@ -1900,8 +1901,8 @@ msgid ""
 "Mach Lists are designed to group well known numbers or patterns in order "
 "to use them in specific treatments."
 msgstr ""
-"Las listas de coincidencia estan diseñadas para agrupar números conocidos o "
-"patrones numéricos para asociarlos a distintos tratamientos."
+"Las listas de coincidencia estan diseñadas para agrupar números conocidos"
+" o patrones numéricos para asociarlos a distintos tratamientos."
 
 #: ../../pbx_features/match_lists.rst:10
 msgid ""
@@ -1909,48 +1910,48 @@ msgid ""
 "origin or the destination of the call, so be sure to use distinctive "
 "names for your match lists."
 msgstr ""
-"En función de la sección en la que se empleen, las listas se emplearán para "
-"comprobar un origen o destino de la llamada, por lo que se recomienda emplear "
-"nombres distintivos para las listas de coincidencia."
+"En función de la sección en la que se empleen, las listas se emplearán "
+"para comprobar un origen o destino de la llamada, por lo que se "
+"recomienda emplear nombres distintivos para las listas de coincidencia."
 
 #: ../../pbx_features/match_lists.rst:14
 msgid ""
 "For example, like mentioned in the previous section "
-":ref:`external_filters`, white and black lists contain one or more "
-"match lists. In this case, the **origin** of the call will be matched "
-"agains the list entries to determime if the treatment of **skipping** the"
-" filter or **rejecting** the call will be applied."
+":ref:`external_filters`, white and black lists contain one or more match "
+"lists. In this case, the **origin** of the call will be matched agains "
+"the list entries to determime if the treatment of **skipping** the filter"
+" or **rejecting** the call will be applied."
 msgstr ""
 "Por ejemplo, como se menciona en la seccion anterior "
-":ref:`external_filters`, las listas blancas y negras pueden contener una o más "
-"listas de coincidencia. En este caso, el **origen** de la llamadas será comprobado "
-"contra las entradas de la lista para determinar si se deberá **ignorar** el filtro "
-"o **rechazar** la llamada directamente."
+":ref:`external_filters`, las listas blancas y negras pueden contener una "
+"o más listas de coincidencia. En este caso, el **origen** de la llamadas "
+"será comprobado contra las entradas de la lista para determinar si se "
+"deberá **ignorar** el filtro o **rechazar** la llamada directamente."
 
 #: ../../pbx_features/match_lists.rst:19
 msgid ""
 "Match lists themselfs have no behaviour associated, they only provide a "
 "common way for all process to determine if a number has a treatment."
 msgstr ""
-"Las listas de coincidencia por si mismas no tiene un comportamiento asociado, "
-"tan solo proveen una manera común de agrupar números y patrones que serán "
-"empleados en otros procesos."
+"Las listas de coincidencia por si mismas no tiene un comportamiento "
+"asociado, tan solo proveen una manera común de agrupar números y patrones"
+" que serán empleados en otros procesos."
 
 #: ../../pbx_features/match_lists.rst:22
 msgid ""
 "Beware that numbers of a Match list are checked against origins or "
 "destinations depending on the configuration section that use them."
 msgstr ""
-"Tenga en cuenta que en función de donde se emplee la lista, se comprobarán "
-"el origen o el destino de la llamada."
+"Tenga en cuenta que en función de donde se emplee la lista, se "
+"comprobarán el origen o el destino de la llamada."
 
 #: ../../pbx_features/match_lists.rst:26
 msgid ""
 "The section **Company configuration** > **Match Lists** allows to "
 "configure different items that will group the numbers and patterns."
 msgstr ""
-"La sección **Configuración de Empresa** > **Listas de coincidencia** permite "
-"definir las diferentes listas que agruparán números y patrones."
+"La sección **Configuración de Empresa** > **Listas de coincidencia** "
+"permite definir las diferentes listas que agruparán números y patrones."
 
 #: ../../pbx_features/match_lists.rst:41
 msgid "After creating a new Match list, you can include numbers and patterns."
@@ -1962,8 +1963,8 @@ msgid ""
 "`Regular Expressions "
 "<http://php.net/manual/en/reference.pcre.pattern.syntax.php>`_"
 msgstr ""
-"Tal como se muestra, la lista puede contener números específicos o grupos "
-"empleando `Expresiones regulares "
+"Tal como se muestra, la lista puede contener números específicos o grupos"
+" empleando `Expresiones regulares "
 "<http://php.net/manual/en/reference.pcre.pattern.syntax.php>`_"
 
 #: ../../pbx_features/music_on_hold.rst:5
@@ -2201,6 +2202,87 @@ msgstr ""
 "Una llamada puede ser enviada a una cola eligiendo la opción cola del "
 "selector \"Enrutar\" disponible en varias seciones de IvozProvider "
 "(extension a cola, DDI a cola, ...)"
+
+#: ../../pbx_features/queues.rst:67
+msgid "Queue strategy"
+msgstr "Estrategia de cola"
+
+#: ../../pbx_features/queues.rst:69
+msgid ""
+"The queue strategy **always applies to current penalty members** starting"
+" with the smallest penalty value and only going to the next penalty if "
+"all members of current one are busy or unavailable."
+msgstr ""
+"La estrategia de cola **siempre aplica a los miembros de la prioridad "
+"actual** comenzando con la menor de las prioridades y saltando a la "
+"siguiente prioridad solo cuando todos los miembros de la actual estén "
+"ocupados o no disponibles."
+
+#: ../../pbx_features/queues.rst:76
+msgid ""
+"The call will make all the members of the current priority during a "
+"predefined time."
+msgstr ""
+"La llamada hará sonar todos los miembros de la prioridad actual al mismo "
+"tiempo durante un tiempo predefinido."
+
+#: ../../pbx_features/queues.rst:78
+msgid "Least recent"
+msgstr "Menos reciente"
+
+#: ../../pbx_features/queues.rst:80
+msgid ""
+"The call will *jump* from one member to another in a predefined order "
+"based on the last time the member attended a call. Members whose latest "
+"call is older will be called first."
+msgstr ""
+"La llamada *saltará* de un miembro a otro en un orden predefinido en base"
+" a la última vez que los miembros atendieron a llamadas. Miembros cuya "
+"llamada atendida sea mas antigua serán llamados primero."
+
+#: ../../pbx_features/queues.rst:83
+msgid "Fewer calls"
+msgstr "Menos atendidas"
+
+#: ../../pbx_features/queues.rst:85
+msgid ""
+"The call will *jump* from one member to another in a predefined order "
+"based on the number of atteded calls. Members that have attedended less "
+"calls will be called first."
+msgstr ""
+"La llamada *saltará* de un miembro a otro en un orden predefinido en base"
+" al número de llamadas atendidas. Miembros con menos llamadas antendidas "
+"serán llamados primero."
+
+#: ../../pbx_features/queues.rst:90
+msgid ""
+"The call will *jump* from one member to another in a random order, "
+"ringing during the configured time."
+msgstr "La llamada *saltará* de un miembro a otro en un orden aleatorio."
+
+#: ../../pbx_features/queues.rst:92
+msgid "Round Robin memory"
+msgstr "Secuencialmente (memoria)"
+
+#: ../../pbx_features/queues.rst:94
+msgid ""
+"The call will *jump* from one member to another in a predefined order "
+"starting past the last member that attended a call."
+msgstr ""
+"La llamada *saltará* de un miembro a otro en un orden predefinido "
+"empezando a partir del último miembro que atendió una llamada."
+
+#: ../../pbx_features/queues.rst:96
+msgid "Linear"
+msgstr "Secuencialmente (∞)"
+
+#: ../../pbx_features/queues.rst:98
+msgid ""
+"The call will *jump* from one member to another in a predefined order "
+"based on the creation time of the member."
+msgstr ""
+"La llamada *saltará* de un miembro a otro en un orden predefinido en base"
+" a la fecha de creación de cada miembro."
 
 #: ../../pbx_features/services.rst:5
 msgid "Additional services"
@@ -2917,4 +2999,7 @@ msgstr ""
 "Si queremos desviar a un grupo de salto, por ejemplo, bastaría con crear "
 "una extensión que apunte al grupo de salto deseado y seleccionar "
 "*Extensión* en el **Tipo de destino**."
+
+#~ msgid "Sequential"
+#~ msgstr "Secuencialmente"
 
