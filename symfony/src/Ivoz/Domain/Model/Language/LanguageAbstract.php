@@ -59,7 +59,7 @@ abstract class LanguageAbstract
         Assertion::isInstanceOf($dto, LanguageDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );
@@ -84,7 +84,7 @@ abstract class LanguageAbstract
         Assertion::isInstanceOf($dto, LanguageDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );

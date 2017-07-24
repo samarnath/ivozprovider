@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\RetailAccount;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface RetailAccountInterface
+interface RetailAccountInterface extends EntityInterface
 {
     /**
      * Get name

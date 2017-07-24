@@ -2,17 +2,14 @@
 
 namespace Ast\Domain\Model\PsEndpoint;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PsEndpoint
  */
-class PsEndpoint extends PsEndpointAbstract implements PsEndpointInterface, EntityInterface
+class PsEndpoint extends PsEndpointAbstract implements PsEndpointInterface
 {
     use PsEndpointTrait;
-
     /**
      * @var integer
      */
@@ -96,10 +93,7 @@ class PsEndpoint extends PsEndpointAbstract implements PsEndpointInterface, Enti
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'terminalId' => $this->getTerminal() ? $this->getTerminal()->getId() : null,
-            'friendId' => $this->getFriend() ? $this->getFriend()->getId() : null,
-            'retailAccountId' => $this->getRetailAccount() ? $this->getRetailAccount()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

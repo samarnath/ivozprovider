@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\MusicOnHold;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface MusicOnHoldInterface
+interface MusicOnHoldInterface extends EntityInterface
 {
     /**
      * Get name

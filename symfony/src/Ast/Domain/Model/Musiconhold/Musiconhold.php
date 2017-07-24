@@ -2,14 +2,12 @@
 
 namespace Ast\Domain\Model\Musiconhold;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Musiconhold
  */
-class Musiconhold extends MusiconholdAbstract implements MusiconholdInterface, EntityInterface
+class Musiconhold extends MusiconholdAbstract implements MusiconholdInterface
 {
     /**
      * @var integer

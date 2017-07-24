@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\AccCdr;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * AccCdr
  */
-class AccCdr extends AccCdrAbstract implements AccCdrInterface, EntityInterface
+class AccCdr extends AccCdrAbstract implements AccCdrInterface
 {
     /**
      * @var integer
@@ -94,12 +92,7 @@ class AccCdr extends AccCdrAbstract implements AccCdrInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'pricingPlanId' => $this->getPricingPlan() ? $this->getPricingPlan()->getId() : null,
-            'targetPatternId' => $this->getTargetPattern() ? $this->getTargetPattern()->getId() : null,
-            'invoiceId' => $this->getInvoice() ? $this->getInvoice()->getId() : null,
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Service;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ServiceInterface
+interface ServiceInterface extends EntityInterface
 {
     /**
      * Get iden

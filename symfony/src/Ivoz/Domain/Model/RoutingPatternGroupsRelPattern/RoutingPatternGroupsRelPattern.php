@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\RoutingPatternGroupsRelPattern;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * RoutingPatternGroupsRelPattern
  */
-class RoutingPatternGroupsRelPattern extends RoutingPatternGroupsRelPatternAbstract implements RoutingPatternGroupsRelPatternInterface, EntityInterface
+class RoutingPatternGroupsRelPattern extends RoutingPatternGroupsRelPatternAbstract implements RoutingPatternGroupsRelPatternInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class RoutingPatternGroupsRelPattern extends RoutingPatternGroupsRelPatternAbstr
 
 
 }
+

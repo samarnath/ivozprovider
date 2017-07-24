@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\CompanyAdmin;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CompanyAdminInterface
+interface CompanyAdminInterface extends EntityInterface
 {
     /**
      * Get username

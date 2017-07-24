@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\CallForwardSetting;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallForwardSetting
  */
-class CallForwardSetting extends CallForwardSettingAbstract implements CallForwardSettingInterface, EntityInterface
+class CallForwardSetting extends CallForwardSettingAbstract implements CallForwardSettingInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class CallForwardSetting extends CallForwardSettingAbstract implements CallForwa
 
 
 }
+

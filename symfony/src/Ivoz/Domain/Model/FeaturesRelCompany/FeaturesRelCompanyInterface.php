@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\FeaturesRelCompany;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FeaturesRelCompanyInterface
+interface FeaturesRelCompanyInterface extends EntityInterface
 {
     /**
      * Get company

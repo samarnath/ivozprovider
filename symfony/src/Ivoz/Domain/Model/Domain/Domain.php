@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Domain;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Domain
  */
-class Domain extends DomainAbstract implements DomainInterface, EntityInterface
+class Domain extends DomainAbstract implements DomainInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Domain extends DomainAbstract implements DomainInterface, EntityInterface
 
 
 }
+

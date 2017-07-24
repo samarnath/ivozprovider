@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\PricingPlansRelTargetPattern;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PricingPlansRelTargetPattern
  */
-class PricingPlansRelTargetPattern extends PricingPlansRelTargetPatternAbstract implements PricingPlansRelTargetPatternInterface, EntityInterface
+class PricingPlansRelTargetPattern extends PricingPlansRelTargetPatternAbstract implements PricingPlansRelTargetPatternInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class PricingPlansRelTargetPattern extends PricingPlansRelTargetPatternAbstract 
 
 
 }
+

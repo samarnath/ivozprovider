@@ -11,8 +11,7 @@ use Core\Application\DataTransferObjectInterface;
  */
 interface EntityInterface
 {
-    /*
-    public function __wakeup();
+    public function getId();
 
     /**
      * Factory method

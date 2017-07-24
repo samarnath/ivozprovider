@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\TransformationRulesetGroupsTrunk;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface TransformationRulesetGroupsTrunkInterface
+interface TransformationRulesetGroupsTrunkInterface extends EntityInterface
 {
     /**
      * Get name

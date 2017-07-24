@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\InvoiceTemplate;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface InvoiceTemplateInterface
+interface InvoiceTemplateInterface extends EntityInterface
 {
     /**
      * Get name

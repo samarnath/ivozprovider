@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\PickUpGroup;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface PickUpGroupInterface
+interface PickUpGroupInterface extends EntityInterface
 {
     /**
      * Get name

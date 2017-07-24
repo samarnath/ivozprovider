@@ -2,14 +2,12 @@
 
 namespace Ast\Domain\Model\PsAor;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PsAor
  */
-class PsAor extends PsAorAbstract implements PsAorInterface, EntityInterface
+class PsAor extends PsAorAbstract implements PsAorInterface
 {
     /**
      * @var integer

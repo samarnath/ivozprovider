@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\FeaturesRelBrand;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FeaturesRelBrand
  */
-class FeaturesRelBrand extends FeaturesRelBrandAbstract implements FeaturesRelBrandInterface, EntityInterface
+class FeaturesRelBrand extends FeaturesRelBrandAbstract implements FeaturesRelBrandInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class FeaturesRelBrand extends FeaturesRelBrandAbstract implements FeaturesRelBr
 
 
 }
+

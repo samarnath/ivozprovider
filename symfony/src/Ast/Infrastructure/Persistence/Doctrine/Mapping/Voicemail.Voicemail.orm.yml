@@ -3,8 +3,9 @@ Ast\Domain\Model\Voicemail\Voicemail:
   type: entity
   table: ast_voicemail
   id:
-    uniqueid:
+    id:
       type: integer
+      column: uniqueid
       nullable: false
       options:
         unsigned: false

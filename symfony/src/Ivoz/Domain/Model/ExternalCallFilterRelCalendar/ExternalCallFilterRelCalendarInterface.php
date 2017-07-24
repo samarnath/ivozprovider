@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ExternalCallFilterRelCalendar;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ExternalCallFilterRelCalendarInterface
+interface ExternalCallFilterRelCalendarInterface extends EntityInterface
 {
     /**
      * Get filter

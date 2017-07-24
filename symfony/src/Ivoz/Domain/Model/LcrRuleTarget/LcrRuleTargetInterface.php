@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\LcrRuleTarget;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface LcrRuleTargetInterface
+interface LcrRuleTargetInterface extends EntityInterface
 {
     /**
      * Get lcrId

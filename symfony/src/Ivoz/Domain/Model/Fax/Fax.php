@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Fax;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Fax
  */
-class Fax extends FaxAbstract implements FaxInterface, EntityInterface
+class Fax extends FaxAbstract implements FaxInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Fax extends FaxAbstract implements FaxInterface, EntityInterface
 
 
 }
+

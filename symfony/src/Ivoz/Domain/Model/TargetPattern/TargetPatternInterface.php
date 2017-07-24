@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\TargetPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface TargetPatternInterface
+interface TargetPatternInterface extends EntityInterface
 {
     /**
      * Get regExp

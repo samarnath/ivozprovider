@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\User;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface UserInterface
+interface UserInterface extends EntityInterface
 {
     /**
      * Get name

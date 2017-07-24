@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\OutgoingRouting;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface OutgoingRoutingInterface
+interface OutgoingRoutingInterface extends EntityInterface
 {
     /**
      * Get type

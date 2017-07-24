@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersDomainAttr;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersDomainAttr
  */
-class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttrInterface, EntityInterface
+class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttrInterface
 {
     /**
      * @var integer
@@ -94,8 +92,7 @@ class UsersDomainAttr extends UsersDomainAttrAbstract implements UsersDomainAttr
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'didId' => $this->getDid() ? $this->getDid()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

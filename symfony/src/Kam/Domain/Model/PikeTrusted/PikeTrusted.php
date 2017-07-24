@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\PikeTrusted;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PikeTrusted
  */
-class PikeTrusted extends PikeTrustedAbstract implements PikeTrustedInterface, EntityInterface
+class PikeTrusted extends PikeTrustedAbstract implements PikeTrustedInterface
 {
     /**
      * @var integer

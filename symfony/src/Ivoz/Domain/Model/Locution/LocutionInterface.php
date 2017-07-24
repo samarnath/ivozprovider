@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Locution;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface LocutionInterface
+interface LocutionInterface extends EntityInterface
 {
     /**
      * Get name

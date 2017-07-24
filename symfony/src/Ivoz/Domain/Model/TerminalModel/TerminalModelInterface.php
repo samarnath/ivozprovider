@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\TerminalModel;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface TerminalModelInterface
+interface TerminalModelInterface extends EntityInterface
 {
     /**
      * Get iden

@@ -82,13 +82,13 @@ abstract class ServiceAbstract
         Assertion::isInstanceOf($dto, ServiceDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );
 
         $description = new Description(
-            $dto->getDescriptionDescription(),
+            $dto->getDescription(),
             $dto->getDescriptionEn(),
             $dto->getDescriptionEs()
         );
@@ -116,13 +116,13 @@ abstract class ServiceAbstract
         Assertion::isInstanceOf($dto, ServiceDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );
 
         $description = new Description(
-            $dto->getDescriptionDescription(),
+            $dto->getDescription(),
             $dto->getDescriptionEn(),
             $dto->getDescriptionEs()
         );
@@ -148,9 +148,11 @@ abstract class ServiceAbstract
             ->setDefaultCode($this->getDefaultCode())
             ->setExtraArgs($this->getExtraArgs())
             ->setName($this->getName()->getName())
+            ->setNameEn($this->getName()->getEn())
+            ->setNameEs($this->getName()->getEs())
+            ->setDescription($this->getDescription()->getDescription())
             ->setDescriptionEn($this->getDescription()->getEn())
-            ->setDescriptionEs($this->getDescription()->getEs())
-            ->setDescription($this->getDescription()->getDescription());
+            ->setDescriptionEs($this->getDescription()->getEs());
     }
 
     /**

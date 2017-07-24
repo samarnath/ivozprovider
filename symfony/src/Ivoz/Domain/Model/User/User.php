@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\User;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * User
  */
-class User extends UserAbstract implements UserInterface, EntityInterface
+class User extends UserAbstract implements UserInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class User extends UserAbstract implements UserInterface, EntityInterface
 
 
 }
+

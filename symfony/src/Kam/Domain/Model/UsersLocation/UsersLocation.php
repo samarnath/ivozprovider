@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersLocation;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersLocation
  */
-class UsersLocation extends UsersLocationAbstract implements UsersLocationInterface, EntityInterface
+class UsersLocation extends UsersLocationAbstract implements UsersLocationInterface
 {
     /**
      * @var integer

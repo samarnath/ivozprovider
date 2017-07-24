@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\FaxesInOut;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FaxesInOutInterface
+interface FaxesInOutInterface extends EntityInterface
 {
     /**
      * Get calldate

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\PickUpRelUser;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PickUpRelUser
  */
-class PickUpRelUser extends PickUpRelUserAbstract implements PickUpRelUserInterface, EntityInterface
+class PickUpRelUser extends PickUpRelUserAbstract implements PickUpRelUserInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class PickUpRelUser extends PickUpRelUserAbstract implements PickUpRelUserInterf
 
 
 }
+

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Timezone;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface TimezoneInterface
+interface TimezoneInterface extends EntityInterface
 {
     /**
      * Get tz

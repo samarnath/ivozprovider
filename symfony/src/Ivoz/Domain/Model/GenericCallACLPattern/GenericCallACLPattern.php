@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\GenericCallACLPattern;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * GenericCallACLPattern
  */
-class GenericCallACLPattern extends GenericCallACLPatternAbstract implements GenericCallACLPatternInterface, EntityInterface
+class GenericCallACLPattern extends GenericCallACLPatternAbstract implements GenericCallACLPatternInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class GenericCallACLPattern extends GenericCallACLPatternAbstract implements Gen
 
 
 }
+

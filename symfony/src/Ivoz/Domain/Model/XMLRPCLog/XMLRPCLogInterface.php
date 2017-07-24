@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\XMLRPCLog;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface XMLRPCLogInterface
+interface XMLRPCLogInterface extends EntityInterface
 {
     /**
      * Get proxy

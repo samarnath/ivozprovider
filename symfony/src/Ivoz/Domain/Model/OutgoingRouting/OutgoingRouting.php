@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\OutgoingRouting;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * OutgoingRouting
  */
-class OutgoingRouting extends OutgoingRoutingAbstract implements OutgoingRoutingInterface, EntityInterface
+class OutgoingRouting extends OutgoingRoutingAbstract implements OutgoingRoutingInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class OutgoingRouting extends OutgoingRoutingAbstract implements OutgoingRouting
 
 
 }
+

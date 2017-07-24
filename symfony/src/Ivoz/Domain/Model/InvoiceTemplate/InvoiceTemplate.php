@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\InvoiceTemplate;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * InvoiceTemplate
  */
-class InvoiceTemplate extends InvoiceTemplateAbstract implements InvoiceTemplateInterface, EntityInterface
+class InvoiceTemplate extends InvoiceTemplateAbstract implements InvoiceTemplateInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class InvoiceTemplate extends InvoiceTemplateAbstract implements InvoiceTemplate
 
 
 }
+

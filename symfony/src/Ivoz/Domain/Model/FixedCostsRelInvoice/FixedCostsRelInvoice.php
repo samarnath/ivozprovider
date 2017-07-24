@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\FixedCostsRelInvoice;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FixedCostsRelInvoice
  */
-class FixedCostsRelInvoice extends FixedCostsRelInvoiceAbstract implements FixedCostsRelInvoiceInterface, EntityInterface
+class FixedCostsRelInvoice extends FixedCostsRelInvoiceAbstract implements FixedCostsRelInvoiceInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class FixedCostsRelInvoice extends FixedCostsRelInvoiceAbstract implements Fixed
 
 
 }
+

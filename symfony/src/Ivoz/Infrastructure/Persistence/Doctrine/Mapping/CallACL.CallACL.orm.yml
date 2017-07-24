@@ -11,4 +11,8 @@ Ivoz\Domain\Model\CallACL\CallACL:
       id: true
       generator:
         strategy: IDENTITY
+  oneToMany:
+    relPatterns:
+      targetEntity: Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPatternInterface
+      mappedBy: callACL
   lifecycleCallbacks: {  }

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ParsedCDR;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ParsedCDRInterface
+interface ParsedCDRInterface extends EntityInterface
 {
     /**
      * Get statId

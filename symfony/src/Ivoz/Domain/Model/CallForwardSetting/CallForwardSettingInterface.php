@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\CallForwardSetting;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CallForwardSettingInterface
+interface CallForwardSettingInterface extends EntityInterface
 {
     /**
      * Get callTypeFilter

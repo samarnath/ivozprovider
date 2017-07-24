@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Language;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface LanguageInterface
+interface LanguageInterface extends EntityInterface
 {
     /**
      * Get iden

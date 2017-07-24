@@ -2,7 +2,6 @@
 
 namespace Ivoz\Domain\Model\Brand;
 
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
@@ -10,10 +9,9 @@ use Doctrine\Common\Collections\Criteria;
 /**
  * Brand
  */
-class Brand extends BrandAbstract implements BrandInterface, EntityInterface
+class Brand extends BrandAbstract implements BrandInterface
 {
     use BrandTrait;
-
     /**
      * @var integer
      */
@@ -73,6 +71,7 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
         $this->urls = new ArrayCollection();
         $this->relFeatures = new ArrayCollection();
         $this->domains = new ArrayCollection();
+        $this->retailAccounts = new ArrayCollection();
     }
 
     public function __wakeup()
@@ -110,6 +109,7 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
             ->replaceUrls($dto->getUrls())
             ->replaceRelFeatures($dto->getRelFeatures())
             ->replaceDomains($dto->getDomains())
+            ->replaceRetailAccounts($dto->getRetailAccounts())
         ;
     }
 
@@ -130,7 +130,8 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
             ->replaceServices($dto->getServices())
             ->replaceUrls($dto->getUrls())
             ->replaceRelFeatures($dto->getRelFeatures())
-            ->replaceDomains($dto->getDomains());
+            ->replaceDomains($dto->getDomains())
+            ->replaceRetailAccounts($dto->getRetailAccounts());
 
 
         return $this;
@@ -149,7 +150,8 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
             ->setServices($this->getServices())
             ->setUrls($this->getUrls())
             ->setRelFeatures($this->getRelFeatures())
-            ->setDomains($this->getDomains());
+            ->setDomains($this->getDomains())
+            ->setRetailAccounts($this->getRetailAccounts());
     }
 
     /**
@@ -605,8 +607,6 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
         return $this->domains->toArray();
     }
 
-
-
     /**
      * Add retailAccount
      *
@@ -681,3 +681,4 @@ class Brand extends BrandAbstract implements BrandInterface, EntityInterface
 
 
 }
+

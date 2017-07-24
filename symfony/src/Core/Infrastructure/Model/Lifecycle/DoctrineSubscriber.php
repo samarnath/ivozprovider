@@ -19,6 +19,8 @@ class DoctrineSubscriber implements EventSubscriber
     public function getSubscribedEvents()
     {
         return array(
+            'postLoad',
+
             'prePersist',
             'postPersist',
             'preUpdate',

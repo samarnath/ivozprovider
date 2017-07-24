@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Locution;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Locution
  */
-class Locution extends LocutionAbstract implements LocutionInterface, EntityInterface
+class Locution extends LocutionAbstract implements LocutionInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Locution extends LocutionAbstract implements LocutionInterface, EntityInte
 
 
 }
+

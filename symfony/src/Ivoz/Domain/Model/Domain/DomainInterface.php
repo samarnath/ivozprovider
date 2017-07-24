@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Domain;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface DomainInterface
+interface DomainInterface extends EntityInterface
 {
     /**
      * Get domain

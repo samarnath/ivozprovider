@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\RoutingPattern;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * RoutingPattern
  */
-class RoutingPattern extends RoutingPatternAbstract implements RoutingPatternInterface, EntityInterface
+class RoutingPattern extends RoutingPatternAbstract implements RoutingPatternInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class RoutingPattern extends RoutingPatternAbstract implements RoutingPatternInt
 
 
 }
+

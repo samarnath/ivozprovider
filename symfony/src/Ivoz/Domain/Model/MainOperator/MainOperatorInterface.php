@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\MainOperator;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface MainOperatorInterface
+interface MainOperatorInterface extends EntityInterface
 {
     /**
      * Get username

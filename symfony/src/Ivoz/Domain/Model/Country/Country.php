@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Country;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Country
  */
-class Country extends CountryAbstract implements CountryInterface, EntityInterface
+class Country extends CountryAbstract implements CountryInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Country extends CountryAbstract implements CountryInterface, EntityInterfa
 
 
 }
+

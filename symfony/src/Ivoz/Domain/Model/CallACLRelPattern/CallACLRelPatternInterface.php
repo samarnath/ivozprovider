@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\CallACLRelPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CallACLRelPatternInterface
+interface CallACLRelPatternInterface extends EntityInterface
 {
     /**
      * Get priority

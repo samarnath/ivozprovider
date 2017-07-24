@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Company;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CompanyInterface
+interface CompanyInterface extends EntityInterface
 {
     /**
      * Get type

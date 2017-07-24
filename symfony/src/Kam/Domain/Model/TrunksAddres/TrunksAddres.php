@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\TrunksAddres;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TrunksAddres
  */
-class TrunksAddres extends TrunksAddresAbstract implements TrunksAddresInterface, EntityInterface
+class TrunksAddres extends TrunksAddresAbstract implements TrunksAddresInterface
 {
     /**
      * @var integer

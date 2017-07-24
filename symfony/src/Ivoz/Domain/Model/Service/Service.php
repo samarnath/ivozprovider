@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Service;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Service
  */
-class Service extends ServiceAbstract implements ServiceInterface, EntityInterface
+class Service extends ServiceAbstract implements ServiceInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Service extends ServiceAbstract implements ServiceInterface, EntityInterfa
 
 
 }
+

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\FeaturesRelCompany;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FeaturesRelCompany
  */
-class FeaturesRelCompany extends FeaturesRelCompanyAbstract implements FeaturesRelCompanyInterface, EntityInterface
+class FeaturesRelCompany extends FeaturesRelCompanyAbstract implements FeaturesRelCompanyInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class FeaturesRelCompany extends FeaturesRelCompanyAbstract implements FeaturesR
 
 
 }
+

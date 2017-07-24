@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\FixedCost;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FixedCost
  */
-class FixedCost extends FixedCostAbstract implements FixedCostInterface, EntityInterface
+class FixedCost extends FixedCostAbstract implements FixedCostInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class FixedCost extends FixedCostAbstract implements FixedCostInterface, EntityI
 
 
 }
+

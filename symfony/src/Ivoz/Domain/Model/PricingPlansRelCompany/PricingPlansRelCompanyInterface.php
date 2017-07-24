@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\PricingPlansRelCompany;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface PricingPlansRelCompanyInterface
+interface PricingPlansRelCompanyInterface extends EntityInterface
 {
     /**
      * Get validFrom

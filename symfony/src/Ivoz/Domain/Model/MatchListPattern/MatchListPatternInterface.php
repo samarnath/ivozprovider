@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\MatchListPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface MatchListPatternInterface
+interface MatchListPatternInterface extends EntityInterface
 {
     /**
      * Get description

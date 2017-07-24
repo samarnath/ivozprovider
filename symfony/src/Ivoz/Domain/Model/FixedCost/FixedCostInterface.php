@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\FixedCost;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FixedCostInterface
+interface FixedCostInterface extends EntityInterface
 {
     /**
      * Get name

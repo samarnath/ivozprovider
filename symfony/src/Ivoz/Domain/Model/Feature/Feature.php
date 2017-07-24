@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Feature;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Feature
  */
-class Feature extends FeatureAbstract implements FeatureInterface, EntityInterface
+class Feature extends FeatureAbstract implements FeatureInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Feature extends FeatureAbstract implements FeatureInterface, EntityInterfa
 
 
 }
+

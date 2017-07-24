@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Friend;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Friend
  */
-class Friend extends FriendAbstract implements FriendInterface, EntityInterface
+class Friend extends FriendAbstract implements FriendInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Friend extends FriendAbstract implements FriendInterface, EntityInterface
 
 
 }
+

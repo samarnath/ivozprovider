@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\MusicOnHold;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MusicOnHold
  */
-class MusicOnHold extends MusicOnHoldAbstract implements MusicOnHoldInterface, EntityInterface
+class MusicOnHold extends MusicOnHoldAbstract implements MusicOnHoldInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class MusicOnHold extends MusicOnHoldAbstract implements MusicOnHoldInterface, E
 
 
 }
+

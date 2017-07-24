@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\LcrRule;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * LcrRule
  */
-class LcrRule extends LcrRuleAbstract implements LcrRuleInterface, EntityInterface
+class LcrRule extends LcrRuleAbstract implements LcrRuleInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class LcrRule extends LcrRuleAbstract implements LcrRuleInterface, EntityInterfa
 
 
 }
+

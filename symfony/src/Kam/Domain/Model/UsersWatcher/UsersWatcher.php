@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersWatcher;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersWatcher
  */
-class UsersWatcher extends UsersWatcherAbstract implements UsersWatcherInterface, EntityInterface
+class UsersWatcher extends UsersWatcherAbstract implements UsersWatcherInterface
 {
     /**
      * @var integer

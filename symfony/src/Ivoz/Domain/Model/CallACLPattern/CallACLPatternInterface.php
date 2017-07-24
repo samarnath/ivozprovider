@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\CallACLPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CallACLPatternInterface
+interface CallACLPatternInterface extends EntityInterface
 {
     /**
      * Get name

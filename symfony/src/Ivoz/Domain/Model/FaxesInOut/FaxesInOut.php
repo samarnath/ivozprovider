@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\FaxesInOut;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * FaxesInOut
  */
-class FaxesInOut extends FaxesInOutAbstract implements FaxesInOutInterface, EntityInterface
+class FaxesInOut extends FaxesInOutAbstract implements FaxesInOutInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class FaxesInOut extends FaxesInOutAbstract implements FaxesInOutInterface, Enti
 
 
 }
+

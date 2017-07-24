@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\Rtpproxy;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Rtpproxy
  */
-class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInterface
+class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface
 {
     /**
      * @var integer
@@ -94,8 +92,7 @@ class Rtpproxy extends RtpproxyAbstract implements RtpproxyInterface, EntityInte
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'mediaRelaySetId' => $this->getMediaRelaySet() ? $this->getMediaRelaySet()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

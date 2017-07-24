@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\QueueMember;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface QueueMemberInterface
+interface QueueMemberInterface extends EntityInterface
 {
     /**
      * Get penalty

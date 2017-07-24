@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\ExternalCallFilterRelSchedule;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ExternalCallFilterRelSchedule
  */
-class ExternalCallFilterRelSchedule extends ExternalCallFilterRelScheduleAbstract implements ExternalCallFilterRelScheduleInterface, EntityInterface
+class ExternalCallFilterRelSchedule extends ExternalCallFilterRelScheduleAbstract implements ExternalCallFilterRelScheduleInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class ExternalCallFilterRelSchedule extends ExternalCallFilterRelScheduleAbstrac
 
 
 }
+

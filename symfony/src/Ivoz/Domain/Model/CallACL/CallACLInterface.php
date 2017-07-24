@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\CallACL;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CallACLInterface
+interface CallACLInterface extends EntityInterface
 {
     /**
      * Get name

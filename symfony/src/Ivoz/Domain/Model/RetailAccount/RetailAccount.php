@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\RetailAccount;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * RetailAccount
  */
-class RetailAccount extends RetailAccountAbstract implements RetailAccountInterface, EntityInterface
+class RetailAccount extends RetailAccountAbstract implements RetailAccountInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class RetailAccount extends RetailAccountAbstract implements RetailAccountInterf
 
 
 }
+

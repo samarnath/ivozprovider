@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\PricingPlan;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PricingPlan
  */
-class PricingPlan extends PricingPlanAbstract implements PricingPlanInterface, EntityInterface
+class PricingPlan extends PricingPlanAbstract implements PricingPlanInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class PricingPlan extends PricingPlanAbstract implements PricingPlanInterface, E
 
 
 }
+

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ExternalCallFilterRelSchedule;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ExternalCallFilterRelScheduleInterface
+interface ExternalCallFilterRelScheduleInterface extends EntityInterface
 {
     /**
      * Get filter

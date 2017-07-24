@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\DDI;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface DDIInterface
+interface DDIInterface extends EntityInterface
 {
     /**
      * Get ddi

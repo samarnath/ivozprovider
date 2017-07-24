@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\LcrGateway;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface LcrGatewayInterface
+interface LcrGatewayInterface extends EntityInterface
 {
     /**
      * Get lcrId

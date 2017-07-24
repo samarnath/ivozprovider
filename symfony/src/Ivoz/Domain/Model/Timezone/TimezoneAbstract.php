@@ -69,7 +69,7 @@ abstract class TimezoneAbstract
         Assertion::isInstanceOf($dto, TimezoneDTO::class);
 
         $label = new Label(
-            $dto->getLabelLabel(),
+            $dto->getLabel(),
             $dto->getLabelEn(),
             $dto->getLabelEs()
         );
@@ -97,7 +97,7 @@ abstract class TimezoneAbstract
         Assertion::isInstanceOf($dto, TimezoneDTO::class);
 
         $label = new Label(
-            $dto->getLabelLabel(),
+            $dto->getLabel(),
             $dto->getLabelEn(),
             $dto->getLabelEs()
         );

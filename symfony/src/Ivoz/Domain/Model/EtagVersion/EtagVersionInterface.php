@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\EtagVersion;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface EtagVersionInterface
+interface EtagVersionInterface extends EntityInterface
 {
     /**
      * Get table

@@ -140,7 +140,7 @@ protected function __toArray()
             . $className
             . ' extends '
             . $className . 'Abstract'
-            . ' implements ' . $className . 'Interface, EntityInterface';
+            . ' implements ' . $className . 'Interface';
 
         return $class;
     }

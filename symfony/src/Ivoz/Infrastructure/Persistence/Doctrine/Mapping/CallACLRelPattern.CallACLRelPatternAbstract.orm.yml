@@ -31,7 +31,7 @@ Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPatternAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: relPatterns
       joinColumns:
         CallACLId:
           referencedColumnName: id

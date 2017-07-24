@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputOption;
  *
  * @author Mikel Madariaga <mikel@irontec.com>
  */
-class GenerateEntitiesDoctrineCommand extends ParentCommand
+class GenerateEntitiesCommand extends ParentCommand
 {
     use ExecuteGeneratorTrait;
 
@@ -60,7 +60,7 @@ class GenerateEntitiesDoctrineCommand extends ParentCommand
         $entityGenerator = new EntityGenerator();
         $entityGenerator->setGenerateAnnotations(false);
         $entityGenerator->setGenerateStubMethods(true);
-        $entityGenerator->setRegenerateEntityIfExists(false);
+        $entityGenerator->setRegenerateEntityIfExists(true);
         $entityGenerator->setUpdateEntityIfExists(true);
         $entityGenerator->setNumSpaces(4);
         $entityGenerator->setAnnotationPrefix('ORM\\');

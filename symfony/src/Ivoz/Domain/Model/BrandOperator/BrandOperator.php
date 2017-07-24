@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\BrandOperator;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * BrandOperator
  */
-class BrandOperator extends BrandOperatorAbstract implements BrandOperatorInterface, EntityInterface
+class BrandOperator extends BrandOperatorAbstract implements BrandOperatorInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class BrandOperator extends BrandOperatorAbstract implements BrandOperatorInterf
 
 
 }
+

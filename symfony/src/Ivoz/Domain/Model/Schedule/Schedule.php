@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Schedule;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Schedule
  */
-class Schedule extends ScheduleAbstract implements ScheduleInterface, EntityInterface
+class Schedule extends ScheduleAbstract implements ScheduleInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Schedule extends ScheduleAbstract implements ScheduleInterface, EntityInte
 
 
 }
+

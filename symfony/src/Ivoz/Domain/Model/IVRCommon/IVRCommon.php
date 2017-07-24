@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\IVRCommon;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * IVRCommon
  */
-class IVRCommon extends IVRCommonAbstract implements IVRCommonInterface, EntityInterface
+class IVRCommon extends IVRCommonAbstract implements IVRCommonInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class IVRCommon extends IVRCommonAbstract implements IVRCommonInterface, EntityI
 
 
 }
+

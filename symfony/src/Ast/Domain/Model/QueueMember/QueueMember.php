@@ -2,19 +2,18 @@
 
 namespace Ast\Domain\Model\QueueMember;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * QueueMember
  */
-class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, EntityInterface
+class QueueMember extends QueueMemberAbstract implements QueueMemberInterface
 {
     /**
+     * @column uniqueid
      * @var integer
      */
-    protected $uniqueid;
+    protected $id;
 
 
     /**
@@ -85,7 +84,7 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
     {
         $dto = parent::toDTO();
         return $dto
-            ->setUniqueid($this->getUniqueid());
+            ->setId($this->getId());
     }
 
     /**
@@ -94,38 +93,37 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'uniqueid' => $this->getUniqueid(),
-            'queueMemberId' => $this->getQueueMember() ? $this->getQueueMember()->getId() : null
+            'id' => $this->getId()
         ];
     }
 
 
     /**
-     * Set uniqueid
+     * Set id
      *
-     * @param integer $uniqueid
+     * @param integer $id
      *
      * @return self
      */
-    protected function setUniqueid($uniqueid)
+    protected function setId($id)
     {
-        Assertion::notNull($uniqueid);
-        Assertion::integerish($uniqueid);
-        Assertion::greaterOrEqualThan($uniqueid, 0);
+        Assertion::notNull($id);
+        Assertion::integerish($id);
+        Assertion::greaterOrEqualThan($id, 0);
 
-        $this->uniqueid = $uniqueid;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * Get uniqueid
+     * Get id
      *
      * @return integer
      */
-    public function getUniqueid()
+    public function getId()
     {
-        return $this->uniqueid;
+        return $this->id;
     }
 
 

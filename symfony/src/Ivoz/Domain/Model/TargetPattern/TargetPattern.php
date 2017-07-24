@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\TargetPattern;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TargetPattern
  */
-class TargetPattern extends TargetPatternAbstract implements TargetPatternInterface, EntityInterface
+class TargetPattern extends TargetPatternAbstract implements TargetPatternInterface
 {
     /**
      * @var integer
@@ -147,3 +145,4 @@ class TargetPattern extends TargetPatternAbstract implements TargetPatternInterf
 
 
 }
+

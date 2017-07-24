@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Extension;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Extension
  */
-class Extension extends ExtensionAbstract implements ExtensionInterface, EntityInterface
+class Extension extends ExtensionAbstract implements ExtensionInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Extension extends ExtensionAbstract implements ExtensionInterface, EntityI
 
 
 }
+

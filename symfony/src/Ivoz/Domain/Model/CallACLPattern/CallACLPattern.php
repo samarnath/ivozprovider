@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\CallACLPattern;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallACLPattern
  */
-class CallACLPattern extends CallACLPatternAbstract implements CallACLPatternInterface, EntityInterface
+class CallACLPattern extends CallACLPatternAbstract implements CallACLPatternInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class CallACLPattern extends CallACLPatternAbstract implements CallACLPatternInt
 
 
 }
+

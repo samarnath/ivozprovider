@@ -2,19 +2,18 @@
 
 namespace Ast\Domain\Model\Voicemail;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Voicemail
  */
-class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityInterface
+class Voicemail extends VoicemailAbstract implements VoicemailInterface
 {
     /**
+     * @column uniqueid
      * @var integer
      */
-    protected $uniqueid;
+    protected $id;
 
 
     /**
@@ -85,7 +84,7 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
     {
         $dto = parent::toDTO();
         return $dto
-            ->setUniqueid($this->getUniqueid());
+            ->setId($this->getId());
     }
 
     /**
@@ -94,20 +93,19 @@ class Voicemail extends VoicemailAbstract implements VoicemailInterface, EntityI
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'uniqueid' => $this->getUniqueid(),
-            'userId' => $this->getUser() ? $this->getUser()->getId() : null
+            'id' => $this->getId()
         ];
     }
 
 
     /**
-     * Get uniqueid
+     * Get id
      *
      * @return integer
      */
-    public function getUniqueid()
+    public function getId()
     {
-        return $this->uniqueid;
+        return $this->id;
     }
 
 

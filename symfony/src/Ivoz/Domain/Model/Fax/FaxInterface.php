@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Fax;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FaxInterface
+interface FaxInterface extends EntityInterface
 {
     /**
      * Get name

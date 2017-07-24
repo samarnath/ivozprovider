@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Recording;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface RecordingInterface
+interface RecordingInterface extends EntityInterface
 {
     /**
      * Get callid

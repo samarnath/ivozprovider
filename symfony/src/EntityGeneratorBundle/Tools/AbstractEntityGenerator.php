@@ -290,12 +290,9 @@ protected function <methodName>(array $<variableName>)
              }
         }
 
-        $response = [
-            'use Assert\Assertion;'
-        ];
-
-        if (!$metadata->isEmbeddedClass  && !$metadata->isMappedSuperclass) {
-            $response[] = 'use Core\Domain\Model\EntityInterface;';
+        $response = [];
+        if ($metadata->isMappedSuperclass || $metadata->isEmbeddedClass) {
+            $response[] = 'use Assert\Assertion;';
         }
 
         if (!$metadata->isEmbeddedClass) {
@@ -368,8 +365,7 @@ protected function <methodName>(array $<variableName>)
             $setters,
             $getters,
             $toArray,
-            $updateFrom,
-            $fromArray
+            $updateFrom
         ) = $this->getConstructorFields($metadata);
 
         if (empty($collections) && empty($getters)) {
@@ -450,10 +446,6 @@ protected function <methodName>(array $<variableName>)
             $toArrayGetters = "\n" . $spaces . implode(",\n" . $spaces, $toArray) . "\n" . $this->spaces;
         }
 
-//        if (!empty($fromArray)) {
-//            $fromArraySetters = $this->spaces . implode("\n" . $spaces, $fromArray);
-//        }
-
         if (!empty($updateFrom)) {
             $updateFromDTO = '$this' . "\n" . $spaces . '->' . implode("\n" . $spaces . '->', $updateFrom) . ";\n\n";
         }
@@ -474,11 +466,10 @@ protected function <methodName>(array $<variableName>)
         $response = str_replace('<lineBreak>', $lineBreak, $response);
 
         $response = str_replace('<toArray>', $toArrayGetters, $response);
-//        $response = str_replace('<fromArray>', $fromArraySetters, $response);
 
         if (!empty($collections)) {
 
-            $prefix = empty($requiredSetters) ? '' : "\n\n" . $this->spaces;
+            $prefix = empty($requiredSetters) ? $this->spaces : "\n\n" . $this->spaces;
             $response = str_replace(
                 "<collections>",
                 $prefix . implode("\n" . $this->spaces, $collections),
@@ -508,7 +499,6 @@ protected function <methodName>(array $<variableName>)
         $getters = [];
         $toArray = [];
         $updateFrom = [];
-        $fromArray = [];
 
         $mappings = array_merge($metadata->fieldMappings, $metadata->associationMappings);
 
@@ -523,7 +513,6 @@ protected function <methodName>(array $<variableName>)
             }
             $options  = (object) $fieldMapping['options'];
 
-            //$fromArray[] = $this->getFromArrayMethod($attribute, $fieldName, $field);
             if (isset($field->targetEntity)) {
 
                 $isOneToMany = ($field->type == ClassMetadataInfo::ONE_TO_MANY);
@@ -551,14 +540,13 @@ protected function <methodName>(array $<variableName>)
                     }
                 }
 
-                list($associationToArray, $associationGetterAs) = $this
-                    ->getConstructorAssociationFields($attribute, $fieldName, $isOneToMany);
-
-                if (!is_null($associationToArray)) {
-                    $toArray[] = $associationToArray;
-                }
-
                 if (!isset($field->declared)) {
+                    list($associationToArray, $associationGetterAs) = $this
+                        ->getConstructorAssociationFields($attribute, $fieldName, $isOneToMany);
+
+                    if (!is_null($associationToArray)) {
+                        $toArray[] = $associationToArray;
+                    }
                     $getters[$attribute] = $associationGetterAs;
                 }
 
@@ -594,7 +582,12 @@ protected function <methodName>(array $<variableName>)
                     $setterMethod .= Inflector::classify($segments[1]);
                 }
 
-                $getters[$segments[1]] =
+                $key = $segments[0];
+                if ($segments[0] !== $segments[1]) {
+                    $key .= ucFirst($segments[1]);
+                }
+
+                $getters[$key] =
                     $setterMethod
                     . '($this->get'
                     . Inflector::classify($segments[0])
@@ -679,8 +672,7 @@ protected function <methodName>(array $<variableName>)
             $setters,
             $getters,
             $toArray,
-            $updateFrom,
-            $fromArray
+            $updateFrom
         );
     }
 
@@ -716,11 +708,15 @@ protected function <methodName>(array $<variableName>)
             }
 
             $class = explode("\\", $fieldMapping['originalClass']);
+            $method = end($class);
+            if (strtolower($method) !== strtolower($segments[1])) {
+                $method .= Inflector::classify($segments[1]);
+            }
+
             $arguments[] =
-                str_repeat($this->spaces, 1)
+                $this->spaces
                 . '$dto->get'
-                . end($class)
-                . Inflector::classify($segments[1])
+                . $method
                 . '()';
         }
         $response = '$' . $voName . ' = new ' . end($class) . "(%s);\n";

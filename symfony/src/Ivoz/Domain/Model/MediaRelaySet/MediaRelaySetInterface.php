@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\MediaRelaySet;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface MediaRelaySetInterface
+interface MediaRelaySetInterface extends EntityInterface
 {
     /**
      * Get name

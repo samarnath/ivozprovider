@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersAcc;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersAcc
  */
-class UsersAcc extends UsersAccAbstract implements UsersAccInterface, EntityInterface
+class UsersAcc extends UsersAccAbstract implements UsersAccInterface
 {
     /**
      * @var integer

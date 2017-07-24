@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Extension;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ExtensionInterface
+interface ExtensionInterface extends EntityInterface
 {
     /**
      * Get number

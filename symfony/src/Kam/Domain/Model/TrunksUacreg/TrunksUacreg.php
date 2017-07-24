@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\TrunksUacreg;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TrunksUacreg
  */
-class TrunksUacreg extends TrunksUacregAbstract implements TrunksUacregInterface, EntityInterface
+class TrunksUacreg extends TrunksUacregAbstract implements TrunksUacregInterface
 {
     /**
      * @var integer
@@ -94,9 +92,7 @@ class TrunksUacreg extends TrunksUacregAbstract implements TrunksUacregInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'brandId' => $this->getBrand() ? $this->getBrand()->getId() : null,
-            'peeringContractId' => $this->getPeeringContract() ? $this->getPeeringContract()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

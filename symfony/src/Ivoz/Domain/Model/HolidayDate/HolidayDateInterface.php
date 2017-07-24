@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\HolidayDate;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface HolidayDateInterface
+interface HolidayDateInterface extends EntityInterface
 {
     /**
      * Get name

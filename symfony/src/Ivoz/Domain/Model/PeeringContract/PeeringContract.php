@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\PeeringContract;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PeeringContract
  */
-class PeeringContract extends PeeringContractAbstract implements PeeringContractInterface, EntityInterface
+class PeeringContract extends PeeringContractAbstract implements PeeringContractInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class PeeringContract extends PeeringContractAbstract implements PeeringContract
 
 
 }
+

@@ -91,13 +91,13 @@ abstract class CountryAbstract
         Assertion::isInstanceOf($dto, CountryDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );
 
         $zone = new Zone(
-            $dto->getZoneZone(),
+            $dto->getZone(),
             $dto->getZoneEn(),
             $dto->getZoneEs()
         );
@@ -128,13 +128,13 @@ abstract class CountryAbstract
         Assertion::isInstanceOf($dto, CountryDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );
 
         $zone = new Zone(
-            $dto->getZoneZone(),
+            $dto->getZone(),
             $dto->getZoneEn(),
             $dto->getZoneEs()
         );
@@ -164,9 +164,11 @@ abstract class CountryAbstract
             ->setE164Pattern($this->getE164Pattern())
             ->setNationalCC($this->getNationalCC())
             ->setName($this->getName()->getName())
+            ->setNameEn($this->getName()->getEn())
+            ->setNameEs($this->getName()->getEs())
+            ->setZone($this->getZone()->getZone())
             ->setZoneEn($this->getZone()->getEn())
-            ->setZoneEs($this->getZone()->getEs())
-            ->setZone($this->getZone()->getZone());
+            ->setZoneEs($this->getZone()->getEs());
     }
 
     /**

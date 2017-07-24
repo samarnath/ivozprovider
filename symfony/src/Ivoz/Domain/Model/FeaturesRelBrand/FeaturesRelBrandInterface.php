@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\FeaturesRelBrand;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FeaturesRelBrandInterface
+interface FeaturesRelBrandInterface extends EntityInterface
 {
     /**
      * Set brand

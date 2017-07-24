@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\HuntGroup;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * HuntGroup
  */
-class HuntGroup extends HuntGroupAbstract implements HuntGroupInterface, EntityInterface
+class HuntGroup extends HuntGroupAbstract implements HuntGroupInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class HuntGroup extends HuntGroupAbstract implements HuntGroupInterface, EntityI
 
 
 }
+

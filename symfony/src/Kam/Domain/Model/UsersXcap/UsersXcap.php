@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersXcap;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersXcap
  */
-class UsersXcap extends UsersXcapAbstract implements UsersXcapInterface, EntityInterface
+class UsersXcap extends UsersXcapAbstract implements UsersXcapInterface
 {
     /**
      * @var integer

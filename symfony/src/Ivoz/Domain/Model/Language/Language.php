@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Language;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Language
  */
-class Language extends LanguageAbstract implements LanguageInterface, EntityInterface
+class Language extends LanguageAbstract implements LanguageInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Language extends LanguageAbstract implements LanguageInterface, EntityInte
 
 
 }
+

@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\TrunksDialplan;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TrunksDialplan
  */
-class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInterface, EntityInterface
+class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInterface
 {
     /**
      * @var integer
@@ -94,8 +92,7 @@ class TrunksDialplan extends TrunksDialplanAbstract implements TrunksDialplanInt
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'transformationRulesetGroupsTrunkId' => $this->getTransformationRulesetGroupsTrunk() ? $this->getTransformationRulesetGroupsTrunk()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

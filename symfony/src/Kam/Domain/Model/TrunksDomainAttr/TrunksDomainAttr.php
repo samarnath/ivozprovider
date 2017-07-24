@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\TrunksDomainAttr;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TrunksDomainAttr
  */
-class TrunksDomainAttr extends TrunksDomainAttrAbstract implements TrunksDomainAttrInterface, EntityInterface
+class TrunksDomainAttr extends TrunksDomainAttrAbstract implements TrunksDomainAttrInterface
 {
     /**
      * @var integer

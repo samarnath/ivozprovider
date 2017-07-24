@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\DDI;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * DDI
  */
-class DDI extends DDIAbstract implements DDIInterface, EntityInterface
+class DDI extends DDIAbstract implements DDIInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class DDI extends DDIAbstract implements DDIInterface, EntityInterface
 
 
 }
+

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\PeerServer;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface PeerServerInterface
+interface PeerServerInterface extends EntityInterface
 {
     /**
      * Get ip

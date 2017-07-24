@@ -73,13 +73,13 @@ abstract class PricingPlanAbstract
         Assertion::isInstanceOf($dto, PricingPlanDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );
 
         $description = new Description(
-            $dto->getDescriptionDescription(),
+            $dto->getDescription(),
             $dto->getDescriptionEn(),
             $dto->getDescriptionEs()
         );
@@ -107,13 +107,13 @@ abstract class PricingPlanAbstract
         Assertion::isInstanceOf($dto, PricingPlanDTO::class);
 
         $name = new Name(
-            $dto->getNameName(),
+            $dto->getName(),
             $dto->getNameEn(),
             $dto->getNameEs()
         );
 
         $description = new Description(
-            $dto->getDescriptionDescription(),
+            $dto->getDescription(),
             $dto->getDescriptionEn(),
             $dto->getDescriptionEs()
         );
@@ -136,9 +136,11 @@ abstract class PricingPlanAbstract
         return self::createDTO()
             ->setCreatedOn($this->getCreatedOn())
             ->setName($this->getName()->getName())
+            ->setNameEn($this->getName()->getEn())
+            ->setNameEs($this->getName()->getEs())
+            ->setDescription($this->getDescription()->getDescription())
             ->setDescriptionEn($this->getDescription()->getEn())
             ->setDescriptionEs($this->getDescription()->getEs())
-            ->setDescription($this->getDescription()->getDescription())
             ->setBrandId($this->getBrand() ? $this->getBrand()->getId() : null);
     }
 

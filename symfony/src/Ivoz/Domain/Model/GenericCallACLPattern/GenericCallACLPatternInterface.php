@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\GenericCallACLPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface GenericCallACLPatternInterface
+interface GenericCallACLPatternInterface extends EntityInterface
 {
     /**
      * Get name

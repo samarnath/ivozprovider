@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\TransformationRulesetGroupsTrunk;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TransformationRulesetGroupsTrunk
  */
-class TransformationRulesetGroupsTrunk extends TransformationRulesetGroupsTrunkAbstract implements TransformationRulesetGroupsTrunkInterface, EntityInterface
+class TransformationRulesetGroupsTrunk extends TransformationRulesetGroupsTrunkAbstract implements TransformationRulesetGroupsTrunkInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class TransformationRulesetGroupsTrunk extends TransformationRulesetGroupsTrunkA
 
 
 }
+

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\HuntGroupsRelUser;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface HuntGroupsRelUserInterface
+interface HuntGroupsRelUserInterface extends EntityInterface
 {
     /**
      * Get timeoutTime

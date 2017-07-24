@@ -2,19 +2,18 @@
 
 namespace Ast\Domain\Model\Queue;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Queue
  */
-class Queue extends QueueAbstract implements QueueInterface, EntityInterface
+class Queue extends QueueAbstract implements QueueInterface
 {
     /**
+     * @column name
      * @var string
      */
-    protected $name;
+    protected $id;
 
 
     /**
@@ -85,7 +84,7 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
     {
         $dto = parent::toDTO();
         return $dto
-            ->setName($this->getName());
+            ->setId($this->getId());
     }
 
     /**
@@ -94,37 +93,36 @@ class Queue extends QueueAbstract implements QueueInterface, EntityInterface
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'name' => $this->getName(),
-            'queueId' => $this->getQueue() ? $this->getQueue()->getId() : null
+            'id' => $this->getId()
         ];
     }
 
 
     /**
-     * Set name
+     * Set id
      *
-     * @param string $name
+     * @param string $id
      *
      * @return self
      */
-    protected function setName($name)
+    protected function setId($id)
     {
-        Assertion::notNull($name);
-        Assertion::maxLength($name, 128);
+        Assertion::notNull($id);
+        Assertion::maxLength($id, 128);
 
-        $this->name = $name;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get id
      *
      * @return string
      */
-    public function getName()
+    public function getId()
     {
-        return $this->name;
+        return $this->id;
     }
 
 

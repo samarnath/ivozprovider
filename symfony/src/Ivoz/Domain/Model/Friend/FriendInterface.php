@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Friend;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FriendInterface
+interface FriendInterface extends EntityInterface
 {
     /**
      * Get name

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Queue;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface QueueInterface
+interface QueueInterface extends EntityInterface
 {
     /**
      * Get name

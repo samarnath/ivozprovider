@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersAddres;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersAddres
  */
-class UsersAddres extends UsersAddresAbstract implements UsersAddresInterface, EntityInterface
+class UsersAddres extends UsersAddresAbstract implements UsersAddresInterface
 {
     /**
      * @var integer
@@ -94,8 +92,7 @@ class UsersAddres extends UsersAddresAbstract implements UsersAddresInterface, E
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'companyId' => $this->getCompany() ? $this->getCompany()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

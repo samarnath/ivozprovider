@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\PickUpGroup;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PickUpGroup
  */
-class PickUpGroup extends PickUpGroupAbstract implements PickUpGroupInterface, EntityInterface
+class PickUpGroup extends PickUpGroupAbstract implements PickUpGroupInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class PickUpGroup extends PickUpGroupAbstract implements PickUpGroupInterface, E
 
 
 }
+

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Calendar;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Calendar
  */
-class Calendar extends CalendarAbstract implements CalendarInterface, EntityInterface
+class Calendar extends CalendarAbstract implements CalendarInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Calendar extends CalendarAbstract implements CalendarInterface, EntityInte
 
 
 }
+

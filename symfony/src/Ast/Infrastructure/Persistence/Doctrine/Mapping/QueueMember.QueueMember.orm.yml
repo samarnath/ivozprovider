@@ -3,8 +3,9 @@ Ast\Domain\Model\QueueMember\QueueMember:
   type: entity
   table: ast_queue_members
   id:
-    uniqueid:
+    id:
       type: integer
+      column: uniqueid
       nullable: false
       options:
         unsigned: true

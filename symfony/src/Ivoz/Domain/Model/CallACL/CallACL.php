@@ -2,19 +2,25 @@
 
 namespace Ivoz\Domain\Model\CallACL;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 
 /**
  * CallACL
  */
-class CallACL extends CallACLAbstract implements CallACLInterface, EntityInterface
+class CallACL extends CallACLAbstract implements CallACLInterface
 {
+    use CallACLTrait;
     /**
      * @var integer
      */
     protected $id;
+
+    /**
+     * @var ArrayCollection
+     */
+    protected $relPatterns;
 
 
     /**
@@ -29,7 +35,7 @@ class CallACL extends CallACLAbstract implements CallACLInterface, EntityInterfa
     public function __construct()
     {
         parent::__construct(...func_get_args());
-
+        $this->relPatterns = new ArrayCollection();
     }
 
     public function __wakeup()
@@ -60,7 +66,9 @@ class CallACL extends CallACLAbstract implements CallACLInterface, EntityInterfa
          */
         $self = parent::fromDTO($dto);
 
-        return $self;
+        return $self
+            ->replaceRelPatterns($dto->getRelPatterns())
+        ;
     }
 
     /**
@@ -74,7 +82,10 @@ class CallACL extends CallACLAbstract implements CallACLInterface, EntityInterfa
          */
         parent::updateFromDTO($dto);
 
-        
+        $this
+            ->replaceRelPatterns($dto->getRelPatterns());
+
+
         return $this;
     }
 
@@ -85,7 +96,8 @@ class CallACL extends CallACLAbstract implements CallACLInterface, EntityInterfa
     {
         $dto = parent::toDTO();
         return $dto
-            ->setId($this->getId());
+            ->setId($this->getId())
+            ->setRelPatterns($this->getRelPatterns());
     }
 
     /**
@@ -109,5 +121,78 @@ class CallACL extends CallACLAbstract implements CallACLInterface, EntityInterfa
         return $this->id;
     }
 
+    /**
+     * Add relPattern
+     *
+     * @param \Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPatternInterface $relPattern
+     *
+     * @return CallACL
+     */
+    protected function addRelPattern(\Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPatternInterface $relPattern)
+    {
+        $this->relPatterns[] = $relPattern;
+
+        return $this;
+    }
+
+    /**
+     * Remove relPattern
+     *
+     * @param \Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPatternInterface $relPattern
+     */
+    protected function removeRelPattern(\Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPatternInterface $relPattern)
+    {
+        $this->relPatterns->removeElement($relPattern);
+    }
+
+    /**
+     * Replace relPatterns
+     *
+     * @param \Ivoz\Domain\Model\CallACLRelPattern\CallACLRelPatternInterface[] $relPatterns
+     * @return self
+     */
+    protected function replaceRelPatterns(array $relPatterns)
+    {
+        $updatedEntities = [];
+        $fallBackId = -1;
+        foreach ($relPatterns as $entity) {
+            $index = $entity->getId() ? $entity->getId() : $fallBackId--;
+            $updatedEntities[$index] = $entity;
+            $entity->setCallACL($this);
+        }
+        $updatedEntityKeys = array_keys($updatedEntities);
+
+        foreach ($this->relPatterns as $key => $entity) {
+            $identity = $entity->getId();
+            if (in_array($identity, $updatedEntityKeys)) {
+                $this->relPatterns[$key] = $updatedEntities[$identity];
+            } else {
+                $this->removeRelPattern($key);
+            }
+            unset($updatedEntities[$identity]);
+        }
+
+        foreach ($updatedEntities as $entity) {
+            $this->addRelPattern($entity);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get relPatterns
+     *
+     * @return array
+     */
+    public function getRelPatterns(Criteria $criteria = null)
+    {
+        if (!is_null($criteria)) {
+            return $this->relPatterns->matching($criteria)->toArray();
+        }
+
+        return $this->relPatterns->toArray();
+    }
+
 
 }
+

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\ExternalCallFilter;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ExternalCallFilter
  */
-class ExternalCallFilter extends ExternalCallFilterAbstract implements ExternalCallFilterInterface, EntityInterface
+class ExternalCallFilter extends ExternalCallFilterAbstract implements ExternalCallFilterInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class ExternalCallFilter extends ExternalCallFilterAbstract implements ExternalC
 
 
 }
+

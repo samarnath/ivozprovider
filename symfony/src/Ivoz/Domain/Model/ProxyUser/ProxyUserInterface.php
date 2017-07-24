@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ProxyUser;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ProxyUserInterface
+interface ProxyUserInterface extends EntityInterface
 {
     /**
      * Get name

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Schedule;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ScheduleInterface
+interface ScheduleInterface extends EntityInterface
 {
     /**
      * Get name

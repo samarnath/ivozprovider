@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\MediaRelaySet;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MediaRelaySet
  */
-class MediaRelaySet extends MediaRelaySetAbstract implements MediaRelaySetInterface, EntityInterface
+class MediaRelaySet extends MediaRelaySetAbstract implements MediaRelaySetInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class MediaRelaySet extends MediaRelaySetAbstract implements MediaRelaySetInterf
 
 
 }
+

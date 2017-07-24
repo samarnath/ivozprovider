@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\LcrGateway;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * LcrGateway
  */
-class LcrGateway extends LcrGatewayAbstract implements LcrGatewayInterface, EntityInterface
+class LcrGateway extends LcrGatewayAbstract implements LcrGatewayInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class LcrGateway extends LcrGatewayAbstract implements LcrGatewayInterface, Enti
 
 
 }
+

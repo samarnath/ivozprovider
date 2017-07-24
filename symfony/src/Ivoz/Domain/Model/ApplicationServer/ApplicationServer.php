@@ -2,19 +2,18 @@
 
 namespace Ivoz\Domain\Model\ApplicationServer;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ApplicationServer
  */
-class ApplicationServer extends ApplicationServerAbstract implements ApplicationServerInterface, EntityInterface
+class ApplicationServer extends ApplicationServerAbstract implements ApplicationServerInterface
 {
     /**
      * @var integer
      */
     protected $id;
+
 
     /**
      * Changelog tracking purpose
@@ -28,6 +27,7 @@ class ApplicationServer extends ApplicationServerAbstract implements Application
     public function __construct()
     {
         parent::__construct(...func_get_args());
+
     }
 
     public function __wakeup()
@@ -72,6 +72,7 @@ class ApplicationServer extends ApplicationServerAbstract implements Application
          */
         parent::updateFromDTO($dto);
 
+        
         return $this;
     }
 
@@ -108,3 +109,4 @@ class ApplicationServer extends ApplicationServerAbstract implements Application
 
 
 }
+

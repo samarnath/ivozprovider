@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Company;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Company
  */
-class Company extends CompanyAbstract implements CompanyInterface, EntityInterface
+class Company extends CompanyAbstract implements CompanyInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Company extends CompanyAbstract implements CompanyInterface, EntityInterfa
 
 
 }
+

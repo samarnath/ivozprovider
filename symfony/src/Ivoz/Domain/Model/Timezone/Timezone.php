@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Timezone;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Timezone
  */
-class Timezone extends TimezoneAbstract implements TimezoneInterface, EntityInterface
+class Timezone extends TimezoneAbstract implements TimezoneInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Timezone extends TimezoneAbstract implements TimezoneInterface, EntityInte
 
 
 }
+

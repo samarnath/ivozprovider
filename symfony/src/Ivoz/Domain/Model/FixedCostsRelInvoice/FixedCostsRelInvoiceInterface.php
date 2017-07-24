@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\FixedCostsRelInvoice;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FixedCostsRelInvoiceInterface
+interface FixedCostsRelInvoiceInterface extends EntityInterface
 {
     /**
      * Get quantity

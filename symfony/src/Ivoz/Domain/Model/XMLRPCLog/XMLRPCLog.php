@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\XMLRPCLog;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * XMLRPCLog
  */
-class XMLRPCLog extends XMLRPCLogAbstract implements XMLRPCLogInterface, EntityInterface
+class XMLRPCLog extends XMLRPCLogAbstract implements XMLRPCLogInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class XMLRPCLog extends XMLRPCLogAbstract implements XMLRPCLogInterface, EntityI
 
 
 }
+

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\QueueMember;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * QueueMember
  */
-class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, EntityInterface
+class QueueMember extends QueueMemberAbstract implements QueueMemberInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class QueueMember extends QueueMemberAbstract implements QueueMemberInterface, E
 
 
 }
+

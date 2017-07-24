@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\BrandURL;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * BrandURL
  */
-class BrandURL extends BrandURLAbstract implements BrandURLInterface, EntityInterface
+class BrandURL extends BrandURLAbstract implements BrandURLInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class BrandURL extends BrandURLAbstract implements BrandURLInterface, EntityInte
 
 
 }
+

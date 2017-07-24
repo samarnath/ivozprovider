@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Terminal;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface TerminalInterface
+interface TerminalInterface extends EntityInterface
 {
     /**
      * Get name

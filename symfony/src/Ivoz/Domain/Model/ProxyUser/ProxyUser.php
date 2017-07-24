@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\ProxyUser;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ProxyUser
  */
-class ProxyUser extends ProxyUserAbstract implements ProxyUserInterface, EntityInterface
+class ProxyUser extends ProxyUserAbstract implements ProxyUserInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class ProxyUser extends ProxyUserAbstract implements ProxyUserInterface, EntityI
 
 
 }
+

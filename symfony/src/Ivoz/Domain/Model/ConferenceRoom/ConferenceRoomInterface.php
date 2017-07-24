@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ConferenceRoom;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ConferenceRoomInterface
+interface ConferenceRoomInterface extends EntityInterface
 {
     /**
      * Get name

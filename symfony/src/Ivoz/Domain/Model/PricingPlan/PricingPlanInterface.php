@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\PricingPlan;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface PricingPlanInterface
+interface PricingPlanInterface extends EntityInterface
 {
     /**
      * Get createdOn

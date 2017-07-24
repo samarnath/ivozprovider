@@ -3,8 +3,9 @@ Ast\Domain\Model\Queue\Queue:
   type: entity
   table: ast_queues
   id:
-    name:
+    id:
       type: string
+      column: name
       nullable: false
       length: 128
       options:

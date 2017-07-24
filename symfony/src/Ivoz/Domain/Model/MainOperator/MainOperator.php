@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\MainOperator;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MainOperator
  */
-class MainOperator extends MainOperatorAbstract implements MainOperatorInterface, EntityInterface
+class MainOperator extends MainOperatorAbstract implements MainOperatorInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class MainOperator extends MainOperatorAbstract implements MainOperatorInterface
 
 
 }
+

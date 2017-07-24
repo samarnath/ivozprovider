@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\PeeringContract;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface PeeringContractInterface
+interface PeeringContractInterface extends EntityInterface
 {
     /**
      * Get description

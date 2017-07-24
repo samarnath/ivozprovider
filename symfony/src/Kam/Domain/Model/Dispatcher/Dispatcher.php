@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\Dispatcher;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Dispatcher
  */
-class Dispatcher extends DispatcherAbstract implements DispatcherInterface, EntityInterface
+class Dispatcher extends DispatcherAbstract implements DispatcherInterface
 {
     /**
      * @var integer
@@ -94,8 +92,7 @@ class Dispatcher extends DispatcherAbstract implements DispatcherInterface, Enti
     protected function __toArray()
     {
         return parent::__toArray() + [
-            'id' => $this->getId(),
-            'applicationServerId' => $this->getApplicationServer() ? $this->getApplicationServer()->getId() : null
+            'id' => $this->getId()
         ];
     }
 

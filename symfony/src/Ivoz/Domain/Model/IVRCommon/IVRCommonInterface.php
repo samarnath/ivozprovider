@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\IVRCommon;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface IVRCommonInterface
+interface IVRCommonInterface extends EntityInterface
 {
     /**
      * Get name

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\EtagVersion;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * EtagVersion
  */
-class EtagVersion extends EtagVersionAbstract implements EtagVersionInterface, EntityInterface
+class EtagVersion extends EtagVersionAbstract implements EtagVersionInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class EtagVersion extends EtagVersionAbstract implements EtagVersionInterface, E
 
 
 }
+

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\Recording;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * Recording
  */
-class Recording extends RecordingAbstract implements RecordingInterface, EntityInterface
+class Recording extends RecordingAbstract implements RecordingInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class Recording extends RecordingAbstract implements RecordingInterface, EntityI
 
 
 }
+

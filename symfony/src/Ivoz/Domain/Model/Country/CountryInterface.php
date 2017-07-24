@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Country;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CountryInterface
+interface CountryInterface extends EntityInterface
 {
     /**
      * Get code

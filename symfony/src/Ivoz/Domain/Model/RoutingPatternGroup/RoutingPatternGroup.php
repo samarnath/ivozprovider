@@ -2,8 +2,6 @@
 
 namespace Ivoz\Domain\Model\RoutingPatternGroup;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
@@ -11,7 +9,7 @@ use Doctrine\Common\Collections\Criteria;
 /**
  * RoutingPatternGroup
  */
-class RoutingPatternGroup extends RoutingPatternGroupAbstract implements RoutingPatternGroupInterface, EntityInterface
+class RoutingPatternGroup extends RoutingPatternGroupAbstract implements RoutingPatternGroupInterface
 {
     /**
      * @var integer
@@ -36,7 +34,7 @@ class RoutingPatternGroup extends RoutingPatternGroupAbstract implements Routing
     public function __construct()
     {
         parent::__construct(...func_get_args());
-    $this->relPatterns = new ArrayCollection();
+        $this->relPatterns = new ArrayCollection();
     }
 
     public function __wakeup()
@@ -196,3 +194,4 @@ class RoutingPatternGroup extends RoutingPatternGroupAbstract implements Routing
 
 
 }
+

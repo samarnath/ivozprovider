@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersHtable;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersHtable
  */
-class UsersHtable extends UsersHtableAbstract implements UsersHtableInterface, EntityInterface
+class UsersHtable extends UsersHtableAbstract implements UsersHtableInterface
 {
     /**
      * @var integer

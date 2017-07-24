@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\ParsedCDR;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ParsedCDR
  */
-class ParsedCDR extends ParsedCDRAbstract implements ParsedCDRInterface, EntityInterface
+class ParsedCDR extends ParsedCDRAbstract implements ParsedCDRInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class ParsedCDR extends ParsedCDRAbstract implements ParsedCDRInterface, EntityI
 
 
 }
+

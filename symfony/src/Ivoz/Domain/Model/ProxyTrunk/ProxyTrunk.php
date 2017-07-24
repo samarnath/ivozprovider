@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\ProxyTrunk;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ProxyTrunk
  */
-class ProxyTrunk extends ProxyTrunkAbstract implements ProxyTrunkInterface, EntityInterface
+class ProxyTrunk extends ProxyTrunkAbstract implements ProxyTrunkInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class ProxyTrunk extends ProxyTrunkAbstract implements ProxyTrunkInterface, Enti
 
 
 }
+

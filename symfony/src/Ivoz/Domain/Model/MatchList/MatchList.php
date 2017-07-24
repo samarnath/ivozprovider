@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\MatchList;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * MatchList
  */
-class MatchList extends MatchListAbstract implements MatchListInterface, EntityInterface
+class MatchList extends MatchListAbstract implements MatchListInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class MatchList extends MatchListAbstract implements MatchListInterface, EntityI
 
 
 }
+

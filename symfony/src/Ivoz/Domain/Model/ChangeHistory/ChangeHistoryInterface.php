@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ChangeHistory;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ChangeHistoryInterface
+interface ChangeHistoryInterface extends EntityInterface
 {
     /**
      * Get user

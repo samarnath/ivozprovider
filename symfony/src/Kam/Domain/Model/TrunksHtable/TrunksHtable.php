@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\TrunksHtable;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TrunksHtable
  */
-class TrunksHtable extends TrunksHtableAbstract implements TrunksHtableInterface, EntityInterface
+class TrunksHtable extends TrunksHtableAbstract implements TrunksHtableInterface
 {
     /**
      * @var integer

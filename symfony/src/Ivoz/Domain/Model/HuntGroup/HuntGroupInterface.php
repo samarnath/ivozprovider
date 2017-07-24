@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\HuntGroup;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface HuntGroupInterface
+interface HuntGroupInterface extends EntityInterface
 {
     /**
      * Get name

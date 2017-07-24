@@ -81,7 +81,9 @@ public function <methodName>(<criteriaArgument>);
             }
         }
 
-        $response = [];
+        $response = [
+            'use Core\Domain\Model\EntityInterface;'
+        ];
         if ($useCollections) {
             $response[] = 'use Doctrine\\Common\\Collections\\Criteria;';
         }
@@ -94,8 +96,10 @@ public function <methodName>(<criteriaArgument>);
      */
     protected function generateEntityClassName(ClassMetadataInfo $metadata)
     {
-        $class = 'interface '
-            . $this->getClassName($metadata);
+        $class =
+            'interface '
+            . $this->getClassName($metadata)
+            . ' extends EntityInterface';
 
         return $class;
     }

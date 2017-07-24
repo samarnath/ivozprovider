@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\ConferenceRoom;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ConferenceRoom
  */
-class ConferenceRoom extends ConferenceRoomAbstract implements ConferenceRoomInterface, EntityInterface
+class ConferenceRoom extends ConferenceRoomAbstract implements ConferenceRoomInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class ConferenceRoom extends ConferenceRoomAbstract implements ConferenceRoomInt
 
 
 }
+

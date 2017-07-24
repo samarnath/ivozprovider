@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\BrandURL;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface BrandURLInterface
+interface BrandURLInterface extends EntityInterface
 {
     /**
      * Get url

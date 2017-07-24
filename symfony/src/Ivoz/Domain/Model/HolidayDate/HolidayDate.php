@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\HolidayDate;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * HolidayDate
  */
-class HolidayDate extends HolidayDateAbstract implements HolidayDateInterface, EntityInterface
+class HolidayDate extends HolidayDateAbstract implements HolidayDateInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class HolidayDate extends HolidayDateAbstract implements HolidayDateInterface, E
 
 
 }
+

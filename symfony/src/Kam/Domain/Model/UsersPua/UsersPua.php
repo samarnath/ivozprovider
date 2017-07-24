@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersPua;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersPua
  */
-class UsersPua extends UsersPuaAbstract implements UsersPuaInterface, EntityInterface
+class UsersPua extends UsersPuaAbstract implements UsersPuaInterface
 {
     /**
      * @var integer

@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\ChangeHistory;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * ChangeHistory
  */
-class ChangeHistory extends ChangeHistoryAbstract implements ChangeHistoryInterface, EntityInterface
+class ChangeHistory extends ChangeHistoryAbstract implements ChangeHistoryInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class ChangeHistory extends ChangeHistoryAbstract implements ChangeHistoryInterf
 
 
 }
+

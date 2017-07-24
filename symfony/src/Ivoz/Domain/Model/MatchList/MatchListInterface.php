@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\MatchList;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface MatchListInterface
+interface MatchListInterface extends EntityInterface
 {
     /**
      * Get name

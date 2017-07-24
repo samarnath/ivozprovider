@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ApplicationServer;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ApplicationServerInterface
+interface ApplicationServerInterface extends EntityInterface
 {
     /**
      * Get ip

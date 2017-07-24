@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\IVRCustom;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface IVRCustomInterface
+interface IVRCustomInterface extends EntityInterface
 {
     /**
      * Get name

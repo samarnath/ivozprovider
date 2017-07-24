@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\GenericMusicOnHold;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * GenericMusicOnHold
  */
-class GenericMusicOnHold extends GenericMusicOnHoldAbstract implements GenericMusicOnHoldInterface, EntityInterface
+class GenericMusicOnHold extends GenericMusicOnHoldAbstract implements GenericMusicOnHoldInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class GenericMusicOnHold extends GenericMusicOnHoldAbstract implements GenericMu
 
 
 }
+

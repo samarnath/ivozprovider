@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\IVRCustomEntry;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * IVRCustomEntry
  */
-class IVRCustomEntry extends IVRCustomEntryAbstract implements IVRCustomEntryInterface, EntityInterface
+class IVRCustomEntry extends IVRCustomEntryAbstract implements IVRCustomEntryInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class IVRCustomEntry extends IVRCustomEntryAbstract implements IVRCustomEntryInt
 
 
 }
+

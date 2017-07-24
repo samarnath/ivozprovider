@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\PricingPlansRelTargetPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface PricingPlansRelTargetPatternInterface
+interface PricingPlansRelTargetPatternInterface extends EntityInterface
 {
     /**
      * Get connectionCharge

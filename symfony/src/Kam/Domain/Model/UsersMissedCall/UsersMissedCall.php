@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersMissedCall;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersMissedCall
  */
-class UsersMissedCall extends UsersMissedCallAbstract implements UsersMissedCallInterface, EntityInterface
+class UsersMissedCall extends UsersMissedCallAbstract implements UsersMissedCallInterface
 {
     /**
      * @var integer

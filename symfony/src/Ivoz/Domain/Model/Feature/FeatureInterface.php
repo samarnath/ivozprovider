@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Feature;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface FeatureInterface
+interface FeatureInterface extends EntityInterface
 {
     /**
      * Get iden

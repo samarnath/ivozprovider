@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\TerminalModel;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * TerminalModel
  */
-class TerminalModel extends TerminalModelAbstract implements TerminalModelInterface, EntityInterface
+class TerminalModel extends TerminalModelAbstract implements TerminalModelInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class TerminalModel extends TerminalModelAbstract implements TerminalModelInterf
 
 
 }
+

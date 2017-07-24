@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\Calendar;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface CalendarInterface
+interface CalendarInterface extends EntityInterface
 {
     /**
      * Get name

@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\RoutingPatternGroupsRelPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface RoutingPatternGroupsRelPatternInterface
+interface RoutingPatternGroupsRelPatternInterface extends EntityInterface
 {
     /**
      * Get routingPattern

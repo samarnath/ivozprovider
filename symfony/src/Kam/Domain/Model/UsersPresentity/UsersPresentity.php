@@ -2,14 +2,12 @@
 
 namespace Kam\Domain\Model\UsersPresentity;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * UsersPresentity
  */
-class UsersPresentity extends UsersPresentityAbstract implements UsersPresentityInterface, EntityInterface
+class UsersPresentity extends UsersPresentityAbstract implements UsersPresentityInterface
 {
     /**
      * @var integer

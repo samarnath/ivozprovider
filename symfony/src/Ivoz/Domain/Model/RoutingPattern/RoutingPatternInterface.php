@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\RoutingPattern;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface RoutingPatternInterface
+interface RoutingPatternInterface extends EntityInterface
 {
     /**
      * Get regExp

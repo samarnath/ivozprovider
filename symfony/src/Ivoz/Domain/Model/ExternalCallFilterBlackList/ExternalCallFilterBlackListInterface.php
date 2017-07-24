@@ -2,9 +2,9 @@
 
 namespace Ivoz\Domain\Model\ExternalCallFilterBlackList;
 
+use Core\Domain\Model\EntityInterface;
 
-
-interface ExternalCallFilterBlackListInterface
+interface ExternalCallFilterBlackListInterface extends EntityInterface
 {
     /**
      * Get filter

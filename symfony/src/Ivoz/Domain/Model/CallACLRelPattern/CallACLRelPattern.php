@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\CallACLRelPattern;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * CallACLRelPattern
  */
-class CallACLRelPattern extends CallACLRelPatternAbstract implements CallACLRelPatternInterface, EntityInterface
+class CallACLRelPattern extends CallACLRelPatternAbstract implements CallACLRelPatternInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class CallACLRelPattern extends CallACLRelPatternAbstract implements CallACLRelP
 
 
 }
+

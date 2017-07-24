@@ -2,14 +2,12 @@
 
 namespace Ivoz\Domain\Model\PeerServer;
 
-use Assert\Assertion;
-use Core\Domain\Model\EntityInterface;
 use Core\Application\DataTransferObjectInterface;
 
 /**
  * PeerServer
  */
-class PeerServer extends PeerServerAbstract implements PeerServerInterface, EntityInterface
+class PeerServer extends PeerServerAbstract implements PeerServerInterface
 {
     /**
      * @var integer
@@ -111,3 +109,4 @@ class PeerServer extends PeerServerAbstract implements PeerServerInterface, Enti
 
 
 }
+
