@@ -109,4 +109,3 @@ class GenericCallACLPattern extends GenericCallACLPatternAbstract implements Gen
 
 
 }
-

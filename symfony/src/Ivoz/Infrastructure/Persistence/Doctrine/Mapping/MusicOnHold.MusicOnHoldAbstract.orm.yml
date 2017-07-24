@@ -78,7 +78,7 @@ Ivoz\Domain\Model\MusicOnHold\MusicOnHoldAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: musicsOnHold
       joinColumns:
         companyId:
           referencedColumnName: id

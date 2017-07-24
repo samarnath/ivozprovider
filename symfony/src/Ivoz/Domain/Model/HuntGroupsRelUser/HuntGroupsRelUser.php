@@ -109,4 +109,3 @@ class HuntGroupsRelUser extends HuntGroupsRelUserAbstract implements HuntGroupsR
 
 
 }
-

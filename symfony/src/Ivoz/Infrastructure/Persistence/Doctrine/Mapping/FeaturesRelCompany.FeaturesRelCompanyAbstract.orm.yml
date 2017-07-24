@@ -24,7 +24,7 @@ Ivoz\Domain\Model\FeaturesRelCompany\FeaturesRelCompanyAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: relFeatures
       joinColumns:
         featureId:
           referencedColumnName: id

@@ -109,4 +109,3 @@ class LcrRule extends LcrRuleAbstract implements LcrRuleInterface
 
 
 }
-

@@ -109,4 +109,3 @@ class FixedCostsRelInvoice extends FixedCostsRelInvoiceAbstract implements Fixed
 
 
 }
-

@@ -109,4 +109,3 @@ class HolidayDate extends HolidayDateAbstract implements HolidayDateInterface
 
 
 }
-

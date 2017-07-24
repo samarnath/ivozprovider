@@ -109,4 +109,3 @@ class BrandURL extends BrandURLAbstract implements BrandURLInterface
 
 
 }
-

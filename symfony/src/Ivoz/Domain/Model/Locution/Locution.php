@@ -109,4 +109,3 @@ class Locution extends LocutionAbstract implements LocutionInterface
 
 
 }
-

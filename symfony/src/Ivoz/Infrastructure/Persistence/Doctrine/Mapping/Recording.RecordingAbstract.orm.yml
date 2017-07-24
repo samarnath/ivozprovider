@@ -80,7 +80,7 @@ Ivoz\Domain\Model\Recording\RecordingAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: recordings
       joinColumns:
         companyId:
           referencedColumnName: id

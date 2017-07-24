@@ -106,7 +106,7 @@ Ivoz\Domain\Model\DDI\DDIAbstract:
       targetEntity: \Ivoz\Domain\Model\Company\CompanyInterface
       cascade: {  }
       fetch: LAZY
-      inversedBy: null
+      inversedBy: ddis
       joinColumns:
         companyId:
           referencedColumnName: id

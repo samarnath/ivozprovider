@@ -63,7 +63,7 @@ Ivoz\Domain\Model\Extension\ExtensionAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: extension
       joinColumns:
         companyId:
           referencedColumnName: id

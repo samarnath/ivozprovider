@@ -109,4 +109,3 @@ class FeaturesRelBrand extends FeaturesRelBrandAbstract implements FeaturesRelBr
 
 
 }
-

@@ -109,4 +109,3 @@ class MainOperator extends MainOperatorAbstract implements MainOperatorInterface
 
 
 }
-

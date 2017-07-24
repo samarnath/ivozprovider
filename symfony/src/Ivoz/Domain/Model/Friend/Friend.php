@@ -109,4 +109,3 @@ class Friend extends FriendAbstract implements FriendInterface
 
 
 }
-

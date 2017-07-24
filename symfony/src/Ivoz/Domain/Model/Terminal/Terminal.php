@@ -109,4 +109,3 @@ class Terminal extends TerminalAbstract implements TerminalInterface
 
 
 }
-

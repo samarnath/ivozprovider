@@ -16,7 +16,7 @@ trait BrandTrait
         /**
          * @var $company CompanyInterface
          */
-        foreach ($this>getCompanies() as $company) {
+        foreach ($this->getCompanies() as $company) {
 //            $this>_logger>log("[Brands] Company: ".$company>getName(), \Zend_Log::DEBUG);
             if (!is_null($company->getActivePricingPlan($date))) {
 //                $this>_logger>log("[Brands] Active Pricing Plan is NOT null.", \Zend_Log::DEBUG);

@@ -109,4 +109,3 @@ class InvoiceTemplate extends InvoiceTemplateAbstract implements InvoiceTemplate
 
 
 }
-

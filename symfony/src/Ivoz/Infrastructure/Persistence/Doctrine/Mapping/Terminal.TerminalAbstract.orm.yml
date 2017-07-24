@@ -82,7 +82,7 @@ Ivoz\Domain\Model\Terminal\TerminalAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: terminals
       joinColumns:
         companyId:
           referencedColumnName: id

@@ -33,4 +33,7 @@ Ivoz\Domain\Model\Brand\Brand:
     retailAccounts:
       targetEntity: Ivoz\Domain\Model\RetailAccount\RetailAccountInterface
       mappedBy: brand
+    genericMusicsOnHold:
+      targetEntity: Ivoz\Domain\Model\GenericMusicOnHold\GenericMusicOnHoldInterface
+      mappedBy: brand
   lifecycleCallbacks: {  }

@@ -51,7 +51,7 @@ Ivoz\Domain\Model\PricingPlansRelCompany\PricingPlansRelCompanyAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: relPricingPlans
       joinColumns:
         companyId:
           referencedColumnName: id

@@ -80,7 +80,7 @@ Ivoz\Domain\Model\GenericMusicOnHold\GenericMusicOnHoldAbstract:
       cascade: {  }
       fetch: LAZY
       mappedBy: null
-      inversedBy: null
+      inversedBy: genericMusicsOnHold
       joinColumns:
         brandId:
           referencedColumnName: id

@@ -11,4 +11,35 @@ Ivoz\Domain\Model\Company\Company:
       id: true
       generator:
         strategy: IDENTITY
+  oneToMany:
+    extensions:
+      targetEntity: Ivoz\Domain\Model\Extension\ExtensionInterface
+      mappedBy: company
+    ddis:
+      targetEntity: Ivoz\Domain\Model\DDI\DDIInterface
+      mappedBy: company
+    friends:
+      targetEntity: Ivoz\Domain\Model\Friend\FriendInterface
+      mappedBy: company
+    companyServices:
+      targetEntity: Ivoz\Domain\Model\CompanyService\CompanyServiceInterface
+      mappedBy: company
+    terminals:
+      targetEntity: Ivoz\Domain\Model\Terminal\TerminalInterface
+      mappedBy: company
+    relPricingPlans:
+      targetEntity: Ivoz\Domain\Model\PricingPlansRelCompany\PricingPlansRelCompanyInterface
+      mappedBy: company
+    musicsOnHold:
+      targetEntity: Ivoz\Domain\Model\MusicOnHold\MusicOnHoldInterface
+      mappedBy: company
+    countries:
+      targetEntity: Ivoz\Domain\Model\Country\CountryInterface
+      mappedBy: company
+    recordings:
+      targetEntity: Ivoz\Domain\Model\Recording\RecordingInterface
+      mappedBy: company
+    relFeatures:
+      targetEntity: Ivoz\Domain\Model\FeaturesRelCompany\FeaturesRelCompanyInterface
+      mappedBy: company
   lifecycleCallbacks: {  }
